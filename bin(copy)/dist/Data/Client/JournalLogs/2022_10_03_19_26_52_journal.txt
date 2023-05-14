@@ -1,0 +1,613 @@
+[10/03/2022 19:26]  System: Welcome, werq! There are currently 2 users online, with 161348 items and 42903 mobiles in the world.
+[10/03/2022 19:26]  System: You will enjoy the benefits and relatively safe status of a young player for 39 more hours.
+[10/03/2022 19:26]  werq:  werq (Young)
+[10/03/2022 19:26]  a magpie:  a magpie 
+[10/03/2022 19:26]  a dog:  a dog 
+[10/03/2022 19:26]  a rat:  a rat 
+[10/03/2022 19:26]  System: You have joined the 'General' channel.
+[10/03/2022 19:26]  a magpie:  a magpie 
+[10/03/2022 19:26]  a dog:  a dog 
+[10/03/2022 19:26]  Olog:  Olog 
+[10/03/2022 19:26]  a rat:  a rat 
+[10/03/2022 19:26]  a dog:  a dog 
+[10/03/2022 19:26]  System: You must wait to perform another action.
+[10/03/2022 19:26]  System: You must wait to perform another action.
+[10/03/2022 19:26]  System: Finished 2 queued actions in 0.6 seconds.
+[10/03/2022 19:27]  System: WorldMap loading...
+[10/03/2022 19:27]  System: Loading WorldMap markers..
+[10/03/2022 19:27]  System: WorldMap markers loaded (0)
+[10/03/2022 19:27]  System: WorldMap loaded!
+[10/03/2022 19:28]  Olog:  Olog 
+[10/03/2022 19:28]  Olog:  Olog 
+[10/03/2022 19:29]  Olog:  Olog 
+[10/03/2022 19:30]  a dog:  a dog 
+[10/03/2022 19:31]  a magpie:  a magpie 
+[10/03/2022 19:31]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:32]  System: The world will save in 15 seconds.
+[10/03/2022 19:32]  System: The world is saving, please wait.
+[10/03/2022 19:32]  System: World save done in 0.1 seconds.
+[10/03/2022 19:33]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:33]  a dog:  a dog 
+[10/03/2022 19:37]  Olog:  Olog 
+[10/03/2022 19:38]  a dog:  a dog 
+[10/03/2022 19:38]  Olog:  Olog 
+[10/03/2022 19:38]  System: It begins to rain.
+[10/03/2022 19:39]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:40]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:41]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:42]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:42]  a magpie:  a magpie 
+[10/03/2022 19:42]  a dog:  a dog 
+[10/03/2022 19:43]  a magpie:  a magpie 
+[10/03/2022 19:45]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:47]  a dog:  a dog 
+[10/03/2022 19:47]  System: The world will save in 15 seconds.
+[10/03/2022 19:47]  System: The world is saving, please wait.
+[10/03/2022 19:47]  System: World save done in 0.1 seconds.
+[10/03/2022 19:47]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:47]  a dog:  a dog 
+[10/03/2022 19:48]  a dog:  a dog 
+[10/03/2022 19:48]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:49]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:50]  a rat:  a rat 
+[10/03/2022 19:51]  System: It begins to rain.
+[10/03/2022 19:57]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:58]  a rat:  a rat 
+[10/03/2022 19:59]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 19:59]  a rat:  a rat 
+[10/03/2022 20:01]  Olog:  Olog 
+[10/03/2022 20:02]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:02]  System: The world will save in 15 seconds.
+[10/03/2022 20:02]  a rat:  a rat 
+[10/03/2022 20:02]  System: The world is saving, please wait.
+[10/03/2022 20:02]  System: World save done in 0.1 seconds.
+[10/03/2022 20:03]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:04]  a rat:  a rat 
+[10/03/2022 20:04]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:05]  a dog:  a dog 
+[10/03/2022 20:05]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:05]  a rat:  a rat 
+[10/03/2022 20:06]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:06]  a rat:  a rat 
+[10/03/2022 20:07]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:08]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:09]  a rat:  a rat 
+[10/03/2022 20:09]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:10]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:11]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:12]  a rat:  a rat 
+[10/03/2022 20:12]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:13]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:15]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:16]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:17]  System: The world will save in 15 seconds.
+[10/03/2022 20:17]  System: The world is saving, please wait.
+[10/03/2022 20:17]  System: World save done in 0.1 seconds.
+[10/03/2022 20:18]  a rat:  a rat 
+[10/03/2022 20:19]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:21]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:22]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:23]  a dog:  a dog 
+[10/03/2022 20:23]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:24]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:26]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:27]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:28]  System: It begins to rain.
+[10/03/2022 20:28]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:29]  a dog:  a dog 
+[10/03/2022 20:29]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:29]  a dog:  a dog 
+[10/03/2022 20:30]  a dog:  a dog 
+[10/03/2022 20:30]  a dog:  a dog 
+[10/03/2022 20:30]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:31]  a dog:  a dog 
+[10/03/2022 20:32]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:32]  System: The world will save in 15 seconds.
+[10/03/2022 20:32]  System: The world is saving, please wait.
+[10/03/2022 20:32]  System: World save done in 0.1 seconds.
+[10/03/2022 20:33]  a dog:  a dog 
+[10/03/2022 20:34]  a dog:  a dog 
+[10/03/2022 20:35]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:35]  a dog:  a dog 
+[10/03/2022 20:37]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:39]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:40]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:40]  a dog:  a dog 
+[10/03/2022 20:41]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:42]  a dog:  a dog 
+[10/03/2022 20:42]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:44]  Olog:  Olog 
+[10/03/2022 20:44]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:45]  a dog:  a dog 
+[10/03/2022 20:45]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:47]  System: The world will save in 15 seconds.
+[10/03/2022 20:47]  System: The world is saving, please wait.
+[10/03/2022 20:47]  System: World save done in 0.1 seconds.
+[10/03/2022 20:48]  a rat:  a rat 
+[10/03/2022 20:48]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:50]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:51]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:52]  a rat:  a rat 
+[10/03/2022 20:52]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:53]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:54]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:55]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:56]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:57]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 20:58]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:01]  Olog:  Olog 
+[10/03/2022 21:02]  System: The world will save in 15 seconds.
+[10/03/2022 21:02]  System: The world is saving, please wait.
+[10/03/2022 21:02]  System: World save done in 0.1 seconds.
+[10/03/2022 21:02]  Olog:  Olog 
+[10/03/2022 21:08]  a rat:  a rat 
+[10/03/2022 21:17]  System: The world will save in 15 seconds.
+[10/03/2022 21:17]  System: The world is saving, please wait.
+[10/03/2022 21:17]  System: World save done in 0.1 seconds.
+[10/03/2022 21:19]  Olog:  Olog 
+[10/03/2022 21:19]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:20]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:21]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:22]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:23]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:24]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:26]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:27]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:28]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:29]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:30]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:32]  System: The world will save in 15 seconds.
+[10/03/2022 21:32]  System: The world is saving, please wait.
+[10/03/2022 21:32]  System: World save done in 0.1 seconds.
+[10/03/2022 21:33]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[10/03/2022 21:36]  Olog:  Olog 
+[10/03/2022 21:37]  Olog:  Olog 
+[10/03/2022 21:38]  Olog:  Olog 
+[10/03/2022 21:39]  Olog:  Olog 
+[10/03/2022 21:42]  Olog:  Olog 
+[10/03/2022 21:44]  System: It begins to rain.
+[10/03/2022 21:47]  System: The world will save in 15 seconds.
+[10/03/2022 21:47]  System: The world is saving, please wait.
+[10/03/2022 21:47]  System: World save done in 0.1 seconds.
+[10/03/2022 21:54]  System: It begins to rain.
+[10/03/2022 21:57]  System: It begins to rain.
+[10/03/2022 22:02]  System: The world will save in 15 seconds.
+[10/03/2022 22:02]  System: The world is saving, please wait.
+[10/03/2022 22:02]  System: World save done in 0.1 seconds.
+[10/03/2022 22:17]  System: The world will save in 15 seconds.
+[10/03/2022 22:17]  System: The world is saving, please wait.
+[10/03/2022 22:17]  System: World save done in 0.1 seconds.
+[10/03/2022 22:32]  System: The world will save in 15 seconds.
+[10/03/2022 22:32]  System: The world is saving, please wait.
+[10/03/2022 22:32]  System: World save done in 0.1 seconds.
+[10/03/2022 22:43]  System: It begins to rain.
+[10/03/2022 22:47]  System: The world will save in 15 seconds.
+[10/03/2022 22:47]  System: The world is saving, please wait.
+[10/03/2022 22:47]  System: World save done in 0.1 seconds.
+[10/03/2022 23:02]  System: The world will save in 15 seconds.
+[10/03/2022 23:02]  System: The world is saving, please wait.
+[10/03/2022 23:02]  System: World save done in 0.1 seconds.
+[10/03/2022 23:03]  System: It begins to rain.
+[10/03/2022 23:17]  System: The world will save in 15 seconds.
+[10/03/2022 23:18]  System: The world is saving, please wait.
+[10/03/2022 23:18]  System: World save done in 0.1 seconds.
+[10/03/2022 23:20]  System: It begins to rain.
+[10/03/2022 23:30]  System: It begins to rain.
+[10/03/2022 23:32]  System: The world will save in 15 seconds.
+[10/03/2022 23:33]  System: The world is saving, please wait.
+[10/03/2022 23:33]  System: World save done in 0.1 seconds.
+[10/03/2022 23:40]  System: It begins to rain.
+[10/03/2022 23:47]  System: The world will save in 15 seconds.
+[10/03/2022 23:48]  System: The world is saving, please wait.
+[10/03/2022 23:48]  System: World save done in 0.1 seconds.
+[10/04/2022 00:02]  System: The world will save in 15 seconds.
+[10/04/2022 00:03]  System: The world is saving, please wait.
+[10/04/2022 00:03]  System: World save done in 0.1 seconds.
+[10/04/2022 00:03]  System: It begins to rain.
+[10/04/2022 00:17]  System: The world will save in 15 seconds.
+[10/04/2022 00:18]  System: The world is saving, please wait.
+[10/04/2022 00:18]  System: World save done in 0.1 seconds.
+[10/04/2022 00:19]  System: It begins to rain.
+[10/04/2022 00:23]  System: It begins to rain.
+[10/04/2022 00:32]  System: The world will save in 15 seconds.
+[10/04/2022 00:33]  System: The world is saving, please wait.
+[10/04/2022 00:33]  System: World save done in 0.1 seconds.
+[10/04/2022 00:42]  System: It begins to rain.
+[10/04/2022 00:48]  System: The world will save in 15 seconds.
+[10/04/2022 00:48]  System: The world is saving, please wait.
+[10/04/2022 00:48]  System: World save done in 0.1 seconds.
+[10/04/2022 00:59]  System: It begins to rain.
+[10/04/2022 01:03]  System: The world will save in 15 seconds.
+[10/04/2022 01:03]  System: The world is saving, please wait.
+[10/04/2022 01:03]  System: World save done in 0.1 seconds.
+[10/04/2022 01:06]  System: It begins to rain.
+[10/04/2022 01:12]  System: It begins to rain.
+[10/04/2022 01:16]  System: It begins to rain.
+[10/04/2022 01:18]  System: The world will save in 15 seconds.
+[10/04/2022 01:18]  System: The world is saving, please wait.
+[10/04/2022 01:18]  System: World save done in 0.1 seconds.
+[10/04/2022 01:33]  System: The world will save in 15 seconds.
+[10/04/2022 01:33]  System: The world is saving, please wait.
+[10/04/2022 01:33]  System: World save done in 0.1 seconds.
+[10/04/2022 01:48]  System: The world will save in 15 seconds.
+[10/04/2022 01:48]  System: The world is saving, please wait.
+[10/04/2022 01:48]  System: World save done in 0.1 seconds.
+[10/04/2022 01:49]  System: It begins to rain.
+[10/04/2022 01:55]  System: It begins to rain.
+[10/04/2022 01:59]  System: It begins to snow.
+[10/04/2022 02:03]  System: The world will save in 15 seconds.
+[10/04/2022 02:03]  System: The world is saving, please wait.
+[10/04/2022 02:03]  System: World save done in 0.1 seconds.
+[10/04/2022 02:04]  System: It begins to rain.
+[10/04/2022 02:15]  System: It begins to rain.
+[10/04/2022 02:18]  System: The world will save in 15 seconds.
+[10/04/2022 02:18]  System: The world is saving, please wait.
+[10/04/2022 02:18]  System: World save done in 0.1 seconds.
+[10/04/2022 02:28]  System: It begins to rain.
+[10/04/2022 02:33]  System: The world will save in 15 seconds.
+[10/04/2022 02:33]  System: The world is saving, please wait.
+[10/04/2022 02:33]  System: World save done in 0.1 seconds.
+[10/04/2022 02:38]  System: It begins to rain.
+[10/04/2022 02:48]  System: The world will save in 15 seconds.
+[10/04/2022 02:48]  System: The world is saving, please wait.
+[10/04/2022 02:48]  System: World save done in 0.1 seconds.
+[10/04/2022 03:03]  System: The world will save in 15 seconds.
+[10/04/2022 03:03]  System: The world is saving, please wait.
+[10/04/2022 03:03]  System: World save done in 0.1 seconds.
+[10/04/2022 03:05]  System: It begins to snow.
+[10/04/2022 03:13]  System: It begins to rain.
+[10/04/2022 03:18]  System: The world will save in 15 seconds.
+[10/04/2022 03:18]  System: The world is saving, please wait.
+[10/04/2022 03:18]  System: World save done in 0.1 seconds.
+[10/04/2022 03:33]  System: The world will save in 15 seconds.
+[10/04/2022 03:33]  System: The world is saving, please wait.
+[10/04/2022 03:33]  System: World save done in 0.1 seconds.
+[10/04/2022 03:38]  System: It begins to rain.
+[10/04/2022 03:48]  System: It begins to rain.
+[10/04/2022 03:48]  System: The world will save in 15 seconds.
+[10/04/2022 03:48]  System: The world is saving, please wait.
+[10/04/2022 03:48]  System: World save done in 0.1 seconds.
+[10/04/2022 04:01]  System: It begins to snow.
+[10/04/2022 04:03]  System: The world will save in 15 seconds.
+[10/04/2022 04:03]  System: The world is saving, please wait.
+[10/04/2022 04:03]  System: World save done in 0.1 seconds.
+[10/04/2022 04:06]  System: It begins to rain.
+[10/04/2022 04:14]  System: It begins to rain.
+[10/04/2022 04:18]  System: The world will save in 15 seconds.
+[10/04/2022 04:18]  System: The world is saving, please wait.
+[10/04/2022 04:18]  System: World save done in 0.1 seconds.
+[10/04/2022 04:33]  System: The world will save in 15 seconds.
+[10/04/2022 04:33]  System: The world is saving, please wait.
+[10/04/2022 04:33]  System: World save done in 0.1 seconds.
+[10/04/2022 04:37]  System: It begins to rain.
+[10/04/2022 04:48]  System: The world will save in 15 seconds.
+[10/04/2022 04:48]  System: The world is saving, please wait.
+[10/04/2022 04:49]  System: World save done in 0.1 seconds.
+[10/04/2022 05:03]  System: The world will save in 15 seconds.
+[10/04/2022 05:04]  System: The world is saving, please wait.
+[10/04/2022 05:04]  System: World save done in 0.1 seconds.
+[10/04/2022 05:11]  System: It begins to rain.
+[10/04/2022 05:18]  System: The world will save in 15 seconds.
+[10/04/2022 05:19]  System: The world is saving, please wait.
+[10/04/2022 05:19]  System: World save done in 0.1 seconds.
+[10/04/2022 05:20]  System: It begins to rain.
+[10/04/2022 05:33]  System: The world will save in 15 seconds.
+[10/04/2022 05:34]  System: The world is saving, please wait.
+[10/04/2022 05:34]  System: World save done in 0.1 seconds.
+[10/04/2022 05:40]  System: It begins to rain.
+[10/04/2022 05:48]  System: The world will save in 15 seconds.
+[10/04/2022 05:49]  System: The world is saving, please wait.
+[10/04/2022 05:49]  System: World save done in 0.1 seconds.
+[10/04/2022 06:03]  System: The world will save in 15 seconds.
+[10/04/2022 06:04]  System: The world is saving, please wait.
+[10/04/2022 06:04]  System: World save done in 0.1 seconds.
+[10/04/2022 06:18]  System: The world will save in 15 seconds.
+[10/04/2022 06:19]  System: The world is saving, please wait.
+[10/04/2022 06:19]  System: World save done in 0.1 seconds.
+[10/04/2022 06:34]  System: The world will save in 15 seconds.
+[10/04/2022 06:34]  System: The world is saving, please wait.
+[10/04/2022 06:34]  System: World save done in 0.1 seconds.
+[10/04/2022 06:49]  System: The world will save in 15 seconds.
+[10/04/2022 06:49]  System: The world is saving, please wait.
+[10/04/2022 06:49]  System: World save done in 0.1 seconds.
+[10/04/2022 07:04]  System: The world will save in 15 seconds.
+[10/04/2022 07:04]  System: The world is saving, please wait.
+[10/04/2022 07:04]  System: World save done in 0.1 seconds.
+[10/04/2022 07:13]  System: It begins to rain.
+[10/04/2022 07:19]  System: The world will save in 15 seconds.
+[10/04/2022 07:19]  System: The world is saving, please wait.
+[10/04/2022 07:19]  System: World save done in 0.1 seconds.
+[10/04/2022 07:34]  System: The world will save in 15 seconds.
+[10/04/2022 07:34]  System: The world is saving, please wait.
+[10/04/2022 07:34]  System: World save done in 0.1 seconds.
+[10/04/2022 07:36]  System: It begins to rain.
+[10/04/2022 07:46]  System: It begins to rain.
+[10/04/2022 07:49]  System: The world will save in 15 seconds.
+[10/04/2022 07:49]  System: The world is saving, please wait.
+[10/04/2022 07:49]  System: World save done in 0.1 seconds.
+[10/04/2022 07:56]  System: It begins to rain.
+[10/04/2022 08:04]  System: The world will save in 15 seconds.
+[10/04/2022 08:04]  System: The world is saving, please wait.
+[10/04/2022 08:04]  System: World save done in 0.1 seconds.
+[10/04/2022 08:19]  System: The world will save in 15 seconds.
+[10/04/2022 08:19]  System: The world is saving, please wait.
+[10/04/2022 08:19]  System: World save done in 0.1 seconds.
+[10/04/2022 08:22]  System: It begins to rain.
+[10/04/2022 08:34]  System: The world will save in 15 seconds.
+[10/04/2022 08:34]  System: The world is saving, please wait.
+[10/04/2022 08:34]  System: World save done in 0.1 seconds.
+[10/04/2022 08:49]  System: The world will save in 15 seconds.
+[10/04/2022 08:49]  System: The world is saving, please wait.
+[10/04/2022 08:49]  System: World save done in 0.1 seconds.
+[10/04/2022 08:59]  System: It begins to rain.
+[10/04/2022 09:04]  System: The world will save in 15 seconds.
+[10/04/2022 09:04]  System: The world is saving, please wait.
+[10/04/2022 09:04]  System: World save done in 0.1 seconds.
+[10/04/2022 09:12]  System: It begins to rain.
+[10/04/2022 09:19]  System: The world will save in 15 seconds.
+[10/04/2022 09:19]  System: The world is saving, please wait.
+[10/04/2022 09:19]  System: World save done in 0.1 seconds.
+[10/04/2022 09:34]  System: The world will save in 15 seconds.
+[10/04/2022 09:34]  System: The world is saving, please wait.
+[10/04/2022 09:34]  System: World save done in 0.1 seconds.
+[10/04/2022 09:39]  System: It begins to rain.
+[10/04/2022 09:49]  System: The world will save in 15 seconds.
+[10/04/2022 09:49]  System: The world is saving, please wait.
+[10/04/2022 09:49]  System: World save done in 0.1 seconds.
+[10/04/2022 10:04]  System: The world will save in 15 seconds.
+[10/04/2022 10:04]  System: The world is saving, please wait.
+[10/04/2022 10:04]  System: World save done in 0.1 seconds.
+[10/04/2022 10:12]  System: It begins to rain.
+[10/04/2022 10:15]  System: It begins to snow.
+[10/04/2022 10:19]  System: The world will save in 15 seconds.
+[10/04/2022 10:19]  System: The world is saving, please wait.
+[10/04/2022 10:19]  System: World save done in 0.1 seconds.
+[10/04/2022 10:34]  System: The world will save in 15 seconds.
+[10/04/2022 10:34]  System: The world is saving, please wait.
+[10/04/2022 10:34]  System: World save done in 0.1 seconds.
+[10/04/2022 10:45]  System: It begins to rain.
+[10/04/2022 10:48]  System: It begins to snow.
+[10/04/2022 10:49]  System: The world will save in 15 seconds.
+[10/04/2022 10:50]  System: The world is saving, please wait.
+[10/04/2022 10:50]  System: World save done in 0.1 seconds.
+[10/04/2022 10:51]  System: It begins to rain.
+[10/04/2022 11:04]  System: The world will save in 15 seconds.
+[10/04/2022 11:05]  System: The world is saving, please wait.
+[10/04/2022 11:05]  System: World save done in 0.1 seconds.
+[10/04/2022 11:15]  System: It begins to rain.
+[10/04/2022 11:19]  System: The world will save in 15 seconds.
+[10/04/2022 11:20]  System: The world is saving, please wait.
+[10/04/2022 11:20]  System: World save done in 0.1 seconds.
+[10/04/2022 11:34]  System: The world will save in 15 seconds.
+[10/04/2022 11:35]  System: The world is saving, please wait.
+[10/04/2022 11:35]  System: World save done in 0.1 seconds.
+[10/04/2022 11:41]  System: It begins to rain.
+[10/04/2022 11:44]  System: It begins to rain.
+[10/04/2022 11:50]  System: The world will save in 15 seconds.
+[10/04/2022 11:50]  System: The world is saving, please wait.
+[10/04/2022 11:50]  System: World save done in 0.1 seconds.
+[10/04/2022 12:05]  System: The world will save in 15 seconds.
+[10/04/2022 12:05]  System: The world is saving, please wait.
+[10/04/2022 12:05]  System: World save done in 0.1 seconds.
+[10/04/2022 12:20]  System: The world will save in 15 seconds.
+[10/04/2022 12:20]  System: The world is saving, please wait.
+[10/04/2022 12:20]  System: World save done in 0.1 seconds.
+[10/04/2022 12:35]  System: The world will save in 15 seconds.
+[10/04/2022 12:35]  System: The world is saving, please wait.
+[10/04/2022 12:35]  System: World save done in 0.1 seconds.
+[10/04/2022 12:41]  System: It begins to rain.
+[10/04/2022 12:50]  System: The world will save in 15 seconds.
+[10/04/2022 12:50]  System: The world is saving, please wait.
+[10/04/2022 12:50]  System: World save done in 0.1 seconds.
+[10/04/2022 13:05]  System: The world will save in 15 seconds.
+[10/04/2022 13:05]  System: The world is saving, please wait.
+[10/04/2022 13:05]  System: World save done in 0.1 seconds.
+[10/04/2022 13:10]  System: It begins to rain.
+[10/04/2022 13:20]  System: The world will save in 15 seconds.
+[10/04/2022 13:20]  System: The world is saving, please wait.
+[10/04/2022 13:20]  System: World save done in 0.1 seconds.
+[10/04/2022 13:27]  System: It begins to rain.
+[10/04/2022 13:35]  System: The world will save in 15 seconds.
+[10/04/2022 13:35]  System: The world is saving, please wait.
+[10/04/2022 13:35]  System: World save done in 0.1 seconds.
+[10/04/2022 13:50]  System: The world will save in 15 seconds.
+[10/04/2022 13:50]  System: The world is saving, please wait.
+[10/04/2022 13:50]  System: World save done in 0.1 seconds.
+[10/04/2022 14:05]  System: The world will save in 15 seconds.
+[10/04/2022 14:05]  System: The world is saving, please wait.
+[10/04/2022 14:05]  System: World save done in 0.1 seconds.
+[10/04/2022 14:13]  System: It begins to rain.
+[10/04/2022 14:20]  System: The world will save in 15 seconds.
+[10/04/2022 14:20]  System: The world is saving, please wait.
+[10/04/2022 14:20]  System: World save done in 0.1 seconds.
+[10/04/2022 14:35]  System: The world will save in 15 seconds.
+[10/04/2022 14:35]  System: The world is saving, please wait.
+[10/04/2022 14:35]  System: World save done in 0.1 seconds.
+[10/04/2022 14:50]  System: The world will save in 15 seconds.
+[10/04/2022 14:50]  System: The world is saving, please wait.
+[10/04/2022 14:50]  System: World save done in 0.1 seconds.
+[10/04/2022 15:00]  System: It begins to rain.
+[10/04/2022 15:05]  System: The world will save in 15 seconds.
+[10/04/2022 15:05]  System: The world is saving, please wait.
+[10/04/2022 15:05]  System: World save done in 0.1 seconds.
+[10/04/2022 15:20]  System: The world will save in 15 seconds.
+[10/04/2022 15:20]  System: The world is saving, please wait.
+[10/04/2022 15:20]  System: World save done in 0.1 seconds.
+[10/04/2022 15:33]  System: It begins to rain.
+[10/04/2022 15:35]  System: The world will save in 15 seconds.
+[10/04/2022 15:35]  System: The world is saving, please wait.
+[10/04/2022 15:35]  System: World save done in 0.1 seconds.
+[10/04/2022 15:46]  System: It begins to rain.
+[10/04/2022 15:50]  System: The world will save in 15 seconds.
+[10/04/2022 15:50]  System: The world is saving, please wait.
+[10/04/2022 15:50]  System: World save done in 0.1 seconds.
+[10/04/2022 15:59]  System: It begins to rain.
+[10/04/2022 16:02]  System: It begins to rain.
+[10/04/2022 16:05]  System: The world will save in 15 seconds.
+[10/04/2022 16:05]  System: The world is saving, please wait.
+[10/04/2022 16:05]  System: World save done in 0.1 seconds.
+[10/04/2022 16:13]  System: It begins to snow.
+[10/04/2022 16:20]  System: The world will save in 15 seconds.
+[10/04/2022 16:20]  System: The world is saving, please wait.
+[10/04/2022 16:20]  System: World save done in 0.1 seconds.
+[10/04/2022 16:26]  System: It begins to rain.
+[10/04/2022 16:35]  System: The world will save in 15 seconds.
+[10/04/2022 16:35]  System: The world is saving, please wait.
+[10/04/2022 16:35]  System: World save done in 0.1 seconds.
+[10/04/2022 16:50]  System: The world will save in 15 seconds.
+[10/04/2022 16:50]  System: The world is saving, please wait.
+[10/04/2022 16:50]  System: World save done in 0.1 seconds.
+[10/04/2022 17:05]  System: The world will save in 15 seconds.
+[10/04/2022 17:05]  System: The world is saving, please wait.
+[10/04/2022 17:05]  System: World save done in 0.1 seconds.
+[10/04/2022 17:18]  System: It begins to rain.
+[10/04/2022 17:20]  System: The world will save in 15 seconds.
+[10/04/2022 17:20]  System: The world is saving, please wait.
+[10/04/2022 17:21]  System: World save done in 0.1 seconds.
+[10/04/2022 17:35]  System: The world will save in 15 seconds.
+[10/04/2022 17:36]  System: The world is saving, please wait.
+[10/04/2022 17:36]  System: World save done in 0.1 seconds.
+[10/04/2022 17:50]  System: The world will save in 15 seconds.
+[10/04/2022 17:51]  System: The world is saving, please wait.
+[10/04/2022 17:51]  System: World save done in 0.1 seconds.
+[10/04/2022 17:55]  System: It begins to rain.
+[10/04/2022 18:02]  System: It begins to rain.
+[10/04/2022 18:05]  System: The world will save in 15 seconds.
+[10/04/2022 18:06]  System: The world is saving, please wait.
+[10/04/2022 18:06]  System: World save done in 0.1 seconds.
+[10/04/2022 18:20]  System: The world will save in 15 seconds.
+[10/04/2022 18:21]  System: The world is saving, please wait.
+[10/04/2022 18:21]  System: World save done in 0.1 seconds.
+[10/04/2022 18:35]  System: The world will save in 15 seconds.
+[10/04/2022 18:36]  System: The world is saving, please wait.
+[10/04/2022 18:36]  System: World save done in 0.1 seconds.
+[10/04/2022 18:41]  System: It begins to rain.
+[10/04/2022 18:50]  System: The world will save in 15 seconds.
+[10/04/2022 18:51]  System: The world is saving, please wait.
+[10/04/2022 18:51]  System: World save done in 0.1 seconds.
+[10/04/2022 19:01]  System: It begins to rain.
+[10/04/2022 19:06]  System: The world will save in 15 seconds.
+[10/04/2022 19:06]  System: The world is saving, please wait.
+[10/04/2022 19:06]  System: World save done in 0.1 seconds.
+[10/04/2022 19:21]  System: The world will save in 15 seconds.
+[10/04/2022 19:21]  System: The world is saving, please wait.
+[10/04/2022 19:21]  System: World save done in 0.1 seconds.
+[10/04/2022 19:31]  System: It begins to rain.
+[10/04/2022 19:36]  System: The world will save in 15 seconds.
+[10/04/2022 19:36]  System: The world is saving, please wait.
+[10/04/2022 19:36]  System: World save done in 0.1 seconds.
+[10/04/2022 19:44]  System: It begins to rain.
+[10/04/2022 19:51]  System: The world will save in 15 seconds.
+[10/04/2022 19:51]  System: It begins to rain.
+[10/04/2022 19:51]  System: The world is saving, please wait.
+[10/04/2022 19:51]  System: World save done in 0.1 seconds.
+[10/04/2022 19:57]  System: It begins to rain.
+[10/04/2022 20:01]  System: It begins to rain.
+[10/04/2022 20:06]  System: The world will save in 15 seconds.
+[10/04/2022 20:06]  System: The world is saving, please wait.
+[10/04/2022 20:06]  System: World save done in 0.1 seconds.
+[10/04/2022 20:21]  System: The world will save in 15 seconds.
+[10/04/2022 20:21]  System: The world is saving, please wait.
+[10/04/2022 20:21]  System: World save done in 0.1 seconds.
+[10/04/2022 20:25]  System: It begins to snow.
+[10/04/2022 20:27]  System: It begins to rain.
+[10/04/2022 20:36]  System: The world will save in 15 seconds.
+[10/04/2022 20:36]  System: The world is saving, please wait.
+[10/04/2022 20:36]  System: World save done in 0.1 seconds.
+[10/04/2022 20:40]  System: It begins to rain.
+[10/04/2022 20:51]  System: The world will save in 15 seconds.
+[10/04/2022 20:51]  System: The world is saving, please wait.
+[10/04/2022 20:51]  System: World save done in 0.1 seconds.
+[10/04/2022 21:04]  System: It begins to rain.
+[10/04/2022 21:06]  System: The world will save in 15 seconds.
+[10/04/2022 21:06]  System: The world is saving, please wait.
+[10/04/2022 21:06]  System: World save done in 0.1 seconds.
+[10/04/2022 21:10]  System: It begins to rain.
+[10/04/2022 21:21]  System: The world will save in 15 seconds.
+[10/04/2022 21:21]  System: The world is saving, please wait.
+[10/04/2022 21:21]  System: World save done in 0.1 seconds.
+[10/04/2022 21:33]  System: It begins to rain.
+[10/04/2022 21:36]  System: The world will save in 15 seconds.
+[10/04/2022 21:36]  System: The world is saving, please wait.
+[10/04/2022 21:36]  System: World save done in 0.1 seconds.
+[10/04/2022 21:40]  System: It begins to rain.
+[10/04/2022 21:43]  System: It begins to rain.
+[10/04/2022 21:47]  System: It begins to rain.
+[10/04/2022 21:51]  System: The world will save in 15 seconds.
+[10/04/2022 21:51]  System: The world is saving, please wait.
+[10/04/2022 21:51]  System: World save done in 0.1 seconds.
+[10/04/2022 22:00]  System: It begins to rain.
+[10/04/2022 22:06]  System: The world will save in 15 seconds.
+[10/04/2022 22:06]  System: The world is saving, please wait.
+[10/04/2022 22:06]  System: World save done in 0.1 seconds.
+[10/04/2022 22:10]  System: It begins to rain.
+[10/04/2022 22:21]  System: The world will save in 15 seconds.
+[10/04/2022 22:21]  System: The world is saving, please wait.
+[10/04/2022 22:21]  System: World save done in 0.1 seconds.
+[10/04/2022 22:36]  System: The world will save in 15 seconds.
+[10/04/2022 22:37]  System: The world is saving, please wait.
+[10/04/2022 22:37]  System: World save done in 0.1 seconds.
+[10/04/2022 22:51]  System: The world will save in 15 seconds.
+[10/04/2022 22:52]  System: The world is saving, please wait.
+[10/04/2022 22:52]  System: World save done in 0.1 seconds.
+[10/04/2022 23:06]  System: It begins to rain.
+[10/04/2022 23:06]  System: The world will save in 15 seconds.
+[10/04/2022 23:07]  System: The world is saving, please wait.
+[10/04/2022 23:07]  System: World save done in 0.1 seconds.
+[10/04/2022 23:21]  System: The world will save in 15 seconds.
+[10/04/2022 23:22]  System: The world is saving, please wait.
+[10/04/2022 23:22]  System: World save done in 0.2 seconds.
+[10/04/2022 23:29]  System: It begins to rain.
+[10/04/2022 23:36]  System: It begins to rain.
+[10/04/2022 23:36]  System: The world will save in 15 seconds.
+[10/04/2022 23:37]  System: The world is saving, please wait.
+[10/04/2022 23:37]  System: World save done in 0.1 seconds.
+[10/04/2022 23:52]  System: The world will save in 15 seconds.
+[10/04/2022 23:52]  System: The world is saving, please wait.
+[10/04/2022 23:52]  System: World save done in 0.1 seconds.
+[10/05/2022 00:06]  System: It begins to rain.
+[10/05/2022 00:07]  System: The world will save in 15 seconds.
+[10/05/2022 00:07]  System: The world is saving, please wait.
+[10/05/2022 00:07]  System: World save done in 0.1 seconds.
+[10/05/2022 00:11]  System: It begins to snow.
+[10/05/2022 00:22]  System: The world will save in 15 seconds.
+[10/05/2022 00:22]  System: The world is saving, please wait.
+[10/05/2022 00:22]  System: World save done in 0.1 seconds.
+[10/05/2022 00:22]  System: It begins to rain.
+[10/05/2022 00:37]  System: The world will save in 15 seconds.
+[10/05/2022 00:37]  System: The world is saving, please wait.
+[10/05/2022 00:37]  System: World save done in 0.1 seconds.
+[10/05/2022 00:42]  System: It begins to rain.
+[10/05/2022 00:52]  System: The world will save in 15 seconds.
+[10/05/2022 00:52]  System: The world is saving, please wait.
+[10/05/2022 00:52]  System: World save done in 0.1 seconds.
+[10/05/2022 00:55]  System: It begins to rain.
+[10/05/2022 01:07]  System: The world will save in 15 seconds.
+[10/05/2022 01:07]  System: The world is saving, please wait.
+[10/05/2022 01:07]  System: World save done in 0.3 seconds.
+[10/05/2022 01:22]  System: The world will save in 15 seconds.
+[10/05/2022 01:22]  System: The world is saving, please wait.
+[10/05/2022 01:22]  System: World save done in 0.3 seconds.
+[10/05/2022 01:37]  System: The world will save in 15 seconds.
+[10/05/2022 01:37]  System: The world is saving, please wait.
+[10/05/2022 01:37]  System: World save done in 0.3 seconds.
+[10/05/2022 01:52]  System: The world will save in 15 seconds.
+[10/05/2022 01:52]  System: The world is saving, please wait.
+[10/05/2022 01:52]  System: World save done in 0.2 seconds.
+[10/05/2022 02:07]  System: The world will save in 15 seconds.
+[10/05/2022 02:07]  System: The world is saving, please wait.
+[10/05/2022 02:07]  System: World save done in 0.1 seconds.
+[10/05/2022 02:22]  System: The world will save in 15 seconds.
+[10/05/2022 02:23]  System: The world is saving, please wait.
+[10/05/2022 02:23]  System: World save done in 0.1 seconds.
+[10/05/2022 02:35]  System: It begins to snow.
+[10/05/2022 02:37]  System: The world will save in 15 seconds.
+[10/05/2022 02:38]  System: The world is saving, please wait.
+[10/05/2022 02:38]  System: World save done in 0.2 seconds.
+[10/05/2022 02:53]  System: The world will save in 15 seconds.
+[10/05/2022 02:53]  System: The world is saving, please wait.
+[10/05/2022 02:53]  System: World save done in 0.2 seconds.
+[10/05/2022 03:08]  System: The world will save in 15 seconds.
+[10/05/2022 03:08]  System: The world is saving, please wait.
+[10/05/2022 03:08]  System: World save done in 0.3 seconds.
+[10/05/2022 03:12]  System: It begins to rain.

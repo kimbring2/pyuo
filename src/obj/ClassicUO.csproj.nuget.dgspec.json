@@ -1,0 +1,312 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kimbring2/ClassicUO/src/ClassicUO.csproj": {}
+  },
+  "projects": {
+    "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj",
+        "projectName": "FNA",
+        "projectPath": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/external/FNA/obj_core/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net40",
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net40": {
+            "targetAlias": "net40",
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net40": {
+          "targetAlias": "net40",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj",
+        "projectName": "Greeter",
+        "projectPath": "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/external/Greeter/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Google.Protobuf.Tools": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Grpc": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Grpc.Tools": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
+        "projectName": "MP3Sharp",
+        "projectPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net40",
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net40": {
+            "targetAlias": "net40",
+            "projectReferences": {}
+          },
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net40": {
+          "targetAlias": "net40",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        },
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.*, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kimbring2/ClassicUO/src/ClassicUO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/src/ClassicUO.csproj",
+        "projectName": "ClassicUO",
+        "projectPath": "/home/kimbring2/ClassicUO/src/ClassicUO.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/src/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj": {
+                "projectPath": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj"
+              },
+              "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj": {
+                "projectPath": "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj"
+              },
+              "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
+                "projectPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.*, )"
+            },
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.4, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[4.5.3, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

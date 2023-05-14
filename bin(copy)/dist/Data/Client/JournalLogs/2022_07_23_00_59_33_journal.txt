@@ -1,0 +1,229 @@
+[07/23/2022 00:59]  System: WorldMap loading...
+[07/23/2022 00:59]  System: Loading WorldMap markers..
+[07/23/2022 00:59]  System: WorldMap markers loaded (0)
+[07/23/2022 00:59]  System: Welcome, Messerschmitt! There are currently 36 users online, with 23578233 items and 913367 mobiles in the world.
+[07/23/2022 00:59]  System: Please link a valid e-mail address to this account.
+[07/23/2022 00:59]  System: This e-mail address will only be used for account management.
+[07/23/2022 00:59]  Messerschmitt: Citizen
+[07/23/2022 00:59]  Messerschmitt: Messerschmitt
+[07/23/2022 00:59]  System: WorldMap loaded!
+[07/23/2022 00:59]  Rigby: Rigby the mage
+[07/23/2022 00:59]  Bennett: Bennett the mage
+[07/23/2022 00:59]  Fred: Fred the baker
+[07/23/2022 00:59]  Alia: Alia the mage
+[07/23/2022 00:59]  Katrina: Katrina the baker
+[07/23/2022 00:59]  Shantha: Shantha the alchemist
+[07/23/2022 00:59]  Kasen: Kasen the alchemist
+[07/23/2022 00:59]  Elliott: Elliott the herbalist
+[07/23/2022 00:59]  Anoki: Anoki the herbalist
+[07/23/2022 00:59]  Nikki: Nikki
+[07/23/2022 00:59]  Gianina: Gianina the real estate broker
+[07/23/2022 00:59]  Paul: Paul the architect
+[07/23/2022 00:59]  Daphne: Daphne the healer
+[07/23/2022 00:59]  Katrina: Katrina the baker
+[07/23/2022 01:00]  Paul: Paul the architect
+[07/23/2022 01:00]  Gianina: Gianina the real estate broker
+[07/23/2022 01:00]  Marek: Marek the carpenter
+[07/23/2022 01:00]  Paul: Paul the architect
+[07/23/2022 01:00]  Gianina: Gianina the real estate broker
+[07/23/2022 01:00]  Elliott: Elliott the herbalist
+[07/23/2022 01:00]  Anoki: Anoki the herbalist
+[07/23/2022 01:00]  Kasen: Kasen the alchemist
+[07/23/2022 01:00]  Shantha: Shantha the alchemist
+[07/23/2022 01:00]  Nikki: Nikki
+[07/23/2022 01:00]  Rigby: Rigby the mage
+[07/23/2022 01:00]  Alia: Alia the mage
+[07/23/2022 01:00]  Tibalt: Tibalt the healer
+[07/23/2022 01:00]  Daphne: Daphne the healer
+[07/23/2022 01:00]  Bennett: Bennett the mage
+[07/23/2022 01:00]  Katrina: Katrina the baker
+[07/23/2022 01:00]  Mallory: Mallory
+[07/23/2022 01:00]  Fred: Fred the baker
+[07/23/2022 01:00]  Nikki: Nikki
+[07/23/2022 01:00]  Bennett: Bennett the mage
+[07/23/2022 01:00]  System: Opening door...
+[07/23/2022 01:00]  : wooden logs
+[07/23/2022 01:00]  Gianina: Gianina the real estate broker
+[07/23/2022 01:00]  Tibalt: Tibalt the healer
+[07/23/2022 01:00]  Paul: Paul the architect
+[07/23/2022 01:00]  Marek: Marek the carpenter
+[07/23/2022 01:00]  System: Opening door...
+[07/23/2022 01:01]  : rattan wall
+[07/23/2022 01:01]  : wooden logs
+[07/23/2022 01:01]  : wooden logs
+[07/23/2022 01:01]  You see: rattan door
+[07/23/2022 01:01]  Tibalt: Tibalt the healer
+[07/23/2022 01:01]  Shirley: Shirley the tinker
+[07/23/2022 01:01]  Fred: Fred
+[07/23/2022 01:01]  Piper: Piper the tinker
+[07/23/2022 01:01]  Daphne: Daphne the healer
+[07/23/2022 01:01]  Elliott: Elliott the herbalist
+[07/23/2022 01:01]  Anoki: Anoki the herbalist
+[07/23/2022 01:01]  Shantha: Shantha the alchemist
+[07/23/2022 01:01]  Kasen: Kasen the alchemist
+[07/23/2022 01:01]  Nikki: Nikki
+[07/23/2022 01:01]  Tibalt: Tibalt the healer
+[07/23/2022 01:01]  Rigby: Rigby the mage
+[07/23/2022 01:01]  Bennett: Bennett the mage
+[07/23/2022 01:01]  Shirley: Shirley the tinker
+[07/23/2022 01:01]  Piper: Piper the tinker
+[07/23/2022 01:01]  Fred: Fred
+[07/23/2022 01:01]  Carver: Carver the provisioner
+[07/23/2022 01:01]  Zina: Zina the provisioner
+[07/23/2022 01:01]  Stanton: Stanton the cobbler
+[07/23/2022 01:01]  a giant toad: a giant toad
+[07/23/2022 01:01]  a giant toad: a giant toad
+[07/23/2022 01:02]  Fred: Fred
+[07/23/2022 01:02]  Piper: Piper the tinker
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  Nolan: Nolan the tailor
+[07/23/2022 01:02]  Kiran: Kiran the weaver
+[07/23/2022 01:02]  : wooden logs
+[07/23/2022 01:02]  You see: rattan door
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  Sebastien: Sebastien the innkeeper
+[07/23/2022 01:02]  Fred: Fred the baker
+[07/23/2022 01:02]  Katrina: Katrina the baker
+[07/23/2022 01:02]  Bennett: Bennett the mage
+[07/23/2022 01:02]  Rigby: Rigby the mage
+[07/23/2022 01:02]  Alia: Alia the mage
+[07/23/2022 01:02]  Mallory: Mallory
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a bull frog: a bull frog
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:02]  a giant toad: a giant toad
+[07/23/2022 01:03]  a giant toad: a giant toad
+[07/23/2022 01:03]  a giant toad: a giant toad
+[07/23/2022 01:03]  Uriana: Uriana the banker
+[07/23/2022 01:03]  Rebecca: Rebecca the jeweler
+[07/23/2022 01:03]  Kinnel: Kinnel the jeweler
+[07/23/2022 01:03]  System: Monster loot is currently doubled in this area.
+[07/23/2022 01:03]  System: You have left the protection of the town guards.
+[07/23/2022 01:03]  Winifred: Winifred the healer
+[07/23/2022 01:03]  Litsa: Litsa
+[07/23/2022 01:03]  Tristan: Tristan the banker
+[07/23/2022 01:03]  Azilea: Azilea the jeweler
+[07/23/2022 01:03]  a zombie: a zombie
+[07/23/2022 01:03]  Litsa: Litsa
+[07/23/2022 01:03]  Vern: Vern the guard
+[07/23/2022 01:03]  a rabbit: a rabbit
+[07/23/2022 01:03]  a rabbit: a rabbit
+[07/23/2022 01:03]  : cave floor
+[07/23/2022 01:03]  : cave floor
+[07/23/2022 01:03]  a hind: a hind
+[07/23/2022 01:03]  a hind: a hind
+[07/23/2022 01:03]  a sheep: a sheep
+[07/23/2022 01:03]  a sheep: a sheep
+[07/23/2022 01:03]  a hind: a hind
+[07/23/2022 01:04]  Scotia: Scotia the animal trainer
+[07/23/2022 01:04]  Hans: Hans the ranger
+[07/23/2022 01:04]  a pig: a pig
+[07/23/2022 01:04]  Dannik: Dannik
+[07/23/2022 01:04]  a dolphin: a dolphin
+[07/23/2022 01:04]  System: You are now under the protection of the town guards.
+[07/23/2022 01:04]  Carl: Carl the shipwright
+[07/23/2022 01:04]  System: You have left the protection of the town guards.
+[07/23/2022 01:04]  Kai: Kai the blacksmith
+[07/23/2022 01:04]  Acacia: Acacia the tinker
+[07/23/2022 01:04]  a pig: a pig
+[07/23/2022 01:04]  Jarvis: Jarvis
+[07/23/2022 01:04]  Delmore: Delmore the blacksmith guildmaster
+[07/23/2022 01:05]  Isaiah: Isaiah
+[07/23/2022 01:05]  a sheep: a sheep
+[07/23/2022 01:05]  a sheep: a sheep
+[07/23/2022 01:05]  a bull: a bull
+[07/23/2022 01:05]  Delmore: Delmore the blacksmith guildmaster
+[07/23/2022 01:05]  Acacia: Acacia the tinker
+[07/23/2022 01:05]  Kai: Kai the blacksmith
+[07/23/2022 01:05]  a dolphin: a dolphin
+[07/23/2022 01:05]  System: You are now under the protection of the town guards.
+[07/23/2022 01:05]  Carl: Carl the shipwright
+[07/23/2022 01:05]  Samantha: Samantha the mapmaker
+[07/23/2022 01:05]  Gareth: Gareth the hunter
+[07/23/2022 01:05]  Character Mod Dono Vendor: Character Mod Dono Vendor
+[07/23/2022 01:05]  Cody: Cody the Event League Vendor(Season 1)
+[07/23/2022 01:05]  Character Mod Vendor: Character Mod Vendor
+[07/23/2022 01:05]  Edward Norton: Edward Norton the backpack dye vendor
+[07/23/2022 01:05]  Alberta: Alberta the guard
+[07/23/2022 01:05]  : Global Auction House! Buy, Sell and Trade
+[07/23/2022 01:05]  Charged Trap Pouch Blessing De: Double Click on me! I will bless your charged trap pouch for free! Hurry up before the boss catches on... What are you waiting for?
+[07/23/2022 01:05]  Bjorn: Bjorn the Pigment vendor
+[07/23/2022 01:05]  Amarande: Amarande the monster book vendor
+[07/23/2022 01:05]  Disa: Disa the cook
+[07/23/2022 01:05]  Emo: Emo the waiter
+[07/23/2022 01:05]  Kiyoshi: Kiyoshi the barkeeper
+[07/23/2022 01:05]  Lennox: Lennox the Brigand
+[07/23/2022 01:05]  Dalton: Dalton the banker
+[07/23/2022 01:05]  Della: Della the tavern keeper
+[07/23/2022 01:05]  Rena: Rena
+[07/23/2022 01:05]  Spenser: Spenser
+[07/23/2022 01:05]  Aynora: Aynora the town crier
+[07/23/2022 01:05]  Vandoren: Vandoren
+[07/23/2022 01:05]  Marjorie the Donation Vendor: Marjorie the Donation Vendor
+[07/23/2022 01:05]  Killer: Citizen
+[07/23/2022 01:05]  Killer: Killer
+[07/23/2022 01:05]  skdio: Citizen
+[07/23/2022 01:05]  skdio: skdio
+[07/23/2022 01:05]  Killer: Vas Rel Por [Gate Travel]
+[07/23/2022 01:05]  Brazil: Brazil
+[07/23/2022 01:05]  Angel: The Outcast
+[07/23/2022 01:05]  Angel: [Of Death, TFA]
+[07/23/2022 01:05]  Angel: Angel
+[07/23/2022 01:05]  GrandDaddy: The Trustworthy
+[07/23/2022 01:05]  GrandDaddy: [:+:], DoC]
+[07/23/2022 01:05]  GrandDaddy: GrandDaddy
+[07/23/2022 01:05]  Mandingo: [z]
+[07/23/2022 01:05]  Mandingo: Mandingo
+[07/23/2022 01:05]  Evil: Legendary Naturalist
+[07/23/2022 01:05]  Evil: [Evil Bears, ROAR]
+[07/23/2022 01:05]  Evil: Lady Evil
+[07/23/2022 01:05]  Narracott: Citizen
+[07/23/2022 01:05]  Narracott: [I~P]
+[07/23/2022 01:05]  Narracott: Narracott
+[07/23/2022 01:05]  Attack: Truly Glorious
+[07/23/2022 01:05]  Attack: [Making 100M Farming, TFA]
+[07/23/2022 01:05]  Attack: Lord Attack
+[07/23/2022 01:05]  Benen: [Royal Britannian Guard]
+[07/23/2022 01:05]  Benen: Benen the guard
+[07/23/2022 01:05]  Shannon: Shannon
+[07/23/2022 01:05]  Alphonse: Alphonse
+[07/23/2022 01:05]  System: Monster loot is currently doubled in this area.
+[07/23/2022 01:05]  System: You have left the protection of the town guards.
+[07/23/2022 01:05]  Winifred: Winifred the healer
+[07/23/2022 01:05]  Tristan: Tristan the banker
+[07/23/2022 01:05]  Azilea: Azilea the jeweler
+[07/23/2022 01:05]  Vern: Vern the guard
+[07/23/2022 01:05]  a rabbit: a rabbit
+[07/23/2022 01:05]  a hind: a hind
+[07/23/2022 01:05]  a hind: a hind
+[07/23/2022 01:06]  a sheep: a sheep
+[07/23/2022 01:06]  a hind: a hind
+[07/23/2022 01:06]  a hind: a hind
+[07/23/2022 01:06]  Hans: Hans the ranger
+[07/23/2022 01:06]  Scotia: Scotia the animal trainer
+[07/23/2022 01:06]  System: The world will save in 30 seconds.
+[07/23/2022 01:06]  a pig: a pig
+[07/23/2022 01:06]  a horse: a horse
+[07/23/2022 01:06]  Dannik: Dannik
+[07/23/2022 01:06]  a dolphin: a dolphin
+[07/23/2022 01:07]  System: The world is saving, please wait.
+[07/23/2022 01:07]  : wooden bridge
+[07/23/2022 01:07]  : stone wall
+[07/23/2022 01:07]  : stone wall
+[07/23/2022 01:07]  System: World save complete. The entire process took 17.1 seconds.
+[07/23/2022 01:07]  System: You are now under the protection of the town guards.
+[07/23/2022 01:07]  Carl: Carl the shipwright
+[07/23/2022 01:07]  Samantha: Samantha the mapmaker
+[07/23/2022 01:07]  a dolphin: a dolphin
+[07/23/2022 01:08]  a dolphin: a dolphin
+[07/23/2022 01:08]  a dolphin: a dolphin
+[07/23/2022 01:08]  a dolphin: a dolphin

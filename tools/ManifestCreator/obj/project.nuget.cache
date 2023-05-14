@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "wpcACsCB0cJs2PN2R8dA7oB3wUcw6Lb8q6UYG0BFio4e++0dXZDB1RADdTyiusTfBFk8zg3DXBtE3UfU3+r5eg==",
+  "success": false,
+  "projectFilePath": "/home/kimbring2/ClassicUO/tools/ManifestCreator/ManifestCreator.csproj",
+  "expectedPackageFiles": [
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.0/microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.NETFramework.ReferenceAssemblies.net472 from 1.0.3 to 1.0.0. Reference the package directly from the project to select a different version. \n ManifestCreator -> Microsoft.NETFramework.ReferenceAssemblies 1.0.3 -> Microsoft.NETFramework.ReferenceAssemblies.net472 (>= 1.0.3) \n ManifestCreator -> Microsoft.NETFramework.ReferenceAssemblies.net472 (>= 1.0.0)",
+      "libraryId": "Microsoft.NETFramework.ReferenceAssemblies.net472",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.7.2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1688 @@
+[09/12/2022 15:13]  System: WorldMap loading...
+[09/12/2022 15:13]  System: Loading WorldMap markers..
+[09/12/2022 15:13]  System: WorldMap markers loaded (0)
+[09/12/2022 15:13]  System: Welcome, asdf! There are currently 2 users online, with 158907 items and 42919 mobiles in the world.
+[09/12/2022 15:13]  asdf:  asdf 
+[09/12/2022 15:13]  System: You have joined the 'General' channel.
+[09/12/2022 15:13]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:13]  System: You must wait to perform another action.
+[09/12/2022 15:13]  System: WorldMap loaded!
+[09/12/2022 15:13]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:14]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:14]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:15]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:15]  System: The world will save in 15 seconds.
+[09/12/2022 15:16]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:16]  System: The world is saving, please wait.
+[09/12/2022 15:16]  System: World save done in 0.1 seconds.
+[09/12/2022 15:16]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:16]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:16]  Razor: Attack: Crimson Drake
+[09/12/2022 15:16]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:16]  asdf: Forul Solum
+[09/12/2022 15:16]  Razor: [+Enemy of One (227s)]
+[09/12/2022 15:16]  Razor: [-Enemy of One]
+[09/12/2022 15:16]  Razor: [+Enemy of One (225s)]
+[09/12/2022 15:16]  asdf: Consecrus Arma
+[09/12/2022 15:16]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:16]  System: You have gained a lot of fame.
+[09/12/2022 15:16]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:16]  Razor: Attack: Crimson Drake
+[09/12/2022 15:16]  Razor: [-Consecrate]
+[09/12/2022 15:16]  asdf: Consecrus Arma
+[09/12/2022 15:16]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:16]  System: You have gained a lot of fame.
+[09/12/2022 15:16]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:16]  Razor: [-Consecrate]
+[09/12/2022 15:16]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:17]  Razor: Attack: Platinum Drake
+[09/12/2022 15:17]  asdf: Obsu Vulni
+[09/12/2022 15:17]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 15:17]  asdf: Obsu Vulni
+[09/12/2022 15:17]  Razor: Target: asdf
+[09/12/2022 15:17]  System: You have had 39 hit points of damage healed.
+[09/12/2022 15:17]  Razor: Attack: Crimson Drake
+[09/12/2022 15:17]  asdf: Forul Solum
+[09/12/2022 15:17]  Razor: [-Enemy of One]
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  asdf: Augus Luminos
+[09/12/2022 15:17]  System: You are already casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  asdf: Divinum Furis
+[09/12/2022 15:17]  System: You are already casting a spell.
+[09/12/2022 15:17]  System: You are already casting a spell.
+[09/12/2022 15:17]  System: You are already casting a spell.
+[09/12/2022 15:17]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  asdf: Consecrus Arma
+[09/12/2022 15:17]  System: You are already casting a spell.
+[09/12/2022 15:17]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:17]  Razor: [-Consecrate]
+[09/12/2022 15:17]  Margaret:  Margaret the scribe
+[09/12/2022 15:17]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:18]  asdf: Obsu Vulni
+[09/12/2022 15:18]  System: You have had 39 hit points of damage healed.
+[09/12/2022 15:18]  Razor: Attack: Platinum Drake
+[09/12/2022 15:18]  asdf: Consecrus Arma
+[09/12/2022 15:18]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:18]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:18]  Razor: [-Divine Fury]
+[09/12/2022 15:18]  asdf: Obsu Vulni
+[09/12/2022 15:18]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:18]  System: You have had 35 hit points of damage healed.
+[09/12/2022 15:18]  Razor: Attack: Platinum Drake
+[09/12/2022 15:18]  asdf: Forul Solum
+[09/12/2022 15:18]  Razor: [+Enemy of One (227s)]
+[09/12/2022 15:18]  Razor: [-Enemy of One]
+[09/12/2022 15:18]  Razor: [+Enemy of One (226s)]
+[09/12/2022 15:18]  Razor: [-Consecrate]
+[09/12/2022 15:18]  System: You have gained a lot of fame.
+[09/12/2022 15:18]  Platinum Drake: a platinum drake corpse
+[09/12/2022 15:18]  System: You must wait to perform another action.
+[09/12/2022 15:18]  Razor: Attack: Crimson Drake
+[09/12/2022 15:18]  System: You have gained a lot of fame.
+[09/12/2022 15:18]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:18]  System: You must wait to perform another action.
+[09/12/2022 15:19]  Margaret:  Margaret the scribe
+[09/12/2022 15:19]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:19]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:19]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:19]  asdf: Forul Solum
+[09/12/2022 15:19]  Razor: [-Enemy of One]
+[09/12/2022 15:19]  asdf: Augus Luminos
+[09/12/2022 15:19]  asdf: Divinum Furis
+[09/12/2022 15:19]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:19]  System: You have gained a lot of fame.
+[09/12/2022 15:19]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:19]  asdf: Obsu Vulni
+[09/12/2022 15:19]  System: You have had 39 hit points of damage healed.
+[09/12/2022 15:19]  Razor: Attack: Platinum Drake
+[09/12/2022 15:19]  asdf: Obsu Vulni
+[09/12/2022 15:19]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 15:19]  Razor: [-Divine Fury]
+[09/12/2022 15:19]  asdf: Obsu Vulni
+[09/12/2022 15:19]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 15:19]  Razor: Attack: Platinum Drake
+[09/12/2022 15:20]  asdf: Augus Luminos
+[09/12/2022 15:20]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:20]  asdf: Consecrus Arma
+[09/12/2022 15:20]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:20]  System: You have gained a lot of fame.
+[09/12/2022 15:20]  Platinum Drake: a platinum drake corpse
+[09/12/2022 15:20]  Razor: [-Consecrate]
+[09/12/2022 15:20]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:20]  asdf: Consecrus Arma
+[09/12/2022 15:20]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:20]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:20]  System: You must wait to perform another action.
+[09/12/2022 15:20]  asdf: Obsu Vulni
+[09/12/2022 15:20]  Razor: [-Consecrate]
+[09/12/2022 15:20]  System: You have had 39 hit points of damage healed.
+[09/12/2022 15:21]  asdf: Obsu Vulni
+[09/12/2022 15:21]  System: You have had 39 hit points of damage healed.
+[09/12/2022 15:21]  Razor: Attack: Crimson Drake
+[09/12/2022 15:21]  asdf: Consecrus Arma
+[09/12/2022 15:21]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:21]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:21]  asdf: Augus Luminos
+[09/12/2022 15:21]  asdf: Divinum Furis
+[09/12/2022 15:21]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:21]  Razor: [-Consecrate]
+[09/12/2022 15:21]  System: You have gained a lot of fame.
+[09/12/2022 15:21]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:21]  Razor: [-Divine Fury]
+[09/12/2022 15:22]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:22]  Margaret:  Margaret the scribe
+[09/12/2022 15:22]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:22]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:22]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:22]  Razor: Attack: Platinum Drake
+[09/12/2022 15:22]  asdf: Consecrus Arma
+[09/12/2022 15:22]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:22]  asdf: Divinum Furis
+[09/12/2022 15:22]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:22]  Razor: [-Consecrate]
+[09/12/2022 15:22]  System: You have gained a lot of fame.
+[09/12/2022 15:22]  Platinum Drake: a platinum drake corpse
+[09/12/2022 15:22]  Razor: [-Divine Fury]
+[09/12/2022 15:22]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:23]  Razor: Attack: Crimson Drake
+[09/12/2022 15:23]  System: That is too far away.
+[09/12/2022 15:23]  Razor: Attack: Crimson Drake
+[09/12/2022 15:23]  System: You must wait to perform another action.
+[09/12/2022 15:23]  System: You must wait to perform another action.
+[09/12/2022 15:23]  Margaret:  Margaret the scribe
+[09/12/2022 15:23]  System: That is too far away.
+[09/12/2022 15:23]  System: You must wait to perform another action.
+[09/12/2022 15:23]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:23]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:23]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:23]  System: That is too far away.
+[09/12/2022 15:23]  Razor: Attack: Crimson Drake
+[09/12/2022 15:23]  Razor: Attack: Crimson Drake
+[09/12/2022 15:23]  asdf: Consecrus Arma
+[09/12/2022 15:23]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:23]  asdf: Divinum Furis
+[09/12/2022 15:23]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:23]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:23]  asdf: Forul Solum
+[09/12/2022 15:23]  Razor: [+Enemy of One (227s)]
+[09/12/2022 15:23]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:23]  Razor: [-Consecrate]
+[09/12/2022 15:23]  Razor: [-Enemy of One]
+[09/12/2022 15:23]  Razor: [+Enemy of One (225s)]
+[09/12/2022 15:23]  System: You have gained a lot of fame.
+[09/12/2022 15:23]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:23]  System: You must wait to perform another action.
+[09/12/2022 15:23]  System: You must wait to perform another action.
+[09/12/2022 15:24]  Razor: [-Divine Fury]
+[09/12/2022 15:24]  Margaret:  Margaret the scribe
+[09/12/2022 15:24]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:24]  Crimson Drake:  Crimson Drake 
+[09/12/2022 15:24]  Razor: Attack: Crimson Drake
+[09/12/2022 15:24]  Razor: Attack: Crimson Drake
+[09/12/2022 15:24]  asdf: Consecrus Arma
+[09/12/2022 15:24]  Razor: [+Consecrate (10s)]
+[09/12/2022 15:24]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:24]  asdf: Divinum Furis
+[09/12/2022 15:24]  Razor: [+Divine Fury (23s)]
+[09/12/2022 15:24]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:24]  System: You have gained a lot of fame.
+[09/12/2022 15:24]  Crimson Drake: a crimson drake corpse
+[09/12/2022 15:24]  Razor: Attack: Platinum Drake
+[09/12/2022 15:24]  Razor: Attack: Platinum Drake
+[09/12/2022 15:24]  Razor: [-Consecrate]
+[09/12/2022 15:24]  asdf: Forul Solum
+[09/12/2022 15:24]  Razor: [-Enemy of One]
+[09/12/2022 15:24]  asdf: Forul Solum
+[09/12/2022 15:24]  Razor: [+Enemy of One (227s)]
+[09/12/2022 15:24]  System: You have not yet recovered from casting a spell.
+[09/12/2022 15:24]  Razor: [-Enemy of One]
+[09/12/2022 15:24]  Razor: [+Enemy of One (226s)]
+[09/12/2022 15:24]  Razor: [-Divine Fury]
+[09/12/2022 15:24]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:24]  System: You have gained a lot of fame.
+[09/12/2022 15:24]  Platinum Drake: a platinum drake corpse
+[09/12/2022 15:24]  System: That is too far away.
+[09/12/2022 15:24]  Margaret:  Margaret the scribe
+[09/12/2022 15:25]  asdf: Expor Flamus
+[09/12/2022 15:25]  System: That creature is not poisoned!
+[09/12/2022 15:25]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:25]  Platinum Drake:  Platinum Drake 
+[09/12/2022 15:26]  a greater dragon:  a greater dragon 
+[09/12/2022 15:26]  Quinn:  Quinn the Keeper of Chivalry
+[09/12/2022 15:26]  a wyvern:  a wyvern 
+[09/12/2022 15:26]  a wyvern:  a wyvern 
+[09/12/2022 15:26]  a wyvern:  a wyvern 
+[09/12/2022 15:26]  a wyvern:  a wyvern 
+[09/12/2022 15:26]  asdf: *You feel a bit nauseous*
+[09/12/2022 15:26]  Razor: [+Poisoned (23s)]
+[09/12/2022 15:26]  a wyvern:  a wyvern 
+[09/12/2022 15:26]  asdf: Expor Flamus
+[09/12/2022 15:26]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 15:26]  asdf: Expor Flamus
+[09/12/2022 15:26]  System: You have been cured of all poisons!
+[09/12/2022 15:26]  Razor: [-Poisoned]
+[09/12/2022 15:26]  System: Your dexterity has changed by -8.  It is now 125
+[09/12/2022 15:26]  asdf: the remains of asdf
+[09/12/2022 15:27]  a greater dragon:  a greater dragon 
+[09/12/2022 15:27]  System: You must wait to perform another action.
+[09/12/2022 15:27]  System: The magic of your armor combines to assist you!
+[09/12/2022 15:27]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 15:27]  System: You quickly gather all of your belongings.
+[09/12/2022 15:28]  Jody:  Jody the wandering healer
+[09/12/2022 15:28]  Razor: [-Enemy of One]
+[09/12/2022 15:31]  System: The world will save in 15 seconds.
+[09/12/2022 15:31]  System: The world is saving, please wait.
+[09/12/2022 15:31]  System: World save done in 0.1 seconds.
+[09/12/2022 15:46]  System: The world will save in 15 seconds.
+[09/12/2022 15:46]  System: The world is saving, please wait.
+[09/12/2022 15:46]  System: World save done in 0.2 seconds.
+[09/12/2022 16:01]  System: The world will save in 15 seconds.
+[09/12/2022 16:01]  System: The world is saving, please wait.
+[09/12/2022 16:01]  System: World save done in 0.1 seconds.
+[09/12/2022 16:16]  System: The world will save in 15 seconds.
+[09/12/2022 16:16]  System: The world is saving, please wait.
+[09/12/2022 16:16]  System: World save done in 0.1 seconds.
+[09/12/2022 16:31]  System: The world will save in 15 seconds.
+[09/12/2022 16:31]  System: The world is saving, please wait.
+[09/12/2022 16:31]  System: World save done in 0.1 seconds.
+[09/12/2022 16:46]  System: The world will save in 15 seconds.
+[09/12/2022 16:46]  System: The world is saving, please wait.
+[09/12/2022 16:46]  System: World save done in 0.1 seconds.
+[09/12/2022 17:01]  System: The world will save in 15 seconds.
+[09/12/2022 17:01]  System: The world is saving, please wait.
+[09/12/2022 17:01]  System: World save done in 0.1 seconds.
+[09/12/2022 17:16]  System: The world will save in 15 seconds.
+[09/12/2022 17:16]  System: The world is saving, please wait.
+[09/12/2022 17:16]  System: World save done in 0.1 seconds.
+[09/12/2022 17:31]  System: The world will save in 15 seconds.
+[09/12/2022 17:31]  System: The world is saving, please wait.
+[09/12/2022 17:31]  System: World save done in 0.1 seconds.
+[09/12/2022 17:46]  System: The world will save in 15 seconds.
+[09/12/2022 17:46]  System: The world is saving, please wait.
+[09/12/2022 17:46]  System: World save done in 0.1 seconds.
+[09/12/2022 18:01]  System: The world will save in 15 seconds.
+[09/12/2022 18:01]  System: The world is saving, please wait.
+[09/12/2022 18:01]  System: World save done in 0.1 seconds.
+[09/12/2022 18:16]  System: The world will save in 15 seconds.
+[09/12/2022 18:16]  System: The world is saving, please wait.
+[09/12/2022 18:16]  System: World save done in 0.1 seconds.
+[09/12/2022 18:31]  System: The world will save in 15 seconds.
+[09/12/2022 18:31]  System: The world is saving, please wait.
+[09/12/2022 18:31]  System: World save done in 0.1 seconds.
+[09/12/2022 18:46]  System: The world will save in 15 seconds.
+[09/12/2022 18:46]  System: The world is saving, please wait.
+[09/12/2022 18:46]  System: World save done in 0.1 seconds.
+[09/12/2022 19:01]  System: The world will save in 15 seconds.
+[09/12/2022 19:02]  System: The world is saving, please wait.
+[09/12/2022 19:02]  System: World save done in 0.1 seconds.
+[09/12/2022 19:16]  System: The world will save in 15 seconds.
+[09/12/2022 19:17]  System: The world is saving, please wait.
+[09/12/2022 19:17]  System: World save done in 0.1 seconds.
+[09/12/2022 19:31]  System: The world will save in 15 seconds.
+[09/12/2022 19:32]  System: The world is saving, please wait.
+[09/12/2022 19:32]  System: World save done in 0.1 seconds.
+[09/12/2022 19:46]  System: The world will save in 15 seconds.
+[09/12/2022 19:47]  System: The world is saving, please wait.
+[09/12/2022 19:47]  System: World save done in 0.1 seconds.
+[09/12/2022 20:01]  System: The world will save in 15 seconds.
+[09/12/2022 20:02]  System: The world is saving, please wait.
+[09/12/2022 20:02]  System: World save done in 0.1 seconds.
+[09/12/2022 20:16]  System: The world will save in 15 seconds.
+[09/12/2022 20:17]  System: The world is saving, please wait.
+[09/12/2022 20:17]  System: World save done in 0.1 seconds.
+[09/12/2022 20:32]  System: The world will save in 15 seconds.
+[09/12/2022 20:32]  System: The world is saving, please wait.
+[09/12/2022 20:32]  System: World save done in 0.1 seconds.
+[09/12/2022 20:47]  System: The world will save in 15 seconds.
+[09/12/2022 20:47]  System: The world is saving, please wait.
+[09/12/2022 20:47]  System: World save done in 0.1 seconds.
+[09/12/2022 20:55]  Jonar:  Jonar the Shadow Knight
+[09/12/2022 20:56]  System: You feel disoriented!
+[09/12/2022 20:56]  Razor: Attack: Jonar
+[09/12/2022 20:56]  Razor: [+Evil Omen (10s)]
+[09/12/2022 20:56]  Razor: Attack: Jonar
+[09/12/2022 20:56]  System: You feel disoriented!
+[09/12/2022 20:56]  Razor: [-Evil Omen]
+[09/12/2022 20:56]  System: Your skin turns dry and corpselike.
+[09/12/2022 20:56]  Razor: [+Corpse Skin (75s)]
+[09/12/2022 20:56]  asdf: Expor Flamus
+[09/12/2022 20:56]  System: That creature is not poisoned!
+[09/12/2022 20:56]  Margaret:  Margaret the scribe
+[09/12/2022 20:56]  Platinum Drake:  Platinum Drake 
+[09/12/2022 20:56]  asdf: Obsu Vulni
+[09/12/2022 20:56]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 20:56]  System: Your dexterity has changed by -8.  It is now 125
+[09/12/2022 20:56]  Razor: [-Corpse Skin]
+[09/12/2022 20:56]  asdf: the remains of asdf
+[09/12/2022 20:56]  Jonar: Anh Mi Sah Ko
+[09/12/2022 20:56]  System: The magic of your armor combines to assist you!
+[09/12/2022 20:56]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 20:56]  System: You quickly gather all of your belongings.
+[09/12/2022 20:56]  asdf: Obsu Vulni
+[09/12/2022 20:57]  System: You have had 39 hit points of damage healed.
+[09/12/2022 20:57]  asdf: Obsu Vulni
+[09/12/2022 20:57]  System: You have had 39 hit points of damage healed.
+[09/12/2022 20:57]  System: You must have at least 17 Mana to use this ability.
+[09/12/2022 20:57]  System: Your skin returns to normal.
+[09/12/2022 20:58]  asdf: Forul Solum
+[09/12/2022 20:58]  Razor: [+Enemy of One (227s)]
+[09/12/2022 20:58]  Razor: Attack: Jonar
+[09/12/2022 20:58]  Razor: [-Enemy of One]
+[09/12/2022 20:58]  Razor: [+Enemy of One (220s)]
+[09/12/2022 20:58]  Jonar: Anh Mi Sah Ko
+[09/12/2022 20:58]  System: You feel disoriented!
+[09/12/2022 20:58]  asdf: Divinum Furis
+[09/12/2022 20:58]  Razor: [+Divine Fury (23s)]
+[09/12/2022 20:58]  System: You have not yet recovered from casting a spell.
+[09/12/2022 20:58]  System: Your dexterity has changed by -8.  It is now 125
+[09/12/2022 20:58]  Razor: [-Divine Fury]
+[09/12/2022 20:58]  asdf: the remains of asdf
+[09/12/2022 20:58]  System: You must wait to perform another action.
+[09/12/2022 20:58]  Jonar: Anh Mi Sah Ko
+[09/12/2022 20:58]  System: The magic of your armor combines to assist you!
+[09/12/2022 20:58]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 20:58]  System: You quickly gather all of your belongings.
+[09/12/2022 20:59]  System: You must wait to perform another action.
+[09/12/2022 20:59]  System: You must wait to perform another action.
+[09/12/2022 20:59]  System: You must wait to perform another action.
+[09/12/2022 20:59]  System: Your skill in Tactics has increased by 67.2.  It is now 100.0.
+[09/12/2022 21:00]  System: Your skill in Fencing has increased by 87.0.  It is now 100.0.
+[09/12/2022 21:01]  asdf: Divinum Furis
+[09/12/2022 21:01]  Razor: [+Divine Fury (23s)]
+[09/12/2022 21:01]  Razor: Attack: Jonar
+[09/12/2022 21:01]  Razor: Attack: Jonar
+[09/12/2022 21:01]  asdf: Forul Solum
+[09/12/2022 21:01]  Razor: [-Enemy of One]
+[09/12/2022 21:01]  System: You have not yet recovered from casting a spell.
+[09/12/2022 21:01]  System: You feel disoriented!
+[09/12/2022 21:01]  asdf: Obsu Vulni
+[09/12/2022 21:01]  System: Your strength has changed by -20.  It is now 105
+[09/12/2022 21:01]  System: Your dexterity has changed by -20.  It is now 113
+[09/12/2022 21:01]  System: Your intelligence has changed by -20.  It is now 105
+[09/12/2022 21:01]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 21:01]  Razor: [+Curse (120s)]
+[09/12/2022 21:01]  System: You feel disoriented!
+[09/12/2022 21:01]  System: Your dexterity has changed by -8.  It is now 105
+[09/12/2022 21:01]  System: Your strength has changed by 20.  It is now 125
+[09/12/2022 21:01]  System: Your dexterity has changed by 20.  It is now 125
+[09/12/2022 21:01]  System: Your intelligence has changed by 20.  It is now 125
+[09/12/2022 21:01]  asdf: the remains of asdf
+[09/12/2022 21:01]  Razor: [-Curse]
+[09/12/2022 21:01]  Razor: [-Divine Fury]
+[09/12/2022 21:01]  System: You must wait to perform another action.
+[09/12/2022 21:01]  asdf: I am dead and cannot do that.
+[09/12/2022 21:01]  Jonar: Anh Mi Sah Ko
+[09/12/2022 21:01]  System: The magic of your armor combines to assist you!
+[09/12/2022 21:01]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 21:01]  System: You quickly gather all of your belongings.
+[09/12/2022 21:02]  System: The world will save in 15 seconds.
+[09/12/2022 21:02]  System: The world is saving, please wait.
+[09/12/2022 21:02]  System: World save done in 0.1 seconds.
+[09/12/2022 21:02]  System: Your skill in Resisting Spells has increased by 99.1.  It is now 100.0.
+[09/12/2022 21:02]  asdf: Forul Solum
+[09/12/2022 21:02]  Razor: [+Enemy of One (227s)]
+[09/12/2022 21:02]  Razor: Attack: Jonar
+[09/12/2022 21:02]  System: You must wait to perform another action.
+[09/12/2022 21:02]  Razor: [+Strangle (34s)]
+[09/12/2022 21:02]  Razor: Attack: Jonar
+[09/12/2022 21:03]  System: You must have at least 17 Mana to use this ability.
+[09/12/2022 21:03]  Razor: [-Enemy of One]
+[09/12/2022 21:03]  Razor: [+Enemy of One (211s)]
+[09/12/2022 21:03]  asdf: Consecrus Arma
+[09/12/2022 21:03]  Razor: [+Consecrate (10s)]
+[09/12/2022 21:03]  asdf: Obsu Vulni
+[09/12/2022 21:03]  System: You have had 39 hit points of damage healed.
+[09/12/2022 21:03]  Razor: [-Consecrate]
+[09/12/2022 21:03]  asdf: Obsu Vulni
+[09/12/2022 21:03]  System: You have had 39 hit points of damage healed.
+[09/12/2022 21:03]  asdf: Obsu Vulni
+[09/12/2022 21:03]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 21:03]  System: You can breathe normally again.
+[09/12/2022 21:03]  Razor: [-Strangle]
+[09/12/2022 21:03]  Jonar: Anh Mi Sah Ko
+[09/12/2022 21:03]  Jonar: Anh Mi Sah Ko
+[09/12/2022 21:04]  a dragon:  a dragon 
+[09/12/2022 21:04]  a wyvern:  a wyvern 
+[09/12/2022 21:04]  a greater dragon:  a greater dragon 
+[09/12/2022 21:04]  a wyvern:  a wyvern 
+[09/12/2022 21:04]  a greater dragon:  a greater dragon 
+[09/12/2022 21:04]  a greater dragon:  a greater dragon 
+[09/12/2022 21:04]  a wyvern:  a wyvern 
+[09/12/2022 21:04]  Quinn:  Quinn the Keeper of Chivalry
+[09/12/2022 21:04]  a wyvern:  a wyvern 
+[09/12/2022 21:04]  a greater dragon:  a greater dragon 
+[09/12/2022 21:04]  asdf: Forul Solum
+[09/12/2022 21:04]  Razor: [-Enemy of One]
+[09/12/2022 21:04]  Razor: Attack: a wyvern
+[09/12/2022 21:04]  System: You cannot move!
+[09/12/2022 21:04]  Razor: [+Paralyze]
+[09/12/2022 21:04]  Razor: Attack: a greater dragon
+[09/12/2022 21:04]  System: You can move!
+[09/12/2022 21:04]  Razor: [-Paralyze]
+[09/12/2022 21:04]  a greater dragon: You have no chance of taming this creature.
+[09/12/2022 21:04]  asdf: Forul Solum
+[09/12/2022 21:04]  Razor: [+Enemy of One (227s)]
+[09/12/2022 21:04]  System: You have not yet recovered from casting a spell.
+[09/12/2022 21:04]  Razor: [-Enemy of One]
+[09/12/2022 21:04]  Razor: [+Enemy of One (227s)]
+[09/12/2022 21:04]  System: You must have at least 8 Mana to use this ability.
+[09/12/2022 21:04]  System: You must have at least 8 Mana to use this ability.
+[09/12/2022 21:04]  asdf: Obsu Vulni
+[09/12/2022 21:04]  System: Your dexterity has changed by -8.  It is now 125
+[09/12/2022 21:04]  asdf: the remains of asdf
+[09/12/2022 21:04]  System: You must wait to perform another action.
+[09/12/2022 21:05]  System: The magic of your armor combines to assist you!
+[09/12/2022 21:05]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 21:05]  System: You quickly gather all of your belongings.
+[09/12/2022 21:06]  System: Your skill in Resisting Spells has increased by 1.1.  It is now 100.0.
+[09/12/2022 21:06]  System: Your skill in Swordsmanship has increased by 1.9.  It is now 100.0.
+[09/12/2022 21:07]  System: Your skill in Wrestling has increased by 100.0.  It is now 100.0.
+[09/12/2022 21:07]  a greater dragon:  a greater dragon 
+[09/12/2022 21:08]  System: Your skill in Focus has increased by 6.6.  It is now 100.0.
+[09/12/2022 21:08]  a greater dragon:  a greater dragon 
+[09/12/2022 21:08]  a greater dragon:  a greater dragon 
+[09/12/2022 21:08]  a greater dragon:  a greater dragon 
+[09/12/2022 21:08]  Razor: [-Enemy of One]
+[09/12/2022 21:08]  Quinn:  Quinn the Keeper of Chivalry
+[09/12/2022 21:09]  a greater dragon:  a greater dragon 
+[09/12/2022 21:09]  a greater dragon:  a greater dragon 
+[09/12/2022 21:09]  asdf: Forul Solum
+[09/12/2022 21:09]  Razor: [+Enemy of One (227s)]
+[09/12/2022 21:09]  Razor: Attack: a greater dragon
+[09/12/2022 21:09]  asdf: Obsu Vulni
+[09/12/2022 21:09]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/12/2022 21:09]  System: Your intelligence has changed by -13.  It is now 112
+[09/12/2022 21:09]  Razor: [+Feeblemind (154s)]
+[09/12/2022 21:09]  Razor: [-Enemy of One]
+[09/12/2022 21:09]  Razor: [+Enemy of One (217s)]
+[09/12/2022 21:09]  System: Your dexterity has changed by -8.  It is now 125
+[09/12/2022 21:09]  System: Your intelligence has changed by 13.  It is now 125
+[09/12/2022 21:09]  Razor: [-Feeblemind]
+[09/12/2022 21:09]  asdf: the remains of asdf
+[09/12/2022 21:09]  System: You must wait to perform another action.
+[09/12/2022 21:09]  System: The magic of your armor combines to assist you!
+[09/12/2022 21:09]  System: Your dexterity has changed by 8.  It is now 133
+[09/12/2022 21:09]  System: You quickly gather all of your belongings.
+[09/12/2022 21:13]  Razor: [-Enemy of One]
+[09/12/2022 21:14]  a giant serpent:  a giant serpent 
+[09/12/2022 21:17]  System: The world will save in 15 seconds.
+[09/12/2022 21:17]  System: The world is saving, please wait.
+[09/12/2022 21:17]  System: World save done in 0.1 seconds.
+[09/12/2022 21:32]  System: The world will save in 15 seconds.
+[09/12/2022 21:32]  System: The world is saving, please wait.
+[09/12/2022 21:32]  System: World save done in 0.1 seconds.
+[09/12/2022 21:47]  System: The world will save in 15 seconds.
+[09/12/2022 21:47]  System: The world is saving, please wait.
+[09/12/2022 21:47]  System: World save done in 0.1 seconds.
+[09/12/2022 22:02]  System: The world will save in 15 seconds.
+[09/12/2022 22:02]  System: The world is saving, please wait.
+[09/12/2022 22:02]  System: World save done in 0.1 seconds.
+[09/12/2022 22:17]  System: The world will save in 15 seconds.
+[09/12/2022 22:17]  System: The world is saving, please wait.
+[09/12/2022 22:17]  System: World save done in 0.1 seconds.
+[09/12/2022 22:29]  Quinn:  Quinn the Keeper of Chivalry
+[09/12/2022 22:32]  System: The world will save in 15 seconds.
+[09/12/2022 22:32]  System: The world is saving, please wait.
+[09/12/2022 22:32]  System: World save done in 0.1 seconds.
+[09/12/2022 22:47]  System: The world will save in 15 seconds.
+[09/12/2022 22:47]  System: The world is saving, please wait.
+[09/12/2022 22:47]  System: World save done in 0.1 seconds.
+[09/12/2022 23:02]  System: The world will save in 15 seconds.
+[09/12/2022 23:02]  System: The world is saving, please wait.
+[09/12/2022 23:02]  System: World save done in 0.1 seconds.
+[09/12/2022 23:17]  System: The world will save in 15 seconds.
+[09/12/2022 23:17]  System: The world is saving, please wait.
+[09/12/2022 23:17]  System: World save done in 0.1 seconds.
+[09/12/2022 23:32]  System: The world will save in 15 seconds.
+[09/12/2022 23:32]  System: The world is saving, please wait.
+[09/12/2022 23:32]  System: World save done in 0.1 seconds.
+[09/12/2022 23:47]  System: The world will save in 15 seconds.
+[09/12/2022 23:47]  System: The world is saving, please wait.
+[09/12/2022 23:47]  System: World save done in 0.1 seconds.
+[09/13/2022 00:02]  System: The world will save in 15 seconds.
+[09/13/2022 00:02]  System: The world is saving, please wait.
+[09/13/2022 00:02]  System: World save done in 0.1 seconds.
+[09/13/2022 00:17]  System: The world will save in 15 seconds.
+[09/13/2022 00:17]  System: The world is saving, please wait.
+[09/13/2022 00:17]  System: World save done in 0.1 seconds.
+[09/13/2022 00:32]  System: The world will save in 15 seconds.
+[09/13/2022 00:32]  System: The world is saving, please wait.
+[09/13/2022 00:32]  System: World save done in 0.1 seconds.
+[09/13/2022 00:47]  System: The world will save in 15 seconds.
+[09/13/2022 00:47]  System: The world is saving, please wait.
+[09/13/2022 00:47]  System: World save done in 0.1 seconds.
+[09/13/2022 01:02]  System: The world will save in 15 seconds.
+[09/13/2022 01:02]  System: The world is saving, please wait.
+[09/13/2022 01:02]  System: World save done in 0.1 seconds.
+[09/13/2022 01:17]  System: The world will save in 15 seconds.
+[09/13/2022 01:17]  System: The world is saving, please wait.
+[09/13/2022 01:17]  System: World save done in 0.1 seconds.
+[09/13/2022 01:32]  System: The world will save in 15 seconds.
+[09/13/2022 01:32]  System: The world is saving, please wait.
+[09/13/2022 01:32]  System: World save done in 0.1 seconds.
+[09/13/2022 01:47]  System: The world will save in 15 seconds.
+[09/13/2022 01:47]  System: The world is saving, please wait.
+[09/13/2022 01:48]  System: World save done in 0.1 seconds.
+[09/13/2022 02:02]  System: The world will save in 15 seconds.
+[09/13/2022 02:03]  System: The world is saving, please wait.
+[09/13/2022 02:03]  System: World save done in 0.1 seconds.
+[09/13/2022 02:17]  System: The world will save in 15 seconds.
+[09/13/2022 02:18]  System: The world is saving, please wait.
+[09/13/2022 02:18]  System: World save done in 0.1 seconds.
+[09/13/2022 02:32]  System: The world will save in 15 seconds.
+[09/13/2022 02:33]  System: The world is saving, please wait.
+[09/13/2022 02:33]  System: World save done in 0.1 seconds.
+[09/13/2022 02:47]  System: The world will save in 15 seconds.
+[09/13/2022 02:48]  System: The world is saving, please wait.
+[09/13/2022 02:48]  System: World save done in 0.1 seconds.
+[09/13/2022 03:02]  System: The world will save in 15 seconds.
+[09/13/2022 03:03]  System: The world is saving, please wait.
+[09/13/2022 03:03]  System: World save done in 0.1 seconds.
+[09/13/2022 03:17]  System: The world will save in 15 seconds.
+[09/13/2022 03:18]  System: The world is saving, please wait.
+[09/13/2022 03:18]  System: World save done in 0.1 seconds.
+[09/13/2022 03:32]  System: The world will save in 15 seconds.
+[09/13/2022 03:33]  System: The world is saving, please wait.
+[09/13/2022 03:33]  System: World save done in 0.1 seconds.
+[09/13/2022 03:48]  System: The world will save in 15 seconds.
+[09/13/2022 03:48]  System: The world is saving, please wait.
+[09/13/2022 03:48]  System: World save done in 0.1 seconds.
+[09/13/2022 04:03]  System: The world will save in 15 seconds.
+[09/13/2022 04:03]  System: The world is saving, please wait.
+[09/13/2022 04:03]  System: World save done in 0.1 seconds.
+[09/13/2022 04:18]  System: The world will save in 15 seconds.
+[09/13/2022 04:18]  System: The world is saving, please wait.
+[09/13/2022 04:18]  System: World save done in 0.1 seconds.
+[09/13/2022 04:33]  System: The world will save in 15 seconds.
+[09/13/2022 04:33]  System: The world is saving, please wait.
+[09/13/2022 04:33]  System: World save done in 0.1 seconds.
+[09/13/2022 04:48]  System: The world will save in 15 seconds.
+[09/13/2022 04:48]  System: The world is saving, please wait.
+[09/13/2022 04:48]  System: World save done in 0.1 seconds.
+[09/13/2022 05:03]  System: The world will save in 15 seconds.
+[09/13/2022 05:03]  System: The world is saving, please wait.
+[09/13/2022 05:03]  System: World save done in 0.1 seconds.
+[09/13/2022 05:18]  System: The world will save in 15 seconds.
+[09/13/2022 05:18]  System: The world is saving, please wait.
+[09/13/2022 05:18]  System: World save done in 0.1 seconds.
+[09/13/2022 05:33]  System: The world will save in 15 seconds.
+[09/13/2022 05:33]  System: The world is saving, please wait.
+[09/13/2022 05:33]  System: World save done in 0.1 seconds.
+[09/13/2022 05:48]  System: The world will save in 15 seconds.
+[09/13/2022 05:48]  System: The world is saving, please wait.
+[09/13/2022 05:48]  System: World save done in 0.1 seconds.
+[09/13/2022 06:03]  System: The world will save in 15 seconds.
+[09/13/2022 06:03]  System: The world is saving, please wait.
+[09/13/2022 06:03]  System: World save done in 0.1 seconds.
+[09/13/2022 06:18]  System: The world will save in 15 seconds.
+[09/13/2022 06:18]  System: The world is saving, please wait.
+[09/13/2022 06:18]  System: World save done in 0.1 seconds.
+[09/13/2022 06:33]  System: The world will save in 15 seconds.
+[09/13/2022 06:33]  System: The world is saving, please wait.
+[09/13/2022 06:33]  System: World save done in 0.1 seconds.
+[09/13/2022 06:48]  System: The world will save in 15 seconds.
+[09/13/2022 06:48]  System: The world is saving, please wait.
+[09/13/2022 06:48]  System: World save done in 0.1 seconds.
+[09/13/2022 07:03]  System: The world will save in 15 seconds.
+[09/13/2022 07:03]  System: The world is saving, please wait.
+[09/13/2022 07:03]  System: World save done in 0.1 seconds.
+[09/13/2022 07:18]  System: The world will save in 15 seconds.
+[09/13/2022 07:18]  System: The world is saving, please wait.
+[09/13/2022 07:18]  System: World save done in 0.1 seconds.
+[09/13/2022 07:33]  System: The world will save in 15 seconds.
+[09/13/2022 07:33]  System: The world is saving, please wait.
+[09/13/2022 07:33]  System: World save done in 0.1 seconds.
+[09/13/2022 07:48]  System: The world will save in 15 seconds.
+[09/13/2022 07:48]  System: The world is saving, please wait.
+[09/13/2022 07:48]  System: World save done in 0.1 seconds.
+[09/13/2022 08:03]  System: The world will save in 15 seconds.
+[09/13/2022 08:03]  System: The world is saving, please wait.
+[09/13/2022 08:03]  System: World save done in 0.1 seconds.
+[09/13/2022 08:18]  System: The world will save in 15 seconds.
+[09/13/2022 08:18]  System: The world is saving, please wait.
+[09/13/2022 08:18]  System: World save done in 0.1 seconds.
+[09/13/2022 08:33]  System: The world will save in 15 seconds.
+[09/13/2022 08:33]  System: The world is saving, please wait.
+[09/13/2022 08:33]  System: World save done in 0.1 seconds.
+[09/13/2022 08:48]  System: The world will save in 15 seconds.
+[09/13/2022 08:48]  System: The world is saving, please wait.
+[09/13/2022 08:48]  System: World save done in 0.1 seconds.
+[09/13/2022 09:03]  System: The world will save in 15 seconds.
+[09/13/2022 09:03]  System: The world is saving, please wait.
+[09/13/2022 09:03]  System: World save done in 0.1 seconds.
+[09/13/2022 09:18]  System: The world will save in 15 seconds.
+[09/13/2022 09:19]  System: The world is saving, please wait.
+[09/13/2022 09:19]  System: World save done in 0.1 seconds.
+[09/13/2022 09:33]  System: The world will save in 15 seconds.
+[09/13/2022 09:34]  System: The world is saving, please wait.
+[09/13/2022 09:34]  System: World save done in 0.1 seconds.
+[09/13/2022 09:48]  System: The world will save in 15 seconds.
+[09/13/2022 09:49]  System: The world is saving, please wait.
+[09/13/2022 09:49]  System: World save done in 0.1 seconds.
+[09/13/2022 10:03]  System: The world will save in 15 seconds.
+[09/13/2022 10:04]  System: The world is saving, please wait.
+[09/13/2022 10:04]  System: World save done in 0.1 seconds.
+[09/13/2022 10:18]  System: The world will save in 15 seconds.
+[09/13/2022 10:19]  System: The world is saving, please wait.
+[09/13/2022 10:19]  System: World save done in 0.1 seconds.
+[09/13/2022 10:33]  System: The world will save in 15 seconds.
+[09/13/2022 10:34]  System: The world is saving, please wait.
+[09/13/2022 10:34]  System: World save done in 0.1 seconds.
+[09/13/2022 10:48]  System: The world will save in 15 seconds.
+[09/13/2022 10:49]  System: The world is saving, please wait.
+[09/13/2022 10:49]  System: World save done in 0.1 seconds.
+[09/13/2022 11:04]  System: The world will save in 15 seconds.
+[09/13/2022 11:04]  System: The world is saving, please wait.
+[09/13/2022 11:04]  System: World save done in 0.1 seconds.
+[09/13/2022 11:19]  System: The world will save in 15 seconds.
+[09/13/2022 11:19]  System: The world is saving, please wait.
+[09/13/2022 11:19]  System: World save done in 0.1 seconds.
+[09/13/2022 11:34]  System: The world will save in 15 seconds.
+[09/13/2022 11:34]  System: The world is saving, please wait.
+[09/13/2022 11:34]  System: World save done in 0.1 seconds.
+[09/13/2022 11:49]  System: The world will save in 15 seconds.
+[09/13/2022 11:49]  System: The world is saving, please wait.
+[09/13/2022 11:49]  System: World save done in 0.1 seconds.
+[09/13/2022 12:04]  System: The world will save in 15 seconds.
+[09/13/2022 12:04]  System: The world is saving, please wait.
+[09/13/2022 12:04]  System: World save done in 0.1 seconds.
+[09/13/2022 12:19]  System: The world will save in 15 seconds.
+[09/13/2022 12:19]  System: The world is saving, please wait.
+[09/13/2022 12:19]  System: World save done in 0.1 seconds.
+[09/13/2022 12:34]  System: The world will save in 15 seconds.
+[09/13/2022 12:34]  System: The world is saving, please wait.
+[09/13/2022 12:34]  System: World save done in 0.1 seconds.
+[09/13/2022 12:49]  System: The world will save in 15 seconds.
+[09/13/2022 12:49]  System: The world is saving, please wait.
+[09/13/2022 12:49]  System: World save done in 0.1 seconds.
+[09/13/2022 13:04]  System: The world will save in 15 seconds.
+[09/13/2022 13:04]  System: The world is saving, please wait.
+[09/13/2022 13:04]  System: World save done in 0.1 seconds.
+[09/13/2022 13:19]  System: The world will save in 15 seconds.
+[09/13/2022 13:19]  System: The world is saving, please wait.
+[09/13/2022 13:19]  System: World save done in 0.1 seconds.
+[09/13/2022 13:34]  System: The world will save in 15 seconds.
+[09/13/2022 13:34]  System: The world is saving, please wait.
+[09/13/2022 13:34]  System: World save done in 0.1 seconds.
+[09/13/2022 13:49]  System: The world will save in 15 seconds.
+[09/13/2022 13:49]  System: The world is saving, please wait.
+[09/13/2022 13:49]  System: World save done in 0.1 seconds.
+[09/13/2022 14:04]  System: The world will save in 15 seconds.
+[09/13/2022 14:04]  System: The world is saving, please wait.
+[09/13/2022 14:04]  System: World save done in 0.1 seconds.
+[09/13/2022 14:19]  System: The world will save in 15 seconds.
+[09/13/2022 14:19]  System: The world is saving, please wait.
+[09/13/2022 14:19]  System: World save done in 0.1 seconds.
+[09/13/2022 14:34]  System: The world will save in 15 seconds.
+[09/13/2022 14:34]  System: The world is saving, please wait.
+[09/13/2022 14:34]  System: World save done in 0.1 seconds.
+[09/13/2022 14:49]  System: The world will save in 15 seconds.
+[09/13/2022 14:49]  System: The world is saving, please wait.
+[09/13/2022 14:49]  System: World save done in 0.1 seconds.
+[09/13/2022 15:04]  System: The world will save in 15 seconds.
+[09/13/2022 15:04]  System: The world is saving, please wait.
+[09/13/2022 15:04]  System: World save done in 0.1 seconds.
+[09/13/2022 15:19]  System: The world will save in 15 seconds.
+[09/13/2022 15:19]  System: The world is saving, please wait.
+[09/13/2022 15:19]  System: World save done in 0.1 seconds.
+[09/13/2022 15:34]  System: The world will save in 15 seconds.
+[09/13/2022 15:35]  System: The world is saving, please wait.
+[09/13/2022 15:35]  System: World save done in 0.1 seconds.
+[09/13/2022 15:49]  System: The world will save in 15 seconds.
+[09/13/2022 15:50]  System: The world is saving, please wait.
+[09/13/2022 15:50]  System: World save done in 0.1 seconds.
+[09/13/2022 16:04]  System: The world will save in 15 seconds.
+[09/13/2022 16:05]  System: The world is saving, please wait.
+[09/13/2022 16:05]  System: World save done in 0.1 seconds.
+[09/13/2022 16:19]  System: The world will save in 15 seconds.
+[09/13/2022 16:20]  System: The world is saving, please wait.
+[09/13/2022 16:20]  System: World save done in 0.1 seconds.
+[09/13/2022 16:34]  System: The world will save in 15 seconds.
+[09/13/2022 16:35]  System: The world is saving, please wait.
+[09/13/2022 16:35]  System: World save done in 0.1 seconds.
+[09/13/2022 16:49]  System: The world will save in 15 seconds.
+[09/13/2022 16:50]  System: The world is saving, please wait.
+[09/13/2022 16:50]  System: World save done in 0.1 seconds.
+[09/13/2022 17:04]  System: The world will save in 15 seconds.
+[09/13/2022 17:05]  System: The world is saving, please wait.
+[09/13/2022 17:05]  System: World save done in 0.1 seconds.
+[09/13/2022 17:20]  System: The world will save in 15 seconds.
+[09/13/2022 17:20]  System: The world is saving, please wait.
+[09/13/2022 17:20]  System: World save done in 0.1 seconds.
+[09/13/2022 17:35]  System: The world will save in 15 seconds.
+[09/13/2022 17:35]  System: The world is saving, please wait.
+[09/13/2022 17:35]  System: World save done in 0.1 seconds.
+[09/13/2022 17:50]  System: The world will save in 15 seconds.
+[09/13/2022 17:50]  System: The world is saving, please wait.
+[09/13/2022 17:50]  System: World save done in 0.1 seconds.
+[09/13/2022 18:05]  System: The world will save in 15 seconds.
+[09/13/2022 18:05]  System: The world is saving, please wait.
+[09/13/2022 18:05]  System: World save done in 0.1 seconds.
+[09/13/2022 18:20]  System: The world will save in 15 seconds.
+[09/13/2022 18:20]  System: The world is saving, please wait.
+[09/13/2022 18:20]  System: World save done in 0.1 seconds.
+[09/13/2022 18:35]  System: The world will save in 15 seconds.
+[09/13/2022 18:35]  System: The world is saving, please wait.
+[09/13/2022 18:35]  System: World save done in 0.1 seconds.
+[09/13/2022 18:50]  System: The world will save in 15 seconds.
+[09/13/2022 18:50]  System: The world is saving, please wait.
+[09/13/2022 18:50]  System: World save done in 0.1 seconds.
+[09/13/2022 19:05]  System: The world will save in 15 seconds.
+[09/13/2022 19:05]  System: The world is saving, please wait.
+[09/13/2022 19:05]  System: World save done in 0.1 seconds.
+[09/13/2022 19:20]  System: The world will save in 15 seconds.
+[09/13/2022 19:20]  System: The world is saving, please wait.
+[09/13/2022 19:20]  System: World save done in 0.1 seconds.
+[09/13/2022 19:35]  System: The world will save in 15 seconds.
+[09/13/2022 19:35]  System: The world is saving, please wait.
+[09/13/2022 19:35]  System: World save done in 0.1 seconds.
+[09/13/2022 19:50]  System: The world will save in 15 seconds.
+[09/13/2022 19:50]  System: The world is saving, please wait.
+[09/13/2022 19:50]  System: World save done in 0.1 seconds.
+[09/13/2022 20:05]  System: The world will save in 15 seconds.
+[09/13/2022 20:05]  System: The world is saving, please wait.
+[09/13/2022 20:05]  System: World save done in 0.1 seconds.
+[09/13/2022 20:20]  System: The world will save in 15 seconds.
+[09/13/2022 20:20]  System: The world is saving, please wait.
+[09/13/2022 20:20]  System: World save done in 0.1 seconds.
+[09/13/2022 20:35]  System: The world will save in 15 seconds.
+[09/13/2022 20:35]  System: The world is saving, please wait.
+[09/13/2022 20:35]  System: World save done in 0.1 seconds.
+[09/13/2022 20:50]  System: The world will save in 15 seconds.
+[09/13/2022 20:50]  System: The world is saving, please wait.
+[09/13/2022 20:50]  System: World save done in 0.1 seconds.
+[09/13/2022 21:05]  System: The world will save in 15 seconds.
+[09/13/2022 21:05]  System: The world is saving, please wait.
+[09/13/2022 21:05]  System: World save done in 0.1 seconds.
+[09/13/2022 21:20]  System: The world will save in 15 seconds.
+[09/13/2022 21:20]  System: The world is saving, please wait.
+[09/13/2022 21:20]  System: World save done in 0.1 seconds.
+[09/13/2022 21:35]  System: The world will save in 15 seconds.
+[09/13/2022 21:35]  System: The world is saving, please wait.
+[09/13/2022 21:35]  System: World save done in 0.1 seconds.
+[09/13/2022 21:50]  System: The world will save in 15 seconds.
+[09/13/2022 21:51]  System: The world is saving, please wait.
+[09/13/2022 21:51]  System: World save done in 0.1 seconds.
+[09/13/2022 22:05]  System: The world will save in 15 seconds.
+[09/13/2022 22:06]  System: The world is saving, please wait.
+[09/13/2022 22:06]  System: World save done in 0.1 seconds.
+[09/13/2022 22:20]  System: The world will save in 15 seconds.
+[09/13/2022 22:21]  System: The world is saving, please wait.
+[09/13/2022 22:21]  System: World save done in 0.1 seconds.
+[09/13/2022 22:35]  System: The world will save in 15 seconds.
+[09/13/2022 22:36]  System: The world is saving, please wait.
+[09/13/2022 22:36]  System: World save done in 0.1 seconds.
+[09/13/2022 22:50]  System: The world will save in 15 seconds.
+[09/13/2022 22:51]  System: The world is saving, please wait.
+[09/13/2022 22:51]  System: World save done in 0.1 seconds.
+[09/13/2022 22:55]  Margaret:  Margaret the scribe
+[09/13/2022 22:55]  Platinum Drake:  Platinum Drake 
+[09/13/2022 22:55]  Platinum Drake:  Platinum Drake 
+[09/13/2022 22:55]  Crimson Drake:  Crimson Drake 
+[09/13/2022 22:55]  asdf: Forul Solum
+[09/13/2022 22:55]  Razor: [+Enemy of One (227s)]
+[09/13/2022 22:55]  Crimson Drake:  Crimson Drake 
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  Razor: [-Enemy of One]
+[09/13/2022 22:55]  Razor: [+Enemy of One (223s)]
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  System: You have not yet recovered from casting a spell.
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  System: You have gained a lot of fame.
+[09/13/2022 22:55]  Platinum Drake: a platinum drake corpse
+[09/13/2022 22:55]  System: You have not yet recovered from casting a spell.
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  asdf: Augus Luminos
+[09/13/2022 22:55]  System: You have gained a lot of fame.
+[09/13/2022 22:55]  Platinum Drake: a platinum drake corpse
+[09/13/2022 22:56]  Platinum Drake:  Platinum Drake 
+[09/13/2022 22:56]  asdf: Augus Luminos
+[09/13/2022 22:56]  System: You have gained a lot of fame.
+[09/13/2022 22:56]  Platinum Drake: a platinum drake corpse
+[09/13/2022 22:56]  Crimson Drake:  Crimson Drake 
+[09/13/2022 22:56]  System: You must wait to perform another action.
+[09/13/2022 22:56]  Crimson Drake:  Crimson Drake 
+[09/13/2022 22:57]  a lich lord:  a lich lord 
+[09/13/2022 22:58]  System: Your dexterity has changed by -8.  It is now 125
+[09/13/2022 22:58]  asdf: the remains of asdf
+[09/13/2022 22:58]  a lich lord: Anh Mi Sah Ko
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  asdf: I am dead and cannot do that.
+[09/13/2022 22:58]  System: The magic of your armor combines to assist you!
+[09/13/2022 22:58]  System: Your dexterity has changed by 8.  It is now 133
+[09/13/2022 22:58]  System: You quickly gather all of your belongings.
+[09/13/2022 22:59]  Razor: [-Enemy of One]
+[09/13/2022 23:00]  Razor: Attack: a lich lord
+[09/13/2022 23:00]  System: You must wait to perform another action.
+[09/13/2022 23:00]  asdf: Forul Solum
+[09/13/2022 23:00]  System: You are already casting a spell.
+[09/13/2022 23:00]  Razor: [+Enemy of One (227s)]
+[09/13/2022 23:00]  System: You have not yet recovered from casting a spell.
+[09/13/2022 23:00]  Razor: [-Enemy of One]
+[09/13/2022 23:00]  Razor: [+Enemy of One (226s)]
+[09/13/2022 23:00]  asdf: Consecrus Arma
+[09/13/2022 23:00]  Razor: [+Consecrate (10s)]
+[09/13/2022 23:00]  System: Your strength has changed by -9.  It is now 116
+[09/13/2022 23:00]  System: Your dexterity has changed by -9.  It is now 124
+[09/13/2022 23:00]  System: Your intelligence has changed by -9.  It is now 116
+[09/13/2022 23:00]  Razor: [+Curse (109s)]
+[09/13/2022 23:00]  asdf: Expor Flamus
+[09/13/2022 23:00]  Razor: Target: asdf
+[09/13/2022 23:00]  System: That creature is not poisoned!
+[09/13/2022 23:00]  Razor: [+Pain Spike (9s)]
+[09/13/2022 23:00]  System: You have gained a lot of fame.
+[09/13/2022 23:00]  a lich lord: a liche's corpse
+[09/13/2022 23:00]  Razor: [-Consecrate]
+[09/13/2022 23:00]  Razor: [-Pain Spike]
+[09/13/2022 23:00]  System: That is out of sight.
+[09/13/2022 23:00]  System: That is out of sight.
+[09/13/2022 23:00]  System: That is out of sight.
+[09/13/2022 23:01]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:01]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:01]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:01]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:01]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:02]  System: Your strength has changed by 9.  It is now 125
+[09/13/2022 23:02]  System: Your dexterity has changed by 9.  It is now 133
+[09/13/2022 23:02]  System: Your intelligence has changed by 9.  It is now 125
+[09/13/2022 23:02]  Razor: [-Curse]
+[09/13/2022 23:02]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:04]  Razor: [-Enemy of One]
+[09/13/2022 23:05]  System: The world will save in 15 seconds.
+[09/13/2022 23:06]  System: The world is saving, please wait.
+[09/13/2022 23:06]  System: World save done in 0.1 seconds.
+[09/13/2022 23:06]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:06]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:06]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:06]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:06]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:21]  System: The world will save in 15 seconds.
+[09/13/2022 23:21]  System: The world is saving, please wait.
+[09/13/2022 23:21]  System: World save done in 0.1 seconds.
+[09/13/2022 23:22]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:23]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:25]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:28]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:29]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:29]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:30]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:30]  Platinum Drake:  Platinum Drake 
+[09/13/2022 23:36]  System: The world will save in 15 seconds.
+[09/13/2022 23:36]  System: The world is saving, please wait.
+[09/13/2022 23:36]  System: World save done in 0.1 seconds.
+[09/13/2022 23:51]  System: The world will save in 15 seconds.
+[09/13/2022 23:51]  System: The world is saving, please wait.
+[09/13/2022 23:51]  System: World save done in 0.1 seconds.
+[09/14/2022 00:06]  System: The world will save in 15 seconds.
+[09/14/2022 00:06]  System: The world is saving, please wait.
+[09/14/2022 00:06]  System: World save done in 0.1 seconds.
+[09/14/2022 00:21]  System: The world will save in 15 seconds.
+[09/14/2022 00:21]  System: The world is saving, please wait.
+[09/14/2022 00:21]  System: World save done in 0.1 seconds.
+[09/14/2022 00:36]  System: The world will save in 15 seconds.
+[09/14/2022 00:36]  System: The world is saving, please wait.
+[09/14/2022 00:36]  System: World save done in 0.1 seconds.
+[09/14/2022 00:51]  System: The world will save in 15 seconds.
+[09/14/2022 00:51]  System: The world is saving, please wait.
+[09/14/2022 00:51]  System: World save done in 0.1 seconds.
+[09/14/2022 01:06]  System: The world will save in 15 seconds.
+[09/14/2022 01:06]  System: The world is saving, please wait.
+[09/14/2022 01:06]  System: World save done in 0.1 seconds.
+[09/14/2022 01:21]  System: The world will save in 15 seconds.
+[09/14/2022 01:21]  System: The world is saving, please wait.
+[09/14/2022 01:21]  System: World save done in 0.1 seconds.
+[09/14/2022 01:36]  System: The world will save in 15 seconds.
+[09/14/2022 01:36]  System: The world is saving, please wait.
+[09/14/2022 01:36]  System: World save done in 0.1 seconds.
+[09/14/2022 01:51]  System: The world will save in 15 seconds.
+[09/14/2022 01:51]  System: The world is saving, please wait.
+[09/14/2022 01:51]  System: World save done in 0.1 seconds.
+[09/14/2022 02:06]  System: The world will save in 15 seconds.
+[09/14/2022 02:06]  System: The world is saving, please wait.
+[09/14/2022 02:06]  System: World save done in 0.1 seconds.
+[09/14/2022 02:21]  System: The world will save in 15 seconds.
+[09/14/2022 02:21]  System: The world is saving, please wait.
+[09/14/2022 02:21]  System: World save done in 0.1 seconds.
+[09/14/2022 02:36]  System: The world will save in 15 seconds.
+[09/14/2022 02:36]  System: The world is saving, please wait.
+[09/14/2022 02:36]  System: World save done in 0.1 seconds.
+[09/14/2022 02:51]  System: The world will save in 15 seconds.
+[09/14/2022 02:51]  System: The world is saving, please wait.
+[09/14/2022 02:51]  System: World save done in 0.1 seconds.
+[09/14/2022 03:06]  System: The world will save in 15 seconds.
+[09/14/2022 03:06]  System: The world is saving, please wait.
+[09/14/2022 03:06]  System: World save done in 0.1 seconds.
+[09/14/2022 03:21]  System: The world will save in 15 seconds.
+[09/14/2022 03:21]  System: The world is saving, please wait.
+[09/14/2022 03:21]  System: World save done in 0.1 seconds.
+[09/14/2022 03:36]  System: The world will save in 15 seconds.
+[09/14/2022 03:36]  System: The world is saving, please wait.
+[09/14/2022 03:36]  System: World save done in 0.1 seconds.
+[09/14/2022 03:51]  System: The world will save in 15 seconds.
+[09/14/2022 03:51]  System: The world is saving, please wait.
+[09/14/2022 03:51]  System: World save done in 0.1 seconds.
+[09/14/2022 04:06]  System: The world will save in 15 seconds.
+[09/14/2022 04:06]  System: The world is saving, please wait.
+[09/14/2022 04:06]  System: World save done in 0.1 seconds.
+[09/14/2022 04:21]  System: The world will save in 15 seconds.
+[09/14/2022 04:21]  System: The world is saving, please wait.
+[09/14/2022 04:21]  System: World save done in 0.1 seconds.
+[09/14/2022 04:36]  System: The world will save in 15 seconds.
+[09/14/2022 04:36]  System: The world is saving, please wait.
+[09/14/2022 04:36]  System: World save done in 0.1 seconds.
+[09/14/2022 04:51]  System: The world will save in 15 seconds.
+[09/14/2022 04:51]  System: The world is saving, please wait.
+[09/14/2022 04:52]  System: World save done in 0.1 seconds.
+[09/14/2022 05:06]  System: The world will save in 15 seconds.
+[09/14/2022 05:07]  System: The world is saving, please wait.
+[09/14/2022 05:07]  System: World save done in 0.1 seconds.
+[09/14/2022 05:21]  System: The world will save in 15 seconds.
+[09/14/2022 05:22]  System: The world is saving, please wait.
+[09/14/2022 05:22]  System: World save done in 0.1 seconds.
+[09/14/2022 05:36]  System: The world will save in 15 seconds.
+[09/14/2022 05:37]  System: The world is saving, please wait.
+[09/14/2022 05:37]  System: World save done in 0.1 seconds.
+[09/14/2022 05:51]  System: The world will save in 15 seconds.
+[09/14/2022 05:52]  System: The world is saving, please wait.
+[09/14/2022 05:52]  System: World save done in 0.1 seconds.
+[09/14/2022 06:06]  System: The world will save in 15 seconds.
+[09/14/2022 06:07]  System: The world is saving, please wait.
+[09/14/2022 06:07]  System: World save done in 0.1 seconds.
+[09/14/2022 06:21]  System: The world will save in 15 seconds.
+[09/14/2022 06:22]  System: The world is saving, please wait.
+[09/14/2022 06:22]  System: World save done in 0.1 seconds.
+[09/14/2022 06:36]  System: The world will save in 15 seconds.
+[09/14/2022 06:37]  System: The world is saving, please wait.
+[09/14/2022 06:37]  System: World save done in 0.1 seconds.
+[09/14/2022 06:52]  System: The world will save in 15 seconds.
+[09/14/2022 06:52]  System: The world is saving, please wait.
+[09/14/2022 06:52]  System: World save done in 0.1 seconds.
+[09/14/2022 07:07]  System: The world will save in 15 seconds.
+[09/14/2022 07:07]  System: The world is saving, please wait.
+[09/14/2022 07:07]  System: World save done in 0.1 seconds.
+[09/14/2022 07:22]  System: The world will save in 15 seconds.
+[09/14/2022 07:22]  System: The world is saving, please wait.
+[09/14/2022 07:22]  System: World save done in 0.1 seconds.
+[09/14/2022 07:37]  System: The world will save in 15 seconds.
+[09/14/2022 07:37]  System: The world is saving, please wait.
+[09/14/2022 07:37]  System: World save done in 0.1 seconds.
+[09/14/2022 07:52]  System: The world will save in 15 seconds.
+[09/14/2022 07:52]  System: The world is saving, please wait.
+[09/14/2022 07:52]  System: World save done in 0.1 seconds.
+[09/14/2022 08:07]  System: The world will save in 15 seconds.
+[09/14/2022 08:07]  System: The world is saving, please wait.
+[09/14/2022 08:07]  System: World save done in 0.1 seconds.
+[09/14/2022 08:22]  System: The world will save in 15 seconds.
+[09/14/2022 08:22]  System: The world is saving, please wait.
+[09/14/2022 08:22]  System: World save done in 0.1 seconds.
+[09/14/2022 08:37]  System: The world will save in 15 seconds.
+[09/14/2022 08:37]  System: The world is saving, please wait.
+[09/14/2022 08:37]  System: World save done in 0.1 seconds.
+[09/14/2022 08:52]  System: The world will save in 15 seconds.
+[09/14/2022 08:52]  System: The world is saving, please wait.
+[09/14/2022 08:52]  System: World save done in 0.1 seconds.
+[09/14/2022 09:07]  System: The world will save in 15 seconds.
+[09/14/2022 09:07]  System: The world is saving, please wait.
+[09/14/2022 09:07]  System: World save done in 0.1 seconds.
+[09/14/2022 09:22]  System: The world will save in 15 seconds.
+[09/14/2022 09:22]  System: The world is saving, please wait.
+[09/14/2022 09:22]  System: World save done in 0.1 seconds.
+[09/14/2022 09:37]  System: The world will save in 15 seconds.
+[09/14/2022 09:37]  System: The world is saving, please wait.
+[09/14/2022 09:37]  System: World save done in 0.1 seconds.
+[09/14/2022 09:52]  System: The world will save in 15 seconds.
+[09/14/2022 09:52]  System: The world is saving, please wait.
+[09/14/2022 09:52]  System: World save done in 0.1 seconds.
+[09/14/2022 10:07]  System: The world will save in 15 seconds.
+[09/14/2022 10:07]  System: The world is saving, please wait.
+[09/14/2022 10:07]  System: World save done in 0.1 seconds.
+[09/14/2022 10:22]  System: The world will save in 15 seconds.
+[09/14/2022 10:22]  System: The world is saving, please wait.
+[09/14/2022 10:22]  System: World save done in 0.1 seconds.
+[09/14/2022 10:37]  System: The world will save in 15 seconds.
+[09/14/2022 10:37]  System: The world is saving, please wait.
+[09/14/2022 10:37]  System: World save done in 0.1 seconds.
+[09/14/2022 10:52]  System: The world will save in 15 seconds.
+[09/14/2022 10:52]  System: The world is saving, please wait.
+[09/14/2022 10:52]  System: World save done in 0.1 seconds.
+[09/14/2022 11:07]  System: The world will save in 15 seconds.
+[09/14/2022 11:07]  System: The world is saving, please wait.
+[09/14/2022 11:07]  System: World save done in 0.1 seconds.
+[09/14/2022 11:22]  System: The world will save in 15 seconds.
+[09/14/2022 11:23]  System: The world is saving, please wait.
+[09/14/2022 11:23]  System: World save done in 0.1 seconds.
+[09/14/2022 11:37]  System: The world will save in 15 seconds.
+[09/14/2022 11:38]  System: The world is saving, please wait.
+[09/14/2022 11:38]  System: World save done in 0.1 seconds.
+[09/14/2022 11:52]  System: The world will save in 15 seconds.
+[09/14/2022 11:53]  System: The world is saving, please wait.
+[09/14/2022 11:53]  System: World save done in 0.1 seconds.
+[09/14/2022 12:07]  System: The world will save in 15 seconds.
+[09/14/2022 12:08]  System: The world is saving, please wait.
+[09/14/2022 12:08]  System: World save done in 0.1 seconds.
+[09/14/2022 12:22]  System: The world will save in 15 seconds.
+[09/14/2022 12:23]  System: The world is saving, please wait.
+[09/14/2022 12:23]  System: World save done in 0.1 seconds.
+[09/14/2022 12:37]  System: The world will save in 15 seconds.
+[09/14/2022 12:38]  System: The world is saving, please wait.
+[09/14/2022 12:38]  System: World save done in 0.1 seconds.
+[09/14/2022 12:53]  System: The world will save in 15 seconds.
+[09/14/2022 12:53]  System: The world is saving, please wait.
+[09/14/2022 12:53]  System: World save done in 0.1 seconds.
+[09/14/2022 13:08]  System: The world will save in 15 seconds.
+[09/14/2022 13:08]  System: The world is saving, please wait.
+[09/14/2022 13:08]  System: World save done in 0.1 seconds.
+[09/14/2022 13:23]  System: The world will save in 15 seconds.
+[09/14/2022 13:23]  System: The world is saving, please wait.
+[09/14/2022 13:23]  System: World save done in 0.1 seconds.
+[09/14/2022 13:38]  System: The world will save in 15 seconds.
+[09/14/2022 13:38]  System: The world is saving, please wait.
+[09/14/2022 13:38]  System: World save done in 0.1 seconds.
+[09/14/2022 13:53]  System: The world will save in 15 seconds.
+[09/14/2022 13:53]  System: The world is saving, please wait.
+[09/14/2022 13:53]  System: World save done in 0.1 seconds.
+[09/14/2022 14:08]  System: The world will save in 15 seconds.
+[09/14/2022 14:08]  System: The world is saving, please wait.
+[09/14/2022 14:08]  System: World save done in 0.1 seconds.
+[09/14/2022 14:23]  System: The world will save in 15 seconds.
+[09/14/2022 14:23]  System: The world is saving, please wait.
+[09/14/2022 14:23]  System: World save done in 0.1 seconds.
+[09/14/2022 14:38]  System: The world will save in 15 seconds.
+[09/14/2022 14:38]  System: The world is saving, please wait.
+[09/14/2022 14:38]  System: World save done in 0.1 seconds.
+[09/14/2022 14:53]  System: The world will save in 15 seconds.
+[09/14/2022 14:53]  System: The world is saving, please wait.
+[09/14/2022 14:53]  System: World save done in 0.1 seconds.
+[09/14/2022 15:08]  System: The world will save in 15 seconds.
+[09/14/2022 15:08]  System: The world is saving, please wait.
+[09/14/2022 15:08]  System: World save done in 0.1 seconds.
+[09/14/2022 15:23]  System: The world will save in 15 seconds.
+[09/14/2022 15:23]  System: The world is saving, please wait.
+[09/14/2022 15:23]  System: World save done in 0.1 seconds.
+[09/14/2022 15:38]  System: The world will save in 15 seconds.
+[09/14/2022 15:38]  System: The world is saving, please wait.
+[09/14/2022 15:38]  System: World save done in 0.1 seconds.
+[09/14/2022 15:53]  System: The world will save in 15 seconds.
+[09/14/2022 15:53]  System: The world is saving, please wait.
+[09/14/2022 15:53]  System: World save done in 0.1 seconds.
+[09/14/2022 16:08]  System: The world will save in 15 seconds.
+[09/14/2022 16:08]  System: The world is saving, please wait.
+[09/14/2022 16:08]  System: World save done in 0.1 seconds.
+[09/14/2022 16:23]  System: The world will save in 15 seconds.
+[09/14/2022 16:23]  System: The world is saving, please wait.
+[09/14/2022 16:23]  System: World save done in 0.1 seconds.
+[09/14/2022 16:38]  System: The world will save in 15 seconds.
+[09/14/2022 16:38]  System: The world is saving, please wait.
+[09/14/2022 16:38]  System: World save done in 0.1 seconds.
+[09/14/2022 16:53]  System: The world will save in 15 seconds.
+[09/14/2022 16:53]  System: The world is saving, please wait.
+[09/14/2022 16:53]  System: World save done in 0.1 seconds.
+[09/14/2022 17:08]  System: The world will save in 15 seconds.
+[09/14/2022 17:09]  System: The world is saving, please wait.
+[09/14/2022 17:09]  System: World save done in 0.1 seconds.
+[09/14/2022 17:23]  System: The world will save in 15 seconds.
+[09/14/2022 17:24]  System: The world is saving, please wait.
+[09/14/2022 17:24]  System: World save done in 0.1 seconds.
+[09/14/2022 17:38]  System: The world will save in 15 seconds.
+[09/14/2022 17:39]  System: The world is saving, please wait.
+[09/14/2022 17:39]  System: World save done in 0.1 seconds.
+[09/14/2022 17:53]  System: The world will save in 15 seconds.
+[09/14/2022 17:54]  System: The world is saving, please wait.
+[09/14/2022 17:54]  System: World save done in 0.1 seconds.
+[09/14/2022 18:08]  System: The world will save in 15 seconds.
+[09/14/2022 18:09]  System: The world is saving, please wait.
+[09/14/2022 18:09]  System: World save done in 0.1 seconds.
+[09/14/2022 18:24]  System: The world will save in 15 seconds.
+[09/14/2022 18:24]  System: The world is saving, please wait.
+[09/14/2022 18:24]  System: World save done in 0.1 seconds.
+[09/14/2022 18:39]  System: The world will save in 15 seconds.
+[09/14/2022 18:39]  System: The world is saving, please wait.
+[09/14/2022 18:39]  System: World save done in 0.1 seconds.
+[09/14/2022 18:54]  System: The world will save in 15 seconds.
+[09/14/2022 18:54]  System: The world is saving, please wait.
+[09/14/2022 18:54]  System: World save done in 0.1 seconds.
+[09/14/2022 19:09]  System: The world will save in 15 seconds.
+[09/14/2022 19:09]  System: The world is saving, please wait.
+[09/14/2022 19:09]  System: World save done in 0.1 seconds.
+[09/14/2022 19:24]  System: The world will save in 15 seconds.
+[09/14/2022 19:24]  System: The world is saving, please wait.
+[09/14/2022 19:24]  System: World save done in 0.1 seconds.
+[09/14/2022 19:39]  System: The world will save in 15 seconds.
+[09/14/2022 19:39]  System: The world is saving, please wait.
+[09/14/2022 19:39]  System: World save done in 0.1 seconds.
+[09/14/2022 19:54]  System: The world will save in 15 seconds.
+[09/14/2022 19:54]  System: The world is saving, please wait.
+[09/14/2022 19:54]  System: World save done in 0.1 seconds.
+[09/14/2022 20:09]  System: The world will save in 15 seconds.
+[09/14/2022 20:09]  System: The world is saving, please wait.
+[09/14/2022 20:09]  System: World save done in 0.1 seconds.
+[09/14/2022 20:24]  System: The world will save in 15 seconds.
+[09/14/2022 20:24]  System: The world is saving, please wait.
+[09/14/2022 20:24]  System: World save done in 0.1 seconds.
+[09/14/2022 20:39]  System: The world will save in 15 seconds.
+[09/14/2022 20:39]  System: The world is saving, please wait.
+[09/14/2022 20:39]  System: World save done in 0.1 seconds.
+[09/14/2022 20:54]  System: The world will save in 15 seconds.
+[09/14/2022 20:54]  System: The world is saving, please wait.
+[09/14/2022 20:54]  System: World save done in 0.1 seconds.
+[09/14/2022 21:09]  System: The world will save in 15 seconds.
+[09/14/2022 21:09]  System: The world is saving, please wait.
+[09/14/2022 21:09]  System: World save done in 0.1 seconds.
+[09/14/2022 21:24]  System: The world will save in 15 seconds.
+[09/14/2022 21:24]  System: The world is saving, please wait.
+[09/14/2022 21:24]  System: World save done in 0.1 seconds.
+[09/14/2022 21:39]  System: The world will save in 15 seconds.
+[09/14/2022 21:39]  System: The world is saving, please wait.
+[09/14/2022 21:39]  System: World save done in 0.1 seconds.
+[09/14/2022 21:54]  System: The world will save in 15 seconds.
+[09/14/2022 21:54]  System: The world is saving, please wait.
+[09/14/2022 21:54]  System: World save done in 0.1 seconds.
+[09/14/2022 22:09]  System: The world will save in 15 seconds.
+[09/14/2022 22:09]  System: The world is saving, please wait.
+[09/14/2022 22:09]  System: World save done in 0.1 seconds.
+[09/14/2022 22:24]  System: The world will save in 15 seconds.
+[09/14/2022 22:24]  System: The world is saving, please wait.
+[09/14/2022 22:24]  System: World save done in 0.1 seconds.
+[09/14/2022 22:39]  System: The world will save in 15 seconds.
+[09/14/2022 22:39]  System: The world is saving, please wait.
+[09/14/2022 22:39]  System: World save done in 0.1 seconds.
+[09/14/2022 22:54]  System: The world will save in 15 seconds.
+[09/14/2022 22:55]  System: The world is saving, please wait.
+[09/14/2022 22:55]  System: World save done in 0.1 seconds.
+[09/14/2022 23:09]  System: The world will save in 15 seconds.
+[09/14/2022 23:10]  System: The world is saving, please wait.
+[09/14/2022 23:10]  System: World save done in 0.1 seconds.
+[09/14/2022 23:24]  System: The world will save in 15 seconds.
+[09/14/2022 23:25]  System: The world is saving, please wait.
+[09/14/2022 23:25]  System: World save done in 0.1 seconds.
+[09/14/2022 23:39]  System: The world will save in 15 seconds.
+[09/14/2022 23:40]  System: The world is saving, please wait.
+[09/14/2022 23:40]  System: World save done in 0.1 seconds.
+[09/14/2022 23:54]  System: The world will save in 15 seconds.
+[09/14/2022 23:55]  System: The world is saving, please wait.
+[09/14/2022 23:55]  System: World save done in 0.1 seconds.
+[09/15/2022 00:09]  System: The world will save in 15 seconds.
+[09/15/2022 00:10]  System: The world is saving, please wait.
+[09/15/2022 00:10]  System: World save done in 0.1 seconds.
+[09/15/2022 00:24]  System: The world will save in 15 seconds.
+[09/15/2022 00:25]  System: The world is saving, please wait.
+[09/15/2022 00:25]  System: World save done in 0.1 seconds.
+[09/15/2022 00:40]  System: The world will save in 15 seconds.
+[09/15/2022 00:40]  System: The world is saving, please wait.
+[09/15/2022 00:40]  System: World save done in 0.1 seconds.
+[09/15/2022 00:55]  System: The world will save in 15 seconds.
+[09/15/2022 00:55]  System: The world is saving, please wait.
+[09/15/2022 00:55]  System: World save done in 0.1 seconds.
+[09/15/2022 01:10]  System: The world will save in 15 seconds.
+[09/15/2022 01:10]  System: The world is saving, please wait.
+[09/15/2022 01:10]  System: World save done in 0.1 seconds.
+[09/15/2022 01:25]  System: The world will save in 15 seconds.
+[09/15/2022 01:25]  System: The world is saving, please wait.
+[09/15/2022 01:25]  System: World save done in 0.1 seconds.
+[09/15/2022 01:40]  System: The world will save in 15 seconds.
+[09/15/2022 01:40]  System: The world is saving, please wait.
+[09/15/2022 01:40]  System: World save done in 0.1 seconds.
+[09/15/2022 01:55]  System: The world will save in 15 seconds.
+[09/15/2022 01:55]  System: The world is saving, please wait.
+[09/15/2022 01:55]  System: World save done in 0.1 seconds.
+[09/15/2022 02:10]  System: The world will save in 15 seconds.
+[09/15/2022 02:10]  System: The world is saving, please wait.
+[09/15/2022 02:10]  System: World save done in 0.1 seconds.
+[09/15/2022 02:25]  System: The world will save in 15 seconds.
+[09/15/2022 02:25]  System: The world is saving, please wait.
+[09/15/2022 02:25]  System: World save done in 0.1 seconds.
+[09/15/2022 02:40]  System: The world will save in 15 seconds.
+[09/15/2022 02:40]  System: The world is saving, please wait.
+[09/15/2022 02:40]  System: World save done in 0.1 seconds.
+[09/15/2022 02:55]  System: The world will save in 15 seconds.
+[09/15/2022 02:55]  System: The world is saving, please wait.
+[09/15/2022 02:55]  System: World save done in 0.1 seconds.
+[09/15/2022 03:10]  System: The world will save in 15 seconds.
+[09/15/2022 03:10]  System: The world is saving, please wait.
+[09/15/2022 03:10]  System: World save done in 0.1 seconds.
+[09/15/2022 03:25]  System: The world will save in 15 seconds.
+[09/15/2022 03:25]  System: The world is saving, please wait.
+[09/15/2022 03:25]  System: World save done in 0.1 seconds.
+[09/15/2022 03:40]  System: The world will save in 15 seconds.
+[09/15/2022 03:40]  System: The world is saving, please wait.
+[09/15/2022 03:40]  System: World save done in 0.1 seconds.
+[09/15/2022 03:55]  System: The world will save in 15 seconds.
+[09/15/2022 03:55]  System: The world is saving, please wait.
+[09/15/2022 03:55]  System: World save done in 0.1 seconds.
+[09/15/2022 04:10]  System: The world will save in 15 seconds.
+[09/15/2022 04:10]  System: The world is saving, please wait.
+[09/15/2022 04:10]  System: World save done in 0.1 seconds.
+[09/15/2022 04:25]  System: The world will save in 15 seconds.
+[09/15/2022 04:25]  System: The world is saving, please wait.
+[09/15/2022 04:25]  System: World save done in 0.1 seconds.
+[09/15/2022 04:40]  System: The world will save in 15 seconds.
+[09/15/2022 04:40]  System: The world is saving, please wait.
+[09/15/2022 04:40]  System: World save done in 0.1 seconds.
+[09/15/2022 04:55]  System: The world will save in 15 seconds.
+[09/15/2022 04:55]  System: The world is saving, please wait.
+[09/15/2022 04:55]  System: World save done in 0.1 seconds.
+[09/15/2022 05:10]  System: The world will save in 15 seconds.
+[09/15/2022 05:10]  System: The world is saving, please wait.
+[09/15/2022 05:10]  System: World save done in 0.1 seconds.
+[09/15/2022 05:25]  System: The world will save in 15 seconds.
+[09/15/2022 05:25]  System: The world is saving, please wait.
+[09/15/2022 05:25]  System: World save done in 0.1 seconds.
+[09/15/2022 05:40]  System: The world will save in 15 seconds.
+[09/15/2022 05:41]  System: The world is saving, please wait.
+[09/15/2022 05:41]  System: World save done in 0.1 seconds.
+[09/15/2022 05:55]  System: The world will save in 15 seconds.
+[09/15/2022 05:56]  System: The world is saving, please wait.
+[09/15/2022 05:56]  System: World save done in 0.1 seconds.
+[09/15/2022 06:10]  System: The world will save in 15 seconds.
+[09/15/2022 06:11]  System: The world is saving, please wait.
+[09/15/2022 06:11]  System: World save done in 0.1 seconds.
+[09/15/2022 06:25]  System: The world will save in 15 seconds.
+[09/15/2022 06:26]  System: The world is saving, please wait.
+[09/15/2022 06:26]  System: World save done in 0.1 seconds.
+[09/15/2022 06:40]  System: The world will save in 15 seconds.
+[09/15/2022 06:41]  System: The world is saving, please wait.
+[09/15/2022 06:41]  System: World save done in 0.1 seconds.
+[09/15/2022 06:55]  System: The world will save in 15 seconds.
+[09/15/2022 06:56]  System: The world is saving, please wait.
+[09/15/2022 06:56]  System: World save done in 0.1 seconds.
+[09/15/2022 07:10]  System: The world will save in 15 seconds.
+[09/15/2022 07:11]  System: The world is saving, please wait.
+[09/15/2022 07:11]  System: World save done in 0.1 seconds.
+[09/15/2022 07:26]  System: The world will save in 15 seconds.
+[09/15/2022 07:26]  System: The world is saving, please wait.
+[09/15/2022 07:26]  System: World save done in 0.1 seconds.
+[09/15/2022 07:41]  System: The world will save in 15 seconds.
+[09/15/2022 07:41]  System: The world is saving, please wait.
+[09/15/2022 07:41]  System: World save done in 0.1 seconds.
+[09/15/2022 07:56]  System: The world will save in 15 seconds.
+[09/15/2022 07:56]  System: The world is saving, please wait.
+[09/15/2022 07:56]  System: World save done in 0.1 seconds.
+[09/15/2022 08:11]  System: The world will save in 15 seconds.
+[09/15/2022 08:11]  System: The world is saving, please wait.
+[09/15/2022 08:11]  System: World save done in 0.1 seconds.
+[09/15/2022 08:26]  System: The world will save in 15 seconds.
+[09/15/2022 08:26]  System: The world is saving, please wait.
+[09/15/2022 08:26]  System: World save done in 0.1 seconds.
+[09/15/2022 08:41]  System: The world will save in 15 seconds.
+[09/15/2022 08:41]  System: The world is saving, please wait.
+[09/15/2022 08:41]  System: World save done in 0.1 seconds.
+[09/15/2022 08:56]  System: The world will save in 15 seconds.
+[09/15/2022 08:56]  System: The world is saving, please wait.
+[09/15/2022 08:56]  System: World save done in 0.1 seconds.
+[09/15/2022 09:11]  System: The world will save in 15 seconds.
+[09/15/2022 09:11]  System: The world is saving, please wait.
+[09/15/2022 09:11]  System: World save done in 0.1 seconds.
+[09/15/2022 09:26]  System: The world will save in 15 seconds.
+[09/15/2022 09:26]  System: The world is saving, please wait.
+[09/15/2022 09:26]  System: World save done in 0.1 seconds.
+[09/15/2022 09:41]  System: The world will save in 15 seconds.
+[09/15/2022 09:41]  System: The world is saving, please wait.
+[09/15/2022 09:41]  System: World save done in 0.1 seconds.
+[09/15/2022 09:56]  System: The world will save in 15 seconds.
+[09/15/2022 09:56]  System: The world is saving, please wait.
+[09/15/2022 09:56]  System: World save done in 0.1 seconds.
+[09/15/2022 10:11]  System: The world will save in 15 seconds.
+[09/15/2022 10:11]  System: The world is saving, please wait.
+[09/15/2022 10:11]  System: World save done in 0.1 seconds.
+[09/15/2022 10:26]  System: The world will save in 15 seconds.
+[09/15/2022 10:26]  System: The world is saving, please wait.
+[09/15/2022 10:26]  System: World save done in 0.1 seconds.
+[09/15/2022 10:41]  System: The world will save in 15 seconds.
+[09/15/2022 10:41]  System: The world is saving, please wait.
+[09/15/2022 10:41]  System: World save done in 0.1 seconds.
+[09/15/2022 10:56]  System: The world will save in 15 seconds.
+[09/15/2022 10:56]  System: The world is saving, please wait.
+[09/15/2022 10:56]  System: World save done in 0.1 seconds.
+[09/15/2022 11:11]  System: The world will save in 15 seconds.
+[09/15/2022 11:11]  System: The world is saving, please wait.
+[09/15/2022 11:11]  System: World save done in 0.1 seconds.
+[09/15/2022 11:26]  System: The world will save in 15 seconds.
+[09/15/2022 11:26]  System: The world is saving, please wait.
+[09/15/2022 11:26]  System: World save done in 0.1 seconds.
+[09/15/2022 11:41]  System: The world will save in 15 seconds.
+[09/15/2022 11:42]  System: The world is saving, please wait.
+[09/15/2022 11:42]  System: World save done in 0.1 seconds.
+[09/15/2022 11:56]  System: The world will save in 15 seconds.
+[09/15/2022 11:57]  System: The world is saving, please wait.
+[09/15/2022 11:57]  System: World save done in 0.1 seconds.
+[09/15/2022 12:11]  System: The world will save in 15 seconds.
+[09/15/2022 12:12]  System: The world is saving, please wait.
+[09/15/2022 12:12]  System: World save done in 0.1 seconds.
+[09/15/2022 12:26]  System: The world will save in 15 seconds.
+[09/15/2022 12:27]  System: The world is saving, please wait.
+[09/15/2022 12:27]  System: World save done in 0.1 seconds.
+[09/15/2022 12:41]  System: The world will save in 15 seconds.
+[09/15/2022 12:42]  System: The world is saving, please wait.
+[09/15/2022 12:42]  System: World save done in 0.1 seconds.
+[09/15/2022 12:57]  System: The world will save in 15 seconds.
+[09/15/2022 12:57]  System: The world is saving, please wait.
+[09/15/2022 12:57]  System: World save done in 0.1 seconds.
+[09/15/2022 13:12]  System: The world will save in 15 seconds.
+[09/15/2022 13:12]  System: The world is saving, please wait.
+[09/15/2022 13:12]  System: World save done in 0.1 seconds.
+[09/15/2022 13:27]  System: The world will save in 15 seconds.
+[09/15/2022 13:27]  System: The world is saving, please wait.
+[09/15/2022 13:27]  System: World save done in 0.1 seconds.
+[09/15/2022 13:42]  System: The world will save in 15 seconds.
+[09/15/2022 13:42]  System: The world is saving, please wait.
+[09/15/2022 13:42]  System: World save done in 0.1 seconds.
+[09/15/2022 13:57]  System: The world will save in 15 seconds.
+[09/15/2022 13:57]  System: The world is saving, please wait.
+[09/15/2022 13:57]  System: World save done in 0.1 seconds.
+[09/15/2022 14:12]  System: The world will save in 15 seconds.
+[09/15/2022 14:12]  System: The world is saving, please wait.
+[09/15/2022 14:12]  System: World save done in 0.1 seconds.
+[09/15/2022 14:27]  System: The world will save in 15 seconds.
+[09/15/2022 14:27]  System: The world is saving, please wait.
+[09/15/2022 14:27]  System: World save done in 0.1 seconds.
+[09/15/2022 14:42]  System: The world will save in 15 seconds.
+[09/15/2022 14:42]  System: The world is saving, please wait.
+[09/15/2022 14:42]  System: World save done in 0.1 seconds.
+[09/15/2022 14:57]  System: The world will save in 15 seconds.
+[09/15/2022 14:57]  System: The world is saving, please wait.
+[09/15/2022 14:57]  System: World save done in 0.1 seconds.
+[09/15/2022 15:12]  System: The world will save in 15 seconds.
+[09/15/2022 15:12]  System: The world is saving, please wait.
+[09/15/2022 15:12]  System: World save done in 0.1 seconds.
+[09/15/2022 15:27]  System: The world will save in 15 seconds.
+[09/15/2022 15:27]  System: The world is saving, please wait.
+[09/15/2022 15:27]  System: World save done in 0.1 seconds.
+[09/15/2022 15:42]  System: The world will save in 15 seconds.
+[09/15/2022 15:42]  System: The world is saving, please wait.
+[09/15/2022 15:42]  System: World save done in 0.1 seconds.
+[09/15/2022 15:57]  System: The world will save in 15 seconds.
+[09/15/2022 15:57]  System: The world is saving, please wait.
+[09/15/2022 15:57]  System: World save done in 0.1 seconds.
+[09/15/2022 16:12]  System: The world will save in 15 seconds.
+[09/15/2022 16:12]  System: The world is saving, please wait.
+[09/15/2022 16:12]  System: World save done in 0.1 seconds.
+[09/15/2022 16:27]  System: The world will save in 15 seconds.
+[09/15/2022 16:27]  System: The world is saving, please wait.
+[09/15/2022 16:27]  System: World save done in 0.1 seconds.
+[09/15/2022 16:42]  System: The world will save in 15 seconds.
+[09/15/2022 16:42]  System: The world is saving, please wait.
+[09/15/2022 16:42]  System: World save done in 0.1 seconds.
+[09/15/2022 16:57]  System: The world will save in 15 seconds.
+[09/15/2022 16:58]  System: The world is saving, please wait.
+[09/15/2022 16:58]  System: World save done in 0.1 seconds.
+[09/15/2022 17:12]  System: The world will save in 15 seconds.
+[09/15/2022 17:13]  System: The world is saving, please wait.
+[09/15/2022 17:13]  System: World save done in 0.1 seconds.
+[09/15/2022 17:27]  System: The world will save in 15 seconds.
+[09/15/2022 17:28]  System: The world is saving, please wait.
+[09/15/2022 17:28]  System: World save done in 0.1 seconds.
+[09/15/2022 17:42]  System: The world will save in 15 seconds.
+[09/15/2022 17:43]  System: The world is saving, please wait.
+[09/15/2022 17:43]  System: World save done in 0.1 seconds.
+[09/15/2022 17:57]  System: The world will save in 15 seconds.
+[09/15/2022 17:58]  System: The world is saving, please wait.
+[09/15/2022 17:58]  System: World save done in 0.1 seconds.
+[09/15/2022 18:12]  System: The world will save in 15 seconds.
+[09/15/2022 18:13]  System: The world is saving, please wait.
+[09/15/2022 18:13]  System: World save done in 0.1 seconds.
+[09/15/2022 18:28]  System: The world will save in 15 seconds.
+[09/15/2022 18:28]  System: The world is saving, please wait.
+[09/15/2022 18:28]  System: World save done in 0.1 seconds.
+[09/15/2022 18:43]  System: The world will save in 15 seconds.
+[09/15/2022 18:43]  System: The world is saving, please wait.
+[09/15/2022 18:43]  System: World save done in 0.1 seconds.
+[09/15/2022 18:58]  System: The world will save in 15 seconds.
+[09/15/2022 18:58]  System: The world is saving, please wait.
+[09/15/2022 18:58]  System: World save done in 0.1 seconds.
+[09/15/2022 19:13]  System: The world will save in 15 seconds.
+[09/15/2022 19:13]  System: The world is saving, please wait.
+[09/15/2022 19:13]  System: World save done in 0.1 seconds.
+[09/15/2022 19:28]  System: The world will save in 15 seconds.
+[09/15/2022 19:28]  System: The world is saving, please wait.
+[09/15/2022 19:28]  System: World save done in 0.1 seconds.
+[09/15/2022 19:43]  System: The world will save in 15 seconds.
+[09/15/2022 19:43]  System: The world is saving, please wait.
+[09/15/2022 19:43]  System: World save done in 0.1 seconds.
+[09/15/2022 19:58]  System: The world will save in 15 seconds.
+[09/15/2022 19:58]  System: The world is saving, please wait.
+[09/15/2022 19:58]  System: World save done in 0.1 seconds.
+[09/15/2022 20:13]  System: The world will save in 15 seconds.
+[09/15/2022 20:13]  System: The world is saving, please wait.
+[09/15/2022 20:13]  System: World save done in 0.1 seconds.
+[09/15/2022 20:28]  System: The world will save in 15 seconds.
+[09/15/2022 20:28]  System: The world is saving, please wait.
+[09/15/2022 20:28]  System: World save done in 0.1 seconds.
+[09/15/2022 20:43]  System: The world will save in 15 seconds.
+[09/15/2022 20:43]  System: The world is saving, please wait.
+[09/15/2022 20:43]  System: World save done in 0.1 seconds.
+[09/15/2022 20:58]  System: The world will save in 15 seconds.
+[09/15/2022 20:58]  System: The world is saving, please wait.
+[09/15/2022 20:58]  System: World save done in 0.1 seconds.
+[09/15/2022 21:13]  System: The world will save in 15 seconds.
+[09/15/2022 21:13]  System: The world is saving, please wait.
+[09/15/2022 21:13]  System: World save done in 0.1 seconds.
+[09/15/2022 21:28]  System: The world will save in 15 seconds.
+[09/15/2022 21:28]  System: The world is saving, please wait.
+[09/15/2022 21:28]  System: World save done in 0.1 seconds.
+[09/15/2022 21:43]  System: The world will save in 15 seconds.
+[09/15/2022 21:43]  System: The world is saving, please wait.
+[09/15/2022 21:43]  System: World save done in 0.1 seconds.
+[09/15/2022 21:58]  System: The world will save in 15 seconds.
+[09/15/2022 21:58]  System: The world is saving, please wait.
+[09/15/2022 21:58]  System: World save done in 0.1 seconds.
+[09/15/2022 22:13]  System: The world will save in 15 seconds.
+[09/15/2022 22:13]  System: The world is saving, please wait.
+[09/15/2022 22:13]  System: World save done in 0.1 seconds.
+[09/15/2022 22:28]  System: The world will save in 15 seconds.
+[09/15/2022 22:28]  System: The world is saving, please wait.
+[09/15/2022 22:28]  System: World save done in 0.1 seconds.
+[09/15/2022 22:43]  System: The world will save in 15 seconds.
+[09/15/2022 22:43]  System: The world is saving, please wait.
+[09/15/2022 22:43]  System: World save done in 0.1 seconds.
+[09/15/2022 22:58]  System: The world will save in 15 seconds.
+[09/15/2022 22:58]  System: The world is saving, please wait.
+[09/15/2022 22:58]  System: World save done in 0.1 seconds.
+[09/15/2022 23:13]  System: The world will save in 15 seconds.
+[09/15/2022 23:13]  System: The world is saving, please wait.
+[09/15/2022 23:13]  System: World save done in 0.1 seconds.
+[09/15/2022 23:28]  System: The world will save in 15 seconds.
+[09/15/2022 23:29]  System: The world is saving, please wait.
+[09/15/2022 23:29]  System: World save done in 0.1 seconds.
+[09/15/2022 23:43]  System: The world will save in 15 seconds.
+[09/15/2022 23:44]  System: The world is saving, please wait.
+[09/15/2022 23:44]  System: World save done in 0.1 seconds.
+[09/15/2022 23:58]  System: The world will save in 15 seconds.
+[09/15/2022 23:59]  System: The world is saving, please wait.
+[09/15/2022 23:59]  System: World save done in 0.1 seconds.
+[09/16/2022 00:13]  System: The world will save in 15 seconds.
+[09/16/2022 00:14]  System: The world is saving, please wait.
+[09/16/2022 00:14]  System: World save done in 0.1 seconds.
+[09/16/2022 00:28]  System: The world will save in 15 seconds.
+[09/16/2022 00:29]  System: The world is saving, please wait.
+[09/16/2022 00:29]  System: World save done in 0.1 seconds.
+[09/16/2022 00:43]  System: The world will save in 15 seconds.
+[09/16/2022 00:44]  System: The world is saving, please wait.
+[09/16/2022 00:44]  System: World save done in 0.1 seconds.
+[09/16/2022 00:58]  System: The world will save in 15 seconds.
+[09/16/2022 00:59]  System: The world is saving, please wait.
+[09/16/2022 00:59]  System: World save done in 0.1 seconds.
+[09/16/2022 01:14]  System: The world will save in 15 seconds.
+[09/16/2022 01:14]  System: The world is saving, please wait.
+[09/16/2022 01:14]  System: World save done in 0.1 seconds.
+[09/16/2022 01:29]  System: The world will save in 15 seconds.
+[09/16/2022 01:29]  System: The world is saving, please wait.
+[09/16/2022 01:29]  System: World save done in 0.1 seconds.
+[09/16/2022 01:44]  System: The world will save in 15 seconds.
+[09/16/2022 01:44]  System: The world is saving, please wait.
+[09/16/2022 01:44]  System: World save done in 0.1 seconds.
+[09/16/2022 01:59]  System: The world will save in 15 seconds.
+[09/16/2022 01:59]  System: The world is saving, please wait.
+[09/16/2022 01:59]  System: World save done in 0.1 seconds.
+[09/16/2022 02:14]  System: The world will save in 15 seconds.
+[09/16/2022 02:14]  System: The world is saving, please wait.
+[09/16/2022 02:14]  System: World save done in 0.1 seconds.
+[09/16/2022 02:29]  System: The world will save in 15 seconds.
+[09/16/2022 02:29]  System: The world is saving, please wait.
+[09/16/2022 02:29]  System: World save done in 0.1 seconds.
+[09/16/2022 02:44]  System: The world will save in 15 seconds.
+[09/16/2022 02:44]  System: The world is saving, please wait.
+[09/16/2022 02:44]  System: World save done in 0.1 seconds.
+[09/16/2022 02:59]  System: The world will save in 15 seconds.
+[09/16/2022 02:59]  System: The world is saving, please wait.
+[09/16/2022 02:59]  System: World save done in 0.1 seconds.
+[09/16/2022 03:14]  System: The world will save in 15 seconds.
+[09/16/2022 03:14]  System: The world is saving, please wait.
+[09/16/2022 03:14]  System: World save done in 0.1 seconds.
+[09/16/2022 03:29]  System: The world will save in 15 seconds.
+[09/16/2022 03:29]  System: The world is saving, please wait.
+[09/16/2022 03:29]  System: World save done in 0.1 seconds.
+[09/16/2022 03:44]  System: The world will save in 15 seconds.
+[09/16/2022 03:44]  System: The world is saving, please wait.
+[09/16/2022 03:44]  System: World save done in 0.1 seconds.
+[09/16/2022 03:59]  System: The world will save in 15 seconds.
+[09/16/2022 03:59]  System: The world is saving, please wait.
+[09/16/2022 03:59]  System: World save done in 0.1 seconds.
+[09/16/2022 04:14]  System: The world will save in 15 seconds.
+[09/16/2022 04:14]  System: The world is saving, please wait.
+[09/16/2022 04:14]  System: World save done in 0.1 seconds.
+[09/16/2022 04:29]  System: The world will save in 15 seconds.
+[09/16/2022 04:29]  System: The world is saving, please wait.
+[09/16/2022 04:29]  System: World save done in 0.1 seconds.
+[09/16/2022 04:44]  System: The world will save in 15 seconds.
+[09/16/2022 04:44]  System: The world is saving, please wait.
+[09/16/2022 04:44]  System: World save done in 0.1 seconds.
+[09/16/2022 04:59]  System: The world will save in 15 seconds.
+[09/16/2022 04:59]  System: The world is saving, please wait.
+[09/16/2022 04:59]  System: World save done in 0.1 seconds.
+[09/16/2022 05:14]  System: The world will save in 15 seconds.
+[09/16/2022 05:14]  System: The world is saving, please wait.
+[09/16/2022 05:14]  System: World save done in 0.1 seconds.
+[09/16/2022 05:29]  System: The world will save in 15 seconds.
+[09/16/2022 05:29]  System: The world is saving, please wait.
+[09/16/2022 05:29]  System: World save done in 0.1 seconds.
+[09/16/2022 05:44]  System: The world will save in 15 seconds.
+[09/16/2022 05:44]  System: The world is saving, please wait.
+[09/16/2022 05:44]  System: World save done in 0.1 seconds.
+[09/16/2022 05:59]  System: The world will save in 15 seconds.
+[09/16/2022 05:59]  System: The world is saving, please wait.
+[09/16/2022 05:59]  System: World save done in 0.1 seconds.
+[09/16/2022 06:14]  System: The world will save in 15 seconds.
+[09/16/2022 06:15]  System: The world is saving, please wait.
+[09/16/2022 06:15]  System: World save done in 0.1 seconds.
+[09/16/2022 06:29]  System: The world will save in 15 seconds.
+[09/16/2022 06:30]  System: The world is saving, please wait.
+[09/16/2022 06:30]  System: World save done in 0.1 seconds.
+[09/16/2022 06:44]  System: The world will save in 15 seconds.
+[09/16/2022 06:45]  System: The world is saving, please wait.
+[09/16/2022 06:45]  System: World save done in 0.1 seconds.
+[09/16/2022 06:59]  System: The world will save in 15 seconds.
+[09/16/2022 07:00]  System: The world is saving, please wait.
+[09/16/2022 07:00]  System: World save done in 0.1 seconds.
+[09/16/2022 07:14]  System: The world will save in 15 seconds.
+[09/16/2022 07:15]  System: The world is saving, please wait.
+[09/16/2022 07:15]  System: World save done in 0.1 seconds.
+[09/16/2022 07:29]  System: The world will save in 15 seconds.
+[09/16/2022 07:30]  System: The world is saving, please wait.
+[09/16/2022 07:30]  System: World save done in 0.1 seconds.
+[09/16/2022 07:44]  System: The world will save in 15 seconds.
+[09/16/2022 07:45]  System: The world is saving, please wait.
+[09/16/2022 07:45]  System: World save done in 0.1 seconds.
+[09/16/2022 08:00]  System: The world will save in 15 seconds.
+[09/16/2022 08:00]  System: The world is saving, please wait.
+[09/16/2022 08:00]  System: World save done in 0.1 seconds.
+[09/16/2022 08:15]  System: The world will save in 15 seconds.
+[09/16/2022 08:15]  System: The world is saving, please wait.
+[09/16/2022 08:15]  System: World save done in 0.1 seconds.
+[09/16/2022 08:30]  System: The world will save in 15 seconds.
+[09/16/2022 08:30]  System: The world is saving, please wait.
+[09/16/2022 08:30]  System: World save done in 0.1 seconds.
+[09/16/2022 08:45]  System: The world will save in 15 seconds.
+[09/16/2022 08:45]  System: The world is saving, please wait.
+[09/16/2022 08:45]  System: World save done in 0.1 seconds.
+[09/16/2022 09:00]  System: The world will save in 15 seconds.
+[09/16/2022 09:00]  System: The world is saving, please wait.
+[09/16/2022 09:00]  System: World save done in 0.1 seconds.
+[09/16/2022 09:15]  System: The world will save in 15 seconds.
+[09/16/2022 09:15]  System: The world is saving, please wait.
+[09/16/2022 09:15]  System: World save done in 0.1 seconds.
+[09/16/2022 09:30]  System: The world will save in 15 seconds.
+[09/16/2022 09:30]  System: The world is saving, please wait.
+[09/16/2022 09:30]  System: World save done in 0.1 seconds.
+[09/16/2022 09:45]  System: The world will save in 15 seconds.
+[09/16/2022 09:45]  System: The world is saving, please wait.
+[09/16/2022 09:45]  System: World save done in 0.2 seconds.
+[09/16/2022 10:00]  System: The world will save in 15 seconds.
+[09/16/2022 10:00]  System: The world is saving, please wait.
+[09/16/2022 10:00]  System: World save done in 0.1 seconds.
+[09/16/2022 10:15]  System: The world will save in 15 seconds.
+[09/16/2022 10:15]  System: The world is saving, please wait.
+[09/16/2022 10:15]  System: World save done in 0.1 seconds.
+[09/16/2022 10:30]  System: The world will save in 15 seconds.
+[09/16/2022 10:30]  System: The world is saving, please wait.
+[09/16/2022 10:30]  System: World save done in 0.1 seconds.
+[09/16/2022 10:45]  System: The world will save in 15 seconds.
+[09/16/2022 10:45]  System: The world is saving, please wait.
+[09/16/2022 10:45]  System: World save done in 0.1 seconds.
+[09/16/2022 11:00]  System: The world will save in 15 seconds.
+[09/16/2022 11:00]  System: The world is saving, please wait.
+[09/16/2022 11:00]  System: World save done in 0.1 seconds.
+[09/16/2022 11:15]  System: The world will save in 15 seconds.
+[09/16/2022 11:15]  System: The world is saving, please wait.
+[09/16/2022 11:15]  System: World save done in 0.1 seconds.
+[09/16/2022 11:30]  System: The world will save in 15 seconds.
+[09/16/2022 11:30]  System: The world is saving, please wait.
+[09/16/2022 11:30]  System: World save done in 0.1 seconds.
+[09/16/2022 11:45]  System: The world will save in 15 seconds.
+[09/16/2022 11:45]  System: The world is saving, please wait.
+[09/16/2022 11:45]  System: World save done in 0.1 seconds.
+[09/16/2022 12:00]  System: The world will save in 15 seconds.
+[09/16/2022 12:00]  System: The world is saving, please wait.
+[09/16/2022 12:00]  System: World save done in 0.1 seconds.
+[09/16/2022 12:15]  System: The world will save in 15 seconds.
+[09/16/2022 12:15]  System: The world is saving, please wait.
+[09/16/2022 12:16]  System: World save done in 0.1 seconds.
+[09/16/2022 12:30]  System: The world will save in 15 seconds.
+[09/16/2022 12:31]  System: The world is saving, please wait.
+[09/16/2022 12:31]  System: World save done in 0.1 seconds.
+[09/16/2022 12:45]  System: The world will save in 15 seconds.
+[09/16/2022 12:46]  System: The world is saving, please wait.
+[09/16/2022 12:46]  System: World save done in 0.1 seconds.
+[09/16/2022 13:00]  System: The world will save in 15 seconds.
+[09/16/2022 13:01]  System: The world is saving, please wait.
+[09/16/2022 13:01]  System: World save done in 0.1 seconds.
+[09/16/2022 13:15]  System: The world will save in 15 seconds.
+[09/16/2022 13:16]  System: The world is saving, please wait.
+[09/16/2022 13:16]  System: World save done in 0.1 seconds.
+[09/16/2022 13:30]  System: The world will save in 15 seconds.
+[09/16/2022 13:31]  System: The world is saving, please wait.
+[09/16/2022 13:31]  System: World save done in 0.1 seconds.
+[09/16/2022 13:45]  System: The world will save in 15 seconds.
+[09/16/2022 13:46]  System: The world is saving, please wait.
+[09/16/2022 13:46]  System: World save done in 0.1 seconds.
+[09/16/2022 14:01]  System: The world will save in 15 seconds.
+[09/16/2022 14:01]  System: The world is saving, please wait.
+[09/16/2022 14:01]  System: World save done in 0.1 seconds.
+[09/16/2022 14:16]  System: The world will save in 15 seconds.
+[09/16/2022 14:16]  System: The world is saving, please wait.
+[09/16/2022 14:16]  System: World save done in 0.1 seconds.
+[09/16/2022 14:31]  System: The world will save in 15 seconds.
+[09/16/2022 14:31]  System: The world is saving, please wait.
+[09/16/2022 14:31]  System: World save done in 0.1 seconds.
+[09/16/2022 14:46]  System: The world will save in 15 seconds.
+[09/16/2022 14:46]  System: The world is saving, please wait.
+[09/16/2022 14:46]  System: World save done in 0.1 seconds.
+[09/16/2022 15:01]  System: The world will save in 15 seconds.
+[09/16/2022 15:01]  System: The world is saving, please wait.
+[09/16/2022 15:01]  System: World save done in 0.1 seconds.
+[09/16/2022 15:16]  System: The world will save in 15 seconds.
+[09/16/2022 15:16]  System: The world is saving, please wait.
+[09/16/2022 15:16]  System: World save done in 0.1 seconds.
+[09/16/2022 15:31]  System: The world will save in 15 seconds.
+[09/16/2022 15:31]  System: The world is saving, please wait.
+[09/16/2022 15:31]  System: World save done in 0.1 seconds.
+[09/16/2022 15:46]  System: The world will save in 15 seconds.
+[09/16/2022 15:46]  System: The world is saving, please wait.
+[09/16/2022 15:46]  System: World save done in 0.1 seconds.
+[09/16/2022 16:01]  System: The world will save in 15 seconds.
+[09/16/2022 16:01]  System: The world is saving, please wait.
+[09/16/2022 16:01]  System: World save done in 0.1 seconds.
+[09/16/2022 16:16]  System: The world will save in 15 seconds.
+[09/16/2022 16:16]  System: The world is saving, please wait.
+[09/16/2022 16:16]  System: World save done in 0.1 seconds.
+[09/16/2022 16:31]  System: The world will save in 15 seconds.
+[09/16/2022 16:31]  System: The world is saving, please wait.
+[09/16/2022 16:31]  System: World save done in 0.1 seconds.
+[09/16/2022 16:46]  System: The world will save in 15 seconds.
+[09/16/2022 16:46]  System: The world is saving, please wait.
+[09/16/2022 16:46]  System: World save done in 0.1 seconds.
+[09/16/2022 17:01]  System: The world will save in 15 seconds.
+[09/16/2022 17:01]  System: The world is saving, please wait.
+[09/16/2022 17:01]  System: World save done in 0.1 seconds.
+[09/16/2022 17:16]  System: The world will save in 15 seconds.
+[09/16/2022 17:16]  System: The world is saving, please wait.
+[09/16/2022 17:16]  System: World save done in 0.1 seconds.
+[09/16/2022 17:31]  System: The world will save in 15 seconds.
+[09/16/2022 17:31]  System: The world is saving, please wait.
+[09/16/2022 17:31]  System: World save done in 0.1 seconds.
+[09/16/2022 17:46]  System: The world will save in 15 seconds.
+[09/16/2022 17:46]  System: The world is saving, please wait.
+[09/16/2022 17:46]  System: World save done in 0.1 seconds.
+[09/16/2022 18:01]  System: The world will save in 15 seconds.
+[09/16/2022 18:01]  System: The world is saving, please wait.
+[09/16/2022 18:01]  System: World save done in 0.1 seconds.
+[09/16/2022 18:16]  System: The world will save in 15 seconds.
+[09/16/2022 18:16]  System: The world is saving, please wait.
+[09/16/2022 18:16]  System: World save done in 0.1 seconds.
+[09/16/2022 18:31]  System: The world will save in 15 seconds.
+[09/16/2022 18:32]  System: The world is saving, please wait.
+[09/16/2022 18:32]  System: World save done in 0.1 seconds.

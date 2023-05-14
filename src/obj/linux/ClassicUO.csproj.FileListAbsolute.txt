@@ -1,0 +1,15 @@
+/home/kimbring2/ClassicUO/bin/linux/ClassicUO.exe.config
+/home/kimbring2/ClassicUO/bin/linux/ClassicUO.exe
+/home/kimbring2/ClassicUO/bin/linux/ClassicUO.pdb
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.csproj.AssemblyReference.cache
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.Resources.ResErrorMessages.resources
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.Resources.ResGeneral.resources
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.Resources.ResGumps.resources
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.csproj.GenerateResource.cache
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.AssemblyInfoInputs.cache
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.AssemblyInfo.cs
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.csproj.CoreCompileInputs.cache
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.csproj.CopyComplete
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.exe
+/home/kimbring2/ClassicUO/src/obj/linux/ClassicUO.pdb

@@ -1,0 +1,107 @@
+[03/09/2023 12:42]  System: WorldMap loading...
+[03/09/2023 12:42]  System: Loading WorldMap markers..
+[03/09/2023 12:42]  System: WorldMap markers loaded (0)
+[03/09/2023 12:42]  System: Welcome, masterkim! There is currently 1 user online, with 160674 items and 42835 mobiles in the world.
+[03/09/2023 12:42]  System: The page queue is empty.
+[03/09/2023 12:42]  System: The moons of Trammel and Felucca align to preserve your virtue status and city loyalty.
+[03/09/2023 12:42]  masterkim:  masterkim 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  Razor: [+Hidden/Stealthing]
+[03/09/2023 12:42]  System: You have joined the 'General' channel.
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  System: WorldMap loaded!
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  System: Steps: 1
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  System: Steps: 2
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  : That is locked, but you open it with your godly powers.
+[03/09/2023 12:42]  System: Steps: 3
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  System: Steps: 4
+[03/09/2023 12:42]  System: Steps: 5
+[03/09/2023 12:42]  System: Steps: 6
+[03/09/2023 12:42]  System: Steps: 7
+[03/09/2023 12:42]  System: Steps: 8
+[03/09/2023 12:42]  System: Finished 4 queued actions in 1.9 seconds.
+[03/09/2023 12:42]  System: Steps: 9
+[03/09/2023 12:42]  System: Steps: 10
+[03/09/2023 12:42]  System: Steps: 11
+[03/09/2023 12:42]  System: Steps: 12
+[03/09/2023 12:42]  System: Steps: 13
+[03/09/2023 12:42]  System: Steps: 14
+[03/09/2023 12:42]  System: Steps: 15
+[03/09/2023 12:42]  System: Steps: 16
+[03/09/2023 12:42]  System: Steps: 17
+[03/09/2023 12:42]  System: Steps: 18
+[03/09/2023 12:42]  System: Steps: 19
+[03/09/2023 12:42]  System: Steps: 20
+[03/09/2023 12:42]  System: Steps: 21
+[03/09/2023 12:42]  System: Steps: 22
+[03/09/2023 12:42]  System: Steps: 23
+[03/09/2023 12:42]  System: Steps: 24
+[03/09/2023 12:42]  System: Steps: 25
+[03/09/2023 12:42]  System: Steps: 26
+[03/09/2023 12:42]  System: Steps: 27
+[03/09/2023 12:42]  System: Steps: 28
+[03/09/2023 12:42]  System: Steps: 29
+[03/09/2023 12:42]  System: Steps: 30
+[03/09/2023 12:42]  System: Steps: 31
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a crystal wisp:  a crystal wisp 
+[03/09/2023 12:42]  a wyvern:  a wyvern 
+[03/09/2023 12:42]  a wyvern:  a wyvern 
+[03/09/2023 12:42]  Melestoref:  Melestoref 
+[03/09/2023 12:42]  a wisp:  a wisp 
+[03/09/2023 12:42]  a wyvern:  a wyvern 
+[03/09/2023 12:42]  Melestoref: * Melestoref is wracked with extreme pain. *
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a drake:  a drake 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  a bulbous putrification:  a bulbous putrification 
+[03/09/2023 12:42]  Quinn:  Quinn the Keeper of Chivalry
+[03/09/2023 12:42]  a dragon:  a dragon 
+[03/09/2023 12:42]  a drake:  a drake 
+[03/09/2023 12:42]  Miguel:  Miguel the blacksmith
+[03/09/2023 12:42]  Polis:  Polis 
+[03/09/2023 12:42]  Agrast:  Agrast 
+[03/09/2023 12:42]  Galdrion:  Galdrion 
+[03/09/2023 12:42]  a wisp:  a wisp 
+[03/09/2023 12:42]  Galdrion:  Galdrion 
+[03/09/2023 12:42]  a wisp:  a wisp 

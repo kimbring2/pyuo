@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "EgDR9KGGyXheOGavDmDE/4ppDy3zadam5CYY3LKgQ1GUr6me2oDh1oHaroU/2ryu/84kn8nVaYXWOiuaedog+w==",
+  "success": true,
+  "projectFilePath": "/home/kimbring2/ClassicUO/tests/ClassicUO.UnitTests/ClassicUO.UnitTests.csproj",
+  "expectedPackageFiles": [
+    "/home/kimbring2/.nuget/packages/coverlet.collector/1.2.0/coverlet.collector.1.2.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/fluentassertions/5.10.3/fluentassertions.5.10.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.net.test.sdk/16.5.0/microsoft.net.test.sdk.16.5.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.testplatform.objectmodel/16.6.1/microsoft.testplatform.objectmodel.16.6.1.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.collections.immutable/1.5.0/system.collections.immutable.1.5.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.3/system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.runtime.interopservices.runtimeinformation/4.0.0/system.runtime.interopservices.runtimeinformation.4.0.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/system.text.encoding.codepages/4.5.1/system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit/2.4.0/xunit.2.4.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.abstractions/2.0.2/xunit.abstractions.2.0.2.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.analyzers/0.10.0/xunit.analyzers.0.10.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.assert/2.4.0/xunit.assert.2.4.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.core/2.4.0/xunit.core.2.4.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.extensibility.core/2.4.0/xunit.extensibility.core.2.4.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.extensibility.execution/2.4.0/xunit.extensibility.execution.2.4.0.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/xunit.runner.visualstudio/2.4.0/xunit.runner.visualstudio.2.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

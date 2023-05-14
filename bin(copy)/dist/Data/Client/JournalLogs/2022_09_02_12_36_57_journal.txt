@@ -1,0 +1,1486 @@
+[09/02/2022 12:36]  System: Welcome, tyui! There are currently 2 users online, with 158732 items and 42900 mobiles in the world.
+[09/02/2022 12:36]  System: You will enjoy the benefits and relatively safe status of a young player for 39 more hours.
+[09/02/2022 12:36]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[09/02/2022 12:36]  tyui:  tyui (Young)
+[09/02/2022 12:36]  Shantha:  Shantha the waiter
+[09/02/2022 12:36]  Adalia:  Adalia the barkeeper
+[09/02/2022 12:36]  an orc bomber:  an orc bomber 
+[09/02/2022 12:36]  a cat:  a cat 
+[09/02/2022 12:36]  Agralem:  Agralem the Bladeweaver
+[09/02/2022 12:36]  a rat:  a rat 
+[09/02/2022 12:36]  Gorlag:  Gorlag 
+[09/02/2022 12:36]  System: You have joined the 'General' channel.
+[09/02/2022 12:36]  Shantha:  Shantha the waiter
+[09/02/2022 12:36]  a dog:  a dog 
+[09/02/2022 12:36]  Sabiny:  Sabiny the tavern keeper
+[09/02/2022 12:36]  Adalia:  Adalia the barkeeper
+[09/02/2022 12:36]  Than:  Than the cook
+[09/02/2022 12:36]  an orc bomber:  an orc bomber 
+[09/02/2022 12:36]  a cat:  a cat 
+[09/02/2022 12:36]  the Slayer:  the Slayer 
+[09/02/2022 12:36]  Agralem:  Agralem the Bladeweaver
+[09/02/2022 12:36]  a rat:  a rat 
+[09/02/2022 12:36]  Gorlag:  Gorlag 
+[09/02/2022 12:36]  Nediva:  Nediva the innkeeper
+[09/02/2022 12:37]  System: A monster looks at you menacingly but does not attack.  You would be under attack now if not for your status as a new citizen of Britannia.
+[09/02/2022 12:38]  a rat:  a rat 
+[09/02/2022 12:38]  Olog:  Olog 
+[09/02/2022 12:38]  System: Your dexterity has changed by 1.  It is now 16
+[09/02/2022 12:38]  a dog:  a dog 
+[09/02/2022 12:38]  Olog:  Olog 
+[09/02/2022 12:38]  masterkim:  masterkim 
+[09/02/2022 12:38]  Gorlag:  Gorlag 
+[09/02/2022 12:38]  a magpie:  a magpie 
+[09/02/2022 12:38]  masterkim: ㅠㅐㅅㅠㅐ
+[09/02/2022 12:38]  masterkim: admin
+[09/02/2022 12:39]  : wooden shingles
+[09/02/2022 12:39]  a dog:  a dog 
+[09/02/2022 12:39]  Aristo:  Aristo the animal trainer
+[09/02/2022 12:39]  System: You have accepted the Quest.
+[09/02/2022 12:39]  Aristo: Greetings.  Have a look around.
+[09/02/2022 12:39]  Gorlag:  Gorlag 
+[09/02/2022 12:40]  Aristo: The total of thy purchase is 550 gold.  My thanks for the patronage.
+[09/02/2022 12:40]  a horse:  a horse 
+[09/02/2022 12:40]  Elder Abbein:  Elder Abbein the wise
+[09/02/2022 12:40]  Gorlag:  Gorlag 
+[09/02/2022 12:40]  a rat:  a rat 
+[09/02/2022 12:40]  a dog:  a dog 
+[09/02/2022 12:40]  System: Your skill in Blacksmithy has increased by 70.0.  It is now 100.0.
+[09/02/2022 12:40]  System: Your skill in Tinkering has increased by 70.0.  It is now 100.0.
+[09/02/2022 12:41]  System: Your skill in Mining has increased by 70.0.  It is now 100.0.
+[09/02/2022 12:41]  Elder Abbein:  Elder Abbein the wise
+[09/02/2022 12:41]  System: Your skill in Arms Lore has increased by 70.0.  It is now 100.0.
+[09/02/2022 12:41]  System: Your skill in Focus has increased by 97.1.  It is now 100.0.
+[09/02/2022 12:41]  a rat:  a rat 
+[09/02/2022 12:41]  System: WorldMap loading...
+[09/02/2022 12:41]  System: Loading WorldMap markers..
+[09/02/2022 12:41]  System: WorldMap markers loaded (0)
+[09/02/2022 12:41]  System: WorldMap loaded!
+[09/02/2022 12:42]  a dog:  a dog 
+[09/02/2022 12:42]  : water
+[09/02/2022 12:42]  a cat:  a cat 
+[09/02/2022 12:42]  masterkim:  masterkim 
+[09/02/2022 12:42]  a cat:  a cat 
+[09/02/2022 12:42]  Aristo:  Aristo the animal trainer
+[09/02/2022 12:43]  a dog:  a dog 
+[09/02/2022 12:43]  a magpie:  a magpie 
+[09/02/2022 12:43]  Elder Abbein:  Elder Abbein the wise
+[09/02/2022 12:43]  a rat:  a rat 
+[09/02/2022 12:43]  a rat:  a rat 
+[09/02/2022 12:43]  a rat:  a rat 
+[09/02/2022 12:43]  Ramsay:  Ramsay the alchemist
+[09/02/2022 12:43]  a dog:  a dog 
+[09/02/2022 12:43]  a raven:  a raven 
+[09/02/2022 12:43]  Asha:  Asha the armourer
+[09/02/2022 12:43]  Morley:  Morley the weaponsmith
+[09/02/2022 12:43]  Sumi:  Sumi the merchant guildmistress
+[09/02/2022 12:43]  Alfred:  Alfred the bowyer
+[09/02/2022 12:43]  a rat:  a rat 
+[09/02/2022 12:43]  a dog:  a dog 
+[09/02/2022 12:43]  Lillian:  Lillian the mage
+[09/02/2022 12:43]  Coty:  Coty the alchemist
+[09/02/2022 12:43]  Rhianne:  Rhianne the mage
+[09/02/2022 12:43]  Arista:  Arista the mage guildmistress
+[09/02/2022 12:43]  Ayela:  Ayela the bard
+[09/02/2022 12:43]  Richard:  Richard the bard guildmaster
+[09/02/2022 12:43]  Solomon:  Solomon the impresario
+[09/02/2022 12:43]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 12:43]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 12:43]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 12:43]  Gabriel Piete:  Gabriel Piete the renowned minstrel
+[09/02/2022 12:43]  a cat:  a cat 
+[09/02/2022 12:43]  a rat:  a rat 
+[09/02/2022 12:43]  a cat:  a cat 
+[09/02/2022 12:43]  Solomon:  Solomon the impresario
+[09/02/2022 12:43]  Tymon:  Tymon the blacksmith
+[09/02/2022 12:43]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 12:43]  Margo:  Margo the animal trainer
+[09/02/2022 12:43]  Nigel:  Nigel the Naturalist
+[09/02/2022 12:43]  Bonnie:  Bonnie the master of trades
+[09/02/2022 12:43]  Xanthe:  Xanthe the musician
+[09/02/2022 12:43]  Selina:  Selina the scribe
+[09/02/2022 12:43]  Kavindra:  Kavindra the blacksmith guildmistress
+[09/02/2022 12:43]  System: The world will save in 15 seconds.
+[09/02/2022 12:43]  a horse:  a horse 
+[09/02/2022 12:43]  You see: forge
+[09/02/2022 12:43]  System: The world is saving, please wait.
+[09/02/2022 12:43]  System: World save done in 0.3 seconds.
+[09/02/2022 12:44]  masterkim:  masterkim 
+[09/02/2022 12:45]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 12:45]  : water
+[09/02/2022 12:45]  You see: anvil
+[09/02/2022 12:45]  System: You must wait to perform another action.
+[09/02/2022 12:45]  You see: forge
+[09/02/2022 12:45]  You see: forge
+[09/02/2022 12:46]  System: You must wait to perform another action.
+[09/02/2022 12:46]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 12:46]  System: You must wait to perform another action.
+[09/02/2022 12:46]  You see: water barrel
+[09/02/2022 12:46]  System: You are overloaded.  Carrying stones / Max stones : 312 / 310
+[09/02/2022 12:47]  System: You are overloaded.  Carrying stones / Max stones : 313 / 310
+[09/02/2022 12:47]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 12:47]  System: You are overloaded.  Carrying stones / Max stones : 327 / 310
+[09/02/2022 12:49]  a horse:  a horse 
+[09/02/2022 12:50]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: You are too fatigued to move, because you are carrying too much weight!
+[09/02/2022 12:50]  System: Your dexterity has changed by 1.  It is now 17
+[09/02/2022 12:50]  System: Your dexterity has changed by 1.  It is now 18
+[09/02/2022 12:51]  System: Your dexterity has changed by 1.  It is now 19
+[09/02/2022 12:51]  System: Your strength has changed by 90.  It is now 150
+[09/02/2022 12:54]  Richard:  Richard the bard guildmaster
+[09/02/2022 12:58]  System: The world will save in 15 seconds.
+[09/02/2022 12:58]  System: The world is saving, please wait.
+[09/02/2022 12:58]  System: World save done in 0.2 seconds.
+[09/02/2022 13:13]  System: The world will save in 15 seconds.
+[09/02/2022 13:13]  System: The world is saving, please wait.
+[09/02/2022 13:13]  System: World save done in 0.4 seconds.
+[09/02/2022 13:28]  System: The world will save in 15 seconds.
+[09/02/2022 13:29]  System: The world is saving, please wait.
+[09/02/2022 13:29]  System: World save done in 0.4 seconds.
+[09/02/2022 13:38]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 13:43]  System: The world will save in 15 seconds.
+[09/02/2022 13:44]  System: The world is saving, please wait.
+[09/02/2022 13:44]  System: World save done in 0.4 seconds.
+[09/02/2022 13:47]  System: It begins to snow.
+[09/02/2022 13:54]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 13:58]  System: The world will save in 15 seconds.
+[09/02/2022 13:59]  System: The world is saving, please wait.
+[09/02/2022 13:59]  System: World save done in 0.2 seconds.
+[09/02/2022 14:00]  Richard:  Richard the bard guildmaster
+[09/02/2022 14:05]  System: It begins to rain.
+[09/02/2022 14:06]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 14:08]  Ayela:  Ayela the bard
+[09/02/2022 14:14]  System: The world will save in 15 seconds.
+[09/02/2022 14:14]  System: The world is saving, please wait.
+[09/02/2022 14:14]  System: World save done in 0.2 seconds.
+[09/02/2022 14:26]  Richard:  Richard the bard guildmaster
+[09/02/2022 14:29]  System: The world will save in 15 seconds.
+[09/02/2022 14:29]  System: The world is saving, please wait.
+[09/02/2022 14:29]  System: World save done in 0.2 seconds.
+[09/02/2022 14:33]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 14:33]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 14:36]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 14:36]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 14:38]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 14:44]  System: The world will save in 15 seconds.
+[09/02/2022 14:44]  System: The world is saving, please wait.
+[09/02/2022 14:44]  System: World save done in 0.4 seconds.
+[09/02/2022 14:59]  System: The world will save in 15 seconds.
+[09/02/2022 14:59]  System: The world is saving, please wait.
+[09/02/2022 14:59]  System: World save done in 0.2 seconds.
+[09/02/2022 15:04]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 15:08]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 15:12]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 15:14]  System: The world will save in 15 seconds.
+[09/02/2022 15:14]  System: The world is saving, please wait.
+[09/02/2022 15:14]  System: World save done in 0.3 seconds.
+[09/02/2022 15:29]  System: The world will save in 15 seconds.
+[09/02/2022 15:29]  System: The world is saving, please wait.
+[09/02/2022 15:29]  System: World save done in 0.2 seconds.
+[09/02/2022 15:32]  System: It begins to rain.
+[09/02/2022 15:36]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 15:44]  System: The world will save in 15 seconds.
+[09/02/2022 15:44]  System: The world is saving, please wait.
+[09/02/2022 15:44]  System: World save done in 0.2 seconds.
+[09/02/2022 15:45]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 15:59]  System: The world will save in 15 seconds.
+[09/02/2022 15:59]  System: The world is saving, please wait.
+[09/02/2022 15:59]  System: World save done in 0.1 seconds.
+[09/02/2022 16:04]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 16:06]  Ayela:  Ayela the bard
+[09/02/2022 16:07]  Richard:  Richard the bard guildmaster
+[09/02/2022 16:14]  System: The world will save in 15 seconds.
+[09/02/2022 16:15]  System: The world is saving, please wait.
+[09/02/2022 16:15]  System: World save done in 0.2 seconds.
+[09/02/2022 16:18]  Richard:  Richard the bard guildmaster
+[09/02/2022 16:20]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 16:29]  System: The world will save in 15 seconds.
+[09/02/2022 16:30]  System: The world is saving, please wait.
+[09/02/2022 16:30]  System: World save done in 0.2 seconds.
+[09/02/2022 16:37]  System: It begins to rain.
+[09/02/2022 16:44]  System: The world will save in 15 seconds.
+[09/02/2022 16:45]  System: The world is saving, please wait.
+[09/02/2022 16:45]  System: World save done in 0.3 seconds.
+[09/02/2022 16:45]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 16:59]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 16:59]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 17:00]  System: The world will save in 15 seconds.
+[09/02/2022 17:00]  System: The world is saving, please wait.
+[09/02/2022 17:00]  System: World save done in 0.4 seconds.
+[09/02/2022 17:14]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 17:15]  System: The world will save in 15 seconds.
+[09/02/2022 17:15]  System: The world is saving, please wait.
+[09/02/2022 17:15]  System: World save done in 0.2 seconds.
+[09/02/2022 17:20]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 17:22]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 17:30]  System: The world will save in 15 seconds.
+[09/02/2022 17:30]  System: The world is saving, please wait.
+[09/02/2022 17:30]  System: World save done in 0.3 seconds.
+[09/02/2022 17:45]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 17:45]  System: The world will save in 15 seconds.
+[09/02/2022 17:45]  System: The world is saving, please wait.
+[09/02/2022 17:45]  System: World save done in 0.3 seconds.
+[09/02/2022 17:53]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 18:00]  System: The world will save in 15 seconds.
+[09/02/2022 18:00]  System: The world is saving, please wait.
+[09/02/2022 18:00]  System: World save done in 0.2 seconds.
+[09/02/2022 18:03]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 18:08]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 18:15]  System: The world will save in 15 seconds.
+[09/02/2022 18:15]  System: The world is saving, please wait.
+[09/02/2022 18:15]  System: World save done in 0.2 seconds.
+[09/02/2022 18:21]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 18:22]  Ayela:  Ayela the bard
+[09/02/2022 18:30]  System: The world will save in 15 seconds.
+[09/02/2022 18:30]  System: The world is saving, please wait.
+[09/02/2022 18:30]  System: World save done in 0.4 seconds.
+[09/02/2022 18:45]  System: The world will save in 15 seconds.
+[09/02/2022 18:45]  System: The world is saving, please wait.
+[09/02/2022 18:46]  System: World save done in 0.1 seconds.
+[09/02/2022 19:00]  System: The world will save in 15 seconds.
+[09/02/2022 19:01]  System: The world is saving, please wait.
+[09/02/2022 19:01]  System: World save done in 0.2 seconds.
+[09/02/2022 19:08]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 19:15]  System: The world will save in 15 seconds.
+[09/02/2022 19:15]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 19:16]  System: The world is saving, please wait.
+[09/02/2022 19:16]  System: World save done in 0.2 seconds.
+[09/02/2022 19:20]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 19:21]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 19:23]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 19:23]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 19:26]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 19:28]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 19:31]  System: The world will save in 15 seconds.
+[09/02/2022 19:31]  System: The world is saving, please wait.
+[09/02/2022 19:31]  System: World save done in 0.2 seconds.
+[09/02/2022 19:35]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 19:40]  Ayela:  Ayela the bard
+[09/02/2022 19:46]  System: The world will save in 15 seconds.
+[09/02/2022 19:46]  System: The world is saving, please wait.
+[09/02/2022 19:46]  System: World save done in 0.1 seconds.
+[09/02/2022 20:01]  System: The world will save in 15 seconds.
+[09/02/2022 20:01]  System: The world is saving, please wait.
+[09/02/2022 20:01]  System: World save done in 0.2 seconds.
+[09/02/2022 20:08]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 20:10]  Richard:  Richard the bard guildmaster
+[09/02/2022 20:10]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 20:16]  System: The world will save in 15 seconds.
+[09/02/2022 20:16]  System: The world is saving, please wait.
+[09/02/2022 20:16]  System: World save done in 0.2 seconds.
+[09/02/2022 20:23]  Richard:  Richard the bard guildmaster
+[09/02/2022 20:29]  Ayela:  Ayela the bard
+[09/02/2022 20:31]  System: The world will save in 15 seconds.
+[09/02/2022 20:31]  System: The world is saving, please wait.
+[09/02/2022 20:31]  System: World save done in 0.2 seconds.
+[09/02/2022 20:31]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 20:46]  System: The world will save in 15 seconds.
+[09/02/2022 20:46]  System: The world is saving, please wait.
+[09/02/2022 20:46]  System: World save done in 0.2 seconds.
+[09/02/2022 20:51]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 21:01]  System: The world will save in 15 seconds.
+[09/02/2022 21:01]  System: The world is saving, please wait.
+[09/02/2022 21:01]  System: World save done in 0.1 seconds.
+[09/02/2022 21:09]  System: It begins to rain.
+[09/02/2022 21:16]  System: The world will save in 15 seconds.
+[09/02/2022 21:16]  System: The world is saving, please wait.
+[09/02/2022 21:16]  System: World save done in 0.2 seconds.
+[09/02/2022 21:19]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 21:31]  System: The world will save in 15 seconds.
+[09/02/2022 21:32]  System: The world is saving, please wait.
+[09/02/2022 21:32]  System: World save done in 0.2 seconds.
+[09/02/2022 21:32]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 21:33]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 21:46]  System: The world will save in 15 seconds.
+[09/02/2022 21:47]  System: The world is saving, please wait.
+[09/02/2022 21:47]  System: World save done in 0.3 seconds.
+[09/02/2022 21:50]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 21:52]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 21:56]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 22:01]  System: The world will save in 15 seconds.
+[09/02/2022 22:02]  System: The world is saving, please wait.
+[09/02/2022 22:02]  System: World save done in 0.3 seconds.
+[09/02/2022 22:03]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 22:04]  System: It begins to rain.
+[09/02/2022 22:17]  System: The world will save in 15 seconds.
+[09/02/2022 22:17]  System: The world is saving, please wait.
+[09/02/2022 22:17]  System: World save done in 0.7 seconds.
+[09/02/2022 22:25]  Ayela:  Ayela the bard
+[09/02/2022 22:28]  a horse: * a horse looks around desperately *
+[09/02/2022 22:28]  a horse: * a horse looks around desperately *
+[09/02/2022 22:28]  a horse: a horse appears to have decided that it is better off without a master!
+[09/02/2022 22:28]  a horse: a horse appears to have decided that it is better off without a master!
+[09/02/2022 22:29]  a horse:  a horse 
+[09/02/2022 22:31]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 22:32]  System: The world will save in 15 seconds.
+[09/02/2022 22:32]  System: The world is saving, please wait.
+[09/02/2022 22:32]  System: World save done in 0.2 seconds.
+[09/02/2022 22:39]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 22:41]  Nolita:  Nolita the miner guildmistress
+[09/02/2022 22:47]  System: The world will save in 15 seconds.
+[09/02/2022 22:47]  System: The world is saving, please wait.
+[09/02/2022 22:47]  System: World save done in 0.2 seconds.
+[09/02/2022 22:48]  Ayela:  Ayela the bard
+[09/02/2022 22:58]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 23:02]  System: The world will save in 15 seconds.
+[09/02/2022 23:02]  System: The world is saving, please wait.
+[09/02/2022 23:02]  System: World save done in 0.2 seconds.
+[09/02/2022 23:10]  Richard:  Richard the bard guildmaster
+[09/02/2022 23:13]  Sir Berran:  Sir Berran the Song Weilder
+[09/02/2022 23:17]  System: The world will save in 15 seconds.
+[09/02/2022 23:17]  System: The world is saving, please wait.
+[09/02/2022 23:17]  System: World save done in 0.2 seconds.
+[09/02/2022 23:20]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 23:32]  Sir Felean:  Sir Felean the Spirit Soother
+[09/02/2022 23:32]  System: The world will save in 15 seconds.
+[09/02/2022 23:33]  System: The world is saving, please wait.
+[09/02/2022 23:33]  System: World save done in 0.2 seconds.
+[09/02/2022 23:34]  Richard:  Richard the bard guildmaster
+[09/02/2022 23:40]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/02/2022 23:48]  System: The world will save in 15 seconds.
+[09/02/2022 23:48]  System: The world is saving, please wait.
+[09/02/2022 23:48]  System: World save done in 0.2 seconds.
+[09/02/2022 23:49]  Ayela:  Ayela the bard
+[09/03/2022 00:01]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 00:03]  System: The world will save in 15 seconds.
+[09/03/2022 00:03]  System: The world is saving, please wait.
+[09/03/2022 00:03]  System: World save done in 0.3 seconds.
+[09/03/2022 00:09]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 00:17]  Ayela:  Ayela the bard
+[09/03/2022 00:18]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 00:18]  System: The world will save in 15 seconds.
+[09/03/2022 00:18]  System: The world is saving, please wait.
+[09/03/2022 00:18]  System: World save done in 0.2 seconds.
+[09/03/2022 00:21]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 00:33]  System: The world will save in 15 seconds.
+[09/03/2022 00:33]  System: The world is saving, please wait.
+[09/03/2022 00:33]  System: World save done in 0.1 seconds.
+[09/03/2022 00:38]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 00:48]  System: The world will save in 15 seconds.
+[09/03/2022 00:48]  System: The world is saving, please wait.
+[09/03/2022 00:48]  System: World save done in 0.2 seconds.
+[09/03/2022 00:56]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 00:57]  Richard:  Richard the bard guildmaster
+[09/03/2022 01:00]  Ayela:  Ayela the bard
+[09/03/2022 01:03]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 01:03]  System: The world will save in 15 seconds.
+[09/03/2022 01:03]  System: The world is saving, please wait.
+[09/03/2022 01:03]  System: World save done in 0.2 seconds.
+[09/03/2022 01:18]  System: The world will save in 15 seconds.
+[09/03/2022 01:18]  System: The world is saving, please wait.
+[09/03/2022 01:18]  System: World save done in 0.2 seconds.
+[09/03/2022 01:20]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 01:20]  Ayela:  Ayela the bard
+[09/03/2022 01:24]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 01:29]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 01:29]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 01:31]  System: It begins to snow.
+[09/03/2022 01:33]  System: The world will save in 15 seconds.
+[09/03/2022 01:33]  System: The world is saving, please wait.
+[09/03/2022 01:33]  System: World save done in 0.2 seconds.
+[09/03/2022 01:42]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 01:48]  System: The world will save in 15 seconds.
+[09/03/2022 01:49]  System: The world is saving, please wait.
+[09/03/2022 01:49]  System: World save done in 0.2 seconds.
+[09/03/2022 01:51]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 01:51]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 01:52]  System: It begins to rain.
+[09/03/2022 01:53]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 01:55]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 01:56]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 02:02]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 02:03]  Richard:  Richard the bard guildmaster
+[09/03/2022 02:03]  System: The world will save in 15 seconds.
+[09/03/2022 02:04]  System: The world is saving, please wait.
+[09/03/2022 02:04]  System: World save done in 0.2 seconds.
+[09/03/2022 02:18]  System: The world will save in 15 seconds.
+[09/03/2022 02:19]  System: The world is saving, please wait.
+[09/03/2022 02:19]  System: World save done in 0.2 seconds.
+[09/03/2022 02:24]  Richard:  Richard the bard guildmaster
+[09/03/2022 02:34]  System: The world will save in 15 seconds.
+[09/03/2022 02:34]  System: The world is saving, please wait.
+[09/03/2022 02:34]  System: World save done in 0.4 seconds.
+[09/03/2022 02:49]  System: The world will save in 15 seconds.
+[09/03/2022 02:49]  System: The world is saving, please wait.
+[09/03/2022 02:49]  System: World save done in 0.4 seconds.
+[09/03/2022 02:51]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 02:58]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 03:04]  System: The world will save in 15 seconds.
+[09/03/2022 03:04]  System: The world is saving, please wait.
+[09/03/2022 03:04]  System: World save done in 0.5 seconds.
+[09/03/2022 03:13]  Ayela:  Ayela the bard
+[09/03/2022 03:19]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 03:19]  System: The world will save in 15 seconds.
+[09/03/2022 03:19]  System: The world is saving, please wait.
+[09/03/2022 03:19]  System: World save done in 0.4 seconds.
+[09/03/2022 03:19]  System: It begins to rain.
+[09/03/2022 03:26]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 03:26]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 03:34]  System: The world will save in 15 seconds.
+[09/03/2022 03:34]  System: The world is saving, please wait.
+[09/03/2022 03:34]  System: World save done in 0.2 seconds.
+[09/03/2022 03:37]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 03:41]  Ayela:  Ayela the bard
+[09/03/2022 03:49]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 03:49]  System: The world will save in 15 seconds.
+[09/03/2022 03:49]  System: The world is saving, please wait.
+[09/03/2022 03:49]  System: World save done in 0.2 seconds.
+[09/03/2022 03:54]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 03:58]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 03:58]  Richard:  Richard the bard guildmaster
+[09/03/2022 03:58]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 04:00]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 04:01]  System: It begins to snow.
+[09/03/2022 04:03]  System: It begins to rain.
+[09/03/2022 04:04]  System: The world will save in 15 seconds.
+[09/03/2022 04:04]  System: The world is saving, please wait.
+[09/03/2022 04:04]  System: World save done in 0.2 seconds.
+[09/03/2022 04:05]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 04:06]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 04:07]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 04:15]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 04:19]  System: The world will save in 15 seconds.
+[09/03/2022 04:19]  System: The world is saving, please wait.
+[09/03/2022 04:19]  System: World save done in 0.2 seconds.
+[09/03/2022 04:20]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 04:21]  Richard:  Richard the bard guildmaster
+[09/03/2022 04:34]  System: The world will save in 15 seconds.
+[09/03/2022 04:35]  System: The world is saving, please wait.
+[09/03/2022 04:35]  System: World save done in 0.3 seconds.
+[09/03/2022 04:41]  Richard:  Richard the bard guildmaster
+[09/03/2022 04:49]  System: The world will save in 15 seconds.
+[09/03/2022 04:50]  System: The world is saving, please wait.
+[09/03/2022 04:50]  System: World save done in 0.2 seconds.
+[09/03/2022 05:05]  System: The world will save in 15 seconds.
+[09/03/2022 05:05]  System: The world is saving, please wait.
+[09/03/2022 05:05]  System: World save done in 0.2 seconds.
+[09/03/2022 05:10]  Richard:  Richard the bard guildmaster
+[09/03/2022 05:15]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 05:20]  System: The world will save in 15 seconds.
+[09/03/2022 05:20]  System: The world is saving, please wait.
+[09/03/2022 05:20]  System: World save done in 0.2 seconds.
+[09/03/2022 05:23]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 05:25]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 05:28]  Ayela:  Ayela the bard
+[09/03/2022 05:31]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 05:35]  System: The world will save in 15 seconds.
+[09/03/2022 05:35]  System: The world is saving, please wait.
+[09/03/2022 05:35]  System: World save done in 0.2 seconds.
+[09/03/2022 05:37]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 05:41]  System: It begins to rain.
+[09/03/2022 05:49]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 05:50]  System: The world will save in 15 seconds.
+[09/03/2022 05:50]  System: The world is saving, please wait.
+[09/03/2022 05:50]  System: World save done in 0.4 seconds.
+[09/03/2022 05:53]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 06:05]  System: The world will save in 15 seconds.
+[09/03/2022 06:05]  System: The world is saving, please wait.
+[09/03/2022 06:05]  System: World save done in 0.4 seconds.
+[09/03/2022 06:13]  Richard:  Richard the bard guildmaster
+[09/03/2022 06:20]  System: The world will save in 15 seconds.
+[09/03/2022 06:20]  System: The world is saving, please wait.
+[09/03/2022 06:20]  System: World save done in 0.2 seconds.
+[09/03/2022 06:23]  Richard:  Richard the bard guildmaster
+[09/03/2022 06:32]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 06:35]  System: The world will save in 15 seconds.
+[09/03/2022 06:35]  System: The world is saving, please wait.
+[09/03/2022 06:35]  System: World save done in 0.1 seconds.
+[09/03/2022 06:50]  System: The world will save in 15 seconds.
+[09/03/2022 06:50]  System: The world is saving, please wait.
+[09/03/2022 06:50]  System: World save done in 0.2 seconds.
+[09/03/2022 06:57]  System: It begins to rain.
+[09/03/2022 06:58]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 07:03]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 07:05]  System: The world will save in 15 seconds.
+[09/03/2022 07:06]  System: The world is saving, please wait.
+[09/03/2022 07:06]  System: World save done in 0.2 seconds.
+[09/03/2022 07:08]  System: It begins to rain.
+[09/03/2022 07:09]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 07:09]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 07:19]  System: It begins to snow.
+[09/03/2022 07:20]  System: The world will save in 15 seconds.
+[09/03/2022 07:21]  System: The world is saving, please wait.
+[09/03/2022 07:21]  System: World save done in 0.4 seconds.
+[09/03/2022 07:21]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 07:24]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 07:30]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 07:33]  Richard:  Richard the bard guildmaster
+[09/03/2022 07:35]  System: The world will save in 15 seconds.
+[09/03/2022 07:36]  System: The world is saving, please wait.
+[09/03/2022 07:36]  System: World save done in 0.4 seconds.
+[09/03/2022 07:38]  Richard:  Richard the bard guildmaster
+[09/03/2022 07:41]  System: It begins to rain.
+[09/03/2022 07:42]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 07:44]  Ayela:  Ayela the bard
+[09/03/2022 07:51]  System: The world will save in 15 seconds.
+[09/03/2022 07:51]  System: The world is saving, please wait.
+[09/03/2022 07:51]  System: World save done in 0.5 seconds.
+[09/03/2022 08:06]  System: The world will save in 15 seconds.
+[09/03/2022 08:06]  System: The world is saving, please wait.
+[09/03/2022 08:06]  System: World save done in 0.4 seconds.
+[09/03/2022 08:21]  System: The world will save in 15 seconds.
+[09/03/2022 08:21]  System: The world is saving, please wait.
+[09/03/2022 08:21]  System: World save done in 0.2 seconds.
+[09/03/2022 08:25]  System: It begins to rain.
+[09/03/2022 08:26]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 08:31]  Ayela:  Ayela the bard
+[09/03/2022 08:33]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 08:36]  System: The world will save in 15 seconds.
+[09/03/2022 08:36]  System: The world is saving, please wait.
+[09/03/2022 08:36]  System: World save done in 0.2 seconds.
+[09/03/2022 08:42]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 08:50]  Richard:  Richard the bard guildmaster
+[09/03/2022 08:51]  System: The world will save in 15 seconds.
+[09/03/2022 08:51]  System: The world is saving, please wait.
+[09/03/2022 08:51]  System: World save done in 0.1 seconds.
+[09/03/2022 08:58]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 09:06]  System: The world will save in 15 seconds.
+[09/03/2022 09:06]  System: The world is saving, please wait.
+[09/03/2022 09:06]  System: World save done in 0.3 seconds.
+[09/03/2022 09:07]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 09:16]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 09:18]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 09:21]  System: The world will save in 15 seconds.
+[09/03/2022 09:21]  System: The world is saving, please wait.
+[09/03/2022 09:21]  System: World save done in 0.5 seconds.
+[09/03/2022 09:27]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 09:36]  System: The world will save in 15 seconds.
+[09/03/2022 09:36]  System: The world is saving, please wait.
+[09/03/2022 09:36]  System: World save done in 0.4 seconds.
+[09/03/2022 09:39]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 09:45]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 09:51]  System: The world will save in 15 seconds.
+[09/03/2022 09:51]  System: The world is saving, please wait.
+[09/03/2022 09:51]  System: World save done in 0.2 seconds.
+[09/03/2022 10:04]  Ayela:  Ayela the bard
+[09/03/2022 10:05]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 10:06]  System: The world will save in 15 seconds.
+[09/03/2022 10:07]  System: The world is saving, please wait.
+[09/03/2022 10:07]  System: World save done in 0.2 seconds.
+[09/03/2022 10:12]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 10:21]  Ayela:  Ayela the bard
+[09/03/2022 10:21]  System: The world will save in 15 seconds.
+[09/03/2022 10:22]  System: The world is saving, please wait.
+[09/03/2022 10:22]  System: World save done in 0.3 seconds.
+[09/03/2022 10:23]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 10:27]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 10:30]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 10:37]  System: The world will save in 15 seconds.
+[09/03/2022 10:37]  System: The world is saving, please wait.
+[09/03/2022 10:37]  System: World save done in 0.2 seconds.
+[09/03/2022 10:38]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 10:42]  Ayela:  Ayela the bard
+[09/03/2022 10:44]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 10:52]  System: The world will save in 15 seconds.
+[09/03/2022 10:52]  System: The world is saving, please wait.
+[09/03/2022 10:52]  System: World save done in 0.5 seconds.
+[09/03/2022 10:53]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 11:05]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 11:07]  System: The world will save in 15 seconds.
+[09/03/2022 11:07]  System: The world is saving, please wait.
+[09/03/2022 11:07]  System: World save done in 0.2 seconds.
+[09/03/2022 11:08]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 11:15]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 11:16]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 11:19]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 11:22]  System: The world will save in 15 seconds.
+[09/03/2022 11:22]  System: The world is saving, please wait.
+[09/03/2022 11:22]  System: World save done in 0.3 seconds.
+[09/03/2022 11:35]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 11:35]  Huntley:  Huntley the animal trainer
+[09/03/2022 11:35]  a horse:  a horse 
+[09/03/2022 11:37]  System: The world will save in 15 seconds.
+[09/03/2022 11:38]  System: The world is saving, please wait.
+[09/03/2022 11:38]  System: World save done in 0.4 seconds.
+[09/03/2022 11:42]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 11:48]  Richard:  Richard the bard guildmaster
+[09/03/2022 11:52]  System: The world will save in 15 seconds.
+[09/03/2022 11:53]  System: The world is saving, please wait.
+[09/03/2022 11:53]  System: World save done in 0.2 seconds.
+[09/03/2022 12:00]  Richard:  Richard the bard guildmaster
+[09/03/2022 12:04]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 12:08]  System: The world will save in 15 seconds.
+[09/03/2022 12:08]  System: The world is saving, please wait.
+[09/03/2022 12:08]  System: World save done in 0.2 seconds.
+[09/03/2022 12:08]  Ayela:  Ayela the bard
+[09/03/2022 12:12]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 12:18]  Richard:  Richard the bard guildmaster
+[09/03/2022 12:20]  Richard:  Richard the bard guildmaster
+[09/03/2022 12:23]  System: The world will save in 15 seconds.
+[09/03/2022 12:23]  Richard:  Richard the bard guildmaster
+[09/03/2022 12:23]  System: The world is saving, please wait.
+[09/03/2022 12:23]  System: World save done in 0.2 seconds.
+[09/03/2022 12:25]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 12:25]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 12:33]  Ayela:  Ayela the bard
+[09/03/2022 12:36]  System: It begins to rain.
+[09/03/2022 12:38]  System: The world will save in 15 seconds.
+[09/03/2022 12:38]  System: The world is saving, please wait.
+[09/03/2022 12:38]  System: World save done in 0.4 seconds.
+[09/03/2022 12:51]  Richard:  Richard the bard guildmaster
+[09/03/2022 12:53]  System: The world will save in 15 seconds.
+[09/03/2022 12:53]  System: The world is saving, please wait.
+[09/03/2022 12:53]  System: World save done in 0.2 seconds.
+[09/03/2022 13:08]  System: The world will save in 15 seconds.
+[09/03/2022 13:08]  System: The world is saving, please wait.
+[09/03/2022 13:08]  System: World save done in 0.5 seconds.
+[09/03/2022 13:23]  System: The world will save in 15 seconds.
+[09/03/2022 13:23]  System: The world is saving, please wait.
+[09/03/2022 13:23]  System: World save done in 0.3 seconds.
+[09/03/2022 13:31]  Richard:  Richard the bard guildmaster
+[09/03/2022 13:32]  Ayela:  Ayela the bard
+[09/03/2022 13:36]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 13:38]  System: The world will save in 15 seconds.
+[09/03/2022 13:38]  System: The world is saving, please wait.
+[09/03/2022 13:38]  System: World save done in 0.3 seconds.
+[09/03/2022 13:47]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 13:49]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 13:52]  Richard:  Richard the bard guildmaster
+[09/03/2022 13:53]  System: The world will save in 15 seconds.
+[09/03/2022 13:53]  System: The world is saving, please wait.
+[09/03/2022 13:53]  System: World save done in 0.2 seconds.
+[09/03/2022 13:57]  Ayela:  Ayela the bard
+[09/03/2022 14:08]  System: The world will save in 15 seconds.
+[09/03/2022 14:09]  System: The world is saving, please wait.
+[09/03/2022 14:09]  System: World save done in 0.5 seconds.
+[09/03/2022 14:11]  Ayela:  Ayela the bard
+[09/03/2022 14:17]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 14:23]  System: The world will save in 15 seconds.
+[09/03/2022 14:24]  System: The world is saving, please wait.
+[09/03/2022 14:24]  System: World save done in 0.2 seconds.
+[09/03/2022 14:31]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 14:38]  System: The world will save in 15 seconds.
+[09/03/2022 14:39]  System: The world is saving, please wait.
+[09/03/2022 14:39]  System: World save done in 0.2 seconds.
+[09/03/2022 14:50]  Ayela:  Ayela the bard
+[09/03/2022 14:51]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 14:54]  System: The world will save in 15 seconds.
+[09/03/2022 14:54]  System: The world is saving, please wait.
+[09/03/2022 14:54]  System: World save done in 0.2 seconds.
+[09/03/2022 15:00]  Ayela:  Ayela the bard
+[09/03/2022 15:01]  Richard:  Richard the bard guildmaster
+[09/03/2022 15:06]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 15:09]  System: The world will save in 15 seconds.
+[09/03/2022 15:09]  System: The world is saving, please wait.
+[09/03/2022 15:09]  System: World save done in 0.2 seconds.
+[09/03/2022 15:11]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 15:13]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 15:15]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 15:18]  Richard:  Richard the bard guildmaster
+[09/03/2022 15:24]  System: The world will save in 15 seconds.
+[09/03/2022 15:24]  System: The world is saving, please wait.
+[09/03/2022 15:24]  System: World save done in 0.3 seconds.
+[09/03/2022 15:25]  Ayela:  Ayela the bard
+[09/03/2022 15:27]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 15:33]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 15:34]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 15:39]  System: The world will save in 15 seconds.
+[09/03/2022 15:39]  System: The world is saving, please wait.
+[09/03/2022 15:39]  System: World save done in 0.1 seconds.
+[09/03/2022 15:40]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 15:51]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 15:54]  System: The world will save in 15 seconds.
+[09/03/2022 15:54]  System: The world is saving, please wait.
+[09/03/2022 15:54]  System: World save done in 0.2 seconds.
+[09/03/2022 16:01]  Ayela:  Ayela the bard
+[09/03/2022 16:09]  System: The world will save in 15 seconds.
+[09/03/2022 16:09]  System: The world is saving, please wait.
+[09/03/2022 16:09]  System: World save done in 0.2 seconds.
+[09/03/2022 16:18]  Ayela:  Ayela the bard
+[09/03/2022 16:21]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 16:24]  System: The world will save in 15 seconds.
+[09/03/2022 16:24]  System: The world is saving, please wait.
+[09/03/2022 16:24]  System: World save done in 0.2 seconds.
+[09/03/2022 16:39]  System: The world will save in 15 seconds.
+[09/03/2022 16:39]  System: The world is saving, please wait.
+[09/03/2022 16:39]  System: World save done in 0.4 seconds.
+[09/03/2022 16:48]  Ayela:  Ayela the bard
+[09/03/2022 16:54]  System: The world will save in 15 seconds.
+[09/03/2022 16:55]  System: The world is saving, please wait.
+[09/03/2022 16:55]  System: World save done in 0.2 seconds.
+[09/03/2022 16:58]  System: It begins to rain.
+[09/03/2022 17:00]  Richard:  Richard the bard guildmaster
+[09/03/2022 17:02]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 17:09]  System: The world will save in 15 seconds.
+[09/03/2022 17:10]  System: The world is saving, please wait.
+[09/03/2022 17:10]  System: World save done in 0.3 seconds.
+[09/03/2022 17:10]  Ayela:  Ayela the bard
+[09/03/2022 17:17]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 17:19]  System: It begins to rain.
+[09/03/2022 17:22]  Richard:  Richard the bard guildmaster
+[09/03/2022 17:24]  System: The world will save in 15 seconds.
+[09/03/2022 17:25]  System: The world is saving, please wait.
+[09/03/2022 17:25]  System: World save done in 0.1 seconds.
+[09/03/2022 17:30]  Ayela:  Ayela the bard
+[09/03/2022 17:36]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 17:40]  System: The world will save in 15 seconds.
+[09/03/2022 17:40]  System: The world is saving, please wait.
+[09/03/2022 17:40]  System: World save done in 0.2 seconds.
+[09/03/2022 17:46]  Ayela:  Ayela the bard
+[09/03/2022 17:46]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 17:54]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 17:55]  System: The world will save in 15 seconds.
+[09/03/2022 17:55]  System: The world is saving, please wait.
+[09/03/2022 17:55]  System: World save done in 0.2 seconds.
+[09/03/2022 18:01]  Ayela:  Ayela the bard
+[09/03/2022 18:10]  Ayela:  Ayela the bard
+[09/03/2022 18:10]  System: The world will save in 15 seconds.
+[09/03/2022 18:10]  System: The world is saving, please wait.
+[09/03/2022 18:10]  System: World save done in 0.4 seconds.
+[09/03/2022 18:14]  Ayela:  Ayela the bard
+[09/03/2022 18:15]  Richard:  Richard the bard guildmaster
+[09/03/2022 18:19]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 18:20]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 18:25]  System: It begins to rain.
+[09/03/2022 18:25]  System: The world will save in 15 seconds.
+[09/03/2022 18:25]  System: The world is saving, please wait.
+[09/03/2022 18:25]  System: World save done in 0.1 seconds.
+[09/03/2022 18:36]  Richard:  Richard the bard guildmaster
+[09/03/2022 18:36]  Ayela:  Ayela the bard
+[09/03/2022 18:40]  System: The world will save in 15 seconds.
+[09/03/2022 18:40]  System: The world is saving, please wait.
+[09/03/2022 18:40]  System: World save done in 0.5 seconds.
+[09/03/2022 18:53]  Ayela:  Ayela the bard
+[09/03/2022 18:54]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 18:55]  Richard:  Richard the bard guildmaster
+[09/03/2022 18:55]  System: The world will save in 15 seconds.
+[09/03/2022 18:55]  System: The world is saving, please wait.
+[09/03/2022 18:55]  System: World save done in 0.1 seconds.
+[09/03/2022 19:07]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 19:07]  Richard:  Richard the bard guildmaster
+[09/03/2022 19:09]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 19:10]  System: The world will save in 15 seconds.
+[09/03/2022 19:10]  System: The world is saving, please wait.
+[09/03/2022 19:10]  System: World save done in 0.2 seconds.
+[09/03/2022 19:23]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/03/2022 19:25]  System: The world will save in 15 seconds.
+[09/03/2022 19:25]  System: The world is saving, please wait.
+[09/03/2022 19:25]  System: World save done in 0.2 seconds.
+[09/03/2022 19:30]  Richard:  Richard the bard guildmaster
+[09/03/2022 19:38]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 19:40]  System: The world will save in 15 seconds.
+[09/03/2022 19:40]  System: The world is saving, please wait.
+[09/03/2022 19:40]  System: World save done in 0.2 seconds.
+[09/03/2022 19:42]  Richard:  Richard the bard guildmaster
+[09/03/2022 19:55]  System: The world will save in 15 seconds.
+[09/03/2022 19:56]  System: The world is saving, please wait.
+[09/03/2022 19:56]  System: World save done in 0.4 seconds.
+[09/03/2022 19:59]  Richard:  Richard the bard guildmaster
+[09/03/2022 20:02]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 20:10]  Richard:  Richard the bard guildmaster
+[09/03/2022 20:10]  System: The world will save in 15 seconds.
+[09/03/2022 20:11]  System: The world is saving, please wait.
+[09/03/2022 20:11]  System: World save done in 0.4 seconds.
+[09/03/2022 20:13]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 20:15]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 20:16]  Ayela:  Ayela the bard
+[09/03/2022 20:17]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 20:23]  Ayela:  Ayela the bard
+[09/03/2022 20:25]  System: It begins to rain.
+[09/03/2022 20:25]  System: The world will save in 15 seconds.
+[09/03/2022 20:26]  System: The world is saving, please wait.
+[09/03/2022 20:26]  System: World save done in 0.2 seconds.
+[09/03/2022 20:28]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 20:32]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 20:41]  System: The world will save in 15 seconds.
+[09/03/2022 20:41]  System: The world is saving, please wait.
+[09/03/2022 20:41]  System: World save done in 0.5 seconds.
+[09/03/2022 20:42]  Richard:  Richard the bard guildmaster
+[09/03/2022 20:48]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 20:56]  System: The world will save in 15 seconds.
+[09/03/2022 20:56]  System: The world is saving, please wait.
+[09/03/2022 20:56]  System: World save done in 0.2 seconds.
+[09/03/2022 21:05]  Ayela:  Ayela the bard
+[09/03/2022 21:07]  Richard:  Richard the bard guildmaster
+[09/03/2022 21:08]  Ayela:  Ayela the bard
+[09/03/2022 21:08]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 21:11]  System: The world will save in 15 seconds.
+[09/03/2022 21:11]  System: The world is saving, please wait.
+[09/03/2022 21:11]  System: World save done in 0.2 seconds.
+[09/03/2022 21:24]  Ayela:  Ayela the bard
+[09/03/2022 21:26]  System: The world will save in 15 seconds.
+[09/03/2022 21:26]  System: The world is saving, please wait.
+[09/03/2022 21:26]  System: World save done in 0.2 seconds.
+[09/03/2022 21:41]  System: The world will save in 15 seconds.
+[09/03/2022 21:41]  System: The world is saving, please wait.
+[09/03/2022 21:41]  System: World save done in 0.2 seconds.
+[09/03/2022 21:52]  Ayela:  Ayela the bard
+[09/03/2022 21:52]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 21:56]  System: The world will save in 15 seconds.
+[09/03/2022 21:56]  System: The world is saving, please wait.
+[09/03/2022 21:56]  System: World save done in 0.2 seconds.
+[09/03/2022 21:58]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 22:04]  Ayela:  Ayela the bard
+[09/03/2022 22:11]  System: The world will save in 15 seconds.
+[09/03/2022 22:11]  System: The world is saving, please wait.
+[09/03/2022 22:11]  System: World save done in 0.2 seconds.
+[09/03/2022 22:13]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 22:14]  Ayela:  Ayela the bard
+[09/03/2022 22:14]  System: It begins to rain.
+[09/03/2022 22:17]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 22:20]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 22:26]  Richard:  Richard the bard guildmaster
+[09/03/2022 22:26]  System: The world will save in 15 seconds.
+[09/03/2022 22:27]  System: The world is saving, please wait.
+[09/03/2022 22:27]  System: World save done in 0.2 seconds.
+[09/03/2022 22:28]  Ayela:  Ayela the bard
+[09/03/2022 22:34]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 22:41]  Richard:  Richard the bard guildmaster
+[09/03/2022 22:41]  System: The world will save in 15 seconds.
+[09/03/2022 22:42]  System: The world is saving, please wait.
+[09/03/2022 22:42]  System: World save done in 0.2 seconds.
+[09/03/2022 22:56]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 22:56]  System: The world will save in 15 seconds.
+[09/03/2022 22:57]  System: The world is saving, please wait.
+[09/03/2022 22:57]  System: World save done in 0.2 seconds.
+[09/03/2022 23:02]  Richard:  Richard the bard guildmaster
+[09/03/2022 23:03]  Ayela:  Ayela the bard
+[09/03/2022 23:10]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 23:11]  System: The world will save in 15 seconds.
+[09/03/2022 23:12]  System: The world is saving, please wait.
+[09/03/2022 23:12]  System: World save done in 0.1 seconds.
+[09/03/2022 23:16]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 23:27]  System: The world will save in 15 seconds.
+[09/03/2022 23:27]  System: The world is saving, please wait.
+[09/03/2022 23:27]  System: World save done in 0.2 seconds.
+[09/03/2022 23:28]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 23:28]  Sir Berran:  Sir Berran the Song Weilder
+[09/03/2022 23:37]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 23:41]  Richard:  Richard the bard guildmaster
+[09/03/2022 23:42]  System: The world will save in 15 seconds.
+[09/03/2022 23:42]  System: The world is saving, please wait.
+[09/03/2022 23:42]  System: World save done in 0.5 seconds.
+[09/03/2022 23:43]  Richard:  Richard the bard guildmaster
+[09/03/2022 23:54]  Nolita:  Nolita the miner guildmistress
+[09/03/2022 23:56]  Sir Felean:  Sir Felean the Spirit Soother
+[09/03/2022 23:57]  System: The world will save in 15 seconds.
+[09/03/2022 23:57]  System: The world is saving, please wait.
+[09/03/2022 23:57]  System: World save done in 0.4 seconds.
+[09/03/2022 23:58]  Ayela:  Ayela the bard
+[09/04/2022 00:12]  System: The world will save in 15 seconds.
+[09/04/2022 00:12]  System: The world is saving, please wait.
+[09/04/2022 00:12]  System: World save done in 0.2 seconds.
+[09/04/2022 00:21]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 00:27]  System: The world will save in 15 seconds.
+[09/04/2022 00:27]  System: The world is saving, please wait.
+[09/04/2022 00:27]  System: World save done in 0.2 seconds.
+[09/04/2022 00:30]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 00:35]  Ayela:  Ayela the bard
+[09/04/2022 00:35]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 00:42]  System: The world will save in 15 seconds.
+[09/04/2022 00:42]  Ayela:  Ayela the bard
+[09/04/2022 00:42]  System: The world is saving, please wait.
+[09/04/2022 00:42]  System: World save done in 0.5 seconds.
+[09/04/2022 00:57]  System: The world will save in 15 seconds.
+[09/04/2022 00:57]  System: The world is saving, please wait.
+[09/04/2022 00:57]  System: World save done in 0.1 seconds.
+[09/04/2022 00:58]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 01:00]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 01:03]  Ayela:  Ayela the bard
+[09/04/2022 01:05]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 01:07]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 01:12]  System: The world will save in 15 seconds.
+[09/04/2022 01:12]  System: The world is saving, please wait.
+[09/04/2022 01:12]  System: World save done in 0.5 seconds.
+[09/04/2022 01:26]  Richard:  Richard the bard guildmaster
+[09/04/2022 01:27]  System: The world will save in 15 seconds.
+[09/04/2022 01:27]  System: The world is saving, please wait.
+[09/04/2022 01:27]  System: World save done in 0.2 seconds.
+[09/04/2022 01:38]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 01:39]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 01:42]  System: The world will save in 15 seconds.
+[09/04/2022 01:43]  System: The world is saving, please wait.
+[09/04/2022 01:43]  System: World save done in 0.2 seconds.
+[09/04/2022 01:49]  Ayela:  Ayela the bard
+[09/04/2022 01:57]  System: The world will save in 15 seconds.
+[09/04/2022 01:58]  System: The world is saving, please wait.
+[09/04/2022 01:58]  System: World save done in 0.2 seconds.
+[09/04/2022 02:03]  System: It begins to rain.
+[09/04/2022 02:06]  Richard:  Richard the bard guildmaster
+[09/04/2022 02:12]  System: The world will save in 15 seconds.
+[09/04/2022 02:13]  System: The world is saving, please wait.
+[09/04/2022 02:13]  System: World save done in 0.2 seconds.
+[09/04/2022 02:23]  Richard:  Richard the bard guildmaster
+[09/04/2022 02:28]  System: The world will save in 15 seconds.
+[09/04/2022 02:28]  System: The world is saving, please wait.
+[09/04/2022 02:28]  System: World save done in 0.2 seconds.
+[09/04/2022 02:40]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 02:43]  System: The world will save in 15 seconds.
+[09/04/2022 02:43]  System: The world is saving, please wait.
+[09/04/2022 02:43]  System: World save done in 0.2 seconds.
+[09/04/2022 02:44]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 02:46]  Ayela:  Ayela the bard
+[09/04/2022 02:48]  Richard:  Richard the bard guildmaster
+[09/04/2022 02:51]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 02:57]  Ayela:  Ayela the bard
+[09/04/2022 02:58]  System: The world will save in 15 seconds.
+[09/04/2022 02:58]  System: The world is saving, please wait.
+[09/04/2022 02:58]  System: World save done in 0.1 seconds.
+[09/04/2022 02:58]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 03:03]  Richard:  Richard the bard guildmaster
+[09/04/2022 03:05]  Richard:  Richard the bard guildmaster
+[09/04/2022 03:13]  System: The world will save in 15 seconds.
+[09/04/2022 03:13]  System: The world is saving, please wait.
+[09/04/2022 03:13]  System: World save done in 0.4 seconds.
+[09/04/2022 03:13]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 03:20]  Ayela:  Ayela the bard
+[09/04/2022 03:26]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 03:28]  System: The world will save in 15 seconds.
+[09/04/2022 03:28]  System: The world is saving, please wait.
+[09/04/2022 03:28]  System: World save done in 0.2 seconds.
+[09/04/2022 03:32]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 03:35]  Ayela:  Ayela the bard
+[09/04/2022 03:41]  Ayela:  Ayela the bard
+[09/04/2022 03:43]  System: The world will save in 15 seconds.
+[09/04/2022 03:43]  System: The world is saving, please wait.
+[09/04/2022 03:43]  System: World save done in 0.1 seconds.
+[09/04/2022 03:58]  System: The world will save in 15 seconds.
+[09/04/2022 03:58]  System: The world is saving, please wait.
+[09/04/2022 03:58]  System: World save done in 0.2 seconds.
+[09/04/2022 04:05]  Richard:  Richard the bard guildmaster
+[09/04/2022 04:08]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 04:13]  System: The world will save in 15 seconds.
+[09/04/2022 04:13]  System: The world is saving, please wait.
+[09/04/2022 04:13]  System: World save done in 0.4 seconds.
+[09/04/2022 04:27]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 04:28]  System: The world will save in 15 seconds.
+[09/04/2022 04:29]  System: The world is saving, please wait.
+[09/04/2022 04:29]  System: World save done in 0.2 seconds.
+[09/04/2022 04:36]  Richard:  Richard the bard guildmaster
+[09/04/2022 04:37]  System: You are old enough to be considered an adult, and have outgrown your status as a young player!
+[09/04/2022 04:37]  System: You are no longer considered a young player of Ultima Online, and are no longer subject to the limitations and benefits of being in that caste.
+[09/04/2022 04:39]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 04:43]  System: The world will save in 15 seconds.
+[09/04/2022 04:44]  System: The world is saving, please wait.
+[09/04/2022 04:44]  System: World save done in 0.3 seconds.
+[09/04/2022 04:58]  System: The world will save in 15 seconds.
+[09/04/2022 04:59]  System: The world is saving, please wait.
+[09/04/2022 04:59]  System: World save done in 0.1 seconds.
+[09/04/2022 05:00]  Ayela:  Ayela the bard
+[09/04/2022 05:05]  Ayela:  Ayela the bard
+[09/04/2022 05:13]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 05:13]  Ayela:  Ayela the bard
+[09/04/2022 05:14]  System: The world will save in 15 seconds.
+[09/04/2022 05:14]  System: The world is saving, please wait.
+[09/04/2022 05:14]  System: World save done in 0.2 seconds.
+[09/04/2022 05:15]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 05:21]  Ayela:  Ayela the bard
+[09/04/2022 05:29]  System: The world will save in 15 seconds.
+[09/04/2022 05:29]  System: The world is saving, please wait.
+[09/04/2022 05:29]  System: World save done in 0.5 seconds.
+[09/04/2022 05:39]  Richard:  Richard the bard guildmaster
+[09/04/2022 05:43]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 05:44]  System: The world will save in 15 seconds.
+[09/04/2022 05:44]  System: The world is saving, please wait.
+[09/04/2022 05:44]  System: World save done in 0.4 seconds.
+[09/04/2022 05:47]  Ayela:  Ayela the bard
+[09/04/2022 05:48]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 05:59]  System: The world will save in 15 seconds.
+[09/04/2022 05:59]  System: The world is saving, please wait.
+[09/04/2022 05:59]  System: World save done in 0.2 seconds.
+[09/04/2022 06:02]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 06:03]  Richard:  Richard the bard guildmaster
+[09/04/2022 06:14]  System: The world will save in 15 seconds.
+[09/04/2022 06:14]  System: The world is saving, please wait.
+[09/04/2022 06:14]  System: World save done in 0.2 seconds.
+[09/04/2022 06:29]  System: The world will save in 15 seconds.
+[09/04/2022 06:29]  System: The world is saving, please wait.
+[09/04/2022 06:29]  System: World save done in 0.4 seconds.
+[09/04/2022 06:31]  Ayela:  Ayela the bard
+[09/04/2022 06:32]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 06:34]  Ayela:  Ayela the bard
+[09/04/2022 06:44]  System: The world will save in 15 seconds.
+[09/04/2022 06:44]  System: The world is saving, please wait.
+[09/04/2022 06:44]  System: World save done in 0.1 seconds.
+[09/04/2022 06:49]  Richard:  Richard the bard guildmaster
+[09/04/2022 06:50]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 06:53]  Ayela:  Ayela the bard
+[09/04/2022 06:56]  Ayela:  Ayela the bard
+[09/04/2022 06:57]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 06:59]  System: The world will save in 15 seconds.
+[09/04/2022 06:59]  System: The world is saving, please wait.
+[09/04/2022 06:59]  System: World save done in 0.4 seconds.
+[09/04/2022 07:06]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 07:07]  Richard:  Richard the bard guildmaster
+[09/04/2022 07:14]  Ayela:  Ayela the bard
+[09/04/2022 07:14]  System: The world will save in 15 seconds.
+[09/04/2022 07:15]  System: The world is saving, please wait.
+[09/04/2022 07:15]  System: World save done in 0.1 seconds.
+[09/04/2022 07:20]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 07:24]  Richard:  Richard the bard guildmaster
+[09/04/2022 07:24]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 07:29]  System: The world will save in 15 seconds.
+[09/04/2022 07:30]  System: The world is saving, please wait.
+[09/04/2022 07:30]  System: World save done in 0.2 seconds.
+[09/04/2022 07:34]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 07:42]  Richard:  Richard the bard guildmaster
+[09/04/2022 07:44]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 07:44]  System: The world will save in 15 seconds.
+[09/04/2022 07:45]  System: The world is saving, please wait.
+[09/04/2022 07:45]  System: World save done in 0.2 seconds.
+[09/04/2022 07:48]  Ayela:  Ayela the bard
+[09/04/2022 07:51]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 07:54]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 08:00]  System: The world will save in 15 seconds.
+[09/04/2022 08:00]  System: The world is saving, please wait.
+[09/04/2022 08:00]  System: World save done in 0.2 seconds.
+[09/04/2022 08:13]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 08:14]  Ayela:  Ayela the bard
+[09/04/2022 08:15]  System: The world will save in 15 seconds.
+[09/04/2022 08:15]  System: The world is saving, please wait.
+[09/04/2022 08:15]  System: World save done in 0.2 seconds.
+[09/04/2022 08:20]  Richard:  Richard the bard guildmaster
+[09/04/2022 08:30]  System: The world will save in 15 seconds.
+[09/04/2022 08:30]  System: The world is saving, please wait.
+[09/04/2022 08:30]  System: World save done in 0.2 seconds.
+[09/04/2022 08:36]  Richard:  Richard the bard guildmaster
+[09/04/2022 08:37]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 08:45]  System: The world will save in 15 seconds.
+[09/04/2022 08:45]  System: The world is saving, please wait.
+[09/04/2022 08:45]  System: World save done in 0.2 seconds.
+[09/04/2022 08:46]  Ayela:  Ayela the bard
+[09/04/2022 08:48]  Ayela:  Ayela the bard
+[09/04/2022 08:58]  Ayela:  Ayela the bard
+[09/04/2022 09:00]  System: The world will save in 15 seconds.
+[09/04/2022 09:00]  System: The world is saving, please wait.
+[09/04/2022 09:00]  System: World save done in 0.1 seconds.
+[09/04/2022 09:04]  Ayela:  Ayela the bard
+[09/04/2022 09:05]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 09:11]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 09:15]  System: The world will save in 15 seconds.
+[09/04/2022 09:15]  System: The world is saving, please wait.
+[09/04/2022 09:15]  System: World save done in 0.4 seconds.
+[09/04/2022 09:16]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 09:30]  System: The world will save in 15 seconds.
+[09/04/2022 09:30]  System: The world is saving, please wait.
+[09/04/2022 09:30]  System: World save done in 0.2 seconds.
+[09/04/2022 09:39]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 09:41]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 09:45]  System: The world will save in 15 seconds.
+[09/04/2022 09:45]  System: The world is saving, please wait.
+[09/04/2022 09:45]  System: World save done in 0.2 seconds.
+[09/04/2022 09:58]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 10:00]  System: The world will save in 15 seconds.
+[09/04/2022 10:00]  System: The world is saving, please wait.
+[09/04/2022 10:00]  System: World save done in 0.2 seconds.
+[09/04/2022 10:13]  System: It begins to rain.
+[09/04/2022 10:15]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 10:15]  System: The world will save in 15 seconds.
+[09/04/2022 10:16]  System: The world is saving, please wait.
+[09/04/2022 10:16]  System: World save done in 0.3 seconds.
+[09/04/2022 10:25]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 10:25]  Richard:  Richard the bard guildmaster
+[09/04/2022 10:30]  System: The world will save in 15 seconds.
+[09/04/2022 10:31]  System: The world is saving, please wait.
+[09/04/2022 10:31]  System: World save done in 0.5 seconds.
+[09/04/2022 10:36]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 10:37]  Richard:  Richard the bard guildmaster
+[09/04/2022 10:40]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 10:43]  Richard:  Richard the bard guildmaster
+[09/04/2022 10:45]  System: The world will save in 15 seconds.
+[09/04/2022 10:46]  System: The world is saving, please wait.
+[09/04/2022 10:46]  System: World save done in 0.2 seconds.
+[09/04/2022 10:48]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 11:01]  System: The world will save in 15 seconds.
+[09/04/2022 11:01]  System: The world is saving, please wait.
+[09/04/2022 11:01]  System: World save done in 0.2 seconds.
+[09/04/2022 11:09]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 11:16]  System: The world will save in 15 seconds.
+[09/04/2022 11:16]  System: The world is saving, please wait.
+[09/04/2022 11:16]  System: World save done in 0.2 seconds.
+[09/04/2022 11:19]  System: It begins to rain.
+[09/04/2022 11:20]  Richard:  Richard the bard guildmaster
+[09/04/2022 11:27]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 11:31]  System: The world will save in 15 seconds.
+[09/04/2022 11:31]  System: The world is saving, please wait.
+[09/04/2022 11:31]  System: World save done in 0.2 seconds.
+[09/04/2022 11:42]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 11:46]  System: The world will save in 15 seconds.
+[09/04/2022 11:46]  System: The world is saving, please wait.
+[09/04/2022 11:46]  System: World save done in 0.4 seconds.
+[09/04/2022 11:47]  Ayela:  Ayela the bard
+[09/04/2022 11:48]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 11:55]  Richard:  Richard the bard guildmaster
+[09/04/2022 11:55]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 11:56]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/04/2022 12:01]  System: The world will save in 15 seconds.
+[09/04/2022 12:01]  System: The world is saving, please wait.
+[09/04/2022 12:01]  System: World save done in 0.2 seconds.
+[09/04/2022 12:10]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/04/2022 12:15]  Richard:  Richard the bard guildmaster
+[09/04/2022 12:15]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/04/2022 12:16]  System: The world will save in 15 seconds.
+[09/04/2022 12:16]  System: The world is saving, please wait.
+[09/04/2022 12:16]  System: World save done in 0.4 seconds.
+[09/04/2022 12:17]  Ayela:  Ayela the bard
+[09/04/2022 12:26]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 12:31]  System: The world will save in 15 seconds.
+[09/04/2022 12:31]  System: The world is saving, please wait.
+[09/04/2022 12:31]  System: World save done in 0.3 seconds.
+[09/04/2022 12:32]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/04/2022 12:32]  Richard:  Richard the bard guildmaster
+[09/04/2022 12:37]  Ayela:  Ayela the bard
+[09/04/2022 12:41]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 12:46]  System: The world will save in 15 seconds.
+[09/04/2022 12:46]  System: The world is saving, please wait.
+[09/04/2022 12:46]  System: World save done in 0.2 seconds.
+[09/04/2022 12:47]  Richard:  Richard the bard guildmaster
+[09/04/2022 13:00]  Richard:  Richard the bard guildmaster
+[09/04/2022 13:01]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 13:01]  System: The world will save in 15 seconds.
+[09/04/2022 13:01]  System: The world is saving, please wait.
+[09/04/2022 13:01]  System: World save done in 0.2 seconds.
+[09/04/2022 13:14]  Richard:  Richard the bard guildmaster
+[09/04/2022 13:16]  System: The world will save in 15 seconds.
+[09/04/2022 13:17]  System: The world is saving, please wait.
+[09/04/2022 13:17]  System: World save done in 0.2 seconds.
+[09/04/2022 13:18]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 13:31]  System: The world will save in 15 seconds.
+[09/04/2022 13:32]  System: The world is saving, please wait.
+[09/04/2022 13:32]  System: World save done in 0.2 seconds.
+[09/04/2022 13:33]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 13:47]  System: The world will save in 15 seconds.
+[09/04/2022 13:47]  System: The world is saving, please wait.
+[09/04/2022 13:47]  System: World save done in 0.2 seconds.
+[09/04/2022 13:52]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 14:02]  System: The world will save in 15 seconds.
+[09/04/2022 14:02]  System: The world is saving, please wait.
+[09/04/2022 14:02]  System: World save done in 0.2 seconds.
+[09/04/2022 14:09]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 14:09]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 14:17]  System: The world will save in 15 seconds.
+[09/04/2022 14:17]  System: The world is saving, please wait.
+[09/04/2022 14:17]  System: World save done in 0.2 seconds.
+[09/04/2022 14:32]  System: The world will save in 15 seconds.
+[09/04/2022 14:33]  System: The world is saving, please wait.
+[09/04/2022 14:33]  System: World save done in 0.2 seconds.
+[09/04/2022 14:34]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 14:40]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 14:48]  System: The world will save in 15 seconds.
+[09/04/2022 14:48]  System: The world is saving, please wait.
+[09/04/2022 14:48]  System: World save done in 0.2 seconds.
+[09/04/2022 14:52]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 15:03]  System: The world will save in 15 seconds.
+[09/04/2022 15:03]  System: The world is saving, please wait.
+[09/04/2022 15:03]  System: World save done in 0.2 seconds.
+[09/04/2022 15:07]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 15:09]  System: It begins to rain.
+[09/04/2022 15:16]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 15:18]  System: The world will save in 15 seconds.
+[09/04/2022 15:18]  System: The world is saving, please wait.
+[09/04/2022 15:18]  System: World save done in 0.4 seconds.
+[09/04/2022 15:33]  System: The world will save in 15 seconds.
+[09/04/2022 15:33]  System: The world is saving, please wait.
+[09/04/2022 15:33]  System: World save done in 0.2 seconds.
+[09/04/2022 15:33]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 15:38]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/04/2022 15:39]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 15:43]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 15:48]  System: The world will save in 15 seconds.
+[09/04/2022 15:48]  System: The world is saving, please wait.
+[09/04/2022 15:48]  System: World save done in 0.1 seconds.
+[09/04/2022 15:58]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 16:01]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 16:03]  System: The world will save in 15 seconds.
+[09/04/2022 16:03]  System: The world is saving, please wait.
+[09/04/2022 16:03]  System: World save done in 0.2 seconds.
+[09/04/2022 16:09]  Ayela:  Ayela the bard
+[09/04/2022 16:18]  System: The world will save in 15 seconds.
+[09/04/2022 16:18]  System: The world is saving, please wait.
+[09/04/2022 16:18]  System: World save done in 0.2 seconds.
+[09/04/2022 16:21]  Richard:  Richard the bard guildmaster
+[09/04/2022 16:22]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 16:33]  System: The world will save in 15 seconds.
+[09/04/2022 16:34]  System: The world is saving, please wait.
+[09/04/2022 16:34]  System: World save done in 0.2 seconds.
+[09/04/2022 16:40]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 16:41]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 16:46]  System: It begins to rain.
+[09/04/2022 16:48]  System: The world will save in 15 seconds.
+[09/04/2022 16:49]  System: The world is saving, please wait.
+[09/04/2022 16:49]  System: World save done in 0.5 seconds.
+[09/04/2022 16:51]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 16:57]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 17:03]  System: The world will save in 15 seconds.
+[09/04/2022 17:04]  System: The world is saving, please wait.
+[09/04/2022 17:04]  System: World save done in 0.1 seconds.
+[09/04/2022 17:10]  Ayela:  Ayela the bard
+[09/04/2022 17:19]  System: The world will save in 15 seconds.
+[09/04/2022 17:19]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 17:19]  System: The world is saving, please wait.
+[09/04/2022 17:19]  System: World save done in 0.4 seconds.
+[09/04/2022 17:30]  System: It begins to snow.
+[09/04/2022 17:34]  System: The world will save in 15 seconds.
+[09/04/2022 17:34]  System: The world is saving, please wait.
+[09/04/2022 17:34]  System: World save done in 0.1 seconds.
+[09/04/2022 17:40]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 17:49]  System: The world will save in 15 seconds.
+[09/04/2022 17:49]  System: The world is saving, please wait.
+[09/04/2022 17:49]  System: World save done in 0.2 seconds.
+[09/04/2022 18:04]  System: The world will save in 15 seconds.
+[09/04/2022 18:04]  System: The world is saving, please wait.
+[09/04/2022 18:04]  System: World save done in 0.2 seconds.
+[09/04/2022 18:19]  System: The world will save in 15 seconds.
+[09/04/2022 18:19]  System: The world is saving, please wait.
+[09/04/2022 18:19]  System: World save done in 0.2 seconds.
+[09/04/2022 18:19]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 18:26]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 18:28]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 18:29]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 18:34]  System: The world will save in 15 seconds.
+[09/04/2022 18:34]  System: The world is saving, please wait.
+[09/04/2022 18:34]  System: World save done in 0.2 seconds.
+[09/04/2022 18:35]  System: It begins to rain.
+[09/04/2022 18:45]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 18:49]  System: The world will save in 15 seconds.
+[09/04/2022 18:49]  System: The world is saving, please wait.
+[09/04/2022 18:49]  System: World save done in 0.2 seconds.
+[09/04/2022 18:50]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 19:04]  System: The world will save in 15 seconds.
+[09/04/2022 19:04]  System: The world is saving, please wait.
+[09/04/2022 19:04]  System: World save done in 0.3 seconds.
+[09/04/2022 19:04]  Sir Berran:  Sir Berran the Song Weilder
+[09/04/2022 19:05]  System: It begins to snow.
+[09/04/2022 19:05]  Richard:  Richard the bard guildmaster
+[09/04/2022 19:10]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 19:15]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 19:19]  System: It begins to rain.
+[09/04/2022 19:19]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 19:19]  System: The world will save in 15 seconds.
+[09/04/2022 19:19]  System: The world is saving, please wait.
+[09/04/2022 19:20]  System: World save done in 0.2 seconds.
+[09/04/2022 19:29]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 19:34]  System: The world will save in 15 seconds.
+[09/04/2022 19:35]  System: The world is saving, please wait.
+[09/04/2022 19:35]  System: World save done in 0.2 seconds.
+[09/04/2022 19:38]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 19:49]  System: The world will save in 15 seconds.
+[09/04/2022 19:50]  System: The world is saving, please wait.
+[09/04/2022 19:50]  System: World save done in 0.5 seconds.
+[09/04/2022 19:54]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 20:04]  System: The world will save in 15 seconds.
+[09/04/2022 20:05]  System: The world is saving, please wait.
+[09/04/2022 20:05]  System: World save done in 0.2 seconds.
+[09/04/2022 20:14]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 20:14]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 20:20]  System: The world will save in 15 seconds.
+[09/04/2022 20:20]  System: The world is saving, please wait.
+[09/04/2022 20:20]  System: World save done in 0.2 seconds.
+[09/04/2022 20:35]  System: The world will save in 15 seconds.
+[09/04/2022 20:35]  System: The world is saving, please wait.
+[09/04/2022 20:35]  System: World save done in 0.2 seconds.
+[09/04/2022 20:42]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 20:42]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 20:50]  System: The world will save in 15 seconds.
+[09/04/2022 20:50]  System: The world is saving, please wait.
+[09/04/2022 20:50]  System: World save done in 0.2 seconds.
+[09/04/2022 20:54]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 21:03]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 21:05]  System: The world will save in 15 seconds.
+[09/04/2022 21:05]  System: The world is saving, please wait.
+[09/04/2022 21:05]  System: World save done in 0.2 seconds.
+[09/04/2022 21:20]  System: The world will save in 15 seconds.
+[09/04/2022 21:20]  System: The world is saving, please wait.
+[09/04/2022 21:20]  System: World save done in 0.1 seconds.
+[09/04/2022 21:23]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 21:32]  Ayela:  Ayela the bard
+[09/04/2022 21:35]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 21:35]  System: The world will save in 15 seconds.
+[09/04/2022 21:35]  System: The world is saving, please wait.
+[09/04/2022 21:35]  System: World save done in 0.5 seconds.
+[09/04/2022 21:50]  System: The world will save in 15 seconds.
+[09/04/2022 21:50]  System: The world is saving, please wait.
+[09/04/2022 21:51]  System: World save done in 0.2 seconds.
+[09/04/2022 21:54]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 21:58]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 22:06]  System: The world will save in 15 seconds.
+[09/04/2022 22:06]  System: The world is saving, please wait.
+[09/04/2022 22:06]  System: World save done in 0.5 seconds.
+[09/04/2022 22:21]  System: The world will save in 15 seconds.
+[09/04/2022 22:21]  System: The world is saving, please wait.
+[09/04/2022 22:21]  System: World save done in 0.2 seconds.
+[09/04/2022 22:22]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 22:36]  System: The world will save in 15 seconds.
+[09/04/2022 22:36]  System: The world is saving, please wait.
+[09/04/2022 22:36]  System: World save done in 0.3 seconds.
+[09/04/2022 22:41]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 22:42]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 22:46]  System: It begins to rain.
+[09/04/2022 22:48]  Sir Felean:  Sir Felean the Spirit Soother
+[09/04/2022 22:51]  System: The world will save in 15 seconds.
+[09/04/2022 22:51]  System: The world is saving, please wait.
+[09/04/2022 22:51]  System: World save done in 0.2 seconds.
+[09/04/2022 23:06]  System: The world will save in 15 seconds.
+[09/04/2022 23:06]  System: The world is saving, please wait.
+[09/04/2022 23:06]  System: World save done in 0.2 seconds.
+[09/04/2022 23:13]  Nolita:  Nolita the miner guildmistress
+[09/04/2022 23:21]  System: The world will save in 15 seconds.
+[09/04/2022 23:21]  System: The world is saving, please wait.
+[09/04/2022 23:21]  System: World save done in 0.2 seconds.
+[09/04/2022 23:30]  System: It begins to rain.
+[09/04/2022 23:36]  System: The world will save in 15 seconds.
+[09/04/2022 23:37]  System: The world is saving, please wait.
+[09/04/2022 23:37]  System: World save done in 0.2 seconds.
+[09/04/2022 23:51]  System: The world will save in 15 seconds.
+[09/04/2022 23:52]  System: The world is saving, please wait.
+[09/04/2022 23:52]  System: World save done in 0.2 seconds.
+[09/04/2022 23:52]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 00:06]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/05/2022 00:06]  System: The world will save in 15 seconds.
+[09/05/2022 00:07]  System: The world is saving, please wait.
+[09/05/2022 00:07]  System: World save done in 0.2 seconds.
+[09/05/2022 00:13]  Sir Hareus:  Sir Hareus the Battle Rouser
+[09/05/2022 00:19]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 00:22]  System: The world will save in 15 seconds.
+[09/05/2022 00:22]  System: The world is saving, please wait.
+[09/05/2022 00:22]  System: World save done in 0.4 seconds.
+[09/05/2022 00:25]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 00:37]  System: The world will save in 15 seconds.
+[09/05/2022 00:37]  System: The world is saving, please wait.
+[09/05/2022 00:37]  System: World save done in 0.2 seconds.
+[09/05/2022 00:46]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 00:52]  System: The world will save in 15 seconds.
+[09/05/2022 00:52]  System: The world is saving, please wait.
+[09/05/2022 00:52]  System: World save done in 0.1 seconds.
+[09/05/2022 01:03]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 01:07]  System: The world will save in 15 seconds.
+[09/05/2022 01:07]  System: The world is saving, please wait.
+[09/05/2022 01:07]  System: World save done in 0.3 seconds.
+[09/05/2022 01:19]  System: It begins to rain.
+[09/05/2022 01:22]  System: The world will save in 15 seconds.
+[09/05/2022 01:22]  System: The world is saving, please wait.
+[09/05/2022 01:22]  System: World save done in 0.6 seconds.
+[09/05/2022 01:37]  System: The world will save in 15 seconds.
+[09/05/2022 01:37]  System: The world is saving, please wait.
+[09/05/2022 01:37]  System: World save done in 0.2 seconds.
+[09/05/2022 01:41]  System: It begins to rain.
+[09/05/2022 01:45]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 01:52]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 01:52]  System: The world will save in 15 seconds.
+[09/05/2022 01:52]  System: The world is saving, please wait.
+[09/05/2022 01:52]  System: World save done in 0.1 seconds.
+[09/05/2022 01:56]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 02:03]  Sir Felean:  Sir Felean the Spirit Soother
+[09/05/2022 02:05]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 02:07]  System: The world will save in 15 seconds.
+[09/05/2022 02:07]  System: The world is saving, please wait.
+[09/05/2022 02:07]  System: World save done in 0.3 seconds.
+[09/05/2022 02:14]  System: It begins to rain.
+[09/05/2022 02:22]  System: The world will save in 15 seconds.
+[09/05/2022 02:22]  System: The world is saving, please wait.
+[09/05/2022 02:22]  System: World save done in 0.3 seconds.
+[09/05/2022 02:30]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 02:32]  Richard:  Richard the bard guildmaster
+[09/05/2022 02:37]  System: The world will save in 15 seconds.
+[09/05/2022 02:38]  System: The world is saving, please wait.
+[09/05/2022 02:38]  System: World save done in 0.2 seconds.
+[09/05/2022 02:41]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 02:43]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 02:44]  Ayela:  Ayela the bard
+[09/05/2022 02:46]  System: It begins to snow.
+[09/05/2022 02:52]  System: The world will save in 15 seconds.
+[09/05/2022 02:53]  System: The world is saving, please wait.
+[09/05/2022 02:53]  System: World save done in 0.3 seconds.
+[09/05/2022 02:57]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 03:02]  Richard:  Richard the bard guildmaster
+[09/05/2022 03:05]  Sir Felean:  Sir Felean the Spirit Soother
+[09/05/2022 03:07]  System: The world will save in 15 seconds.
+[09/05/2022 03:08]  System: The world is saving, please wait.
+[09/05/2022 03:08]  System: World save done in 0.2 seconds.
+[09/05/2022 03:08]  System: It begins to rain.
+[09/05/2022 03:17]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 03:23]  System: The world will save in 15 seconds.
+[09/05/2022 03:23]  System: The world is saving, please wait.
+[09/05/2022 03:23]  System: World save done in 0.4 seconds.
+[09/05/2022 03:38]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 03:38]  System: The world will save in 15 seconds.
+[09/05/2022 03:38]  System: The world is saving, please wait.
+[09/05/2022 03:38]  System: World save done in 0.2 seconds.
+[09/05/2022 03:40]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 03:42]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 03:48]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 03:53]  System: The world will save in 15 seconds.
+[09/05/2022 03:53]  System: The world is saving, please wait.
+[09/05/2022 03:53]  System: World save done in 0.1 seconds.
+[09/05/2022 04:02]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 04:08]  System: The world will save in 15 seconds.
+[09/05/2022 04:08]  System: The world is saving, please wait.
+[09/05/2022 04:08]  System: World save done in 0.4 seconds.
+[09/05/2022 04:08]  Sir Felean:  Sir Felean the Spirit Soother
+[09/05/2022 04:09]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 04:14]  System: It begins to rain.
+[09/05/2022 04:14]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 04:19]  Richard:  Richard the bard guildmaster
+[09/05/2022 04:23]  System: The world will save in 15 seconds.
+[09/05/2022 04:23]  System: The world is saving, please wait.
+[09/05/2022 04:23]  System: World save done in 0.2 seconds.
+[09/05/2022 04:38]  System: The world will save in 15 seconds.
+[09/05/2022 04:38]  System: The world is saving, please wait.
+[09/05/2022 04:38]  System: World save done in 0.5 seconds.
+[09/05/2022 04:47]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 04:49]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 04:53]  System: The world will save in 15 seconds.
+[09/05/2022 04:53]  System: The world is saving, please wait.
+[09/05/2022 04:53]  System: World save done in 0.2 seconds.
+[09/05/2022 04:55]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:01]  Ayela:  Ayela the bard
+[09/05/2022 05:08]  System: The world will save in 15 seconds.
+[09/05/2022 05:08]  System: The world is saving, please wait.
+[09/05/2022 05:08]  System: World save done in 0.2 seconds.
+[09/05/2022 05:12]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:16]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:23]  System: The world will save in 15 seconds.
+[09/05/2022 05:23]  System: The world is saving, please wait.
+[09/05/2022 05:23]  System: World save done in 0.2 seconds.
+[09/05/2022 05:30]  Sir Felean:  Sir Felean the Spirit Soother
+[09/05/2022 05:35]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:38]  System: The world will save in 15 seconds.
+[09/05/2022 05:39]  System: The world is saving, please wait.
+[09/05/2022 05:39]  System: World save done in 0.2 seconds.
+[09/05/2022 05:43]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:49]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:52]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 05:53]  System: The world will save in 15 seconds.
+[09/05/2022 05:54]  System: The world is saving, please wait.
+[09/05/2022 05:54]  System: World save done in 0.5 seconds.
+[09/05/2022 05:55]  Richard:  Richard the bard guildmaster
+[09/05/2022 05:58]  Richard:  Richard the bard guildmaster
+[09/05/2022 06:04]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 06:06]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 06:06]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 06:08]  System: The world will save in 15 seconds.
+[09/05/2022 06:09]  System: The world is saving, please wait.
+[09/05/2022 06:09]  System: World save done in 0.2 seconds.
+[09/05/2022 06:19]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 06:24]  System: The world will save in 15 seconds.
+[09/05/2022 06:24]  System: The world is saving, please wait.
+[09/05/2022 06:24]  System: World save done in 0.2 seconds.
+[09/05/2022 06:27]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 06:39]  System: The world will save in 15 seconds.
+[09/05/2022 06:39]  System: The world is saving, please wait.
+[09/05/2022 06:39]  System: World save done in 0.2 seconds.
+[09/05/2022 06:43]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 06:46]  System: It begins to rain.
+[09/05/2022 06:54]  System: The world will save in 15 seconds.
+[09/05/2022 06:54]  System: The world is saving, please wait.
+[09/05/2022 06:54]  System: World save done in 0.5 seconds.
+[09/05/2022 07:08]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 07:09]  System: The world will save in 15 seconds.
+[09/05/2022 07:09]  System: The world is saving, please wait.
+[09/05/2022 07:09]  System: World save done in 0.3 seconds.
+[09/05/2022 07:17]  Nolita:  Nolita the miner guildmistress
+[09/05/2022 07:21]  Richard:  Richard the bard guildmaster
+[09/05/2022 07:24]  System: The world will save in 15 seconds.
+[09/05/2022 07:24]  System: The world is saving, please wait.
+[09/05/2022 07:24]  System: World save done in 0.2 seconds.
+[09/05/2022 07:25]  Ayela:  Ayela the bard
+[09/05/2022 07:25]  Richard:  Richard the bard guildmaster
+[09/05/2022 07:25]  Sir Berran:  Sir Berran the Song Weilder
+[09/05/2022 07:25]  Sir Felean:  Sir Felean the Spirit Soother

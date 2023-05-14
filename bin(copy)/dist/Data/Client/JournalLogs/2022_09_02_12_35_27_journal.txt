@@ -1,0 +1,11 @@
+[09/02/2022 12:35]  System: Welcome, asdf! There are currently 2 users online, with 158700 items and 42893 mobiles in the world.
+[09/02/2022 12:35]  System: You will enjoy the benefits and relatively safe status of a young player for 10 more hours.
+[09/02/2022 12:35]  asdf:  asdf (Young)
+[09/02/2022 12:35]  Maxine:  Maxine the mage guildmistress
+[09/02/2022 12:35]  Rosanne:  Rosanne the mage
+[09/02/2022 12:35]  Kliftin:  Kliftin the alchemist
+[09/02/2022 12:35]  System: You have joined the 'General' channel.
+[09/02/2022 12:35]  Maxine:  Maxine the mage guildmistress
+[09/02/2022 12:35]  Rosanne:  Rosanne the mage
+[09/02/2022 12:35]  Kliftin:  Kliftin the alchemist
+[09/02/2022 12:35]  System: You must wait to perform another action.

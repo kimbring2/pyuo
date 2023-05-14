@@ -1,0 +1,13 @@
+[09/02/2022 12:36]  System: WorldMap loading...
+[09/02/2022 12:36]  System: Loading WorldMap markers..
+[09/02/2022 12:36]  System: WorldMap markers loaded (0)
+[09/02/2022 12:36]  System: Welcome, qwer! There are currently 2 users online, with 158708 items and 42896 mobiles in the world.
+[09/02/2022 12:36]  qwer:  qwer 
+[09/02/2022 12:36]  Talbart:  Talbart the warrior
+[09/02/2022 12:36]  masterkim:  masterkim 
+[09/02/2022 12:36]  System: You have joined the 'General' channel.
+[09/02/2022 12:36]  Talbart:  Talbart the warrior
+[09/02/2022 12:36]  masterkim:  masterkim 
+[09/02/2022 12:36]  System: You must wait to perform another action.
+[09/02/2022 12:36]  System: Finished 2 queued actions in 0.6 seconds.
+[09/02/2022 12:36]  System: WorldMap loaded!

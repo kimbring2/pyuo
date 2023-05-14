@@ -1,0 +1,750 @@
+[09/09/2022 18:00]  System: WorldMap loading...
+[09/09/2022 18:00]  System: Loading WorldMap markers..
+[09/09/2022 18:00]  System: WorldMap markers loaded (0)
+[09/09/2022 18:00]  System: Welcome, qwer! There are currently 2 users online, with 158910 items and 42939 mobiles in the world.
+[09/09/2022 18:00]  qwer:  qwer 
+[09/09/2022 18:00]  asdf:  asdf 
+[09/09/2022 18:00]  Razor: [+Reactive Armor]
+[09/09/2022 18:00]  Razor: [+Arch Protection]
+[09/09/2022 18:00]  Razor: [+Magic Reflection]
+[09/09/2022 18:00]  System: You have joined the 'General' channel.
+[09/09/2022 18:00]  asdf:  asdf 
+[09/09/2022 18:00]  System: You must wait to perform another action.
+[09/09/2022 18:00]  System: You must wait to perform another action.
+[09/09/2022 18:00]  System: WorldMap loaded!
+[09/09/2022 18:00]  System: Finished 2 queued actions in 0.6 seconds.
+[09/09/2022 18:00]  qwer: In Lor [Night Sight]
+[09/09/2022 18:00]  Razor: Target: qwer
+[09/09/2022 18:00]  Razor: [+Night Sight]
+[09/09/2022 18:01]  a dragon:  a dragon 
+[09/09/2022 18:01]  a dragon:  a dragon 
+[09/09/2022 18:03]  System: The world will save in 15 seconds.
+[09/09/2022 18:03]  System: The world is saving, please wait.
+[09/09/2022 18:03]  System: World save done in 0.1 seconds.
+[09/09/2022 18:03]  System: Your intelligence has changed by 1.  It is now 126
+[09/09/2022 18:04]  System: That is too far away.
+[09/09/2022 18:04]  System: Your intelligence has changed by 1.  It is now 127
+[09/09/2022 18:04]  System: Your intelligence has changed by -1.  It is now 126
+[09/09/2022 18:04]  System: Your intelligence has changed by 1.  It is now 127
+[09/09/2022 18:04]  System: That is too far away.
+[09/09/2022 18:05]  System: Your intelligence has changed by 1.  It is now 128
+[09/09/2022 18:05]  System: Your intelligence has changed by 1.  It is now 129
+[09/09/2022 18:05]  System: Your intelligence has changed by -1.  It is now 128
+[09/09/2022 18:05]  System: Your intelligence has changed by 1.  It is now 129
+[09/09/2022 18:05]  System: Your intelligence has changed by -1.  It is now 128
+[09/09/2022 18:05]  System: Your intelligence has changed by 1.  It is now 129
+[09/09/2022 18:06]  System: Your intelligence has changed by 1.  It is now 130
+[09/09/2022 18:06]  System: Your intelligence has changed by 6.  It is now 136
+[09/09/2022 18:06]  System: The magic of your armor combines to assist you!
+[09/09/2022 18:06]  System: Your intelligence has changed by 1.  It is now 137
+[09/09/2022 18:08]  System: Your skill in Archery has decreased by 10.0.  It is now 0.0.
+[09/09/2022 18:08]  System: Your skill in Archery has increased by 10.0.  It is now 10.0.
+[09/09/2022 18:08]  System: Your skill in Archery has decreased by 10.0.  It is now 0.0.
+[09/09/2022 18:11]  qwer: Only gargoyles can wear this.
+[09/09/2022 18:12]  System: Your skill in Focus has increased by 20.0.  It is now 20.0.
+[09/09/2022 18:14]  System: Your intelligence has changed by 5.  It is now 142
+[09/09/2022 18:14]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:14]  qwer: Flam Sanct [Reactive Armor]
+[09/09/2022 18:14]  Razor: [-Reactive Armor]
+[09/09/2022 18:14]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  qwer: The spell fizzles.
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:14]  qwer: The spell fizzles.
+[09/09/2022 18:14]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:14]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:14]  qwer: The spell fizzles.
+[09/09/2022 18:14]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:15]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:15]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:15]  an energy vortex:  an energy vortex 
+[09/09/2022 18:15]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:15]  qwer: In Sanct Grav [Energy Field]
+[09/09/2022 18:15]  Razor: Target: Crimson Drake
+[09/09/2022 18:15]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:15]  qwer: The spell fizzles.
+[09/09/2022 18:15]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:15]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:15]  System: You have gained a lot of fame.
+[09/09/2022 18:15]  System: You have gained a lot of karma.
+[09/09/2022 18:15]  Crimson Drake: a crimson drake corpse
+[09/09/2022 18:15]  System: That is too far away.
+[09/09/2022 18:15]  System: That is too far away.
+[09/09/2022 18:15]  System: You must wait to perform another action.
+[09/09/2022 18:15]  System: That is too far away.
+[09/09/2022 18:16]  Margaret:  Margaret the scribe
+[09/09/2022 18:16]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:16]  a drake:  a drake 
+[09/09/2022 18:16]  a greater dragon:  a greater dragon 
+[09/09/2022 18:16]  Xavier:  Xavier the mage
+[09/09/2022 18:16]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:16]  System: Target cannot be seen. Try again.
+[09/09/2022 18:16]  System: Target cannot be seen. Try again.
+[09/09/2022 18:16]  an energy vortex:  an energy vortex 
+[09/09/2022 18:16]  a greater dragon:  a greater dragon 
+[09/09/2022 18:16]  Xavier: Wait!  I have an opportunity for you to make some gold!
+[09/09/2022 18:16]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:16]  Razor: Target: a drake
+[09/09/2022 18:16]  System: Target cannot be seen.
+[09/09/2022 18:16]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:16]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:17]  System: You have gained a lot of fame.
+[09/09/2022 18:17]  System: You have gained a lot of karma.
+[09/09/2022 18:17]  a drake: a drake corpse
+[09/09/2022 18:17]  System: That is too far away.
+[09/09/2022 18:17]  System: That is too far away.
+[09/09/2022 18:17]  System: That is too far away.
+[09/09/2022 18:17]  a horse:  a horse 
+[09/09/2022 18:17]  a greater dragon:  a greater dragon 
+[09/09/2022 18:17]  System: That is too far away to ride.
+[09/09/2022 18:17]  a greater dragon:  a greater dragon 
+[09/09/2022 18:17]  System: That is out of sight.
+[09/09/2022 18:17]  System: That is out of sight.
+[09/09/2022 18:17]  System: That is out of sight.
+[09/09/2022 18:17]  System: That is out of sight.
+[09/09/2022 18:17]  Xavier: You there!  Care to hear how to earn some easy gold?
+[09/09/2022 18:17]  a greater dragon:  a greater dragon 
+[09/09/2022 18:17]  a greater dragon:  a greater dragon 
+[09/09/2022 18:17]  a greater dragon:  a greater dragon 
+[09/09/2022 18:17]  qwer: In Ex Grav [Paralyze Field]
+[09/09/2022 18:17]  System: You are already casting a spell.
+[09/09/2022 18:18]  Razor: Target: a greater dragon
+[09/09/2022 18:18]  System: You reflect the incoming spell.
+[09/09/2022 18:18]  System: Your magic reflection pool has been depleted.
+[09/09/2022 18:18]  Razor: [-Magic Reflection]
+[09/09/2022 18:18]  Razor: [+Magic Reflection]
+[09/09/2022 18:18]  Razor: [Last Target]
+[09/09/2022 18:18]  a greater dragon:  a greater dragon 
+[09/09/2022 18:18]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:18]  System: The world will save in 15 seconds.
+[09/09/2022 18:18]  an energy vortex:  an energy vortex 
+[09/09/2022 18:18]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:18]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:18]  Razor: Target: a greater dragon
+[09/09/2022 18:18]  System: The world is saving, please wait.
+[09/09/2022 18:18]  System: World save done in 0.2 seconds.
+[09/09/2022 18:18]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:18]  Razor: [Last Target]
+[09/09/2022 18:18]  a greater dragon:  a greater dragon 
+[09/09/2022 18:18]  an energy vortex:  an energy vortex 
+[09/09/2022 18:18]  qwer: In Ex Grav [Paralyze Field]
+[09/09/2022 18:18]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:18]  Razor: Target: a greater dragon
+[09/09/2022 18:18]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:18]  System: That is too far away.
+[09/09/2022 18:18]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:18]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:18]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:19]  Margaret:  Margaret the scribe
+[09/09/2022 18:19]  qwer: Kal Vas Xen Flam [Fire Elemental]
+[09/09/2022 18:19]  Razor: [Last Target]
+[09/09/2022 18:19]  a greater dragon:  a greater dragon 
+[09/09/2022 18:19]  a fire elemental:  a fire elemental 
+[09/09/2022 18:19]  qwer: Des Mani [Weaken]
+[09/09/2022 18:19]  System: You are already casting a spell.
+[09/09/2022 18:19]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:19]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:19]  Razor: [+Poisoned (23s)]
+[09/09/2022 18:19]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:19]  Xavier:  Xavier the mage
+[09/09/2022 18:19]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:19]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:19]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:19]  Xavier:  Xavier the mage
+[09/09/2022 18:19]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:19]  qwer: Vas Flam [Fireball]
+[09/09/2022 18:19]  Razor: Target: qwer
+[09/09/2022 18:19]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:19]  Razor: [-Poisoned]
+[09/09/2022 18:19]  System: The poison seems to have worn off.
+[09/09/2022 18:19]  qwer: In Vas Mani [Greater Heal]
+[09/09/2022 18:19]  System: some damage has been healed : 35
+[09/09/2022 18:19]  a greater dragon:  a greater dragon 
+[09/09/2022 18:19]  Razor: [Last Target]
+[09/09/2022 18:19]  a greater dragon:  a greater dragon 
+[09/09/2022 18:19]  a drake:  a drake 
+[09/09/2022 18:19]  a dragon:  a dragon 
+[09/09/2022 18:19]  a drake:  a drake 
+[09/09/2022 18:19]  a drake:  a drake 
+[09/09/2022 18:19]  a dragon:  a dragon 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a drake:  a drake 
+[09/09/2022 18:19]  a dragon:  a dragon 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a drake:  a drake 
+[09/09/2022 18:19]  a silver steed:  a silver steed 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a dragon:  a dragon 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  Kalli:  Kalli the mage
+[09/09/2022 18:19]  a horse:  a horse 
+[09/09/2022 18:19]  a dragon:  a dragon 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:19]  a silver steed:  a silver steed 
+[09/09/2022 18:19]  a wyvern:  a wyvern 
+[09/09/2022 18:20]  a dragon:  a dragon 
+[09/09/2022 18:20]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:20]  a wyvern:  a wyvern 
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  a dragon:  a dragon 
+[09/09/2022 18:20]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:20]  a wyvern:  a wyvern 
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  Razor: [Last Target]
+[09/09/2022 18:20]  a greater dragon:  a greater dragon 
+[09/09/2022 18:20]  Margaret:  Margaret the scribe
+[09/09/2022 18:20]  Xavier:  Xavier the mage
+[09/09/2022 18:20]  a wyvern:  a wyvern 
+[09/09/2022 18:20]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:20]  a drake:  a drake 
+[09/09/2022 18:20]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:20]  qwer: The spell fizzles.
+[09/09/2022 18:20]  a dragon:  a dragon 
+[09/09/2022 18:20]  Razor: [Last Target]
+[09/09/2022 18:20]  a greater dragon:  a greater dragon 
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  a dragon:  a dragon 
+[09/09/2022 18:20]  Platinum Drake:  Platinum Drake 
+[09/09/2022 18:20]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:20]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:20]  Razor: [+Poisoned (23s)]
+[09/09/2022 18:20]  a wyvern:  a wyvern 
+[09/09/2022 18:20]  a horse:  a horse 
+[09/09/2022 18:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:20]  a dragon:  a dragon 
+[09/09/2022 18:21]  a giant serpent:  a giant serpent 
+[09/09/2022 18:21]  a giant serpent:  a giant serpent 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a silver steed:  a silver steed 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:21]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:21]  an energy vortex:  an energy vortex 
+[09/09/2022 18:21]  a dragon:  a dragon 
+[09/09/2022 18:21]  a dragon:  a dragon 
+[09/09/2022 18:21]  System: You have lost a little karma.
+[09/09/2022 18:21]  a horse: a horse corpse
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a giant serpent:  a giant serpent 
+[09/09/2022 18:21]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:21]  qwer: Vas Flam [Fireball]
+[09/09/2022 18:21]  Razor: Target: qwer
+[09/09/2022 18:21]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:21]  a giant serpent:  a giant serpent 
+[09/09/2022 18:21]  Razor: [-Poisoned]
+[09/09/2022 18:21]  System: The poison seems to have worn off.
+[09/09/2022 18:21]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:21]  Razor: Target: a dragon
+[09/09/2022 18:21]  System: That is too far away.
+[09/09/2022 18:21]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:21]  a giant serpent:  a giant serpent 
+[09/09/2022 18:21]  a dragon:  a dragon 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a dragon:  a dragon 
+[09/09/2022 18:21]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:21]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:21]  System: Your strength has changed by -5.  It is now 115
+[09/09/2022 18:21]  System: Your dexterity has changed by -4.  It is now 96
+[09/09/2022 18:21]  System: Your intelligence has changed by -5.  It is now 137
+[09/09/2022 18:21]  Razor: [+Curse (46s)]
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  a wyvern:  a wyvern 
+[09/09/2022 18:21]  Margaret:  Margaret the scribe
+[09/09/2022 18:21]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:21]  a dragon:  a dragon 
+[09/09/2022 18:21]  qwer: The spell fizzles.
+[09/09/2022 18:21]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:21]  Xavier:  Xavier the mage
+[09/09/2022 18:21]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:22]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  Xavier:  Xavier the mage
+[09/09/2022 18:22]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:22]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:22]  Razor: [+Poisoned (23s)]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  Razor: [-Night Sight]
+[09/09/2022 18:22]  Margaret:  Margaret the scribe
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  qwer: In Lor [Night Sight]
+[09/09/2022 18:22]  System: You regain your focus and continue casting the spell.
+[09/09/2022 18:22]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:22]  Razor: Target: qwer
+[09/09/2022 18:22]  Razor: [+Night Sight]
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:22]  Razor: Target: a wyvern
+[09/09/2022 18:22]  qwer: *You feel a bit nauseous*
+[09/09/2022 18:22]  Xavier:  Xavier the mage
+[09/09/2022 18:22]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:22]  System: Your strength has changed by 5.  It is now 120
+[09/09/2022 18:22]  System: Your dexterity has changed by 4.  It is now 100
+[09/09/2022 18:22]  System: Your intelligence has changed by 5.  It is now 142
+[09/09/2022 18:22]  Razor: [-Curse]
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  Razor: [Last Target]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  qwer: Kal Vas Xen Corp [Summon Daemon]
+[09/09/2022 18:22]  Razor: [-Poisoned]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  System: The poison seems to have worn off.
+[09/09/2022 18:22]  qwer: The spell fizzles.
+[09/09/2022 18:22]  a greater dragon:  a greater dragon 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  Razor: [Last Target]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:22]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:22]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:22]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:22]  qwer: The spell fizzles.
+[09/09/2022 18:22]  a drake:  a drake 
+[09/09/2022 18:22]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:22]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:22]  Razor: [Last Target]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  Razor: Target: qwer
+[09/09/2022 18:22]  System: That location is blocked.
+[09/09/2022 18:22]  Crimson Drake:  Crimson Drake 
+[09/09/2022 18:22]  Razor: [Last Target]
+[09/09/2022 18:22]  a wyvern:  a wyvern 
+[09/09/2022 18:22]  a dragon:  a dragon 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:23]  a dragon:  a dragon 
+[09/09/2022 18:23]  an energy vortex:  an energy vortex 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  Razor: Target: a dragon
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  System: Your dexterity has changed by -4.  It is now 96
+[09/09/2022 18:23]  Razor: [+Clumsy (46s)]
+[09/09/2022 18:23]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:23]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:23]  Razor: Target: an energy vortex
+[09/09/2022 18:23]  System: You cannot perform negative acts on your target.
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  qwer: Corp Por [Energy Bolt]
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  a dragon:  a dragon 
+[09/09/2022 18:23]  Razor: Target: a dragon
+[09/09/2022 18:23]  System: That is too far away.
+[09/09/2022 18:23]  a dragon:  a dragon 
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  a silver steed:  a silver steed 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a silver steed:  a silver steed 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a dragon:  a dragon 
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  Xavier:  Xavier the mage
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  a greater dragon:  a greater dragon 
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  Margaret:  Margaret the scribe
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a greater dragon:  a greater dragon 
+[09/09/2022 18:23]  a dragon:  a dragon 
+[09/09/2022 18:23]  a greater dragon:  a greater dragon 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a greater dragon:  a greater dragon 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a giant serpent:  a giant serpent 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 18:23]  a greater dragon:  a greater dragon 
+[09/09/2022 18:23]  a drake:  a drake 
+[09/09/2022 18:23]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:23]  Xavier:  Xavier the mage
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  a wyvern:  a wyvern 
+[09/09/2022 18:23]  Margaret:  Margaret the scribe
+[09/09/2022 18:24]  a wyvern:  a wyvern 
+[09/09/2022 18:24]  a dragon:  a dragon 
+[09/09/2022 18:24]  a greater dragon:  a greater dragon 
+[09/09/2022 18:24]  a greater dragon:  a greater dragon 
+[09/09/2022 18:24]  Xavier:  Xavier the mage
+[09/09/2022 18:24]  System: Your dexterity has changed by 4.  It is now 100
+[09/09/2022 18:24]  Razor: [-Clumsy]
+[09/09/2022 18:24]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:24]  a greater dragon:  a greater dragon 
+[09/09/2022 18:24]  a wyvern:  a wyvern 
+[09/09/2022 18:24]  qwer: The spell fizzles.
+[09/09/2022 18:24]  qwer: Vas Corp Por [Energy Vortex]
+[09/09/2022 18:24]  a greater dragon:  a greater dragon 
+[09/09/2022 18:24]  an energy vortex:  an energy vortex 
+[09/09/2022 18:24]  System: Your magic is not great enough to reflect the incoming spell.
+[09/09/2022 18:24]  System: Your dexterity has changed by -13.  It is now 87
+[09/09/2022 18:24]  Razor: [+Clumsy (154s)]
+[09/09/2022 18:24]  qwer: In Vas Por [Earthquake]
+[09/09/2022 18:24]  System: You are bleeding!
+[09/09/2022 18:24]  qwer: You are bleeding profusely
+[09/09/2022 18:24]  Razor: [+Bleed (9s)]
+[09/09/2022 18:24]  qwer: The spell fizzles.
+[09/09/2022 18:24]  a dragon:  a dragon 
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 141
+[09/09/2022 18:24]  System: Your intelligence has changed by -6.  It is now 135
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 134
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 133
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 132
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 131
+[09/09/2022 18:24]  System: Your intelligence has changed by -1.  It is now 130
+[09/09/2022 18:24]  System: Your skill in Focus has decreased by 20.0.  It is now 0.0.
+[09/09/2022 18:24]  System: Your intelligence has changed by -5.  It is now 125
+[09/09/2022 18:24]  System: Your dexterity has changed by 13.  It is now 100
+[09/09/2022 18:24]  System: Your skill in Resisting Spells has increased by 30.0.  It is now 100.0.
+[09/09/2022 18:24]  a horse:  a horse 
+[09/09/2022 18:24]  Razor: [-Clumsy]
+[09/09/2022 18:24]  Razor: [-Arch Protection]
+[09/09/2022 18:24]  Razor: [-Bleed]
+[09/09/2022 18:24]  Razor: [-Night Sight]
+[09/09/2022 18:24]  qwer: the remains of qwer
+[09/09/2022 18:24]  System: Warning: Mandrake Root amount is now 0!
+[09/09/2022 18:24]  System: Warning: Blood Moss amount is now 1!
+[09/09/2022 18:24]  System: Warning: Spider's Silk amount is now 1!
+[09/09/2022 18:24]  System: Warning: Garlic amount is now 0!
+[09/09/2022 18:24]  System: Warning: Sulfurous Ash amount is now 0!
+[09/09/2022 18:24]  System: Warning: Nightshade amount is now 0!
+[09/09/2022 18:24]  System: Warning: Ginseng amount is now 0!
+[09/09/2022 18:24]  System: Warning: Black Pearl amount is now 0!
+[09/09/2022 18:24]  System: The bleeding wounds have healed, you are no longer bleeding!
+[09/09/2022 18:24]  Margaret:  Margaret the scribe
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 126
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 127
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 128
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 129
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 130
+[09/09/2022 18:24]  System: Your intelligence has changed by 6.  It is now 136
+[09/09/2022 18:24]  System: The magic of your armor combines to assist you!
+[09/09/2022 18:24]  System: Your intelligence has changed by 1.  It is now 137
+[09/09/2022 18:24]  System: Your skill in Focus has increased by 20.0.  It is now 20.0.
+[09/09/2022 18:24]  System: You quickly gather all of your belongings.
+[09/09/2022 18:24]  System: Your intelligence has changed by 5.  It is now 142
+[09/09/2022 18:24]  System: You must wait to perform another action.
+[09/09/2022 18:24]  a dragon:  a dragon 
+[09/09/2022 18:24]  a wyvern:  a wyvern 
+[09/09/2022 18:24]  System: That is too far away to ride.
+[09/09/2022 18:24]  System: That is too far away to ride.
+[09/09/2022 18:24]  a dragon:  a dragon 
+[09/09/2022 18:24]  a dragon:  a dragon 
+[09/09/2022 18:24]  System: Tame which animal?
+[09/09/2022 18:24]  Razor: Target: a horse
+[09/09/2022 18:24]  System: That is too far away.
+[09/09/2022 18:24]  System: Tame which animal?
+[09/09/2022 18:24]  System: That is too far away.
+[09/09/2022 18:25]  System: Tame which animal?
+[09/09/2022 18:25]  a horse: That animal looks tame already.
+[09/09/2022 18:25]  a wyvern:  a wyvern 
+[09/09/2022 18:25]  qwer: In Vas Mani [Greater Heal]
+[09/09/2022 18:25]  Razor: Target: qwer
+[09/09/2022 18:25]  System: some damage has been healed : 42
+[09/09/2022 18:25]  a wyvern:  a wyvern 
+[09/09/2022 18:25]  a wyvern:  a wyvern 
+[09/09/2022 18:25]  a wyvern:  a wyvern 
+[09/09/2022 18:33]  System: The world will save in 15 seconds.
+[09/09/2022 18:33]  System: The world is saving, please wait.
+[09/09/2022 18:33]  System: World save done in 0.1 seconds.
+[09/09/2022 18:48]  System: The world will save in 15 seconds.
+[09/09/2022 18:48]  System: The world is saving, please wait.
+[09/09/2022 18:48]  System: World save done in 0.1 seconds.
+[09/09/2022 19:03]  System: The world will save in 15 seconds.
+[09/09/2022 19:03]  System: The world is saving, please wait.
+[09/09/2022 19:03]  System: World save done in 0.1 seconds.
+[09/09/2022 19:18]  System: The world will save in 15 seconds.
+[09/09/2022 19:18]  System: The world is saving, please wait.
+[09/09/2022 19:18]  System: World save done in 0.3 seconds.
+[09/09/2022 19:33]  System: The world will save in 15 seconds.
+[09/09/2022 19:33]  System: The world is saving, please wait.
+[09/09/2022 19:33]  System: World save done in 0.2 seconds.
+[09/09/2022 19:48]  System: The world will save in 15 seconds.
+[09/09/2022 19:48]  System: The world is saving, please wait.
+[09/09/2022 19:48]  System: World save done in 0.2 seconds.
+[09/09/2022 20:03]  System: The world will save in 15 seconds.
+[09/09/2022 20:03]  System: The world is saving, please wait.
+[09/09/2022 20:03]  System: World save done in 0.1 seconds.
+[09/09/2022 20:18]  System: The world will save in 15 seconds.
+[09/09/2022 20:19]  System: The world is saving, please wait.
+[09/09/2022 20:19]  System: World save done in 0.2 seconds.
+[09/09/2022 20:33]  System: The world will save in 15 seconds.
+[09/09/2022 20:34]  System: The world is saving, please wait.
+[09/09/2022 20:34]  System: World save done in 0.1 seconds.
+[09/09/2022 20:48]  System: The world will save in 15 seconds.
+[09/09/2022 20:49]  System: The world is saving, please wait.
+[09/09/2022 20:49]  System: World save done in 0.1 seconds.
+[09/09/2022 21:04]  System: The world will save in 15 seconds.
+[09/09/2022 21:04]  System: The world is saving, please wait.
+[09/09/2022 21:04]  System: World save done in 0.2 seconds.
+[09/09/2022 21:19]  System: The world will save in 15 seconds.
+[09/09/2022 21:19]  System: The world is saving, please wait.
+[09/09/2022 21:19]  System: World save done in 0.1 seconds.
+[09/09/2022 21:34]  System: The world will save in 15 seconds.
+[09/09/2022 21:34]  System: The world is saving, please wait.
+[09/09/2022 21:34]  System: World save done in 0.2 seconds.
+[09/09/2022 21:49]  System: The world will save in 15 seconds.
+[09/09/2022 21:49]  System: The world is saving, please wait.
+[09/09/2022 21:49]  System: World save done in 0.1 seconds.
+[09/09/2022 22:04]  System: The world will save in 15 seconds.
+[09/09/2022 22:04]  System: The world is saving, please wait.
+[09/09/2022 22:04]  System: World save done in 0.2 seconds.
+[09/09/2022 22:19]  System: The world will save in 15 seconds.
+[09/09/2022 22:19]  System: The world is saving, please wait.
+[09/09/2022 22:19]  System: World save done in 0.1 seconds.
+[09/09/2022 22:34]  System: The world will save in 15 seconds.
+[09/09/2022 22:34]  System: The world is saving, please wait.
+[09/09/2022 22:34]  System: World save done in 0.1 seconds.
+[09/09/2022 22:49]  System: The world will save in 15 seconds.
+[09/09/2022 22:49]  System: The world is saving, please wait.
+[09/09/2022 22:49]  System: World save done in 0.1 seconds.
+[09/09/2022 23:04]  System: The world will save in 15 seconds.
+[09/09/2022 23:04]  System: The world is saving, please wait.
+[09/09/2022 23:04]  System: World save done in 0.1 seconds.
+[09/09/2022 23:19]  System: The world will save in 15 seconds.
+[09/09/2022 23:19]  System: The world is saving, please wait.
+[09/09/2022 23:19]  System: World save done in 0.1 seconds.
+[09/09/2022 23:34]  System: The world will save in 15 seconds.
+[09/09/2022 23:35]  System: The world is saving, please wait.
+[09/09/2022 23:35]  System: World save done in 0.1 seconds.
+[09/09/2022 23:49]  System: The world will save in 15 seconds.
+[09/09/2022 23:50]  System: The world is saving, please wait.
+[09/09/2022 23:50]  System: World save done in 0.2 seconds.
+[09/10/2022 00:00]  qwer: In Lor [Night Sight]
+[09/10/2022 00:00]  Razor: [+Night Sight]
+[09/10/2022 00:05]  System: The world will save in 15 seconds.
+[09/10/2022 00:05]  System: The world is saving, please wait.
+[09/10/2022 00:05]  System: World save done in 0.4 seconds.
+[09/10/2022 00:20]  System: The world will save in 15 seconds.
+[09/10/2022 00:20]  System: The world is saving, please wait.
+[09/10/2022 00:20]  System: World save done in 0.2 seconds.
+[09/10/2022 00:32]  Razor: [-Night Sight]
+[09/10/2022 00:35]  System: The world will save in 15 seconds.
+[09/10/2022 00:35]  System: The world is saving, please wait.
+[09/10/2022 00:35]  System: World save done in 0.3 seconds.
+[09/10/2022 00:50]  System: The world will save in 15 seconds.
+[09/10/2022 00:50]  System: The world is saving, please wait.
+[09/10/2022 00:50]  System: World save done in 0.3 seconds.
+[09/10/2022 01:05]  System: The world will save in 15 seconds.
+[09/10/2022 01:05]  System: The world is saving, please wait.
+[09/10/2022 01:05]  System: World save done in 0.1 seconds.
+[09/10/2022 01:20]  System: The world will save in 15 seconds.
+[09/10/2022 01:20]  System: The world is saving, please wait.
+[09/10/2022 01:20]  System: World save done in 0.1 seconds.
+[09/10/2022 01:35]  System: The world will save in 15 seconds.
+[09/10/2022 01:35]  System: The world is saving, please wait.
+[09/10/2022 01:35]  System: World save done in 0.3 seconds.
+[09/10/2022 01:50]  System: The world will save in 15 seconds.
+[09/10/2022 01:50]  System: The world is saving, please wait.
+[09/10/2022 01:50]  System: World save done in 0.4 seconds.
+[09/10/2022 02:05]  System: The world will save in 15 seconds.
+[09/10/2022 02:05]  System: The world is saving, please wait.
+[09/10/2022 02:05]  System: World save done in 0.1 seconds.
+[09/10/2022 02:20]  System: The world will save in 15 seconds.
+[09/10/2022 02:20]  System: The world is saving, please wait.
+[09/10/2022 02:20]  System: World save done in 0.4 seconds.
+[09/10/2022 02:35]  System: The world will save in 15 seconds.
+[09/10/2022 02:36]  System: The world is saving, please wait.
+[09/10/2022 02:36]  System: World save done in 0.4 seconds.
+[09/10/2022 02:50]  System: The world will save in 15 seconds.
+[09/10/2022 02:51]  System: The world is saving, please wait.
+[09/10/2022 02:51]  System: World save done in 0.2 seconds.
+[09/10/2022 03:05]  System: The world will save in 15 seconds.
+[09/10/2022 03:06]  System: The world is saving, please wait.
+[09/10/2022 03:06]  System: World save done in 0.2 seconds.
+[09/10/2022 03:21]  System: The world will save in 15 seconds.
+[09/10/2022 03:21]  System: The world is saving, please wait.
+[09/10/2022 03:21]  System: World save done in 0.4 seconds.
+[09/10/2022 03:36]  System: The world will save in 15 seconds.
+[09/10/2022 03:36]  System: The world is saving, please wait.
+[09/10/2022 03:36]  System: World save done in 0.1 seconds.
+[09/10/2022 03:51]  System: The world will save in 15 seconds.
+[09/10/2022 03:51]  System: The world is saving, please wait.
+[09/10/2022 03:51]  System: World save done in 0.2 seconds.
+[09/10/2022 04:06]  System: The world will save in 15 seconds.
+[09/10/2022 04:06]  System: The world is saving, please wait.
+[09/10/2022 04:06]  System: World save done in 0.2 seconds.
+[09/10/2022 04:21]  System: The world will save in 15 seconds.
+[09/10/2022 04:21]  System: The world is saving, please wait.
+[09/10/2022 04:21]  System: World save done in 0.2 seconds.
+[09/10/2022 04:36]  System: The world will save in 15 seconds.
+[09/10/2022 04:36]  System: The world is saving, please wait.
+[09/10/2022 04:36]  System: World save done in 0.1 seconds.
+[09/10/2022 04:51]  System: The world will save in 15 seconds.
+[09/10/2022 04:51]  System: The world is saving, please wait.
+[09/10/2022 04:51]  System: World save done in 0.2 seconds.
+[09/10/2022 05:06]  System: The world will save in 15 seconds.
+[09/10/2022 05:06]  System: The world is saving, please wait.
+[09/10/2022 05:06]  System: World save done in 0.2 seconds.
+[09/10/2022 05:21]  System: The world will save in 15 seconds.
+[09/10/2022 05:21]  System: The world is saving, please wait.
+[09/10/2022 05:21]  System: World save done in 0.4 seconds.
+[09/10/2022 05:36]  System: The world will save in 15 seconds.
+[09/10/2022 05:36]  System: The world is saving, please wait.
+[09/10/2022 05:36]  System: World save done in 0.2 seconds.
+[09/10/2022 05:51]  System: The world will save in 15 seconds.
+[09/10/2022 05:52]  System: The world is saving, please wait.
+[09/10/2022 05:52]  System: World save done in 0.1 seconds.
+[09/10/2022 06:06]  System: The world will save in 15 seconds.
+[09/10/2022 06:07]  System: The world is saving, please wait.
+[09/10/2022 06:07]  System: World save done in 0.1 seconds.
+[09/10/2022 06:21]  System: The world will save in 15 seconds.
+[09/10/2022 06:22]  System: The world is saving, please wait.
+[09/10/2022 06:22]  System: World save done in 0.2 seconds.
+[09/10/2022 06:37]  System: The world will save in 15 seconds.
+[09/10/2022 06:37]  System: The world is saving, please wait.
+[09/10/2022 06:37]  System: World save done in 0.1 seconds.
+[09/10/2022 06:52]  System: The world will save in 15 seconds.
+[09/10/2022 06:52]  System: The world is saving, please wait.
+[09/10/2022 06:52]  System: World save done in 0.2 seconds.
+[09/10/2022 07:07]  System: The world will save in 15 seconds.
+[09/10/2022 07:07]  System: The world is saving, please wait.
+[09/10/2022 07:07]  System: World save done in 0.3 seconds.
+[09/10/2022 07:22]  System: The world will save in 15 seconds.
+[09/10/2022 07:22]  System: The world is saving, please wait.
+[09/10/2022 07:22]  System: World save done in 0.1 seconds.
+[09/10/2022 07:37]  System: The world will save in 15 seconds.
+[09/10/2022 07:37]  System: The world is saving, please wait.
+[09/10/2022 07:37]  System: World save done in 0.1 seconds.
+[09/10/2022 07:52]  System: The world will save in 15 seconds.
+[09/10/2022 07:52]  System: The world is saving, please wait.
+[09/10/2022 07:52]  System: World save done in 0.2 seconds.
+[09/10/2022 08:07]  System: The world will save in 15 seconds.
+[09/10/2022 08:07]  System: The world is saving, please wait.
+[09/10/2022 08:07]  System: World save done in 0.1 seconds.
+[09/10/2022 08:22]  System: The world will save in 15 seconds.
+[09/10/2022 08:22]  System: The world is saving, please wait.
+[09/10/2022 08:22]  System: World save done in 0.1 seconds.
+[09/10/2022 08:37]  System: The world will save in 15 seconds.
+[09/10/2022 08:37]  System: The world is saving, please wait.
+[09/10/2022 08:37]  System: World save done in 0.4 seconds.
+[09/10/2022 08:52]  System: The world will save in 15 seconds.
+[09/10/2022 08:53]  System: The world is saving, please wait.
+[09/10/2022 08:53]  System: World save done in 0.1 seconds.
+[09/10/2022 09:07]  System: The world will save in 15 seconds.
+[09/10/2022 09:08]  System: The world is saving, please wait.
+[09/10/2022 09:08]  System: World save done in 0.1 seconds.
+[09/10/2022 09:22]  System: The world will save in 15 seconds.
+[09/10/2022 09:23]  System: The world is saving, please wait.
+[09/10/2022 09:23]  System: World save done in 0.1 seconds.
+[09/10/2022 09:37]  System: The world will save in 15 seconds.
+[09/10/2022 09:38]  System: The world is saving, please wait.
+[09/10/2022 09:38]  System: World save done in 0.1 seconds.
+[09/10/2022 09:52]  System: The world will save in 15 seconds.
+[09/10/2022 09:53]  System: The world is saving, please wait.
+[09/10/2022 09:53]  System: World save done in 0.1 seconds.
+[09/10/2022 10:08]  System: The world will save in 15 seconds.
+[09/10/2022 10:08]  System: The world is saving, please wait.
+[09/10/2022 10:08]  System: World save done in 0.1 seconds.
+[09/10/2022 10:23]  System: The world will save in 15 seconds.
+[09/10/2022 10:23]  System: The world is saving, please wait.
+[09/10/2022 10:23]  System: World save done in 0.1 seconds.
+[09/10/2022 10:38]  System: The world will save in 15 seconds.
+[09/10/2022 10:38]  System: The world is saving, please wait.
+[09/10/2022 10:38]  System: World save done in 0.1 seconds.
+[09/10/2022 10:53]  System: The world will save in 15 seconds.
+[09/10/2022 10:53]  System: The world is saving, please wait.
+[09/10/2022 10:53]  System: World save done in 0.1 seconds.
+[09/10/2022 11:08]  System: The world will save in 15 seconds.
+[09/10/2022 11:08]  System: The world is saving, please wait.
+[09/10/2022 11:08]  System: World save done in 0.1 seconds.
+[09/10/2022 11:23]  System: The world will save in 15 seconds.
+[09/10/2022 11:23]  System: The world is saving, please wait.
+[09/10/2022 11:23]  System: World save done in 0.1 seconds.
+[09/10/2022 11:38]  System: The world will save in 15 seconds.
+[09/10/2022 11:38]  System: The world is saving, please wait.
+[09/10/2022 11:38]  System: World save done in 0.1 seconds.
+[09/10/2022 11:53]  System: The world will save in 15 seconds.
+[09/10/2022 11:53]  System: The world is saving, please wait.
+[09/10/2022 11:53]  System: World save done in 0.1 seconds.
+[09/10/2022 12:08]  System: The world will save in 15 seconds.
+[09/10/2022 12:08]  System: The world is saving, please wait.
+[09/10/2022 12:08]  System: World save done in 0.1 seconds.
+[09/10/2022 12:23]  System: The world will save in 15 seconds.
+[09/10/2022 12:23]  System: The world is saving, please wait.
+[09/10/2022 12:23]  System: World save done in 0.1 seconds.
+[09/10/2022 12:38]  System: The world will save in 15 seconds.
+[09/10/2022 12:38]  System: The world is saving, please wait.
+[09/10/2022 12:38]  System: World save done in 0.1 seconds.
+[09/10/2022 12:53]  System: The world will save in 15 seconds.
+[09/10/2022 12:53]  System: The world is saving, please wait.
+[09/10/2022 12:53]  System: World save done in 0.1 seconds.
+[09/10/2022 13:08]  System: The world will save in 15 seconds.
+[09/10/2022 13:08]  System: The world is saving, please wait.
+[09/10/2022 13:08]  System: World save done in 0.1 seconds.
+[09/10/2022 13:23]  System: The world will save in 15 seconds.
+[09/10/2022 13:23]  System: The world is saving, please wait.
+[09/10/2022 13:23]  System: World save done in 0.1 seconds.
+[09/10/2022 13:38]  System: The world will save in 15 seconds.
+[09/10/2022 13:38]  System: The world is saving, please wait.
+[09/10/2022 13:38]  System: World save done in 0.1 seconds.

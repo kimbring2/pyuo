@@ -1,0 +1,16 @@
+/home/kimbring2/ClassicUO/bin/Debug/ClassicUO.exe.config
+/home/kimbring2/ClassicUO/bin/Debug/ClassicUO.exe
+/home/kimbring2/ClassicUO/bin/Debug/ClassicUO.pdb
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.csproj.AssemblyReference.cache
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.Resources.ResErrorMessages.resources
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.Resources.ResGeneral.resources
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.Resources.ResGumps.resources
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.csproj.GenerateResource.cache
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.AssemblyInfoInputs.cache
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.AssemblyInfo.cs
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.csproj.CoreCompileInputs.cache
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.csproj.CopyComplete
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.exe
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.pdb
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/ClassicUO/src/obj/Debug/ClassicUO.csproj.SuggestedBindingRedirects.cache

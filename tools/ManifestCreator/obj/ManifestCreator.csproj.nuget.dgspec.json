@@ -1,0 +1,59 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kimbring2/ClassicUO/tools/ManifestCreator/ManifestCreator.csproj": {}
+  },
+  "projects": {
+    "/home/kimbring2/ClassicUO/tools/ManifestCreator/ManifestCreator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/tools/ManifestCreator/ManifestCreator.csproj",
+        "projectName": "ManifestCreator",
+        "projectPath": "/home/kimbring2/ClassicUO/tools/ManifestCreator/ManifestCreator.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/tools/ManifestCreator/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.3, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies.net472": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

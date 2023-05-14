@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Sharp", "MP3Sharp\MP3Sharp.csproj", "{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2C379A78-8A96-48A5-81E5-EA0AE696AA5B}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D46F2F6-6964-41FC-A49E-47A12366356F}
+	EndGlobalSection
+EndGlobal

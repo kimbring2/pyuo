@@ -1,0 +1,12 @@
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.csproj.AssemblyReference.cache
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.AssemblyInfoInputs.cache
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.AssemblyInfo.cs
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.csproj.CoreCompileInputs.cache
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/bin/Debug/net6.0/Greeter.deps.json
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/bin/Debug/net6.0/Greeter.dll
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/bin/Debug/net6.0/Greeter.pdb
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.dll
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/refint/Greeter.dll
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/Greeter.pdb
+/home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/obj/Debug/net6.0/ref/Greeter.dll

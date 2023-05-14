@@ -1,0 +1,137 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.0": {
+      "Greeter/1.0.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.2.0",
+          "Google.Protobuf.Tools": "3.2.0",
+          "Grpc": "1.2.2",
+          "Grpc.Tools": "1.2.2"
+        },
+        "runtime": {
+          "Greeter.dll": {}
+        }
+      },
+      "Google.Protobuf/3.2.0": {
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
+          }
+        }
+      },
+      "Google.Protobuf.Tools/3.2.0": {},
+      "Grpc/1.2.2": {
+        "dependencies": {
+          "Grpc.Core": "1.2.2"
+        }
+      },
+      "Grpc.Core/1.2.2": {
+        "dependencies": {
+          "System.Interactive.Async": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard1.5/Grpc.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.2.2.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libgrpc_csharp_ext.x64.so": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux/native/libgrpc_csharp_ext.x86.so": {
+            "rid": "linux",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x64.dll": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x86.dll": {
+            "rid": "win",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Grpc.Tools/1.2.2": {},
+      "System.Interactive.Async/3.1.1": {
+        "runtime": {
+          "lib/netstandard1.3/System.Interactive.Async.dll": {
+            "assemblyVersion": "3.0.3000.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Greeter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Protobuf/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qwqIqIWLdQOD/uyh5Kitz1R1RovK1cF4VgBVbVZEHAKLmLqKZJ2Lgx8KGeD8Sua5+2IvKEzNEqv7dHFcwA9Ueg==",
+      "path": "google.protobuf/3.2.0",
+      "hashPath": "google.protobuf.3.2.0.nupkg.sha512"
+    },
+    "Google.Protobuf.Tools/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S4sT3IacDbEqSdJqVDuginv+cBDzTdUshJ1E/g++a6s4nGKJ6kfDvqYt7vvYLsNza3ohyMm43UOi5SdiXpdv/A==",
+      "path": "google.protobuf.tools/3.2.0",
+      "hashPath": "google.protobuf.tools.3.2.0.nupkg.sha512"
+    },
+    "Grpc/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cXySJ7wh8QKveDYQ7aKbyQxn+L0LZZBnTMtP5rnvGn5El8/1FMjUI1q3/vIrUDjSSnp0TyOa4jgyMKPm9FO5hQ==",
+      "path": "grpc/1.2.2",
+      "hashPath": "grpc.1.2.2.nupkg.sha512"
+    },
+    "Grpc.Core/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E22pzRiCZzG8l6wlS7pb+7/OF1rYqlN4S2llacqMKauDvGe3pSJ2j3yfTa0j9ubCEGZSjPvslbmG+jfnlwlrwg==",
+      "path": "grpc.core/1.2.2",
+      "hashPath": "grpc.core.1.2.2.nupkg.sha512"
+    },
+    "Grpc.Tools/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k0TsH5IUXlqm4i8GOucUmMYTHBA9mbrdsB3udCdayfTzXEucQqjvts02GtZ5YjJrchv4EKdJQ0r9lNFM59LN8w==",
+      "path": "grpc.tools/1.2.2",
+      "hashPath": "grpc.tools.1.2.2.nupkg.sha512"
+    },
+    "System.Interactive.Async/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hZccYiIE5RS1/J9Tb/BNtosAGVggdlsJm4Ojdu+gDV0p4AIi+LUfUogMKkRacljQEJd2AG6vYzvcjhQFkqoZmw==",
+      "path": "system.interactive.async/3.1.1",
+      "hashPath": "system.interactive.async.3.1.1.nupkg.sha512"
+    }
+  }
+}

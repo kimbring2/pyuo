@@ -1,0 +1,15 @@
+UODataDir, D:\Games\UO
+UOClient, D:\Games\UO\client.exe
+LastPort, 2593
+LastProfile, default
+LastServer, 127.0.0.1
+LastServerId, 0
+ClientEncrypted, 1
+ServerEncrypted, 0
+ShowWelcome, 1
+UId, 
+MaxOrganizerAgents, 20
+MaxBuyAgents, 20
+MaxRestockAgents, 20
+ImportProfilesAndMacros, true
+BackupPath, .\Backup

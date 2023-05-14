@@ -1,0 +1,13 @@
+[08/28/2022 20:18]  System: Welcome, qwer! There are currently 2 users online, with 6387 items and 303 mobiles in the world.
+[08/28/2022 20:18]  qwer:  qwer 
+[08/28/2022 20:18]  qerw:  qerw (Young)
+[08/28/2022 20:18]  System: You have joined the 'General' channel.
+[08/28/2022 20:18]  qerw:  qerw (Young)
+[08/28/2022 20:18]  System: You must wait to perform another action.
+[08/28/2022 20:22]  System: The world will save in 15 seconds.
+[08/28/2022 20:22]  erwq:  erwq (Young)
+[08/28/2022 20:22]  System: The world is saving, please wait.
+[08/28/2022 20:22]  System: World save done in 0.0 seconds.
+[08/28/2022 20:23]  bot hi:  bot hi (Young)
+[08/28/2022 20:28]  humantester:  humantester (Young)
+[08/28/2022 20:28]  humantester:  humantester (Young)

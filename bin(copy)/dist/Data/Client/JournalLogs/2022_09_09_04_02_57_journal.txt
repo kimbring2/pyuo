@@ -1,0 +1,584 @@
+[09/09/2022 04:02]  System: WorldMap loading...
+[09/09/2022 04:02]  System: Loading WorldMap markers..
+[09/09/2022 04:02]  System: WorldMap markers loaded (0)
+[09/09/2022 04:02]  System: Welcome, asdf! There are currently 2 users online, with 158883 items and 42928 mobiles in the world.
+[09/09/2022 04:02]  System: You will enjoy the benefits and relatively safe status of a young player for 1 more hour.
+[09/09/2022 04:02]  asdf:  asdf (Young)
+[09/09/2022 04:02]  Maxine:  Maxine the mage guildmistress
+[09/09/2022 04:02]  Rosanne:  Rosanne the mage
+[09/09/2022 04:02]  Kliftin:  Kliftin the alchemist
+[09/09/2022 04:02]  System: You have joined the 'General' channel.
+[09/09/2022 04:02]  Maxine:  Maxine the mage guildmistress
+[09/09/2022 04:02]  Rosanne:  Rosanne the mage
+[09/09/2022 04:02]  Kliftin:  Kliftin the alchemist
+[09/09/2022 04:02]  System: You must wait to perform another action.
+[09/09/2022 04:02]  System: WorldMap loaded!
+[09/09/2022 04:03]  Li:  Li the Naturalist
+[09/09/2022 04:03]  Li:  Li the Naturalist
+[09/09/2022 04:03]  System: You have left the protection of the town guards.
+[09/09/2022 04:03]  Kalli:  Kalli the mage
+[09/09/2022 04:03]  qwer:  qwer 
+[09/09/2022 04:03]  Margaret:  Margaret the scribe
+[09/09/2022 04:03]  System: Your skill in Swordsmanship has increased by 69.7.  It is now 100.0.
+[09/09/2022 04:04]  System: Your skill in Chivalry has increased by 70.0.  It is now 100.0.
+[09/09/2022 04:04]  Kalli:  Kalli the mage
+[09/09/2022 04:04]  System: Your skill in Tactics has increased by 70.0.  It is now 100.0.
+[09/09/2022 04:05]  System: Your skill in Anatomy has increased by 100.0.  It is now 100.0.
+[09/09/2022 04:05]  Kalli:  Kalli the mage
+[09/09/2022 04:05]  System: Your skill in Healing has increased by 100.0.  It is now 100.0.
+[09/09/2022 04:06]  System: You must have at least 10 Tithing Points to use this ability,
+[09/09/2022 04:06]  System: Your strength has changed by 80.  It is now 125
+[09/09/2022 04:07]  a horse:  a horse 
+[09/09/2022 04:07]  Kalli:  Kalli the mage
+[09/09/2022 04:07]  Kalli:  Kalli the mage
+[09/09/2022 04:07]  asdf: Augus Luminos
+[09/09/2022 04:07]  System: Your intelligence has changed by 1.  It is now 26
+[09/09/2022 04:11]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 04:11]  Quinn: Greetings.  Have a look around.
+[09/09/2022 04:11]  Quinn: I cannot teach thee, for thou knowest more than I!
+[09/09/2022 04:12]  a horse:  a horse 
+[09/09/2022 04:13]  System: The world will save in 15 seconds.
+[09/09/2022 04:13]  System: The world is saving, please wait.
+[09/09/2022 04:13]  System: World save done in 0.1 seconds.
+[09/09/2022 04:13]  System: You cannot hold this item.
+[09/09/2022 04:15]  System: You cannot hold this item.
+[09/09/2022 04:15]  System: You put the torch in your left hand.
+[09/09/2022 04:15]  a horse:  a horse 
+[09/09/2022 04:16]  Platinum Drake:  Platinum Drake 
+[09/09/2022 04:16]  asdf: Consecrus Arma
+[09/09/2022 04:16]  Razor: [+Consecrate (4s)]
+[09/09/2022 04:16]  Razor: [-Consecrate]
+[09/09/2022 04:16]  asdf: Divinum Furis
+[09/09/2022 04:16]  Razor: [+Divine Fury (16s)]
+[09/09/2022 04:16]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:16]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:16]  System: Your dexterity has changed by 1.  It is now 21
+[09/09/2022 04:16]  Razor: [-Divine Fury]
+[09/09/2022 04:16]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:17]  System: You must have at least 14 Mana to use this ability.
+[09/09/2022 04:17]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:17]  Margaret:  Margaret the scribe
+[09/09/2022 04:17]  System: Your intelligence has changed by 99.  It is now 125
+[09/09/2022 04:17]  System: Your dexterity has changed by 104.  It is now 125
+[09/09/2022 04:18]  a horse:  a horse 
+[09/09/2022 04:19]  Platinum Drake:  Platinum Drake 
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:19]  Razor: Attack: Platinum Drake
+[09/09/2022 04:20]  System: You have gained a lot of fame.
+[09/09/2022 04:20]  System: You have gained a lot of karma.
+[09/09/2022 04:20]  Platinum Drake: a platinum drake corpse
+[09/09/2022 04:20]  asdf: Obsu Vulni
+[09/09/2022 04:20]  Razor: Target: asdf
+[09/09/2022 04:20]  System: You have had 28 hit points of damage healed.
+[09/09/2022 04:20]  asdf: Obsu Vulni
+[09/09/2022 04:20]  System: You have had 29 hit points of damage healed.
+[09/09/2022 04:20]  asdf: Obsu Vulni
+[09/09/2022 04:21]  System: You have had 28 hit points of damage healed.
+[09/09/2022 04:21]  asdf: Divinum Furis
+[09/09/2022 04:21]  Razor: [+Divine Fury (16s)]
+[09/09/2022 04:21]  Razor: [-Divine Fury]
+[09/09/2022 04:24]  a horse:  a horse 
+[09/09/2022 04:27]  asdf: Divinum Furis
+[09/09/2022 04:27]  Razor: [+Divine Fury (16s)]
+[09/09/2022 04:27]  Razor: [-Divine Fury]
+[09/09/2022 04:27]  asdf: Divinum Furis
+[09/09/2022 04:28]  Razor: [+Divine Fury (23s)]
+[09/09/2022 04:28]  Razor: [-Divine Fury]
+[09/09/2022 04:28]  asdf: Divinum Furis
+[09/09/2022 04:28]  Razor: [+Divine Fury (23s)]
+[09/09/2022 04:28]  System: The world will save in 15 seconds.
+[09/09/2022 04:28]  System: The world is saving, please wait.
+[09/09/2022 04:28]  System: World save done in 0.2 seconds.
+[09/09/2022 04:28]  Razor: [-Divine Fury]
+[09/09/2022 04:29]  asdf: Consecrus Arma
+[09/09/2022 04:29]  Razor: [+Consecrate (10s)]
+[09/09/2022 04:29]  Razor: [-Consecrate]
+[09/09/2022 04:39]  a horse:  a horse 
+[09/09/2022 04:43]  System: The world will save in 15 seconds.
+[09/09/2022 04:43]  System: The world is saving, please wait.
+[09/09/2022 04:43]  System: World save done in 0.2 seconds.
+[09/09/2022 04:46]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 04:46]  Margaret:  Margaret the scribe
+[09/09/2022 04:46]  Xavier:  Xavier the mage
+[09/09/2022 04:46]  a greater dragon:  a greater dragon 
+[09/09/2022 04:46]  a dragon:  a dragon 
+[09/09/2022 04:46]  a wyvern:  a wyvern 
+[09/09/2022 04:46]  a dragon:  a dragon 
+[09/09/2022 04:46]  a wyvern:  a wyvern 
+[09/09/2022 04:46]  a drake:  a drake 
+[09/09/2022 04:46]  a wyvern:  a wyvern 
+[09/09/2022 04:46]  a drake:  a drake 
+[09/09/2022 04:46]  a drake:  a drake 
+[09/09/2022 04:46]  a greater dragon:  a greater dragon 
+[09/09/2022 04:46]  asdf: Divinum Furis
+[09/09/2022 04:46]  Razor: [+Divine Fury (23s)]
+[09/09/2022 04:46]  System: You are bleeding!
+[09/09/2022 04:46]  asdf: You are bleeding profusely
+[09/09/2022 04:46]  Razor: [+Bleed (9s)]
+[09/09/2022 04:46]  System: You have not yet recovered from casting a spell.
+[09/09/2022 04:46]  System: You are now under the protection of the town guards.
+[09/09/2022 04:46]  Razor: [-Divine Fury]
+[09/09/2022 04:46]  Razor: [-Bleed]
+[09/09/2022 04:46]  Ramsey:  Ramsey the minister of trade
+[09/09/2022 04:46]  Huntley:  Huntley the alchemist
+[09/09/2022 04:46]  Matthew:  Matthew the fish monger
+[09/09/2022 04:46]  a crow:  a crow 
+[09/09/2022 04:46]  a dog:  a dog 
+[09/09/2022 04:46]  Gizane:  Gizane the healer
+[09/09/2022 04:46]  Baka:  Baka the healer guildmistress
+[09/09/2022 04:46]  Denby:  Denby the innkeeper
+[09/09/2022 04:46]  System: The bleeding wounds have healed, you are no longer bleeding!
+[09/09/2022 04:46]  a rat:  a rat 
+[09/09/2022 04:47]  System: You have left the protection of the town guards.
+[09/09/2022 04:47]  a drake:  a drake 
+[09/09/2022 04:47]  a dragon:  a dragon 
+[09/09/2022 04:47]  Xavier:  Xavier the mage
+[09/09/2022 04:47]  asdf: the remains of asdf
+[09/09/2022 04:47]  a greater dragon:  a greater dragon 
+[09/09/2022 04:47]  a wyvern:  a wyvern 
+[09/09/2022 04:47]  a wyvern:  a wyvern 
+[09/09/2022 04:47]  Xavier: Adventurer!  I have an offer for you.
+[09/09/2022 04:47]  a dragon:  a dragon 
+[09/09/2022 04:47]  a greater dragon:  a greater dragon 
+[09/09/2022 04:47]  a dragon:  a dragon 
+[09/09/2022 04:48]  a wyvern:  a wyvern 
+[09/09/2022 04:48]  System: You put the torch in your left hand.
+[09/09/2022 04:48]  a dragon:  a dragon 
+[09/09/2022 04:48]  a greater dragon:  a greater dragon 
+[09/09/2022 04:48]  a dragon:  a dragon 
+[09/09/2022 04:48]  a dragon:  a dragon 
+[09/09/2022 04:48]  Margaret:  Margaret the scribe
+[09/09/2022 04:48]  System: You cannot hold this item.
+[09/09/2022 04:48]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 04:48]  a wyvern:  a wyvern 
+[09/09/2022 04:48]  asdf: Obsu Vulni
+[09/09/2022 04:48]  System: You have had 39 hit points of damage healed.
+[09/09/2022 04:48]  a wyvern:  a wyvern 
+[09/09/2022 04:49]  asdf: Obsu Vulni
+[09/09/2022 04:49]  System: You have had 38 hit points of damage healed.
+[09/09/2022 04:49]  a drake:  a drake 
+[09/09/2022 04:49]  a drake:  a drake 
+[09/09/2022 04:49]  a horse:  a horse 
+[09/09/2022 04:49]  a horse:  a horse 
+[09/09/2022 04:49]  a silver steed:  a silver steed 
+[09/09/2022 04:49]  a drake:  a drake 
+[09/09/2022 04:49]  Platinum Drake:  Platinum Drake 
+[09/09/2022 04:49]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:49]  Platinum Drake:  Platinum Drake 
+[09/09/2022 04:49]  Platinum Drake:  Platinum Drake 
+[09/09/2022 04:49]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:49]  asdf: Consecrus Arma
+[09/09/2022 04:49]  Razor: [+Consecrate (10s)]
+[09/09/2022 04:49]  System: You have not yet recovered from casting a spell.
+[09/09/2022 04:49]  asdf: Divinum Furis
+[09/09/2022 04:49]  Razor: [+Divine Fury (23s)]
+[09/09/2022 04:49]  System: You must have at least 9 Mana to use this ability.
+[09/09/2022 04:49]  Razor: [-Consecrate]
+[09/09/2022 04:49]  System: You must have at least 9 Mana to use this ability.
+[09/09/2022 04:49]  System: You must wait to perform another action.
+[09/09/2022 04:49]  Razor: Attack: Platinum Drake
+[09/09/2022 04:49]  : blood
+[09/09/2022 04:49]  Razor: [-Divine Fury]
+[09/09/2022 04:49]  Razor: Attack: Platinum Drake
+[09/09/2022 04:50]  Razor: Attack: Platinum Drake
+[09/09/2022 04:50]  asdf: Obsu Vulni
+[09/09/2022 04:50]  System: You have had 33 hit points of damage healed.
+[09/09/2022 04:50]  System: You must wait to perform another action.
+[09/09/2022 04:50]  Razor: Attack: Platinum Drake
+[09/09/2022 04:50]  asdf: Divinum Furis
+[09/09/2022 04:50]  Razor: [+Divine Fury (23s)]
+[09/09/2022 04:50]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:50]  Crimson Drake:  Crimson Drake 
+[09/09/2022 04:51]  System: You must have at least 9 Mana to use this ability.
+[09/09/2022 04:51]  System: You are now under the protection of the town guards.
+[09/09/2022 04:51]  System: You must wait to perform another action.
+[09/09/2022 04:51]  Razor: [-Divine Fury]
+[09/09/2022 04:51]  Ramsey:  Ramsey the minister of trade
+[09/09/2022 04:51]  Matthew:  Matthew the fish monger
+[09/09/2022 04:51]  a rat:  a rat 
+[09/09/2022 04:51]  Huntley:  Huntley the alchemist
+[09/09/2022 04:51]  a crow:  a crow 
+[09/09/2022 04:51]  a dog:  a dog 
+[09/09/2022 04:51]  Gizane:  Gizane the healer
+[09/09/2022 04:51]  Baka:  Baka the healer guildmistress
+[09/09/2022 04:51]  Denby:  Denby the innkeeper
+[09/09/2022 04:51]  asdf: I am dead and cannot do that.
+[09/09/2022 04:51]  System: You have left the protection of the town guards.
+[09/09/2022 04:51]  Xavier:  Xavier the mage
+[09/09/2022 04:51]  a drake:  a drake 
+[09/09/2022 04:51]  a dragon:  a dragon 
+[09/09/2022 04:51]  asdf: the remains of asdf
+[09/09/2022 04:51]  a greater dragon:  a greater dragon 
+[09/09/2022 04:51]  a greater dragon:  a greater dragon 
+[09/09/2022 04:51]  a wyvern:  a wyvern 
+[09/09/2022 04:51]  a greater dragon:  a greater dragon 
+[09/09/2022 04:51]  Xavier: Adventurer!  I have an offer for you.
+[09/09/2022 04:51]  a wyvern:  a wyvern 
+[09/09/2022 04:51]  Margaret:  Margaret the scribe
+[09/09/2022 04:51]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 04:52]  a greater dragon:  a greater dragon 
+[09/09/2022 04:52]  a greater dragon:  a greater dragon 
+[09/09/2022 04:54]  a greater dragon:  a greater dragon 
+[09/09/2022 04:54]  a dragon:  a dragon 
+[09/09/2022 04:54]  a dragon:  a dragon 
+[09/09/2022 04:55]  a wyvern:  a wyvern 
+[09/09/2022 04:55]  a dragon:  a dragon 
+[09/09/2022 04:55]  a wyvern:  a wyvern 
+[09/09/2022 04:56]  a dragon:  a dragon 
+[09/09/2022 04:56]  a dragon:  a dragon 
+[09/09/2022 04:56]  a dragon:  a dragon 
+[09/09/2022 04:58]  System: The world will save in 15 seconds.
+[09/09/2022 04:58]  System: The world is saving, please wait.
+[09/09/2022 04:58]  System: World save done in 0.1 seconds.
+[09/09/2022 05:01]  a dragon:  a dragon 
+[09/09/2022 05:02]  a dragon:  a dragon 
+[09/09/2022 05:03]  a greater dragon:  a greater dragon 
+[09/09/2022 05:03]  a greater dragon:  a greater dragon 
+[09/09/2022 05:04]  a dragon:  a dragon 
+[09/09/2022 05:04]  Xavier:  Xavier the mage
+[09/09/2022 05:04]  a dragon:  a dragon 
+[09/09/2022 05:04]  a dragon:  a dragon 
+[09/09/2022 05:04]  a drake:  a drake 
+[09/09/2022 05:05]  a dragon:  a dragon 
+[09/09/2022 05:05]  a dragon:  a dragon 
+[09/09/2022 05:05]  a dragon:  a dragon 
+[09/09/2022 05:05]  a dragon:  a dragon 
+[09/09/2022 05:06]  Xavier:  Xavier the mage
+[09/09/2022 05:07]  Xavier:  Xavier the mage
+[09/09/2022 05:07]  a greater dragon:  a greater dragon 
+[09/09/2022 05:07]  a greater dragon:  a greater dragon 
+[09/09/2022 05:08]  a drake:  a drake 
+[09/09/2022 05:09]  a drake:  a drake 
+[09/09/2022 05:11]  a drake:  a drake 
+[09/09/2022 05:11]  a greater dragon:  a greater dragon 
+[09/09/2022 05:11]  a greater dragon:  a greater dragon 
+[09/09/2022 05:12]  a greater dragon:  a greater dragon 
+[09/09/2022 05:12]  a greater dragon:  a greater dragon 
+[09/09/2022 05:13]  Xavier:  Xavier the mage
+[09/09/2022 05:13]  a dragon:  a dragon 
+[09/09/2022 05:13]  a dragon:  a dragon 
+[09/09/2022 05:13]  System: The world will save in 15 seconds.
+[09/09/2022 05:13]  System: The world is saving, please wait.
+[09/09/2022 05:13]  System: World save done in 0.2 seconds.
+[09/09/2022 05:15]  a drake:  a drake 
+[09/09/2022 05:15]  a drake:  a drake 
+[09/09/2022 05:15]  a dragon:  a dragon 
+[09/09/2022 05:15]  a dragon:  a dragon 
+[09/09/2022 05:16]  a dragon:  a dragon 
+[09/09/2022 05:16]  Xavier:  Xavier the mage
+[09/09/2022 05:17]  a dragon:  a dragon 
+[09/09/2022 05:17]  a greater dragon:  a greater dragon 
+[09/09/2022 05:17]  a dragon:  a dragon 
+[09/09/2022 05:17]  a dragon:  a dragon 
+[09/09/2022 05:20]  System: You must have a free hand to drink a potion.
+[09/09/2022 05:20]  Platinum Drake:  Platinum Drake 
+[09/09/2022 05:20]  asdf: Divinum Furis
+[09/09/2022 05:20]  Razor: [+Divine Fury (23s)]
+[09/09/2022 05:20]  Razor: Attack: Platinum Drake
+[09/09/2022 05:20]  System: You must wait to perform another action.
+[09/09/2022 05:20]  Razor: Attack: Platinum Drake
+[09/09/2022 05:20]  : Now following.
+[09/09/2022 05:20]  : Stopped following.
+[09/09/2022 05:20]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:20]  asdf: Forul Solum
+[09/09/2022 05:20]  Razor: [+Enemy of One (227s)]
+[09/09/2022 05:20]  Razor: [-Enemy of One]
+[09/09/2022 05:20]  Razor: [+Enemy of One (226s)]
+[09/09/2022 05:20]  Razor: [-Divine Fury]
+[09/09/2022 05:20]  asdf: Obsu Vulni
+[09/09/2022 05:20]  System: Your concentration is disturbed, thus ruining thy spell.
+[09/09/2022 05:20]  asdf: Obsu Vulni
+[09/09/2022 05:20]  Razor: Target: Platinum Drake
+[09/09/2022 05:20]  System: You cannot perform beneficial acts on your target.
+[09/09/2022 05:20]  asdf: Augus Luminos
+[09/09/2022 05:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:21]  Razor: Attack: Platinum Drake
+[09/09/2022 05:21]  asdf: Obsu Vulni
+[09/09/2022 05:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:21]  Razor: Target: asdf
+[09/09/2022 05:21]  System: You have had 39 hit points of damage healed.
+[09/09/2022 05:21]  asdf: Obsu Vulni
+[09/09/2022 05:21]  System: You have had 39 hit points of damage healed.
+[09/09/2022 05:21]  asdf: Obsu Vulni
+[09/09/2022 05:21]  System: You have had 27 hit points of damage healed.
+[09/09/2022 05:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:21]  a drake:  a drake 
+[09/09/2022 05:21]  asdf: Consecrus Arma
+[09/09/2022 05:21]  Razor: [+Consecrate (10s)]
+[09/09/2022 05:21]  asdf: Divinum Furis
+[09/09/2022 05:21]  Razor: [+Divine Fury (23s)]
+[09/09/2022 05:21]  a drake:  a drake 
+[09/09/2022 05:21]  Razor: [-Consecrate]
+[09/09/2022 05:21]  System: You must wait to perform another action.
+[09/09/2022 05:21]  System: You must wait to perform another action.
+[09/09/2022 05:21]  : Now following.
+[09/09/2022 05:21]  Razor: Attack: Crimson Drake
+[09/09/2022 05:21]  : Stopped following.
+[09/09/2022 05:21]  System: You are now under the protection of the town guards.
+[09/09/2022 05:21]  System: You must wait to perform another action.
+[09/09/2022 05:21]  Ramsey:  Ramsey the minister of trade
+[09/09/2022 05:21]  Matthew:  Matthew the fish monger
+[09/09/2022 05:21]  a rat:  a rat 
+[09/09/2022 05:21]  Huntley:  Huntley the alchemist
+[09/09/2022 05:21]  Razor: [-Divine Fury]
+[09/09/2022 05:21]  a crow:  a crow 
+[09/09/2022 05:21]  a dog:  a dog 
+[09/09/2022 05:21]  Gizane:  Gizane the healer
+[09/09/2022 05:21]  Baka:  Baka the healer guildmistress
+[09/09/2022 05:21]  Denby:  Denby the innkeeper
+[09/09/2022 05:21]  asdf: I am dead and cannot do that.
+[09/09/2022 05:21]  System: You have left the protection of the town guards.
+[09/09/2022 05:21]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:21]  a drake:  a drake 
+[09/09/2022 05:21]  a dragon:  a dragon 
+[09/09/2022 05:22]  a drake:  a drake 
+[09/09/2022 05:22]  a drake:  a drake 
+[09/09/2022 05:22]  a drake:  a drake 
+[09/09/2022 05:22]  a drake:  a drake 
+[09/09/2022 05:22]  a drake:  a drake 
+[09/09/2022 05:22]  a dragon:  a dragon 
+[09/09/2022 05:23]  a dragon:  a dragon 
+[09/09/2022 05:23]  a drake:  a drake 
+[09/09/2022 05:23]  a drake:  a drake 
+[09/09/2022 05:23]  a drake:  a drake 
+[09/09/2022 05:24]  a drake:  a drake 
+[09/09/2022 05:24]  a drake:  a drake 
+[09/09/2022 05:24]  Razor: [-Enemy of One]
+[09/09/2022 05:24]  a drake:  a drake 
+[09/09/2022 05:25]  a drake:  a drake 
+[09/09/2022 05:26]  System: Your strength has changed by 5.  It is now 130
+[09/09/2022 05:26]  System: Your dexterity has changed by 5.  It is now 130
+[09/09/2022 05:26]  System: Your intelligence has changed by 5.  It is now 130
+[09/09/2022 05:27]  a drake:  a drake 
+[09/09/2022 05:27]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:27]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:27]  a drake:  a drake 
+[09/09/2022 05:28]  System: That is too far away.
+[09/09/2022 05:28]  System: The world will save in 15 seconds.
+[09/09/2022 05:29]  System: The world is saving, please wait.
+[09/09/2022 05:29]  System: World save done in 0.2 seconds.
+[09/09/2022 05:29]  a drake:  a drake 
+[09/09/2022 05:29]  a drake:  a drake 
+[09/09/2022 05:29]  a drake:  a drake 
+[09/09/2022 05:30]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:30]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:30]  Razor: [Last Target]
+[09/09/2022 05:30]  Platinum Drake:  Platinum Drake 
+[09/09/2022 05:30]  : Now following.
+[09/09/2022 05:30]  Crimson Drake:  Crimson Drake 
+[09/09/2022 05:30]  Razor: Attack: Crimson Drake
+[09/09/2022 05:30]  Razor: [Last Target]
+[09/09/2022 05:30]  Platinum Drake:  Platinum Drake 
+[09/09/2022 05:30]  : Stopped following.
+[09/09/2022 05:31]  asdf: Obsu Vulni
+[09/09/2022 05:31]  System: You must wait to perform another action.
+[09/09/2022 05:31]  Razor: Attack: Crimson Drake
+[09/09/2022 05:31]  Razor: Attack: Crimson Drake
+[09/09/2022 05:31]  a drake:  a drake 
+[09/09/2022 05:31]  Quinn:  Quinn the Keeper of Chivalry
+[09/09/2022 05:31]  Margaret:  Margaret the scribe
+[09/09/2022 05:31]  asdf: Obsu Vulni
+[09/09/2022 05:31]  Razor: Target: asdf
+[09/09/2022 05:31]  System: You have had 39 hit points of damage healed.
+[09/09/2022 05:31]  asdf: Obsu Vulni
+[09/09/2022 05:31]  System: You have had 39 hit points of damage healed.
+[09/09/2022 05:31]  asdf: Divinum Furis
+[09/09/2022 05:31]  Razor: [+Divine Fury (23s)]
+[09/09/2022 05:31]  a drake:  a drake 
+[09/09/2022 05:31]  Razor: Attack: Crimson Drake
+[09/09/2022 05:31]  asdf: Consecrus Arma
+[09/09/2022 05:31]  Razor: [+Consecrate (10s)]
+[09/09/2022 05:31]  asdf: Forul Solum
+[09/09/2022 05:31]  Razor: [+Enemy of One (227s)]
+[09/09/2022 05:31]  a drake:  a drake 
+[09/09/2022 05:31]  System: You have gained a lot of fame.
+[09/09/2022 05:31]  Razor: [-Enemy of One]
+[09/09/2022 05:31]  Razor: [+Enemy of One (225s)]
+[09/09/2022 05:31]  Crimson Drake: a crimson drake corpse
+[09/09/2022 05:31]  asdf: Obsu Vulni
+[09/09/2022 05:31]  System: You have had 39 hit points of damage healed.
+[09/09/2022 05:31]  Razor: [-Consecrate]
+[09/09/2022 05:31]  Razor: [-Divine Fury]
+[09/09/2022 05:32]  asdf: Obsu Vulni
+[09/09/2022 05:32]  System: You have had 23 hit points of damage healed.
+[09/09/2022 05:35]  Razor: [-Enemy of One]
+[09/09/2022 05:37]  a drake:  a drake 
+[09/09/2022 05:37]  a drake:  a drake 
+[09/09/2022 05:38]  a drake:  a drake 
+[09/09/2022 05:40]  a drake:  a drake 
+[09/09/2022 05:40]  a drake:  a drake 
+[09/09/2022 05:41]  a drake:  a drake 
+[09/09/2022 05:41]  a drake:  a drake 
+[09/09/2022 05:42]  System: You are old enough to be considered an adult, and have outgrown your status as a young player!
+[09/09/2022 05:42]  System: You are no longer considered a young player of Ultima Online, and are no longer subject to the limitations and benefits of being in that caste.
+[09/09/2022 05:43]  System: The world will save in 15 seconds.
+[09/09/2022 05:44]  System: The world is saving, please wait.
+[09/09/2022 05:44]  System: World save done in 0.2 seconds.
+[09/09/2022 05:58]  System: The world will save in 15 seconds.
+[09/09/2022 05:59]  System: The world is saving, please wait.
+[09/09/2022 05:59]  System: World save done in 0.3 seconds.
+[09/09/2022 06:13]  System: The world will save in 15 seconds.
+[09/09/2022 06:14]  System: The world is saving, please wait.
+[09/09/2022 06:14]  System: World save done in 0.3 seconds.
+[09/09/2022 06:29]  System: The world will save in 15 seconds.
+[09/09/2022 06:29]  System: The world is saving, please wait.
+[09/09/2022 06:29]  System: World save done in 0.2 seconds.
+[09/09/2022 06:44]  System: The world will save in 15 seconds.
+[09/09/2022 06:44]  System: The world is saving, please wait.
+[09/09/2022 06:44]  System: World save done in 0.2 seconds.
+[09/09/2022 06:59]  System: The world will save in 15 seconds.
+[09/09/2022 06:59]  System: The world is saving, please wait.
+[09/09/2022 06:59]  System: World save done in 0.1 seconds.
+[09/09/2022 07:14]  System: The world will save in 15 seconds.
+[09/09/2022 07:14]  System: The world is saving, please wait.
+[09/09/2022 07:14]  System: World save done in 0.2 seconds.
+[09/09/2022 07:29]  System: The world will save in 15 seconds.
+[09/09/2022 07:30]  System: The world is saving, please wait.
+[09/09/2022 07:30]  System: World save done in 0.1 seconds.
+[09/09/2022 07:44]  System: The world will save in 15 seconds.
+[09/09/2022 07:45]  System: The world is saving, please wait.
+[09/09/2022 07:45]  System: World save done in 0.2 seconds.
+[09/09/2022 07:59]  System: The world will save in 15 seconds.
+[09/09/2022 08:00]  System: The world is saving, please wait.
+[09/09/2022 08:00]  System: World save done in 0.1 seconds.
+[09/09/2022 08:15]  System: The world will save in 15 seconds.
+[09/09/2022 08:15]  System: The world is saving, please wait.
+[09/09/2022 08:15]  System: World save done in 0.3 seconds.
+[09/09/2022 08:30]  System: The world will save in 15 seconds.
+[09/09/2022 08:30]  System: The world is saving, please wait.
+[09/09/2022 08:30]  System: World save done in 0.4 seconds.
+[09/09/2022 08:45]  System: The world will save in 15 seconds.
+[09/09/2022 08:45]  System: The world is saving, please wait.
+[09/09/2022 08:45]  System: World save done in 0.4 seconds.
+[09/09/2022 09:00]  System: The world will save in 15 seconds.
+[09/09/2022 09:00]  System: The world is saving, please wait.
+[09/09/2022 09:00]  System: World save done in 0.2 seconds.
+[09/09/2022 09:15]  System: The world will save in 15 seconds.
+[09/09/2022 09:15]  System: The world is saving, please wait.
+[09/09/2022 09:15]  System: World save done in 0.1 seconds.
+[09/09/2022 09:30]  System: The world will save in 15 seconds.
+[09/09/2022 09:30]  System: The world is saving, please wait.
+[09/09/2022 09:30]  System: World save done in 0.1 seconds.
+[09/09/2022 09:45]  System: The world will save in 15 seconds.
+[09/09/2022 09:45]  System: The world is saving, please wait.
+[09/09/2022 09:45]  System: World save done in 0.2 seconds.
+[09/09/2022 10:00]  System: The world will save in 15 seconds.
+[09/09/2022 10:00]  System: The world is saving, please wait.
+[09/09/2022 10:00]  System: World save done in 0.1 seconds.
+[09/09/2022 10:15]  System: The world will save in 15 seconds.
+[09/09/2022 10:15]  System: The world is saving, please wait.
+[09/09/2022 10:15]  System: World save done in 0.2 seconds.
+[09/09/2022 10:30]  System: The world will save in 15 seconds.
+[09/09/2022 10:30]  System: The world is saving, please wait.
+[09/09/2022 10:30]  System: World save done in 0.2 seconds.
+[09/09/2022 10:45]  System: The world will save in 15 seconds.
+[09/09/2022 10:46]  System: The world is saving, please wait.
+[09/09/2022 10:46]  System: World save done in 0.1 seconds.
+[09/09/2022 11:00]  System: The world will save in 15 seconds.
+[09/09/2022 11:01]  System: The world is saving, please wait.
+[09/09/2022 11:01]  System: World save done in 0.3 seconds.
+[09/09/2022 11:15]  System: The world will save in 15 seconds.
+[09/09/2022 11:16]  System: The world is saving, please wait.
+[09/09/2022 11:16]  System: World save done in 0.2 seconds.
+[09/09/2022 11:30]  System: The world will save in 15 seconds.
+[09/09/2022 11:31]  System: The world is saving, please wait.
+[09/09/2022 11:31]  System: World save done in 0.1 seconds.
+[09/09/2022 11:46]  System: The world will save in 15 seconds.
+[09/09/2022 11:46]  System: The world is saving, please wait.
+[09/09/2022 11:46]  System: World save done in 0.1 seconds.
+[09/09/2022 12:01]  System: The world will save in 15 seconds.
+[09/09/2022 12:01]  System: The world is saving, please wait.
+[09/09/2022 12:01]  System: World save done in 0.1 seconds.
+[09/09/2022 12:16]  System: The world will save in 15 seconds.
+[09/09/2022 12:16]  System: The world is saving, please wait.
+[09/09/2022 12:16]  System: World save done in 0.2 seconds.
+[09/09/2022 12:31]  System: The world will save in 15 seconds.
+[09/09/2022 12:31]  System: The world is saving, please wait.
+[09/09/2022 12:31]  System: World save done in 0.2 seconds.
+[09/09/2022 12:46]  System: The world will save in 15 seconds.
+[09/09/2022 12:46]  System: The world is saving, please wait.
+[09/09/2022 12:46]  System: World save done in 0.1 seconds.
+[09/09/2022 13:01]  System: The world will save in 15 seconds.
+[09/09/2022 13:01]  System: The world is saving, please wait.
+[09/09/2022 13:01]  System: World save done in 0.2 seconds.
+[09/09/2022 13:16]  System: The world will save in 15 seconds.
+[09/09/2022 13:16]  System: The world is saving, please wait.
+[09/09/2022 13:16]  System: World save done in 0.1 seconds.
+[09/09/2022 13:31]  System: The world will save in 15 seconds.
+[09/09/2022 13:31]  System: The world is saving, please wait.
+[09/09/2022 13:31]  System: World save done in 0.2 seconds.
+[09/09/2022 13:46]  System: The world will save in 15 seconds.
+[09/09/2022 13:46]  System: The world is saving, please wait.
+[09/09/2022 13:46]  System: World save done in 0.1 seconds.
+[09/09/2022 14:01]  System: The world will save in 15 seconds.
+[09/09/2022 14:02]  System: The world is saving, please wait.
+[09/09/2022 14:02]  System: World save done in 0.2 seconds.
+[09/09/2022 14:16]  System: The world will save in 15 seconds.
+[09/09/2022 14:17]  System: The world is saving, please wait.
+[09/09/2022 14:17]  System: World save done in 0.2 seconds.
+[09/09/2022 14:31]  System: The world will save in 15 seconds.
+[09/09/2022 14:32]  System: The world is saving, please wait.
+[09/09/2022 14:32]  System: World save done in 0.1 seconds.
+[09/09/2022 14:46]  System: The world will save in 15 seconds.
+[09/09/2022 14:47]  System: The world is saving, please wait.
+[09/09/2022 14:47]  System: World save done in 0.3 seconds.
+[09/09/2022 15:02]  System: The world will save in 15 seconds.
+[09/09/2022 15:02]  System: The world is saving, please wait.
+[09/09/2022 15:02]  System: World save done in 0.2 seconds.
+[09/09/2022 15:17]  System: The world will save in 15 seconds.
+[09/09/2022 15:17]  System: The world is saving, please wait.
+[09/09/2022 15:17]  System: World save done in 0.2 seconds.
+[09/09/2022 15:32]  System: The world will save in 15 seconds.
+[09/09/2022 15:32]  System: The world is saving, please wait.
+[09/09/2022 15:32]  System: World save done in 0.2 seconds.
+[09/09/2022 15:47]  System: The world will save in 15 seconds.
+[09/09/2022 15:47]  System: The world is saving, please wait.
+[09/09/2022 15:47]  System: World save done in 0.1 seconds.
+[09/09/2022 16:02]  System: The world will save in 15 seconds.
+[09/09/2022 16:02]  System: The world is saving, please wait.
+[09/09/2022 16:02]  System: World save done in 0.4 seconds.
+[09/09/2022 16:17]  System: The world will save in 15 seconds.
+[09/09/2022 16:17]  System: The world is saving, please wait.
+[09/09/2022 16:17]  System: World save done in 0.1 seconds.
+[09/09/2022 16:32]  System: The world will save in 15 seconds.
+[09/09/2022 16:32]  System: The world is saving, please wait.
+[09/09/2022 16:32]  System: World save done in 0.1 seconds.
+[09/09/2022 16:47]  System: The world will save in 15 seconds.
+[09/09/2022 16:47]  System: The world is saving, please wait.
+[09/09/2022 16:47]  System: World save done in 0.2 seconds.
+[09/09/2022 17:02]  System: The world will save in 15 seconds.
+[09/09/2022 17:03]  System: The world is saving, please wait.
+[09/09/2022 17:03]  System: World save done in 0.2 seconds.
+[09/09/2022 17:17]  System: The world will save in 15 seconds.
+[09/09/2022 17:18]  System: The world is saving, please wait.
+[09/09/2022 17:18]  System: World save done in 0.2 seconds.
+[09/09/2022 17:32]  System: The world will save in 15 seconds.
+[09/09/2022 17:33]  System: The world is saving, please wait.
+[09/09/2022 17:33]  System: World save done in 0.2 seconds.
+[09/09/2022 17:47]  System: The world will save in 15 seconds.
+[09/09/2022 17:48]  System: The world is saving, please wait.
+[09/09/2022 17:48]  System: World save done in 0.2 seconds.

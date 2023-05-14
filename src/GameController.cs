@@ -57,6 +57,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Google.Protobuf;
 using Helloworld;
+using System.Threading;
 
 namespace ClassicUO
 {
@@ -88,10 +89,12 @@ namespace ClassicUO
         class ImageServiceImpl : ImageService.ImageServiceBase
         {
             GameController _controller;
+            UltimaBatcher2D _uoSpriteBatch;
 
             public ImageServiceImpl(GameController controller)
             {
                 _controller = controller;
+                _uoSpriteBatch = _controller._uoSpriteBatch;
                 Console.WriteLine("ImageServiceImpl()");
             }
 
@@ -124,8 +127,15 @@ namespace ClassicUO
 
                 //    return Task.FromResult(new ImageResponse { Data = Google.Protobuf.ByteString.CopyFrom(imageBytes) });
                 //}
+
                 byte[] imageData = ReadImage("/home/kimbring2/Desktop/uo_test.jpeg");
-                ByteString byteString = ByteString.CopyFrom(imageData);
+
+                //imageData.CopyTo(_controller.byteArrayTest, 0);
+                //_controller.byteArrayTest = imageData.ToArray();
+
+                //byte[] imageData = CaptureScreen();
+                //ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
                 return Task.FromResult(new ImageResponse { Data = byteString });
             }
@@ -145,8 +155,20 @@ namespace ClassicUO
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
 
+        public byte[] byteArray = new byte[640*480*4];
+        public byte[] byteArrayTest = new byte[162*121*4];
+
+        private Thread workerThread;
+        private bool isRunning;
+
         Server grpcServer;
         Server grpcImageServer;
+
+        //Color[] textureData;
+        Texture2D texture_copy;
+        //MemoryStream ms;
+
+        bool start_flag = false;
 
         public GameController()
         {
@@ -183,6 +205,46 @@ namespace ClassicUO
             IsFixedTimeStep = false; // Settings.GlobalSettings.FixedTimeStep;
             TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0 / 250.0);
             InactiveSleepTime = TimeSpan.Zero;
+        }
+
+        private void StartWorkerThread()
+        {
+            workerThread = new Thread(WorkerThreadMethod);
+            workerThread.Start();
+        }
+
+        private void WorkerThreadMethod()
+        {
+            //Thread.Sleep(5000); // Simulate work
+
+            while (isRunning)
+            {
+                //Thread.Sleep(5000); // Simulate work
+                Console.WriteLine("WorkerThreadMethod()");
+                // Perform background work here
+
+                //UpdateScreenshot();
+
+                //MemoryStream ms = new MemoryStream();
+                //texture_copy.SaveAsPng(ms, texture_copy.Width, texture_copy.Height);
+                //(ms.ToArray()).CopyTo(byteArray, 0);
+                
+                Thread.Sleep(100); // Simulate work
+
+                // Update game state on the main thread
+                // Avoid accessing game objects or graphics directly from this thread
+                // Instead, use synchronization mechanisms like locks or Concurrent collections
+                // to communicate with the main thread safely
+            }
+        }
+
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            // Clean up resources and stop the worker thread
+            isRunning = false;
+            workerThread.Join();
+
+            base.OnExiting(sender, args);
         }
 
         public Scene Scene { get; private set; }
@@ -502,8 +564,14 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Log.Trace("GameController Update()");
 
+            if (start_flag == true)
+            {
+                isRunning = true;
+                StartWorkerThread();
+            }
+
+            //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
             {
                 Profiler.ExitContext("OutOfContext");
@@ -629,6 +697,8 @@ namespace ClassicUO
             Profiler.EnterContext("OutOfContext");
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
+
+            UpdateScreenshot(ref texture_copy);
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
@@ -762,13 +832,18 @@ namespace ClassicUO
                     break;
 
                 case SDL_EventType.SDL_KEYUP:
+                    //Console.WriteLine("case SDL_EventType.SDL_KEYUP");
+
                     Keyboard.OnKeyUp(sdlEvent->key);
                     UIManager.KeyboardFocusControl?.InvokeKeyUp(sdlEvent->key.keysym.sym, sdlEvent->key.keysym.mod);
                     Scene.OnKeyUp(sdlEvent->key);
                     Plugin.ProcessHotkeys(0, 0, false);
 
+                    //UpdateScreenshot();
+
                     if (sdlEvent->key.keysym.sym == SDL_Keycode.SDLK_PRINTSCREEN)
                     {
+                        //Console.WriteLine("sdlEvent->key.keysym.sym == SDL_Keycode.SDLK_PRINTSCREEN");
                         TakeScreenshot();
                     }
                     
@@ -983,6 +1058,43 @@ namespace ClassicUO
             }
 
             return 0;
+        }
+
+        private void UpdateScreenshot(ref Texture2D texture_temp)
+        {
+
+            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
+            GraphicsDevice.GetBackBufferData(textureData);
+            
+            using (Texture2D texture = new Texture2D
+            (
+                GraphicsDevice,
+                GraphicManager.PreferredBackBufferWidth,
+                GraphicManager.PreferredBackBufferHeight,
+                false,
+                SurfaceFormat.Color
+            ))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                texture.SetData(textureData);
+                byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4];
+
+                for (int i = 0; i < textureData.Length; i++)
+                {
+                    rgbaBytes[i * 4 + 0] = textureData[i].R;
+                    rgbaBytes[i * 4 + 1] = textureData[i].G;
+                    rgbaBytes[i * 4 + 2] = textureData[i].B;
+                    rgbaBytes[i * 4 + 3] = textureData[i].A;
+                }
+
+                //byteArray = rgbBytes.ToArray();
+                rgbaBytes.CopyTo(byteArray, 0);
+
+                //texture.SaveAsPng(ms, texture.Width, texture.Height);
+                //(ms.ToArray()).CopyTo(byteArray, 0);
+                //(ms.ToArray()).CopyTo(byteArray, 0);
+            }
+            
         }
 
         private void TakeScreenshot()

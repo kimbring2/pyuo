@@ -55,32 +55,81 @@ using static SDL2.SDL;
 
 using System.Threading.Tasks;
 using Grpc.Core;
+using Google.Protobuf;
 using Helloworld;
 
 namespace ClassicUO
 {
-    class GreeterImpl : Greeter.GreeterBase
-    {
-        // Server side handler of the SayHello RPC
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-        {
-            Console.WriteLine("SayHello()");
-            Console.WriteLine("request.Name: ");
-            Console.WriteLine(request.Name);
-
-            return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
-        }
-    }
-
     internal unsafe class GameController : Microsoft.Xna.Framework.Game
     {
-        const int Port = 50051;
-
-        Server server = new Server
+        class GreeterImpl : Greeter.GreeterBase
         {
-            Services = { Greeter.BindService(new GreeterImpl()) },
-            Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
-        };
+            GameController _controller;
+
+            public GreeterImpl(GameController controller)
+            {
+                _controller = controller;
+                Console.WriteLine("GreeterImpl()");
+            }
+
+            // Server side handler of the SayHello RPC
+            public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+            {
+                Console.WriteLine("SayHello()");
+                Console.WriteLine("request.Name: ");
+                Console.WriteLine(request.Name);
+
+                _controller.SetWindowTitle("grpc test");
+
+                return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
+            }
+        }
+
+        class ImageServiceImpl : ImageService.ImageServiceBase
+        {
+            GameController _controller;
+
+            public ImageServiceImpl(GameController controller)
+            {
+                _controller = controller;
+                Console.WriteLine("ImageServiceImpl()");
+            }
+
+            public byte[] ReadImage(string imagePath)
+            {
+                try
+                {
+                    return File.ReadAllBytes(imagePath);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to read the image: " + ex.Message);
+                    return null;
+                }
+            }
+
+            // Server side handler of the SayHello RPC
+            public override Task<ImageResponse> ProcessImage(ImageRequest request, ServerCallContext context)
+            {
+                Console.WriteLine("SendImage()");
+                //Console.WriteLine("request: ");
+                Console.WriteLine(request.Name);
+
+                //_controller.SetWindowTitle("grpc test");
+
+                //using (var imageStream = File.OpenRead("/home/kimbring2/Desktop/uo_test.jpeg"))
+                //{
+                //    var imageBytes = new byte[imageStream.Length];
+                //    await imageStream.ReadAsync(imageBytes, 0, imageBytes.Length);
+
+                //    return Task.FromResult(new ImageResponse { Data = Google.Protobuf.ByteString.CopyFrom(imageBytes) });
+                //}
+                byte[] imageData = ReadImage("/home/kimbring2/Desktop/uo_test.jpeg");
+                ByteString byteString = ByteString.CopyFrom(imageData);
+
+                return Task.FromResult(new ImageResponse { Data = byteString });
+            }
+        }
 
         private bool _dragStarted;
 
@@ -96,9 +145,28 @@ namespace ClassicUO
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
 
+        Server grpcServer;
+        Server grpcImageServer;
+
         public GameController()
         {
             //Log.Trace("GameController()");
+            const int Port = 50051;
+            const int imagePort = 50052;
+
+            GreeterImpl _greeterImpl = new GreeterImpl(this);
+            grpcServer = new Server
+            {
+                Services = { Greeter.BindService(_greeterImpl) },
+                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
+            };
+
+            ImageServiceImpl _imageServiceImpl = new ImageServiceImpl(this);
+            grpcImageServer = new Server
+            {
+                Services = { ImageService.BindService(_imageServiceImpl) },
+                Ports = { new ServerPort("localhost", imagePort, ServerCredentials.Insecure) }
+            };
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -125,19 +193,8 @@ namespace ClassicUO
         protected override void Initialize()
         {
             //Log.Trace("Initialize()");
-            Server server = new Server
-            {
-                Services = { Greeter.BindService(new GreeterImpl()) },
-                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
-            };
-            
-            server.Start();
-
-            Console.WriteLine("Greeter server listening on port " + Port);
-            Console.WriteLine("Press any key to stop the server...");
-            Console.ReadKey();
-
-            server.ShutdownAsync().Wait();
+            grpcServer.Start();
+            grpcImageServer.Start();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -217,6 +274,8 @@ namespace ClassicUO
 
         protected override void UnloadContent()
         {
+            grpcServer.ShutdownAsync().Wait();
+
             SDL_GetWindowBordersSize
             (
                 Window.Handle,

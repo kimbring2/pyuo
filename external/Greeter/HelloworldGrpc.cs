@@ -130,5 +130,90 @@ namespace Helloworld {
     }
 
   }
+  public static partial class ImageService
+  {
+    static readonly string __ServiceName = "helloworld.ImageService";
+
+    static readonly grpc::Marshaller<global::Helloworld.ImageRequest> __Marshaller_helloworld_ImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.ImageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Helloworld.ImageResponse> __Marshaller_helloworld_ImageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Helloworld.ImageResponse.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::Helloworld.ImageRequest, global::Helloworld.ImageResponse> __Method_ProcessImage = new grpc::Method<global::Helloworld.ImageRequest, global::Helloworld.ImageResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ProcessImage",
+        __Marshaller_helloworld_ImageRequest,
+        __Marshaller_helloworld_ImageResponse);
+
+    /// <summary>Service descriptor</summary>
+    public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
+    {
+      get { return global::Helloworld.HelloworldReflection.Descriptor.Services[1]; }
+    }
+
+    /// <summary>Base class for server-side implementations of ImageService</summary>
+    public abstract partial class ImageServiceBase
+    {
+      public virtual global::System.Threading.Tasks.Task<global::Helloworld.ImageResponse> ProcessImage(global::Helloworld.ImageRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+    }
+
+    /// <summary>Client for ImageService</summary>
+    public partial class ImageServiceClient : grpc::ClientBase<ImageServiceClient>
+    {
+      /// <summary>Creates a new client for ImageService</summary>
+      /// <param name="channel">The channel to use to make remote calls.</param>
+      public ImageServiceClient(grpc::Channel channel) : base(channel)
+      {
+      }
+      /// <summary>Creates a new client for ImageService that uses a custom <c>CallInvoker</c>.</summary>
+      /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      public ImageServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      {
+      }
+      /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      protected ImageServiceClient() : base()
+      {
+      }
+      /// <summary>Protected constructor to allow creation of configured clients.</summary>
+      /// <param name="configuration">The client configuration.</param>
+      protected ImageServiceClient(ClientBaseConfiguration configuration) : base(configuration)
+      {
+      }
+
+      public virtual global::Helloworld.ImageResponse ProcessImage(global::Helloworld.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ProcessImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Helloworld.ImageResponse ProcessImage(global::Helloworld.ImageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ProcessImage, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Helloworld.ImageResponse> ProcessImageAsync(global::Helloworld.ImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ProcessImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Helloworld.ImageResponse> ProcessImageAsync(global::Helloworld.ImageRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ProcessImage, null, options, request);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      protected override ImageServiceClient NewInstance(ClientBaseConfiguration configuration)
+      {
+        return new ImageServiceClient(configuration);
+      }
+    }
+
+    /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+    public static grpc::ServerServiceDefinition BindService(ImageServiceBase serviceImpl)
+    {
+      return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_ProcessImage, serviceImpl.ProcessImage).Build();
+    }
+
+  }
 }
 #endregion

@@ -39,6 +39,9 @@ using ClassicUO.Input;
 using ClassicUO.Renderer;
 using Microsoft.Xna.Framework;
 
+using Grpc.Core;
+using Helloworld;
+
 namespace ClassicUO.Game.Managers
 {
     internal static class UIManager

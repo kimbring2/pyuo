@@ -48,6 +48,7 @@ using ClassicUO.Renderer;
 using ClassicUO.Resources;
 using ClassicUO.Utility;
 using ClassicUO.Utility.Logging;
+using ClassicUO.Grpc;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SDL2;
@@ -63,60 +64,6 @@ namespace ClassicUO
 {   
     internal unsafe class GameController : Microsoft.Xna.Framework.Game
     {   
-        class UoServiceImpl : UoService.UoServiceBase
-        {
-            GameController _controller;
-            UltimaBatcher2D _uoSpriteBatch;
-
-            public UoServiceImpl(GameController controller)
-            {
-                _controller = controller;
-                _uoSpriteBatch = _controller._uoSpriteBatch;
-            }
-
-            public byte[] ReadImage(string imagePath)
-            {
-                try
-                {
-                    return File.ReadAllBytes(imagePath);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Failed to read the image: " + ex.Message);
-
-                    return null;
-                }
-            }
-
-            // Server side handler of the SayHello RPC
-            public override Task<ImageResponse> reset(ImageRequest request, ServerCallContext context)
-            {
-                //Console.WriteLine(request.Name);;
-                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
-
-                return Task.FromResult(new ImageResponse { Data = byteString });
-            }
-
-            // Server side handler of the SayHello RPC
-            public override Task<ImageResponse> step(ImageRequest request, ServerCallContext context)
-            {
-                Console.WriteLine(request.Name);;
-                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
-
-                return Task.FromResult(new ImageResponse { Data = byteString });
-            }
-
-            // Server side handler of the SayHello RPC
-            public override Task<Empty> act(Actions actions, ServerCallContext context)
-            {
-                //Console.WriteLine(actions.action);
-                _controller.action_1 = actions.Action;
-                //Console.WriteLine("_controller.action_1: {0}", _controller.action_1);
-
-                return Task.FromResult(new Empty {});
-            }
-        }
-
         private bool _dragStarted;
 
         private SDL_EventFilter _filter;
@@ -131,26 +78,15 @@ namespace ClassicUO
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
 
+        private UoServiceImpl _uoServiceImpl;
+
         public uint action_1 = 0;
-
-        public byte[] byteArray = new byte[960*760*4];
-
-        Server GrpcServer;
-        Channel grpcChannel;
+        public byte[] byteArray = new byte[640*480*4];
 
         public GameController()
         {
             //Log.Trace("GameController()");
-            const int Port = 50052;
- 
-            UoServiceImpl _uoServiceImplImpl = new UoServiceImpl(this);
-            GrpcServer = new Server
-            {
-                Services = { UoService.BindService(_uoServiceImplImpl) },
-                Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
-            };
-
-            grpcChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            _uoServiceImpl = new UoServiceImpl(this, 50052);
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -177,7 +113,7 @@ namespace ClassicUO
         protected override void Initialize()
         {
             //Log.Trace("Initialize()");
-            GrpcServer.Start();
+            _uoServiceImpl.Start();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -646,7 +582,7 @@ namespace ClassicUO
                     rgbaBytes[i * 4 + 3] = textureData[i].A;
                 }
 
-                //rgbaBytes.CopyTo(byteArray, 0);
+                rgbaBytes.CopyTo(byteArray, 0);
             }
         }
 

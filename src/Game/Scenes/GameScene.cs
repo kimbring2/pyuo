@@ -732,6 +732,7 @@ namespace ClassicUO.Game.Scenes
             Pathfinder.ProcessAutoWalk();
             DelayedObjectClickManager.Update();
 
+            Console.WriteLine("_flags[0]: {0}, _flags[1]: {1}, _flags[0]: {2}, _flags[0]: {3}", _flags[0], _flags[2], _flags[1], _flags[3]);
             Direction dir_test = DirectionHelper.DirectionFromKeyboardArrows(_flags[0], _flags[2], _flags[1], _flags[3]);
             if (World.InGame && !Pathfinder.AutoWalking && dir_test != Direction.NONE)
             {

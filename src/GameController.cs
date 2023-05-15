@@ -81,18 +81,17 @@ namespace ClassicUO
 
         public int grpc_port;
         public uint action_1 = 0;
-        public byte[] byteArray = new byte[250*175*4];
+        public byte[] byteArray = new byte[160*128*4];
         Color[] textureData;
         byte[] rgbaBytes;
         byte[] scaledRgbaBytes;
         Texture2D texture;
+        MemoryStream ms;
 
         public GameController()
         {
             //Log.Trace("GameController()");
-
             grpc_port = Settings.GlobalSettings.GrpcPort;
-
             _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 
             GraphicManager = new GraphicsDeviceManager(this);
@@ -574,22 +573,22 @@ namespace ClassicUO
                 false,
                 SurfaceFormat.Color
             ))
-            using (MemoryStream ms = new MemoryStream())
+            using (ms = new MemoryStream())
             {
-                int scale = 8;
+                int scale = 16;
 
                 texture.SetData(textureData);
 
                 //byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4 / scale / scale];
                 rgbaBytes = new byte[texture.Width * texture.Height * 4];
 
-                int newHeight = texture.Height / 8;
-                int newWidth = texture.Width / 8;
+                int newHeight = texture.Height / scale;
+                int newWidth = texture.Width / scale;
 
                 scaledRgbaBytes = new byte[newHeight * newWidth * 4];
 
-                int scaleX = 8;
-                int scaleY = 8;
+                int scaleX = scale;
+                int scaleY = scale;
                 
                 for (int y = 0; y < newHeight; y++)
                 {

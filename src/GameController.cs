@@ -81,7 +81,11 @@ namespace ClassicUO
 
         public int grpc_port;
         public uint action_1 = 0;
-        public byte[] byteArray = new byte[1000*800*4];
+        public byte[] byteArray = new byte[250*175*4];
+        Color[] textureData;
+        byte[] rgbaBytes;
+        byte[] scaledRgbaBytes;
+        Texture2D texture;
 
         public GameController()
         {
@@ -557,14 +561,12 @@ namespace ClassicUO
 
         private void UpdateScreenshot()
         {
-            //int w = 960;
-            //int h = 760;
-            //Client.Game.SetWindowSize(w, h);
+            //Console.WriteLine("UpdateScreenshot()");
 
-            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
+            textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
             GraphicsDevice.GetBackBufferData(textureData);
             
-            using (Texture2D texture = new Texture2D
+            using (texture = new Texture2D
             (
                 GraphicsDevice,
                 GraphicManager.PreferredBackBufferWidth,
@@ -574,21 +576,67 @@ namespace ClassicUO
             ))
             using (MemoryStream ms = new MemoryStream())
             {
-                texture.SetData(textureData);
-                byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4];
+                int scale = 8;
 
-                for (int i = 0; i < textureData.Length; i++)
+                texture.SetData(textureData);
+
+                //byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4 / scale / scale];
+                rgbaBytes = new byte[texture.Width * texture.Height * 4];
+
+                int newHeight = texture.Height / 8;
+                int newWidth = texture.Width / 8;
+
+                scaledRgbaBytes = new byte[newHeight * newWidth * 4];
+
+                int scaleX = 8;
+                int scaleY = 8;
+                
+                for (int y = 0; y < newHeight; y++)
                 {
-                    rgbaBytes[i * 4 + 0] = textureData[i].R;
-                    rgbaBytes[i * 4 + 1] = textureData[i].G;
-                    rgbaBytes[i * 4 + 2] = textureData[i].B;
-                    rgbaBytes[i * 4 + 3] = textureData[i].A;
+                    for (int x = 0; x < newWidth; x++)
+                    {
+                        int startX = (int)(x * scaleX);
+                        int endX = (int)((x + 1) * scaleX);
+                        int startY = (int)(y * scaleY);
+                        int endY = (int)((y + 1) * scaleY);
+
+                        int totalR = 0;
+                        int totalG = 0;
+                        int totalB = 0;
+                        int totalA = 0;
+
+                        int count = 0;
+                        for (int j = startY; j < endY; j++)
+                        {
+                            for (int i = startX; i < endX; i++)
+                            {
+                                int index = i + (j * texture.Width);
+                                totalR += textureData[index].R;
+                                totalG += textureData[index].G;
+                                totalB += textureData[index].B;
+                                totalA += textureData[index].A;
+
+                                count++;
+                            }
+                        }
+
+                        byte avgR = (byte)(totalR / count);
+                        byte avgG = (byte)(totalG / count);
+                        byte avgB = (byte)(totalB / count);
+                        byte avgA = (byte)(totalA / count);
+
+                        int scaledIndex = x + (y * newWidth);
+                        scaledRgbaBytes[scaledIndex * 4 + 0] = avgR;
+                        scaledRgbaBytes[scaledIndex * 4 + 1] = avgG;
+                        scaledRgbaBytes[scaledIndex * 4 + 2] = avgB;
+                        scaledRgbaBytes[scaledIndex * 4 + 3] = avgA;
+                    }
                 }
 
                 //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}", GraphicManager.PreferredBackBufferWidth);
                 //Console.WriteLine("GraphicManager.PreferredBackBufferHeight: {0}", GraphicManager.PreferredBackBufferHeight);
 
-                //rgbaBytes.CopyTo(byteArray, 0);
+                scaledRgbaBytes.CopyTo(byteArray, 0);
             }
         }
 

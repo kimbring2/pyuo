@@ -97,8 +97,8 @@
 	"game_window_full_size" : false,
 	"window_borderless" : false,
 	"game_window_size" : {
-		"X" : 1000,
-		"Y" : 800
+		"X" : 2000,
+		"Y" : 1400
 	},
 	"topbar_gump_position" : {
 		"X" : 0,

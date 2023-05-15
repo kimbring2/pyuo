@@ -16,8 +16,8 @@
 		"Y" : 233
 	},
 	"window_size" : {
-		"X" : 1000,
-		"Y" : 800
+		"X" : 2000,
+		"Y" : 1400
 	},
 	"is_win_maximized" : false,
 	"saveaccount" : false,

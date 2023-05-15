@@ -72,7 +72,6 @@ namespace ClassicUO
             {
                 _controller = controller;
                 _uoSpriteBatch = _controller._uoSpriteBatch;
-                //Console.WriteLine("ImageServiceImpl()");
             }
 
             public byte[] ReadImage(string imagePath)
@@ -90,7 +89,16 @@ namespace ClassicUO
             }
 
             // Server side handler of the SayHello RPC
-            public override Task<ImageResponse> Reset(ImageRequest request, ServerCallContext context)
+            public override Task<ImageResponse> reset(ImageRequest request, ServerCallContext context)
+            {
+                //Console.WriteLine(request.Name);;
+                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+
+                return Task.FromResult(new ImageResponse { Data = byteString });
+            }
+
+            // Server side handler of the SayHello RPC
+            public override Task<ImageResponse> step(ImageRequest request, ServerCallContext context)
             {
                 Console.WriteLine(request.Name);;
                 ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
@@ -99,12 +107,13 @@ namespace ClassicUO
             }
 
             // Server side handler of the SayHello RPC
-            public override Task<ImageResponse> Step(ImageRequest request, ServerCallContext context)
+            public override Task<Empty> act(Actions actions, ServerCallContext context)
             {
-                Console.WriteLine(request.Name);;
-                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+                //Console.WriteLine(actions.action);
+                _controller.action_1 = actions.Action;
+                //Console.WriteLine("_controller.action_1: {0}", _controller.action_1);
 
-                return Task.FromResult(new ImageResponse { Data = byteString });
+                return Task.FromResult(new Empty {});
             }
         }
 
@@ -121,6 +130,8 @@ namespace ClassicUO
         private UltimaBatcher2D _uoSpriteBatch;
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
+
+        public uint action_1 = 0;
 
         public byte[] byteArray = new byte[960*760*4];
 
@@ -602,6 +613,46 @@ namespace ClassicUO
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
             UpdateScreenshot();
+            //ControlUnit();
+        }
+
+        private void UpdateScreenshot()
+        {
+            //int w = 960;
+            //int h = 760;
+            //Client.Game.SetWindowSize(w, h);
+
+            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
+            GraphicsDevice.GetBackBufferData(textureData);
+            
+            using (Texture2D texture = new Texture2D
+            (
+                GraphicsDevice,
+                GraphicManager.PreferredBackBufferWidth,
+                GraphicManager.PreferredBackBufferHeight,
+                false,
+                SurfaceFormat.Color
+            ))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                texture.SetData(textureData);
+                byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4];
+
+                for (int i = 0; i < textureData.Length; i++)
+                {
+                    rgbaBytes[i * 4 + 0] = textureData[i].R;
+                    rgbaBytes[i * 4 + 1] = textureData[i].G;
+                    rgbaBytes[i * 4 + 2] = textureData[i].B;
+                    rgbaBytes[i * 4 + 3] = textureData[i].A;
+                }
+
+                //rgbaBytes.CopyTo(byteArray, 0);
+            }
+        }
+
+        private void ControlUnit()
+        {
+
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
@@ -674,9 +725,6 @@ namespace ClassicUO
 
                 return 0;
             }
-
-            //Console.WriteLine("sdlEvent->type: ");
-            //Console.WriteLine(sdlEvent->type);
 
             switch (sdlEvent->type)
             {
@@ -961,38 +1009,6 @@ namespace ClassicUO
             }
 
             return 0;
-        }
-
-        private void UpdateScreenshot()
-        {
-            SetWindowSize(960, 760);
-
-            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
-            GraphicsDevice.GetBackBufferData(textureData);
-            
-            using (Texture2D texture = new Texture2D
-            (
-                GraphicsDevice,
-                GraphicManager.PreferredBackBufferWidth,
-                GraphicManager.PreferredBackBufferHeight,
-                false,
-                SurfaceFormat.Color
-            ))
-            using (MemoryStream ms = new MemoryStream())
-            {
-                texture.SetData(textureData);
-                byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4];
-
-                for (int i = 0; i < textureData.Length; i++)
-                {
-                    rgbaBytes[i * 4 + 0] = textureData[i].R;
-                    rgbaBytes[i * 4 + 1] = textureData[i].G;
-                    rgbaBytes[i * 4 + 2] = textureData[i].B;
-                    rgbaBytes[i * 4 + 3] = textureData[i].A;
-                }
-
-                rgbaBytes.CopyTo(byteArray, 0);
-            }
         }
 
         private void TakeScreenshot()

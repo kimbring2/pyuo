@@ -184,8 +184,13 @@ namespace ClassicUO.Game.Scenes
             }
             else if (Settings.GlobalSettings.WindowSize.HasValue)
             {
+                Console.WriteLine("Settings.GlobalSettings.WindowSize.HasValue");
+
                 int w = Settings.GlobalSettings.WindowSize.Value.X;
                 int h = Settings.GlobalSettings.WindowSize.Value.Y;
+
+                Console.WriteLine("w: {0}", w);
+                Console.WriteLine("h: {0}", h);
 
                 w = Math.Max(640, w);
                 h = Math.Max(480, h);
@@ -726,6 +731,13 @@ namespace ClassicUO.Game.Scenes
             BoatMovingManager.Update();
             Pathfinder.ProcessAutoWalk();
             DelayedObjectClickManager.Update();
+
+            Direction dir_test = DirectionHelper.DirectionFromKeyboardArrows(_flags[0], _flags[2], _flags[1], _flags[3]);
+            if (World.InGame && !Pathfinder.AutoWalking && dir_test != Direction.NONE)
+            {
+                Console.WriteLine("World.Player.Walk");
+                World.Player.Walk(dir_test, currentProfile.AlwaysRun);
+            }
 
             if (!MoveCharacterByMouseInput() && !currentProfile.DisableArrowBtn)
             {

@@ -1,8 +1,9 @@
 {
-	"username" : "",
-	"password" : "",
+	"username" : "kimbring2",
+	"password" : "kimbring2",
 	"ip" : "127.0.0.1",
 	"port" : 2593,
+	"grpc_port" : 50051,
 	"ultimaonlinedirectory" : "/home/kimbring2/.wine/drive_c/Program Files (x86)/Common Files/Electronic Arts/Ultima Online Classic",
 	"profilespath" : "",
 	"clientversion" : "7.0.95.0",
@@ -11,12 +12,12 @@
 	"last_server_name" : "My Shard",
 	"fps" : 60,
 	"window_position" : {
-		"X" : 1440,
-		"Y" : 663
+		"X" : 566,
+		"Y" : 233
 	},
 	"window_size" : {
-		"X" : 1747,
-		"Y" : 1283
+		"X" : 1000,
+		"Y" : 800
 	},
 	"is_win_maximized" : false,
 	"saveaccount" : false,

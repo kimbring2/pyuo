@@ -259,6 +259,8 @@ namespace ClassicUO
             {
                 string cmd = args[i].ToLower();
 
+                //Console.WriteLine("cmd: {0}", cmd);
+
                 // NOTE: Command-line option name should start with "-" character
                 if (cmd.Length == 0 || cmd[0] != '-')
                 {
@@ -300,7 +302,8 @@ namespace ClassicUO
                         break;
 
                     case "password":
-                        Settings.GlobalSettings.Password = Crypter.Encrypt(value);
+                        //Settings.GlobalSettings.Password = Crypter.Encrypt(value);
+                        Settings.GlobalSettings.Password = value;
 
                         break;
 
@@ -316,6 +319,11 @@ namespace ClassicUO
 
                     case "port":
                         Settings.GlobalSettings.Port = ushort.Parse(value);
+
+                        break;
+
+                    case "grpc_port":
+                        Settings.GlobalSettings.GrpcPort = ushort.Parse(value);
 
                         break;
 

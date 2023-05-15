@@ -2059,7 +2059,6 @@ namespace ClassicUO.Network
                 GameActions.RequestMobileStatus(World.Player);
                 NetClient.Socket.Send_OpenChat("");
 
-
                 //NetClient.Socket.Send(new PSkillsRequest(World.Player));
                 scene.DoubleClickDelayed(World.Player);
 

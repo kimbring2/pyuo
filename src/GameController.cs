@@ -77,16 +77,19 @@ namespace ClassicUO
         private UltimaBatcher2D _uoSpriteBatch;
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
-
         private UoServiceImpl _uoServiceImpl;
 
+        public int grpc_port;
         public uint action_1 = 0;
-        public byte[] byteArray = new byte[640*480*4];
+        public byte[] byteArray = new byte[1000*800*4];
 
         public GameController()
         {
             //Log.Trace("GameController()");
-            _uoServiceImpl = new UoServiceImpl(this, 50052);
+
+            grpc_port = Settings.GlobalSettings.GrpcPort;
+
+            _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -582,7 +585,10 @@ namespace ClassicUO
                     rgbaBytes[i * 4 + 3] = textureData[i].A;
                 }
 
-                rgbaBytes.CopyTo(byteArray, 0);
+                //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}", GraphicManager.PreferredBackBufferWidth);
+                //Console.WriteLine("GraphicManager.PreferredBackBufferHeight: {0}", GraphicManager.PreferredBackBufferHeight);
+
+                //rgbaBytes.CopyTo(byteArray, 0);
             }
         }
 

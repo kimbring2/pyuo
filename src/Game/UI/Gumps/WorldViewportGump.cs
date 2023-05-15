@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Configuration;
 using ClassicUO.Data;
 using ClassicUO.Game.Managers;
@@ -97,7 +98,15 @@ namespace ClassicUO.Game.UI.Gumps
                 }
             };
 
+
+            Console.WriteLine("_worldWidth: {0}", _worldWidth);
+            Console.WriteLine("_worldHeight: {0}", _worldHeight);
+
             _button.SetTooltip(ResGumps.ResizeGameWindow);
+
+            //_worldWidth = 1000;
+            //_worldHeight = 800;
+
             Width = _worldWidth + BORDER_WIDTH * 2;
             Height = _worldHeight + BORDER_WIDTH * 2;
 
@@ -124,6 +133,10 @@ namespace ClassicUO.Game.UI.Gumps
         {
             base.Update(totalTime, frameTime);
 
+            //_lastSize.X = 1000;
+            //_lastSize.Y = 800;
+            //Resize();
+
             if (IsDisposed)
             {
                 return;
@@ -139,6 +152,9 @@ namespace ClassicUO.Game.UI.Gumps
                 {
                     int w = _lastSize.X + offset.X;
                     int h = _lastSize.Y + offset.Y;
+
+                    //Console.WriteLine("WorldViewport w: {0}", w);
+                    //Console.WriteLine("WorldViewport h: {0}", h);
 
                     if (w < 640)
                     {

@@ -82,8 +82,8 @@
 	"hold_shift_for_context" : false,
 	"hold_shift_to_split_stack" : false,
 	"window_client_bounds" : {
-		"X" : 1747,
-		"Y" : 1283
+		"X" : 1740,
+		"Y" : 1368
 	},
 	"container_default_position" : {
 		"X" : 24,
@@ -97,8 +97,8 @@
 	"game_window_full_size" : false,
 	"window_borderless" : false,
 	"game_window_size" : {
-		"X" : 1710,
-		"Y" : 1237
+		"X" : 1000,
+		"Y" : 800
 	},
 	"topbar_gump_position" : {
 		"X" : 0,

@@ -231,6 +231,10 @@ namespace ClassicUO.Game.UI.Gumps.Login
                     break;
 
                 case Buttons.Next:
+                    //Console.WriteLine("_selectedCharacter: ");
+                    //Console.WriteLine(_selectedCharacter);
+
+                    _selectedCharacter = 0;
                     LoginCharacter(_selectedCharacter);
 
                     break;

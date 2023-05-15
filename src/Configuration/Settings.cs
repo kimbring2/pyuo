@@ -42,7 +42,6 @@ namespace ClassicUO.Configuration
         public static Settings GlobalSettings = new Settings();
         public static string CustomSettingsFilepath = null;
 
-
         [JsonProperty("username")] public string Username { get; set; } = string.Empty;
 
         [JsonProperty("password")] public string Password { get; set; } = string.Empty;
@@ -50,6 +49,8 @@ namespace ClassicUO.Configuration
         [JsonProperty("ip")] public string IP { get; set; } = "127.0.0.1";
 
         [JsonProperty("port")] public ushort Port { get; set; } = 2593;
+
+        [JsonProperty("grpc_port")] public ushort GrpcPort { get; set; } = 50051;
 
         [JsonProperty("ultimaonlinedirectory")]
         public string UltimaOnlineDirectory { get; set; } = "";
@@ -125,17 +126,19 @@ namespace ClassicUO.Configuration
 
             // Make sure we don't save username and password if `saveaccount` flag is not set
             // NOTE: Even if we pass username and password via command-line arguments they won't be saved
+            /*
             if (!settingsToSave.SaveAccount)
             {
                 settingsToSave.Username = string.Empty;
                 settingsToSave.Password = string.Empty;
             }
+            */
 
             settingsToSave.ProfilesPath = string.Empty;
 
             // NOTE: We can do any other settings clean-ups here before we save them
 
-            ConfigurationResolver.Save(settingsToSave, GetSettingsFilepath());
+            //ConfigurationResolver.Save(settingsToSave, GetSettingsFilepath());
         }
     }
 }

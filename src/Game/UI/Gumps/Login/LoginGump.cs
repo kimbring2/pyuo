@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Configuration;
 using ClassicUO.Data;
 using ClassicUO.Game.Managers;
@@ -382,7 +383,8 @@ namespace ClassicUO.Game.UI.Gumps.Login
                 }
             );
 
-            _passwordFake.RealText = Crypter.Decrypt(Settings.GlobalSettings.Password);
+            //_passwordFake.RealText = Crypter.Decrypt(Settings.GlobalSettings.Password);
+            _passwordFake.RealText = Settings.GlobalSettings.Password;
 
             _checkboxSaveAccount.IsChecked = Settings.GlobalSettings.SaveAccount;
             _checkboxAutologin.IsChecked = Settings.GlobalSettings.AutoLogin;
@@ -570,6 +572,8 @@ namespace ClassicUO.Game.UI.Gumps.Login
             switch ((Buttons) buttonID)
             {
                 case Buttons.NextArrow:
+                    //Console.WriteLine("case Buttons.NextArrow");
+
                     SaveCheckboxStatus();
 
                     if (!_textboxAccount.IsDisposed)
@@ -744,7 +748,7 @@ namespace ClassicUO.Game.UI.Gumps.Login
             }
         }
 
-        private enum Buttons
+        public enum Buttons
         {
             NextArrow,
             Quit,

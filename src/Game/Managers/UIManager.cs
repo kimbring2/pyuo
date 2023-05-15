@@ -474,7 +474,7 @@ namespace ClassicUO.Game.Managers
         {
             Control gump = GetMouseOverControl(Mouse.Position);
 
-            //Console.WriteLine("gump 1234: ");
+            //Console.WriteLine("gump: ");
             //Console.WriteLine(gump);
  
             if (MouseOverControl != null && gump != MouseOverControl)

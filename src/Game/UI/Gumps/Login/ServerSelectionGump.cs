@@ -254,7 +254,8 @@ namespace ClassicUO.Game.UI.Gumps.Login
 
                         if (loginScene.Servers.Length != 0)
                         {
-                            int index = loginScene.GetServerIndexFromSettings();
+                            //int index = loginScene.GetServerIndexFromSettings();
+                            int index = 0;
 
                             loginScene.SelectServer((byte) loginScene.Servers[index].Index);
                         }

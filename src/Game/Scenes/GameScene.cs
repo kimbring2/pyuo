@@ -904,6 +904,9 @@ namespace ClassicUO.Game.Scenes
             int width = ProfileManager.CurrentProfile.GameWindowSize.X;
             int height = ProfileManager.CurrentProfile.GameWindowSize.Y;
 
+            //Console.WriteLine("GameWindowSize width: {0}", width);
+            //Console.WriteLine("GameWindowSize height: {0}", height);
+
             if (CheckDeathScreen
             (
                 batcher,

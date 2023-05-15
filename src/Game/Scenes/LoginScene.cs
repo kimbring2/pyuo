@@ -45,6 +45,7 @@ using ClassicUO.Game.Managers;
 using ClassicUO.Game.UI.Gumps;
 using ClassicUO.Game.UI.Gumps.CharCreation;
 using ClassicUO.Game.UI.Gumps.Login;
+using ClassicUO.Game.UI.Controls;
 using ClassicUO.IO;
 using ClassicUO.IO.Resources;
 using ClassicUO.Network;
@@ -109,8 +110,11 @@ namespace ClassicUO.Game.Scenes
 
             _autoLogin = Settings.GlobalSettings.AutoLogin;
 
-            UIManager.Add(new LoginBackground());
-            UIManager.Add(_currentGump = new LoginGump(this));
+            UIManager.Add(new LoginBackground()); 
+
+            LoginGump _loginGump = new LoginGump(this);
+
+            UIManager.Add(_currentGump = _loginGump);
 
             // Registering Packet Events
             //NetClient.PacketReceived += NetClient_PacketReceived;
@@ -120,13 +124,15 @@ namespace ClassicUO.Game.Scenes
 
             Audio.PlayMusic(Audio.LoginMusicIndex, false, true);
 
+            //Console.WriteLine("Settings.GlobalSettings.Password: " + Settings.GlobalSettings.Password);
+
             if (CanAutologin && CurrentLoginStep != LoginSteps.Main || CUOEnviroment.SkipLoginScreen)
             {
                 if (!string.IsNullOrEmpty(Settings.GlobalSettings.Username))
                 {
                     // disable if it's the 2nd attempt
-                    CUOEnviroment.SkipLoginScreen = false;
-                    Connect(Settings.GlobalSettings.Username, Crypter.Decrypt(Settings.GlobalSettings.Password));
+                    CUOEnviroment.SkipLoginScreen = true;
+                    Connect(Settings.GlobalSettings.Username, Settings.GlobalSettings.Password);
                 }
             }
 
@@ -135,7 +141,9 @@ namespace ClassicUO.Game.Scenes
                 Client.Game.RestoreWindow();
             }
 
-            Client.Game.SetWindowSize(640, 480);
+            Client.Game.SetWindowSize(1000, 800);
+
+            _loginGump.OnButtonClick(0);
         }
 
         public override void Unload()
@@ -161,15 +169,29 @@ namespace ClassicUO.Game.Scenes
 
             if (_lastLoginStep != CurrentLoginStep)
             {
-                Console.WriteLine("if (_lastLoginStep != CurrentLoginStep)()");
-                Console.WriteLine("_currentGump: ");
-                Console.WriteLine(_currentGump);
+                //Console.WriteLine("if (_lastLoginStep != CurrentLoginStep)()");
+                //Console.WriteLine("_currentGump: ");
+                //Console.WriteLine(_currentGump);
                 
                 UIManager.GameCursor.IsLoading = false;
 
                 // this trick avoid the flickering
                 Gump g = _currentGump;
-                UIManager.Add(_currentGump = GetGumpForStep());
+                _currentGump = GetGumpForStep();
+
+                UIManager.Add(_currentGump = _currentGump);
+
+                Console.WriteLine("CurrentLoginStep: ");
+                Console.WriteLine(CurrentLoginStep);
+
+                if (CurrentLoginStep == LoginSteps.ServerSelection) {
+                    _currentGump.OnButtonClick(5);
+                } else if (CurrentLoginStep == LoginSteps.CharacterSelection) {
+                    //Console.WriteLine("CurrentLoginStep == LoginSteps.CharacterSelection");
+                    //Console.WriteLine(_currentGump);
+                    _currentGump.OnButtonClick(2);
+                }
+
                 g.Dispose();
 
                 _lastLoginStep = CurrentLoginStep;
@@ -181,11 +203,13 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (!string.IsNullOrEmpty(Account))
                     {
-                        Connect(Account, Crypter.Decrypt(Settings.GlobalSettings.Password));
+                        //Connect(Account, Crypter.Decrypt(Settings.GlobalSettings.Password));
+                        Connect(Account, Settings.GlobalSettings.Password);
                     }
                     else if (!string.IsNullOrEmpty(Settings.GlobalSettings.Username))
                     {
-                        Connect(Settings.GlobalSettings.Username, Crypter.Decrypt(Settings.GlobalSettings.Password));
+                        //Connect(Settings.GlobalSettings.Username, Crypter.Decrypt(Settings.GlobalSettings.Password));
+                        Connect(Settings.GlobalSettings.Username, Settings.GlobalSettings.Password);
                     }
 
                     int timeT = Settings.GlobalSettings.ReconnectTime * 1000;
@@ -247,10 +271,13 @@ namespace ClassicUO.Game.Scenes
 
                     return GetLoadingScreen();
 
-                case LoginSteps.CharacterSelection: return new CharacterSelectionGump();
+                case LoginSteps.CharacterSelection: 
+                    return new CharacterSelectionGump();
 
                 case LoginSteps.ServerSelection:
                     _pingTime = Time.Ticks + 60000; // reset ping timer
+                    //Console.WriteLine("LoginSteps.ServerSelection");
+                    //ServerSelectionGump _serverSelectionGump = new ServerSelectionGump();
 
                     return new ServerSelectionGump();
 
@@ -334,8 +361,9 @@ namespace ClassicUO.Game.Scenes
             if (Settings.GlobalSettings.SaveAccount)
             {
                 Settings.GlobalSettings.Username = Account;
-                Settings.GlobalSettings.Password = Crypter.Encrypt(Password);
-                Settings.GlobalSettings.Save();
+                //Settings.GlobalSettings.Password = Crypter.Encrypt(Password);
+                Settings.GlobalSettings.Password = Password;
+                //Settings.GlobalSettings.Save();
             }
 
             Log.Trace($"Start login to: {Settings.GlobalSettings.IP},{Settings.GlobalSettings.Port}");

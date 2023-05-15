@@ -61,7 +61,7 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<ImageResponse> step(ImageRequest request, ServerCallContext context)
         {
-            Console.WriteLine(request.Name);;
+            //Console.WriteLine(request.Name);;
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
             return Task.FromResult(new ImageResponse { Data = byteString });

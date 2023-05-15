@@ -64,6 +64,8 @@ namespace ClassicUO.Configuration
             CurrentProfile.ServerName = servername;
             CurrentProfile.CharacterName = charactername;
 
+            
+
             ValidateFields(CurrentProfile);
         }
 

@@ -1,3 +1,0 @@
-is_global = true
-build_property.RootNamespace = Greeter
-build_property.ProjectDir = /home/kimbring2/grpc/examples/csharp/helloworld-from-cli/Greeter/

@@ -56,19 +56,19 @@ using static SDL2.SDL;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Google.Protobuf;
-using Test;
+using Uoservice;
 using System.Threading;
 
 namespace ClassicUO
 {   
     internal unsafe class GameController : Microsoft.Xna.Framework.Game
     {   
-        class PyuoImpl : Pyuo.PyuoBase
+        class UoServiceImpl : UoService.UoServiceBase
         {
             GameController _controller;
             UltimaBatcher2D _uoSpriteBatch;
 
-            public PyuoImpl(GameController controller)
+            public UoServiceImpl(GameController controller)
             {
                 _controller = controller;
                 _uoSpriteBatch = _controller._uoSpriteBatch;
@@ -124,22 +124,22 @@ namespace ClassicUO
 
         public byte[] byteArray = new byte[960*760*4];
 
-        Server PyuoServer;
-        Channel channel;
+        Server GrpcServer;
+        Channel grpcChannel;
 
         public GameController()
         {
             //Log.Trace("GameController()");
             const int Port = 50052;
-
-            PyuoImpl _pyuoImpl = new PyuoImpl(this);
-            PyuoServer = new Server
+ 
+            UoServiceImpl _uoServiceImplImpl = new UoServiceImpl(this);
+            GrpcServer = new Server
             {
-                Services = { Pyuo.BindService(_pyuoImpl) },
+                Services = { UoService.BindService(_uoServiceImplImpl) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
 
-            channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
+            grpcChannel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -166,7 +166,7 @@ namespace ClassicUO
         protected override void Initialize()
         {
             //Log.Trace("Initialize()");
-            PyuoServer.Start();
+            GrpcServer.Start();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {

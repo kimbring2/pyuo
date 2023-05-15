@@ -205,7 +205,17 @@
           "bin/placeholder/FNA.dll": {}
         }
       },
-      "Greeter/1.0.0": {
+      "MP3Sharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0",
+        "compile": {
+          "bin/placeholder/MP3Sharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MP3Sharp.dll": {}
+        }
+      },
+      "Pyuo/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
         "dependencies": {
@@ -215,20 +225,10 @@
           "Grpc.Tools": "1.2.2"
         },
         "compile": {
-          "bin/placeholder/Greeter.dll": {}
+          "bin/placeholder/Pyuo.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Greeter.dll": {}
-        }
-      },
-      "MP3Sharp/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.0",
-        "compile": {
-          "bin/placeholder/MP3Sharp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MP3Sharp.dll": {}
+          "bin/placeholder/Pyuo.dll": {}
         }
       }
     },
@@ -408,7 +408,17 @@
           "bin/placeholder/FNA.dll": {}
         }
       },
-      "Greeter/1.0.0": {
+      "MP3Sharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0",
+        "compile": {
+          "bin/placeholder/MP3Sharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MP3Sharp.dll": {}
+        }
+      },
+      "Pyuo/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.7.2",
         "dependencies": {
@@ -418,20 +428,10 @@
           "Grpc.Tools": "1.2.2"
         },
         "compile": {
-          "bin/placeholder/Greeter.dll": {}
+          "bin/placeholder/Pyuo.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Greeter.dll": {}
-        }
-      },
-      "MP3Sharp/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.0",
-        "compile": {
-          "bin/placeholder/MP3Sharp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MP3Sharp.dll": {}
+          "bin/placeholder/Pyuo.dll": {}
         }
       }
     }
@@ -1127,23 +1127,23 @@
       "path": "../external/FNA/FNA.Core.csproj",
       "msbuildProject": "../external/FNA/FNA.Core.csproj"
     },
-    "Greeter/1.0.0": {
-      "type": "project",
-      "path": "../external/Greeter/Greeter.csproj",
-      "msbuildProject": "../external/Greeter/Greeter.csproj"
-    },
     "MP3Sharp/1.0.0": {
       "type": "project",
       "path": "../external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
       "msbuildProject": "../external/MP3Sharp/MP3Sharp/MP3Sharp.csproj"
+    },
+    "Pyuo/1.0.0": {
+      "type": "project",
+      "path": "../external/Pyuo/Pyuo.csproj",
+      "msbuildProject": "../external/Pyuo/Pyuo.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
       "FNA >= 1.0.0",
-      "Greeter >= 1.0.0",
       "MP3Sharp >= 1.0.0",
       "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.*",
+      "Pyuo >= 1.0.0",
       "System.Buffers >= 4.5.1",
       "System.Memory >= 4.5.4",
       "System.Runtime.CompilerServices.Unsafe >= 4.5.3",
@@ -1178,11 +1178,11 @@
             "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj": {
               "projectPath": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj"
             },
-            "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj": {
-              "projectPath": "/home/kimbring2/ClassicUO/external/Greeter/Greeter.csproj"
-            },
             "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
               "projectPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj"
+            },
+            "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
+              "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj"
             }
           }
         }

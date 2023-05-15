@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyTitle>Pyuo</AssemblyTitle>
+    <TargetFrameworks>net472</TargetFrameworks>
+    <DebugType>portable</DebugType>
+    <AssemblyName>Pyuo</AssemblyName>
+    <PackageId>Pyuo</PackageId>
+    <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.0.4</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.20.0" />
+    <PackageReference Include="Google.Protobuf.Tools" Version="3.20.0" />
+    <PackageReference Include="Grpc" Version="1.2.2" />
+    <PackageReference Include="Grpc.Tools" Version="1.2.2" />
+  </ItemGroup>
+
+</Project>

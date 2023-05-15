@@ -1,0 +1,18 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 05/15/2023 14:08:02
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ClassicUO.GameController.OnExiting (System.Object sender, System.EventArgs args) [0x00007] in <e11503bd7cc34757bb4161bb9cc19c1e>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0004a] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x00085] in <e11503bd7cc34757bb4161bb9cc19c1e>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x0035b] in <e11503bd7cc34757bb4161bb9cc19c1e>:0 
+######################## [END LOG] ########################
+
+

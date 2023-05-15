@@ -27,7 +27,6 @@
     <DefineConstants>$(DefineConstants);DEV_BUILD</DefineConstants>
   </PropertyGroup>
 
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>$(ProjectDir)..\bin\Release\</OutputPath>
     <PublishDir>$(ProjectDir)..\bin\dist\</PublishDir>
@@ -35,19 +34,16 @@
     <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
   </PropertyGroup>
 
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>$(ProjectDir)..\bin\Debug\</OutputPath>
     <DefineConstants>$(DefineConstants)TRACE</DefineConstants>
   </PropertyGroup>
-
 
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>ClassicUO.UnitTests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-
 
   <ItemGroup>
     <EmbeddedResource Include="cuologo.png" />
@@ -85,7 +81,7 @@
   <ItemGroup>
     <ProjectReference Include="..\external\FNA\FNA.Core.csproj" />
     <ProjectReference Include="..\external\MP3Sharp\MP3Sharp\MP3Sharp.csproj" />
-    <ProjectReference Include="..\external\Greeter\Greeter.csproj" />
+    <ProjectReference Include="..\external\Pyuo\Pyuo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -133,7 +129,6 @@
     <DataFiles_osx Include="$(ProjectDir)..\external\osx\*.*" />
     <DataFiles_vulkan Include="$(ProjectDir)..\external\vulkan\icd.d\*.*" />
   </ItemGroup>
-
 
   <Target Name="CopyExternalDeps_build" AfterTargets="Build">
     <Copy SourceFiles="@(DataFiles_x64)" DestinationFolder="$(TargetDir)\x64\" SkipUnchangedFiles="true" />

@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {}
+  },
+  "projects": {
+    "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "projectName": "Pyuo",
+        "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/external/Pyuo/obj/",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Google.Protobuf.Tools": {
+              "target": "Package",
+              "version": "[3.20.0, )"
+            },
+            "Grpc": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Grpc.Tools": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

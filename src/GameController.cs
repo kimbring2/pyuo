@@ -56,46 +56,23 @@ using static SDL2.SDL;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Google.Protobuf;
-using Helloworld;
+using Test;
 using System.Threading;
 
 namespace ClassicUO
-{
+{   
     internal unsafe class GameController : Microsoft.Xna.Framework.Game
-    {
-        class GreeterImpl : Greeter.GreeterBase
-        {
-            GameController _controller;
-
-            public GreeterImpl(GameController controller)
-            {
-                _controller = controller;
-                Console.WriteLine("GreeterImpl()");
-            }
-
-            // Server side handler of the SayHello RPC
-            public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-            {
-                Console.WriteLine("SayHello()");
-                Console.WriteLine("request.Name: ");
-                Console.WriteLine(request.Name);
-
-                _controller.SetWindowTitle("grpc test");
-
-                return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
-            }
-        }
-
-        class ImageServiceImpl : ImageService.ImageServiceBase
+    {   
+        class PyuoImpl : Pyuo.PyuoBase
         {
             GameController _controller;
             UltimaBatcher2D _uoSpriteBatch;
 
-            public ImageServiceImpl(GameController controller)
+            public PyuoImpl(GameController controller)
             {
                 _controller = controller;
                 _uoSpriteBatch = _controller._uoSpriteBatch;
-                Console.WriteLine("ImageServiceImpl()");
+                //Console.WriteLine("ImageServiceImpl()");
             }
 
             public byte[] ReadImage(string imagePath)
@@ -107,34 +84,24 @@ namespace ClassicUO
                 catch (Exception ex)
                 {
                     Console.WriteLine("Failed to read the image: " + ex.Message);
+
                     return null;
                 }
             }
 
             // Server side handler of the SayHello RPC
-            public override Task<ImageResponse> ProcessImage(ImageRequest request, ServerCallContext context)
+            public override Task<ImageResponse> Reset(ImageRequest request, ServerCallContext context)
             {
-                Console.WriteLine("SendImage()");
-                //Console.WriteLine("request: ");
-                Console.WriteLine(request.Name);
+                Console.WriteLine(request.Name);;
+                ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
-                //_controller.SetWindowTitle("grpc test");
+                return Task.FromResult(new ImageResponse { Data = byteString });
+            }
 
-                //using (var imageStream = File.OpenRead("/home/kimbring2/Desktop/uo_test.jpeg"))
-                //{
-                //    var imageBytes = new byte[imageStream.Length];
-                //    await imageStream.ReadAsync(imageBytes, 0, imageBytes.Length);
-
-                //    return Task.FromResult(new ImageResponse { Data = Google.Protobuf.ByteString.CopyFrom(imageBytes) });
-                //}
-
-                byte[] imageData = ReadImage("/home/kimbring2/Desktop/uo_test.jpeg");
-
-                //imageData.CopyTo(_controller.byteArrayTest, 0);
-                //_controller.byteArrayTest = imageData.ToArray();
-
-                //byte[] imageData = CaptureScreen();
-                //ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+            // Server side handler of the SayHello RPC
+            public override Task<ImageResponse> Step(ImageRequest request, ServerCallContext context)
+            {
+                Console.WriteLine(request.Name);;
                 ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
                 return Task.FromResult(new ImageResponse { Data = byteString });
@@ -155,40 +122,24 @@ namespace ClassicUO
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
 
-        public byte[] byteArray = new byte[640*480*4];
-        public byte[] byteArrayTest = new byte[162*121*4];
+        public byte[] byteArray = new byte[960*760*4];
 
-        private Thread workerThread;
-        private bool isRunning;
-
-        Server grpcServer;
-        Server grpcImageServer;
-
-        //Color[] textureData;
-        Texture2D texture_copy;
-        //MemoryStream ms;
-
-        bool start_flag = false;
+        Server PyuoServer;
+        Channel channel;
 
         public GameController()
         {
             //Log.Trace("GameController()");
-            const int Port = 50051;
-            const int imagePort = 50052;
+            const int Port = 50052;
 
-            GreeterImpl _greeterImpl = new GreeterImpl(this);
-            grpcServer = new Server
+            PyuoImpl _pyuoImpl = new PyuoImpl(this);
+            PyuoServer = new Server
             {
-                Services = { Greeter.BindService(_greeterImpl) },
+                Services = { Pyuo.BindService(_pyuoImpl) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
             };
 
-            ImageServiceImpl _imageServiceImpl = new ImageServiceImpl(this);
-            grpcImageServer = new Server
-            {
-                Services = { ImageService.BindService(_imageServiceImpl) },
-                Ports = { new ServerPort("localhost", imagePort, ServerCredentials.Insecure) }
-            };
+            channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -207,46 +158,6 @@ namespace ClassicUO
             InactiveSleepTime = TimeSpan.Zero;
         }
 
-        private void StartWorkerThread()
-        {
-            workerThread = new Thread(WorkerThreadMethod);
-            workerThread.Start();
-        }
-
-        private void WorkerThreadMethod()
-        {
-            //Thread.Sleep(5000); // Simulate work
-
-            while (isRunning)
-            {
-                //Thread.Sleep(5000); // Simulate work
-                Console.WriteLine("WorkerThreadMethod()");
-                // Perform background work here
-
-                //UpdateScreenshot();
-
-                //MemoryStream ms = new MemoryStream();
-                //texture_copy.SaveAsPng(ms, texture_copy.Width, texture_copy.Height);
-                //(ms.ToArray()).CopyTo(byteArray, 0);
-                
-                Thread.Sleep(100); // Simulate work
-
-                // Update game state on the main thread
-                // Avoid accessing game objects or graphics directly from this thread
-                // Instead, use synchronization mechanisms like locks or Concurrent collections
-                // to communicate with the main thread safely
-            }
-        }
-
-        protected override void OnExiting(object sender, EventArgs args)
-        {
-            // Clean up resources and stop the worker thread
-            isRunning = false;
-            workerThread.Join();
-
-            base.OnExiting(sender, args);
-        }
-
         public Scene Scene { get; private set; }
 
         public GraphicsDeviceManager GraphicManager { get; }
@@ -255,8 +166,7 @@ namespace ClassicUO
         protected override void Initialize()
         {
             //Log.Trace("Initialize()");
-            grpcServer.Start();
-            grpcImageServer.Start();
+            PyuoServer.Start();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -336,7 +246,7 @@ namespace ClassicUO
 
         protected override void UnloadContent()
         {
-            grpcServer.ShutdownAsync().Wait();
+            //grpcServer.ShutdownAsync().Wait();
 
             SDL_GetWindowBordersSize
             (
@@ -564,13 +474,6 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-
-            if (start_flag == true)
-            {
-                isRunning = true;
-                StartWorkerThread();
-            }
-
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
             {
@@ -698,7 +601,7 @@ namespace ClassicUO
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
-            UpdateScreenshot(ref texture_copy);
+            UpdateScreenshot();
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
@@ -1060,8 +963,9 @@ namespace ClassicUO
             return 0;
         }
 
-        private void UpdateScreenshot(ref Texture2D texture_temp)
+        private void UpdateScreenshot()
         {
+            SetWindowSize(960, 760);
 
             Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
             GraphicsDevice.GetBackBufferData(textureData);
@@ -1087,14 +991,8 @@ namespace ClassicUO
                     rgbaBytes[i * 4 + 3] = textureData[i].A;
                 }
 
-                //byteArray = rgbBytes.ToArray();
                 rgbaBytes.CopyTo(byteArray, 0);
-
-                //texture.SaveAsPng(ms, texture.Width, texture.Height);
-                //(ms.ToArray()).CopyTo(byteArray, 0);
-                //(ms.ToArray()).CopyTo(byteArray, 0);
             }
-            
         }
 
         private void TakeScreenshot()

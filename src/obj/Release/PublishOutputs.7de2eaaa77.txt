@@ -17,9 +17,9 @@
 /home/kimbring2/ClassicUO/bin/dist/System.Text.Encoding.CodePages.dll
 /home/kimbring2/ClassicUO/bin/dist/cuoapi.dll
 /home/kimbring2/ClassicUO/bin/dist/FNA.dll
-/home/kimbring2/ClassicUO/bin/dist/Greeter.dll
 /home/kimbring2/ClassicUO/bin/dist/MP3Sharp.dll
+/home/kimbring2/ClassicUO/bin/dist/Pyuo.dll
 /home/kimbring2/ClassicUO/bin/dist/FNA.pdb
 /home/kimbring2/ClassicUO/bin/dist/FNA.dll.config
 /home/kimbring2/ClassicUO/bin/dist/MP3Sharp.pdb
-/home/kimbring2/ClassicUO/bin/dist/Greeter.pdb
+/home/kimbring2/ClassicUO/bin/dist/Pyuo.pdb

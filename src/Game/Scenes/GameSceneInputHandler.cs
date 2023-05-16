@@ -87,7 +87,6 @@ namespace ClassicUO.Game.Scenes
                 double mouseRange = MathHelper.Hypotenuse(x - Mouse.Position.X, y - Mouse.Position.Y);
 
                 Direction facing = direction;
-
                 if (facing == Direction.North)
                 {
                     facing = (Direction) 8;
@@ -122,7 +121,6 @@ namespace ClassicUO.Game.Scenes
             return obj is null || obj is Static || obj is Land || obj is Multi || obj is Item tmpitem && tmpitem.IsLocked;
         }
 
-
         private bool DragSelectModifierActive()
         {
             // src: https://github.com/andreakarasho/ClassicUO/issues/621
@@ -150,7 +148,6 @@ namespace ClassicUO.Game.Scenes
             return false;
         }
 
-
         private void DoDragSelect()
         {
             if (_selectionStart.X > Mouse.Position.X)
@@ -172,7 +169,6 @@ namespace ClassicUO.Game.Scenes
             {
                 _selectionEnd.Y = Mouse.Position.Y;
             }
-
 
             _rectangleObj.X = _selectionStart.X - Camera.Bounds.X;
             _rectangleObj.Y = _selectionStart.Y - Camera.Bounds.Y;
@@ -215,7 +211,6 @@ namespace ClassicUO.Game.Scenes
                 _rectanglePlayer.X = p.X;
                 _rectanglePlayer.Y = p.Y;
 
-
                 size = Camera.WorldToScreen(size);
                 _rectanglePlayer.Width = size.X - p.X;
                 _rectanglePlayer.Height = size.Y - p.Y;
@@ -254,7 +249,6 @@ namespace ClassicUO.Game.Scenes
                         hbgc.X = finalX;
                         hbgc.Y = finalY;
 
-
                         foreach (BaseHealthBarGump bar in UIManager.Gumps.OfType<BaseHealthBarGump>()
                                                                    //.OrderBy(s => mobile.NotorietyFlag)
                                                                    //.OrderBy(s => s.ScreenCoordinateX) ///testing placement SYRUPZ SYRUPZ SYRUPZ
@@ -283,13 +277,10 @@ namespace ClassicUO.Game.Scenes
                             }
                         }
 
-
                         if (!ProfileManager.CurrentProfile.DragSelectAsAnchor)
                             finalY += rect.Height + 2;
 
-
                         UIManager.Add(hbgc);
-
                         hbgc.SetInScreen();
                     }
                 }
@@ -435,7 +426,6 @@ namespace ClassicUO.Game.Scenes
                 sbyte dropZ = 0;
 
                 GameObject gobj = SelectedObject.LastObject as GameObject;
-
                 if (gobj is Entity obj)
                 {
                     can_drop = obj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
@@ -499,7 +489,6 @@ namespace ClassicUO.Game.Scenes
                         Client.Game.Scene.Audio.PlaySound(0x0051);
                     }
                 }
-
 
                 if (can_drop)
                 {
@@ -627,7 +616,6 @@ namespace ClassicUO.Game.Scenes
             else
             {
                 GameObject obj = lastObj as GameObject;
-
                 switch (obj)
                 {
                     case Static st:
@@ -658,7 +646,6 @@ namespace ClassicUO.Game.Scenes
                             false,
                             TextType.CLIENT
                         );
-
 
                         if (obj.TextContainer != null && obj.TextContainer.MaxSize != 1)
                         {
@@ -704,7 +691,6 @@ namespace ClassicUO.Game.Scenes
                         break;
 
                     case Entity ent:
-
                         if (Keyboard.Alt && ent is Mobile)
                         {
                             MessageManager.HandleMessage
@@ -735,6 +721,8 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
+            Console.WriteLine("OnLeftMouseDoubleClick()");
+
             bool result = false;
 
             if (!UIManager.IsMouseOverWorld)
@@ -752,7 +740,6 @@ namespace ClassicUO.Game.Scenes
             }
 
             BaseGameObject obj = SelectedObject.LastObject;
-
             switch (obj)
             {
                 case Item item:
@@ -799,7 +786,6 @@ namespace ClassicUO.Game.Scenes
             return result;
         }
 
-
         private bool OnRightMouseDown()
         {
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
@@ -819,7 +805,6 @@ namespace ClassicUO.Game.Scenes
             return true;
         }
 
-
         private bool OnRightMouseUp()
         {
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
@@ -837,7 +822,6 @@ namespace ClassicUO.Game.Scenes
 
             return UIManager.IsMouseOverWorld;
         }
-
 
         private bool OnRightMouseDoubleClick()
         {
@@ -902,7 +886,6 @@ namespace ClassicUO.Game.Scenes
             return false;
         }
 
-
         internal override bool OnMouseWheel(bool up)
         {
             if (Keyboard.Ctrl && ItemHold.Enabled)
@@ -935,7 +918,6 @@ namespace ClassicUO.Game.Scenes
 
             return false;
         }
-
 
         internal override bool OnMouseDragging()
         {
@@ -1065,9 +1047,7 @@ namespace ClassicUO.Game.Scenes
 
                     break;
 
-
                 // chat system activation
-
                 case SDL.SDL_Keycode.SDLK_1 when Keyboard.Shift:         // !
                 case SDL.SDL_Keycode.SDLK_BACKSLASH when Keyboard.Shift: // \
 
@@ -1229,7 +1209,6 @@ namespace ClassicUO.Game.Scenes
                 }
             }
         }
-
 
         internal override void OnKeyUp(SDL.SDL_KeyboardEvent e)
         {

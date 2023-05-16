@@ -3,5 +3,15 @@
 		"AccountName" : "kimbring2",
 		"ServerName" : "My Shard",
 		"LastCharacterName" : "masterkim"
+	},
+	{
+		"AccountName" : "bot1",
+		"ServerName" : "My Shard",
+		"LastCharacterName" : "qwer"
+	},
+	{
+		"AccountName" : "bot2",
+		"ServerName" : "My Shard",
+		"LastCharacterName" : "asdf"
 	}
 ]

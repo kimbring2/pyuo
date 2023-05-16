@@ -28,6 +28,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+// ./ClassicUO -username bot1 -password bot1 -grpc_port 50051
+// ./ClassicUO -username bot2 -password bot2 -grpc_port 50052
+
 #endregion
 
 using System;

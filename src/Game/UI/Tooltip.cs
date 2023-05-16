@@ -74,7 +74,6 @@ namespace ClassicUO.Game.UI
                 return false;
             }
 
-
             byte font = 1;
             float alpha = 0.7f;
             ushort hue = 0xFFFF;

@@ -57,7 +57,7 @@ namespace ClassicUO.IO
 
         protected virtual void Load()
         {
-            Log.Trace($"Loading file:\t\t{FilePath}");
+            //Log.Trace($"Loading file:\t\t{FilePath}");
 
             FileInfo fileInfo = new FileInfo(FilePath);
 

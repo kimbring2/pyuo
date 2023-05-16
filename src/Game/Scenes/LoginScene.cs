@@ -169,10 +169,6 @@ namespace ClassicUO.Game.Scenes
 
             if (_lastLoginStep != CurrentLoginStep)
             {
-                //Console.WriteLine("if (_lastLoginStep != CurrentLoginStep)()");
-                //Console.WriteLine("_currentGump: ");
-                //Console.WriteLine(_currentGump);
-                
                 UIManager.GameCursor.IsLoading = false;
 
                 // this trick avoid the flickering
@@ -181,15 +177,14 @@ namespace ClassicUO.Game.Scenes
 
                 UIManager.Add(_currentGump = _currentGump);
 
-                Console.WriteLine("CurrentLoginStep: ");
-                Console.WriteLine(CurrentLoginStep);
-
                 if (CurrentLoginStep == LoginSteps.ServerSelection) {
                     _currentGump.OnButtonClick(5);
+                    ;
                 } else if (CurrentLoginStep == LoginSteps.CharacterSelection) {
                     //Console.WriteLine("CurrentLoginStep == LoginSteps.CharacterSelection");
                     //Console.WriteLine(_currentGump);
                     _currentGump.OnButtonClick(2);
+                    ;
                 }
 
                 g.Dispose();
@@ -258,9 +253,7 @@ namespace ClassicUO.Game.Scenes
             {
                 case LoginSteps.Main:
                     PopupMessage = null;
-
                     return new LoginGump(this);
-
                 case LoginSteps.Connecting:
                 case LoginSteps.VerifyingAccount:
                 case LoginSteps.LoginInToServer:
@@ -268,22 +261,14 @@ namespace ClassicUO.Game.Scenes
                 case LoginSteps.PopUpMessage:
                 case LoginSteps.CharacterCreationDone:
                     UIManager.GameCursor.IsLoading = CurrentLoginStep != LoginSteps.PopUpMessage;
-
                     return GetLoadingScreen();
-
                 case LoginSteps.CharacterSelection: 
                     return new CharacterSelectionGump();
-
                 case LoginSteps.ServerSelection:
                     _pingTime = Time.Ticks + 60000; // reset ping timer
-                    //Console.WriteLine("LoginSteps.ServerSelection");
-                    //ServerSelectionGump _serverSelectionGump = new ServerSelectionGump();
-
                     return new ServerSelectionGump();
-
                 case LoginSteps.CharacterCreation:
                     _pingTime = Time.Ticks + 60000; // reset ping timer
-
                     return new CharCreationGump(this);
             }
 

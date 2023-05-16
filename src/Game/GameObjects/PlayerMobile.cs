@@ -1688,7 +1688,6 @@ namespace ClassicUO.Game.GameObjects
             //_lastMount = IsMounted;
             //_lastDir = (int) direction;
 
-
             Walker.LastStepRequestTime = Time.Ticks + walkTime - nowDelta;
             GetGroupForAnimation(this, 0, true);
 

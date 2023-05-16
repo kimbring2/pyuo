@@ -81,6 +81,7 @@ namespace ClassicUO
         private UOFontRenderer _fontRenderer;
         private UoServiceImpl _uoServiceImpl;
 
+        public bool start_flag = true;
         public int grpc_port;
         public uint action_1 = 0;
         public byte[] byteArray = new byte[160*128*4];
@@ -97,6 +98,8 @@ namespace ClassicUO
         {
             //Log.Trace("GameController()");
             grpc_port = Settings.GlobalSettings.GrpcPort;
+            Console.WriteLine("grpc_port: {0}", grpc_port);
+
             _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 
             GraphicManager = new GraphicsDeviceManager(this);
@@ -265,6 +268,11 @@ namespace ClassicUO
             }
         }
 
+        public void SetMousePosition(uint x, uint y) 
+        {
+            SDL_WarpMouseInWindow(Window.Handle, (int) x, (int) y);
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public T GetScene<T>() where T : Scene
         {
@@ -373,7 +381,6 @@ namespace ClassicUO
             }
 
             WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
-
             if (viewport != null && ProfileManager.CurrentProfile.GameWindowFullSize)
             {
                 viewport.ResizeGameWindow(new Point(width, height));
@@ -530,6 +537,19 @@ namespace ClassicUO
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
+            if (start_flag == true) {
+                WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
+                //Console.WriteLine("viewport{0}: ", viewport);
+                if (viewport != null)
+                {
+                    viewport.ResizeGameWindow(new Point(1600, 1280));
+                    viewport.X = -5;
+                    viewport.Y = -5;
+
+                    start_flag = false;
+                }
+            }
+
             if (frame_count != 4) 
             {
                 frame_count++;
@@ -540,7 +560,15 @@ namespace ClassicUO
                 UpdateScreenshot();
             }
 
-            //UpdateMobile();
+            //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}, GraphicManager.PreferredBackBufferHeight: {1} ", 
+            //                   GraphicManager.PreferredBackBufferWidth, GraphicManager.PreferredBackBufferHeight);
+
+            // public static extern IntPtr SDL_GetWindowFromID(uint id);
+            //new IntPtr[3, 16]
+            //Console.WriteLine("SDL_GetMouseFocus(): {0}", SDL_GetMouseFocus());
+
+            //SDL_GetMouseFocus();
+            //SDL_GetWindowFromID(Window.Handle);
         }
 
         private void UpdateScreenshot()
@@ -623,26 +651,6 @@ namespace ClassicUO
                 scaledRgbaBytes.CopyTo(byteArray, 0);
             }
         }
-
-        /*
-        private void UpdateMobile()
-        {
-            grpcMobileList.Clear();
-            foreach (Mobile mob in World.Mobiles.Values)
-            {
-                //mob.Serial
-                //mob.X
-                //mob.Y
-                //mob.Hits
-                //mob.HitsMax
-                //mob.Name
-
-                Console.WriteLine("mob.Name: {0}, mob.X: {1}, mob.Y: {2}", mob.Name, mob.X, mob.Y);
-
-                grpcMobileList.Add(new GrpcMobile{ Name = mob.Name, X = mob.X, Y = mob.Y });
-            }
-        }
-        */
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
         {
@@ -772,18 +780,13 @@ namespace ClassicUO
                     break;
 
                 case SDL_EventType.SDL_KEYUP:
-                    //Console.WriteLine("case SDL_EventType.SDL_KEYUP");
-
                     Keyboard.OnKeyUp(sdlEvent->key);
                     UIManager.KeyboardFocusControl?.InvokeKeyUp(sdlEvent->key.keysym.sym, sdlEvent->key.keysym.mod);
                     Scene.OnKeyUp(sdlEvent->key);
                     Plugin.ProcessHotkeys(0, 0, false);
 
-                    //UpdateScreenshot();
-
                     if (sdlEvent->key.keysym.sym == SDL_Keycode.SDLK_PRINTSCREEN)
                     {
-                        //Console.WriteLine("sdlEvent->key.keysym.sym == SDL_Keycode.SDLK_PRINTSCREEN");
                         TakeScreenshot();
                     }
                     
@@ -794,16 +797,6 @@ namespace ClassicUO
                     {
                         break;
                     }
-
-                    // Fix for linux OS: https://github.com/andreakarasho/ClassicUO/pull/1263
-                    // Fix 2: SDL owns this behaviour. Cheating is not a real solution.
-                    /*if (!Utility.Platforms.PlatformHelper.IsWindows)
-                    {
-                        if (Keyboard.Alt || Keyboard.Ctrl)
-                        {
-                            break;
-                        }
-                    }*/
 
                     string s = UTF8_ToManaged((IntPtr) sdlEvent->text.text, false);
 

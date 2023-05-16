@@ -80,10 +80,12 @@ namespace ClassicUO.Grpc
             {
             	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
             	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
 
                 grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
                 										   X = (uint) mob.GetScreenPosition().X, 
-                										   Y = (uint) mob.GetScreenPosition().Y });
+                										   Y = (uint) mob.GetScreenPosition().Y,
+                										   Race = (uint) mob.Race });
             }
 
             States states = new States();
@@ -107,9 +109,12 @@ namespace ClassicUO.Grpc
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
+            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+
                 grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
                 										   X = (uint) mob.GetScreenPosition().X, 
-                										   Y = (uint) mob.GetScreenPosition().Y });
+                										   Y = (uint) mob.GetScreenPosition().Y,
+                										   Race = (uint) mob.Race });
             }
 
             States states = new States();
@@ -126,9 +131,12 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<Empty> act(Actions actions, ServerCallContext context)
         {
-            //Console.WriteLine(actions.action);
+        	Console.WriteLine("actions.Action: {0}", actions.Action);
+        	Console.WriteLine("actions.MousePoint: {0}", actions.MousePoint);
+
+        	_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
+
             _controller.action_1 = actions.Action;
-            //Console.WriteLine("_controller.action_1: {0}", _controller.action_1);
 
             //Console.WriteLine("_flags[0]: {0}, _flags[1]: {1}, _flags[0]: {2}, _flags[0]: {3}", _flags[0], _flags[2], _flags[1], _flags[3]);
             Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);

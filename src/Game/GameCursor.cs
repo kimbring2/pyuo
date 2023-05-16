@@ -183,6 +183,7 @@ namespace ClassicUO.Game
 
                     if (ptrCursor != IntPtr.Zero)
                     {
+                        //Console.WriteLine("ptrCursor: {0}", ptrCursor);
                         SDL.SDL_SetCursor(ptrCursor);
                     }
                 }
@@ -220,6 +221,8 @@ namespace ClassicUO.Game
 
         public void Draw(UltimaBatcher2D sb)
         {
+            //Console.WriteLine("GameCursor Draw");
+
             if (World.InGame && TargetManager.IsTargeting && ProfileManager.CurrentProfile != null)
             {
                 if (TargetManager.TargetingState == CursorTarget.MultiPlacement)
@@ -288,7 +291,7 @@ namespace ClassicUO.Game
 
                                     _temp[i].Y = (ushort) (selectedObj.Y + item.Y);
 
-                                    _temp[i].Z = (sbyte) (selectedObj.Z + z + item.Z);
+                                    _temp[i].Z = (sbyte) (selectedObj.Z + z + item.Z);                
 
                                     _temp[i].UpdateRealScreenPosition(gs.ScreenOffset.X, gs.ScreenOffset.Y);
 
@@ -428,6 +431,10 @@ namespace ClassicUO.Game
 
             if (!Settings.GlobalSettings.RunMouseInASeparateThread)
             {
+                //Console.WriteLine("!Settings.GlobalSettings.RunMouseInASeparateThread");
+                //Mouse.Position.X = 500;
+                //Mouse.Position.Y = 500;
+
                 Graphic = AssignGraphicByState();
 
                 ushort graphic = Graphic;

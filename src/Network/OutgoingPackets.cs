@@ -3824,7 +3824,7 @@ namespace ClassicUO.Network
 
         public static void Send_WalkRequest(this NetClient socket, Direction direction, byte seq, bool run, uint fastWalk)
         {
-            Console.WriteLine("Send_WalkRequest()");
+            //Console.WriteLine("Send_WalkRequest()");
 
             const byte ID = 0x02;
 

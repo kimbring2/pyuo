@@ -184,13 +184,13 @@ namespace ClassicUO.Game.Scenes
             }
             else if (Settings.GlobalSettings.WindowSize.HasValue)
             {
-                Console.WriteLine("Settings.GlobalSettings.WindowSize.HasValue");
+                //Console.WriteLine("Settings.GlobalSettings.WindowSize.HasValue");
 
                 int w = Settings.GlobalSettings.WindowSize.Value.X;
                 int h = Settings.GlobalSettings.WindowSize.Value.Y;
 
-                Console.WriteLine("w: {0}", w);
-                Console.WriteLine("h: {0}", h);
+                //Console.WriteLine("w: {0}", w);
+                //Console.WriteLine("h: {0}", h);
 
                 w = Math.Max(640, w);
                 h = Math.Max(480, h);
@@ -736,14 +736,12 @@ namespace ClassicUO.Game.Scenes
             Direction dir_test = DirectionHelper.DirectionFromKeyboardArrows(_flags[0], _flags[2], _flags[1], _flags[3]);
             if (World.InGame && !Pathfinder.AutoWalking && dir_test != Direction.NONE)
             {
-                //Console.WriteLine("World.Player.Walk");
                 World.Player.Walk(dir_test, currentProfile.AlwaysRun);
             }
 
             if (!MoveCharacterByMouseInput() && !currentProfile.DisableArrowBtn)
             {
                 Direction dir = DirectionHelper.DirectionFromKeyboardArrows(_flags[0], _flags[2], _flags[1], _flags[3]);
-
                 if (World.InGame && !Pathfinder.AutoWalking && dir != Direction.NONE)
                 {
                     World.Player.Walk(dir, currentProfile.AlwaysRun);
@@ -753,7 +751,6 @@ namespace ClassicUO.Game.Scenes
             if (_followingMode && SerialHelper.IsMobile(_followingTarget) && !Pathfinder.AutoWalking)
             {
                 Mobile follow = World.Mobiles.Get(_followingTarget);
-
                 if (follow != null)
                 {
                     int distance = follow.Distance;
@@ -947,38 +944,12 @@ namespace ClassicUO.Game.Scenes
 
             if (_use_render_target)
             {
-                //switch (ProfileManager.CurrentProfile.FilterType)
-                //{
-                //    default:
-                //    case 0:
-                //        batcher.SetSampler(SamplerState.PointClamp);
-                //        break;
-                //    case 1:
-                //        batcher.SetSampler(SamplerState.AnisotropicClamp);
-                //        break;
-                //    case 2:
-                //        batcher.SetSampler(SamplerState.LinearClamp);
-                //        break;
-                //}
-
                 if (_xbr == null)
                 {
                     _xbr = new XBREffect(batcher.GraphicsDevice);
                 }
 
                 _xbr.TextureSize.SetValue(new Vector2(width, height));
-
-                //Point p = Point.Zero;
-
-                //p = Camera.ScreenToWorld(p);
-                //int minPixelsX = p.X;
-                //int minPixelsY = p.Y;
-
-                //p.X = Camera.Bounds.Width;
-                //p.Y = Camera.Bounds.Height;
-                //p = Camera.ScreenToWorld(p);
-                //int maxPixelsX = p.X;
-                //int maxPixelsY = p.Y;
 
                 batcher.Begin(null, Camera.ViewTransformMatrix);
                 batcher.Draw
@@ -987,9 +958,8 @@ namespace ClassicUO.Game.Scenes
                     new Rectangle(0, 0, width, height),
                     hue
                 );
-                batcher.End();
 
-                //batcher.SetSampler(null);
+                batcher.End();
             }
 
             // draw lights
@@ -1081,20 +1051,6 @@ namespace ClassicUO.Game.Scenes
            
             batcher.SetStencil(null);
 
-            //var worldPoint = Camera.MouseToWorldPosition() + _offset;
-            //worldPoint.X += 22;
-            //worldPoint.Y += 22;
-
-            //var isoX = (int)(0.5f * (worldPoint.X / 22f + worldPoint.Y / 22f));
-            //var isoY = (int)(0.5f * (-worldPoint.X / 22f + worldPoint.Y / 22f));
-
-            //GameObject selectedObject = World.Map.GetTile(isoX, isoY, false);
-
-            //if (selectedObject != null)
-            //{
-            //    selectedObject.Hue = 0x44;
-            //}
-
             if (_multi != null && TargetManager.IsTargeting && TargetManager.TargetingState == CursorTarget.MultiPlacement)
             {
                 //Console.WriteLine("_multi != null && TargetManager.IsTargeting && TargetManager.TargetingState == CursorTarget.MultiPlacement()");
@@ -1114,16 +1070,6 @@ namespace ClassicUO.Game.Scenes
             {
                 batcher.GraphicsDevice.SetRenderTarget(null);
             }
-
-            //batcher.Begin();
-            //hueVec.X = 0;
-            //hueVec.Y = 1;
-            //hueVec.Z = 1;
-            //string s = $"Flushes: {flushes}\nSwitches: {switches}\nArt texture count: {TextureAtlas.Shared.TexturesCount}\nMaxZ: {_maxZ}\nMaxGround: {_maxGroundZ}";
-            //batcher.DrawString(Fonts.Bold, s, 200, 200, ref hueVec);
-            //hueVec = Vector3.Zero;
-            //batcher.DrawString(Fonts.Bold, s, 200 + 1, 200 - 1, ref hueVec);
-            //batcher.End();
         }
 
         private int DrawRenderList(UltimaBatcher2D batcher, GameObject obj, int count)

@@ -59,6 +59,8 @@ using Grpc.Core;
 using Google.Protobuf;
 using Uoservice;
 using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassicUO
 {   
@@ -82,6 +84,8 @@ namespace ClassicUO
         public int grpc_port;
         public uint action_1 = 0;
         public byte[] byteArray = new byte[160*128*4];
+        public List<GrpcMobile> grpcMobileList;
+
         Color[] textureData;
         byte[] rgbaBytes;
         byte[] scaledRgbaBytes;
@@ -321,16 +325,6 @@ namespace ClassicUO
 
         public void SetWindowSize(int width, int height)
         {
-            //width = (int) ((double) width * Client.Game.GraphicManager.PreferredBackBufferWidth / Client.Game.Window.ClientBounds.Width);
-            //height = (int) ((double) height * Client.Game.GraphicManager.PreferredBackBufferHeight / Client.Game.Window.ClientBounds.Height);
-
-            /*if (CUOEnviroment.IsHighDPI)
-            {
-                width *= 2;
-                height *= 2;
-            }
-            */
-
             GraphicManager.PreferredBackBufferWidth = width;
             GraphicManager.PreferredBackBufferHeight = height;
             GraphicManager.ApplyChanges();
@@ -527,26 +521,6 @@ namespace ClassicUO
             SelectedObject.HealthbarObject = null;
             SelectedObject.SelectedContainer = null;
 
-            //_uoSpriteBatch.Begin();
-            //_fontRenderer.Draw
-            //(
-            //    _uoSpriteBatch,
-            //    $"New Engine ❤ 😁".AsSpan(),
-            //    new Vector2(200, 100),
-            //    5f,
-            //    new FontSettings() 
-            //    { 
-            //        IsUnicode = true, 
-            //        FontIndex = 0, 
-            //        Italic = false,
-            //        Bold = false, 
-            //        Border = true,
-            //        Underline = true,
-            //    },
-            //    new Vector3(0x44, 0, 0)
-            //);
-            //_uoSpriteBatch.End();
-
             base.Draw(gameTime);
 
             Profiler.ExitContext("RenderFrame");
@@ -555,7 +529,7 @@ namespace ClassicUO
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
             UpdateScreenshot();
-            //ControlUnit();
+            //UpdateMobile();
         }
 
         private void UpdateScreenshot()
@@ -639,10 +613,25 @@ namespace ClassicUO
             }
         }
 
-        private void ControlUnit()
+        /*
+        private void UpdateMobile()
         {
+            grpcMobileList.Clear();
+            foreach (Mobile mob in World.Mobiles.Values)
+            {
+                //mob.Serial
+                //mob.X
+                //mob.Y
+                //mob.Hits
+                //mob.HitsMax
+                //mob.Name
 
+                Console.WriteLine("mob.Name: {0}, mob.X: {1}, mob.Y: {2}", mob.Name, mob.X, mob.Y);
+
+                grpcMobileList.Add(new GrpcMobile{ Name = mob.Name, X = mob.X, Y = mob.Y });
+            }
         }
+        */
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
         {

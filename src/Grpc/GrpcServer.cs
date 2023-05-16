@@ -1,3 +1,6 @@
+// protoc --csharp_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_csharp_plugin` UoService.proto
+// python3.7 -m grpc_tools.protoc -I ../ --python_out=. --grpc_python_out=. UoService.proto --proto_path /home/kimbring2/uoservice/uoservice/protos/
+
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -7,6 +10,8 @@ using Grpc.Core;
 using Google.Protobuf;
 using Uoservice;
 using System.Threading;
+using System.Collections.Generic;
+using System.Linq;
 
 using ClassicUO.Configuration;
 using ClassicUO.Game;
@@ -64,21 +69,51 @@ namespace ClassicUO.Grpc
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<ImageResponse> reset(ImageRequest request, ServerCallContext context)
+        public override Task<States> reset(ImageRequest request, ServerCallContext context)
         {
             //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
-            return Task.FromResult(new ImageResponse { Data = byteString });
+            List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
+
+            foreach (Mobile mob in World.Mobiles.Values)
+            {
+                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = mob.X, Y = mob.Y });
+            }
+
+            States states = new States();
+
+            states.ScreenImage = new ScreenImage { Image = byteString };
+
+            GrpcMobileList grpcMobileList = new GrpcMobileList();
+            grpcMobileList.Mobiles.AddRange(grpcMobileDataList);
+            states.MobileList = grpcMobileList;
+
+            return Task.FromResult(states);
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<ImageResponse> step(ImageRequest request, ServerCallContext context)
+        public override Task<States> step(ImageRequest request, ServerCallContext context)
         {
-            //Console.WriteLine(request.Name);;
+            //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
-            return Task.FromResult(new ImageResponse { Data = byteString });
+            List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
+
+            foreach (Mobile mob in World.Mobiles.Values)
+            {
+                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = mob.X, Y = mob.Y });
+            }
+
+            States states = new States();
+
+            states.ScreenImage = new ScreenImage { Image = byteString };
+
+            GrpcMobileList grpcMobileList = new GrpcMobileList();
+            grpcMobileList.Mobiles.AddRange(grpcMobileDataList);
+            states.MobileList = grpcMobileList;
+
+            return Task.FromResult(states);
         }
 
         // Server side handler of the SayHello RPC

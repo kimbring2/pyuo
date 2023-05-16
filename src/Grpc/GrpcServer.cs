@@ -78,7 +78,12 @@ namespace ClassicUO.Grpc
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
-                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = mob.X, Y = mob.Y });
+            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
+            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+
+                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
+                										   X = (uint) mob.GetScreenPosition().X, 
+                										   Y = (uint) mob.GetScreenPosition().Y });
             }
 
             States states = new States();
@@ -86,7 +91,7 @@ namespace ClassicUO.Grpc
             states.ScreenImage = new ScreenImage { Image = byteString };
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
-            grpcMobileList.Mobiles.AddRange(grpcMobileDataList);
+            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
             return Task.FromResult(states);
@@ -102,7 +107,9 @@ namespace ClassicUO.Grpc
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
-                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = mob.X, Y = mob.Y });
+                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
+                										   X = (uint) mob.GetScreenPosition().X, 
+                										   Y = (uint) mob.GetScreenPosition().Y });
             }
 
             States states = new States();
@@ -110,7 +117,7 @@ namespace ClassicUO.Grpc
             states.ScreenImage = new ScreenImage { Image = byteString };
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
-            grpcMobileList.Mobiles.AddRange(grpcMobileDataList);
+            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
             return Task.FromResult(states);
@@ -127,8 +134,9 @@ namespace ClassicUO.Grpc
             Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
             if (World.InGame && !Pathfinder.AutoWalking && dir != Direction.NONE)
             {
-                Console.WriteLine("World.Player.Walk");
-                World.Player.Walk(dir, ProfileManager.CurrentProfile.AlwaysRun);
+                //Console.WriteLine("World.Player.Walk");
+                //World.Player.Walk(dir, ProfileManager.CurrentProfile.AlwaysRun);
+                ;
             }
 
             return Task.FromResult(new Empty {});

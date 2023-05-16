@@ -91,6 +91,7 @@ namespace ClassicUO
         byte[] scaledRgbaBytes;
         Texture2D texture;
         MemoryStream ms;
+        uint frame_count;
 
         public GameController()
         {
@@ -124,6 +125,7 @@ namespace ClassicUO
         {
             //Log.Trace("Initialize()");
             _uoServiceImpl.Start();
+            frame_count = 0;
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -528,7 +530,16 @@ namespace ClassicUO
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
-            UpdateScreenshot();
+            if (frame_count != 4) 
+            {
+                frame_count++;
+            } 
+            else if (frame_count == 4) 
+            {   
+                frame_count = 0;
+                UpdateScreenshot();
+            }
+
             //UpdateMobile();
         }
 

@@ -148,46 +148,39 @@ namespace ClassicUO.Grpc
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
         	//Console.WriteLine("actions.Action: {0}", actions.Action);
-        	Console.WriteLine("actions.MousePoint.X: {0}", actions.MousePoint.X);
-        	Console.WriteLine("actions.MousePoint.Y: {0}", actions.MousePoint.Y);
+        	//Console.WriteLine("actions.MousePoint.X: {0}", actions.MousePoint.X);
+        	//Console.WriteLine("actions.MousePoint.Y: {0}", actions.MousePoint.Y);
         	//Console.WriteLine("actions.Serial: {0}", actions.Serial);
 
-        	//_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
-
             _controller.action_1 = actions.Action;
-            //Console.WriteLine("World.Player: {0}", World.Player);
 
-            try
-            {	
-            	int x = ProfileManager.CurrentProfile.GameWindowPosition.X + (ProfileManager.CurrentProfile.GameWindowSize.X >> 1);
-                int y = ProfileManager.CurrentProfile.GameWindowPosition.Y + (ProfileManager.CurrentProfile.GameWindowSize.Y >> 1);
-            	
-	            Direction direction = (Direction) GameCursor.GetMouseDirection
-	            (
-	            	x,
-                    y,
-	                (int) actions.MousePoint.X,
-	                (int) actions.MousePoint.Y,
-	                1
-	            );
-	            
-	            //Direction direction = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
-	            
-	            if (World.Player != null) {
-	            	Console.WriteLine("World.Player.Walk(direction, true)");
+            if (actions.Action == 1) {
+            	//Console.WriteLine("World.InGame: {0}", World.InGame);
+
+            	if (World.InGame == true) {
+            		int x = ProfileManager.CurrentProfile.GameWindowPosition.X + (ProfileManager.CurrentProfile.GameWindowSize.X >> 1);
+	                int y = ProfileManager.CurrentProfile.GameWindowPosition.Y + (ProfileManager.CurrentProfile.GameWindowSize.Y >> 1);
+
+		            Direction direction = (Direction) GameCursor.GetMouseDirection
+		            (
+		            	x,
+	                    y,
+		                (int) actions.MousePoint.X,
+		                (int) actions.MousePoint.Y,
+		                1
+		            );
+		            	
+	            	//Console.WriteLine("World.Player.Walk(direction, true)");
 	            	World.Player.Walk(direction, true);
-	            }
+
+            	}
 	        }
-	        catch (Exception e)
-            {
-            	Console.WriteLine("Exception: {0}", e);
-
-            	Direction direction = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
-
-            	if (World.Player != null) {
-	            	World.Player.Walk(direction, true);
-	            }
-            }   
+	        else if (actions.Action == 2) {
+	        	if (World.Player != null) {
+            		World.Player.InWarMode = true;
+        			GameActions.DoubleClick(actions.Serial);
+	        	}
+	        }
 
             //Console.WriteLine("Pass check");
             return Task.FromResult(new Empty {});

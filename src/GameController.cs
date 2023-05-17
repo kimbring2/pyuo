@@ -436,18 +436,7 @@ namespace ClassicUO
         protected override void Update(GameTime gameTime)
         {
             sem_physics.WaitOne();
-
-            // sem_action.wait()
             sem_action.WaitOne();
-            /*
-            while (act_lock == false) 
-            {
-              Console.WriteLine("act_lock == false");
-              int milliseconds = 10;
-              Thread.Sleep(milliseconds);
-            }
-            act_lock = false;
-            */
 
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
@@ -512,10 +501,7 @@ namespace ClassicUO
 
             UpdateScreenshot();
 
-            // sem_observation.post()
-            //obs_lock = true;
             sem_observation.Release();
-
             sem_physics.Release();
         }
 
@@ -609,11 +595,10 @@ namespace ClassicUO
 
         public void UpdateScreenshot()
         {
-            Console.WriteLine("UpdateScreenshot()");
+            //Console.WriteLine("UpdateScreenshot()");
             //Console.WriteLine("GraphicManager: {0}", GraphicManager);
 
             Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
-            
             
             GraphicsDevice.GetBackBufferData(textureData);
             

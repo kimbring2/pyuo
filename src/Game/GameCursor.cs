@@ -599,6 +599,8 @@ namespace ClassicUO.Game
 
         public static int GetMouseDirection(int x1, int y1, int to_x, int to_y, int current_facing)
         {
+
+            
             int shiftX = to_x - x1;
             int shiftY = to_y - y1;
             int hashf = 100 * (Sgn(shiftX) + 2) + 10 * (Sgn(shiftY) + 2);

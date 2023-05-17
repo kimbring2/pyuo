@@ -92,14 +92,11 @@ namespace ClassicUO.Game.UI.Gumps
             const ushort SELL_GRAPHIC_LEFT = 0x0872;
             const ushort SELL_GRAPHIC_RIGHT = 0x0873;
 
-
             ushort graphicLeft = isBuyGump ? BUY_GRAPHIC_LEFT : SELL_GRAPHIC_LEFT;
             ushort graphicRight = isBuyGump ? BUY_GRAPHIC_RIGHT : SELL_GRAPHIC_RIGHT;
 
             _ = GumpsLoader.Instance.GetGumpTexture(graphicLeft, out var boundsLeft);
             _ = GumpsLoader.Instance.GetGumpTexture(graphicRight, out var boundsRight);
-
-
 
             const int LEFT_TOP_HEIGHT = 64;
             const int LEFT_BOTTOM_HEIGHT = 116;
@@ -108,9 +105,6 @@ namespace ClassicUO.Game.UI.Gumps
             GumpPicTexture leftTop = new GumpPicTexture(graphicLeft, 0, 0, offset, false);
             Add(leftTop);
 
-
-            
-
             offset.Y += LEFT_TOP_HEIGHT;
             offset.Height = boundsLeft.Height - (LEFT_BOTTOM_HEIGHT + LEFT_TOP_HEIGHT);
             GumpPicTexture leftmiddle = new GumpPicTexture(graphicLeft, 0, LEFT_TOP_HEIGHT, offset, true);
@@ -118,13 +112,10 @@ namespace ClassicUO.Game.UI.Gumps
             leftmiddle.Height = height;
             Add(leftmiddle);
 
-
             offset.Y += offset.Height;
             offset.Height = LEFT_BOTTOM_HEIGHT;
             GumpPicTexture leftBottom = new GumpPicTexture(graphicLeft, 0, leftmiddle.Y + leftmiddle.Height, offset, false);
             Add(leftBottom);
-
-
 
             const int RIGHT_OFFSET = 32;
             const int RIGHT_BOTTOM_HEIGHT = 93;
@@ -135,20 +126,16 @@ namespace ClassicUO.Game.UI.Gumps
             GumpPicTexture rightTop = new GumpPicTexture(graphicRight, rightX, rightY, offset, false);
             Add(rightTop);
 
-
             offset.Y += LEFT_TOP_HEIGHT;
             offset.Height = boundsRight.Height - (RIGHT_BOTTOM_HEIGHT + LEFT_TOP_HEIGHT);
             GumpPicTexture rightMiddle = new GumpPicTexture(graphicRight, rightX, rightY + LEFT_TOP_HEIGHT, offset, true);
             rightMiddle.Height += diff;
             Add(rightMiddle);
 
-
             offset.Y += offset.Height;
             offset.Height = RIGHT_BOTTOM_HEIGHT;
             GumpPicTexture rightBottom = new GumpPicTexture(graphicRight, rightX, rightMiddle.Y + rightMiddle.Height, offset, false);
             Add(rightBottom);
-
-
 
             _shopScrollArea = new ScrollArea
             (
@@ -161,7 +148,6 @@ namespace ClassicUO.Game.UI.Gumps
             );
 
             Add(_shopScrollArea);
-
 
             _transactionScrollArea = new ScrollArea
             (
@@ -209,9 +195,6 @@ namespace ClassicUO.Game.UI.Gumps
                 _totalLabel.X = (rightTop.X + rightTop.Width) - RIGHT_OFFSET * 3;
             }
 
-
-
-
             Button expander = new Button(2, 0x082E, 0x82F)
             {
                 ButtonAction = ButtonAction.Activate,
@@ -221,7 +204,6 @@ namespace ClassicUO.Game.UI.Gumps
 
             Add(expander);
 
-
             const float ALPHA_HIT_BUTTON = 0f;
 
             HitBox accept = new HitBox(RIGHT_OFFSET + rightTop.X, (rightBottom.Y + rightBottom.Height) - 50, 34, 30, "Accept", ALPHA_HIT_BUTTON);
@@ -230,8 +212,6 @@ namespace ClassicUO.Game.UI.Gumps
             clear.MouseUp += (sender, e) => { OnButtonClick((int)Buttons.Clear); };
             Add(accept);
             Add(clear);
-
-
 
             HitBox leftUp = new HitBox((leftTop.X + leftTop.Width) - 50, (leftTop.Y + leftTop.Height) - 18, 18, 16, "Scroll Up", ALPHA_HIT_BUTTON);
             HitBox leftDown = new HitBox(leftUp.X, leftBottom.Y, 18, 16, "Scroll Down", ALPHA_HIT_BUTTON);
@@ -251,8 +231,6 @@ namespace ClassicUO.Game.UI.Gumps
             Add(leftDown);
             Add(rightUp);
             Add(rightDown);
-
-
 
             bool is_pressing = false;
             int initial_height = 0, initialHeightRight = 0;

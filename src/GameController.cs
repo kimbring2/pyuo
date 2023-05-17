@@ -704,6 +704,11 @@ namespace ClassicUO
         {
             SDL_Event* sdlEvent = (SDL_Event*) ptr;
 
+            //Console.WriteLine("sdlEvent->type: {0}", sdlEvent->type);
+            //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", 
+            //                   Mouse.Position.X, Mouse.Position.Y);
+            //Console.WriteLine("sdlEvent->button.button: {0}\n", sdlEvent->button.button);
+
             if (Plugin.ProcessWndProc(sdlEvent) != 0)
             {
                 if (sdlEvent->type == SDL_EventType.SDL_MOUSEMOTION)
@@ -803,6 +808,8 @@ namespace ClassicUO
                     break;
 
                 case SDL_EventType.SDL_MOUSEMOTION:
+                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEMOTION");
+
                     if (UIManager.GameCursor != null && !UIManager.GameCursor.AllowDrawSDLCursor)
                     {
                         UIManager.GameCursor.AllowDrawSDLCursor = true;
@@ -841,6 +848,8 @@ namespace ClassicUO
 
                 case SDL_EventType.SDL_MOUSEBUTTONDOWN:
                 {
+                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONDOWN");
+
                     SDL_MouseButtonEvent mouse = sdlEvent->button;
 
                     // The values in MouseButtonType are chosen to exactly match the SDL values
@@ -932,7 +941,7 @@ namespace ClassicUO
 
                 case SDL_EventType.SDL_MOUSEBUTTONUP:
                 {
-                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONUP");
+                    Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONUP");
                     
                     if (_dragStarted)
                     {

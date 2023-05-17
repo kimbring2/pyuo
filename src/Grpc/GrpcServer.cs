@@ -69,7 +69,7 @@ namespace ClassicUO.Grpc
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<States> Reset(ImageRequest request, ServerCallContext context)
+        public override Task<States> Reset(Config config, ServerCallContext context)
         {
             //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
@@ -79,7 +79,7 @@ namespace ClassicUO.Grpc
             foreach (Mobile mob in World.Mobiles.Values)
             {
             	Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
-            					     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+            					   mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
             	Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
 
             	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
@@ -105,7 +105,7 @@ namespace ClassicUO.Grpc
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<States> ReadObs(ImageRequest request, ServerCallContext context)
+        public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
             List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
@@ -149,8 +149,6 @@ namespace ClassicUO.Grpc
             states.MobileList = grpcMobileList;
 
             //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
-
-
             states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
             							   KillMonster = _controller.killMonsterReward};
 
@@ -160,35 +158,31 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
-        	//Console.WriteLine("actions.Action: {0}", actions.Action);
-        	//Console.WriteLine("actions.MousePoint.X: {0}", actions.MousePoint.X);
-        	//Console.WriteLine("actions.MousePoint.Y: {0}", actions.MousePoint.Y);
-        	//Console.WriteLine("actions.Serial: {0}", actions.Serial);
+        	//Console.WriteLine("actions.ActionType: {0}", actions.ActionType);
+        	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
+        	//Console.WriteLine("actions.WalkDirection.Direction: {0}", actions.WalkDirection.Direction);
 
-            _controller.action_1 = actions.Action;
+            _controller.action_1 = actions.ActionType;
 
-            if (actions.Action == 1) {
+            if (actions.ActionType == 1) {
             	if (World.InGame == true) {
-            		int x = ProfileManager.CurrentProfile.GameWindowPosition.X + (ProfileManager.CurrentProfile.GameWindowSize.X >> 1);
-	                int y = ProfileManager.CurrentProfile.GameWindowPosition.Y + (ProfileManager.CurrentProfile.GameWindowSize.Y >> 1);
-
-		            Direction direction = (Direction) GameCursor.GetMouseDirection
-		            (
-		            	x,
-	                    y,
-		                (int) actions.MousePoint.X,
-		                (int) actions.MousePoint.Y,
-		                1
-		            );
-		            
-	            	World.Player.Walk(direction, true);
-
+            		if (actions.WalkDirection.Direction == 0) {
+	            		World.Player.Walk(Direction.Up, true);
+	            	}
+	            	else if (actions.WalkDirection.Direction == 2) {
+	            		World.Player.Walk(Direction.Right, true);
+	            	}	
+	            	else if (actions.WalkDirection.Direction == 3) {
+	            		World.Player.Walk(Direction.Left, true);
+	            	}
+	            	else if (actions.WalkDirection.Direction == 4) {
+	            		World.Player.Walk(Direction.Down, true);
+	            	}
             	}
 	        }
-	        else if (actions.Action == 2) {
+	        else if (actions.ActionType == 2) {
 	        	if (World.Player != null) {
-            		World.Player.InWarMode = true;
-        			GameActions.DoubleClick(actions.Serial);
+        			GameActions.DoubleClick(actions.MobileSerial);
 	        	}
 	        }
 

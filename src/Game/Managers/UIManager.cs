@@ -134,7 +134,7 @@ namespace ClassicUO.Game.Managers
 
         public static void OnMouseDragging()
         {
-            //Console.WriteLine("OnMouseDragging()");
+            Console.WriteLine("OnMouseDragging()");
 
             HandleMouseInput();
 
@@ -169,6 +169,8 @@ namespace ClassicUO.Game.Managers
                         _lastFocus = MouseOverControl;
                     }
                 }
+
+                Console.WriteLine("MouseOverControl: {0}", MouseOverControl);
 
                 MakeTopMostGump(MouseOverControl);
                 MouseOverControl.InvokeMouseDown(Mouse.Position, button);
@@ -474,8 +476,7 @@ namespace ClassicUO.Game.Managers
         {
             Control gump = GetMouseOverControl(Mouse.Position);
 
-            //Console.WriteLine("gump: ");
-            //Console.WriteLine(gump);
+            //Console.WriteLine("gump test: {0}", gump);
  
             if (MouseOverControl != null && gump != MouseOverControl)
             {

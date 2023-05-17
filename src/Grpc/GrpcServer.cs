@@ -69,7 +69,7 @@ namespace ClassicUO.Grpc
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<States> reset(ImageRequest request, ServerCallContext context)
+        public override Task<States> Reset(ImageRequest request, ServerCallContext context)
         {
             //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
@@ -96,11 +96,13 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
+            _controller.act_lock.Release();
+
             return Task.FromResult(states);
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<States> step(ImageRequest request, ServerCallContext context)
+        public override Task<States> ReadObs(ImageRequest request, ServerCallContext context)
         {
             //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
@@ -114,7 +116,8 @@ namespace ClassicUO.Grpc
                 grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
                 										   X = (uint) mob.GetScreenPosition().X, 
                 										   Y = (uint) mob.GetScreenPosition().Y,
-                										   Race = (uint) mob.Race });
+                										   Race = (uint) mob.Race,
+                										   Serial = (uint) mob.Serial });
             }
 
             States states = new States();
@@ -129,25 +132,58 @@ namespace ClassicUO.Grpc
         }
 
         // Server side handler of the SayHello RPC
-        public override Task<Empty> act(Actions actions, ServerCallContext context)
+        public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
         	Console.WriteLine("actions.Action: {0}", actions.Action);
         	Console.WriteLine("actions.MousePoint: {0}", actions.MousePoint);
 
-        	_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
+        	//_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
 
             _controller.action_1 = actions.Action;
 
+            /*
+            Direction direction = (Direction) GameCursor.GetMouseDirection
+            (
+                World.Player.X,
+                World.Player.Y,
+                (int) actions.MousePoint.X,
+                (int) actions.MousePoint.Y,
+                1
+            );
+
+            Console.WriteLine("direction: {0}", direction);
+			*/
+
+            //World.Player.Walk(direction, ProfileManager.CurrentProfile.AlwaysRun);
             //Console.WriteLine("_flags[0]: {0}, _flags[1]: {1}, _flags[0]: {2}, _flags[0]: {3}", _flags[0], _flags[2], _flags[1], _flags[3]);
-            Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
-            if (World.InGame && !Pathfinder.AutoWalking && dir != Direction.NONE)
-            {
+            //Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
+            //if (World.InGame && !Pathfinder.AutoWalking && dir != Direction.NONE)
+            //{
                 //Console.WriteLine("World.Player.Walk");
                 //World.Player.Walk(dir, ProfileManager.CurrentProfile.AlwaysRun);
-                ;
-            }
+            //    ;
+            //}
 
             return Task.FromResult(new Empty {});
         }
+
+        public override Task<Empty> ActSemaphoreControl(SemaphoreAction action, ServerCallContext context)
+        {
+        	Console.WriteLine("action.Mode: {0}", action.Mode);
+
+            _controller.act_lock.Release();
+
+            return Task.FromResult(new Empty {});
+        }
+
+        public override Task<Empty> ObsSemaphoreControl(SemaphoreAction action, ServerCallContext context)
+        {
+        	Console.WriteLine("action.Mode: {0}", action.Mode);
+
+            //_controller.obs_lock.WaitOne();
+
+            return Task.FromResult(new Empty {});
+        }
+
     }
 }

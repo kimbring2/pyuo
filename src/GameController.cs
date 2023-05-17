@@ -87,12 +87,12 @@ namespace ClassicUO
         public byte[] byteArray = new byte[160*128*4];
         public List<GrpcMobile> grpcMobileList;
 
-        Color[] textureData;
         byte[] rgbaBytes;
         byte[] scaledRgbaBytes;
-        Texture2D texture;
-        MemoryStream ms;
         uint frame_count;
+
+        public Semaphore obs_lock = new Semaphore(1, 1);
+        public Semaphore act_lock = new Semaphore(1, 1);
 
         public GameController()
         {
@@ -430,6 +430,8 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
+            act_lock.WaitOne();
+
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
             {
@@ -557,28 +559,39 @@ namespace ClassicUO
             else if (frame_count == 4) 
             {   
                 frame_count = 0;
-                UpdateScreenshot();
+
+                try
+                {
+                    //UpdateScreenshot();
+                    ;
+                }
+                catch (Exception e)
+                {
+                  Console.WriteLine("e.Message: {0}", e.Message);
+                }
             }
+
+            UpdateScreenshot();
+
+            obs_lock.Release();
 
             //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}, GraphicManager.PreferredBackBufferHeight: {1} ", 
             //                   GraphicManager.PreferredBackBufferWidth, GraphicManager.PreferredBackBufferHeight);
-
-            // public static extern IntPtr SDL_GetWindowFromID(uint id);
-            //new IntPtr[3, 16]
-            //Console.WriteLine("SDL_GetMouseFocus(): {0}", SDL_GetMouseFocus());
-
             //SDL_GetMouseFocus();
             //SDL_GetWindowFromID(Window.Handle);
         }
 
-        private void UpdateScreenshot()
+        public void UpdateScreenshot()
         {
-            //Console.WriteLine("UpdateScreenshot()");
+            Console.WriteLine("UpdateScreenshot()");
+            Console.WriteLine("GraphicManager: {0}", GraphicManager);
 
-            textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
+            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
+            
+            /*
             GraphicsDevice.GetBackBufferData(textureData);
             
-            using (texture = new Texture2D
+            using (Texture2D texture = new Texture2D
             (
                 GraphicsDevice,
                 GraphicManager.PreferredBackBufferWidth,
@@ -586,13 +599,12 @@ namespace ClassicUO
                 false,
                 SurfaceFormat.Color
             ))
-            using (ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 int scale = 16;
 
                 texture.SetData(textureData);
 
-                //byte[] rgbaBytes = new byte[texture.Width * texture.Height * 4 / scale / scale];
                 rgbaBytes = new byte[texture.Width * texture.Height * 4];
 
                 int newHeight = texture.Height / scale;
@@ -650,6 +662,7 @@ namespace ClassicUO
 
                 scaledRgbaBytes.CopyTo(byteArray, 0);
             }
+            */
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
@@ -706,7 +719,7 @@ namespace ClassicUO
             }
         }
 
-        private int HandleSdlEvent(IntPtr userData, IntPtr ptr)
+        public int HandleSdlEvent(IntPtr userData, IntPtr ptr)
         {
             SDL_Event* sdlEvent = (SDL_Event*) ptr;
 

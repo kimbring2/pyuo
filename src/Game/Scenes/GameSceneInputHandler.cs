@@ -65,6 +65,8 @@ namespace ClassicUO.Game.Scenes
 
         private bool MoveCharacterByMouseInput()
         {
+            //Console.WriteLine("MoveCharacterByMouseInput()");
+
             if ((_rightMousePressed || _continueRunning) && World.InGame) // && !Pathfinder.AutoWalking)
             {
                 if (Pathfinder.AutoWalking)
@@ -291,6 +293,8 @@ namespace ClassicUO.Game.Scenes
 
         internal override bool OnMouseDown(MouseButtonType button)
         {
+            //Console.WriteLine("OnMouseDown()");
+
             switch (button)
             {
                 case MouseButtonType.Left: return OnLeftMouseDown();
@@ -324,6 +328,8 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDown()
         {
+            //Console.WriteLine("OnLeftMouseDown()");
+
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);

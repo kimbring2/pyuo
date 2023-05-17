@@ -96,7 +96,7 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
-            _controller.act_lock.Release();
+            //_controller.act_lock.Release();
 
             return Task.FromResult(states);
         }
@@ -109,6 +109,7 @@ namespace ClassicUO.Grpc
 
             List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
 
+            //Console.WriteLine("World.Mobiles.Values: {0}", World.Mobiles.Values);
             foreach (Mobile mob in World.Mobiles.Values)
             {
             	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
@@ -134,8 +135,8 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
-        	Console.WriteLine("actions.Action: {0}", actions.Action);
-        	Console.WriteLine("actions.MousePoint: {0}", actions.MousePoint);
+        	//Console.WriteLine("actions.Action: {0}", actions.Action);
+        	//Console.WriteLine("actions.MousePoint: {0}", actions.MousePoint);
 
         	//_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
 
@@ -157,30 +158,36 @@ namespace ClassicUO.Grpc
             //World.Player.Walk(direction, ProfileManager.CurrentProfile.AlwaysRun);
             //Console.WriteLine("_flags[0]: {0}, _flags[1]: {1}, _flags[0]: {2}, _flags[0]: {3}", _flags[0], _flags[2], _flags[1], _flags[3]);
             //Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
-            //if (World.InGame && !Pathfinder.AutoWalking && dir != Direction.NONE)
-            //{
-                //Console.WriteLine("World.Player.Walk");
-                //World.Player.Walk(dir, ProfileManager.CurrentProfile.AlwaysRun);
-            //    ;
-            //}
+
+            //_controller.act_lock = false;
 
             return Task.FromResult(new Empty {});
         }
 
         public override Task<Empty> ActSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
-        	Console.WriteLine("action.Mode: {0}", action.Mode);
+        	//Console.WriteLine("action.Mode: {0}", action.Mode);
 
-            _controller.act_lock.Release();
+        	//_controller.act_lock = true;
+        	_controller.sem_action.Release();
 
             return Task.FromResult(new Empty {});
         }
 
         public override Task<Empty> ObsSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
-        	Console.WriteLine("action.Mode: {0}", action.Mode);
+        	//Console.WriteLine("action.Mode: {0}", action.Mode);
 
-            //_controller.obs_lock.WaitOne();
+        	/*
+        	while (_controller.obs_lock == false) 
+            {
+            	Console.WriteLine("_controller.obs_lock == false");
+            	int milliseconds = 10;
+            	Thread.Sleep(milliseconds);
+            }
+            _controller.obs_lock = false;
+			*/
+			_controller.sem_observation.WaitOne();
 
             return Task.FromResult(new Empty {});
         }

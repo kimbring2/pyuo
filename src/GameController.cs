@@ -91,8 +91,12 @@ namespace ClassicUO
         byte[] scaledRgbaBytes;
         uint frame_count;
 
-        public Semaphore obs_lock = new Semaphore(1, 1);
-        public Semaphore act_lock = new Semaphore(1, 1);
+        public bool obs_lock = false;
+        public bool act_lock = false;
+
+        public Semaphore sem_observation = new Semaphore(0, 3);
+        public Semaphore sem_action = new Semaphore(0, 3);
+        public Semaphore sem_physics = new Semaphore(0, 3);
 
         public GameController()
         {
@@ -129,6 +133,7 @@ namespace ClassicUO
             //Log.Trace("Initialize()");
             _uoServiceImpl.Start();
             frame_count = 0;
+            sem_physics.Release();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -430,7 +435,19 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            act_lock.WaitOne();
+            sem_physics.WaitOne();
+
+            // sem_action.wait()
+            sem_action.WaitOne();
+            /*
+            while (act_lock == false) 
+            {
+              Console.WriteLine("act_lock == false");
+              int milliseconds = 10;
+              Thread.Sleep(milliseconds);
+            }
+            act_lock = false;
+            */
 
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
@@ -492,6 +509,14 @@ namespace ClassicUO
             }
 
             base.Update(gameTime);
+
+            UpdateScreenshot();
+
+            // sem_observation.post()
+            //obs_lock = true;
+            sem_observation.Release();
+
+            sem_physics.Release();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -571,9 +596,10 @@ namespace ClassicUO
                 }
             }
 
-            UpdateScreenshot();
+            //UpdateScreenshot();
 
-            obs_lock.Release();
+            //obs_lock.Release();
+            //obs_lock = true;
 
             //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}, GraphicManager.PreferredBackBufferHeight: {1} ", 
             //                   GraphicManager.PreferredBackBufferWidth, GraphicManager.PreferredBackBufferHeight);
@@ -584,7 +610,7 @@ namespace ClassicUO
         public void UpdateScreenshot()
         {
             Console.WriteLine("UpdateScreenshot()");
-            Console.WriteLine("GraphicManager: {0}", GraphicManager);
+            //Console.WriteLine("GraphicManager: {0}", GraphicManager);
 
             Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
             

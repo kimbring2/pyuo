@@ -91,12 +91,12 @@ namespace ClassicUO
         byte[] scaledRgbaBytes;
         uint frame_count;
 
-        public bool obs_lock = false;
-        public bool act_lock = false;
-
         public Semaphore sem_observation = new Semaphore(0, 3);
         public Semaphore sem_action = new Semaphore(0, 3);
         public Semaphore sem_physics = new Semaphore(0, 3);
+
+        public float attackMonsterReward = (float) 0.0;
+        public float killMonsterReward = (float) 0.0;
 
         public GameController()
         {
@@ -552,7 +552,6 @@ namespace ClassicUO
 
             if (start_flag == true) {
                 WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
-                //Console.WriteLine("viewport{0}: ", viewport);
                 if (viewport != null)
                 {
                     viewport.ResizeGameWindow(new Point(1600, 1280));
@@ -562,35 +561,6 @@ namespace ClassicUO
                     start_flag = false;
                 }
             }
-
-            if (frame_count != 4) 
-            {
-                frame_count++;
-            } 
-            else if (frame_count == 4) 
-            {   
-                frame_count = 0;
-
-                try
-                {
-                    //UpdateScreenshot();
-                    ;
-                }
-                catch (Exception e)
-                {
-                  Console.WriteLine("e.Message: {0}", e.Message);
-                }
-            }
-
-            //UpdateScreenshot();
-
-            //obs_lock.Release();
-            //obs_lock = true;
-
-            //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}, GraphicManager.PreferredBackBufferHeight: {1} ", 
-            //                   GraphicManager.PreferredBackBufferWidth, GraphicManager.PreferredBackBufferHeight);
-            //SDL_GetMouseFocus();
-            //SDL_GetWindowFromID(Window.Handle);
         }
 
         public void UpdateScreenshot()

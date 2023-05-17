@@ -75,8 +75,8 @@ namespace ClassicUO.Network
 
         public void AnalyzePacket(byte[] data, int offset, int length)
         {
-            //Console.WriteLine("data[0]: ");
-            //Console.WriteLine(data[0]);
+            Console.WriteLine("data[0]: ");
+            Console.WriteLine(data[0]);
 
             OnPacketBufferReader bufferReader = _handlers[data[0]];
 
@@ -356,6 +356,7 @@ namespace ClassicUO.Network
             if (entity != null)
             {
                 ushort damage = p.ReadUInt16BE();
+                Console.WriteLine("damage: {0}", damage);
 
                 if (damage > 0)
                 {

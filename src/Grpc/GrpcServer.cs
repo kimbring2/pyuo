@@ -101,36 +101,43 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
-            //_controller.act_lock.Release();
-
             return Task.FromResult(states);
         }
 
         // Server side handler of the SayHello RPC
         public override Task<States> ReadObs(ImageRequest request, ServerCallContext context)
         {
-            //Console.WriteLine(request.Name);
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
-
             List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
-
-            //Console.WriteLine("World.Mobiles.Values: {0}", World.Mobiles.Values);
-            foreach (Mobile mob in World.Mobiles.Values)
+            try
             {
-            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
-            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+	            //Console.WriteLine("World.Mobiles.Values: {0}", World.Mobiles.Values);
+	            foreach (Mobile mob in World.Mobiles.Values)
+	            {
+	            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
+	            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+	            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
 
-            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
-            	{
-            		continue;
-            	}
+	            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
+	            	{
+	            		continue;
+	            	}
 
-                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
-                										   X = (float) mob.GetScreenPosition().X, 
-                										   Y = (float) mob.GetScreenPosition().Y,
-                										   Race = (uint) mob.Race,
-                										   Serial = (uint) mob.Serial });
+	                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
+	                										   X = (float) mob.GetScreenPosition().X, 
+	                										   Y = (float) mob.GetScreenPosition().Y,
+	                										   Race = (uint) mob.Race,
+	                										   Serial = (uint) mob.Serial });
+	            }
+	        }
+	        catch (Exception ex)
+            {
+            	Console.WriteLine("Failed to load the mobile: " + ex.Message);
+            	grpcMobileDataList.Add(new GrpcMobileData{ Name = "base", 
+	                									   X = (float) 500.0, 
+	                									   Y = (float) 500.0,
+	                									   Race = (uint) 0,
+	                									   Serial = (uint) 1234 });
             }
 
             States states = new States();
@@ -140,6 +147,12 @@ namespace ClassicUO.Grpc
             GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
+
+            //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+
+
+            states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
+            							   KillMonster = _controller.killMonsterReward};
 
             return Task.FromResult(states);
         }
@@ -155,8 +168,6 @@ namespace ClassicUO.Grpc
             _controller.action_1 = actions.Action;
 
             if (actions.Action == 1) {
-            	//Console.WriteLine("World.InGame: {0}", World.InGame);
-
             	if (World.InGame == true) {
             		int x = ProfileManager.CurrentProfile.GameWindowPosition.X + (ProfileManager.CurrentProfile.GameWindowSize.X >> 1);
 	                int y = ProfileManager.CurrentProfile.GameWindowPosition.Y + (ProfileManager.CurrentProfile.GameWindowSize.Y >> 1);
@@ -169,8 +180,7 @@ namespace ClassicUO.Grpc
 		                (int) actions.MousePoint.Y,
 		                1
 		            );
-		            	
-	            	//Console.WriteLine("World.Player.Walk(direction, true)");
+		            
 	            	World.Player.Walk(direction, true);
 
             	}
@@ -182,34 +192,21 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 
-            //Console.WriteLine("Pass check");
             return Task.FromResult(new Empty {});
         }
 
         public override Task<Empty> ActSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
-        	//Console.WriteLine("action.Mode: {0}", action.Mode);
-
-        	//_controller.act_lock = true;
-        	_controller.sem_action.Release();
+            //Console.WriteLine("action.Mode: {0}", action.Mode);
+            _controller.sem_action.Release();
 
             return Task.FromResult(new Empty {});
         }
 
         public override Task<Empty> ObsSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
-        	//Console.WriteLine("action.Mode: {0}", action.Mode);
-
-        	/*
-        	while (_controller.obs_lock == false) 
-            {
-            	Console.WriteLine("_controller.obs_lock == false");
-            	int milliseconds = 10;
-            	Thread.Sleep(milliseconds);
-            }
-            _controller.obs_lock = false;
-			*/
-			_controller.sem_observation.WaitOne();
+            //Console.WriteLine("action.Mode: {0}", action.Mode);
+            _controller.sem_observation.WaitOne();
 
             return Task.FromResult(new Empty {});
         }

@@ -882,6 +882,8 @@ namespace ClassicUO.Network
 
         public static void Send_AttackRequest(this NetClient socket, uint serial)
         {
+            Console.WriteLine("Send_AttackRequest()");
+            
             const byte ID = 0x05;
 
             int length = PacketsTable.GetPacketLength(ID);
@@ -906,6 +908,10 @@ namespace ClassicUO.Network
             {
                 writer.WriteZero(length - writer.BytesWritten);
             }
+
+
+            Console.WriteLine("writer.AllocatedBuffer: {0}", writer.AllocatedBuffer);
+            Console.WriteLine("writer.BytesWritten: {0}", writer.BytesWritten);
 
             socket.Send(writer.AllocatedBuffer, writer.BytesWritten);
             writer.Dispose();

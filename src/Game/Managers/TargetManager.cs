@@ -137,7 +137,6 @@ namespace ClassicUO.Game.Managers
 
         public static readonly LastTargetInfo LastTargetInfo = new LastTargetInfo();
 
-
         public static MultiTargetInfo MultiTargetInfo { get; private set; }
 
         public static CursorTarget TargetingState { get; private set; } = CursorTarget.Invalid;
@@ -195,7 +194,6 @@ namespace ClassicUO.Game.Managers
             
             _targetCursorId = cursorID;
         }
-
 
         public static void CancelTarget()
         {
@@ -502,8 +500,6 @@ namespace ClassicUO.Game.Managers
 
             _lastDataBuffer[17] = (byte)(graphic >> 8);
             _lastDataBuffer[18] = (byte)graphic;
-
-            
 
             NetClient.Socket.Send_TargetXYZ(graphic,
                                             x,

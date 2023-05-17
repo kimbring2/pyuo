@@ -49,9 +49,7 @@ namespace ClassicUO.Game.Managers
         const ushort BACKGROUND_GRAPHIC = 0x1068;
         const ushort HP_GRAPHIC = 0x1069;
 
-        
         public bool IsEnabled => ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.ShowMobilesHP;
-
 
         public void Draw(UltimaBatcher2D batcher)
         {
@@ -246,7 +244,6 @@ namespace ClassicUO.Game.Managers
 
             Mobile mobile = entity as Mobile;
 
-
             float alpha = passive ? 0.5f : 1.0f;
             ushort hue = mobile != null ? Notoriety.GetHue(mobile.NotorietyFlag) : Notoriety.GetHue(NotorietyFlag.Gray);
 
@@ -257,11 +254,9 @@ namespace ClassicUO.Game.Managers
                 y += 22;
             }
 
-
             const int MULTIPLER = 1;
 
             var texture = GumpsLoader.Instance.GetGumpTexture(BACKGROUND_GRAPHIC, out var bounds);
-
 
             batcher.Draw
             (
@@ -277,9 +272,7 @@ namespace ClassicUO.Game.Managers
                 hueVec
             );
 
-
             hueVec.X = 0x21;
-
 
             if (entity.Hits != entity.HitsMax || entity.HitsMax == 0)
             {

@@ -86,7 +86,6 @@ namespace ClassicUO.Game.GameObjects
         public ushort Hits;
         public ushort HitsMax;
 
-
         public byte HitsPercentage;
         public RenderedText HitsTexture;
         public bool IsClicked;

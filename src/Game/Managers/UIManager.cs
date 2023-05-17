@@ -209,11 +209,6 @@ namespace ClassicUO.Game.Managers
 
             int index = (int) button;
 
-            //if (MouseOverControl != null) {
-            //    Console.WriteLine("MouseOverControl: ");
-            //    Console.WriteLine(MouseOverControl);
-            //}
-
             if (MouseOverControl != null)
             {
                 if (_mouseDownControls[index] != null && MouseOverControl == _mouseDownControls[index] || ItemHold.Enabled)

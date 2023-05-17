@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package uoservice;
+
+message Empty {}
+
+message GrpcMobileData {
+  string name = 1;
+  float x = 2;
+  float y = 3;
+  uint32 race = 4;
+  uint32 serial = 5;
+}
+
+message SemaphoreAction {
+  string mode = 1;
+}
+
+message GrpcMobileList {
+  repeated GrpcMobileData mobile = 1;
+}
+
+message ImageRequest {
+  string name = 1;
+}
+
+message ScreenImage {
+  bytes image = 1;
+}
+
+message States {
+  ScreenImage screenImage = 1;
+  GrpcMobileList mobileList = 2;
+}
+
+message MousePoint {
+  uint32 x = 1;
+  uint32 y = 2;
+}
+
+message Actions {
+  uint32 action = 1;
+  MousePoint mousePoint = 2;
+  uint32 serial = 3;
+}
+
+service UoService {
+  rpc Reset (ImageRequest) returns (States);
+  rpc ReadObs (ImageRequest) returns (States);
+  rpc WriteAct (Actions) returns (Empty);
+  rpc ActSemaphoreControl (SemaphoreAction) returns (Empty);
+  rpc ObsSemaphoreControl (SemaphoreAction) returns (Empty);
+}

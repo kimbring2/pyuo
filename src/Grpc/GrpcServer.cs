@@ -78,13 +78,18 @@ namespace ClassicUO.Grpc
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
-            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
-            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+            	Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
+            					     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+            	Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+
+            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
+            	{
+            		continue;
+            	}
 
                 grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
-                										   X = (uint) mob.GetScreenPosition().X, 
-                										   Y = (uint) mob.GetScreenPosition().Y,
+                										   X = (float) mob.GetScreenPosition().X, 
+                										   Y = (float) mob.GetScreenPosition().Y,
                 										   Race = (uint) mob.Race });
             }
 
@@ -112,11 +117,18 @@ namespace ClassicUO.Grpc
             //Console.WriteLine("World.Mobiles.Values: {0}", World.Mobiles.Values);
             foreach (Mobile mob in World.Mobiles.Values)
             {
+            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
+            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
             	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
 
+            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
+            	{
+            		continue;
+            	}
+
                 grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
-                										   X = (uint) mob.GetScreenPosition().X, 
-                										   Y = (uint) mob.GetScreenPosition().Y,
+                										   X = (float) mob.GetScreenPosition().X, 
+                										   Y = (float) mob.GetScreenPosition().Y,
                 										   Race = (uint) mob.Race,
                 										   Serial = (uint) mob.Serial });
             }
@@ -136,31 +148,48 @@ namespace ClassicUO.Grpc
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
         	//Console.WriteLine("actions.Action: {0}", actions.Action);
-        	//Console.WriteLine("actions.MousePoint: {0}", actions.MousePoint);
+        	Console.WriteLine("actions.MousePoint.X: {0}", actions.MousePoint.X);
+        	Console.WriteLine("actions.MousePoint.Y: {0}", actions.MousePoint.Y);
+        	//Console.WriteLine("actions.Serial: {0}", actions.Serial);
 
         	//_controller.SetMousePosition(actions.MousePoint.X, actions.MousePoint.Y);
 
             _controller.action_1 = actions.Action;
+            //Console.WriteLine("World.Player: {0}", World.Player);
 
-            /*
-            Direction direction = (Direction) GameCursor.GetMouseDirection
-            (
-                World.Player.X,
-                World.Player.Y,
-                (int) actions.MousePoint.X,
-                (int) actions.MousePoint.Y,
-                1
-            );
+            try
+            {	
+            	int x = ProfileManager.CurrentProfile.GameWindowPosition.X + (ProfileManager.CurrentProfile.GameWindowSize.X >> 1);
+                int y = ProfileManager.CurrentProfile.GameWindowPosition.Y + (ProfileManager.CurrentProfile.GameWindowSize.Y >> 1);
+            	
+	            Direction direction = (Direction) GameCursor.GetMouseDirection
+	            (
+	            	x,
+                    y,
+	                (int) actions.MousePoint.X,
+	                (int) actions.MousePoint.Y,
+	                1
+	            );
+	            
+	            //Direction direction = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
+	            
+	            if (World.Player != null) {
+	            	Console.WriteLine("World.Player.Walk(direction, true)");
+	            	World.Player.Walk(direction, true);
+	            }
+	        }
+	        catch (Exception e)
+            {
+            	Console.WriteLine("Exception: {0}", e);
 
-            Console.WriteLine("direction: {0}", direction);
-			*/
+            	Direction direction = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
 
-            //World.Player.Walk(direction, ProfileManager.CurrentProfile.AlwaysRun);
-            //Console.WriteLine("_flags[0]: {0}, _flags[1]: {1}, _flags[0]: {2}, _flags[0]: {3}", _flags[0], _flags[2], _flags[1], _flags[3]);
-            //Direction dir = DirectionHelper.DirectionFromKeyboardArrows(true, false, false, false);
+            	if (World.Player != null) {
+	            	World.Player.Walk(direction, true);
+	            }
+            }   
 
-            //_controller.act_lock = false;
-
+            //Console.WriteLine("Pass check");
             return Task.FromResult(new Empty {});
         }
 

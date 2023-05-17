@@ -614,7 +614,7 @@ namespace ClassicUO
 
             Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
             
-            /*
+            
             GraphicsDevice.GetBackBufferData(textureData);
             
             using (Texture2D texture = new Texture2D
@@ -688,7 +688,7 @@ namespace ClassicUO
 
                 scaledRgbaBytes.CopyTo(byteArray, 0);
             }
-            */
+            
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)

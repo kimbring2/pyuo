@@ -73,7 +73,6 @@ namespace ClassicUO.Game.UI.Controls
 
         public ushort Hue { get; set; }
 
-
         public override bool Contains(int x, int y)
         {
             var texture = GumpsLoader.Instance.GetGumpTexture(_graphic, out _);

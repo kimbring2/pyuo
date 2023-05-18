@@ -95,7 +95,7 @@ namespace ClassicUO.Grpc
 
             States states = new States();
 
-            states.ScreenImage = new ScreenImage { Image = byteString };
+            //states.ScreenImage = new ScreenImage { Image = byteString };
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
@@ -111,7 +111,6 @@ namespace ClassicUO.Grpc
             List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
             try
             {
-	            //Console.WriteLine("World.Mobiles.Values: {0}", World.Mobiles.Values);
 	            foreach (Mobile mob in World.Mobiles.Values)
 	            {
 	            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
@@ -140,13 +139,48 @@ namespace ClassicUO.Grpc
 	                									   Serial = (uint) 1234 });
             }
 
-            States states = new States();
+            List<GrpcItemData> grpcItemDataList = new List<GrpcItemData>();
+            foreach (Item item in World.Items.Values)
+            {
+            	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
+            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+            																		 item.Amount, item.Serial);
+            	//grpcItemDataList.Add(new GrpcItemData{ Name = "test", 
+	            //									   Layer = (uint) item.Layer,
+	            //  									   Serial = (uint) item.Serial,
+	            //									   Amount = (uint) item.Amount });
+            }
 
-            states.ScreenImage = new ScreenImage { Image = byteString };
+            /*
+            try
+            {
+	            foreach (Item item in World.Items.Values)
+	            {
+	            	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
+	            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+	            																		 item.Amount, item.Serial);
+	            	//Thread.Sleep(100);
+	            	//grpcItemDataList.Add(new GrpcItemData{ Name = item.Name, 
+	                //									   Layer = (uint) item.Layer,
+	                //									   Serial = (uint) item.Serial,
+	                //									   Amount = (uint) item.Amount });
+	            }
+	        }
+	        catch (Exception ex)
+            {
+            	Console.WriteLine("Failed to load the item: " + ex.Message);
+            }
+            */
+
+            States states = new States();
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
+
+            GrpcItemList grpcItemList = new GrpcItemList();
+            grpcItemList.Item.AddRange(grpcItemDataList);
+            states.ItemList = grpcItemList;
 
             //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
             states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
@@ -185,6 +219,11 @@ namespace ClassicUO.Grpc
         			GameActions.DoubleClick(actions.MobileSerial);
 	        	}
 	        }
+	        else if (actions.ActionType == 3) {
+	        	if (World.Player != null) {
+        			
+	        	}
+	        }
 
             return Task.FromResult(new Empty {});
         }
@@ -204,6 +243,5 @@ namespace ClassicUO.Grpc
 
             return Task.FromResult(new Empty {});
         }
-
     }
 }

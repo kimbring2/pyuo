@@ -499,7 +499,7 @@ namespace ClassicUO
 
             base.Update(gameTime);
 
-            UpdateScreenshot();
+            //UpdateScreenshot();
 
             sem_observation.Release();
             sem_physics.Release();
@@ -941,7 +941,7 @@ namespace ClassicUO
 
                 case SDL_EventType.SDL_MOUSEBUTTONUP:
                 {
-                    Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONUP");
+                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONUP");
                     
                     if (_dragStarted)
                     {

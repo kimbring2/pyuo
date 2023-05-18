@@ -467,12 +467,15 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
+            Console.WriteLine("PickUp()");
+
             if (World.Player.IsDead || ItemHold.Enabled)
             {
                 return false;
             }
 
             Item item = World.Items.Get(serial);
+            Console.WriteLine("serial: {0}, item: {1}", serial, item);
 
             if (item == null || item.IsDestroyed || item.IsMulti || item.OnGround && (item.IsLocked || item.Distance > Constants.DRAG_ITEMS_DISTANCE))
             {
@@ -484,6 +487,7 @@ namespace ClassicUO.Game
                 if (ProfileManager.CurrentProfile.HoldShiftToSplitStack == Keyboard.Shift)
                 {
                     SplitMenuGump gump = UIManager.GetGump<SplitMenuGump>(item);
+                    Console.WriteLine("gump: {0}", gump);
 
                     if (gump != null)
                     {
@@ -519,6 +523,8 @@ namespace ClassicUO.Game
             }
 
             item.TextContainer?.Clear();
+
+            Console.WriteLine("World.ObjectToRemove: {0}", World.ObjectToRemove);
 
             World.ObjectToRemove = item.Serial;
 

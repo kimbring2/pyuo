@@ -61,7 +61,6 @@ namespace ClassicUO.Game.Map
                 }
             }
 
-
             _terrainChunks = new Chunk[maxX * maxY];
         }
 
@@ -74,9 +73,6 @@ namespace ClassicUO.Game.Map
 
         public readonly int BlocksCount;
         public readonly int Index;
-
-
-
 
         public Chunk GetChunk(int block)
         {

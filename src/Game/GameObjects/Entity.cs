@@ -325,6 +325,8 @@ namespace ClassicUO.Game.GameObjects
 
         public void ClearUnequipped()
         {
+            Console.WriteLine("ClearUnequipped()");
+
             if (!IsEmpty)
             {
                 LinkedObject new_first = null;

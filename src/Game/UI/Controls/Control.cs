@@ -541,7 +541,7 @@ namespace ClassicUO.Game.UI.Controls
 
         public void InvokeMouseDown(Point position, MouseButtonType button)
         {
-            //Console.WriteLine("InvokeMouseDown()");
+            Console.WriteLine("InvokeMouseDown()");
 
             int x = position.X - X - ParentX;
             int y = position.Y - Y - ParentY;
@@ -662,6 +662,9 @@ namespace ClassicUO.Game.UI.Controls
 
         protected virtual void OnMouseDown(int x, int y, MouseButtonType button)
         {
+            Console.WriteLine("OnMouseDown()");
+            Console.WriteLine("Parent: {0}", Parent);
+
             _mouseIsDown = true;
             Parent?.OnMouseDown(X + x, Y + y, button);
         }

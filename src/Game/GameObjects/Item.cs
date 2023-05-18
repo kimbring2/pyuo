@@ -102,7 +102,6 @@ namespace ClassicUO.Game.GameObjects
         private ushort? _displayedGraphic;
         private bool _isMulti;
 
-
         public Item() : base(0)
         {
         }

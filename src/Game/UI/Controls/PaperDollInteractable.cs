@@ -63,7 +63,6 @@ namespace ClassicUO.Game.UI.Controls
 
         private readonly PaperDollGump _paperDollGump;
 
-
         private bool _updateUI;
 
         public PaperDollInteractable(int x, int y, uint serial, PaperDollGump paperDollGump)
@@ -77,7 +76,6 @@ namespace ClassicUO.Game.UI.Controls
         }
 
         public bool HasFakeItem { get; private set; }
-
 
         public override void Update(double totalTime, double frameTime)
         {
@@ -166,7 +164,6 @@ namespace ClassicUO.Game.UI.Controls
                 }
             );
 
-
             if (mobile.Graphic == 0x03DB)
             {
                 Add
@@ -208,7 +205,6 @@ namespace ClassicUO.Game.UI.Controls
             {
                 layers = _layerOrder;
             }
-
 
             for (int i = 0; i < layers.Length; i++)
             {
@@ -278,7 +274,6 @@ namespace ClassicUO.Game.UI.Controls
                     );
                 }
             }
-
 
             equipItem = mobile.FindItemByLayer(Layer.Backpack);
 
@@ -354,7 +349,6 @@ namespace ClassicUO.Game.UI.Controls
             _updateUI = true;
         }
 
-
         private static ushort GetAnimID(ushort graphic, ushort animID, bool isfemale)
         {
             int offset = isfemale ? Constants.FEMALE_GUMP_OFFSET : Constants.MALE_GUMP_OFFSET;
@@ -390,7 +384,8 @@ namespace ClassicUO.Game.UI.Controls
 
             if (GumpsLoader.Instance.GetGumpTexture((ushort) (animID + offset), out _) == null)
             {
-                Log.Error($"Texture not found in paperdoll: gump_graphic: {(ushort) (animID + offset)}");
+                //Log.Error($"Texture not found in paperdoll: gump_graphic: {(ushort) (animID + offset)}");
+                ;
             }
 
             return (ushort) (animID + offset);

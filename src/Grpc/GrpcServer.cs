@@ -177,10 +177,33 @@ namespace ClassicUO.Grpc
 	            	}
 		            catch (Exception ex)
 		            {
-		            	//Console.WriteLine("Failed to load the equipped item: " + ex.Message);
-		            	;
+		            	Console.WriteLine("Failed to load the equipped item: " + ex.Message);
 		            }
 		        }
+	        }
+
+            List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
+            if ((World.Player != null) && (World.InGame == true))
+            {
+                Item backpack = World.Player.FindItemByLayer(Layer.Backpack); 
+                for (LinkedObject i = backpack.Items; i != null; i = i.Next)
+                {
+                    Item item = (Item) i;
+                    //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+            		//																       item.Amount, item.Serial);
+            		try 
+	        		{
+	            		backpackItemDataList.Add(new GrpcItemData{ Name = item.Name, 
+		            									   	       Layer = (uint) item.Layer,
+		              									           Serial = (uint) item.Serial,
+		            									           Amount = (uint) item.Amount });
+	            	}
+		            catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to load the backpack item: " + ex.Message);
+		            }
+                }
+
 	        }
 
             States states = new States();
@@ -197,6 +220,10 @@ namespace ClassicUO.Grpc
             equippedItemList.Item.AddRange(equippedItemDataList);
             states.EquippedItemList = equippedItemList;
 
+            GrpcItemList backpackItemList = new GrpcItemList();
+            backpackItemList.Item.AddRange(backpackItemDataList);
+            states.BackpackItemList = backpackItemList;
+
             //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
             states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
             							   KillMonster = _controller.killMonsterReward};
@@ -212,7 +239,6 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("actions.WalkDirection.Direction: {0}", actions.WalkDirection.Direction);
 
             _controller.action_1 = actions.ActionType;
-
 
             if (actions.ActionType == 1) {
             	if (World.InGame == true) {
@@ -237,11 +263,18 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
-        			Console.WriteLine("actions.ActionType == 3");
         			GameActions.PickUp(actions.ItemSerial, 0, 0);
+        			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
 	        }
-
+	        else if (actions.ActionType == 4) {
+	        	if (World.Player != null) {
+        			GameActions.PickUp(actions.ItemSerial, 0, 0, 1);
+                    GameActions.Equip();
+	        	}
+	        }
+  
             return Task.FromResult(new Empty {});
         }
 

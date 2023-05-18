@@ -533,7 +533,7 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //Console.WriteLine("DropItem()");
+            Console.WriteLine("DropItem()");
             //Console.WriteLine("serial: ");
             //Console.WriteLine(serial);
 

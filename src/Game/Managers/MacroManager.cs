@@ -81,7 +81,6 @@ namespace ClassicUO.Game.Managers
 
         public bool WaitingBandageTarget { get; set; }
 
-
         public void Load()
         {
             string path = Path.Combine(ProfileManager.ProfilePath, "macros.xml");

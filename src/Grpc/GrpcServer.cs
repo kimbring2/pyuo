@@ -87,9 +87,9 @@ namespace ClassicUO.Grpc
 
             foreach (Mobile mob in World.Mobiles.Values)
             {
-            	Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
-            					   mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-            	Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
+            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
+            	//				   mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
+            	//Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
 
             	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
             	{
@@ -177,7 +177,8 @@ namespace ClassicUO.Grpc
 	            	}
 		            catch (Exception ex)
 		            {
-		            	Console.WriteLine("Failed to load the equipped item: " + ex.Message);
+		            	//Console.WriteLine("Failed to load the equipped item: " + ex.Message);
+		            	;
 		            }
 		        }
 	        }
@@ -200,11 +201,18 @@ namespace ClassicUO.Grpc
 	            	}
 		            catch (Exception ex)
 		            {
-		            	Console.WriteLine("Failed to load the backpack item: " + ex.Message);
+		            	//Console.WriteLine("Failed to load the backpack item: " + ex.Message);
+		            	;
 		            }
                 }
-
 	        }
+
+	        PlayerStatus playerStatus = new PlayerStatus();
+	        if ((World.Player != null) && (World.InGame == true))
+            {
+		        playerStatus = new PlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
+		        								  Intell = (uint) World.Player.Intelligence };
+		    }
 
             States states = new States();
 
@@ -224,9 +232,7 @@ namespace ClassicUO.Grpc
             backpackItemList.Item.AddRange(backpackItemDataList);
             states.BackpackItemList = backpackItemList;
 
-            //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
-            states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
-            							   KillMonster = _controller.killMonsterReward};
+            states.PlayerStatus = playerStatus;
 
             return Task.FromResult(states);
         }

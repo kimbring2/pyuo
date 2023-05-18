@@ -314,6 +314,10 @@ namespace ClassicUO.Game
             }
 
             TargetManager.LastAttack = serial;
+
+            Entity ent = World.Get(serial);
+            //Console.WriteLine("ent.Name: {0}", ent.Name);
+
             Socket.Send_AttackRequest(serial);
         }
 
@@ -524,7 +528,7 @@ namespace ClassicUO.Game
 
             item.TextContainer?.Clear();
 
-            Console.WriteLine("World.ObjectToRemove: {0}", World.ObjectToRemove);
+            //Console.WriteLine("World.ObjectToRemove: {0}", World.ObjectToRemove);
 
             World.ObjectToRemove = item.Serial;
 
@@ -533,7 +537,7 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            Console.WriteLine("DropItem()");
+            //Console.WriteLine("DropItem()");
             //Console.WriteLine("serial: ");
             //Console.WriteLine(serial);
 

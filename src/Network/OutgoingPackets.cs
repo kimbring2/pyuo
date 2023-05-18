@@ -909,7 +909,6 @@ namespace ClassicUO.Network
                 writer.WriteZero(length - writer.BytesWritten);
             }
 
-
             //Console.WriteLine("writer.AllocatedBuffer: {0}", writer.AllocatedBuffer);
             //Console.WriteLine("writer.BytesWritten: {0}", writer.BytesWritten);
 

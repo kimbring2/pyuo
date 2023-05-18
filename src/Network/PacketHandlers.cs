@@ -75,6 +75,7 @@ namespace ClassicUO.Network
 
         public void AnalyzePacket(byte[] data, int offset, int length)
         {
+            //Console.WriteLine("AnalyzePacket()");
             //Console.WriteLine("data[0]: ");
             //Console.WriteLine(data[0]);
 
@@ -346,12 +347,15 @@ namespace ClassicUO.Network
 
         private static void Damage(ref StackDataReader p)
         {
+            //Console.WriteLine("Damage");
+
             if (World.Player == null)
             {
                 return;
             }
 
             Entity entity = World.Get(p.ReadUInt32BE());
+            //Console.WriteLine("entity.Name: {0}", entity.Name);
 
             if (entity != null)
             {
@@ -367,6 +371,8 @@ namespace ClassicUO.Network
 
         private static void CharacterStatus(ref StackDataReader p)
         {
+            //Console.WriteLine("CharacterStatus()");
+
             if (World.Player == null)
             {
                 return;
@@ -381,6 +387,11 @@ namespace ClassicUO.Network
             }
 
             string oldName = entity.Name;
+            //Console.WriteLine("oldName: {0}", oldName);
+            //Console.WriteLine("entity.HitsRequest: {0}", entity.HitsRequest);
+            //Console.WriteLine("HitsRequestStatus.Pending: {0}", HitsRequestStatus.Pending);
+            //Console.WriteLine("HitsRequestStatus.Received: {0}\n", HitsRequestStatus.Received);
+
             entity.Name = p.ReadASCII(30);
             entity.Hits = p.ReadUInt16BE();
             entity.HitsMax = p.ReadUInt16BE();
@@ -3413,12 +3424,15 @@ namespace ClassicUO.Network
 
         private static void AttackCharacter(ref StackDataReader p)
         {
+            //Console.WriteLine("AttackCharacter()");
+
             uint serial = p.ReadUInt32BE();
+            //Entity ent = World.Get(serial);
+
+            //Console.WriteLine("ent.Name: {0}", ent.Name);
 
             //if (TargetManager.LastAttack != serial && World.InGame)
             //{
-
-
 
             //}
 

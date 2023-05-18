@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using ClassicUO.Configuration;
 using ClassicUO.Data;
@@ -91,6 +92,8 @@ namespace ClassicUO.Game.UI.Controls
 
         public void SetFakeItem(bool value)
         {
+            //Console.WriteLine("SetFakeItem");
+
             _updateUI = HasFakeItem && !value || !HasFakeItem && value;
             HasFakeItem = value;
         }
@@ -179,6 +182,8 @@ namespace ClassicUO.Game.UI.Controls
             // equipment
             Item equipItem = mobile.FindItemByLayer(Layer.Cloak);
             Item arms = mobile.FindItemByLayer(Layer.Arms);
+
+            Console.WriteLine("equipItem: {0}, arms: {1}", equipItem, arms);
 
             bool switch_arms_with_torso = false;
 

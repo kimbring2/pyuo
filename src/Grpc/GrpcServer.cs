@@ -20,6 +20,7 @@ using ClassicUO.Game.GameObjects;
 using ClassicUO.Game.Managers;
 using ClassicUO.Game.Scenes;
 using ClassicUO.Game.UI.Gumps;
+using ClassicUO.Game.UI.Controls;
 using ClassicUO.Input;
 using ClassicUO.IO.Resources;
 using ClassicUO.Network;
@@ -27,6 +28,7 @@ using ClassicUO.Renderer;
 using ClassicUO.Resources;
 using ClassicUO.Utility;
 using ClassicUO.Utility.Logging;
+
 
 namespace ClassicUO.Grpc
 {
@@ -143,13 +145,51 @@ namespace ClassicUO.Grpc
             foreach (Item item in World.Items.Values)
             {
             	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
-            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-            																		 item.Amount, item.Serial);
-            	//grpcItemDataList.Add(new GrpcItemData{ Name = "test", 
-	            //									   Layer = (uint) item.Layer,
-	            //  									   Serial = (uint) item.Serial,
-	            //									   Amount = (uint) item.Amount });
+            	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+            	//																	 item.Amount, item.Serial);
+            	grpcItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", 
+	            									   Layer = (uint) item.Layer,
+	              									   Serial = (uint) item.Serial,
+	            									   Amount = (uint) item.Amount });
+
+
             }
+
+            Layer[] _layerOrder =
+	        {
+	            Layer.Cloak, Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Arms, Layer.Torso, Layer.Tunic,
+	            Layer.Ring, Layer.Bracelet, Layer.Face, Layer.Gloves, Layer.Skirt, Layer.Robe, Layer.Waist, Layer.Necklace,
+	            Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
+	        };
+
+            Layer[] _layerOrder_quiver_fix =
+	        {
+	            Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Arms, Layer.Torso, Layer.Tunic,
+	            Layer.Ring, Layer.Bracelet, Layer.Face, Layer.Gloves, Layer.Skirt, Layer.Robe, Layer.Cloak, Layer.Waist,
+	            Layer.Necklace,
+	            Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
+	        };
+
+	        if (World.Player != null) {
+	        	Item equipItem = World.Player.FindItemByLayer(Layer.Cloak);
+	        	Item arms = World.Player.FindItemByLayer(Layer.Arms);
+
+	        	//UIManager.GetGump<PaperDollGump>(World.Player.Serial).GetEquipmentSlot();
+	        	//PaperdollGump.GetEquipmentSlot();
+	        	//Console.WriteLine("equipItem: {0}, arms: {1}", equipItem, arms);
+
+	        	foreach (Layer layer in _layerOrder) {
+		            equipItem = World.Player.FindItemByLayer(layer);
+		            try {
+		            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", equipItem.Name, equipItem.Layer, 
+	            																			 equipItem.Amount, equipItem.Serial);
+		            }
+		            catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to load the equipped item: " + ex.Message);
+		            }
+		        }
+	        }
 
             /*
             try

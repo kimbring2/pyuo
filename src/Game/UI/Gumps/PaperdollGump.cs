@@ -62,7 +62,7 @@ namespace ClassicUO.Game.UI.Gumps
         private HitBox _hitBox;
         private bool _isWarMode, _isMinimized;
 
-        private PaperDollInteractable _paperDollInteractable;
+        public PaperDollInteractable _paperDollInteractable;
         private GumpPic _partyManifestPic;
 
         private GumpPic _picBase;
@@ -106,6 +106,15 @@ namespace ClassicUO.Game.UI.Gumps
                     _picBase.IsVisible = true;
                     WantUpdateSize = true;
                 }
+            }
+        }
+
+        public void GetEquipmentSlot()
+        {
+            foreach (EquipmentSlot slot in _slots)
+            {
+                // Name: Valorite Longsword, Amount: 1, Serial: 1073933224
+                Console.WriteLine("slot.LocalSerial: {0}", slot.LocalSerial);
             }
         }
 

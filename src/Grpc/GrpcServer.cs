@@ -39,6 +39,13 @@ namespace ClassicUO.Grpc
         Server _grpcServer;
         Channel _grpcChannel;
 
+        Layer[] _layerOrder =
+        {
+            Layer.Cloak, Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Arms, Layer.Torso, Layer.Tunic,
+            Layer.Ring, Layer.Bracelet, Layer.Face, Layer.Gloves, Layer.Skirt, Layer.Robe, Layer.Waist, Layer.Necklace,
+            Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
+        };
+
         public UoServiceImpl(GameController controller, int port)
         {
             _controller = controller;
@@ -133,7 +140,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-            	Console.WriteLine("Failed to load the mobile: " + ex.Message);
+            	//Console.WriteLine("Failed to load the mobile: " + ex.Message);
             	grpcMobileDataList.Add(new GrpcMobileData{ Name = "base", 
 	                									   X = (float) 500.0, 
 	                									   Y = (float) 500.0,
@@ -141,76 +148,40 @@ namespace ClassicUO.Grpc
 	                									   Serial = (uint) 1234 });
             }
 
-            List<GrpcItemData> grpcItemDataList = new List<GrpcItemData>();
+            List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
             foreach (Item item in World.Items.Values)
             {
             	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
             	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-            	//																	 item.Amount, item.Serial);
-            	grpcItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", 
-	            									   Layer = (uint) item.Layer,
-	              									   Serial = (uint) item.Serial,
-	            									   Amount = (uint) item.Amount });
+            	//																	   item.Amount, item.Serial);
+            	worldItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", 
+	            									    Layer = (uint) item.Layer,
+	              									    Serial = (uint) item.Serial,
+	            									    Amount = (uint) item.Amount });
 
 
             }
 
-            Layer[] _layerOrder =
+            List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
+	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
-	            Layer.Cloak, Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Arms, Layer.Torso, Layer.Tunic,
-	            Layer.Ring, Layer.Bracelet, Layer.Face, Layer.Gloves, Layer.Skirt, Layer.Robe, Layer.Waist, Layer.Necklace,
-	            Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
-	        };
-
-            Layer[] _layerOrder_quiver_fix =
-	        {
-	            Layer.Shirt, Layer.Pants, Layer.Shoes, Layer.Legs, Layer.Arms, Layer.Torso, Layer.Tunic,
-	            Layer.Ring, Layer.Bracelet, Layer.Face, Layer.Gloves, Layer.Skirt, Layer.Robe, Layer.Cloak, Layer.Waist,
-	            Layer.Necklace,
-	            Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
-	        };
-
-	        if (World.Player != null) {
-	        	Item equipItem = World.Player.FindItemByLayer(Layer.Cloak);
-	        	Item arms = World.Player.FindItemByLayer(Layer.Arms);
-
-	        	//UIManager.GetGump<PaperDollGump>(World.Player.Serial).GetEquipmentSlot();
-	        	//PaperdollGump.GetEquipmentSlot();
-	        	//Console.WriteLine("equipItem: {0}, arms: {1}", equipItem, arms);
-
 	        	foreach (Layer layer in _layerOrder) {
-		            equipItem = World.Player.FindItemByLayer(layer);
-		            try {
-		            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", equipItem.Name, equipItem.Layer, 
-	            																			 equipItem.Amount, equipItem.Serial);
-		            }
+	        		Item item = World.Player.FindItemByLayer(layer);
+
+	        		try 
+	        		{
+	            		equippedItemDataList.Add(new GrpcItemData{ Name = item.Name, 
+		            									   	       Layer = (uint) item.Layer,
+		              									           Serial = (uint) item.Serial,
+		            									           Amount = (uint) item.Amount });
+	            	}
 		            catch (Exception ex)
 		            {
-		            	Console.WriteLine("Failed to load the equipped item: " + ex.Message);
+		            	//Console.WriteLine("Failed to load the equipped item: " + ex.Message);
+		            	;
 		            }
 		        }
 	        }
-
-            /*
-            try
-            {
-	            foreach (Item item in World.Items.Values)
-	            {
-	            	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
-	            	Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-	            																		 item.Amount, item.Serial);
-	            	//Thread.Sleep(100);
-	            	//grpcItemDataList.Add(new GrpcItemData{ Name = item.Name, 
-	                //									   Layer = (uint) item.Layer,
-	                //									   Serial = (uint) item.Serial,
-	                //									   Amount = (uint) item.Amount });
-	            }
-	        }
-	        catch (Exception ex)
-            {
-            	Console.WriteLine("Failed to load the item: " + ex.Message);
-            }
-            */
 
             States states = new States();
 
@@ -218,9 +189,13 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
-            GrpcItemList grpcItemList = new GrpcItemList();
-            grpcItemList.Item.AddRange(grpcItemDataList);
-            states.ItemList = grpcItemList;
+            GrpcItemList worldItemList = new GrpcItemList();
+            worldItemList.Item.AddRange(worldItemDataList);
+            states.WorldItemList = worldItemList;
+
+            GrpcItemList equippedItemList = new GrpcItemList();
+            equippedItemList.Item.AddRange(equippedItemDataList);
+            states.EquippedItemList = equippedItemList;
 
             //Console.WriteLine("Name: {0}, Race: {1}", mob.Name, mob.Race);
             states.Rewards = new Rewards { AttackMonster = _controller.attackMonsterReward,
@@ -237,6 +212,7 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("actions.WalkDirection.Direction: {0}", actions.WalkDirection.Direction);
 
             _controller.action_1 = actions.ActionType;
+
 
             if (actions.ActionType == 1) {
             	if (World.InGame == true) {
@@ -261,7 +237,8 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
-        			
+        			Console.WriteLine("actions.ActionType == 3");
+        			GameActions.PickUp(actions.ItemSerial, 0, 0);
 	        	}
 	        }
 

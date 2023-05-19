@@ -55,6 +55,7 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcItemDropableLandList = new List<GrpcGameObjectData>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -69,28 +70,48 @@ namespace ClassicUO.Grpc
 	        };
         }
 
-        public void AddGameObject(string type, uint x, uint y, uint distance)
+        public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y)
         {
-        	if (type == "Land") {
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
-        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
-        	}
-        	else if (type == "PlayerMobile") {
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
-        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
-        	}
-        	else if (type == "Item") {
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
-        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
-        	}
-        	else if (type == "Static") {
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
-        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
-        	}
-        	else if (type == "Mobile") {
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
-        		grpcMobileObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
-        	}
+        	try 
+        	{
+	        	if (type == "Land") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        													   Distance = distance, GameX = game_x, GameY = game_y });
+
+	        		bool can_drop = distance <= Constants.DRAG_ITEMS_DISTANCE;
+	        		if (can_drop)
+                	{
+	        			//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, game_x, game_y, distance);
+	        			grpcItemDropableLandList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        															     Distance = distance, GameX = game_x, GameY = game_y });
+	        		}
+	        	}
+	        	else if (type == "PlayerMobile") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+	        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        															   Distance = distance, GameX = game_x, GameY = game_y });
+	        	}
+	        	else if (type == "Item") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        													   Distance = distance, GameX = game_x, GameY = game_y });
+	        	}
+	        	else if (type == "Static") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+	        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        														 Distance = distance, GameX = game_x, GameY = game_y });
+	        	}
+	        	else if (type == "Mobile") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+	        		grpcMobileObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
+	        														 Distance = distance, GameX = game_x, GameY = game_y });
+	        	}
+	        }
+	        catch (Exception ex)
+            {
+                Console.WriteLine("Failed to add the object: " + ex.Message);
+            }
         }
 
         public void Start() 
@@ -280,24 +301,21 @@ namespace ClassicUO.Grpc
 	            GrpcGameObjectList staticObjectList = new GrpcGameObjectList();
 	            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
 	            GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
-
-	            //public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
-		        //public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
-		        //public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
-		        //public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
-		        //public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
+	            GrpcGameObjectList itemDropableLandObjectList = new GrpcGameObjectList();
 
 	            landObjectList.GameObject.AddRange(grpcLandObjectList);
 	            playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
 	            staticObjectList.GameObject.AddRange(grpcStaticObjectList);
 	            itemObjectList.GameObject.AddRange(grpcItemObjectList);
 	            mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
+	            itemDropableLandObjectList.GameObject.AddRange(grpcItemDropableLandList);
 
 	            states.LandObjectList = landObjectList;
 	            states.PlayerMobileObjectList = playerMobileObjectList;
 	            states.StaticObjectList = staticObjectList;
 	            states.MobileObjectList = mobileObjectList;
 	            states.ItemObjectList = itemObjectList;
+	            states.ItemDropableLandList = itemDropableLandObjectList;
 	        }
 	        catch (Exception ex)
             {
@@ -339,6 +357,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
+	        		//Console.WriteLine("actions.ActionType == 3");
         			GameActions.PickUp(actions.ItemSerial, 0, 0);
         			//Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
         			//GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
@@ -352,14 +371,21 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 5) {
 	        	if (World.Player != null) {
-	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
+	        		//Console.WriteLine("actions.ActionType == 5");
+	        		int randomNumber;
+					Random RNG = new Random();
 
-	        		Chunk land_chunk = World.Map.GetChunk(World.Player.X, World.Player.Y);
-	        		//Console.WriteLine("land_chunk: {0}", land_chunk);
-
-	        		GameObject land_obj = land_chunk.Tiles[0, 0];
-	        		//Console.WriteLine("land_obj: {0}, land_obj.Distance: {1}", land_obj, land_obj.Distance);
-        			//GameActions.DropItem(actions.ItemSerial, World.Player.X - 200,  World.Player.Y + 200, 0, backpack.Serial);
+	        		int index = RNG.Next(grpcItemDropableLandList.Count);
+	        		try
+	        		{
+	        			GrpcGameObjectData selected = grpcItemDropableLandList[index];
+	        			//Console.WriteLine("GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
+	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
+	        		}
+	        		catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to selected the item dropableLand land: " + ex.Message);
+		            }
 	        	}
 	        } 
 	        else if (actions.ActionType == 6) {

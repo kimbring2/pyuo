@@ -539,11 +539,10 @@ namespace ClassicUO.Game
         {
             //World.Get(LocalSerial);
 
-            Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
-            Console.WriteLine("SerialHelper.IsValid(container): {0}", SerialHelper.IsValid(container));
-
-            Item item = World.Items.Get(container);
-            Console.WriteLine("container: {0}, item: {1}\n", container, item);
+            //Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
+            //Console.WriteLine("SerialHelper.IsValid(container): {0}", SerialHelper.IsValid(container));
+            //Item item = World.Items.Get(container);
+            //Console.WriteLine("container: {0}, item: {1}\n", container, item);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {
@@ -572,7 +571,7 @@ namespace ClassicUO.Game
 
         public static void Equip(uint container = 0)
         {
-            Console.WriteLine("Equip(), container: {0}", container);
+            //Console.WriteLine("Equip(), container: {0}", container);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && ItemHold.ItemData.IsWearable)
             {

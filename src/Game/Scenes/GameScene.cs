@@ -1096,14 +1096,10 @@ namespace ClassicUO.Game.Scenes
         {
             int done = 0;
 
-            if (!(obj is Land))
-            {
-                Console.WriteLine("obj: {0}, count: {1}", obj, count);
-            }
-
             if (obj is Land) 
             {
                 Client.Game._uoServiceImpl.grpcLandObjectList.Clear();
+                Client.Game._uoServiceImpl.grpcItemDropableLandList.Clear();
             } 
             else if (obj is PlayerMobile) 
             {
@@ -1135,32 +1131,31 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (obj is Land) 
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                        //Console.WriteLine("obj.Serial: {0});    
+                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     }
                     else if (obj is PlayerMobile) 
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                        Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     } 
                     else if (obj is Item)
                     {
                         //Console.WriteLine("obj 2: {0}, count: {1}", obj, count);     
-                        Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                        Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     }
                     else if (obj is Mobile)
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     }
                     else if (obj is Static)
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                        Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     }
                 }
 
                 if (obj.Z <= _maxGroundZ)
                 {
                     float depth = obj.CalculateDepthZ();
-
-                    //Console.WriteLine("DrawRenderList()");
                     if (obj.Draw(batcher, obj.RealScreenPosition.X, obj.RealScreenPosition.Y, depth))
                     {
                         ++done;

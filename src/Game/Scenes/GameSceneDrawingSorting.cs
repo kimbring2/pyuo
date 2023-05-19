@@ -76,6 +76,10 @@ namespace ClassicUO.Game.Scenes
         private GameObject _renderListStaticsHead, _renderList;
         private int _renderListStaticsCount;
 
+        // items
+        private GameObject _renderListItemsHead, _renderListItems;
+        private int _renderListItemsCount;
+
         // lands
         private GameObject _renderListTransparentObjectsHead, _renderListTransparentObjects;
         private int _renderListTransparentObjectsCount;
@@ -899,6 +903,9 @@ namespace ClassicUO.Game.Scenes
                     {
                     }
 
+                    //private GameObject _renderListItemsHead, _renderListItems;
+                    //private int _renderListItemsCount;
+
                     if (!item.IsCorpse)
                     {
                         CheckIfBehindATree(obj, worldX, worldY, ref itemData);
@@ -910,7 +917,7 @@ namespace ClassicUO.Game.Scenes
                     }
                     else
                     {
-                        PushToRenderList(obj, ref _renderList, ref _renderListStaticsHead, ref _renderListStaticsCount, true);
+                        PushToRenderList(obj, ref _renderListItems, ref _renderListItemsHead, ref _renderListItemsCount, true);
                     }         
                 }
                 else if (obj is GameEffect effect)

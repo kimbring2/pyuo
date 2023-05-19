@@ -86,6 +86,8 @@ namespace ClassicUO.Game.Map
                 int bx = X << 3;
                 int by = Y << 3;
 
+                //Console.WriteLine("bx: {0}, by: {1}", bx, by);
+
                 for (int y = 0; y < 8; ++y)
                 {
                     int pos = y << 3;

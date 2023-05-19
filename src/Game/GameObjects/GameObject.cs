@@ -81,6 +81,8 @@ namespace ClassicUO.Game.GameObjects
                 int fx = World.RangeSize.X;
                 int fy = World.RangeSize.Y;
 
+                //Console.WriteLine("fx: {0}, fy: {1}", fx, fy);
+
                 return Math.Max(Math.Abs(x - fx), Math.Abs(y - fy));
             }
         }
@@ -209,6 +211,8 @@ namespace ClassicUO.Game.GameObjects
             var bounds = ArtLoader.Instance.GetRealArtBounds(Graphic);
 
             p.Y -= bounds.Height >> 1;
+
+            Console.WriteLine("Offset.X: {0}, Offset.Y: {1}", Offset.X, Offset.Y);
 
             p.X += (int) Offset.X + 22;
             p.Y += (int) (Offset.Y - Offset.Z) + 44;

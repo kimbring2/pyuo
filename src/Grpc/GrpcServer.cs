@@ -51,8 +51,10 @@ namespace ClassicUO.Grpc
         };
 
         public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
-        public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -70,7 +72,24 @@ namespace ClassicUO.Grpc
         public void AddGameObject(string type, uint x, uint y, uint distance)
         {
         	if (type == "Land") {
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
         		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
+        	}
+        	else if (type == "PlayerMobile") {
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
+        	}
+        	else if (type == "Item") {
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
+        	}
+        	else if (type == "Static") {
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
+        	}
+        	else if (type == "Mobile") {
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
+        		grpcMobileObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
         	}
         }
 
@@ -254,9 +273,36 @@ namespace ClassicUO.Grpc
 
             states.PlayerStatus = playerStatus;
 
-            GrpcLandObjectList landObjectList = new GrpcLandObjectList();
-            landObjectList.LandObject.AddRange(grpcLandObjectList);
-            states.LandObjectList = landObjectList;
+            try
+            {
+	            GrpcGameObjectList landObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectList playerMobileObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectList staticObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
+
+	            //public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
+		        //public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
+		        //public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
+		        //public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
+		        //public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
+
+	            landObjectList.GameObject.AddRange(grpcLandObjectList);
+	            playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
+	            staticObjectList.GameObject.AddRange(grpcStaticObjectList);
+	            itemObjectList.GameObject.AddRange(grpcItemObjectList);
+	            mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
+
+	            states.LandObjectList = landObjectList;
+	            states.PlayerMobileObjectList = playerMobileObjectList;
+	            states.StaticObjectList = staticObjectList;
+	            states.MobileObjectList = mobileObjectList;
+	            states.ItemObjectList = itemObjectList;
+	        }
+	        catch (Exception ex)
+            {
+            	Console.WriteLine("Failed to load the land object list: " + ex.Message);
+            }
 
             return Task.FromResult(states);
         }
@@ -323,10 +369,6 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 
-	        grpcLandObjectList.Clear();
-	        grpcStaticObjectList.Clear();
-	        grpcMobileObjectList.Clear();
-  
             return Task.FromResult(new Empty {});
         }
 

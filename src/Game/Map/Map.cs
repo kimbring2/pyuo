@@ -61,7 +61,7 @@ namespace ClassicUO.Game.Map
                 }
             }
 
-            //Console.WriteLine("maxX: {0}, maxX: {1}", maxX, maxY);
+            //Console.WriteLine("maxX: {0}, maxY: {1}", maxX, maxY);
 
             _terrainChunks = new Chunk[maxX * maxY];
         }

@@ -557,6 +557,10 @@ namespace ClassicUO.Game.Scenes
             _renderList = null;
             _renderListStaticsCount = 0;
 
+            _renderListItemsHead = null;
+            _renderListItems = null;
+            _renderListItemsCount = 0;
+
             _renderListTransparentObjectsHead = null;
             _renderListTransparentObjects = null;
             _renderListTransparentObjectsCount = 0;
@@ -612,6 +616,9 @@ namespace ClassicUO.Game.Scenes
             int minY = _minTile.Y;
             int maxX = _maxTile.X;
             int maxY = _maxTile.Y;
+
+            //Console.WriteLine("minX: {0}, minY: {1}, maxX: {2}, maxY: {3}", minX, minY, maxX, maxY);
+
             Map.Map map = World.Map;
             bool use_handles = _useObjectHandles;
             int maxCotZ = World.Player.Z + 5;
@@ -1054,6 +1061,7 @@ namespace ClassicUO.Game.Scenes
             RenderedObjectsCount = 0;
             RenderedObjectsCount += DrawRenderList(batcher, _renderListStaticsHead, _renderListStaticsCount);
             RenderedObjectsCount += DrawRenderList(batcher, _renderListAnimationsHead, _renderListAnimationCount);
+            RenderedObjectsCount += DrawRenderList(batcher, _renderListItemsHead, _renderListItemsCount);
          
             if (_renderListTransparentObjectsCount > 0)
             {
@@ -1088,30 +1096,64 @@ namespace ClassicUO.Game.Scenes
         {
             int done = 0;
 
-            //Console.WriteLine("obj: {0}", obj);
+            if (!(obj is Land))
+            {
+                Console.WriteLine("obj: {0}, count: {1}", obj, count);
+            }
+
+            if (obj is Land) 
+            {
+                Client.Game._uoServiceImpl.grpcLandObjectList.Clear();
+            } 
+            else if (obj is PlayerMobile) 
+            {
+                Client.Game._uoServiceImpl.grpcPlayerMobileObjectList.Clear();
+                Client.Game._uoServiceImpl.grpcMobileObjectList.Clear();
+                Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
+            } 
+            else if (obj is Static) 
+            {
+                Client.Game._uoServiceImpl.grpcStaticObjectList.Clear();
+                //Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
+            }
+            else if (obj is Mobile) 
+            {         
+                //Console.WriteLine("obj: {0}, count: {1}", obj, count);       
+                Client.Game._uoServiceImpl.grpcMobileObjectList.Clear();
+            }
+            else if (obj is Item) 
+            {
+                //Console.WriteLine("obj 1: {0}, count: {1}", obj, count);     
+                Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
+            }
+
             for (int i = 0; i < count; obj = obj.RenderListNext, ++i)
             {
                 Vector2 objPos = obj.GetScreenPosition();
-                if (obj is Land) {
-                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
 
-                    if ( (objPos.X > 0) && (objPos.Y > 0) ) {
-                        /*
-                        Client.Game._uoServiceImpl.grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = "Land", 
-                                                                            X = (uint) objPos.X,
-                                                                            Y = (uint) objPos.Y,
-                                                                            Distance = (uint) obj.Distance });
-                        */
-
+                if ( (objPos.X > 0) && (objPos.Y > 0) )
+                {
+                    if (obj is Land) 
+                    {
                         Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
                     }
-                }
-                else if (obj is Static) {
-                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
-                } 
-                else
-                {
-                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
+                    else if (obj is PlayerMobile) 
+                    {
+                        Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                    } 
+                    else if (obj is Item)
+                    {
+                        //Console.WriteLine("obj 2: {0}, count: {1}", obj, count);     
+                        Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                    }
+                    else if (obj is Mobile)
+                    {
+                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                    }
+                    else if (obj is Static)
+                    {
+                        Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                    }
                 }
 
                 if (obj.Z <= _maxGroundZ)

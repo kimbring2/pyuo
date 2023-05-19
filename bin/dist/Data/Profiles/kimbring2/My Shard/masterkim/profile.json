@@ -82,8 +82,8 @@
 	"hold_shift_for_context" : false,
 	"hold_shift_to_split_stack" : false,
 	"window_client_bounds" : {
-		"X" : 1740,
-		"Y" : 1368
+		"X" : 1600,
+		"Y" : 1280
 	},
 	"container_default_position" : {
 		"X" : 24,

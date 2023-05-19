@@ -33,6 +33,7 @@
 using System;
 using System.Linq;
 using ClassicUO.Configuration;
+using ClassicUO.Game.Map;
 using ClassicUO.Game.Data;
 using ClassicUO.Game.GameObjects;
 using ClassicUO.Game.Managers;
@@ -375,6 +376,8 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseUp()
         {
+            Console.WriteLine("OnLeftMouseUp()");
+
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
@@ -394,8 +397,8 @@ namespace ClassicUO.Game.Scenes
 
             if (_isSelectionActive)
             {
+                //Console.WriteLine("_isSelectionActive()");
                 DoDragSelect();
-
                 return true;
             }
 
@@ -420,11 +423,20 @@ namespace ClassicUO.Game.Scenes
 
             if (UIManager.IsDragging)
             {
+                //Console.WriteLine("UIManager.IsDragging");
+
                 return false;
             }
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition)
             {
+                Console.WriteLine("ItemHold.Enabled && !ItemHold.IsFixedPosition");
+                Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
+                Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
+
+                Vector2 playerPos = World.Player.GetScreenPosition();
+                Console.WriteLine("playerPos.X: {0}, playerPos.Y: {1}", playerPos.X, playerPos.Y);
+
                 uint drop_container = 0xFFFF_FFFF;
                 bool can_drop = false;
                 ushort dropX = 0;
@@ -432,8 +444,12 @@ namespace ClassicUO.Game.Scenes
                 sbyte dropZ = 0;
 
                 GameObject gobj = SelectedObject.LastObject as GameObject;
+                //Console.WriteLine("gobj: {0}, gobj.Distance: {1}", gobj, gobj.Distance);
+
                 if (gobj is Entity obj)
                 {
+                    //Console.WriteLine("if (gobj is Entity obj)");
+
                     can_drop = obj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
 
                     if (can_drop)
@@ -468,6 +484,8 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
+                    //Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
+
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
 
                     if (can_drop)
@@ -498,6 +516,8 @@ namespace ClassicUO.Game.Scenes
 
                 if (can_drop)
                 {
+                    //Console.WriteLine("can_drop");
+
                     if (drop_container == 0xFFFF_FFFF && dropX == 0 && dropY == 0)
                     {
                         can_drop = false;
@@ -505,6 +525,9 @@ namespace ClassicUO.Game.Scenes
 
                     if (can_drop)
                     {
+                        //Console.WriteLine("dropX: {0}, dropY: {1}, dropZ: {2}, drop_container: {3}", 
+                        //                   dropX, dropY, dropZ, drop_container);
+
                         GameActions.DropItem
                         (
                             ItemHold.Serial,
@@ -727,7 +750,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            Console.WriteLine("OnLeftMouseDoubleClick()");
+            //Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 

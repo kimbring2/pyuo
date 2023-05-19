@@ -47,6 +47,7 @@ using ClassicUO.Renderer;
 using ClassicUO.Resources;
 using ClassicUO.Utility;
 using ClassicUO.Utility.Logging;
+using ClassicUO.Utility.Logging;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SDL2;
@@ -550,6 +551,8 @@ namespace ClassicUO.Game.Scenes
 
         private void FillGameObjectList()
         {
+            //Console.WriteLine("\nFillGameObjectList()");
+
             _renderListStaticsHead = null;
             _renderList = null;
             _renderListStaticsCount = 0;
@@ -638,6 +641,15 @@ namespace ClassicUO.Game.Scenes
 
                     while (x >= minX && x <= maxX && y >= minY && y <= maxY)
                     {
+                        //GameObject tile = map.GetTile(x, y);
+                        //if (!(tile is Land)) {
+                        //    Console.WriteLine("x: {0}, y: {1}", x, y);
+                        //    Console.WriteLine("tile: {0}, tile.Distance: {1}", tile, tile.Distance);
+                        //}
+                        //if (!(SelectedObject.LastObject is Land)) {
+                        //    Console.WriteLine("SelectedObject.LastObject: {0}\n", SelectedObject.LastObject);
+                        //}
+
                         AddTileToRenderList
                         (
                             map.GetTile(x, y),
@@ -1076,10 +1088,31 @@ namespace ClassicUO.Game.Scenes
         {
             int done = 0;
 
+            //Console.WriteLine("obj: {0}", obj);
             for (int i = 0; i < count; obj = obj.RenderListNext, ++i)
             {
-                //Console.WriteLine("obj: ");
-                //Console.WriteLine(obj);
+                Vector2 objPos = obj.GetScreenPosition();
+                if (obj is Land) {
+                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
+
+                    if ( (objPos.X > 0) && (objPos.Y > 0) ) {
+                        /*
+                        Client.Game._uoServiceImpl.grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = "Land", 
+                                                                            X = (uint) objPos.X,
+                                                                            Y = (uint) objPos.Y,
+                                                                            Distance = (uint) obj.Distance });
+                        */
+
+                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance);
+                    }
+                }
+                else if (obj is Static) {
+                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
+                } 
+                else
+                {
+                    //Console.WriteLine("obj: {0}, objPos.X: {1}, objPos.Y: {2}", obj, objPos.X, objPos.Y);
+                }
 
                 if (obj.Z <= _maxGroundZ)
                 {
@@ -1176,6 +1209,7 @@ namespace ClassicUO.Game.Scenes
             World.WorldTextManager.ProcessWorldText(true);
             World.WorldTextManager.Draw(batcher, x, y, renderIndex);
 
+            //Console.WriteLine("SelectedObject.Object: {0}\n", SelectedObject.Object);
             SelectedObject.LastObject = SelectedObject.Object;
         }
 

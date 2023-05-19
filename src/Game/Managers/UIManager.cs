@@ -170,7 +170,7 @@ namespace ClassicUO.Game.Managers
                     }
                 }
 
-                Console.WriteLine("MouseOverControl: {0}", MouseOverControl);
+                //Console.WriteLine("MouseOverControl: {0}", MouseOverControl);
 
                 MakeTopMostGump(MouseOverControl);
                 MouseOverControl.InvokeMouseDown(Mouse.Position, button);

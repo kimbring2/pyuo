@@ -61,6 +61,8 @@ namespace ClassicUO.Game.Map
                 }
             }
 
+            //Console.WriteLine("maxX: {0}, maxX: {1}", maxX, maxY);
+
             _terrainChunks = new Chunk[maxX * maxY];
         }
 
@@ -101,7 +103,6 @@ namespace ClassicUO.Game.Map
             }
 
             ref Chunk chunk = ref _terrainChunks[block];
-
             if (chunk == null)
             {
                 if (!load)
@@ -111,6 +112,7 @@ namespace ClassicUO.Game.Map
 
                 LinkedListNode<int> node = _usedIndices.AddLast(block);
                 chunk = Chunk.Create(cellX, cellY);
+
                 chunk.Load(Index);
                 chunk.Node = node;
             }
@@ -280,7 +282,6 @@ namespace ClassicUO.Game.Map
                 yield return GetChunk(i);
             }
         }
-
 
         public void ClearUnusedBlocks()
         {

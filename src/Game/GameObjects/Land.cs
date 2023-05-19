@@ -61,7 +61,6 @@ namespace ClassicUO.Game.GameObjects
 
         public sbyte MinZ;
 
-
         public Vector3 NormalTop, NormalRight, NormalLeft, NormalBottom;
         public ushort OriginalGraphic;
         public UltimaBatcher2D.YOffsets YOffsets;
@@ -157,7 +156,6 @@ namespace ClassicUO.Game.GameObjects
 
             MinZ = Math.Min(zTop, Math.Min(zRight, Math.Min(zLeft, zBottom)));
 
-
             /*  _____ _____ _____ _____
              * |     | t10 | t20 |     |
              * |_____|_____|_____|_____|
@@ -180,7 +178,6 @@ namespace ClassicUO.Game.GameObjects
             sbyte t13 = map.GetTileZ(x, y + 2);
             sbyte t23 = map.GetTileZ(x + 1, y + 2);
 
-
             IsStretched |= CalculateNormal(z, t10, t21, t12, t01, out NormalTop);
             IsStretched |= CalculateNormal(t21, t20, t31, t22, z, out NormalRight);
             IsStretched |= CalculateNormal(t22, t21, t32, t23, t12, out NormalBottom);
@@ -201,7 +198,6 @@ namespace ClassicUO.Game.GameObjects
             Vector3 u = new Vector3();
             Vector3 v = new Vector3();
             Vector3 ret = new Vector3();
-
 
             // ========================== 
             u.X = -22;

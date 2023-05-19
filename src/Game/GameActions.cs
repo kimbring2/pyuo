@@ -471,7 +471,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            Console.WriteLine("PickUp()");
+            //Console.WriteLine("PickUp(), x:{0}, y:{1}", x, y);
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {
@@ -479,7 +479,7 @@ namespace ClassicUO.Game
             }
 
             Item item = World.Items.Get(serial);
-            Console.WriteLine("serial: {0}, item: {1}", serial, item);
+            //Console.WriteLine("serial: {0}, item: {1}\n", serial, item);
 
             if (item == null || item.IsDestroyed || item.IsMulti || item.OnGround && (item.IsLocked || item.Distance > Constants.DRAG_ITEMS_DISTANCE))
             {
@@ -491,7 +491,7 @@ namespace ClassicUO.Game
                 if (ProfileManager.CurrentProfile.HoldShiftToSplitStack == Keyboard.Shift)
                 {
                     SplitMenuGump gump = UIManager.GetGump<SplitMenuGump>(item);
-                    Console.WriteLine("gump: {0}", gump);
+                    //Console.WriteLine("gump: {0}", gump);
 
                     if (gump != null)
                     {
@@ -537,9 +537,13 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //Console.WriteLine("DropItem()");
-            //Console.WriteLine("serial: ");
-            //Console.WriteLine(serial);
+            //World.Get(LocalSerial);
+
+            Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
+            Console.WriteLine("SerialHelper.IsValid(container): {0}", SerialHelper.IsValid(container));
+
+            Item item = World.Items.Get(container);
+            Console.WriteLine("container: {0}, item: {1}\n", container, item);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {
@@ -568,6 +572,8 @@ namespace ClassicUO.Game
 
         public static void Equip(uint container = 0)
         {
+            Console.WriteLine("Equip(), container: {0}", container);
+
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && ItemHold.ItemData.IsWearable)
             {
                 if (!SerialHelper.IsValid(container))

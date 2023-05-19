@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using ClassicUO.Game.GameObjects;
@@ -56,10 +57,8 @@ namespace ClassicUO.Game.Map
         public long LastAccessTime;
         public LinkedListNode<int> Node;
 
-
         public int X;
         public int Y;
-
 
         public static Chunk Create(int x, int y)
         {
@@ -70,9 +69,10 @@ namespace ClassicUO.Game.Map
             return c;
         }
 
-
         public unsafe void Load(int index)
         {
+            //Console.WriteLine("Chunk load()");
+
             IsDestroyed = false;
 
             Map map = World.Map;
@@ -106,6 +106,8 @@ namespace ClassicUO.Game.Map
                         land.Y = tileY;
                         land.Z = z;
                         land.UpdateScreenPosition();
+
+                        //Console.WriteLine("land: {0}, x: {1}, y: {2}, Distance: {3}", land, x, y, land.Distance);
 
                         AddGameObject(land, x, y);
                     }
@@ -175,7 +177,6 @@ namespace ClassicUO.Game.Map
             switch (obj)
             {
                 case Land tile:
-
                     if (tile.IsStretched)
                     {
                         priorityZ = (short) (tile.AverageZ - 1);
@@ -197,7 +198,6 @@ namespace ClassicUO.Game.Map
                     break;
 
                 case Item item:
-
                     if (item.IsCorpse)
                     {
                         priorityZ++;
@@ -217,7 +217,6 @@ namespace ClassicUO.Game.Map
                     break;
 
                 case Multi m:
-
                     state = 1;
 
                     if ((m.State & CUSTOM_HOUSE_MULTI_OBJECT_FLAGS.CHMOF_GENERIC_INTERNAL) != 0)
@@ -281,9 +280,7 @@ namespace ClassicUO.Game.Map
                 return;
             }
 
-
             GameObject o = Tiles[x, y];
-
             if (o == obj)
             {
                 if (o.Previous != null)

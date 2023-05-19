@@ -72,7 +72,6 @@ namespace ClassicUO.Game.Scenes
         private int _renderIndex = 1;
         private int _foliageCount;
       
-
         // statics
         private GameObject _renderListStaticsHead, _renderList;
         private int _renderListStaticsCount;
@@ -85,13 +84,16 @@ namespace ClassicUO.Game.Scenes
         private GameObject _renderListAnimationsHead, _renderListAnimations;
         private int _renderListAnimationCount;
 
-
-
-
-
         public Point ScreenOffset => _offset;
         public sbyte FoliageIndex { get; private set; }
 
+        public GameObject GetRenderListStaticsHead() {
+            return _renderListStaticsHead;
+        }
+
+        public int GetRenderListStaticsCount() {
+            return _renderListStaticsCount;
+        }
 
         public void UpdateMaxDrawZ(bool force = false)
         {
@@ -151,7 +153,6 @@ namespace ClassicUO.Game.Scenes
                     {
                         continue;
                     }
-
 
                     //if (obj is Item it && !it.ItemData.IsRoof || !(obj is Static) && !(obj is Multi))
                     //    continue;
@@ -1070,11 +1071,9 @@ namespace ClassicUO.Game.Scenes
             int maxPixelsX = p.X;
             int maxPixelsY = p.Y;
 
-
             if (UpdateDrawPosition || oldDrawOffsetX != winDrawOffsetX || oldDrawOffsetY != winDrawOffsetY || old_scaled_offset.X != winGameScaledOffsetX || old_scaled_offset.Y != winGameScaledOffsetY)
             {
                 UpdateDrawPosition = true;
-
 
                 if (_use_render_target && (_world_render_target == null || _world_render_target.Width != (int) (winGameWidth * zoom) || _world_render_target.Height != (int) (winGameHeight * zoom)))
                 {

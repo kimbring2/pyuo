@@ -456,7 +456,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void UpdateContents()
         {
-            Console.WriteLine("UpdateContents()");
+            //Console.WriteLine("UpdateContents()");
             
             Clear();
             BuildGump();
@@ -488,7 +488,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ItemsOnAdded()
         {
-            Console.WriteLine("ItemsOnAdded()");
+            //Console.WriteLine("ItemsOnAdded()");
 
             Entity container = World.Get(LocalSerial);
 
@@ -617,7 +617,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void Dispose()
         {
-            Console.WriteLine("Dispose()");
+            //Console.WriteLine("Dispose()");
 
             Item item = World.Items.Get(LocalSerial);
 

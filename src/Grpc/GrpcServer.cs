@@ -22,12 +22,16 @@ using ClassicUO.Game.Scenes;
 using ClassicUO.Game.UI.Gumps;
 using ClassicUO.Game.UI.Controls;
 using ClassicUO.Input;
+using ClassicUO.Game.Map;
 using ClassicUO.IO.Resources;
 using ClassicUO.Network;
 using ClassicUO.Renderer;
 using ClassicUO.Resources;
 using ClassicUO.Utility;
 using ClassicUO.Utility.Logging;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace ClassicUO.Grpc
@@ -46,6 +50,10 @@ namespace ClassicUO.Grpc
             Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
         };
 
+        public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
+
         public UoServiceImpl(GameController controller, int port)
         {
             _controller = controller;
@@ -59,7 +67,15 @@ namespace ClassicUO.Grpc
 	        };
         }
 
-        public void Start() {
+        public void AddGameObject(string type, uint x, uint y, uint distance)
+        {
+        	if (type == "Land") {
+        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, X = x,Y = y, Distance = distance });
+        	}
+        }
+
+        public void Start() 
+        {
         	_grpcServer.Start();
         }
 
@@ -211,7 +227,11 @@ namespace ClassicUO.Grpc
 	        if ((World.Player != null) && (World.InGame == true))
             {
 		        playerStatus = new PlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
-		        								  Intell = (uint) World.Player.Intelligence };
+		        								  Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
+		        								  HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
+		        								  StaminaMax = (uint) World.Player.StaminaMax, Mana = (uint) World.Player.Mana,
+		        								  Gold = (uint) World.Player.Gold, PhysicalResistance = (uint) World.Player.PhysicalResistance,
+		        								  Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
 		    }
 
             States states = new States();
@@ -233,6 +253,10 @@ namespace ClassicUO.Grpc
             states.BackpackItemList = backpackItemList;
 
             states.PlayerStatus = playerStatus;
+
+            GrpcLandObjectList landObjectList = new GrpcLandObjectList();
+            landObjectList.LandObject.AddRange(grpcLandObjectList);
+            states.LandObjectList = landObjectList;
 
             return Task.FromResult(states);
         }
@@ -270,16 +294,38 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
         			GameActions.PickUp(actions.ItemSerial, 0, 0);
-        			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
+        			//Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+        			//GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
 	        }
 	        else if (actions.ActionType == 4) {
 	        	if (World.Player != null) {
-        			GameActions.PickUp(actions.ItemSerial, 0, 0, 1);
+        			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
+	        	}
+	        }
+	        else if (actions.ActionType == 5) {
+	        	if (World.Player != null) {
+	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
+
+	        		Chunk land_chunk = World.Map.GetChunk(World.Player.X, World.Player.Y);
+	        		//Console.WriteLine("land_chunk: {0}", land_chunk);
+
+	        		GameObject land_obj = land_chunk.Tiles[0, 0];
+	        		//Console.WriteLine("land_obj: {0}, land_obj.Distance: {1}", land_obj, land_obj.Distance);
+        			//GameActions.DropItem(actions.ItemSerial, World.Player.X - 200,  World.Player.Y + 200, 0, backpack.Serial);
+	        	}
+	        } 
+	        else if (actions.ActionType == 6) {
+	        	if (World.Player != null) {
+        			//GameActions.PickUp(actions.ItemSerial, 0, 0, 1);
                     GameActions.Equip();
 	        	}
 	        }
+
+	        grpcLandObjectList.Clear();
+	        grpcStaticObjectList.Clear();
+	        grpcMobileObjectList.Clear();
   
             return Task.FromResult(new Empty {});
         }
@@ -287,6 +333,7 @@ namespace ClassicUO.Grpc
         public override Task<Empty> ActSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
+            //Console.WriteLine("Step 1:");
             _controller.sem_action.Release();
 
             return Task.FromResult(new Empty {});
@@ -295,6 +342,7 @@ namespace ClassicUO.Grpc
         public override Task<Empty> ObsSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
+            //Console.WriteLine("Step 3:");
             _controller.sem_observation.WaitOne();
 
             return Task.FromResult(new Empty {});

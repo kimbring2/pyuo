@@ -173,7 +173,6 @@ namespace ClassicUO.IO.Resources
                         }
                     }
 
-
                     Initialize();
 
                     for (int i = 0; i < Constants.MAPS_COUNT; i++)
@@ -229,7 +228,6 @@ namespace ClassicUO.IO.Resources
                     {
                         throw new FileNotFoundException("No maps found.");
                     }
-
 
                     int mapblocksize = sizeof(MapBlock);
 
@@ -380,7 +378,6 @@ namespace ClassicUO.IO.Resources
             BlockData[0][block].OriginalMapAddress = address;
             BlockData[0][block].MapAddress = address;
         }
-
 
         public unsafe void PatchStaticBlock(ulong block, ulong address, uint count)
         {
@@ -592,7 +589,6 @@ namespace ClassicUO.IO.Resources
                 map = 0;
             }
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ref IndexMap GetIndex(int map, int x, int y)

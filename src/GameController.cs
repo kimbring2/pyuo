@@ -79,7 +79,7 @@ namespace ClassicUO
         private UltimaBatcher2D _uoSpriteBatch;
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
-        private UoServiceImpl _uoServiceImpl;
+        public UoServiceImpl _uoServiceImpl;
 
         public bool start_flag = true;
         public int grpc_port;
@@ -435,8 +435,20 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
+            //Console.WriteLine("Step 4:");
+
+            if (World.Player != null) 
+            {
+                //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
+                //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
+                //Console.WriteLine("SelectedObject.LastObject: {0}\n", SelectedObject.LastObject);
+                ;
+            }
+
             sem_physics.WaitOne();
             sem_action.WaitOne();
+
+            //Console.WriteLine("Step 2:");
 
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
@@ -643,7 +655,6 @@ namespace ClassicUO
 
                 scaledRgbaBytes.CopyTo(byteArray, 0);
             }
-            
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)

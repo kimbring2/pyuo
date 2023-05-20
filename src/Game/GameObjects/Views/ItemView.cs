@@ -70,7 +70,6 @@ namespace ClassicUO.Game.GameObjects
                 return DrawCorpse(batcher, posX, posY - 3, hueVec, depth);
             }
 
-
             ushort hue = Hue;
             ushort graphic = DisplayedGraphic;
             bool partial = ItemData.IsPartialHue;
@@ -185,6 +184,8 @@ namespace ClassicUO.Game.GameObjects
 
         private bool DrawCorpse(UltimaBatcher2D batcher, int posX, int posY, Vector3 hueVec, float depth)
         {
+            //Console.WriteLine("World.CorpseManager.Exists(Serial, 0): {0}: ", World.CorpseManager.Exists(Serial, 0));
+
             if (IsDestroyed || World.CorpseManager.Exists(Serial, 0))
             {
                 return false;

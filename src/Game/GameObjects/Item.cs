@@ -203,7 +203,6 @@ namespace ClassicUO.Game.GameObjects
         public bool UsedLayer;
         public bool WantUpdateMulti = true;
 
-
         public static Item Create(uint serial)
         {
             Item i = _pool.GetOne();

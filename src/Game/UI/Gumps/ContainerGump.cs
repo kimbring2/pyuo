@@ -672,6 +672,12 @@ namespace ClassicUO.Game.UI.Gumps
             }
         }
 
+        public void CloseWindow()
+        {
+            Console.WriteLine("CloseWindow()");
+            CloseWithRightClick();
+        }
+
         protected override void OnDragEnd(int x, int y)
         {
             if (ProfileManager.CurrentProfile.OverrideContainerLocation && ProfileManager.CurrentProfile.OverrideContainerLocationSetting >= 2)

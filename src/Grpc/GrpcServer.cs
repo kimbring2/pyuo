@@ -29,6 +29,7 @@ using ClassicUO.Renderer;
 using ClassicUO.Resources;
 using ClassicUO.Utility;
 using ClassicUO.Utility.Logging;
+using static ClassicUO.Network.NetClient;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -386,6 +387,13 @@ namespace ClassicUO.Grpc
 	        			Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
             																		     	 item.Amount, item.Serial);
 	        			GameActions.PickUp(actions.ItemSerial, 0, 0, item.Amount);
+
+	        			//Console.WriteLine("item.Container: {0}", item.Container);
+
+	        			//Entity container = World.Get(item.Container);
+	        			//Console.WriteLine("container: {0}", container);
+
+	        			//UIManager.GetGump<ContainerGump>(actions.ItemSerial).CloseWindow();
 					}
 	        		catch (Exception ex)
 		            {
@@ -428,10 +436,11 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 7");
 
-                    Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
                     try
                     {
-                    	GameActions.OpenCorpse(actions.ItemSerial);
+                    	Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
+                    	//GameActions.OpenCorpse(actions.ItemSerial);
+                    	Socket.Send_DoubleClick(actions.ItemSerial);
 			        }
 			        catch (Exception ex)
 		            {
@@ -443,34 +452,43 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 8) {
 	        	if (World.Player != null) {
                     Console.WriteLine("actions.ActionType == 8");
+                    try {
+                    	UIManager.GetGump<ContainerGump>(actions.ItemSerial).CloseWindow();
+                    }
+                    catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to close the container gump of the corpse: " + ex.Message);
+		            	;
+		            }
+
                     corpseItemDataList.Clear();
 	        	}
 	        }
 	        else if (actions.ActionType == 9) {
 	        	if (World.Player != null) {
-                    Console.WriteLine("actions.ActionType == 9");
-                    Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
+                    //Console.WriteLine("actions.ActionType == 9");
+                    //Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
 
-                    Item item = World.Items.Get(actions.ItemSerial);
-	        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
+	        		try 
+		        	{
+	                    Item item = World.Items.Get(actions.ItemSerial);
+		        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
 
-		            for (LinkedObject i = item.Items; i != null; i = i.Next)
-		            {
-		                Item child = (Item) i;
-		                Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-		                
-		                try 
-		        		{
+			            for (LinkedObject i = item.Items; i != null; i = i.Next)
+			            {
+			                Item child = (Item) i;
+			                Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+			                
 		            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, 
 			            									   	     Layer = (uint) child.Layer,
 			              									         Serial = (uint) child.Serial,
 			            									         Amount = (uint) child.Amount });
-		            	}
-			            catch (Exception ex)
-			            {
-			            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
-			            	;
 			            }
+			        }
+			        catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
+		            	;
 		            }
 	        	}
 	        }

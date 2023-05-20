@@ -1175,6 +1175,8 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
+            Console.WriteLine("OpenContainer()");
+
             if (World.Player == null)
             {
                 return;
@@ -1182,7 +1184,6 @@ namespace ClassicUO.Network
 
             uint serial = p.ReadUInt32BE();
             ushort graphic = p.ReadUInt16BE();
-
 
             if (graphic == 0xFFFF)
             {
@@ -1275,8 +1276,12 @@ namespace ClassicUO.Network
 
                 if (item != null)
                 {
+                    Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
+
                     if (item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2))
                     {
+                        //Console.WriteLine("item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2");
+
                         //UIManager.GetGump<GridLootGump>(serial)?.Dispose();
                         //UIManager.Add(new GridLootGump(serial));
                         _requestedGridLoot = serial;
@@ -1288,6 +1293,8 @@ namespace ClassicUO.Network
                     }
 
                     ContainerGump container = UIManager.GetGump<ContainerGump>(serial);
+                    Console.WriteLine("container: {0}", container);
+
                     bool playsound = false;
                     int x, y;
 
@@ -1372,7 +1379,6 @@ namespace ClassicUO.Network
                         }
                     }
 
-
                     if (container != null)
                     {
                         x = container.ScreenCoordinateX;
@@ -1381,12 +1387,13 @@ namespace ClassicUO.Network
                     }
                     else
                     {
+                        Console.WriteLine("container == null");
+
                         ContainerManager.CalculateContainerPosition(serial, graphic);
                         x = ContainerManager.X;
                         y = ContainerManager.Y;
                         playsound = true;
                     }
-
 
                     UIManager.Add
                     (
@@ -1406,13 +1413,15 @@ namespace ClassicUO.Network
                 }
             }
 
-
             if (graphic != 0x0030)
             {
-                Item it = World.Items.Get(serial);
+                Console.WriteLine("graphic != 0x0030");
 
+                Item it = World.Items.Get(serial);
                 if (it != null)
                 {
+                    Console.WriteLine("it != null");
+
                     it.Opened = true;
 
                     if (!it.IsCorpse && graphic != 0xFFFF)
@@ -3627,6 +3636,8 @@ namespace ClassicUO.Network
 
         private static void OpenGump(ref StackDataReader p)
         {
+            //Console.WriteLine("OpenGump()");
+
             if (World.Player == null)
             {
                 return;
@@ -6838,7 +6849,6 @@ namespace ClassicUO.Network
                 }
             }
         }
-
 
         [Flags]
         private enum AffixType

@@ -471,7 +471,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            //Console.WriteLine("PickUp(), x:{0}, y:{1}", x, y);
+            Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}", x, y, serial);
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {

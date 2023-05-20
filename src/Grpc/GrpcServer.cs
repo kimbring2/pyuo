@@ -70,42 +70,42 @@ namespace ClassicUO.Grpc
 	        };
         }
 
-        public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y)
+        public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, uint serial)
         {
         	try 
         	{
 	        	if (type == "Land") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        													   Distance = distance, GameX = game_x, GameY = game_y });
+	        													   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 
 	        		bool can_drop = distance <= Constants.DRAG_ITEMS_DISTANCE;
 	        		if (can_drop)
                 	{
 	        			//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, game_x, game_y, distance);
 	        			grpcItemDropableLandList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        															     Distance = distance, GameX = game_x, GameY = game_y });
+	        															     Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 	        		}
 	        	}
 	        	else if (type == "PlayerMobile") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        															   Distance = distance, GameX = game_x, GameY = game_y });
+	        															   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 	        	}
 	        	else if (type == "Item") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        													   Distance = distance, GameX = game_x, GameY = game_y });
+	        													   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 	        	}
 	        	else if (type == "Static") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        														 Distance = distance, GameX = game_x, GameY = game_y });
+	        														 Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 	        	}
 	        	else if (type == "Mobile") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcMobileObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        														 Distance = distance, GameX = game_x, GameY = game_y });
+	        														 Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 	        	}
 	        }
 	        catch (Exception ex)
@@ -357,10 +357,8 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
-	        		//Console.WriteLine("actions.ActionType == 3");
+	        		Console.WriteLine("actions.ActionType == 3");
         			GameActions.PickUp(actions.ItemSerial, 0, 0);
-        			//Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-        			//GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
 	        }
 	        else if (actions.ActionType == 4) {
@@ -371,7 +369,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 5) {
 	        	if (World.Player != null) {
-	        		//Console.WriteLine("actions.ActionType == 5");
+	        		Console.WriteLine("actions.ActionType == 5");
 	        		int randomNumber;
 					Random RNG = new Random();
 
@@ -379,7 +377,7 @@ namespace ClassicUO.Grpc
 	        		try
 	        		{
 	        			GrpcGameObjectData selected = grpcItemDropableLandList[index];
-	        			//Console.WriteLine("GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
+	        			Console.WriteLine("ItemSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
 	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
 	        		}
 	        		catch (Exception ex)
@@ -390,7 +388,12 @@ namespace ClassicUO.Grpc
 	        } 
 	        else if (actions.ActionType == 6) {
 	        	if (World.Player != null) {
-        			//GameActions.PickUp(actions.ItemSerial, 0, 0, 1);
+	        		Console.WriteLine("actions.ActionType == 6");
+                    GameActions.PickUp(actions.ItemSerial, 0, 0);
+	        	}
+	        }
+	        else if (actions.ActionType == 7) {
+	        	if (World.Player != null) {
                     GameActions.Equip();
 	        	}
 	        }

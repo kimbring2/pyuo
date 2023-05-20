@@ -430,7 +430,7 @@ namespace ClassicUO.Game.Scenes
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition)
             {
-                Console.WriteLine("ItemHold.Enabled && !ItemHold.IsFixedPosition");
+                //Console.WriteLine("ItemHold.Enabled && !ItemHold.IsFixedPosition");
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
                 //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
 
@@ -486,7 +486,7 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
-                    Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
+                    //Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
 
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
 
@@ -527,8 +527,8 @@ namespace ClassicUO.Game.Scenes
 
                     if (can_drop)
                     {
-                        Console.WriteLine("dropX: {0}, dropY: {1}, dropZ: {2}, drop_container: {3}", 
-                                           dropX, dropY, dropZ, drop_container);
+                        //Console.WriteLine("dropX: {0}, dropY: {1}, dropZ: {2}, drop_container: {3}", 
+                        //                   dropX, dropY, dropZ, drop_container);
 
                         GameActions.DropItem
                         (
@@ -1022,6 +1022,14 @@ namespace ClassicUO.Game.Scenes
                         }
                         else if (obj is Item item)
                         {
+                            //Console.WriteLine("GameActions.PickUp()");
+                            //Console.WriteLine("item: {0}", item);
+                            //Console.WriteLine("(uint) item: {0}", (uint) item);
+                            //Entity ent_ = World.Get((uint) item);
+                            //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", ent_.Name, ent_.X, ent_.Y);
+                            //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", item.Name, item.X, item.Y);
+                            //Console.WriteLine("Mouse X: {0}, Mouse Y: {1}", Mouse.Position.X, Mouse.Position.Y);
+                            
                             GameActions.PickUp(item, Mouse.Position.X, Mouse.Position.Y);
                         }
                     }

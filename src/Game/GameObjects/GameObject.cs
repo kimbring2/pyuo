@@ -212,7 +212,7 @@ namespace ClassicUO.Game.GameObjects
 
             p.Y -= bounds.Height >> 1;
 
-            Console.WriteLine("Offset.X: {0}, Offset.Y: {1}", Offset.X, Offset.Y);
+            //Console.WriteLine("Offset.X: {0}, Offset.Y: {1}", Offset.X, Offset.Y);
 
             p.X += (int) Offset.X + 22;
             p.Y += (int) (Offset.Y - Offset.Z) + 44;

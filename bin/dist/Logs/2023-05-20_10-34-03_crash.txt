@@ -1,0 +1,22 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 05/20/2023 10:34:03
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ClassicUO.Game.Scenes.GameScene.DrawRenderList (ClassicUO.Renderer.UltimaBatcher2D batcher, ClassicUO.Game.GameObjects.GameObject obj, System.Int32 count) [0x001bb] in <7239b7c4388941b4bdb4113163bf784b>:0 
+  at ClassicUO.Game.Scenes.GameScene.DrawWorld (ClassicUO.Renderer.UltimaBatcher2D batcher, Microsoft.Xna.Framework.Matrix& matrix, System.Boolean use_render_target) [0x0012c] in <7239b7c4388941b4bdb4113163bf784b>:0 
+  at ClassicUO.Game.Scenes.GameScene.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher) [0x000b5] in <7239b7c4388941b4bdb4113163bf784b>:0 
+  at ClassicUO.GameController.Draw (Microsoft.Xna.Framework.GameTime gameTime) [0x00070] in <7239b7c4388941b4bdb4113163bf784b>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x00222] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x00085] in <7239b7c4388941b4bdb4113163bf784b>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x0035b] in <7239b7c4388941b4bdb4113163bf784b>:0 
+######################## [END LOG] ########################
+
+

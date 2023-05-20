@@ -753,7 +753,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            //Console.WriteLine("OnLeftMouseDoubleClick()");
+            Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 
@@ -775,6 +775,8 @@ namespace ClassicUO.Game.Scenes
             switch (obj)
             {
                 case Item item:
+                    Console.WriteLine("case Item item()");
+
                     result = true;
 
                     if (!GameActions.OpenCorpse(item))

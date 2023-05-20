@@ -54,6 +54,7 @@ namespace ClassicUO.Grpc
         List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
+        List<GrpcItemData> corpseItemDataList = new List<GrpcItemData>();
 
         public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
@@ -295,6 +296,10 @@ namespace ClassicUO.Grpc
             backpackItemList.Item.AddRange(backpackItemDataList);
             states.BackpackItemList = backpackItemList;
 
+            GrpcItemList corpseItemList = new GrpcItemList();
+            corpseItemList.Item.AddRange(corpseItemDataList);
+            states.CorpseItemList = corpseItemList;
+
             states.PlayerStatus = playerStatus;
 
             try
@@ -374,11 +379,23 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 3) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 3");
-        			GameActions.PickUp(actions.ItemSerial, 0, 0);
+
+	        		try
+	        		{
+	        			Item item = World.Items.Get(actions.ItemSerial);
+	        			Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+            																		     	 item.Amount, item.Serial);
+	        			GameActions.PickUp(actions.ItemSerial, 0, 0, item.Amount);
+					}
+	        		catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to parse the item info: " + ex.Message);
+		            }
 	        	}
 	        }
 	        else if (actions.ActionType == 4) {
 	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 4");
         			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
@@ -404,33 +421,56 @@ namespace ClassicUO.Grpc
 	        } 
 	        else if (actions.ActionType == 6) {
 	        	if (World.Player != null) {
-	        		Console.WriteLine("actions.ActionType == 6");
-                    GameActions.PickUp(actions.ItemSerial, 0, 0);
+                    GameActions.Equip();
 	        	}
 	        }
 	        else if (actions.ActionType == 7) {
 	        	if (World.Player != null) {
-                    GameActions.Equip();
-	        	}
-	        }
-	        else if (actions.ActionType == 8) {
-	        	if (World.Player != null) {
-	        		Console.WriteLine("actions.ActionType == 8");
-                    //GameActions.OpenCorpse(actions.ItemSerial);
+	        		Console.WriteLine("actions.ActionType == 7");
+
                     Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
                     try
                     {
-		        		Item item = World.Items.Get(actions.ItemSerial);
-			            Console.WriteLine("item.Name: {0}", item.Name);
-			            for (LinkedObject i = item.Items; i != null; i = i.Next)
-			            {
-			                Item child = (Item) i;
-			                Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-			            }
+                    	GameActions.OpenCorpse(actions.ItemSerial);
 			        }
 			        catch (Exception ex)
 		            {
 		            	Console.WriteLine("Failed to check the items of the corpse: " + ex.Message);
+		            	;
+		            }
+	        	}
+	        }
+	        else if (actions.ActionType == 8) {
+	        	if (World.Player != null) {
+                    Console.WriteLine("actions.ActionType == 8");
+                    corpseItemDataList.Clear();
+	        	}
+	        }
+	        else if (actions.ActionType == 9) {
+	        	if (World.Player != null) {
+                    Console.WriteLine("actions.ActionType == 9");
+                    Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
+
+                    Item item = World.Items.Get(actions.ItemSerial);
+	        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
+
+		            for (LinkedObject i = item.Items; i != null; i = i.Next)
+		            {
+		                Item child = (Item) i;
+		                Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+		                
+		                try 
+		        		{
+		            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, 
+			            									   	     Layer = (uint) child.Layer,
+			              									         Serial = (uint) child.Serial,
+			            									         Amount = (uint) child.Amount });
+		            	}
+			            catch (Exception ex)
+			            {
+			            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
+			            	;
+			            }
 		            }
 	        	}
 	        }

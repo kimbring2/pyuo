@@ -473,7 +473,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}", x, y, serial);
+            Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {
@@ -490,6 +490,8 @@ namespace ClassicUO.Game
 
             if (amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable)
             {
+                Console.WriteLine("amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable");
+
                 if (ProfileManager.CurrentProfile.HoldShiftToSplitStack == Keyboard.Shift)
                 {
                     SplitMenuGump gump = UIManager.GetGump<SplitMenuGump>(item);

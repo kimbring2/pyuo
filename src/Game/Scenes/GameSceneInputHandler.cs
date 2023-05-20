@@ -446,7 +446,7 @@ namespace ClassicUO.Game.Scenes
                 GameObject gobj = SelectedObject.LastObject as GameObject;
                 //Console.WriteLine("gobj: {0}, gobj.Distance: {1}", gobj, gobj.Distance);
 
-                Console.WriteLine("drop_container: {0}", drop_container);
+                //Console.WriteLine("drop_container: {0}", drop_container);
 
                 if (gobj is Entity obj)
                 {
@@ -487,6 +487,7 @@ namespace ClassicUO.Game.Scenes
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
                     //Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
+                    //Console.WriteLine("gobj.Distance: {0}", gobj.Distance);
 
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
 

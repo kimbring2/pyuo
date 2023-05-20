@@ -1132,25 +1132,41 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (obj is Land) 
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial);
+                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial, "None");
                     }
                     else if (obj is PlayerMobile) 
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial);
+                        Mobile objPlayerMobile = (Mobile) obj;
+                        objSerial = (uint) objPlayerMobile;
+
+                        Mobile playerMobileEntity = World.Mobiles.Get(objSerial);
+                        //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, playerMobileEntity.Name);
+
+                        Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial, playerMobileEntity.Name);
                     } 
                     else if (obj is Item)
                     {
                         Item objItem = (Item) obj;
                         objSerial = (uint) objItem;
-                        Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial);
+
+                        Item itemEntity = World.Items.Get(objSerial);
+                        //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, item_entity.Name);   
+
+                        Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial, itemEntity.Name);
                     }
                     else if (obj is Mobile)
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial);
+                        Mobile objMobile = (Mobile) obj;
+                        objSerial = (uint) objMobile;
+
+                        Mobile mobileEntity = World.Mobiles.Get(objSerial);
+                        Console.WriteLine("Serial: {0}, Name: {1}", objSerial, mobileEntity.Name);
+
+                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial, mobileEntity.Name);
                     }
                     else if (obj is Static)
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial);
+                        Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y, objSerial, "None");
                     }
                 }
 

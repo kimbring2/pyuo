@@ -70,7 +70,7 @@ namespace ClassicUO.Grpc
 	        };
         }
 
-        public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, uint serial)
+        public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, uint serial, string name)
         {
         	try 
         	{
@@ -79,9 +79,11 @@ namespace ClassicUO.Grpc
 	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
 	        													   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
 
-	        		bool can_drop = distance <= Constants.DRAG_ITEMS_DISTANCE;
+	        		bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
+	        		//bool can_drop = distance <= Constants.DRAG_ITEMS_DISTANCE;
 	        		if (can_drop)
                 	{
+
 	        			//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, game_x, game_y, distance);
 	        			grpcItemDropableLandList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
 	        															     Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
@@ -95,7 +97,7 @@ namespace ClassicUO.Grpc
 	        	else if (type == "Item") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, 
-	        													   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial });
+	        													   Distance = distance, GameX = game_x, GameY = game_y, Serial = serial, Name = name });
 	        	}
 	        	else if (type == "Static") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
@@ -319,7 +321,8 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-            	Console.WriteLine("Failed to load the land object list: " + ex.Message);
+            	//Console.WriteLine("Failed to load the land object list: " + ex.Message);
+            	;
             }
 
             return Task.FromResult(states);

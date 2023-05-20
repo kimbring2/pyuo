@@ -1095,34 +1095,6 @@ namespace ClassicUO.Game.Scenes
         private int DrawRenderList(UltimaBatcher2D batcher, GameObject obj, int count)
         {
             int done = 0;
-            /*
-            if (obj is Land) 
-            {
-                Client.Game._uoServiceImpl.grpcLandObjectList.Clear();
-                Client.Game._uoServiceImpl.grpcItemDropableLandList.Clear();
-            } 
-            else if (obj is PlayerMobile) 
-            {
-                Client.Game._uoServiceImpl.grpcPlayerMobileObjectList.Clear();
-                Client.Game._uoServiceImpl.grpcMobileObjectList.Clear();
-                Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
-            } 
-            else if (obj is Static) 
-            {
-                Client.Game._uoServiceImpl.grpcStaticObjectList.Clear();
-                //Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
-            }
-            else if (obj is Mobile) 
-            {         
-                //Console.WriteLine("obj: {0}, count: {1}", obj, count);       
-                Client.Game._uoServiceImpl.grpcMobileObjectList.Clear();
-            }
-            else if (obj is Item) 
-            {
-                //Console.WriteLine("obj.Serial: {0}", obj.Serial);     
-                Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
-            }
-            */
 
             for (int i = 0; i < count; obj = obj.RenderListNext, ++i)
             {

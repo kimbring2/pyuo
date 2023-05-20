@@ -423,16 +423,6 @@ namespace ClassicUO.Game.Scenes
                     float fraction = (dist - delta) / (maxDist - delta);
 
                     obj.AlphaHue = (byte)Microsoft.Xna.Framework.MathHelper.Clamp(fraction * 255f, byte.MinValue, byte.MaxValue);
-
-                    //const byte ALPHA_ERROR = 44;
-
-                    //if (obj.AlphaHue > ALPHA_ERROR && obj.AlphaHue >= byte.MaxValue - ALPHA_ERROR)
-                    //{
-                    //    obj.AlphaHue = 255;
-
-                    //    return false;
-                    //}
-
                     allowSelection = obj.AlphaHue >= 127;
 
                     return true;

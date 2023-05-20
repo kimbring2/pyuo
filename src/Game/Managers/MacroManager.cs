@@ -2265,7 +2265,6 @@ namespace ClassicUO.Game.Managers
         INVALID_2,
         INVALID_3,
 
-
         ConfusionBlastPotion = 215,
         CurePotion,
         AgilityPotion,

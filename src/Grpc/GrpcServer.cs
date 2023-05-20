@@ -50,6 +50,11 @@ namespace ClassicUO.Grpc
             Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
         };
 
+        List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
+        List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
+        List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
+        List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
+
         public List<GrpcGameObjectData> grpcLandObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
@@ -176,7 +181,6 @@ namespace ClassicUO.Grpc
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
             ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
-            List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
             try
             {
 	            foreach (Mobile mob in World.Mobiles.Values)
@@ -207,7 +211,6 @@ namespace ClassicUO.Grpc
 	                									   Serial = (uint) 1234 });
             }
 
-            List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
             foreach (Item item in World.Items.Values)
             {
             	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
@@ -221,7 +224,6 @@ namespace ClassicUO.Grpc
 
             }
 
-            List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
 	        	foreach (Layer layer in _layerOrder) {
@@ -241,7 +243,6 @@ namespace ClassicUO.Grpc
 		        }
 	        }
 
-            List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
             if ((World.Player != null) && (World.InGame == true))
             {
                 Item backpack = World.Player.FindItemByLayer(Layer.Backpack); 
@@ -325,12 +326,17 @@ namespace ClassicUO.Grpc
             	;
             }
 
-            Client.Game._uoServiceImpl.grpcLandObjectList.Clear();
-            Client.Game._uoServiceImpl.grpcItemDropableLandList.Clear();
-            Client.Game._uoServiceImpl.grpcPlayerMobileObjectList.Clear();
-            Client.Game._uoServiceImpl.grpcMobileObjectList.Clear();
-            Client.Game._uoServiceImpl.grpcItemObjectList.Clear();
-            Client.Game._uoServiceImpl.grpcStaticObjectList.Clear();
+            grpcMobileDataList.Clear();
+	        worldItemDataList.Clear();
+	        equippedItemDataList.Clear();
+	        backpackItemDataList.Clear();
+
+            grpcLandObjectList.Clear();
+            grpcItemDropableLandList.Clear();
+            grpcPlayerMobileObjectList.Clear();
+            grpcMobileObjectList.Clear();
+            grpcItemObjectList.Clear();
+            grpcStaticObjectList.Clear();
 
             return Task.FromResult(states);
         }
@@ -410,7 +416,22 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 8) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 8");
-                    GameActions.OpenCorpse(actions.ItemSerial);
+                    //GameActions.OpenCorpse(actions.ItemSerial);
+                    Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
+                    try
+                    {
+		        		Item item = World.Items.Get(actions.ItemSerial);
+			            Console.WriteLine("item.Name: {0}", item.Name);
+			            for (LinkedObject i = item.Items; i != null; i = i.Next)
+			            {
+			                Item child = (Item) i;
+			                Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+			            }
+			        }
+			        catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to check the items of the corpse: " + ex.Message);
+		            }
 	        	}
 	        }
 

@@ -167,16 +167,30 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void BuildGump()
         {
+            // gump: ClassicUO.Game.UI.Gumps.ContainerGump+GumpPicContainer
+            //Console.WriteLine("ContainerGump BuildGump()");
+
             CanMove = true;
             CanCloseWithRightClick = true;
             WantUpdateSize = false;
 
             Item item = World.Items.Get(LocalSerial);
+            //Console.WriteLine("item.Name: {0}", item.Name);
+
+            for (LinkedObject i = item.Items; i != null; i = i.Next)
+            {
+                Item child = (Item) i;
+                //Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+
+                if (child.Container == item)
+                {
+                    UIManager.GetGump<ContainerGump>(child)?.Dispose();
+                }
+            }
 
             if (item == null)
             {
                 Dispose();
-
                 return;
             }
 
@@ -234,6 +248,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
+            Console.WriteLine("ContainerGump OnMouseUp()");
+
             if (button != MouseButtonType.Left || UIManager.IsMouseOverWorld)
             {
                 return;
@@ -255,6 +271,8 @@ namespace ClassicUO.Game.UI.Gumps
             }
             else
             {
+                Console.WriteLine("dropcontainer: {0}", dropcontainer);
+
                 Entity thisCont = World.Items.Get(dropcontainer);
 
                 if (thisCont == null)

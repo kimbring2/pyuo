@@ -96,7 +96,7 @@ namespace ClassicUO.Grpc
 	        															   GameX = game_x, GameY = game_y, Serial = serial, IsCorpse = is_corpse });
 	        	}
 	        	else if (type == "Item") {
-	        		Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type = type, ScreenX = screen_x, ScreenY = screen_y, Distance = distance, 
 	        													   GameX = game_x, GameY = game_y, Serial = serial, Name = name, IsCorpse = is_corpse });
 	        	}
@@ -226,7 +226,6 @@ namespace ClassicUO.Grpc
 	        {
 	        	foreach (Layer layer in _layerOrder) {
 	        		Item item = World.Player.FindItemByLayer(layer);
-
 	        		try 
 	        		{
 	            		equippedItemDataList.Add(new GrpcItemData{ Name = item.Name, 
@@ -406,6 +405,12 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 7) {
 	        	if (World.Player != null) {
                     GameActions.Equip();
+	        	}
+	        }
+	        else if (actions.ActionType == 8) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 8");
+                    GameActions.OpenCorpse(actions.ItemSerial);
 	        	}
 	        }
 

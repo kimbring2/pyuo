@@ -489,7 +489,13 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 10) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 10");
-        			GameActions.SingleClick(actions.MobileSerial);
+	        		GameActions.OpenPopupMenu(actions.MobileSerial);
+	        	}
+	        }
+	        else if (actions.ActionType == 11) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 11");
+	        		GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
 	        	}
 	        }
 

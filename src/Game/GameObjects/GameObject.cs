@@ -174,7 +174,7 @@ namespace ClassicUO.Game.GameObjects
 
         public void AddMessage(MessageType type, string message, TextType text_type)
         {
-            Console.WriteLine("GameObject AddMessage() 1");
+            //Console.WriteLine("GameObject AddMessage() 1");
 
             AddMessage
             (
@@ -282,12 +282,6 @@ namespace ClassicUO.Game.GameObjects
                     offsetY = minY - startY;
                 }
 
-                //int endY = startY + item.RenderedText.Height;
-
-                //if (endY > maxY)
-                //    UseInRender = 0xFF;
-                //    //item.RealScreenPosition.Y -= endY - maxY;
-
                 if (offsetY != 0)
                 {
                     item.RealScreenPosition.Y += offsetY;
@@ -305,8 +299,6 @@ namespace ClassicUO.Game.GameObjects
             TextType text_type
         )
         {
-            Console.WriteLine("GameObject AddMessage() 2");
-
             if (string.IsNullOrEmpty(text))
             {
                 return;
@@ -327,12 +319,6 @@ namespace ClassicUO.Game.GameObjects
 
         public void AddMessage(TextObject msg)
         {
-            Console.WriteLine("GameObject AddMessage() 3");
-
-            //Console.WriteLine("msg: {0}\n", msg);
-            //Console.WriteLine("GameObject AddMessage()");
-            //Console.WriteLine("msg.RenderedText.Text: {0}", msg.RenderedText.Text);
-
             if (TextContainer == null)
             {
                 TextContainer = new TextContainer();

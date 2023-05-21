@@ -44,21 +44,6 @@ using ClassicUO.Utility;
 
 namespace ClassicUO.Game.Managers
 {
-    //enum MessageFont : byte
-    //{
-    //    INVALID = 0xFF,
-    //    Bold = 0,
-    //    Shadow = 1,
-    //    BoldShadow = 2,
-    //    Normal = 3,
-    //    Gothic = 4,
-    //    Italic = 5,
-    //    SmallDark = 6,
-    //    Colorful = 7,
-    //    Rune = 8,
-    //    SmallLight = 9
-    //}
-
     internal enum AffixType : byte
     {
         Append = 0x00,
@@ -66,7 +51,6 @@ namespace ClassicUO.Game.Managers
         System = 0x02,
         None = 0xFF
     }
-
 
     internal static class MessageManager
     {
@@ -89,9 +73,6 @@ namespace ClassicUO.Game.Managers
             string lang = null
         )
         {
-            Console.WriteLine("MessageManager HandleMessage()");
-            Console.WriteLine("parent: {0}", parent);
-
             if (string.IsNullOrEmpty(text))
             {
                 return;

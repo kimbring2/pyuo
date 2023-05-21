@@ -380,6 +380,7 @@ namespace ClassicUO.Game.Scenes
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
+                //Console.WriteLine("UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y)");
                 UIManager.ShowGamePopup(null);
             }
 
@@ -397,8 +398,8 @@ namespace ClassicUO.Game.Scenes
 
             if (_isSelectionActive)
             {
-                //Console.WriteLine("_isSelectionActive()");
                 DoDragSelect();
+
                 return true;
             }
 
@@ -423,20 +424,11 @@ namespace ClassicUO.Game.Scenes
 
             if (UIManager.IsDragging)
             {
-                //Console.WriteLine("UIManager.IsDragging");
-
                 return false;
             }
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition)
             {
-                //Console.WriteLine("ItemHold.Enabled && !ItemHold.IsFixedPosition");
-                //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
-                //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
-
-                //Vector2 playerPos = World.Player.GetScreenPosition();
-                //Console.WriteLine("playerPos.X: {0}, playerPos.Y: {1}", playerPos.X, playerPos.Y);
-
                 uint drop_container = 0xFFFF_FFFF;
                 bool can_drop = false;
                 ushort dropX = 0;
@@ -444,16 +436,9 @@ namespace ClassicUO.Game.Scenes
                 sbyte dropZ = 0;
 
                 GameObject gobj = SelectedObject.LastObject as GameObject;
-                //Console.WriteLine("gobj: {0}, gobj.Distance: {1}", gobj, gobj.Distance);
-
-                //Console.WriteLine("drop_container: {0}", drop_container);
-
                 if (gobj is Entity obj)
                 {
-                    //Console.WriteLine("if (gobj is Entity obj)");
-
                     can_drop = obj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
-
                     if (can_drop)
                     {
                         if (obj is Item it && it.ItemData.IsContainer || obj is Mobile)
@@ -486,11 +471,7 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
-                    //Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
-                    //Console.WriteLine("gobj.Distance: {0}", gobj.Distance);
-
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
-
                     if (can_drop)
                     {
                         dropX = gobj.X;
@@ -504,7 +485,6 @@ namespace ClassicUO.Game.Scenes
                         else
                         {
                             ref StaticTiles itemData = ref TileDataLoader.Instance.StaticData[gobj.Graphic];
-
                             if (itemData.IsSurface)
                             {
                                 dropZ += (sbyte)(itemData.Height == 0xFF ? 0 : itemData.Height);
@@ -519,8 +499,6 @@ namespace ClassicUO.Game.Scenes
 
                 if (can_drop)
                 {
-                    //Console.WriteLine("can_drop");
-
                     if (drop_container == 0xFFFF_FFFF && dropX == 0 && dropY == 0)
                     {
                         can_drop = false;
@@ -528,9 +506,6 @@ namespace ClassicUO.Game.Scenes
 
                     if (can_drop)
                     {
-                        //Console.WriteLine("dropX: {0}, dropY: {1}, dropZ: {2}, drop_container: {3}", 
-                        //                   dropX, dropY, dropZ, drop_container);
-
                         GameActions.DropItem
                         (
                             ItemHold.Serial,
@@ -553,7 +528,6 @@ namespace ClassicUO.Game.Scenes
                     case CursorTarget.MultiPlacement when World.CustomHouseManager == null:
                     {
                         BaseGameObject obj = lastObj;
-
                         if (obj is TextObject ov)
                         {
                             obj = ov.Owner;
@@ -592,7 +566,6 @@ namespace ClassicUO.Game.Scenes
                     case CursorTarget.SetTargetClientSide:
                     {
                         BaseGameObject obj = lastObj;
-
                         if (obj is TextObject ov)
                         {
                             obj = ov.Owner;
@@ -629,7 +602,6 @@ namespace ClassicUO.Game.Scenes
                         break;
 
                     case CursorTarget.HueCommandTarget:
-
                         if (SelectedObject.Object is Entity selectedEntity)
                         {
                             CommandManager.OnHueTarget(selectedEntity);
@@ -641,7 +613,9 @@ namespace ClassicUO.Game.Scenes
                         {
                             IgnoreManager.AddIgnoredTarget(pmEntity);
                         }
+
                         TargetManager.CancelTarget();
+
                         break;
                 }
             }
@@ -723,8 +697,12 @@ namespace ClassicUO.Game.Scenes
                         break;
 
                     case Entity ent:
+                        Console.WriteLine("case Entity ent");
+
                         if (Keyboard.Alt && ent is Mobile)
                         {
+                            Console.WriteLine("Keyboard.Alt && ent is Mobile");
+
                             MessageManager.HandleMessage
                             (
                                 World.Player,
@@ -741,6 +719,7 @@ namespace ClassicUO.Game.Scenes
                         }
                         else if (!DelayedObjectClickManager.IsEnabled)
                         {
+                            Console.WriteLine("!DelayedObjectClickManager.IsEnabled");
                             DelayedObjectClickManager.Set(ent.Serial, Mouse.Position.X, Mouse.Position.Y, Time.Ticks + Mouse.MOUSE_DELAY_DOUBLE_CLICK);
                         }
 

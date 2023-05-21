@@ -4264,7 +4264,6 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 0x18: // enable map patches
-
                     if (MapLoader.Instance.ApplyPatches(ref p))
                     {
                         //List<GameObject> list = new List<GameObject>();
@@ -4491,7 +4490,6 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 0x21:
-
                     for (int i = 0; i < 2; i++)
                     {
                         World.Player.Abilities[i] &= (Ability) 0x7F;
@@ -4519,7 +4517,6 @@ namespace ClassicUO.Network
                     break;
 
                 case 0x25:
-
                     ushort spell = p.ReadUInt16BE();
                     bool active = p.ReadBool();
 
@@ -4606,8 +4603,8 @@ namespace ClassicUO.Network
 
         private static void DisplayClilocString(ref StackDataReader p)
         {
-            Console.WriteLine("DisplayClilocString()");
-            
+            //Console.WriteLine("DisplayClilocString()");
+
             if (World.Player == null)
             {
                 return;

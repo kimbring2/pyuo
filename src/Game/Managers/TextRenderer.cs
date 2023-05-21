@@ -318,7 +318,6 @@ namespace ClassicUO.Game.Managers
             }
         }
 
-
         public new virtual void Clear()
         {
             if (FirstNode != null)

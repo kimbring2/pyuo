@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Game.GameObjects;
 using ClassicUO.Input;
 
@@ -45,7 +46,6 @@ namespace ClassicUO.Game.Managers
         public static int LastMouseX { get; set; }
         public static int LastMouseY { get; set; }
 
-
         public static void Update()
         {
             if (!IsEnabled || Timer > Time.Ticks)
@@ -53,7 +53,10 @@ namespace ClassicUO.Game.Managers
                 return;
             }
 
+            Console.WriteLine("Update()");
+
             Entity entity = World.Get(Serial);
+            Console.WriteLine("entity: {0}", entity);
 
             if (entity != null)
             {
@@ -64,6 +67,7 @@ namespace ClassicUO.Game.Managers
 
                 if (World.ClientFeatures.PopupEnabled)
                 {
+                    Console.WriteLine("OpenPopupMenu()");
                     GameActions.OpenPopupMenu(Serial);
                 }
             }

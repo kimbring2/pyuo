@@ -355,11 +355,9 @@ namespace ClassicUO.Game.GameObjects
                     obj = next;
                 }
 
-
                 Items = new_first;
             }
         }
-
 
         public static implicit operator uint(Entity entity)
         {

@@ -717,6 +717,8 @@ namespace ClassicUO.Game
 
         public static void OpenPopupMenu(uint serial, bool shift = false)
         {
+            
+            
             shift = shift || Keyboard.Shift;
 
             if (ProfileManager.CurrentProfile.HoldShiftForContext && !shift)
@@ -729,6 +731,9 @@ namespace ClassicUO.Game
 
         public static void ResponsePopupMenu(uint serial, ushort index)
         {
+            Console.WriteLine("ResponsePopupMenu()");
+            Console.WriteLine("index: {0}", index);
+
             Socket.Send_PopupMenuSelection(serial, index);
         }
 

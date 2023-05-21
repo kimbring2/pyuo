@@ -1211,10 +1211,9 @@ namespace ClassicUO.Network
             }
             else if (graphic == 0x0030)
             {
+                Console.WriteLine("graphic == 0x0030");
+
                 Mobile vendor = World.Mobiles.Get(serial);
-
-                //Console.WriteLine("Name: {0}", vendor.Name);
-
                 if (vendor == null)
                 {
                     return;
@@ -1230,7 +1229,6 @@ namespace ClassicUO.Network
                     Item item = vendor.FindItemByLayer(layer);
 
                     LinkedObject first = item.Items;
-
                     if (first == null)
                     {
                         //Log.Warn("buy item not found");
@@ -1238,7 +1236,6 @@ namespace ClassicUO.Network
                     }
 
                     bool reverse = item.Graphic != 0x2AF8; //hardcoded logic in original client that we must match
-
                     if (reverse)
                     {
                         while (first?.Next != null)
@@ -1250,6 +1247,11 @@ namespace ClassicUO.Network
                     while (first != null)
                     {
                         Item it = (Item) first;
+                        Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
+
+                        Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
+                                                                  0, 0, it.Serial, it.Name, false, "None", 
+                                                                  it.Amount, it.Price);
 
                         gump.AddItem
                         (

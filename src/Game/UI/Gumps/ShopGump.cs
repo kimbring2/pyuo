@@ -57,6 +57,7 @@ namespace ClassicUO.Game.UI.Gumps
             RightScrollUp,
             RightScrollDown
         }
+
         // Scroll Delay (in ms)
         private const int SCROLL_DELAY = 60;
         private uint _lastMouseEventTime = Time.Ticks;
@@ -297,31 +298,9 @@ namespace ClassicUO.Game.UI.Gumps
                     WantUpdateSize = true;
                 }
             };
-
-
-            //Label name = new Label(World.Player.Name, false, 0x0386, font: 5)
-            //{
-            //    X = 322,
-            //    Y = 308 + _middleGumpRight.Height
-            //};
-
-            //Add(name);
         }
 
         public bool IsBuyGump { get; }
-
-        //public void SetIfNameIsFromCliloc(Item it, bool fromcliloc)
-        //{
-        //    if (_shopItems.TryGetValue(it, out var shopItem))
-        //    {
-        //        shopItem.NameFromCliloc = fromcliloc;
-
-        //        if (fromcliloc)
-        //        {
-        //            shopItem.SetName(ClilocLoader.Instance.Translate(it.Name, $"\t{it.Amount}\t{it.ItemData.Name}", true));
-        //        }
-        //    }
-        //}
 
         private void ButtonMouseUp(object sender, MouseEventArgs e) { _buttonScroll = ButtonScroll.None; }
 
@@ -432,13 +411,18 @@ namespace ClassicUO.Game.UI.Gumps
                         _transactionScrollArea.Scroll(false);
                         break;
                 }
+
                 _lastMouseEventTime = Time.Ticks;
             }
         }
 
         private void ShopItem_MouseDoubleClick(object sender, MouseDoubleClickEventArgs e)
         {
+            Console.WriteLine("ShopItem_MouseDoubleClick()");
+            Console.WriteLine("sender: {0}, e: {1}", sender, e);
+
             ShopItem shopItem = (ShopItem) sender;
+            Console.WriteLine("shopItem: {0}", shopItem);
 
             if (shopItem.Amount <= 0)
             {
@@ -525,6 +509,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ShopItem_MouseClick(object sender, MouseEventArgs e)
         {
+            Console.WriteLine("ShopItem_MouseClick()");
+            Console.WriteLine("e: {0}", e);
             foreach (ShopItem shopItem in _shopScrollArea.Children.SelectMany(o => o.Children).OfType<ShopItem>())
             {
                 shopItem.IsSelected = shopItem == sender;
@@ -533,6 +519,9 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void OnButtonClick(int buttonID)
         {
+            Console.WriteLine("OnButtonClick");
+            Console.WriteLine("buttonID: {0}", buttonID);
+
             switch ((Buttons) buttonID)
             {
                 case Buttons.Accept:
@@ -593,6 +582,7 @@ namespace ClassicUO.Game.UI.Gumps
                     X = 10,
                     Width = 190
                 };
+                
                 Add(line);
 
                 int offY = 15;
@@ -664,7 +654,6 @@ namespace ClassicUO.Game.UI.Gumps
             }
 
             internal string ShopItemName => _name.Text;
-
 
             public int Amount
             {

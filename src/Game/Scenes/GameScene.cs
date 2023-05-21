@@ -1108,7 +1108,7 @@ namespace ClassicUO.Game.Scenes
                     if (obj is Land) 
                     {
                         Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title);
+                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title, 0, 0);
                     }
                     else if (obj is PlayerMobile) 
                     {
@@ -1119,7 +1119,7 @@ namespace ClassicUO.Game.Scenes
                         //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, playerMobileEntity.Name);
 
                         Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title);
+                                                                 obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title, 0, 0);
                     } 
                     else if (obj is Item)
                     {
@@ -1133,7 +1133,8 @@ namespace ClassicUO.Game.Scenes
                         //                  objSerial, itemEntity.Name, itemEntity.IsCorpse, itemEntity.Graphic);
                         
                         Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title);
+                                                                 obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title, 
+                                                                 itemEntity.Amount, itemEntity.Price);
                     }
                     else if (obj is Mobile)
                     {
@@ -1158,12 +1159,12 @@ namespace ClassicUO.Game.Scenes
                         }
 
                         Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, mobileEntity.Name, IsCorpse, title);
+                                                                 obj.X, obj.Y, objSerial, mobileEntity.Name, IsCorpse, title, 0, 0);
                     }
                     else if (obj is Static)
                     {
                         Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title);
+                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title, 0, 0);
                     }
                 }
 

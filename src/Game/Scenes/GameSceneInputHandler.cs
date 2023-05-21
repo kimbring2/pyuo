@@ -376,7 +376,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseUp()
         {
-            Console.WriteLine("OnLeftMouseUp()");
+            //Console.WriteLine("OnLeftMouseUp()");
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
@@ -697,11 +697,11 @@ namespace ClassicUO.Game.Scenes
                         break;
 
                     case Entity ent:
-                        Console.WriteLine("case Entity ent");
+                        //Console.WriteLine("case Entity ent");
 
                         if (Keyboard.Alt && ent is Mobile)
                         {
-                            Console.WriteLine("Keyboard.Alt && ent is Mobile");
+                            //Console.WriteLine("Keyboard.Alt && ent is Mobile");
 
                             MessageManager.HandleMessage
                             (
@@ -719,7 +719,7 @@ namespace ClassicUO.Game.Scenes
                         }
                         else if (!DelayedObjectClickManager.IsEnabled)
                         {
-                            Console.WriteLine("!DelayedObjectClickManager.IsEnabled");
+                            //Console.WriteLine("!DelayedObjectClickManager.IsEnabled");
                             DelayedObjectClickManager.Set(ent.Serial, Mouse.Position.X, Mouse.Position.Y, Time.Ticks + Mouse.MOUSE_DELAY_DOUBLE_CLICK);
                         }
 
@@ -732,7 +732,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            Console.WriteLine("OnLeftMouseDoubleClick()");
+            //Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 

@@ -63,6 +63,7 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcItemDropableLandList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectData> grpcVendorItemList = new List<GrpcGameObjectData>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -78,7 +79,7 @@ namespace ClassicUO.Grpc
         }
 
         public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, 
-        						  uint serial, string name, bool is_corpse, string title)
+        						  uint serial, string name, bool is_corpse, string title, uint amount, uint price)
         {
         	try 
         	{
@@ -86,7 +87,7 @@ namespace ClassicUO.Grpc
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													   Title=title });
+	        													   Title=title, Amount=amount, Price=price });
 
 	        		bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
 	        		if (can_drop)
@@ -94,38 +95,44 @@ namespace ClassicUO.Grpc
 	        			//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, game_x, game_y, distance);
 	        			grpcItemDropableLandList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													     Title=title });
+	        													     Title=title, Amount=amount, Price=price });
 	        		}
 	        	}
 	        	else if (type == "PlayerMobile") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													     Title=title });
+	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Item") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													   Title=title });
+	        													   Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Static") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													     Title=title });
+	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Mobile") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, screen_x, screen_y, distance);
 	        		grpcMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													     Title=title });
+	        													     Title=title, Amount=amount, Price=price });
+	        	}
+	        	else if (type == "ShopItem") {
+	        		Console.WriteLine("ShopItem");
+	        		Console.WriteLine("name: {0}, serial: {1}", name, serial);
+	        		grpcVendorItemList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
+	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
+	        													   Title=title, Amount=amount, Price=price });
 	        	}
 	        }
 	        catch (Exception ex)
             {
                 //Console.WriteLine("Failed to add the object: " + ex.Message);
-                ;
             }
         }
 
@@ -245,7 +252,6 @@ namespace ClassicUO.Grpc
 		            catch (Exception ex)
 		            {
 		            	//Console.WriteLine("Failed to load the equipped item: " + ex.Message);
-		            	;
 		            }
 		        }
 	        }
@@ -268,7 +274,6 @@ namespace ClassicUO.Grpc
 		            catch (Exception ex)
 		            {
 		            	//Console.WriteLine("Failed to load the backpack item: " + ex.Message);
-		            	;
 		            }
                 }
 	        }
@@ -316,6 +321,7 @@ namespace ClassicUO.Grpc
 	            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
 	            GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
 	            GrpcGameObjectList itemDropableLandObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectList vendorItemObjectList = new GrpcGameObjectList();
 
 	            landObjectList.GameObject.AddRange(grpcLandObjectList);
 	            playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
@@ -323,6 +329,7 @@ namespace ClassicUO.Grpc
 	            itemObjectList.GameObject.AddRange(grpcItemObjectList);
 	            mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
 	            itemDropableLandObjectList.GameObject.AddRange(grpcItemDropableLandList);
+	            vendorItemObjectList.GameObject.AddRange(grpcVendorItemList);
 
 	            states.LandObjectList = landObjectList;
 	            states.PlayerMobileObjectList = playerMobileObjectList;
@@ -330,11 +337,11 @@ namespace ClassicUO.Grpc
 	            states.MobileObjectList = mobileObjectList;
 	            states.ItemObjectList = itemObjectList;
 	            states.ItemDropableLandList = itemDropableLandObjectList;
+	            states.VendorItemObjectList = vendorItemObjectList;
 	        }
 	        catch (Exception ex)
             {
             	//Console.WriteLine("Failed to load the land object list: " + ex.Message);
-            	;
             }
 
             grpcMobileDataList.Clear();
@@ -443,7 +450,6 @@ namespace ClassicUO.Grpc
 			        catch (Exception ex)
 		            {
 		            	Console.WriteLine("Failed to check the items of the corpse: " + ex.Message);
-		            	;
 		            }
 	        	}
 	        }
@@ -456,7 +462,6 @@ namespace ClassicUO.Grpc
                     catch (Exception ex)
 		            {
 		            	Console.WriteLine("Failed to close the container gump of the corpse: " + ex.Message);
-		            	;
 		            }
 
                     corpseItemDataList.Clear();
@@ -482,7 +487,6 @@ namespace ClassicUO.Grpc
 			        catch (Exception ex)
 		            {
 		            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
-		            	;
 		            }
 	        	}
 	        }
@@ -496,6 +500,8 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
+
+	        		//vendorItemDataList
 	        	}
 	        }
 

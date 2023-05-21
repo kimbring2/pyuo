@@ -3428,13 +3428,14 @@ namespace ClassicUO.Network
                 writer.WriteZero(length - writer.BytesWritten);
             }
 
-
             socket.Send(writer.AllocatedBuffer, writer.BytesWritten);
             writer.Dispose();
         }
 
         public static void Send_BuyRequest(this NetClient socket, uint serial, Tuple<uint, ushort>[] items)
         {
+            Console.WriteLine("Send_BuyRequest()");
+            
             const byte ID = 0x3B;
 
             int length = PacketsTable.GetPacketLength(ID);

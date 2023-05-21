@@ -78,12 +78,10 @@ namespace ClassicUO.Game.GameObjects
         public MessageType Type;
         public int X, Y, OffsetY;
 
-
         public static TextObject Create()
         {
             return _queue.GetOne();
         }
-
 
         public virtual void Destroy()
         {

@@ -1672,22 +1672,6 @@ namespace ClassicUO.Game.GameObjects
 
             int nowDelta = 0;
 
-            //if (_lastDir == (int) direction && _lastMount == IsMounted && _lastRun == run)
-            //{
-            //    nowDelta = (int) (Time.Ticks - _lastStepTime - walkTime + _lastDelta);
-
-            //    if (Math.Abs(nowDelta) > 70)
-            //        nowDelta = 0;
-            //    _lastDelta = nowDelta;
-            //}
-            //else
-            //    _lastDelta = 0;
-
-            //_lastStepTime = (int) Time.Ticks;
-            //_lastRun = run;
-            //_lastMount = IsMounted;
-            //_lastDir = (int) direction;
-
             Walker.LastStepRequestTime = Time.Ticks + walkTime - nowDelta;
             GetGroupForAnimation(this, 0, true);
 

@@ -109,7 +109,6 @@ namespace ClassicUO.Game.Managers
                 return;
             }
 
-
             Clear();
 
             XmlElement root = doc["macros"];

@@ -56,7 +56,6 @@ namespace ClassicUO.Game.GameObjects
             }
         }
 
-
         public new void Clear()
         {
             TextObject item = (TextObject) Items;
@@ -76,7 +75,6 @@ namespace ClassicUO.Game.GameObjects
         }
     }
 
-
     internal class OverheadDamage
     {
         private const int DAMAGE_Y_MOVING_TIME = 25;
@@ -84,7 +82,6 @@ namespace ClassicUO.Game.GameObjects
         private readonly Deque<TextObject> _messages;
 
         private Rectangle _rectangle;
-
 
         public OverheadDamage(GameObject parent)
         {
@@ -250,7 +247,6 @@ namespace ClassicUO.Game.GameObjects
                 offY += item.RenderedText.Height;
             }
         }
-
 
         public void Destroy()
         {

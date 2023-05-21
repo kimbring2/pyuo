@@ -165,7 +165,6 @@ namespace ClassicUO.Game.GameObjects
                 UIManager.Add(new NameOverheadGump(this));
             }
 
-
             if (HitsMax > 0)
             {
                 int hits_max = HitsMax;
@@ -325,7 +324,7 @@ namespace ClassicUO.Game.GameObjects
 
         public void ClearUnequipped()
         {
-            Console.WriteLine("ClearUnequipped()");
+            //Console.WriteLine("ClearUnequipped()");
 
             if (!IsEmpty)
             {

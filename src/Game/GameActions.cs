@@ -237,7 +237,7 @@ namespace ClassicUO.Game
 
         public static bool OpenCorpse(uint serial)
         {
-            Console.WriteLine("OpenCorpse()");
+            //Console.WriteLine("OpenCorpse()");
 
             if (!SerialHelper.IsItem(serial))
             {
@@ -245,7 +245,6 @@ namespace ClassicUO.Game
             }
 
             Item item = World.Items.Get(serial);
-
             if (item == null || !item.IsCorpse || item.IsDestroyed)
             {
                 return false;
@@ -294,7 +293,6 @@ namespace ClassicUO.Game
             if (ProfileManager.CurrentProfile.EnabledCriminalActionQuery)
             {
                 Mobile m = World.Mobiles.Get(serial);
-
                 if (m != null && (World.Player.NotorietyFlag == NotorietyFlag.Innocent || World.Player.NotorietyFlag == NotorietyFlag.Ally) && m.NotorietyFlag == NotorietyFlag.Innocent && m != World.Player)
                 {
                     QuestionGump messageBox = new QuestionGump
@@ -412,6 +410,8 @@ namespace ClassicUO.Game
             bool unicode = true
         )
         {
+            Console.WriteLine("GameActions Print()");
+
             MessageManager.HandleMessage
             (
                 entity,
@@ -473,7 +473,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
+            //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {
@@ -490,7 +490,7 @@ namespace ClassicUO.Game
 
             if (amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable)
             {
-                Console.WriteLine("amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable");
+                //Console.WriteLine("amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable");
 
                 if (ProfileManager.CurrentProfile.HoldShiftToSplitStack == Keyboard.Shift)
                 {
@@ -838,7 +838,7 @@ namespace ClassicUO.Game
 
         public static void GrabItem(uint serial, ushort amount, uint bag = 0)
         {
-            Console.WriteLine("GrabItem()");
+            //Console.WriteLine("GrabItem()");
             //Socket.Send(new PPickUpRequest(serial, amount));
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);

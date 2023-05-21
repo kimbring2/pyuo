@@ -164,7 +164,6 @@ namespace ClassicUO.Game.UI.Gumps
             _transactionDataBox.WantUpdateSize = true;
             _transactionScrollArea.Add(_transactionDataBox);
 
-
             _totalLabel = new Label("0", true, 0x0386, 0, 1)
             {
                 X = RIGHT_OFFSET + rightTop.X + 32 + 4,
@@ -311,7 +310,6 @@ namespace ClassicUO.Game.UI.Gumps
 
         public bool IsBuyGump { get; }
 
-
         //public void SetIfNameIsFromCliloc(Item it, bool fromcliloc)
         //{
         //    if (_shopItems.TryGetValue(it, out var shopItem))
@@ -326,7 +324,6 @@ namespace ClassicUO.Game.UI.Gumps
         //}
 
         private void ButtonMouseUp(object sender, MouseEventArgs e) { _buttonScroll = ButtonScroll.None; }
-
 
         public void AddItem
         (
@@ -372,7 +369,6 @@ namespace ClassicUO.Game.UI.Gumps
                 shopItem.SetName(name, false);
             }
         }
-
 
         public override void Update(double totalTime, double frameTime)
         {
@@ -440,7 +436,6 @@ namespace ClassicUO.Game.UI.Gumps
             }
         }
 
-
         private void ShopItem_MouseDoubleClick(object sender, MouseDoubleClickEventArgs e)
         {
             ShopItem shopItem = (ShopItem) sender;
@@ -449,7 +444,6 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 return;
             }
-
 
             int total = Keyboard.Shift ? shopItem.Amount : 1;
 
@@ -610,7 +604,6 @@ namespace ClassicUO.Game.UI.Gumps
                     return;
                 }
 
-               
                 string subname = string.Format(ResGumps.Item0Price1, itemName, Price);
 
                 Add

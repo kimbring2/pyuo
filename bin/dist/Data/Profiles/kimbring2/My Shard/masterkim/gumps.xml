@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <gumps>
 	<gump type="20" x="100" y="100" serial="0" minimized="False" />
-	<gump type="2" x="220" y="466" serial="1073744268" graphic="60" isminimized="False" />
 	<gump type="9" x="267" y="677" serial="120" isminimized="False" />
 </gumps>

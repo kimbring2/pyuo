@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using ClassicUO.Configuration;
 using ClassicUO.Game.GameObjects;
@@ -210,6 +211,8 @@ namespace ClassicUO.Game.Managers
                     {
                         if (t.Owner != null)
                         {
+                            //Console.WriteLine("ProcessWorldText(), Text: {0}", t.RenderedText.Text);
+
                             t.IsTransparent = Collides(t);
                             CalculateAlpha(t);
                         }
@@ -283,6 +286,9 @@ namespace ClassicUO.Game.Managers
 
         public void AddMessage(TextObject obj)
         {
+            //Console.WriteLine("TextRenderer AddMessage()");
+            //Console.WriteLine("obj.RenderedText.Text: {0}", obj.RenderedText.Text);
+
             if (obj == null)
             {
                 return;

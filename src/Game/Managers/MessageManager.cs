@@ -89,6 +89,9 @@ namespace ClassicUO.Game.Managers
             string lang = null
         )
         {
+            Console.WriteLine("MessageManager HandleMessage()");
+            Console.WriteLine("parent: {0}", parent);
+
             if (string.IsNullOrEmpty(text))
             {
                 return;

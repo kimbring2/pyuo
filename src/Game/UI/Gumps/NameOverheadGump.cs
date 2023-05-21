@@ -430,6 +430,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseOver(int x, int y)
         {
+            //Console.WriteLine("NameOverheadGump OnMouseOver()");
+
             if (_positionLocked)
             {
                 return;

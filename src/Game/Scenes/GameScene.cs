@@ -719,8 +719,8 @@ namespace ClassicUO.Game.Scenes
 
         public override void Update(double totalTime, double frameTime)
         {
-            //Log.Trace("GameScene Update()");
             //Console.WriteLine("GameScene Update()");
+            //Console.WriteLine("SelectedObject.Object: {0}\n", SelectedObject.Object);
 
             Profile currentProfile = ProfileManager.CurrentProfile;
             Camera.SetGameWindowBounds(currentProfile.GameWindowPosition.X + 5, currentProfile.GameWindowPosition.Y + 5, currentProfile.GameWindowSize.X, currentProfile.GameWindowSize.Y);
@@ -1100,13 +1100,15 @@ namespace ClassicUO.Game.Scenes
             {
                 Vector2 objPos = obj.GetScreenPosition();
                 uint objSerial = 0;
+                bool IsCorpse = false;
+                string title = "None";
 
                 if ( (objPos.X > 0) && (objPos.Y > 0) )
                 {
                     if (obj is Land) 
                     {
                         Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, "None", false);
+                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title);
                     }
                     else if (obj is PlayerMobile) 
                     {
@@ -1117,7 +1119,7 @@ namespace ClassicUO.Game.Scenes
                         //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, playerMobileEntity.Name);
 
                         Client.Game._uoServiceImpl.AddGameObject("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, playerMobileEntity.Name, false);
+                                                                 obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title);
                     } 
                     else if (obj is Item)
                     {
@@ -1125,11 +1127,13 @@ namespace ClassicUO.Game.Scenes
                         objSerial = (uint) objItem;
 
                         Item itemEntity = World.Items.Get(objSerial);
+                        IsCorpse = itemEntity.IsCorpse;
     
-                        //Console.WriteLine("Serial: {0}, Name: {1}, IsCorpse: {2}", objSerial, itemEntity.Name, itemEntity.IsCorpse);
+                        //Console.WriteLine("Serial: {0}, Name: {1}, IsCorpse: {2}, Graphic: {3}", 
+                        //                  objSerial, itemEntity.Name, itemEntity.IsCorpse, itemEntity.Graphic);
                         
                         Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                obj.X, obj.Y, objSerial, itemEntity.Name, itemEntity.IsCorpse);
+                                                                 obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title);
                     }
                     else if (obj is Mobile)
                     {
@@ -1137,15 +1141,29 @@ namespace ClassicUO.Game.Scenes
                         objSerial = (uint) objMobile;
 
                         Mobile mobileEntity = World.Mobiles.Get(objSerial);
-                        //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, mobileEntity.Name);
+
+                        try
+                        {
+                            TextObject mobileTextContainerItems = (TextObject) mobileEntity.TextContainer.Items;
+                            RenderedText renderedText = mobileTextContainerItems.RenderedText;
+
+                            title = renderedText.Text;
+                            //Console.WriteLine("Serial: {0}, Name: {1}, Graphic: {2}, Title: {3}", 
+                            //                   objSerial, mobileEntity.Name, mobileEntity.Graphic, renderedText.Text);
+                        }
+                        catch (Exception ex) 
+                        {
+                            //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
+                            ;
+                        }
 
                         Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, mobileEntity.Name, false);
+                                                                 obj.X, obj.Y, objSerial, mobileEntity.Name, IsCorpse, title);
                     }
                     else if (obj is Static)
                     {
                         Client.Game._uoServiceImpl.AddGameObject("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, "None", false);
+                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title);
                     }
                 }
 

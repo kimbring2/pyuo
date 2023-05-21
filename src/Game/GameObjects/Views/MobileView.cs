@@ -392,6 +392,9 @@ namespace ClassicUO.Game.GameObjects
 
                     if (isHuman)
                     {
+                        //Console.WriteLine("isHuman");
+                        //Console.WriteLine("Name: {0}", Name);
+
                         if (IsCovered(this, layer))
                         {
                             continue;
@@ -399,8 +402,6 @@ namespace ClassicUO.Game.GameObjects
 
                         if (item.ItemData.AnimID != 0)
                         {
-                            //Console.WriteLine("item.ItemData.AnimID != 0");
-
                             graphic = item.ItemData.AnimID;
 
                             if (isGargoyle)
@@ -443,12 +444,8 @@ namespace ClassicUO.Game.GameObjects
                         }
                         else
                         {   
-                            //Console.WriteLine("item.ItemData.AnimID == 0");
-
                             if (item.ItemData.IsLight)
                             {
-                                //Console.WriteLine("item.ItemData.IsLight");
-
                                 Client.Game.GetScene<GameScene>().AddLight(this, item, drawX, drawY);
                             }
                         }
@@ -460,42 +457,10 @@ namespace ClassicUO.Game.GameObjects
                         if (item.ItemData.IsLight)
                         {
                             Client.Game.GetScene<GameScene>().AddLight(this, item, drawX, drawY);
-
-                            /*DrawInternal
-                            (
-                                batcher,
-                                this,
-                                item,
-                                drawX,
-                                drawY,
-                                IsFlipped,
-                                animIndex,
-                                false,
-                                graphic,
-                                animGroup,
-                                dir,
-                                isHuman,
-                                false,
-                                alpha: HueVector.Z
-                            );
-                            */
-                            //break;
                         }
                     }
                 }
             }
-
-            //if (FileManager.Animations.SittingValue != 0)
-            //{
-            //    ref var sittingData = ref FileManager.Animations.SittingInfos[FileManager.Animations.SittingValue - 1];
-
-            //    if (FileManager.Animations.Direction == 3 && sittingData.DrawBack &&
-            //        HasEquipment && Equipment[(int) Layer.Cloak] == null)
-            //    {
-
-            //    }
-            //}
-            // 
 
             FrameInfo.X = Math.Abs(FrameInfo.X);
             FrameInfo.Y = Math.Abs(FrameInfo.Y);
@@ -827,34 +792,7 @@ namespace ClassicUO.Game.GameObjects
                         }
                         else
                         {
-                            //bool isMounted = isHuman && owner.IsMounted;
-
-                            //int diffX = spriteInfo.UV.Width /*- spriteInfo.Center.X*/;
-
-                            //if (isMounted)
-                            //{
-                            //if (mountOffset != 0)
-                            //{
-                            //    mountOffset += 10;
-                            //}
-                            //else
-                            //{
-                            //mountOffset = (sbyte)Math.Abs(spriteInfo.Center.Y);
-                            //}                          
-                            //}
-
-                            //var flags = AnimationsLoader.Instance.DataIndex[id].Flags;
-                            //if (AnimationsLoader.Instance.DataIndex[id].Type == ANIMATION_GROUPS_TYPE.HUMAN)
-                            //{
-
-                            //}
-
                             int diffY = (spriteInfo.UV.Height + spriteInfo.Center.Y) - mountOffset;
-
-                            //if (owner.Serial == World.Player.Serial && entity == null)
-                            //{
-
-                            //}
 
                             int value = /*!isMounted && diffX <= 44 ? spriteInfo.UV.Height * 2 :*/ Math.Max(1, diffY);
                             int count = Math.Max((spriteInfo.UV.Height / value) + 1, 2);
@@ -863,13 +801,8 @@ namespace ClassicUO.Game.GameObjects
                             int remains = spriteInfo.UV.Height - rect.Height;
 
                             int tiles = (byte)owner.Direction % 2 == 0 ? 2 : 2;
-                            //tiles = 999;
-
                             for (int i = 0; i < count; ++i)
                             {
-                                //hueVec.Y = 1;
-                                //hueVec.X = 0x44 + (i * 20);
-
                                 batcher.Draw
                                 (
                                     spriteInfo.Texture,
@@ -881,7 +814,6 @@ namespace ClassicUO.Game.GameObjects
                                     1f,
                                     mirror ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                                     depth + 1f + (i * tiles)
-                                //depth + (i * tiles) + (owner.PriorityZ * 0.001f)
                                 );
 
                                 pos.Y += rect.Height;

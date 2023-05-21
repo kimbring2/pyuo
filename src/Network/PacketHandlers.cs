@@ -830,6 +830,8 @@ namespace ClassicUO.Network
 
         private static void Talk(ref StackDataReader p)
         {
+            Console.WriteLine("Talk()");
+
             uint serial = p.ReadUInt32BE();
             Entity entity = World.Get(serial);
             ushort graphic = p.ReadUInt16BE();
@@ -871,7 +873,6 @@ namespace ClassicUO.Network
                     entity.Name = string.IsNullOrEmpty(name) ? text : name;
                 }
             }
-
 
             MessageManager.HandleMessage
             (
@@ -1212,6 +1213,8 @@ namespace ClassicUO.Network
             {
                 Mobile vendor = World.Mobiles.Get(serial);
 
+                //Console.WriteLine("Name: {0}", vendor.Name);
+
                 if (vendor == null)
                 {
                     return;
@@ -1276,7 +1279,7 @@ namespace ClassicUO.Network
 
                 if (item != null)
                 {
-                    Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
+                    //Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
 
                     if (item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2))
                     {
@@ -1293,7 +1296,7 @@ namespace ClassicUO.Network
                     }
 
                     ContainerGump container = UIManager.GetGump<ContainerGump>(serial);
-                    Console.WriteLine("container: {0}", container);
+                    //Console.WriteLine("container: {0}", container);
 
                     bool playsound = false;
                     int x, y;
@@ -1387,8 +1390,6 @@ namespace ClassicUO.Network
                     }
                     else
                     {
-                        Console.WriteLine("container == null");
-
                         ContainerManager.CalculateContainerPosition(serial, graphic);
                         x = ContainerManager.X;
                         y = ContainerManager.Y;
@@ -2940,6 +2941,8 @@ namespace ClassicUO.Network
             string text = p.ReadASCII(60);
             byte flags = p.ReadUInt8();
 
+            //Console.WriteLine("text: {0}", text);
+
             mobile.Title = text;
 
             PaperDollGump paperdoll = UIManager.GetGump<PaperDollGump>(mobile);
@@ -3492,6 +3495,8 @@ namespace ClassicUO.Network
 
         private static void UnicodeTalk(ref StackDataReader p)
         {
+            Console.WriteLine("UnicodeTalk()");
+
             if (!World.InGame)
             {
                 LoginScene scene = Client.Game.GetScene<LoginScene>();
@@ -3518,7 +3523,6 @@ namespace ClassicUO.Network
 
                 return;
             }
-
 
             uint serial = p.ReadUInt32BE();
             Entity entity = World.Get(serial);
@@ -4602,6 +4606,8 @@ namespace ClassicUO.Network
 
         private static void DisplayClilocString(ref StackDataReader p)
         {
+            Console.WriteLine("DisplayClilocString()");
+            
             if (World.Player == null)
             {
                 return;

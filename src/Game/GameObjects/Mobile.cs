@@ -445,18 +445,15 @@ namespace ClassicUO.Game.GameObjects
                     case ANIMATION_GROUPS_TYPE.SEA_MONSTER:
                     case ANIMATION_GROUPS_TYPE.MONSTER:
                         animGroup = ANIMATION_GROUPS.AG_HIGHT;
-
                         break;
 
                     case ANIMATION_GROUPS_TYPE.ANIMAL:
                         animGroup = ANIMATION_GROUPS.AG_LOW;
-
                         break;
 
                     case ANIMATION_GROUPS_TYPE.HUMAN:
                     case ANIMATION_GROUPS_TYPE.EQUIPMENT:
                         animGroup = ANIMATION_GROUPS.AG_PEOPLE;
-
                         break;
                 }
 
@@ -654,7 +651,6 @@ namespace ClassicUO.Game.GameObjects
                             {
                                 goto SKIP;
                             }
-
 
                             if (_animationRepeat)
                             {

@@ -544,16 +544,18 @@ namespace ClassicUO.Game.UI.Gumps
                     {
                         Console.WriteLine("IsBuyGump");
                         Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
-
-                        foreach (var item in items) 
-                        {
-                            Console.WriteLine("item: {0}", item.ToString());
-                        }
+                        //foreach (var item in items) 
+                        //{
+                        //    Console.WriteLine("item: {0}", item.ToString());
+                        //}
 
                         NetClient.Socket.Send_BuyRequest(LocalSerial, items);
                     }
                     else
                     {
+                        Console.WriteLine("IsSellGump");
+                        Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
+
                         NetClient.Socket.Send_SellRequest(LocalSerial, items);
                     }
 

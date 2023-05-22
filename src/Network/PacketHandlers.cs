@@ -830,7 +830,7 @@ namespace ClassicUO.Network
 
         private static void Talk(ref StackDataReader p)
         {
-            Console.WriteLine("Talk()");
+            //Console.WriteLine("Talk()");
 
             uint serial = p.ReadUInt32BE();
             Entity entity = World.Get(serial);
@@ -1163,15 +1163,6 @@ namespace ClassicUO.Network
                 false,
                 GraphicEffectBlendMode.Normal
             );
-
-            //if (effect.AnimDataFrame.FrameCount != 0)
-            //{
-            //    effect.IntervalInMs = (uint) (effect.AnimDataFrame.FrameInterval * 45);
-            //}
-            //else
-            //{
-            //    effect.IntervalInMs = 13;
-            //}
         }
 
         private static void OpenContainer(ref StackDataReader p)
@@ -1248,7 +1239,6 @@ namespace ClassicUO.Network
                     {
                         Item it = (Item) first;
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
-
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
                                                                   0, 0, it.Serial, it.Name, false, "None", 
                                                                   it.Amount, it.Price);
@@ -3202,15 +3192,12 @@ namespace ClassicUO.Network
             string name = p.ReadASCII();
 
             WMapEntity wme = World.WMapManager.GetEntity(serial);
-
             if (wme != null && !string.IsNullOrEmpty(name))
             {
                 wme.Name = name;
             }
 
-
             Entity entity = World.Get(serial);
-
             if (entity != null)
             {
                 entity.Name = name;
@@ -3268,20 +3255,20 @@ namespace ClassicUO.Network
 
         private static void SellList(ref StackDataReader p)
         {
+            Console.WriteLine("SellList()");
+
             if (!World.InGame)
             {
                 return;
             }
 
             Mobile vendor = World.Mobiles.Get(p.ReadUInt32BE());
-
             if (vendor == null)
             {
                 return;
             }
 
             ushort countItems = p.ReadUInt16BE();
-
             if (countItems <= 0)
             {
                 return;
@@ -3316,8 +3303,10 @@ namespace ClassicUO.Network
                     }
                 }
 
-                //if (string.IsNullOrEmpty(item.Name))
-                //    item.Name = name;
+                //Console.WriteLine("serial: {0}, amount: {1}, price: {2}, name: {3}", serial, amount, price, name);
+                //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
+                Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
+                                                          0, 0, serial, name, false, "None", amount, price);
 
                 gump.AddItem
                 (
@@ -3673,30 +3662,6 @@ namespace ClassicUO.Network
                 }
             }
 
-            //for (int i = 0, index = p.Position; i < textLinesCount; i++)
-            //{
-            //    int length = ((p[index++] << 8) | p[index++]) << 1;
-            //    int true_length = 0;
-
-            //    while (true_length < length)
-            //    {
-            //        if (((p[index + true_length++] << 8) | p[index + true_length++]) << 1 == '\0')
-            //        {
-            //            break;
-            //        }
-            //    }
-
-            //    unsafe
-            //    {
-
-            //        fixed (byte* ptr = &p.Buffer[index])
-            //        {
-            //            lines[i] = Encoding.BigEndianUnicode.GetString(ptr, true_length);
-            //        }
-            //    }
-            //    index += length;
-            //}
-
             CreateGump
             (
                 sender,
@@ -3711,7 +3676,6 @@ namespace ClassicUO.Network
         private static void ChatMessage(ref StackDataReader p)
         {
             ushort cmd = p.ReadUInt16BE();
-
             switch (cmd)
             {
                 case 0x03E8: // create conference
@@ -4027,9 +3991,7 @@ namespace ClassicUO.Network
                     uint ser = p.ReadUInt32BE();
                     int button = (int) p.ReadUInt32BE();
 
-
                     LinkedListNode<Gump> first = UIManager.Gumps.First;
-
                     while (first != null)
                     {
                         LinkedListNode<Gump> nextGump = first.Next;
@@ -4266,34 +4228,9 @@ namespace ClassicUO.Network
                 case 0x18: // enable map patches
                     if (MapLoader.Instance.ApplyPatches(ref p))
                     {
-                        //List<GameObject> list = new List<GameObject>();
-
-                        //foreach (int i in World.Map.GetUsedChunks())
-                        //{
-                        //    Chunk chunk = World.Map.Chunks[i];
-
-                        //    for (int xx = 0; xx < 8; xx++)
-                        //    {
-                        //        for (int yy = 0; yy < 8; yy++)
-                        //        {
-                        //            Tile tile = chunk.Tiles[xx, yy];
-
-                        //            for (GameObject obj = tile.FirstNode; obj != null; obj = obj.Right)
-                        //            {
-                        //                if (!(obj is Static) && !(obj is Land))
-                        //                {
-                        //                    list.Add(obj);
-                        //                }
-                        //            }
-                        //        }
-                        //    }
-                        //}
-
-
                         int map = World.MapIndex;
                         World.MapIndex = -1;
                         World.MapIndex = map;
-
 
                         Log.Trace("Map Patches applied.");
                     }
@@ -4322,7 +4259,6 @@ namespace ClassicUO.Network
                             break;
 
                         case 2:
-
                             if (serial == World.Player)
                             {
                                 byte updategump = p.ReadUInt8();
@@ -4338,7 +4274,6 @@ namespace ClassicUO.Network
                             break;
 
                         case 5:
-
                             int pos = p.Position;
                             byte zero = p.ReadUInt8();
                             byte type2 = p.ReadUInt8();
@@ -4831,7 +4766,6 @@ namespace ClassicUO.Network
                     str = str.Insert(0, "<basefont color=#42a5ff>");
                     str += "</basefont>";
                 }
-
 
                 for (int i = 0; i < list.Count; i++)
                 {

@@ -499,20 +499,34 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 11) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
-	        		GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
+	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        	}
 	        }
 	        else if (actions.ActionType == 12) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 12");
-	        		Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
+	        		//Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
 	        		NetClient.Socket.Send_BuyRequest(actions.MobileSerial, items);
-	        		//GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
+
+	        		grpcVendorItemList.Clear();
 	        	}
 	        }
+	        else if (actions.ActionType == 13) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 13");
+	        		Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
+
+	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
+	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
+	        		NetClient.Socket.Send_SellRequest(actions.MobileSerial, items);
+
+	        		grpcVendorItemList.Clear();
+	        	}
+	        }
+
 
             return Task.FromResult(new Empty {});
         }

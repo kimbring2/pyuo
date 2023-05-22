@@ -53,6 +53,7 @@ namespace ClassicUO.Game.UI.Gumps
         {
             None = -1,
             LeftScrollUp,
+
             LeftScrollDown,
             RightScrollUp,
             RightScrollDown
@@ -302,7 +303,11 @@ namespace ClassicUO.Game.UI.Gumps
 
         public bool IsBuyGump { get; }
 
-        private void ButtonMouseUp(object sender, MouseEventArgs e) { _buttonScroll = ButtonScroll.None; }
+        private void ButtonMouseUp(object sender, MouseEventArgs e) 
+        { 
+            Console.WriteLine("ButtonMouseUp()");
+            _buttonScroll = ButtonScroll.None; 
+        }
 
         public void AddItem
         (
@@ -394,6 +399,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ProcessListScroll()
         {
+            Console.WriteLine("ProcessListScroll()");
+
             if (Time.Ticks - _lastMouseEventTime >= SCROLL_DELAY)
             {
                 switch (_buttonScroll)
@@ -418,11 +425,11 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ShopItem_MouseDoubleClick(object sender, MouseDoubleClickEventArgs e)
         {
-            Console.WriteLine("ShopItem_MouseDoubleClick()");
-            Console.WriteLine("sender: {0}, e: {1}", sender, e);
+            //Console.WriteLine("ShopItem_MouseDoubleClick()");
+            //Console.WriteLine("sender: {0}, e: {1}", sender, e);
 
             ShopItem shopItem = (ShopItem) sender;
-            Console.WriteLine("shopItem: {0}", shopItem);
+            //Console.WriteLine("shopItem: {0}", shopItem);
 
             if (shopItem.Amount <= 0)
             {
@@ -461,6 +468,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void TransactionItem_OnDecreaseButtomClicked(object sender, EventArgs e)
         {
+            //Console.WriteLine("TransactionItem_OnDecreaseButtomClicked()");
+
             TransactionItem transactionItem = (TransactionItem) sender;
 
             int total = Keyboard.Shift ? transactionItem.Amount : 1;
@@ -482,6 +491,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void RemoveTransactionItem(TransactionItem transactionItem)
         {
+            //Console.WriteLine("RemoveTransactionItem()");
+
             _shopItems[transactionItem.LocalSerial].Amount += transactionItem.Amount;
 
             transactionItem.OnIncreaseButtomClicked -= TransactionItem_OnIncreaseButtomClicked;
@@ -495,6 +506,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void TransactionItem_OnIncreaseButtomClicked(object sender, EventArgs e)
         {
+            //Console.WriteLine("TransactionItem_OnIncreaseButtomClicked()");
+
             TransactionItem transactionItem = (TransactionItem) sender;
 
             if (_shopItems[transactionItem.LocalSerial].Amount > 0)
@@ -509,8 +522,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ShopItem_MouseClick(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("ShopItem_MouseClick()");
-            Console.WriteLine("e: {0}", e);
+            //Console.WriteLine("ShopItem_MouseClick()");
+            //Console.WriteLine("e: {0}", e);
             foreach (ShopItem shopItem in _shopScrollArea.Children.SelectMany(o => o.Children).OfType<ShopItem>())
             {
                 shopItem.IsSelected = shopItem == sender;
@@ -519,8 +532,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void OnButtonClick(int buttonID)
         {
-            Console.WriteLine("OnButtonClick");
-            Console.WriteLine("buttonID: {0}", buttonID);
+            //Console.WriteLine("OnButtonClick");
+            //Console.WriteLine("buttonID: {0}", buttonID);
 
             switch ((Buttons) buttonID)
             {
@@ -529,6 +542,14 @@ namespace ClassicUO.Game.UI.Gumps
 
                     if (IsBuyGump)
                     {
+                        Console.WriteLine("IsBuyGump");
+                        Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
+
+                        foreach (var item in items) 
+                        {
+                            Console.WriteLine("item: {0}", item.ToString());
+                        }
+
                         NetClient.Socket.Send_BuyRequest(LocalSerial, items);
                     }
                     else
@@ -541,7 +562,6 @@ namespace ClassicUO.Game.UI.Gumps
                     break;
 
                 case Buttons.Clear:
-
                     foreach (TransactionItem t in _transactionItems.Values.ToList())
                     {
                         RemoveTransactionItem(t);
@@ -582,7 +602,7 @@ namespace ClassicUO.Game.UI.Gumps
                     X = 10,
                     Width = 190
                 };
-                
+
                 Add(line);
 
                 int offY = 15;
@@ -892,6 +912,8 @@ namespace ClassicUO.Game.UI.Gumps
 
                 buttonAdd.MouseOver += (sender, e) =>
                 {
+                    //Console.WriteLine("TransactionItem buttonAdd MouseOver()");
+
                     if (status == 2)
                     {
                         if (pressedAdd && Time.Ticks > t0)
@@ -910,6 +932,8 @@ namespace ClassicUO.Game.UI.Gumps
 
                 buttonAdd.MouseDown += (sender, e) =>
                 {
+                    //Console.WriteLine("TransactionItem buttonAdd MouseDown()");
+
                     if (e.Button != MouseButtonType.Left)
                     {
                         return;
@@ -923,11 +947,12 @@ namespace ClassicUO.Game.UI.Gumps
 
                 buttonAdd.MouseUp += (sender, e) =>
                 {
+                    //Console.WriteLine("TransactionItem buttonAdd MouseUp()");
+
                     pressedAdd = false;
                     status = 0;
                     _StepsDone = _StepChanger = 1;
                 };
-
 
                 Button buttonRemove;
 
@@ -990,7 +1015,6 @@ namespace ClassicUO.Game.UI.Gumps
                 Amount = amount;
             }
 
-
             public ushort Graphic { get; }
             public ushort Hue { get; }
 
@@ -1008,16 +1032,16 @@ namespace ClassicUO.Game.UI.Gumps
 
             public override void OnButtonClick(int buttonID)
             {
+                //Console.WriteLine("TransactionItem OnButtonClick()");
+
                 switch (buttonID)
                 {
                     case 0:
                         OnIncreaseButtomClicked?.Invoke(this, EventArgs.Empty);
-
                         break;
 
                     case 1:
                         OnDecreaseButtomClicked?.Invoke(this, EventArgs.Empty);
-
                         break;
                 }
             }

@@ -146,7 +146,6 @@ namespace ClassicUO.Game.Map
             }
         }
 
-
         private ref IndexMap GetIndex(int map)
         {
             MapLoader.Instance.SanitizeMapIndex(ref map);

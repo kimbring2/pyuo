@@ -1176,7 +1176,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            Console.WriteLine("OpenContainer()");
+            //Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1211,7 +1211,7 @@ namespace ClassicUO.Network
             }
             else if (graphic == 0x0030)
             {
-                Console.WriteLine("graphic == 0x0030");
+                //Console.WriteLine("graphic == 0x0030");
 
                 Mobile vendor = World.Mobiles.Get(serial);
                 if (vendor == null)
@@ -1247,7 +1247,7 @@ namespace ClassicUO.Network
                     while (first != null)
                     {
                         Item it = (Item) first;
-                        Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
+                        //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
 
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
                                                                   0, 0, it.Serial, it.Name, false, "None", 
@@ -1418,15 +1418,14 @@ namespace ClassicUO.Network
 
             if (graphic != 0x0030)
             {
-                Console.WriteLine("graphic != 0x0030");
+                //Console.WriteLine("graphic != 0x0030");
 
                 Item it = World.Items.Get(serial);
                 if (it != null)
                 {
-                    Console.WriteLine("it != null");
+                    //Console.WriteLine("it != null");
 
                     it.Opened = true;
-
                     if (!it.IsCorpse && graphic != 0xFFFF)
                     {
                         ClearContainerAndRemoveItems(it);
@@ -2528,7 +2527,6 @@ namespace ClassicUO.Network
             {
                 return;
             }
-
 
             ShopGump gump = UIManager.GetGump<ShopGump>();
 

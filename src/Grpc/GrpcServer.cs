@@ -123,8 +123,8 @@ namespace ClassicUO.Grpc
 	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "ShopItem") {
-	        		Console.WriteLine("ShopItem");
-	        		Console.WriteLine("name: {0}, serial: {1}", name, serial);
+	        		//Console.WriteLine("ShopItem");
+	        		//Console.WriteLine("name: {0}, serial: {1}", name, serial);
 	        		grpcVendorItemList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
@@ -500,8 +500,17 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
+	        	}
+	        }
+	        else if (actions.ActionType == 12) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 12");
+	        		Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
 
-	        		//vendorItemDataList
+	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
+	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
+	        		NetClient.Socket.Send_BuyRequest(actions.MobileSerial, items);
+	        		//GameActions.ResponsePopupMenu(actions.MobileSerial, 1);
 	        	}
 	        }
 

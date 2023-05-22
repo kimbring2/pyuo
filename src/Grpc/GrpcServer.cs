@@ -201,7 +201,7 @@ namespace ClassicUO.Grpc
 	            {
 	            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
 	            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-	            	Console.WriteLine("Name: {0}, Race: {1}, Title: {2}, Serial: {3}", mob.Name, mob.Race, mob.Title, mob.Serial);
+	            	//Console.WriteLine("Name: {0}, Race: {1}, Title: {2}, Serial: {3}", mob.Name, mob.Race, mob.Title, mob.Serial);
 
 	            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
 	            	{
@@ -215,7 +215,7 @@ namespace ClassicUO.Grpc
 	                										   Serial = (uint) mob.Serial });
 	            }
 
-	            Console.WriteLine("\n");
+	            //Console.WriteLine("\n");
 	        }
 	        catch (Exception ex)
             {
@@ -520,7 +520,7 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 13) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 13");
-	        		Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
+	        		//Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
@@ -530,7 +530,17 @@ namespace ClassicUO.Grpc
 	        		grpcVendorItemList.Clear();
 	        	}
 	        }
-
+	        else if (actions.ActionType == 14) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 14");
+	        		Item bandage = World.Player.FindBandage();
+	        		if (bandage != null) 
+	        		{
+	        			Console.WriteLine("Serial: {0}, Amount: {0}", bandage.Serial, bandage.Amount);
+	        			NetClient.Socket.Send_TargetSelectedObject(bandage.Serial, World.Player.Serial);
+	        		}
+	        	}
+	        }
 
             return Task.FromResult(new Empty {});
         }

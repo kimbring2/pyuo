@@ -1270,7 +1270,6 @@ namespace ClassicUO.Game.Managers
                     else
                     {
                         Item bandage = World.Player.FindBandage();
-
                         if (bandage != null)
                         {
                             if (macro.Code == MacroType.BandageSelf)

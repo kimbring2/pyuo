@@ -521,7 +521,6 @@ namespace ClassicUO.Game.Managers
                                 case MacroSubType.NinjitsuSpellbook:
                                 case MacroSubType.SpellWeavingSpellbook:
                                 case MacroSubType.MysticismSpellbook:
-
                                     SpellBookType type = SpellBookType.Magery;
 
                                     switch (macro.SubCode)

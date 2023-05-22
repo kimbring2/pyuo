@@ -1102,7 +1102,6 @@ namespace ClassicUO.Network
             }
 
             Mobile entity = World.Mobiles.Get(source);
-
             if (entity == null)
             {
                 source = 0;
@@ -1115,7 +1114,6 @@ namespace ClassicUO.Network
             }
 
             Mobile destEntity = World.Mobiles.Get(dest);
-
             if (destEntity == null)
             {
                 dest = 0;
@@ -1146,8 +1144,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenContainer()");
-
+            Console.WriteLine("OpenContainer()");
             if (World.Player == null)
             {
                 return;
@@ -1155,7 +1152,6 @@ namespace ClassicUO.Network
 
             uint serial = p.ReadUInt32BE();
             ushort graphic = p.ReadUInt16BE();
-
             if (graphic == 0xFFFF)
             {
                 Item spellBookItem = World.Items.Get(serial);
@@ -1168,7 +1164,6 @@ namespace ClassicUO.Network
                 UIManager.GetGump<SpellbookGump>(serial)?.Dispose();
 
                 SpellbookGump spellbookGump = new SpellbookGump(spellBookItem);
-
                 if (!UIManager.GetGumpCachePosition(spellBookItem, out Point location))
                 {
                     location = new Point(64, 64);
@@ -3588,8 +3583,7 @@ namespace ClassicUO.Network
 
         private static void OpenGump(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenGump()");
-
+            Console.WriteLine("OpenGump()");
             if (World.Player == null)
             {
                 return;

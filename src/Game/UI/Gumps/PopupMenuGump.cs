@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Game.Data;
 using ClassicUO.Game.UI.Controls;
 using ClassicUO.Input;
@@ -46,6 +47,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         public PopupMenuGump(PopupMenuData data) : base(0, 0)
         {
+            Console.WriteLine("PopupMenuGump()");
+
             CanMove = false;
             CanCloseWithRightClick = true;
             _data = data;
@@ -65,6 +68,9 @@ namespace ClassicUO.Game.UI.Gumps
                 ref PopupMenuItem item = ref data.Items[i];
 
                 string text = ClilocLoader.Instance.GetString(item.Cliloc);
+                //Console.WriteLine("text:{0}", text);
+
+                Client.Game._uoServiceImpl.grpcPopupMenuList.Add(text);
 
                 ushort hue = item.Hue;
 

@@ -64,6 +64,7 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcItemDropableLandList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcVendorItemList = new List<GrpcGameObjectData>();
+        public List<string> grpcPopupMenuList = new List<string>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -313,6 +314,10 @@ namespace ClassicUO.Grpc
             corpseItemList.Item.AddRange(corpseItemDataList);
             states.CorpseItemList = corpseItemList;
 
+            GrpcPopupMenuList popupMenuList = new GrpcPopupMenuList();
+            popupMenuList.Menu.AddRange(grpcPopupMenuList);
+            states.PopupMenuList = popupMenuList;
+
             states.PlayerStatus = playerStatus;
 
             try
@@ -502,6 +507,7 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
+	        		grpcPopupMenuList.Clear();
 	        	}
 	        }
 	        else if (actions.ActionType == 12) {
@@ -539,6 +545,12 @@ namespace ClassicUO.Grpc
 	        			Console.WriteLine("Serial: {0}, Amount: {0}", bandage.Serial, bandage.Amount);
 	        			NetClient.Socket.Send_TargetSelectedObject(bandage.Serial, World.Player.Serial);
 	        		}
+	        	}
+	        }
+	        else if (actions.ActionType == 15) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 15");
+	        		GameActions.OpenDoor();
 	        	}
 	        }
 

@@ -53,10 +53,10 @@ namespace ClassicUO.Game.Managers
                 return;
             }
 
-            Console.WriteLine("Update()");
+            //Console.WriteLine("Update()");
 
             Entity entity = World.Get(Serial);
-            Console.WriteLine("entity: {0}", entity);
+            //Console.WriteLine("entity: {0}", entity);
 
             if (entity != null)
             {
@@ -67,7 +67,7 @@ namespace ClassicUO.Game.Managers
 
                 if (World.ClientFeatures.PopupEnabled)
                 {
-                    Console.WriteLine("OpenPopupMenu()");
+                    //Console.WriteLine("OpenPopupMenu()");
                     GameActions.OpenPopupMenu(Serial);
                 }
             }

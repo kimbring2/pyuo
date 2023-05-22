@@ -442,13 +442,15 @@ namespace ClassicUO
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
                 //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
                 //Console.WriteLine("SelectedObject.LastObject: {0}\n", SelectedObject.LastObject);
-                ;
+                Item item = World.Player.FindItemByLayer(Layer.Mount);
+                if (item != null) 
+                {
+                    //Console.WriteLine("item.Name: {0}", item.Name);
+                }
             }
 
             sem_physics.WaitOne();
             sem_action.WaitOne();
-
-            //Console.WriteLine("Step 2:");
 
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
@@ -510,8 +512,6 @@ namespace ClassicUO
             }
 
             base.Update(gameTime);
-
-            //UpdateScreenshot();
 
             sem_observation.Release();
             sem_physics.Release();

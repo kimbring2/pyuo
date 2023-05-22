@@ -530,6 +530,12 @@ namespace ClassicUO.Game.UI.Gumps
             }
         }
 
+        public void CloseWindow()
+        {
+            Console.WriteLine("CloseWindow()");
+            CloseWithRightClick();
+        }
+
         public override void OnButtonClick(int buttonID)
         {
             //Console.WriteLine("OnButtonClick");
@@ -542,8 +548,8 @@ namespace ClassicUO.Game.UI.Gumps
 
                     if (IsBuyGump)
                     {
-                        Console.WriteLine("IsBuyGump");
-                        Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
+                        //Console.WriteLine("IsBuyGump");
+                        //Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
                         //foreach (var item in items) 
                         //{
                         //    Console.WriteLine("item: {0}", item.ToString());
@@ -553,8 +559,8 @@ namespace ClassicUO.Game.UI.Gumps
                     }
                     else
                     {
-                        Console.WriteLine("IsSellGump");
-                        Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
+                        //Console.WriteLine("IsSellGump");
+                        //Console.WriteLine("LocalSerial: {0}, items: {1}", LocalSerial, items);
 
                         NetClient.Socket.Send_SellRequest(LocalSerial, items);
                     }

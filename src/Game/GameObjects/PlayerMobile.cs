@@ -268,7 +268,6 @@ namespace ClassicUO.Game.GameObjects
             ushort equippedGraphic = 0;
 
             Item layerObject = FindItemByLayer(Layer.OneHanded);
-
             if (layerObject != null)
             {
                 equippedGraphic = layerObject.Graphic;
@@ -294,9 +293,7 @@ namespace ClassicUO.Game.GameObjects
                 if (layerObject != null)
                 {
                     ushort imageID = layerObject.ItemData.AnimID;
-
                     int count = 1;
-
                     ushort testGraphic = (ushort) (equippedGraphic - 1);
 
                     if (TileDataLoader.Instance.StaticData[testGraphic].AnimID == imageID)
@@ -318,7 +315,6 @@ namespace ClassicUO.Game.GameObjects
                     for (int i = 0; i < count; i++)
                     {
                         ushort g = i == 0 ? graphic0 : graphic1;
-
                         switch (g)
                         {
                             case 0x0901: // Gargish Cyclone

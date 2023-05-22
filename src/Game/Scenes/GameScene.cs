@@ -537,7 +537,6 @@ namespace ClassicUO.Game.Scenes
                 }
 
                 light.Color = ProfileManager.CurrentProfile.UseColoredLights ? LightColors.GetHue(graphic) : (ushort) 0;
-
                 if (light.Color != 0)
                 {
                     light.Color++;
@@ -551,8 +550,6 @@ namespace ClassicUO.Game.Scenes
 
         private void FillGameObjectList()
         {
-            //Console.WriteLine("\nFillGameObjectList()");
-
             _renderListStaticsHead = null;
             _renderList = null;
             _renderListStaticsCount = 0;
@@ -617,8 +614,6 @@ namespace ClassicUO.Game.Scenes
             int maxX = _maxTile.X;
             int maxY = _maxTile.Y;
 
-            //Console.WriteLine("minX: {0}, minY: {1}, maxX: {2}, maxY: {3}", minX, minY, maxX, maxY);
-
             Map.Map map = World.Map;
             bool use_handles = _useObjectHandles;
             int maxCotZ = World.Player.Z + 5;
@@ -648,15 +643,6 @@ namespace ClassicUO.Game.Scenes
 
                     while (x >= minX && x <= maxX && y >= minY && y <= maxY)
                     {
-                        //GameObject tile = map.GetTile(x, y);
-                        //if (!(tile is Land)) {
-                        //    Console.WriteLine("x: {0}, y: {1}", x, y);
-                        //    Console.WriteLine("tile: {0}, tile.Distance: {1}", tile, tile.Distance);
-                        //}
-                        //if (!(SelectedObject.LastObject is Land)) {
-                        //    Console.WriteLine("SelectedObject.LastObject: {0}\n", SelectedObject.LastObject);
-                        //}
-
                         AddTileToRenderList
                         (
                             map.GetTile(x, y),
@@ -679,7 +665,6 @@ namespace ClassicUO.Game.Scenes
                 for (int i = 0; i < _foliageCount; i++)
                 {
                     GameObject f = _foliages[i];
-
                     if (f.FoliageIndex == FoliageIndex)
                     {
                         CalculateAlpha(ref f.AlphaHue, Constants.FOLIAGE_ALPHA);
@@ -828,7 +813,6 @@ namespace ClassicUO.Game.Scenes
                     int cellY = gobj.Y % 8;
 
                     GameObject o = World.Map.GetChunk(gobj.X, gobj.Y)?.Tiles[cellX, cellY];
-
                     if (o != null)
                     {
                         x = o.X;
@@ -910,7 +894,6 @@ namespace ClassicUO.Game.Scenes
         public override bool Draw(UltimaBatcher2D batcher)
         {
             //Log.Trace("GameScene Draw()");
-
             if (!World.InGame /*|| !_isListReady*/)
             {
                 return false;
@@ -1155,7 +1138,6 @@ namespace ClassicUO.Game.Scenes
                         catch (Exception ex) 
                         {
                             //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
-                            ;
                         }
 
                         Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 

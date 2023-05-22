@@ -112,7 +112,6 @@ namespace ClassicUO.Game.Managers
             Clear();
 
             XmlElement root = doc["macros"];
-
             if (root != null)
             {
                 foreach (XmlElement xml in root.GetElementsByTagName("macro"))
@@ -786,7 +785,6 @@ namespace ClassicUO.Game.Managers
                                 case MacroSubType.NinjitsuSpellbook:
                                 case MacroSubType.SpellWeavingSpellbook:
                                 case MacroSubType.MysticismSpellbook:
-
                                     SpellbookGump spellbook = UIManager.GetGump<SpellbookGump>();
 
                                     if (spellbook != null)
@@ -825,9 +823,7 @@ namespace ClassicUO.Game.Managers
                                     break;
 
                                 case MacroSubType.Backpack:
-
                                     Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-
                                     if (backpack != null)
                                     {
                                         ContainerGump backpackGump = UIManager.GetGump<ContainerGump>(backpack.Serial);
@@ -857,7 +853,6 @@ namespace ClassicUO.Game.Managers
                                     break;
 
                                 case MacroSubType.PartyManifest:
-
                                     if (macro.Code == MacroType.Close)
                                     {
                                         UIManager.GetGump<PartyGump>()?.Dispose();
@@ -999,18 +994,8 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.LastTarget:
-
-                    //if (WaitForTargetTimer == 0)
-                    //    WaitForTargetTimer = Time.Ticks + Constants.WAIT_FOR_TARGET_DELAY;
-
                     if (TargetManager.IsTargeting)
                     {
-                        //if (TargetManager.TargetingState != TargetType.Object)
-                        //{
-                        //    TargetManager.TargetGameObject(TargetManager.LastGameObject);
-                        //}
-                        //else 
-
                         if (TargetManager.TargetingState != CursorTarget.Object)
                         {
                             TargetManager.TargetLast();
@@ -1038,10 +1023,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.TargetSelf:
-
-                    //if (WaitForTargetTimer == 0)
-                    //    WaitForTargetTimer = Time.Ticks + Constants.WAIT_FOR_TARGET_DELAY;
-
                     if (TargetManager.IsTargeting)
                     {
                         TargetManager.Target(World.Player);
@@ -1108,7 +1089,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.WaitForTarget:
-
                     if (WaitForTargetTimer == 0)
                     {
                         WaitForTargetTimer = Time.Ticks + Constants.WAIT_FOR_TARGET_DELAY;
@@ -1195,7 +1175,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.AttackSelectedTarget:
-
                     if (SerialHelper.IsMobile(TargetManager.SelectedTarget))
                     {
                         GameActions.Attack(TargetManager.SelectedTarget);
@@ -1212,7 +1191,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.CurrentTarget:
-
                     if (TargetManager.SelectedTarget != 0)
                     {
                         if (WaitForTargetTimer == 0)
@@ -1238,14 +1216,12 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.TargetSystemOnOff:
-
                     GameActions.Print(ResGeneral.TargetSystemNotImplemented);
 
                     break;
 
                 case MacroType.BandageSelf:
                 case MacroType.BandageTarget:
-
                     if (Client.Version < ClientVersion.CV_5020 || ProfileManager.CurrentProfile.BandageSelfOld)
                     {
                         if (WaitingBandageTarget)
@@ -1312,7 +1288,6 @@ namespace ClassicUO.Game.Managers
 
                 case MacroType.SetUpdateRange:
                 case MacroType.ModifyUpdateRange:
-
                     if (macro is MacroObjectString moss && !string.IsNullOrEmpty(moss.Text) && byte.TryParse(moss.Text, out byte res))
                     {
                         if (res < Constants.MIN_VIEW_RANGE)
@@ -1432,7 +1407,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.ToggleGargoyleFly:
-
                     if (World.Player.Race == RaceType.GARGOYLE)
                     {
                         NetClient.Socket.Send_ToggleGargoyleFlying();
@@ -1450,7 +1424,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.Zoom:
-
                     switch (macro.SubCode)
                     {
                         case MacroSubType.MSC_NONE:
@@ -1509,7 +1482,6 @@ namespace ClassicUO.Game.Managers
                     ushort start = (ushort) (0x0F06 + scantype);
 
                     Item potion = World.Player.FindItemByGraphic(start);
-
                     if (potion != null)
                     {
                         GameActions.DoubleClick(potion);
@@ -1518,7 +1490,6 @@ namespace ClassicUO.Game.Managers
                     break;
 
                 case MacroType.CloseAllHealthBars:
-
                     //Includes HealthBarGump/HealthBarGumpCustom
                     IEnumerable<BaseHealthBarGump> healthBarGumps = UIManager.Gumps.OfType<BaseHealthBarGump>();
 
@@ -1554,7 +1525,6 @@ namespace ClassicUO.Game.Managers
 
                     break;
             }
-
 
             return result;
         }

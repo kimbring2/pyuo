@@ -193,16 +193,6 @@ namespace ClassicUO.Game
             }
         }
 
-        /*[MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static bool CheckToRemove(Entity obj, int distance)
-        {
-            if (Player == null || obj.Serial == Player.Serial)
-                return false;
-
-            return Math.Max(Math.Abs(obj.X - RangeSize.X), Math.Abs(obj.Y - RangeSize.Y)) > distance;
-        }
-        */
-
         public static void Update(double totalTime, double frameTime)
         {
             //Console.WriteLine("World Update()");
@@ -213,7 +203,6 @@ namespace ClassicUO.Game
                 {
                     Item rem = Items.Get(ObjectToRemove);
                     ObjectToRemove = 0;
-
                     if (rem != null)
                     {
                         Entity container = Get(rem.Container);
@@ -245,7 +234,6 @@ namespace ClassicUO.Game
                 }
 
                 bool do_delete = _timeToDelete < Time.Ticks;
-
                 if (do_delete)
                 {
                     _timeToDelete = Time.Ticks + 50;

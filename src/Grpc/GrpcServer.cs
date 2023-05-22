@@ -201,7 +201,7 @@ namespace ClassicUO.Grpc
 	            {
 	            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
 	            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-	            	//Console.WriteLine("Name: {0}, Race: {1}, Title: {2}", mob.Name, mob.Race, mob.Title);
+	            	Console.WriteLine("Name: {0}, Race: {1}, Title: {2}, Serial: {3}", mob.Name, mob.Race, mob.Title, mob.Serial);
 
 	            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
 	            	{
@@ -214,6 +214,8 @@ namespace ClassicUO.Grpc
 	                										   Race = (uint) mob.Race,
 	                										   Serial = (uint) mob.Serial });
 	            }
+
+	            Console.WriteLine("\n");
 	        }
 	        catch (Exception ex)
             {
@@ -511,6 +513,7 @@ namespace ClassicUO.Grpc
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
 	        		NetClient.Socket.Send_BuyRequest(actions.MobileSerial, items);
 
+	        		UIManager.GetGump<ShopGump>(actions.MobileSerial).CloseWindow();
 	        		grpcVendorItemList.Clear();
 	        	}
 	        }
@@ -523,6 +526,7 @@ namespace ClassicUO.Grpc
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
 	        		NetClient.Socket.Send_SellRequest(actions.MobileSerial, items);
 
+	        		UIManager.GetGump<ShopGump>(actions.MobileSerial).CloseWindow();
 	        		grpcVendorItemList.Clear();
 	        	}
 	        }

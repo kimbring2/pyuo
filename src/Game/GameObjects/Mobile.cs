@@ -175,7 +175,6 @@ namespace ClassicUO.Game.GameObjects
             get
             {
                 Item it = FindItemByLayer(Layer.Mount);
-
                 if (it != null && !IsDrivingBoat && it.GetGraphicForAnimation() != 0xFFFF)
                 {
                     return true;

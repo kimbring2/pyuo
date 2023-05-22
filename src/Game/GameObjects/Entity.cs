@@ -234,7 +234,6 @@ namespace ClassicUO.Game.GameObjects
                 for (LinkedObject i = Items; i != null; i = i.Next)
                 {
                     Item it = (Item) i;
-
                     if (it.Graphic == graphic && it.Hue == hue)
                     {
                         item = it;
@@ -243,7 +242,6 @@ namespace ClassicUO.Game.GameObjects
                     if (SerialHelper.IsValid(it.Container))
                     {
                         Item found = it.FindItem(graphic, hue);
-
                         if (found != null)
                         {
                             item = found;
@@ -260,7 +258,6 @@ namespace ClassicUO.Game.GameObjects
             for (LinkedObject i = Items; i != null; i = i.Next)
             {
                 Item item = (Item) i;
-
                 if (item.Graphic == graphic)
                 {
                     return item;
@@ -291,7 +288,6 @@ namespace ClassicUO.Game.GameObjects
             for (LinkedObject i = Items; i != null; i = i.Next)
             {
                 Item it = (Item) i;
-
                 if (!it.IsDestroyed && it.Layer == layer)
                 {
                     return it;
@@ -300,27 +296,6 @@ namespace ClassicUO.Game.GameObjects
 
             return null;
         }
-
-        //public new void Clear()
-        //{
-        //    if (!IsEmpty)
-        //    {
-        //        var obj = Items;
-
-        //        while (obj != null)
-        //        {
-        //            var next = obj.Next;
-        //            Item it = (Item) obj;
-
-        //            it.Container = 0xFFFF_FFFF;
-        //            World.Items.Remove(it);
-
-        //            Remove(obj);
-
-        //            obj = next;
-        //        }
-        //    }
-        //}
 
         public void ClearUnequipped()
         {

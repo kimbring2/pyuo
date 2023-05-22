@@ -399,7 +399,6 @@ namespace ClassicUO.Game.Scenes
             if (_isSelectionActive)
             {
                 DoDragSelect();
-
                 return true;
             }
 
@@ -732,7 +731,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            //Console.WriteLine("OnLeftMouseDoubleClick()");
+            Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 
@@ -754,7 +753,7 @@ namespace ClassicUO.Game.Scenes
             switch (obj)
             {
                 case Item item:
-                    Console.WriteLine("case Item item()");
+                    //Console.WriteLine("case Item item");
 
                     result = true;
 
@@ -766,6 +765,8 @@ namespace ClassicUO.Game.Scenes
                     break;
 
                 case Mobile mob:
+                    //Console.WriteLine("case Mobile mob");
+
                     result = true;
 
                     if (World.Player.InWarMode && World.Player != mob)

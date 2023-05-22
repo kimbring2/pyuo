@@ -329,6 +329,7 @@ namespace ClassicUO.Game
         public static void DoubleClick(uint serial)
         {
             //Log.Trace("DoubleClick");
+            //Console.WriteLine("DoubleClick()");
             
             if (serial != World.Player && SerialHelper.IsMobile(serial) && World.Player.InWarMode)
             {
@@ -337,6 +338,7 @@ namespace ClassicUO.Game
             }
             else
             {
+                //Console.WriteLine("Socket.Send_DoubleClick(serial)");
                 Socket.Send_DoubleClick(serial);
             }
 
@@ -625,7 +627,6 @@ namespace ClassicUO.Game
             if (World.InGame)
             {
                 Entity ent = World.Get(serial);
-
                 if (ent != null)
                 {
                     if (force)
@@ -708,6 +709,8 @@ namespace ClassicUO.Game
 
         public static void UseSkill(int index)
         {
+            Console.WriteLine("UseSkill()");
+
             if (index >= 0)
             {
                 LastSkillIndex = index;
@@ -794,6 +797,8 @@ namespace ClassicUO.Game
 
         public static void UsePrimaryAbility()
         {
+            Console.WriteLine("UsePrimaryAbility()");
+
             ref Ability ability = ref World.Player.Abilities[0];
 
             if (((byte) ability & 0x80) == 0)
@@ -815,6 +820,8 @@ namespace ClassicUO.Game
 
         public static void UseSecondaryAbility()
         {
+            Console.WriteLine("UseSecondaryAbility()");
+
             ref Ability ability = ref World.Player.Abilities[1];
 
             if (((byte) ability & 0x80) == 0)

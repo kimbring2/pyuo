@@ -811,7 +811,7 @@ namespace ClassicUO.Network
 
         private static void Talk(ref StackDataReader p)
         {
-            //Console.WriteLine("Talk()");
+            Console.WriteLine("Talk()");
 
             uint serial = p.ReadUInt32BE();
             Entity entity = World.Get(serial);
@@ -1242,7 +1242,6 @@ namespace ClassicUO.Network
             else
             {
                 Item item = World.Items.Get(serial);
-
                 if (item != null)
                 {
                     //Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
@@ -2661,7 +2660,6 @@ namespace ClassicUO.Network
             }
 
             Entity obj = World.Get(serial);
-
             if (obj == null)
             {
                 return;
@@ -3056,7 +3054,6 @@ namespace ClassicUO.Network
             }
 
             ModernBookGump bgump = UIManager.GetGump<ModernBookGump>(serial);
-
             if (bgump == null || bgump.IsDisposed)
             {
                 ushort page_count = p.ReadUInt16BE();
@@ -3398,6 +3395,8 @@ namespace ClassicUO.Network
 
         private static void TextEntryDialog(ref StackDataReader p)
         {
+            //Console.WriteLine("TextEntryDialog()");
+
             if (!World.InGame)
             {
                 return;
@@ -3628,6 +3627,9 @@ namespace ClassicUO.Network
 
         private static void ChatMessage(ref StackDataReader p)
         {
+            //Console.WriteLine("ChatMessage()");
+            //Console.WriteLine("message: {0}, entity: {1}", message, entity);
+
             ushort cmd = p.ReadUInt16BE();
             switch (cmd)
             {
@@ -3736,7 +3738,6 @@ namespace ClassicUO.Network
                     {
                         // TODO: read Chat.enu ?
                         // http://docs.polserver.com/packets/index.php?Packet=0xB2
-
                         string msg = ChatManager.GetMessage(cmd - 1);
 
                         if (string.IsNullOrEmpty(msg))
@@ -3746,7 +3747,6 @@ namespace ClassicUO.Network
 
                         p.Skip(4);
                         string text = p.ReadUnicodeBE();
-
                         if (!string.IsNullOrEmpty(text))
                         {
                             int idx = msg.IndexOf("%1");
@@ -4492,7 +4492,6 @@ namespace ClassicUO.Network
         private static void DisplayClilocString(ref StackDataReader p)
         {
             //Console.WriteLine("DisplayClilocString()");
-
             if (World.Player == null)
             {
                 return;
@@ -4523,7 +4522,6 @@ namespace ClassicUO.Network
             }
 
             int remains = p.Remaining;
-
             if (remains > 0)
             {
                 if (p[0] == 0xCC)
@@ -4537,6 +4535,9 @@ namespace ClassicUO.Network
             }
 
             string text = ClilocLoader.Instance.Translate((int) cliloc, arguments);
+            //Console.WriteLine("text: {0}, affix: {1}", text, affix);
+
+            Client.Game._uoServiceImpl.AddClilocData(text, affix);
 
             if (text == null)
             {
@@ -4581,6 +4582,8 @@ namespace ClassicUO.Network
                     entity.Name = name;
                 }
             }
+
+            //Console.WriteLine("text: {0}", text);
 
             MessageManager.HandleMessage
             (

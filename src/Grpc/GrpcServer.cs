@@ -65,6 +65,7 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcItemDropableLandList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcVendorItemList = new List<GrpcGameObjectData>();
         public List<string> grpcPopupMenuList = new List<string>();
+        public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -77,6 +78,11 @@ namespace ClassicUO.Grpc
 	            Services = { UoService.BindService(this) },
 	            Ports = { new ServerPort("localhost", _port, ServerCredentials.Insecure) }
 	        };
+        }
+
+        public void AddClilocData(string text, string affix)
+        {
+        	grpcClilocDataList.Add(new GrpcClilocData{ Text=text, Affix=affix });
         }
 
         public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, 
@@ -318,6 +324,10 @@ namespace ClassicUO.Grpc
             popupMenuList.Menu.AddRange(grpcPopupMenuList);
             states.PopupMenuList = popupMenuList;
 
+            GrpcClilocDataList clilocDataList = new GrpcClilocDataList();
+            clilocDataList.ClilocData.AddRange(grpcClilocDataList);
+            states.ClilocDataList = clilocDataList;
+
             states.PlayerStatus = playerStatus;
 
             try
@@ -551,6 +561,12 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 15");
 	        		GameActions.OpenDoor();
+	        	}
+	        }
+	        else if (actions.ActionType == 16) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 16");
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, actions.MobileSerial);
 	        	}
 	        }
 

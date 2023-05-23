@@ -545,7 +545,7 @@ namespace ClassicUO.Game
         {
             //World.Get(LocalSerial);
 
-            //Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
+            Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
             //Console.WriteLine("SerialHelper.IsValid(container): {0}", SerialHelper.IsValid(container));
             //Item item = World.Items.Get(container);
             //Console.WriteLine("container: {0}, item: {1}\n", container, item);

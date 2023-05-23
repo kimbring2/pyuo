@@ -415,7 +415,7 @@ namespace ClassicUO.Grpc
 	        			Item item = World.Items.Get(actions.ItemSerial);
 	        			Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
             																		     	 item.Amount, item.Serial);
-	        			GameActions.PickUp(actions.ItemSerial, 0, 0, item.Amount);
+	        			GameActions.PickUp(actions.ItemSerial, 0, 0, (int) actions.Amount);
 					}
 	        		catch (Exception ex)
 		            {
@@ -510,12 +510,15 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 10) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 10");
+
+	        		grpcClilocDataList.Clear();
 	        		GameActions.OpenPopupMenu(actions.MobileSerial);
 	        	}
 	        }
 	        else if (actions.ActionType == 11) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
+
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        		grpcPopupMenuList.Clear();
 	        	}

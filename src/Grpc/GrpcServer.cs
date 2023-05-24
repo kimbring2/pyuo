@@ -90,6 +90,8 @@ namespace ClassicUO.Grpc
         {
         	try 
         	{
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
+
 	        	if (type == "Land") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
@@ -99,7 +101,6 @@ namespace ClassicUO.Grpc
 	        		bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
 	        		if (can_drop)
                 	{
-	        			//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, game_x, game_y, distance);
 	        			grpcItemDropableLandList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													     Title=title, Amount=amount, Price=price });
@@ -358,9 +359,9 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-            	//Console.WriteLine("Failed to load the land object list: " + ex.Message);
+            	Console.WriteLine("Failed to set the states of GRPC: " + ex.Message);
             }
-
+            
             grpcMobileDataList.Clear();
 	        worldItemDataList.Clear();
 	        equippedItemDataList.Clear();

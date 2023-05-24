@@ -61,6 +61,7 @@ using Uoservice;
 using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO.Compression;
 
 namespace ClassicUO
 {   
@@ -79,13 +80,13 @@ namespace ClassicUO
         private UltimaBatcher2D _uoSpriteBatch;
         private bool _suppressedDraw;
         private UOFontRenderer _fontRenderer;
-        public UoServiceImpl _uoServiceImpl;
 
+        public UoServiceImpl _uoServiceImpl;
         public bool start_flag = true;
         public int grpc_port;
         public uint action_1 = 0;
         public byte[] byteArray = new byte[160*128*4];
-        public List<GrpcMobile> grpcMobileList;
+        //public FileStream fileStream = new FileStream("gamedata.dat", FileMode.Create, FileAccess.Append);
 
         byte[] rgbaBytes;
         byte[] scaledRgbaBytes;
@@ -513,8 +514,83 @@ namespace ClassicUO
 
             base.Update(gameTime);
 
+            //LoadReplay();
+            SaveReplay();
+
             sem_observation.Release();
             sem_physics.Release();
+        }
+
+        public void SaveReplay()
+        {
+            try
+            {
+                using (FileStream fileStream = new FileStream("replay.gz", FileMode.Append))
+                {
+                    GrpcGameObjectList landObjectList = new GrpcGameObjectList();
+
+                    foreach (var LandObject in _uoServiceImpl.grpcLandObjectList)
+                    {
+                        string type = LandObject.Type;
+                        uint screenX = LandObject.ScreenX;
+                        uint screenY = LandObject.ScreenY;
+                        uint distance = LandObject.Distance;
+                        uint gameX = LandObject.GameX;
+                        uint gameY = LandObject.GameY;
+                        uint serial = LandObject.Serial;
+                        string name = LandObject.Name;
+                        bool isCorpse = LandObject.IsCorpse;
+                        string title = LandObject.Title;
+                        uint amount = LandObject.Amount;
+                        uint price = LandObject.Price;
+
+                        Console.WriteLine("type:{0},screenX:{1},screenY:{2},distance:{3},gameX:{4},gameY:{5},serial:{6},name:{7},isCorpse:{8},title:{9},amount:{10},price:{11}", 
+                                           type, screenX, screenY, distance, gameX, gameY, serial, name, isCorpse, title, amount, price);
+                    }
+
+                    landObjectList.GameObject.AddRange(_uoServiceImpl.grpcLandObjectList);
+                    byte[] compressedData = (landObjectList).ToByteArray();
+
+                    using (MemoryStream memoryStream = new MemoryStream())
+                    {
+                        using (GZipStream gzipStream = new GZipStream(memoryStream, CompressionMode.Compress))
+                        {
+                            gzipStream.Write(compressedData, 0, compressedData.Length);
+                        }
+
+                        compressedData = memoryStream.ToArray();
+                    }
+
+                    fileStream.Write(compressedData, 0, compressedData.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to save the data: " + ex.Message);
+            }
+        }
+
+        public void LoadReplay()
+        {
+            using (FileStream fileStream = new FileStream("gamedata.dat", FileMode.Open))
+            {
+                using (BinaryReader reader = new BinaryReader(fileStream))
+                {
+                    // Write your game data to the binary file
+                    // Read your game data from the binary file
+                    int score = reader.ReadInt32();
+                    float playerX = reader.ReadSingle();
+                    bool isLevelCompleted = reader.ReadBoolean();
+
+                    // You can read more data as needed
+
+                    // Use the loaded data in your game
+                    // For example:
+                    //Console.WriteLine($"Score: {score}");
+                    //Console.WriteLine($"Player X: {playerX}");
+                    //Console.WriteLine($"Is Level Completed: {isLevelCompleted}");
+                }
+            }
         }
 
         protected override void Draw(GameTime gameTime)

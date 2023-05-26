@@ -166,6 +166,69 @@ namespace ClassicUO.Grpc
             }
         }
 
+        public void CreateMpqArchive(string mpqArchiveName)
+        {
+            using (MpqArchive archive = MpqArchive.CreateNew(mpqArchiveName, MpqArchiveVersion.Version4))
+            {   
+                Console.WriteLine("MpqArchive is created");
+            }
+        }
+
+        public void WrtieToMpqArchive(string mpqArchiveName, string fileName, byte[] grpcArr)
+        {
+        	uint file_size = (uint) grpcArr.Length;
+            using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.ReadWrite))
+            {
+                Console.WriteLine("MpqArchive is opened");
+
+                using (MpqFileStream fs = archive.CreateFile(fileName, file_size))
+                {
+                    //byte[] arr = { 0, 100, 120, 210, 255};
+                    var arr = new List<byte>();
+                    for (int i = 0; i < file_size; i++) 
+                    {
+                        arr.Add((byte) grpcArr[i]);
+                    }
+
+                    fs.Write(arr.ToArray(), 0, (int) file_size);
+                }
+            }
+        }
+
+        public byte[] ReadFromMpqArchive(string mpqArchiveName, string fileName)
+        {
+        	using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.Read))
+            {
+                MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
+                //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
+
+                MpqFileVerificationResults file_verify_result = archive.VerifyFile("data_1.txt");
+                //Console.WriteLine("file_verify_result: {0}", file_verify_result);
+
+                using (MpqFileStream fs = archive.OpenFile(fileName))
+                {
+                    //Console.WriteLine("fs.Length: {0}", fs.Length);
+
+                	byte[] arr_message = new byte[fs.Length];
+                    int iter_num = (int) fs.Length / (int) 1024;
+                    iter_num = 1;
+
+                    for (int i = 0; i < iter_num; i++) 
+                    {
+                        arr_message = new byte[fs.Length];
+                        fs.Read(arr_message, 0, (int) fs.Length);
+
+                        foreach(var item in arr_message)
+                        {
+                            //Console.WriteLine("item: {0}, ", item);
+                        }
+                    }
+
+                    return arr_message;
+                }
+            }
+        }
+
         // Server side handler of the SayHello RPC
         public override Task<States> Reset(Config config, ServerCallContext context)
         {
@@ -308,15 +371,17 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             byte[] grpcMobileArray = grpcMobileList.ToByteArray();
 
-            //Console.WriteLine("_mpq_step: {0}", _mpq_step);
+            Console.WriteLine("_mpq_step: {0}", _mpq_step);
             //Console.WriteLine("grpcMobileArray.Length: {0}", grpcMobileArray.Length);
 
             uint file_size = (uint) grpcMobileArray.Length;
             //byte[] arr_message = grpcMobileArray;
             byte[] arr_message = new byte[file_size];
-            _mpq_step = 1;
+            //_mpq_step = 0;
             if ( (_mpq_step == 0) && (file_size != 0) )
             {
+            	CreateMpqArchive("archive.mpq");
+            	/*
             	//Console.WriteLine("_mpq_step == 0");
                 using (MpqArchive archive = MpqArchive.CreateNew("archive.mpq", MpqArchiveVersion.Version4))
                 {   
@@ -342,11 +407,15 @@ namespace ClassicUO.Grpc
                         fs.Write(arr.ToArray(), 0, (int) file_size);
                     }
                 }
+                */
 
                 _mpq_step++;
             }
             else if (_mpq_step == 1) 
             {
+            	byte[] arr = { 0, 100, 120, 210, 255};
+            	WrtieToMpqArchive("archive.mpq", "data_1.txt", arr);
+            	/*
                 using (MpqArchive archive = new MpqArchive("archive.mpq", FileAccess.Read))
                 {
                     MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
@@ -374,13 +443,58 @@ namespace ClassicUO.Grpc
                         }
                     }
                 }
+                */
+
+                _mpq_step++;
+            }
+            else if (_mpq_step == 2) 
+            {
+            	//byte[] ReadFromMpqArchive(string mpqArchiveName, string fileName)
+
+            	byte[] arr_read;
+            	arr_read = ReadFromMpqArchive("archive.mpq", "data_1.txt");
+
+            	foreach(var item in arr_read)
+                {
+                    Console.WriteLine("item: {0}, ", item);
+                }
+            	/*
+                using (MpqArchive archive = new MpqArchive("archive.mpq", FileAccess.Read))
+                {
+                    MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
+                    //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
+
+                    MpqFileVerificationResults file_verify_result = archive.VerifyFile("data_1.txt");
+                    //Console.WriteLine("file_verify_result: {0}", file_verify_result);
+
+                    using (MpqFileStream fs = archive.OpenFile("data_1.txt"))
+                    {
+                        //Console.WriteLine("fs.Length: {0}", fs.Length);
+
+                        int iter_num = (int) fs.Length / (int) 1024;
+                        iter_num = 1;
+
+                        for (int i = 0; i < iter_num; i++) 
+                        {
+                            arr_message = new byte[fs.Length];
+                            fs.Read(arr_message, 0, (int) fs.Length);
+
+                            foreach(var item in arr_message)
+	                        {
+	                            //Console.WriteLine("item: {0}, ", item);
+	                        }
+                        }
+                    }
+                }
+                */
+
+                //_mpq_step++;
             }
 
             //arr_message
             if (_mpq_step == 1) 
             {
-            	Console.WriteLine("arr_message.Length: {0}", arr_message.Length);
-
+            	//Console.WriteLine("arr_message.Length: {0}", arr_message.Length);
             	arr_message = grpcMobileArray;
             	GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(arr_message);
             	states.MobileList = message;
@@ -436,6 +550,11 @@ namespace ClassicUO.Grpc
 	            mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
 	            itemDropableLandObjectList.GameObject.AddRange(grpcItemDropableLandList);
 	            vendorItemObjectList.GameObject.AddRange(grpcVendorItemList);
+
+	            byte[] mobileObjectArray = mobileObjectList.ToByteArray();
+	            int mobileObjectArray_Length = mobileObjectArray.Length;
+
+	            Console.WriteLine("mobileObjectArray.Length: " + mobileObjectArray.Length);
 
 	            states.LandObjectList = landObjectList;
 	            states.PlayerMobileObjectList = playerMobileObjectList;

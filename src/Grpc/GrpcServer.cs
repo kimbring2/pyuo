@@ -38,7 +38,7 @@ using Uoservice;
 
 namespace ClassicUO.Grpc
 {
-	internal sealed class UoServiceImpl : UoService.UoServiceBase
+	internal partial class UoServiceImpl : UoService.UoServiceBase
     {
         GameController _controller;
         int _port;
@@ -68,7 +68,9 @@ namespace ClassicUO.Grpc
         public List<string> grpcPopupMenuList = new List<string>();
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
-        int _mpq_step = 0;
+        int _env_step = 0;
+        int _mpq_step = 2;
+        List<int> mobileObjectArrayLengthList = new List<int>();
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -163,105 +165,6 @@ namespace ClassicUO.Grpc
                 Console.WriteLine("Failed to read the image: " + ex.Message);
 
                 return null;
-            }
-        }
-
-        public void CreateMpqArchive(string mpqArchiveName)
-        {
-            using (MpqArchive archive = MpqArchive.CreateNew(mpqArchiveName, MpqArchiveVersion.Version4))
-            {   
-                Console.WriteLine("MpqArchive is created");
-            }
-        }
-
-        public void WrtieToMpqArchive(string mpqArchiveName, string fileName, byte[] grpcArr)
-        {
-        	uint file_size = (uint) grpcArr.Length;
-            using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.ReadWrite))
-            {
-                Console.WriteLine("MpqArchive is opened");
-
-                using (MpqFileStream fs = archive.CreateFile(fileName, file_size))
-                {
-                    //byte[] arr = { 0, 100, 120, 210, 255};
-                    var arr = new List<byte>();
-                    for (int i = 0; i < file_size; i++) 
-                    {
-                        arr.Add((byte) grpcArr[i]);
-                    }
-
-                    fs.Write(arr.ToArray(), 0, (int) file_size);
-                }
-            }
-        }
-
-        public byte[] ReadFromMpqArchive(string mpqArchiveName, string fileName)
-        {
-        	using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.Read))
-            {
-            	Console.WriteLine("MpqArchive is opened");
-
-                MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
-                //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
-
-                MpqFileVerificationResults file_verify_result = archive.VerifyFile(fileName);
-                //Console.WriteLine("file_verify_result: {0}", file_verify_result);
-
-                using (MpqFileStream fs = archive.OpenFile(fileName))
-                {
-                    //Console.WriteLine("fs.Length: {0}", fs.Length);
-
-                	byte[] arr_message = new byte[fs.Length];
-
-                	int iter_num = 0;
-                	if (fs.Length < 1024) 
-                	{
-                		Console.WriteLine("fs.Length < 1024");
-
-                		arr_message = new byte[fs.Length];
-                        fs.Read(arr_message, 0, (int) fs.Length);
-                    }
-                    else 
-                    {
-                    	Console.WriteLine("fs.Length >= 1024");
-                    	Console.WriteLine("fs.Length: {0}, ", fs.Length);
-
-                    	iter_num = (int) fs.Length / (int) 1024;
-
-                    	byte[] arr;
-	                    for (int i = 0; i < iter_num; i++) 
-	                    {
-	                    	arr = new byte[1024];
-	                        fs.Read(arr, 0, 1024);
-
-	                        //Console.WriteLine("############################");
-	                        foreach(var item in arr)
-	                        {
-	                            //Console.WriteLine("item: {0}, ", item);
-	                        }
-	                        //Console.WriteLine("############################");
-
-	                        arr_message = arr_message.Concat(arr).ToArray();
-	                    }
-
-	                    int remaining_num = (int) fs.Length - 1024 * iter_num;
-	                    Console.WriteLine("remaining_num: {0}, ", remaining_num);
-
-                    	arr = new byte[remaining_num];
-                        fs.Read(arr, 0, remaining_num);
-
-                        Console.WriteLine("############################");
-                        foreach(var item in arr)
-                        {
-                            Console.WriteLine("item: {0}, ", item);
-                        }
-                        Console.WriteLine("############################");
-
-                        arr_message = arr_message.Concat(arr).ToArray();
-                    }
-
-                    return arr_message;
-                }
             }
         }
 
@@ -408,20 +311,29 @@ namespace ClassicUO.Grpc
             byte[] grpcMobileArray = grpcMobileList.ToByteArray();
 
             //Console.WriteLine("_mpq_step: {0}", _mpq_step);
-            //Console.WriteLine("grpcMobileArray.Length: {0}", grpcMobileArray.Length);
+            //Console.WriteLine("_env_step: {0}", _env_step);
+            //Console.WriteLine("mobileObjectArrayLengthList.Count: {0}", mobileObjectArrayLengthList.Count);
+
+            if (grpcMobileArray.Length != 0) {
+            	//Console.WriteLine("grpcMobileArray.Length: {0}", grpcMobileArray.Length);
+            	mobileObjectArrayLengthList.Add((int) grpcMobileArray.Length);
+            	_env_step++;
+            }
 
             uint file_size = (uint) grpcMobileArray.Length;
             //byte[] arr_message = grpcMobileArray;
             byte[] arr_message = new byte[file_size];
-            _mpq_step = 5;
+
             if ( (_mpq_step == 0) && (file_size != 0) )
             {
             	CreateMpqArchive("archive.mpq");
-
                 _mpq_step++;
             }
-            else if (_mpq_step == 1) 
+            else if ( (_mpq_step == 1) && (_env_step == 5000) )
             {
+            	Console.WriteLine("(_mpq_step == 1) && (_env_step == 5000)");
+
+            	/*
             	//byte[] arr_1 = { 0, 100, 120, 210, 255};
             	//byte[] arr_2 = { 255, 210, 120, 100, 0};
             	//byte[] arr = arr_1.Concat(arr_2).ToArray();
@@ -440,8 +352,13 @@ namespace ClassicUO.Grpc
                     //sw.Write(arr, 0, (int) file_size);
                     arr.Add((byte) 77);
                 }
+                */
 
-            	WrtieToMpqArchive("archive.mpq", "data_1.txt", arr.ToArray());
+                byte[] mobileObjectArrayLengthArray = ConvertIntListToByteArray(mobileObjectArrayLengthList);
+                Console.WriteLine("mobileObjectArrayLengthArray.Length: {0}", mobileObjectArrayLengthArray.Length);
+
+                WrtieToMpqArchive("archive.mpq", "data_1.txt", mobileObjectArrayLengthArray);
+            	//WrtieToMpqArchive("archive.mpq", "data_1.txt", arr.ToArray());
 
                 _mpq_step++;
             }
@@ -450,11 +367,15 @@ namespace ClassicUO.Grpc
             	byte[] arr_read;
             	arr_read = ReadFromMpqArchive("archive.mpq", "data_1.txt");
 
-            	//foreach(var item in arr_read)
-                //{
-                //    Console.WriteLine("item: {0}, ", item);
-                //}
-                //_mpq_step++;
+            	List<int> list_read = ConvertByteArrayToIntList(arr_read);
+
+
+            	Console.WriteLine("list_read.Count: {0}, ", list_read.Count);
+            	foreach(var item in list_read)
+                {
+                    Console.WriteLine("item: {0}, ", item);
+                }
+                _mpq_step++;
             }
 
             //arr_message

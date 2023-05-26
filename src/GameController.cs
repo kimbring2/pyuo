@@ -109,7 +109,7 @@ namespace ClassicUO
         {
             //Log.Trace("GameController()");
             grpc_port = Settings.GlobalSettings.GrpcPort;
-            Console.WriteLine("grpc_port: {0}", grpc_port);
+            //Console.WriteLine("grpc_port: {0}", grpc_port);
 
             _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 

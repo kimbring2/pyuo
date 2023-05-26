@@ -1,0 +1,14 @@
+/home/kimbring2/stormlibsharp/src/StormLibSharp/bin/Release/net472/StormLibSharp.dll
+/home/kimbring2/stormlibsharp/src/StormLibSharp/bin/Release/net472/StormLibSharp.pdb
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.AssemblyReference.cache
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Release/net472/StormLibSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.CoreCompileInputs.cache
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Release/net472/StormLibSharp.dll
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Release/net472/StormLibSharp.pdb
+/home/kimbring2/ClassicUO/external/StormLibSharp/bin/Release/net472/StormLibSharp.dll
+/home/kimbring2/ClassicUO/external/StormLibSharp/bin/Release/net472/StormLibSharp.pdb
+/home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.AssemblyReference.cache
+/home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.CoreCompileInputs.cache
+/home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.dll
+/home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.pdb

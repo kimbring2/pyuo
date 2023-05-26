@@ -33,6 +33,8 @@ namespace ClassicUO
 
         public static void Initialise(bool optimise = true)
         {
+            onsole.WriteLine("DllMap Initialise()");
+
             Optimise = optimise;
 
             // Our executable needs to know how to find the native libraries
@@ -89,7 +91,8 @@ namespace ClassicUO
                 {
                     { "SDL2", "SDL2.dll" },
                     { "SDL_image", "SDL_image.dll" },
-                    { "FAudio", "FAudio.dll" }
+                    { "FAudio", "FAudio.dll" },
+                    { "STORMLIB", "stormlib.dll" }
                 };
             }
             else

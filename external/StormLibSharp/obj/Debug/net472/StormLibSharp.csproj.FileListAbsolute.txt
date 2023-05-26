@@ -1,0 +1,7 @@
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Debug/net472/StormLibSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Debug/net472/StormLibSharp.csproj.CoreCompileInputs.cache
+/home/kimbring2/stormlibsharp/src/StormLibSharp/bin/Debug/net472/StormLibSharp.dll
+/home/kimbring2/stormlibsharp/src/StormLibSharp/bin/Debug/net472/StormLibSharp.pdb
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Debug/net472/StormLibSharp.dll
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Debug/net472/StormLibSharp.pdb
+/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/Debug/net472/StormLibSharp.csproj.AssemblyReference.cache

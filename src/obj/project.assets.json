@@ -230,6 +230,16 @@
         "runtime": {
           "bin/placeholder/Pyuo.dll": {}
         }
+      },
+      "StormLibSharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "compile": {
+          "bin/placeholder/StormLibSharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StormLibSharp.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.7.2/linux-x64": {
@@ -432,6 +442,16 @@
         },
         "runtime": {
           "bin/placeholder/Pyuo.dll": {}
+        }
+      },
+      "StormLibSharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "compile": {
+          "bin/placeholder/StormLibSharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StormLibSharp.dll": {}
         }
       }
     }
@@ -1136,6 +1156,11 @@
       "type": "project",
       "path": "../external/Pyuo/Pyuo.csproj",
       "msbuildProject": "../external/Pyuo/Pyuo.csproj"
+    },
+    "StormLibSharp/1.0.0": {
+      "type": "project",
+      "path": "../external/StormLibSharp/StormLibSharp.csproj",
+      "msbuildProject": "../external/StormLibSharp/StormLibSharp.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1144,6 +1169,7 @@
       "MP3Sharp >= 1.0.0",
       "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.*",
       "Pyuo >= 1.0.0",
+      "StormLibSharp >= 1.0.0",
       "System.Buffers >= 4.5.1",
       "System.Memory >= 4.5.4",
       "System.Runtime.CompilerServices.Unsafe >= 4.5.3",
@@ -1183,6 +1209,12 @@
             },
             "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
               "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj"
+            },
+            "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj": {
+              "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj"
+            },
+            "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj": {
+              "projectPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj"
             }
           }
         }

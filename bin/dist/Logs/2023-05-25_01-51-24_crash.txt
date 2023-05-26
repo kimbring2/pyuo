@@ -1,0 +1,20 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 05/25/2023 01:51:23
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.DllNotFoundException: stormlib.dll assembly:<unknown assembly> type:<unknown type> member:(null)
+  at (wrapper managed-to-native) StormLibSharp.Native.NativeMethods.SFileCreateArchive(string,uint,uint,StormLibSharp.Native.MpqArchiveSafeHandle&)
+  at StormLibSharp.MpqArchive..ctor (System.String filePath, StormLibSharp.MpqArchiveVersion version, StormLibSharp.MpqFileStreamAttributes listfileAttributes, StormLibSharp.MpqFileStreamAttributes attributesFileAttributes, System.Int32 maxFileCount) [0x00036] in <b2cc8d84846d4596b2f3508b4c2ca51c>:0 
+  at StormLibSharp.MpqArchive.CreateNew (System.String mpqPath, StormLibSharp.MpqArchiveVersion version, StormLibSharp.MpqFileStreamAttributes listfileAttributes, StormLibSharp.MpqFileStreamAttributes attributesFileAttributes, System.Int32 maxFileCount) [0x00000] in <b2cc8d84846d4596b2f3508b4c2ca51c>:0 
+  at StormLibSharp.MpqArchive.CreateNew (System.String mpqPath, StormLibSharp.MpqArchiveVersion version) [0x00000] in <b2cc8d84846d4596b2f3508b4c2ca51c>:0 
+  at ClassicUO.GameController..ctor () [0x0002f] in <744c7e8d778a48afb63801f1b1c303b5>:0 
+  at ClassicUO.Client.Run () [0x0000f] in <744c7e8d778a48afb63801f1b1c303b5>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x0035b] in <744c7e8d778a48afb63801f1b1c303b5>:0 
+######################## [END LOG] ########################
+
+

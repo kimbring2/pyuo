@@ -46,6 +46,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="\home\kimbring2\stormlibsharp\src\StormLibSharp\StormLibSharp.csproj">
+      <Project>{d0139c61-6ba0-4f07-b1e8-551023cd2624}</Project>
+      <Name>StormLibSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="cuologo.png" />
     <EmbeddedResource Include="Renderer\fonts\bold_font.xnb" />
     <EmbeddedResource Include="Renderer\fonts\map1_font.xnb" />
@@ -82,6 +89,10 @@
     <ProjectReference Include="..\external\FNA\FNA.Core.csproj" />
     <ProjectReference Include="..\external\MP3Sharp\MP3Sharp\MP3Sharp.csproj" />
     <ProjectReference Include="..\external\Pyuo\Pyuo.csproj" />
+    <ProjectReference Include="..\external\StormLibSharp\StormLibSharp.csproj">
+      <Project>{d0139c61-6ba0-4f07-b1e8-551023cd2624}</Project>
+      <Name>StormLibSharp</Name>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>

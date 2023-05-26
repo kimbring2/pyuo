@@ -19,6 +19,8 @@
 /home/kimbring2/ClassicUO/bin/dist/FNA.dll
 /home/kimbring2/ClassicUO/bin/dist/MP3Sharp.dll
 /home/kimbring2/ClassicUO/bin/dist/Pyuo.dll
+/home/kimbring2/ClassicUO/bin/dist/StormLibSharp.dll
+/home/kimbring2/ClassicUO/bin/dist/StormLibSharp.pdb
 /home/kimbring2/ClassicUO/bin/dist/FNA.pdb
 /home/kimbring2/ClassicUO/bin/dist/FNA.dll.config
 /home/kimbring2/ClassicUO/bin/dist/MP3Sharp.pdb

@@ -233,6 +233,56 @@
         }
       }
     },
+    "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+        "projectName": "StormLibSharp",
+        "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
     "/home/kimbring2/ClassicUO/src/ClassicUO.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -263,6 +313,12 @@
               },
               "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
                 "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj"
+              },
+              "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj": {
+                "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj"
+              },
+              "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj": {
+                "projectPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj"
               }
             }
           }
@@ -297,6 +353,56 @@
             "System.Text.Encoding.CodePages": {
               "target": "Package",
               "version": "[4.5.1, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        }
+      }
+    },
+    "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj",
+        "projectName": "StormLibSharp",
+        "projectPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj",
+        "packagesPath": "/home/kimbring2/.nuget/packages/",
+        "outputPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
             }
           },
           "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"

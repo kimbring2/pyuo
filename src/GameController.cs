@@ -62,6 +62,10 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO.Compression;
+using System.Runtime.InteropServices;
+using System.Reflection;
+
+using StormLibSharp;
 
 namespace ClassicUO
 {   
@@ -86,6 +90,8 @@ namespace ClassicUO
         public int grpc_port;
         public uint action_1 = 0;
         public byte[] byteArray = new byte[160*128*4];
+
+        //MpqArchive archive = MpqArchive.CreateNew(@"mynewmpq.mpq", MpqArchiveVersion.Version4);
         //public FileStream fileStream = new FileStream("gamedata.dat", FileMode.Create, FileAccess.Append);
 
         byte[] rgbaBytes;
@@ -103,7 +109,7 @@ namespace ClassicUO
         {
             //Log.Trace("GameController()");
             grpc_port = Settings.GlobalSettings.GrpcPort;
-            Console.WriteLine("grpc_port: {0}", grpc_port);
+            //Console.WriteLine("grpc_port: {0}", grpc_port);
 
             _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 
@@ -437,6 +443,8 @@ namespace ClassicUO
         protected override void Update(GameTime gameTime)
         {
             //Console.WriteLine("Step 4:");
+            //string curFile = @"stormlib.dll";
+            //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
 
             if (World.Player != null) 
             {
@@ -544,8 +552,8 @@ namespace ClassicUO
                         uint amount = LandObject.Amount;
                         uint price = LandObject.Price;
 
-                        Console.WriteLine("type:{0},screenX:{1},screenY:{2},distance:{3},gameX:{4},gameY:{5},serial:{6},name:{7},isCorpse:{8},title:{9},amount:{10},price:{11}", 
-                                           type, screenX, screenY, distance, gameX, gameY, serial, name, isCorpse, title, amount, price);
+                        //Console.WriteLine("type:{0},screenX:{1},screenY:{2},distance:{3},gameX:{4},gameY:{5},serial:{6},name:{7},isCorpse:{8},title:{9},amount:{10},price:{11}", 
+                        //                   type, screenX, screenY, distance, gameX, gameY, serial, name, isCorpse, title, amount, price);
                     }
 
                     landObjectList.GameObject.AddRange(_uoServiceImpl.grpcLandObjectList);

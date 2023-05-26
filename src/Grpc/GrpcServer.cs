@@ -6,9 +6,6 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Grpc.Core;
-using Google.Protobuf;
-using Uoservice;
 using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +30,10 @@ using static ClassicUO.Network.NetClient;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Grpc.Core;
+using Google.Protobuf;
+using StormLibSharp;
+using Uoservice;
 
 
 namespace ClassicUO.Grpc
@@ -66,6 +67,8 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcVendorItemList = new List<GrpcGameObjectData>();
         public List<string> grpcPopupMenuList = new List<string>();
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
+
+        int _mpq_step = 0;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -303,7 +306,92 @@ namespace ClassicUO.Grpc
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
-            states.MobileList = grpcMobileList;
+            byte[] grpcMobileArray = grpcMobileList.ToByteArray();
+
+            //Console.WriteLine("_mpq_step: {0}", _mpq_step);
+            //Console.WriteLine("grpcMobileArray.Length: {0}", grpcMobileArray.Length);
+
+            uint file_size = (uint) grpcMobileArray.Length;
+            //byte[] arr_message = grpcMobileArray;
+            byte[] arr_message = new byte[file_size];
+            _mpq_step = 1;
+            if ( (_mpq_step == 0) && (file_size != 0) )
+            {
+            	//Console.WriteLine("_mpq_step == 0");
+                using (MpqArchive archive = MpqArchive.CreateNew("archive.mpq", MpqArchiveVersion.Version4))
+                {   
+                    Console.WriteLine("MpqArchive is created");
+
+                    using (MpqFileStream fs = archive.CreateFile("data_1.txt", file_size))
+                    {
+                        //byte[] arr = { 0, 100, 120, 210, 255};
+                        var arr = new List<byte>();
+
+                        for (int i = 0; i < file_size; i++) 
+                        {
+                            //Console.WriteLine("(byte) i: {0}", (byte) i);
+                            arr.Add((byte) grpcMobileArray[i]);
+                        }
+
+                        //for (int i = (int) file_size - 5; i < file_size; i++) 
+                        //{
+                            //sw.Write(arr, 0, (int) file_size);
+                        //    arr.Add((byte) 77);
+                        //}
+
+                        fs.Write(arr.ToArray(), 0, (int) file_size);
+                    }
+                }
+
+                _mpq_step++;
+            }
+            else if (_mpq_step == 1) 
+            {
+                using (MpqArchive archive = new MpqArchive("archive.mpq", FileAccess.Read))
+                {
+                    MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
+                    //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
+
+                    MpqFileVerificationResults file_verify_result = archive.VerifyFile("data_1.txt");
+                    //Console.WriteLine("file_verify_result: {0}", file_verify_result);
+
+                    using (MpqFileStream fs = archive.OpenFile("data_1.txt"))
+                    {
+                        //Console.WriteLine("fs.Length: {0}", fs.Length);
+
+                        int iter_num = (int) fs.Length / (int) 1024;
+                        iter_num = 1;
+
+                        for (int i = 0; i < iter_num; i++) 
+                        {
+                            arr_message = new byte[fs.Length];
+                            fs.Read(arr_message, 0, (int) fs.Length);
+
+                            foreach(var item in arr_message)
+	                        {
+	                            //Console.WriteLine("item: {0}, ", item);
+	                        }
+                        }
+                    }
+                }
+            }
+
+            //arr_message
+            if (_mpq_step == 1) 
+            {
+            	Console.WriteLine("arr_message.Length: {0}", arr_message.Length);
+
+            	arr_message = grpcMobileArray;
+            	GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(arr_message);
+            	states.MobileList = message;
+			}
+			else
+			{
+				states.MobileList = grpcMobileList;
+			}
+            //GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(grpcMobileArray);
+            //states.MobileList = message;
+            //states.MobileList = grpcMobileList;
 
             GrpcItemList worldItemList = new GrpcItemList();
             worldItemList.Item.AddRange(worldItemDataList);

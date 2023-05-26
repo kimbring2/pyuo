@@ -523,7 +523,7 @@ namespace ClassicUO
             base.Update(gameTime);
 
             //LoadReplay();
-            SaveReplay();
+            //SaveReplay();
 
             sem_observation.Release();
             sem_physics.Release();

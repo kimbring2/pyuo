@@ -1,0 +1,19 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 05/27/2023 05:05:01
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 
+
+Exception:
+System.FormatException: Input string was not in a correct format.
+  at System.Number.ThrowOverflowOrFormatException (System.Boolean overflow, System.String overflowResourceKey) [0x0001a] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Number.ParseUInt32 (System.ReadOnlySpan`1[T] value, System.Globalization.NumberStyles styles, System.Globalization.NumberFormatInfo info) [0x00018] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.UInt16.Parse (System.ReadOnlySpan`1[T] s, System.Globalization.NumberStyles style, System.Globalization.NumberFormatInfo info) [0x00002] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.UInt16.Parse (System.String s) [0x00016] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.Bootstrap.ReadSettingsFromArgs (System.String[] args) [0x00732] in <f436402b45074d70a144e16fa493bb5d>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00061] in <f436402b45074d70a144e16fa493bb5d>:0 
+######################## [END LOG] ########################
+
+

@@ -413,7 +413,7 @@ namespace ClassicUO.Grpc
             uint file_size = (uint) grpcMobileArray.Length;
             //byte[] arr_message = grpcMobileArray;
             byte[] arr_message = new byte[file_size];
-            //_mpq_step = 0;
+            _mpq_step = 5;
             if ( (_mpq_step == 0) && (file_size != 0) )
             {
             	CreateMpqArchive("archive.mpq");

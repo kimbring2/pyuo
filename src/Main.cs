@@ -29,8 +29,8 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // ./ClassicUO -username kimbring2 -password kimbring2 -grpc_port 50051
-// ./ClassicUO -username bot1 -password bot1 -grpc_port 50051
-// ./ClassicUO -username bot2 -password bot2 -grpc_port 50052
+// ./ClassicUO -username bot1 -password bot1 -grpc_port 50052
+// ./ClassicUO -username bot2 -password bot2 -grpc_port 50053
 
 #endregion
 

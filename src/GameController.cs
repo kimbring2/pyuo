@@ -109,7 +109,7 @@ namespace ClassicUO
         {
             //Log.Trace("GameController()");
             grpc_port = Settings.GlobalSettings.GrpcPort;
-            //Console.WriteLine("grpc_port: {0}", grpc_port);
+            Console.WriteLine("grpc_port: {0}", grpc_port);
 
             _uoServiceImpl = new UoServiceImpl(this, grpc_port);
 
@@ -442,6 +442,8 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
+            //Console.WriteLine("IsActive: {0}", IsActive);
+
             //Console.WriteLine("Step 4:");
             //string curFile = @"stormlib.dll";
             //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
@@ -496,6 +498,18 @@ namespace ClassicUO
             double x = _intervalFixedUpdate[!IsActive && ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.ReduceFPSWhenInactive ? 1 : 0];
             _suppressedDraw = false;
 
+            if (Scene != null && Scene.IsLoaded && !Scene.IsDestroyed)
+            {
+                Profiler.EnterContext("FixedUpdate");
+
+                Scene.FixedUpdate(gameTime.TotalGameTime.TotalMilliseconds, gameTime.ElapsedGameTime.TotalMilliseconds);
+
+                Profiler.ExitContext("FixedUpdate");
+            }
+
+            _totalElapsed %= x;
+
+            /*
             if (_totalElapsed > x)
             {
                 if (Scene != null && Scene.IsLoaded && !Scene.IsDestroyed)
@@ -511,15 +525,17 @@ namespace ClassicUO
             }
             else
             {
+                //Console.WriteLine("_suppressedDraw");
+
                 _suppressedDraw = true;
-                SuppressDraw();
+                //SuppressDraw();
 
                 if (!gameTime.IsRunningSlowly)
                 {
                     Thread.Sleep(1);
                 }
             }
-
+            */
             base.Update(gameTime);
 
             //LoadReplay();

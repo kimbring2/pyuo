@@ -71,9 +71,10 @@ namespace ClassicUO.Grpc
         int _array_offset = 0;
         int _env_step = 0;
         int _mpq_step = 2;
-        List<int> mobileObjectArrayLengthList = new List<int>();
 
-        byte[] grpcMobileArrays;
+        List<int> mobileObjectArrayLengthList = new List<int>();
+        byte[] mobileObjectArrays;
+        public GrpcGameObjectList grpcMobileObjectMessage;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -309,104 +310,63 @@ namespace ClassicUO.Grpc
 
             States states = new States();
 
-            GrpcMobileList grpcMobileList = new GrpcMobileList();
-            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
-            byte[] grpcMobileArray = grpcMobileList.ToByteArray();
+            //public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
+            //GrpcGameObjectList playerMobileObjectList = new GrpcGameObjectList();
+            //playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
+            //states.PlayerMobileObjectList = playerMobileObjectList;
+            GrpcGameObjectList mobileObjectList_ = new GrpcGameObjectList();
+	        mobileObjectList_.GameObject.AddRange(grpcMobileObjectList);
+	        byte[] mobileObjectArray = mobileObjectList_.ToByteArray();
 
             //Console.WriteLine("_mpq_step: {0}", _mpq_step);
             //Console.WriteLine("_env_step: {0}", _env_step);
-            //Console.WriteLine("mobileObjectArrayLengthList.Count: {0}", mobileObjectArrayLengthList.Count);
 
-            if ( (grpcMobileArray.Length != 0) && (_env_step < 5) ) {
-            	//Console.WriteLine("grpcMobileArray.Length: {0}", grpcMobileArray.Length);
+            if ( (mobileObjectArray.Length != 0) ) {
             	if (_env_step == 0) 
             	{
-            		//Console.WriteLine("grpcMobileArrays.Length 1: {0}", 0);
-            		grpcMobileArrays = grpcMobileArray;
-            		//Console.WriteLine("grpcMobileArrays.Length 2: {0}", grpcMobileArrays.Length);
+            		mobileObjectArrays = mobileObjectArray;
             	}
             	else
             	{
-	            	//Console.WriteLine("grpcMobileArrays.Length 1: {0}", grpcMobileArrays.Length);
-	            	grpcMobileArrays = grpcMobileArrays.Concat(grpcMobileArray).ToArray();
-	            	//Console.WriteLine("grpcMobileArrays.Length 2: {0}", grpcMobileArrays.Length);
+	            	mobileObjectArrays = mobileObjectArrays.Concat(mobileObjectArray).ToArray();
             	}
 
-            	mobileObjectArrayLengthList.Add((int) grpcMobileArray.Length);
+            	mobileObjectArrayLengthList.Add((int) mobileObjectArray.Length);
 
             	_env_step++;
             }
 
-            uint file_size = (uint) grpcMobileArray.Length;
-            //byte[] arr_message = grpcMobileArray;
-            byte[] arr_message = new byte[file_size];
+            uint file_size = (uint) mobileObjectArray.Length;
 
             if ( (_mpq_step == 0) && (file_size != 0) )
             {
             	Console.WriteLine("(_mpq_step == 0) && (file_size != 0)");
-
             	CreateMpqArchive("archive.mpq");
+
                 _mpq_step++;
             }
-            else if ( (_mpq_step == 1) )
+            else if ( (_mpq_step == 1) && (_env_step > 1500) )
             {
-            	Console.WriteLine("(_mpq_step == 1) && (_env_step == 10)");
+            	Console.WriteLine("(_mpq_step == 1) && (_env_step > 1500)");
 
                 byte[] mobileObjectArrayLengthArray = ConvertIntListToByteArray(mobileObjectArrayLengthList);
-
-                Console.WriteLine("grpcMobileArrays.Length: {0}", grpcMobileArrays.Length);
-                Console.WriteLine("mobileObjectArrayLengthArray.Length: {0}", mobileObjectArrayLengthArray.Length);
-
                 WrtieToMpqArchive("archive.mpq", "data_1.txt", mobileObjectArrayLengthArray);
-                WrtieToMpqArchive("archive.mpq", "data_2.txt", grpcMobileArrays);
-            	//WrtieToMpqArchive("archive.mpq", "data_1.txt", arr.ToArray());
-
-                _mpq_step++;
+                WrtieToMpqArchive("archive.mpq", "data_2.txt", mobileObjectArrays);
+                _mpq_step = 5;
             }
             else if (_mpq_step == 2) 
             {
-            	/*
-            	grpcMobileArrays.Length 1: 0
-				grpcMobileArrays.Length 2: 48
-				(_mpq_step == 0) && (file_size != 0)
-				MpqArchive is created
-				grpcMobileArrays.Length 1: 48
-				grpcMobileArrays.Length 2: 130
-				(_mpq_step == 1) && (_env_step == 10)
-				grpcMobileArrays.Length: 130
-				mobileObjectArrayLengthArray.Length: 8
-				MpqArchive is opened
-				MpqArchive is opened
-				grpcMobileArrays.Length 1: 130
-				grpcMobileArrays.Length 2: 236
-				_mpq_step == 2
-				MpqArchive is opened
-				MpqArchive is opened
-				grpcMobileArrays.Length 1: 236
-				grpcMobileArrays.Length 2: 342
-				grpcMobileArrays.Length 1: 342
-				grpcMobileArrays.Length 2: 448
-				*/
-
             	Console.WriteLine("_mpq_step == 2");
-	
             	byte[] arr_read_1;
             	
             	arr_read_1 = ReadFromMpqArchive("archive.mpq", "data_1.txt");
             	List<int> list_read_1 = ConvertByteArrayToIntList(arr_read_1);
-
             	byte[] arr_read_2;
             	arr_read_2 = ReadFromMpqArchive("archive.mpq", "data_2.txt");
 
-
-            	foreach (int value in list_read_1)
-		        {
-		            Console.WriteLine("value: {0}, ", value);
-		        }
-
-            	
-            	Console.WriteLine("list_read_1.Count: {0}, ", list_read_1.Count);
-
+            	//Console.WriteLine("list_read_1.Count: {0}, ", list_read_1.Count);
+            	//Console.WriteLine("arr_read_2.Length: {0}, ", arr_read_2.Length);
+            	//Console.WriteLine("_env_step % 1000 == 0: {0}, ", _env_step % 1000 == 0);
             	if (_env_step % 100 == 0)
             	{
             		_array_offset = 0;
@@ -414,52 +374,38 @@ namespace ClassicUO.Grpc
             	
             	int index = _env_step % 100;
 
-                //Console.WriteLine("item: {0}, ", item);
+            	//Console.WriteLine("index: {0} ", index);
+                Console.WriteLine("_array_offset: {0}", _array_offset);
+
             	int item = list_read_1[index];
+            	Console.WriteLine("item: {0}\n", item);
 
             	int startIndex = _array_offset; 
             	int length = _array_offset + item; 
 
             	byte[] subsetArray = new byte[item];
 
-            	Console.WriteLine("arr_read_2.Length: {0}, ", arr_read_2.Length);
-            	Console.WriteLine("subsetArray.Length: {0}, ", subsetArray.Length);
-
 				Array.Copy(arr_read_2, startIndex, subsetArray, 0, item);
                 _array_offset += item;
 
-                Console.WriteLine("subsetArray.Length: {0}, ", subsetArray.Length);
+                //Console.WriteLine("subsetArray.Length: {0}, ", subsetArray.Length);
 
                 try 
                 {
-                	Console.WriteLine("Success to parser the GrpcMobileList from Byte array");
-                	GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(subsetArray);
+                	//Console.WriteLine("Success to parser the GrpcMobileList from Byte array");
+                	grpcMobileObjectMessage = GrpcGameObjectList.Parser.ParseFrom(subsetArray);
                 }
                 catch (Exception ex)
 	            {
 	            	Console.WriteLine("Failed to parser the GrpcMobileList from Byte array: " + ex.Message);
 	            }
-				
-        		//states.MobileList = message;
-
-                _mpq_step++;
+			
+				//_mpq_step = 5;
             }
 
-            //arr_message
-            if (_mpq_step == 2) 
-            {
-            	//Console.WriteLine("arr_message.Length: {0}", arr_message.Length);
-            	arr_message = grpcMobileArray;
-            	GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(arr_message);
-            	states.MobileList = message;
-			}
-			else
-			{
-				states.MobileList = grpcMobileList;
-			}
-            //GrpcMobileList message = GrpcMobileList.Parser.ParseFrom(grpcMobileArray);
-            //states.MobileList = message;
-            //states.MobileList = grpcMobileList;
+			GrpcMobileList grpcMobileList = new GrpcMobileList();
+            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
+            states.MobileList = grpcMobileList;
 
             GrpcItemList worldItemList = new GrpcItemList();
             worldItemList.Item.AddRange(worldItemDataList);
@@ -505,15 +451,27 @@ namespace ClassicUO.Grpc
 	            itemDropableLandObjectList.GameObject.AddRange(grpcItemDropableLandList);
 	            vendorItemObjectList.GameObject.AddRange(grpcVendorItemList);
 
-	            byte[] mobileObjectArray = mobileObjectList.ToByteArray();
-	            int mobileObjectArray_Length = mobileObjectArray.Length;
+	            //byte[] mobileObjectArray = mobileObjectList.ToByteArray();
+	            //int mobileObjectArray_Length = mobileObjectArray.Length;
 
 	            //Console.WriteLine("mobileObjectArray.Length: " + mobileObjectArray.Length);
 
 	            states.LandObjectList = landObjectList;
-	            states.PlayerMobileObjectList = playerMobileObjectList;
+
+	            if (_mpq_step == 2) 
+	            {
+	            	//Console.WriteLine("mobileObjectArray.Length: " + mobileObjectArray.Length);
+	            	states.MobileObjectList = grpcMobileObjectMessage;
+	            }
+	            else 
+	            {
+	            	//Console.WriteLine("_mpq_step != 2");
+	            	states.MobileObjectList = mobileObjectList;
+	            }
+
 	            states.StaticObjectList = staticObjectList;
-	            states.MobileObjectList = mobileObjectList;
+	            states.PlayerMobileObjectList = playerMobileObjectList;
+	            //states.MobileObjectList = mobileObjectList;
 	            states.ItemObjectList = itemObjectList;
 	            states.ItemDropableLandList = itemDropableLandObjectList;
 	            states.VendorItemObjectList = vendorItemObjectList;

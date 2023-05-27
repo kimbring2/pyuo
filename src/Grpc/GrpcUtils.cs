@@ -50,20 +50,24 @@ namespace ClassicUO.Grpc
 
 		public void WrtieToMpqArchive(string mpqArchiveName, string fileName, byte[] grpcArr)
 		{
+			//Console.WriteLine("WrtieToMpqArchive()");
+
 			uint file_size = (uint) grpcArr.Length;
+			//Console.WriteLine("file_size: {0}, ", file_size);
+
 		    using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.ReadWrite))
 		    {
-		        Console.WriteLine("MpqArchive is opened");
+		        //Console.WriteLine("MpqArchive is opened");
 
 		        using (MpqFileStream fs = archive.CreateFile(fileName, file_size))
 		        {
-		            //byte[] arr = { 0, 100, 120, 210, 255};
 		            var arr = new List<byte>();
 		            for (int i = 0; i < file_size; i++) 
 		            {
 		                arr.Add((byte) grpcArr[i]);
 		            }
 
+		            byte[] buffer = arr.ToArray();
 		            fs.Write(arr.ToArray(), 0, (int) file_size);
 		        }
 		    }
@@ -73,7 +77,7 @@ namespace ClassicUO.Grpc
         {
         	using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.Read))
             {
-            	Console.WriteLine("MpqArchive is opened");
+            	//Console.WriteLine("MpqArchive is opened");
 
                 MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
                 //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
@@ -85,37 +89,34 @@ namespace ClassicUO.Grpc
                 {
                     //Console.WriteLine("fs.Length: {0}", fs.Length);
 
-                	byte[] arr_message = new byte[fs.Length];
+                	byte[] arr_message = new byte[1024];
 
                 	int iter_num = 0;
                 	if (fs.Length < 1024) 
                 	{
                 		//Console.WriteLine("fs.Length < 1024");
-
                 		arr_message = new byte[fs.Length];
                         fs.Read(arr_message, 0, (int) fs.Length);
                     }
                     else 
                     {
                     	//Console.WriteLine("fs.Length >= 1024");
-                    	//Console.WriteLine("fs.Length: {0}, ", fs.Length);
-
                     	iter_num = (int) fs.Length / (int) 1024;
+                    	//Console.WriteLine("iter_num: {0}: ", iter_num);
 
                     	byte[] arr;
 	                    for (int i = 0; i < iter_num; i++) 
 	                    {
-	                    	arr = new byte[1024];
-	                        fs.Read(arr, 0, 1024);
-
-	                        //Console.WriteLine("############################");
-	                        foreach(var item in arr)
-	                        {
-	                            //Console.WriteLine("item: {0}, ", item);
-	                        }
-	                        //Console.WriteLine("############################");
-
-	                        arr_message = arr_message.Concat(arr).ToArray();
+	                    	if (i == 0) 
+	                    	{
+	                    		fs.Read(arr_message, 0, 1024);
+	                    	}
+	                    	else
+	                    	{
+	                    		arr = new byte[1024];
+	                    		fs.Read(arr, 0, 1024);
+	                    		arr_message = arr_message.Concat(arr).ToArray();
+	                    	}
 	                    }
 
 	                    int remaining_num = (int) fs.Length - 1024 * iter_num;
@@ -123,13 +124,6 @@ namespace ClassicUO.Grpc
 
                     	arr = new byte[remaining_num];
                         fs.Read(arr, 0, remaining_num);
-
-                        //Console.WriteLine("############################");
-                        foreach(var item in arr)
-                        {
-                            //Console.WriteLine("item: {0}, ", item);
-                        }
-                        //Console.WriteLine("############################");
 
                         arr_message = arr_message.Concat(arr).ToArray();
                     }

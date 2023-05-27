@@ -68,17 +68,17 @@ namespace ClassicUO.Grpc
         public List<string> grpcPopupMenuList = new List<string>();
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
-        int _array_offset = 0;
-        int _env_step = 0;
-        int _mpq_step = 2;
-        int _replay_step = 0;
+        int _arrayOffset = 0;
+        int _envStep = 0;
+        int _mpqStep = 2;
+        int _replayStep = 0;
 
         List<int> mobileObjectArrayLengthList = new List<int>();
         byte[] mobileObjectArrays;
         public GrpcGameObjectList grpcMobileObjectMessage;
 
-        byte[] arr_read_1;
-    	byte[] arr_read_2;
+        byte[] arrRead1;
+    	byte[] arrRead2;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -106,7 +106,6 @@ namespace ClassicUO.Grpc
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 
 	        	if (type == "Land") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcLandObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
@@ -120,19 +119,16 @@ namespace ClassicUO.Grpc
 	        		}
 	        	}
 	        	else if (type == "PlayerMobile") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Item") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Static") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, x, y, distance);
 	        		grpcStaticObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													     Title=title, Amount=amount, Price=price });
@@ -144,8 +140,6 @@ namespace ClassicUO.Grpc
 	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "ShopItem") {
-	        		//Console.WriteLine("ShopItem");
-	        		//Console.WriteLine("name: {0}, serial: {1}", name, serial);
 	        		grpcVendorItemList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
@@ -180,7 +174,7 @@ namespace ClassicUO.Grpc
         public override Task<States> Reset(Config config, ServerCallContext context)
         {
             //Console.WriteLine(request.Name);
-            ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+            //ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
 
             List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
 
@@ -195,15 +189,11 @@ namespace ClassicUO.Grpc
             		continue;
             	}
 
-                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
-                										   X = (float) mob.GetScreenPosition().X, 
-                										   Y = (float) mob.GetScreenPosition().Y,
+                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = (float) mob.GetScreenPosition().X, Y = (float) mob.GetScreenPosition().Y,
                 										   Race = (uint) mob.Race });
             }
 
             States states = new States();
-
-            //states.ScreenImage = new ScreenImage { Image = byteString };
 
             GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
@@ -215,7 +205,7 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
-            ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
+            //ByteString byteString = ByteString.CopyFrom(_controller.byteArray);
             try
             {
 	            foreach (Mobile mob in World.Mobiles.Values)
@@ -229,11 +219,8 @@ namespace ClassicUO.Grpc
 	            		continue;
 	            	}
 
-	                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, 
-	                										   X = (float) mob.GetScreenPosition().X, 
-	                										   Y = (float) mob.GetScreenPosition().Y,
-	                										   Race = (uint) mob.Race,
-	                										   Serial = (uint) mob.Serial });
+	                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = (float) mob.GetScreenPosition().X, Y = (float) mob.GetScreenPosition().Y,
+	                										   Race = (uint) mob.Race, Serial = (uint) mob.Serial });
 	            }
 
 	            //Console.WriteLine("\n");
@@ -241,11 +228,8 @@ namespace ClassicUO.Grpc
 	        catch (Exception ex)
             {
             	//Console.WriteLine("Failed to load the mobile: " + ex.Message);
-            	grpcMobileDataList.Add(new GrpcMobileData{ Name = "base", 
-	                									   X = (float) 500.0, 
-	                									   Y = (float) 500.0,
-	                									   Race = (uint) 0,
-	                									   Serial = (uint) 1234 });
+            	grpcMobileDataList.Add(new GrpcMobileData{ Name = "base", X = (float) 500.0, Y = (float) 500.0,
+	                									   Race = (uint) 0, Serial = (uint) 1234 });
             }
 
             foreach (Item item in World.Items.Values)
@@ -253,10 +237,8 @@ namespace ClassicUO.Grpc
             	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
             	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
             	//																	   item.Amount, item.Serial);
-            	worldItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", 
-	            									    Layer = (uint) item.Layer,
-	              									    Serial = (uint) item.Serial,
-	            									    Amount = (uint) item.Amount });
+            	worldItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", Layer = (uint) item.Layer,
+	              									    Serial = (uint) item.Serial, Amount = (uint) item.Amount });
 
 
             }
@@ -267,10 +249,8 @@ namespace ClassicUO.Grpc
 	        		Item item = World.Player.FindItemByLayer(layer);
 	        		try 
 	        		{
-	            		equippedItemDataList.Add(new GrpcItemData{ Name = item.Name, 
-		            									   	       Layer = (uint) item.Layer,
-		              									           Serial = (uint) item.Serial,
-		            									           Amount = (uint) item.Amount });
+	            		equippedItemDataList.Add(new GrpcItemData{ Name = item.Name, Layer = (uint) item.Layer, 
+	            												   Serial = (uint) item.Serial, Amount = (uint) item.Amount });
 	            	}
 		            catch (Exception ex)
 		            {
@@ -289,10 +269,8 @@ namespace ClassicUO.Grpc
             		//																       item.Amount, item.Serial);
             		try 
 	        		{
-	            		backpackItemDataList.Add(new GrpcItemData{ Name = item.Name, 
-		            									   	       Layer = (uint) item.Layer,
-		              									           Serial = (uint) item.Serial,
-		            									           Amount = (uint) item.Amount });
+	            		backpackItemDataList.Add(new GrpcItemData{ Name = item.Name,  Layer = (uint) item.Layer,
+		              									           Serial = (uint) item.Serial, Amount = (uint) item.Amount });
 	            	}
 		            catch (Exception ex)
 		            {
@@ -314,88 +292,73 @@ namespace ClassicUO.Grpc
 
             States states = new States();
 
-            if ( (_mpq_step == 0) )
+            if ( (_mpqStep == 0) )
             {
-            	Console.WriteLine("(_mpq_step == 0) && (file_size != 0)");
+            	Console.WriteLine("(_mpqStep == 0) && (file_size != 0)");
             	CreateMpqArchive("archive.mpq");
 
-                _mpq_step++;
+                _mpqStep++;
             }
-            else if ( (_mpq_step == 1) && (_env_step > 1500) )
+            else if ( (_mpqStep == 1) && (_envStep > 1500) )
             {
-            	Console.WriteLine("(_mpq_step == 1) && (_env_step > 1500)");
+            	Console.WriteLine("(_mpqStep == 1) && (_envStep > 1500)");
 
             	foreach (int ary_len in mobileObjectArrayLengthList)
 		        {
-		            Console.WriteLine("ary_len: {0}", ary_len);
+		            //Console.WriteLine("ary_len: {0}", ary_len);
 		        }
-		        Console.WriteLine("\n");
 
                 byte[] mobileObjectArrayLengthArray = ConvertIntListToByteArray(mobileObjectArrayLengthList);
                 WrtieToMpqArchive("archive.mpq", "data_1.txt", mobileObjectArrayLengthArray);
                 WrtieToMpqArchive("archive.mpq", "data_2.txt", mobileObjectArrays);
 
-                _mpq_step = 10;
-                //_mpq_step++;
+                _mpqStep = 10;
+                //_mpqStep++;
             }
-            else if (_mpq_step == 2) 
+            else if (_mpqStep == 2) 
             {
-            	Console.WriteLine("_mpq_step == 2");
+            	Console.WriteLine("_mpqStep == 2");
             	
-            	arr_read_1 = ReadFromMpqArchive("archive.mpq", "data_1.txt");
-            	arr_read_2 = ReadFromMpqArchive("archive.mpq", "data_2.txt");
+            	arrRead1 = ReadFromMpqArchive("archive.mpq", "data_1.txt");
+            	arrRead2 = ReadFromMpqArchive("archive.mpq", "data_2.txt");
 
-            	//Console.WriteLine("arr_read_1.Length: {0}, ", arr_read_1.Length);
-            	//Console.WriteLine("arr_read_2.Length: {0}, ", arr_read_2.Length);
-            	//Console.WriteLine("_env_step % 1000 == 0: {0}, ", _env_step % 1000 == 0);
-				_mpq_step++;
+            	//Console.WriteLine("arrRead1.Length: {0}, arrRead2.Length: {1} ", arrRead1.Length, arrRead2.Length);
+				_mpqStep++;
             }
-            else if (_mpq_step == 3) 
+            else if (_mpqStep == 3) 
             {
-            	//Console.WriteLine("_mpq_step == 3");
+            	//Console.WriteLine("_mpqStep == 3");
+            	Console.WriteLine("_replayStep: {0}", _replayStep);
 
-            	if (_replay_step % 1000 == 0)
+            	if (_replayStep % 1000 == 0)
             	{
-            		_array_offset = 0;
+            		_arrayOffset = 0;
             	}
             	
-            	int index = _replay_step % 1000;
-
-            	//Console.WriteLine("index: {0} ", index);
-                //Console.WriteLine("_array_offset: {0}", _array_offset);
-
-                List<int> list_read_1 = ConvertByteArrayToIntList(arr_read_1);
-
-                //foreach (int value in list_read_1)
-		        //{
-		        //    Console.WriteLine("value: {0}", value);
-		        //}
-		        //Console.WriteLine("\n");
+            	int index = _replayStep % 1000;
+                List<int> list_read_1 = ConvertByteArrayToIntList(arrRead1);
 
             	int item = list_read_1[index];
             	//Console.WriteLine("item: {0}\n", item);
 
-            	int startIndex = _array_offset; 
-            	int length = _array_offset + item; 
+            	int startIndex = _arrayOffset; 
+            	int length = _arrayOffset + item; 
 
             	byte[] subsetArray = new byte[item];
 
-				Array.Copy(arr_read_2, startIndex, subsetArray, 0, item);
-                _array_offset += item;
-
-                //Console.WriteLine("subsetArray.Length: {0}, ", subsetArray.Length);
-                _replay_step++;
+				Array.Copy(arrRead2, startIndex, subsetArray, 0, item);
+                _arrayOffset += item;
 
                 try 
                 {
-                	//Console.WriteLine("Success to parser the GrpcMobileList from Byte array");
                 	grpcMobileObjectMessage = GrpcGameObjectList.Parser.ParseFrom(subsetArray);
                 }
                 catch (Exception ex)
 	            {
-	            	Console.WriteLine("index: {0} ", index);
-	            	Console.WriteLine("Failed to parser the GrpcMobileList from Byte array: " + ex.Message);
+	            	//Console.WriteLine("Failed to parser the GrpcMobileList from Byte array: " + ex.Message);
 	            }
+
+	            _replayStep++;
             }
 
 			GrpcMobileList grpcMobileList = new GrpcMobileList();
@@ -448,15 +411,12 @@ namespace ClassicUO.Grpc
 
 	            states.LandObjectList = landObjectList;
 
-	            if (_mpq_step == 3) 
+	            if (_mpqStep == 3) 
 	            {
-	            	//Console.WriteLine("grpcMobileObjectMessage.Length: " + grpcMobileObjectMessage.Length);
 	            	states.MobileObjectList = grpcMobileObjectMessage;
-	            	//states.MobileObjectList = mobileObjectList;
 	            }
 	            else 
 	            {
-	            	//Console.WriteLine("_mpq_step != 2");
 	            	states.MobileObjectList = mobileObjectList;
 	            }
 
@@ -472,7 +432,7 @@ namespace ClassicUO.Grpc
 	        	//mobileObjectList_.GameObject.AddRange(grpcMobileObjectList);
 	        	byte[] mobileObjectArray = mobileObjectList.ToByteArray();
 	        	if ( (mobileObjectArray.Length != 0) ) {
-	            	if (_env_step == 0) 
+	            	if (_envStep == 0) 
 	            	{
 	            		mobileObjectArrays = mobileObjectArray;
 	            	}
@@ -483,12 +443,12 @@ namespace ClassicUO.Grpc
 
 	            	mobileObjectArrayLengthList.Add((int) mobileObjectArray.Length);
 
-	            	_env_step++;
+	            	_envStep++;
 	            }
 	        }
 	        catch (Exception ex)
             {
-            	Console.WriteLine("Failed to set the states of GRPC: " + ex.Message);
+            	//Console.WriteLine("Failed to set the states of GRPC: " + ex.Message);
             }
             
             grpcMobileDataList.Clear();
@@ -513,7 +473,7 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
         	//Console.WriteLine("actions.WalkDirection.Direction: {0}", actions.WalkDirection.Direction);
 
-            _controller.action_1 = actions.ActionType;
+            //_controller.action_1 = actions.ActionType;
 
             if (actions.ActionType == 1) {
             	if (World.InGame == true) {
@@ -710,7 +670,7 @@ namespace ClassicUO.Grpc
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
             //Console.WriteLine("Step 1:");
-            _controller.sem_action.Release();
+            _controller.semAction.Release();
 
             return Task.FromResult(new Empty {});
         }
@@ -719,7 +679,7 @@ namespace ClassicUO.Grpc
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
             //Console.WriteLine("Step 3:");
-            _controller.sem_observation.WaitOne();
+            _controller.semObservation.WaitOne();
 
             return Task.FromResult(new Empty {});
         }

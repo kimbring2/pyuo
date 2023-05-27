@@ -86,21 +86,13 @@ namespace ClassicUO
         private UOFontRenderer _fontRenderer;
 
         public UoServiceImpl _uoServiceImpl;
-        public bool start_flag = true;
-        public int grpc_port;
-        public uint action_1 = 0;
-        public byte[] byteArray = new byte[160*128*4];
+        public bool startFlag = true;
+        public int _grpcPort;
+        public int _gameTick;
 
-        //MpqArchive archive = MpqArchive.CreateNew(@"mynewmpq.mpq", MpqArchiveVersion.Version4);
-        //public FileStream fileStream = new FileStream("gamedata.dat", FileMode.Create, FileAccess.Append);
-
-        byte[] rgbaBytes;
-        byte[] scaledRgbaBytes;
-        uint frame_count;
-
-        public Semaphore sem_observation = new Semaphore(0, 3);
-        public Semaphore sem_action = new Semaphore(0, 3);
-        public Semaphore sem_physics = new Semaphore(0, 3);
+        public Semaphore semObservation = new Semaphore(0, 3);
+        public Semaphore semAction = new Semaphore(0, 3);
+        public Semaphore semPhysics = new Semaphore(0, 3);
 
         public float attackMonsterReward = (float) 0.0;
         public float killMonsterReward = (float) 0.0;
@@ -108,10 +100,10 @@ namespace ClassicUO
         public GameController()
         {
             //Log.Trace("GameController()");
-            grpc_port = Settings.GlobalSettings.GrpcPort;
-            //Console.WriteLine("grpc_port: {0}", grpc_port);
+            _grpcPort = Settings.GlobalSettings.GrpcPort;
+            //Console.WriteLine("_grpcPort: {0}", _grpcPort);
 
-            _uoServiceImpl = new UoServiceImpl(this, grpc_port);
+            _uoServiceImpl = new UoServiceImpl(this, _grpcPort);
 
             GraphicManager = new GraphicsDeviceManager(this);
 
@@ -139,8 +131,7 @@ namespace ClassicUO
         {
             //Log.Trace("Initialize()");
             _uoServiceImpl.Start();
-            frame_count = 0;
-            sem_physics.Release();
+            semPhysics.Release();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
             {
@@ -224,11 +215,7 @@ namespace ClassicUO
 
             SDL_GetWindowBordersSize
             (
-                Window.Handle,
-                out int top,
-                out int left,
-                out _,
-                out _
+                Window.Handle, out int top, out int left, out _, out _
             );
 
             Settings.GlobalSettings.WindowPosition = new Point(Math.Max(0, Window.ClientBounds.X - left), Math.Max(0, Window.ClientBounds.Y - top));
@@ -381,11 +368,7 @@ namespace ClassicUO
             {
                 SDL_GetWindowBordersSize
                 (
-                    Window.Handle,
-                    out int top,
-                    out _,
-                    out int bottom,
-                    out _
+                    Window.Handle, out int top, out _, out int bottom, out _
                 );
 
                 SetWindowSize(width, height - (top - bottom));
@@ -422,11 +405,7 @@ namespace ClassicUO
         {
             SDL_GetWindowBordersSize
             (
-                Window.Handle,
-                out int top,
-                out int left,
-                out _,
-                out _
+                Window.Handle, out int top, out int left, out _, out _
             );
 
             if (Settings.GlobalSettings.WindowPosition.HasValue)
@@ -442,12 +421,7 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("IsActive: {0}", IsActive);
-
             //Console.WriteLine("Step 4:");
-            //string curFile = @"stormlib.dll";
-            //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
-
             if (World.Player != null) 
             {
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
@@ -460,8 +434,8 @@ namespace ClassicUO
                 }
             }
 
-            sem_physics.WaitOne();
-            sem_action.WaitOne();
+            semPhysics.WaitOne();
+            semAction.WaitOne();
 
             //Log.Trace("GameController Update()");
             if (Profiler.InContext("OutOfContext"))
@@ -490,7 +464,6 @@ namespace ClassicUO
             if (_currentFpsTime >= 1000)
             {
                 CUOEnviroment.CurrentRefreshRate = _totalFrames;
-
                 _totalFrames = 0;
                 _currentFpsTime = 0;
             }
@@ -501,120 +474,16 @@ namespace ClassicUO
             if (Scene != null && Scene.IsLoaded && !Scene.IsDestroyed)
             {
                 Profiler.EnterContext("FixedUpdate");
-
                 Scene.FixedUpdate(gameTime.TotalGameTime.TotalMilliseconds, gameTime.ElapsedGameTime.TotalMilliseconds);
-
                 Profiler.ExitContext("FixedUpdate");
             }
 
             _totalElapsed %= x;
 
-            /*
-            if (_totalElapsed > x)
-            {
-                if (Scene != null && Scene.IsLoaded && !Scene.IsDestroyed)
-                {
-                    Profiler.EnterContext("FixedUpdate");
-
-                    Scene.FixedUpdate(gameTime.TotalGameTime.TotalMilliseconds, gameTime.ElapsedGameTime.TotalMilliseconds);
-
-                    Profiler.ExitContext("FixedUpdate");
-                }
-
-                _totalElapsed %= x;
-            }
-            else
-            {
-                //Console.WriteLine("_suppressedDraw");
-
-                _suppressedDraw = true;
-                //SuppressDraw();
-
-                if (!gameTime.IsRunningSlowly)
-                {
-                    Thread.Sleep(1);
-                }
-            }
-            */
             base.Update(gameTime);
 
-            //LoadReplay();
-            //SaveReplay();
-
-            sem_observation.Release();
-            sem_physics.Release();
-        }
-
-        public void SaveReplay()
-        {
-            try
-            {
-                using (FileStream fileStream = new FileStream("replay.gz", FileMode.Append))
-                {
-                    GrpcGameObjectList landObjectList = new GrpcGameObjectList();
-
-                    foreach (var LandObject in _uoServiceImpl.grpcLandObjectList)
-                    {
-                        string type = LandObject.Type;
-                        uint screenX = LandObject.ScreenX;
-                        uint screenY = LandObject.ScreenY;
-                        uint distance = LandObject.Distance;
-                        uint gameX = LandObject.GameX;
-                        uint gameY = LandObject.GameY;
-                        uint serial = LandObject.Serial;
-                        string name = LandObject.Name;
-                        bool isCorpse = LandObject.IsCorpse;
-                        string title = LandObject.Title;
-                        uint amount = LandObject.Amount;
-                        uint price = LandObject.Price;
-
-                        //Console.WriteLine("type:{0},screenX:{1},screenY:{2},distance:{3},gameX:{4},gameY:{5},serial:{6},name:{7},isCorpse:{8},title:{9},amount:{10},price:{11}", 
-                        //                   type, screenX, screenY, distance, gameX, gameY, serial, name, isCorpse, title, amount, price);
-                    }
-
-                    landObjectList.GameObject.AddRange(_uoServiceImpl.grpcLandObjectList);
-                    byte[] compressedData = (landObjectList).ToByteArray();
-
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        using (GZipStream gzipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                        {
-                            gzipStream.Write(compressedData, 0, compressedData.Length);
-                        }
-
-                        compressedData = memoryStream.ToArray();
-                    }
-
-                    fileStream.Write(compressedData, 0, compressedData.Length);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Failed to save the data: " + ex.Message);
-            }
-        }
-
-        public void LoadReplay()
-        {
-            using (FileStream fileStream = new FileStream("gamedata.dat", FileMode.Open))
-            {
-                using (BinaryReader reader = new BinaryReader(fileStream))
-                {
-                    // Write your game data to the binary file
-                    // Read your game data from the binary file
-                    int score = reader.ReadInt32();
-                    float playerX = reader.ReadSingle();
-                    bool isLevelCompleted = reader.ReadBoolean();
-
-                    // You can read more data as needed
-
-                    // Use the loaded data in your game
-                    // For example:
-                    //Console.WriteLine($"Score: {score}");
-                    //Console.WriteLine($"Player X: {playerX}");
-                    //Console.WriteLine($"Is Level Completed: {isLevelCompleted}");
-                }
-            }
+            semObservation.Release();
+            semPhysics.Release();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -662,7 +531,8 @@ namespace ClassicUO
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
-            if (start_flag == true) {
+            /*
+            if (startFlag == true) {
                 WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
                 if (viewport != null)
                 {
@@ -670,91 +540,10 @@ namespace ClassicUO
                     viewport.X = -5;
                     viewport.Y = -5;
 
-                    start_flag = false;
+                    startFlag = false;
                 }
             }
-        }
-
-        public void UpdateScreenshot()
-        {
-            //Console.WriteLine("UpdateScreenshot()");
-            //Console.WriteLine("GraphicManager: {0}", GraphicManager);
-
-            Color[] textureData = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
-            
-            GraphicsDevice.GetBackBufferData(textureData);
-            
-            using (Texture2D texture = new Texture2D
-            (
-                GraphicsDevice,
-                GraphicManager.PreferredBackBufferWidth,
-                GraphicManager.PreferredBackBufferHeight,
-                false,
-                SurfaceFormat.Color
-            ))
-            using (MemoryStream ms = new MemoryStream())
-            {
-                int scale = 16;
-
-                texture.SetData(textureData);
-
-                rgbaBytes = new byte[texture.Width * texture.Height * 4];
-
-                int newHeight = texture.Height / scale;
-                int newWidth = texture.Width / scale;
-
-                scaledRgbaBytes = new byte[newHeight * newWidth * 4];
-
-                int scaleX = scale;
-                int scaleY = scale;
-                
-                for (int y = 0; y < newHeight; y++)
-                {
-                    for (int x = 0; x < newWidth; x++)
-                    {
-                        int startX = (int)(x * scaleX);
-                        int endX = (int)((x + 1) * scaleX);
-                        int startY = (int)(y * scaleY);
-                        int endY = (int)((y + 1) * scaleY);
-
-                        int totalR = 0;
-                        int totalG = 0;
-                        int totalB = 0;
-                        int totalA = 0;
-
-                        int count = 0;
-                        for (int j = startY; j < endY; j++)
-                        {
-                            for (int i = startX; i < endX; i++)
-                            {
-                                int index = i + (j * texture.Width);
-                                totalR += textureData[index].R;
-                                totalG += textureData[index].G;
-                                totalB += textureData[index].B;
-                                totalA += textureData[index].A;
-
-                                count++;
-                            }
-                        }
-
-                        byte avgR = (byte)(totalR / count);
-                        byte avgG = (byte)(totalG / count);
-                        byte avgB = (byte)(totalB / count);
-                        byte avgA = (byte)(totalA / count);
-
-                        int scaledIndex = x + (y * newWidth);
-                        scaledRgbaBytes[scaledIndex * 4 + 0] = avgR;
-                        scaledRgbaBytes[scaledIndex * 4 + 1] = avgG;
-                        scaledRgbaBytes[scaledIndex * 4 + 2] = avgB;
-                        scaledRgbaBytes[scaledIndex * 4 + 3] = avgA;
-                    }
-                }
-
-                //Console.WriteLine("GraphicManager.PreferredBackBufferWidth: {0}", GraphicManager.PreferredBackBufferWidth);
-                //Console.WriteLine("GraphicManager.PreferredBackBufferHeight: {0}", GraphicManager.PreferredBackBufferHeight);
-
-                scaledRgbaBytes.CopyTo(byteArray, 0);
-            }
+            */
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)
@@ -816,8 +605,7 @@ namespace ClassicUO
             SDL_Event* sdlEvent = (SDL_Event*) ptr;
 
             //Console.WriteLine("sdlEvent->type: {0}", sdlEvent->type);
-            //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", 
-            //                   Mouse.Position.X, Mouse.Position.Y);
+            //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
             //Console.WriteLine("sdlEvent->button.button: {0}\n", sdlEvent->button.button);
 
             if (Plugin.ProcessWndProc(sdlEvent) != 0)
@@ -837,12 +625,10 @@ namespace ClassicUO
             {
                 case SDL_EventType.SDL_AUDIODEVICEADDED:
                     Console.WriteLine("AUDIO ADDED: {0}", sdlEvent->adevice.which);
-
                     break;
 
                 case SDL_EventType.SDL_AUDIODEVICEREMOVED:
                     Console.WriteLine("AUDIO REMOVED: {0}", sdlEvent->adevice.which);
-
                     break;
 
                 case SDL_EventType.SDL_WINDOWEVENT:
@@ -850,22 +636,18 @@ namespace ClassicUO
                     {
                         case SDL_WindowEventID.SDL_WINDOWEVENT_ENTER:
                             Mouse.MouseInWindow = true;
-
                             break;
 
                         case SDL_WindowEventID.SDL_WINDOWEVENT_LEAVE:
                             Mouse.MouseInWindow = false;
-
                             break;
 
                         case SDL_WindowEventID.SDL_WINDOWEVENT_FOCUS_GAINED:
                             Plugin.OnFocusGained();
-
                             break;
 
                         case SDL_WindowEventID.SDL_WINDOWEVENT_FOCUS_LOST:
                             Plugin.OnFocusLost();
-
                             break;
                     }
 
@@ -877,9 +659,7 @@ namespace ClassicUO
                     if (Plugin.ProcessHotkeys((int) sdlEvent->key.keysym.sym, (int) sdlEvent->key.keysym.mod, true))
                     {
                         _ignoreNextTextInput = false;
-
                         UIManager.KeyboardFocusControl?.InvokeKeyDown(sdlEvent->key.keysym.sym, sdlEvent->key.keysym.mod);
-
                         Scene.OnKeyDown(sdlEvent->key);
                     }
                     else
@@ -928,7 +708,6 @@ namespace ClassicUO
                     }
 
                     Mouse.Update();
-
                     if (Mouse.IsDragging)
                     {
                         if (!Scene.OnMouseDragging())
@@ -959,35 +738,28 @@ namespace ClassicUO
 
                 case SDL_EventType.SDL_MOUSEBUTTONDOWN:
                 {
-                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONDOWN");
-
                     SDL_MouseButtonEvent mouse = sdlEvent->button;
 
                     // The values in MouseButtonType are chosen to exactly match the SDL values
                     MouseButtonType buttonType = (MouseButtonType) mouse.button;
 
                     uint lastClickTime = 0;
-
                     switch (buttonType)
                     {
                         case MouseButtonType.Left:
                             lastClickTime = Mouse.LastLeftButtonClickTime;
-
                             break;
 
                         case MouseButtonType.Middle:
                             lastClickTime = Mouse.LastMidButtonClickTime;
-
                             break;
 
                         case MouseButtonType.Right:
                             lastClickTime = Mouse.LastRightButtonClickTime;
-
                             break;
 
                         default: 
                             Log.Warn($"No mouse button handled: {mouse.button}");
-
                             break;
                     }
 
@@ -995,13 +767,11 @@ namespace ClassicUO
                     Mouse.Update();
 
                     uint ticks = Time.Ticks;
-
                     if (lastClickTime + Mouse.MOUSE_DELAY_DOUBLE_CLICK >= ticks)
                     {
                         lastClickTime = 0;
 
                         bool res = Scene.OnMouseDoubleClick(buttonType) || UIManager.OnMouseDoubleClick(buttonType);
-
                         if (!res)
                         {
                             if (!Scene.OnMouseDown(buttonType))
@@ -1033,17 +803,14 @@ namespace ClassicUO
                     {
                         case MouseButtonType.Left:
                             Mouse.LastLeftButtonClickTime = lastClickTime;
-
                             break;
 
                         case MouseButtonType.Middle:
                             Mouse.LastMidButtonClickTime = lastClickTime;
-
                             break;
 
                         case MouseButtonType.Right:
                             Mouse.LastRightButtonClickTime = lastClickTime;
-
                             break;
                     }
 
@@ -1052,8 +819,6 @@ namespace ClassicUO
 
                 case SDL_EventType.SDL_MOUSEBUTTONUP:
                 {
-                    //Console.WriteLine("case SDL_EventType.SDL_MOUSEBUTTONUP");
-                    
                     if (_dragStarted)
                     {
                         _dragStarted = false;
@@ -1070,22 +835,18 @@ namespace ClassicUO
                     {
                         case MouseButtonType.Left:
                             lastClickTime = Mouse.LastLeftButtonClickTime;
-
                             break;
 
                         case MouseButtonType.Middle:
                             lastClickTime = Mouse.LastMidButtonClickTime;
-
                             break;
 
                         case MouseButtonType.Right:
                             lastClickTime = Mouse.LastRightButtonClickTime;
-
                             break;
 
                         default:
                             Log.Warn($"No mouse button handled: {mouse.button}");
-
                             break;
                         }
 
@@ -1110,20 +871,15 @@ namespace ClassicUO
         private void TakeScreenshot()
         {
             string screenshotsFolder = FileSystemHelper.CreateFolderIfNotExists(CUOEnviroment.ExecutablePath, "Data", "Client", "Screenshots");
-
             string path = Path.Combine(screenshotsFolder, $"screenshot_{DateTime.Now:yyyy-MM-dd_hh-mm-ss}.png");
-
             Color[] colors = new Color[GraphicManager.PreferredBackBufferWidth * GraphicManager.PreferredBackBufferHeight];
 
             GraphicsDevice.GetBackBufferData(colors);
 
             using (Texture2D texture = new Texture2D
             (
-                GraphicsDevice,
-                GraphicManager.PreferredBackBufferWidth,
-                GraphicManager.PreferredBackBufferHeight,
-                false,
-                SurfaceFormat.Color
+                GraphicsDevice, GraphicManager.PreferredBackBufferWidth, GraphicManager.PreferredBackBufferHeight,
+                false, SurfaceFormat.Color
             ))
             using (FileStream fileStream = File.Create(path))
             {

@@ -1,6 +1,3 @@
-// protoc --csharp_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_csharp_plugin` UoService.proto
-// python3.7 -m grpc_tools.protoc -I ../ --python_out=. --grpc_python_out=. UoService.proto --proto_path /home/kimbring2/uoservice/uoservice/protos/
-
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -44,6 +41,7 @@ namespace ClassicUO.Grpc
         int _port;
         Server _grpcServer;
         Channel _grpcChannel;
+        string _replayName;
 
         Layer[] _layerOrder =
         {
@@ -75,10 +73,19 @@ namespace ClassicUO.Grpc
 
         List<int> mobileObjectArrayLengthList = new List<int>();
         byte[] mobileObjectArrays;
-        public GrpcGameObjectList grpcMobileObjectMessage;
+        public GrpcGameObjectList grpcMobileObjectReplay;
 
-        byte[] arrRead1;
-    	byte[] arrRead2;
+        byte[] mobileObjectLengthArrRead;
+    	byte[] mobileObjectArrRead;
+
+    	List<int> actionTypeList = new List<int>();
+    	List<int> walkDirectionList = new List<int>();
+
+    	public uint actionType;
+    	public uint walkDirection;
+
+    	byte[] actionTypeArrRead;
+    	byte[] walkDirectionArrRead;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -91,6 +98,19 @@ namespace ClassicUO.Grpc
 	            Services = { UoService.BindService(this) },
 	            Ports = { new ServerPort("localhost", _port, ServerCredentials.Insecure) }
 	        };
+
+	        string userName = Settings.GlobalSettings.Username;
+
+	        DateTime currentTime = DateTime.Now;
+			string currentYear = currentTime.Year.ToString();
+			string currentMonth = currentTime.Month.ToString();
+			string currentDay = currentTime.Day.ToString();
+			string currentHour = currentTime.ToString("HH-mm-ss");
+
+			_replayName = userName + "-" + currentYear + "-" + currentMonth + "-" + currentDay + "-" + currentHour;
+
+			_replayName = "kimbring2-2023-5-28-09-41-49";
+			//Console.WriteLine("_replayName: {0}", _replayName);
         }
 
         public void AddClilocData(string text, string affix)
@@ -222,8 +242,6 @@ namespace ClassicUO.Grpc
 	                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = (float) mob.GetScreenPosition().X, Y = (float) mob.GetScreenPosition().Y,
 	                										   Race = (uint) mob.Race, Serial = (uint) mob.Serial });
 	            }
-
-	            //Console.WriteLine("\n");
 	        }
 	        catch (Exception ex)
             {
@@ -234,9 +252,7 @@ namespace ClassicUO.Grpc
 
             foreach (Item item in World.Items.Values)
             {
-            	// Name: Valorite Longsword, Amount: 1, Serial: 1073933224
-            	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-            	//																	   item.Amount, item.Serial);
+            	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, item.Amount, item.Serial);
             	worldItemDataList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", Layer = (uint) item.Layer,
 	              									    Serial = (uint) item.Serial, Amount = (uint) item.Amount });
 
@@ -265,8 +281,7 @@ namespace ClassicUO.Grpc
                 for (LinkedObject i = backpack.Items; i != null; i = i.Next)
                 {
                     Item item = (Item) i;
-                    //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-            		//																       item.Amount, item.Serial);
+                    //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, item.Amount, item.Serial);
             		try 
 	        		{
 	            		backpackItemDataList.Add(new GrpcItemData{ Name = item.Name,  Layer = (uint) item.Layer,
@@ -295,7 +310,7 @@ namespace ClassicUO.Grpc
             if ( (_mpqStep == 0) )
             {
             	Console.WriteLine("(_mpqStep == 0) && (file_size != 0)");
-            	CreateMpqArchive("archive.mpq");
+            	CreateMpqArchive("Replay/" + _replayName + ".uoreplay");
 
                 _mpqStep++;
             }
@@ -309,8 +324,14 @@ namespace ClassicUO.Grpc
 		        }
 
                 byte[] mobileObjectArrayLengthArray = ConvertIntListToByteArray(mobileObjectArrayLengthList);
-                WrtieToMpqArchive("archive.mpq", "data_1.txt", mobileObjectArrayLengthArray);
-                WrtieToMpqArchive("archive.mpq", "data_2.txt", mobileObjectArrays);
+
+                WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.length", mobileObjectArrayLengthArray);
+                WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.object.mobile", mobileObjectArrays);
+
+                byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
+                byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
+                WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.actionType", actionTypeArray);
+                WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.walkDirection", walkDirectionArray);
 
                 _mpqStep = 10;
                 //_mpqStep++;
@@ -319,16 +340,20 @@ namespace ClassicUO.Grpc
             {
             	Console.WriteLine("_mpqStep == 2");
             	
-            	arrRead1 = ReadFromMpqArchive("archive.mpq", "data_1.txt");
-            	arrRead2 = ReadFromMpqArchive("archive.mpq", "data_2.txt");
+            	mobileObjectLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.length");
+            	mobileObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.object.mobile");
 
-            	//Console.WriteLine("arrRead1.Length: {0}, arrRead2.Length: {1} ", arrRead1.Length, arrRead2.Length);
+            	actionTypeArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.actionType");
+    			walkDirectionArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.walkDirection");
+
+            	//Console.WriteLine("mobileObjectLengthArrRead.Length: {0}, mobileObjectArrRead.Length: {1} ", 
+            	//					 mobileObjectLengthArrRead.Length, mobileObjectArrRead.Length);
 				_mpqStep++;
             }
             else if (_mpqStep == 3) 
             {
             	//Console.WriteLine("_mpqStep == 3");
-            	Console.WriteLine("_replayStep: {0}", _replayStep);
+            	//Console.WriteLine("_replayStep: {0}", _replayStep);
 
             	if (_replayStep % 1000 == 0)
             	{
@@ -336,7 +361,7 @@ namespace ClassicUO.Grpc
             	}
             	
             	int index = _replayStep % 1000;
-                List<int> list_read_1 = ConvertByteArrayToIntList(arrRead1);
+                List<int> list_read_1 = ConvertByteArrayToIntList(mobileObjectLengthArrRead);
 
             	int item = list_read_1[index];
             	//Console.WriteLine("item: {0}\n", item);
@@ -346,17 +371,26 @@ namespace ClassicUO.Grpc
 
             	byte[] subsetArray = new byte[item];
 
-				Array.Copy(arrRead2, startIndex, subsetArray, 0, item);
+				Array.Copy(mobileObjectArrRead, startIndex, subsetArray, 0, item);
                 _arrayOffset += item;
 
                 try 
                 {
-                	grpcMobileObjectMessage = GrpcGameObjectList.Parser.ParseFrom(subsetArray);
+                	grpcMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(subsetArray);
                 }
                 catch (Exception ex)
 	            {
 	            	//Console.WriteLine("Failed to parser the GrpcMobileList from Byte array: " + ex.Message);
 	            }
+
+	            List<int> actionTypeList = ConvertByteArrayToIntList(actionTypeArrRead);
+	            List<int> walkDirectionList = ConvertByteArrayToIntList(walkDirectionArrRead);
+
+	            foreach (int action_type in actionTypeList)
+		        {
+		            Console.WriteLine("action_type: {0}", action_type);
+		        }
+		        Console.WriteLine("\n");
 
 	            _replayStep++;
             }
@@ -413,7 +447,7 @@ namespace ClassicUO.Grpc
 
 	            if (_mpqStep == 3) 
 	            {
-	            	states.MobileObjectList = grpcMobileObjectMessage;
+	            	states.MobileObjectList = grpcMobileObjectReplay;
 	            }
 	            else 
 	            {
@@ -471,22 +505,23 @@ namespace ClassicUO.Grpc
         {
         	//Console.WriteLine("actions.ActionType: {0}", actions.ActionType);
         	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
-        	//Console.WriteLine("actions.WalkDirection.Direction: {0}", actions.WalkDirection.Direction);
+        	//Console.WriteLine("actions.WalkDirection: {0}", actions.WalkDirection);
 
-            //_controller.action_1 = actions.ActionType;
+            actionTypeList.Add((int) actionType);
+    		walkDirectionList.Add((int) walkDirection);
 
             if (actions.ActionType == 1) {
             	if (World.InGame == true) {
-            		if (actions.WalkDirection.Direction == 0) {
+            		if (actions.WalkDirection == 0) {
 	            		World.Player.Walk(Direction.Up, true);
 	            	}
-	            	else if (actions.WalkDirection.Direction == 2) {
+	            	else if (actions.WalkDirection == 2) {
 	            		World.Player.Walk(Direction.Right, true);
 	            	}	
-	            	else if (actions.WalkDirection.Direction == 3) {
+	            	else if (actions.WalkDirection == 3) {
 	            		World.Player.Walk(Direction.Left, true);
 	            	}
-	            	else if (actions.WalkDirection.Direction == 4) {
+	            	else if (actions.WalkDirection == 4) {
 	            		World.Player.Walk(Direction.Down, true);
 	            	}
             	}
@@ -662,6 +697,9 @@ namespace ClassicUO.Grpc
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, actions.MobileSerial);
 	        	}
 	        }
+
+	        actionType = 0;
+    		walkDirection = 0;
 
             return Task.FromResult(new Empty {});
         }

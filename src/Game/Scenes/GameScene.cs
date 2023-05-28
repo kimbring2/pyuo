@@ -387,8 +387,7 @@ namespace ClassicUO.Game.Scenes
                 (
                     new MessageBoxGump
                     (
-                        200,
-                        200,
+                        200, 200,
                         string.Format(ResGeneral.ConnectionLost0, StringHelper.AddSpaceBeforeCapital(e.ToString())),
                         s =>
                         {
@@ -459,7 +458,6 @@ namespace ClassicUO.Game.Scenes
                     if (o.Z < _maxZ && o.Z >= z5)
                     {
                         canBeAdded = false;
-
                         break;
                     }
                 }
@@ -470,7 +468,6 @@ namespace ClassicUO.Game.Scenes
                 ref LightData light = ref _lights[_lightCount];
 
                 ushort graphic = lightObject.Graphic;
-
                 if (graphic >= 0x3E02 && graphic <= 0x3E0B || graphic >= 0x3914 && graphic <= 0x3929 || graphic == 0x0B1D)
                 {
                     light.ID = 2;
@@ -492,30 +489,25 @@ namespace ClassicUO.Game.Scenes
                                 case Direction.Right:
                                     y += 33;
                                     x += 22;
-
                                     break;
 
                                 case Direction.Left:
                                     y += 33;
                                     x -= 22;
-
                                     break;
 
                                 case Direction.East:
                                     x += 22;
                                     y += 55;
-
                                     break;
 
                                 case Direction.Down:
                                     y += 55;
-
                                     break;
 
                                 case Direction.South:
                                     x -= 22;
                                     y += 55;
-
                                     break;
                             }
                         }
@@ -645,13 +637,7 @@ namespace ClassicUO.Game.Scenes
                     {
                         AddTileToRenderList
                         (
-                            map.GetTile(x, y),
-                            x,
-                            y,
-                            use_handles,
-                            150,
-                            maxCotZ,
-                            ref playerPos
+                            map.GetTile(x, y), x, y, use_handles, 150, maxCotZ, ref playerPos
                         );
 
                         ++x;
@@ -909,11 +895,7 @@ namespace ClassicUO.Game.Scenes
 
             if (CheckDeathScreen
             (
-                batcher,
-                posX,
-                posY,
-                width,
-                height
+                batcher, posX, posY, width, height
             ))
             {
                 return true;
@@ -1020,17 +1002,14 @@ namespace ClassicUO.Game.Scenes
                     default:
                     case 0:
                         batcher.SetSampler(SamplerState.PointClamp);
-
                         break;
 
                     case 1:
                         batcher.SetSampler(SamplerState.AnisotropicClamp);
-
                         break;
 
                     case 2:
                         batcher.SetSampler(SamplerState.LinearClamp);
-
                         break;
                 }
             }

@@ -65,18 +65,17 @@ namespace Uoservice {
             "YmplY3RMaXN0GA0gASgLMh0udW9zZXJ2aWNlLkdycGNHYW1lT2JqZWN0TGlz",
             "dBIzCg1wb3B1cE1lbnVMaXN0GA4gASgLMhwudW9zZXJ2aWNlLkdycGNQb3B1",
             "cE1lbnVMaXN0EjUKDmNsaWxvY0RhdGFMaXN0GA8gASgLMh0udW9zZXJ2aWNl",
-            "LkdycGNDbGlsb2NEYXRhTGlzdCIiCg1XYWxrRGlyZWN0aW9uEhEKCWRpcmVj",
-            "dGlvbhgBIAEoDSKXAQoHQWN0aW9ucxISCgphY3Rpb25UeXBlGAEgASgNEhQK",
-            "DG1vYmlsZVNlcmlhbBgCIAEoDRISCgppdGVtU2VyaWFsGAMgASgNEi8KDXdh",
-            "bGtEaXJlY3Rpb24YBCABKAsyGC51b3NlcnZpY2UuV2Fsa0RpcmVjdGlvbhIN",
-            "CgVpbmRleBgFIAEoDRIOCgZhbW91bnQYBiABKA0ypwIKCVVvU2VydmljZRIt",
-            "CgVSZXNldBIRLnVvc2VydmljZS5Db25maWcaES51b3NlcnZpY2UuU3RhdGVz",
-            "Ei8KB1JlYWRPYnMSES51b3NlcnZpY2UuQ29uZmlnGhEudW9zZXJ2aWNlLlN0",
-            "YXRlcxIwCghXcml0ZUFjdBISLnVvc2VydmljZS5BY3Rpb25zGhAudW9zZXJ2",
-            "aWNlLkVtcHR5EkMKE0FjdFNlbWFwaG9yZUNvbnRyb2wSGi51b3NlcnZpY2Uu",
-            "U2VtYXBob3JlQWN0aW9uGhAudW9zZXJ2aWNlLkVtcHR5EkMKE09ic1NlbWFw",
-            "aG9yZUNvbnRyb2wSGi51b3NlcnZpY2UuU2VtYXBob3JlQWN0aW9uGhAudW9z",
-            "ZXJ2aWNlLkVtcHR5YgZwcm90bzM="));
+            "LkdycGNDbGlsb2NEYXRhTGlzdCJ9CgdBY3Rpb25zEhIKCmFjdGlvblR5cGUY",
+            "ASABKA0SFAoMbW9iaWxlU2VyaWFsGAIgASgNEhIKCml0ZW1TZXJpYWwYAyAB",
+            "KA0SFQoNd2Fsa0RpcmVjdGlvbhgEIAEoDRINCgVpbmRleBgFIAEoDRIOCgZh",
+            "bW91bnQYBiABKA0ypwIKCVVvU2VydmljZRItCgVSZXNldBIRLnVvc2Vydmlj",
+            "ZS5Db25maWcaES51b3NlcnZpY2UuU3RhdGVzEi8KB1JlYWRPYnMSES51b3Nl",
+            "cnZpY2UuQ29uZmlnGhEudW9zZXJ2aWNlLlN0YXRlcxIwCghXcml0ZUFjdBIS",
+            "LnVvc2VydmljZS5BY3Rpb25zGhAudW9zZXJ2aWNlLkVtcHR5EkMKE0FjdFNl",
+            "bWFwaG9yZUNvbnRyb2wSGi51b3NlcnZpY2UuU2VtYXBob3JlQWN0aW9uGhAu",
+            "dW9zZXJ2aWNlLkVtcHR5EkMKE09ic1NlbWFwaG9yZUNvbnRyb2wSGi51b3Nl",
+            "cnZpY2UuU2VtYXBob3JlQWN0aW9uGhAudW9zZXJ2aWNlLkVtcHR5YgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -94,7 +93,6 @@ namespace Uoservice {
             new pbr::GeneratedClrTypeInfo(typeof(global::Uoservice.Config), global::Uoservice.Config.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Uoservice.PlayerStatus), global::Uoservice.PlayerStatus.Parser, new[]{ "Str", "Dex", "Intell", "Hits", "HitsMax", "Stamina", "StaminaMax", "Mana", "ManaMax", "Gold", "PhysicalResistance", "Weight", "WeightMax" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Uoservice.States), global::Uoservice.States.Parser, new[]{ "MobileList", "WorldItemList", "EquippedItemList", "BackpackItemList", "CorpseItemList", "PlayerStatus", "MobileObjectList", "PlayerMobileObjectList", "LandObjectList", "ItemObjectList", "StaticObjectList", "ItemDropableLandList", "VendorItemObjectList", "PopupMenuList", "ClilocDataList" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Uoservice.WalkDirection), global::Uoservice.WalkDirection.Parser, new[]{ "Direction" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Uoservice.Actions), global::Uoservice.Actions.Parser, new[]{ "ActionType", "MobileSerial", "ItemSerial", "WalkDirection", "Index", "Amount" }, null, null, null)
           }));
     }
@@ -3190,135 +3188,6 @@ namespace Uoservice {
 
   }
 
-  public sealed partial class WalkDirection : pb::IMessage<WalkDirection> {
-    private static readonly pb::MessageParser<WalkDirection> _parser = new pb::MessageParser<WalkDirection>(() => new WalkDirection());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WalkDirection> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Uoservice.UoServiceReflection.Descriptor.MessageTypes[14]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WalkDirection() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WalkDirection(WalkDirection other) : this() {
-      direction_ = other.direction_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WalkDirection Clone() {
-      return new WalkDirection(this);
-    }
-
-    /// <summary>Field number for the "direction" field.</summary>
-    public const int DirectionFieldNumber = 1;
-    private uint direction_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Direction {
-      get { return direction_; }
-      set {
-        direction_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as WalkDirection);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WalkDirection other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Direction != other.Direction) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Direction != 0) hash ^= Direction.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Direction != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Direction);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Direction != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Direction);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WalkDirection other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Direction != 0) {
-        Direction = other.Direction;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Direction = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class Actions : pb::IMessage<Actions> {
     private static readonly pb::MessageParser<Actions> _parser = new pb::MessageParser<Actions>(() => new Actions());
     private pb::UnknownFieldSet _unknownFields;
@@ -3327,7 +3196,7 @@ namespace Uoservice {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Uoservice.UoServiceReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Uoservice.UoServiceReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3347,7 +3216,7 @@ namespace Uoservice {
       actionType_ = other.actionType_;
       mobileSerial_ = other.mobileSerial_;
       itemSerial_ = other.itemSerial_;
-      walkDirection_ = other.walkDirection_ != null ? other.walkDirection_.Clone() : null;
+      walkDirection_ = other.walkDirection_;
       index_ = other.index_;
       amount_ = other.amount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3393,9 +3262,9 @@ namespace Uoservice {
 
     /// <summary>Field number for the "walkDirection" field.</summary>
     public const int WalkDirectionFieldNumber = 4;
-    private global::Uoservice.WalkDirection walkDirection_;
+    private uint walkDirection_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Uoservice.WalkDirection WalkDirection {
+    public uint WalkDirection {
       get { return walkDirection_; }
       set {
         walkDirection_ = value;
@@ -3440,7 +3309,7 @@ namespace Uoservice {
       if (ActionType != other.ActionType) return false;
       if (MobileSerial != other.MobileSerial) return false;
       if (ItemSerial != other.ItemSerial) return false;
-      if (!object.Equals(WalkDirection, other.WalkDirection)) return false;
+      if (WalkDirection != other.WalkDirection) return false;
       if (Index != other.Index) return false;
       if (Amount != other.Amount) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3452,7 +3321,7 @@ namespace Uoservice {
       if (ActionType != 0) hash ^= ActionType.GetHashCode();
       if (MobileSerial != 0) hash ^= MobileSerial.GetHashCode();
       if (ItemSerial != 0) hash ^= ItemSerial.GetHashCode();
-      if (walkDirection_ != null) hash ^= WalkDirection.GetHashCode();
+      if (WalkDirection != 0) hash ^= WalkDirection.GetHashCode();
       if (Index != 0) hash ^= Index.GetHashCode();
       if (Amount != 0) hash ^= Amount.GetHashCode();
       if (_unknownFields != null) {
@@ -3480,9 +3349,9 @@ namespace Uoservice {
         output.WriteRawTag(24);
         output.WriteUInt32(ItemSerial);
       }
-      if (walkDirection_ != null) {
-        output.WriteRawTag(34);
-        output.WriteMessage(WalkDirection);
+      if (WalkDirection != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(WalkDirection);
       }
       if (Index != 0) {
         output.WriteRawTag(40);
@@ -3509,8 +3378,8 @@ namespace Uoservice {
       if (ItemSerial != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ItemSerial);
       }
-      if (walkDirection_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(WalkDirection);
+      if (WalkDirection != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(WalkDirection);
       }
       if (Index != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Index);
@@ -3538,11 +3407,8 @@ namespace Uoservice {
       if (other.ItemSerial != 0) {
         ItemSerial = other.ItemSerial;
       }
-      if (other.walkDirection_ != null) {
-        if (walkDirection_ == null) {
-          walkDirection_ = new global::Uoservice.WalkDirection();
-        }
-        WalkDirection.MergeFrom(other.WalkDirection);
+      if (other.WalkDirection != 0) {
+        WalkDirection = other.WalkDirection;
       }
       if (other.Index != 0) {
         Index = other.Index;
@@ -3573,11 +3439,8 @@ namespace Uoservice {
             ItemSerial = input.ReadUInt32();
             break;
           }
-          case 34: {
-            if (walkDirection_ == null) {
-              walkDirection_ = new global::Uoservice.WalkDirection();
-            }
-            input.ReadMessage(walkDirection_);
+          case 32: {
+            WalkDirection = input.ReadUInt32();
             break;
           }
           case 40: {

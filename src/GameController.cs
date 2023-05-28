@@ -86,7 +86,7 @@ namespace ClassicUO
         private UOFontRenderer _fontRenderer;
 
         public UoServiceImpl _uoServiceImpl;
-        public bool startFlag = true;
+        public bool _startFlag = true;
         public int _grpcPort;
         public int _gameTick;
 
@@ -106,7 +106,6 @@ namespace ClassicUO
             _uoServiceImpl = new UoServiceImpl(this, _grpcPort);
 
             GraphicManager = new GraphicsDeviceManager(this);
-
             GraphicManager.PreparingDeviceSettings += (sender, e) => { e.GraphicsDeviceInformation.PresentationParameters.RenderTargetUsage = RenderTargetUsage.DiscardContents; };
 
             GraphicManager.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
@@ -484,6 +483,8 @@ namespace ClassicUO
 
             semObservation.Release();
             semPhysics.Release();
+
+            _gameTick++;
         }
 
         protected override void Draw(GameTime gameTime)
@@ -532,7 +533,7 @@ namespace ClassicUO
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
             /*
-            if (startFlag == true) {
+            if (_startFlag == true) {
                 WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
                 if (viewport != null)
                 {
@@ -540,7 +541,7 @@ namespace ClassicUO
                     viewport.X = -5;
                     viewport.Y = -5;
 
-                    startFlag = false;
+                    _startFlag = false;
                 }
             }
             */

@@ -41,6 +41,7 @@ namespace ClassicUO.Configuration
         public const string SETTINGS_FILENAME = "settings.json";
         public static Settings GlobalSettings = new Settings();
         public static string CustomSettingsFilepath = null;
+        public static bool Replay = false;
 
         [JsonProperty("username")] public string Username { get; set; } = string.Empty;
 

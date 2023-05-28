@@ -72,6 +72,26 @@ namespace ClassicUO.Grpc
 		        }
 		    }
 		}
+	}
+}
+
+
+namespace ClassicUO.Grpc
+{
+	internal partial class UoServiceReplayImpl
+    {
+	    static List<int> ConvertByteArrayToIntList(byte[] byteArray)
+	    {
+	        List<int> intList = new List<int>();
+
+	        for (int i = 0; i < byteArray.Length; i += sizeof(int))
+	        {
+	            int value = BitConverter.ToInt32(byteArray, i);
+	            intList.Add(value);
+	        }
+
+	        return intList;
+	    }
 
 		public byte[] ReadFromMpqArchive(string mpqArchiveName, string fileName)
         {

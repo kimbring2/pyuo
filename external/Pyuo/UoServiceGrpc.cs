@@ -53,6 +53,13 @@ namespace Uoservice {
         __Marshaller_uoservice_SemaphoreAction,
         __Marshaller_uoservice_Empty);
 
+    static readonly grpc::Method<global::Uoservice.Config, global::Uoservice.States> __Method_ReadReplay = new grpc::Method<global::Uoservice.Config, global::Uoservice.States>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ReadReplay",
+        __Marshaller_uoservice_Config,
+        __Marshaller_uoservice_States);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -83,6 +90,11 @@ namespace Uoservice {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Uoservice.Empty> ObsSemaphoreControl(global::Uoservice.SemaphoreAction request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Uoservice.States> ReadReplay(global::Uoservice.Config request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -192,6 +204,22 @@ namespace Uoservice {
       {
         return CallInvoker.AsyncUnaryCall(__Method_ObsSemaphoreControl, null, options, request);
       }
+      public virtual global::Uoservice.States ReadReplay(global::Uoservice.Config request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReadReplay(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Uoservice.States ReadReplay(global::Uoservice.Config request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ReadReplay, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Uoservice.States> ReadReplayAsync(global::Uoservice.Config request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ReadReplayAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Uoservice.States> ReadReplayAsync(global::Uoservice.Config request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ReadReplay, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UoServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -208,7 +236,8 @@ namespace Uoservice {
           .AddMethod(__Method_ReadObs, serviceImpl.ReadObs)
           .AddMethod(__Method_WriteAct, serviceImpl.WriteAct)
           .AddMethod(__Method_ActSemaphoreControl, serviceImpl.ActSemaphoreControl)
-          .AddMethod(__Method_ObsSemaphoreControl, serviceImpl.ObsSemaphoreControl).Build();
+          .AddMethod(__Method_ObsSemaphoreControl, serviceImpl.ObsSemaphoreControl)
+          .AddMethod(__Method_ReadReplay, serviceImpl.ReadReplay).Build();
     }
 
   }

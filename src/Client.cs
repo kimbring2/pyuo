@@ -44,6 +44,7 @@ using ClassicUO.Utility.Logging;
 using ClassicUO.Utility.Platforms;
 using SDL2;
 
+
 namespace ClassicUO
 {
     internal static class Client

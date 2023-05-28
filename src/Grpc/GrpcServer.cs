@@ -61,30 +61,15 @@ namespace ClassicUO.Grpc
         public List<GrpcGameObjectData> grpcStaticObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcItemDropableLandObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcVendorItemObjectList = new List<GrpcGameObjectData>();
+
         public List<string> grpcPopupMenuList = new List<string>();
+
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
         int _envStep = 0;
         string _replayName;
 
-        /*
-        mobileDataArrays = mobileDataArrays.Concat(mobileDataArray).ToArray();
-		worldItemArrays = mobileDataArrays.Concat(worldItemArray).ToArray();
-		equippedItemArrays = mobileDataArrays.Concat(equippedItemArray).ToArray();
-		backpackItemArrays = mobileDataArrays.Concat(backpackItemArray).ToArray();
-		corpseItemArrays = mobileDataArrays.Concat(corpseItemArray).ToArray();
-		popupMenuArrays = mobileDataArrays.Concat(popupMenuArray).ToArray();
-		clilocDataArrays = mobileDataArrays.Concat(clilocDataArray).ToArray();
-
-		landObjectArrays = mobileObjectArrays.Concat(landObjectArray).ToArray();
-		playerMobileObjectArrays = mobileObjectArrays.Concat(playerMobileObjectArray).ToArray();
-    	mobileObjectArrays = mobileObjectArrays.Concat(mobileObjectArray).ToArray();
-    	itemObjectArrays = mobileObjectArrays.Concat(itemObjectArray).ToArray();
-    	staticObjectArrays = mobileObjectArrays.Concat(staticObjectArray).ToArray();
-    	itemDropableLandObjectArrays = mobileObjectArrays.Concat(itemDropableLandObjectArray).ToArray();
-    	vendorItemObjectArrays = mobileObjectArrays.Concat(vendorItemObjectArray).ToArray();
-		*/
-
+        // ###############
     	List<int> mobileDataArrayLengthList = new List<int>();
     	List<int> worldItemArrayLengthList = new List<int>();
     	List<int> equippedItemArrayLengthList = new List<int>();
@@ -103,6 +88,7 @@ namespace ClassicUO.Grpc
 
         List<int> playerStatusArrayLengthList = new List<int>();
 
+        // ###############
         byte[] mobileDataArrays;
 		byte[] worldItemArrays;
 		byte[] equippedItemArrays;
@@ -121,6 +107,7 @@ namespace ClassicUO.Grpc
 
         byte[] playerStatusArrays;
 
+        // ###############
     	List<int> actionTypeList = new List<int>();
     	List<int> walkDirectionList = new List<int>();
 
@@ -196,24 +183,26 @@ namespace ClassicUO.Grpc
 
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
 
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileData.length", mobileDataArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.worldItem.length", worldItemArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.equippedItem.length", equippedItemArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.backpackitem.length", backpackItemArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.corpseItem.length", corpseItemArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.popupMenu.length", popupMenuArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.clilocData.length", clilocDataArrayLengthArray);
+	    	// ###############
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileDataLen", mobileDataArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.worldItemLen", worldItemArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.equippedItemLen", equippedItemArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.backpackitemLen", backpackItemArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.corpseItemLen", corpseItemArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.popupMenuLen", popupMenuArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
 
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.landObject.length", landObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerMobileObject.length", playerMobileObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileObject.length", mobileObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemObject.length", itemObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObject.length", staticObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandObject.length", itemDropableLandObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObject.length", vendorItemObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.landObjectLen", landObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerMobileObjectLen", playerMobileObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileObjectLen", mobileObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemObjectLen", itemObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectLen", staticObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandObjectLen", itemDropableLandObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen", vendorItemObjectArrayLengthArray);
 
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatus.length", playerStatusArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
 
+            // ###############
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.worldItem", worldItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.equippedItem", equippedItemArrays);
@@ -230,6 +219,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.object.itemDropableLandObject", itemDropableLandObjectArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.object.vendorItemObject", vendorItemObjectArrays);
 
+            // ###############
             byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.actionType", actionTypeArray);

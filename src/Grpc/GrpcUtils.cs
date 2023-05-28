@@ -50,7 +50,8 @@ namespace ClassicUO.Grpc
 
 		public void WrtieToMpqArchive(string mpqArchiveName, string fileName, byte[] grpcArr)
 		{
-			//Console.WriteLine("WrtieToMpqArchive()");
+			Console.WriteLine("WrtieToMpqArchive()");
+			Console.WriteLine("fileName: {0}", fileName);
 
 			uint file_size = (uint) grpcArr.Length;
 			//Console.WriteLine("file_size: {0}, ", file_size);

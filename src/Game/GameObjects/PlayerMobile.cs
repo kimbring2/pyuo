@@ -1542,7 +1542,6 @@ namespace ClassicUO.Game.GameObjects
                Client.Game._uoServiceImpl.walkDirection = 4;
             }
             
-
             if (Walker.WalkingFailed || Walker.LastStepRequestTime > Time.Ticks || Walker.StepsCount >= Constants.MAX_STEP_COUNT || Client.Version >= ClientVersion.CV_60142 && IsParalyzed)
             {
                 return false;

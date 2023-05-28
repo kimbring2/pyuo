@@ -1,0 +1,30 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 05/28/2023 11:34:32
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.InvalidOperationException: Nullable object must have a value.
+  at System.Nullable`1[T].get_Value () [0x00008] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.Game.Managers.UIManager.GetGump[T] (System.Nullable`1[T] serial) [0x00005] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Game.Scenes.LoginScene.Unload () [0x00008] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Game.Scenes.Scene.Dispose () [0x00010] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.GameController.SetScene (ClassicUO.Game.Scenes.Scene scene) [0x0000a] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Network.PacketHandlers.LoginComplete (ClassicUO.IO.StackDataReader& p) [0x0005a] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Network.PacketHandlers.AnalyzePacket (System.Byte[] data, System.Int32 offset, System.Int32 length) [0x0002b] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Network.NetClient.ExtractPackets () [0x000c4] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Network.NetClient.ProcessRecv () [0x00202] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Network.NetClient.Update () [0x00000] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.GameController.OnNetworkUpdate (System.Double totalTime, System.Double frameTime) [0x00057] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.GameController.Update (Microsoft.Xna.Framework.GameTime gameTime) [0x00084] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x001fe] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x00085] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00379] in <d07717c68a4d495883f1b453f6fbbb91>:0 
+######################## [END LOG] ########################
+
+

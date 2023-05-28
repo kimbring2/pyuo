@@ -238,6 +238,7 @@ namespace ClassicUO.Game
         public static bool OpenCorpse(uint serial)
         {
             //Console.WriteLine("OpenCorpse()");
+            Client.Game._uoServiceImpl.mobileSerial = serial;
 
             if (!SerialHelper.IsItem(serial))
             {
@@ -330,6 +331,8 @@ namespace ClassicUO.Game
         {
             //Log.Trace("DoubleClick");
             //Console.WriteLine("DoubleClick()");
+
+            Client.Game._uoServiceImpl.mobileSerial = serial;
             
             if (serial != World.Player && SerialHelper.IsMobile(serial) && World.Player.InWarMode)
             {
@@ -476,6 +479,8 @@ namespace ClassicUO.Game
         )
         {
             //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
+            Client.Game._uoServiceImpl.itemSerial = serial;
+            Client.Game._uoServiceImpl.amount = (uint) amount;
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {
@@ -543,12 +548,8 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //World.Get(LocalSerial);
-
-            Console.WriteLine("DropItem(), x:{0}, y:{1}, container:{2}", x, y, container);
-            //Console.WriteLine("SerialHelper.IsValid(container): {0}", SerialHelper.IsValid(container));
-            //Item item = World.Items.Get(container);
-            //Console.WriteLine("container: {0}, item: {1}\n", container, item);
+            //Console.WriteLine("DropItem()");
+            Client.Game._uoServiceImpl.itemSerial = serial;
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {

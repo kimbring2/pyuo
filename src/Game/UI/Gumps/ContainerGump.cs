@@ -68,7 +68,6 @@ namespace ClassicUO.Game.UI.Gumps
             if (item == null)
             {
                 Dispose();
-
                 return;
             }
 

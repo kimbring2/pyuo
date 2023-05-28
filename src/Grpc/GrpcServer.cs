@@ -68,7 +68,7 @@ namespace ClassicUO.Grpc
 
         int _arrayOffset = 0;
         int _envStep = 0;
-        int _mpqStep = 2;
+        int _mpqStep = 12;
         int _replayStep = 0;
 
         List<int> mobileObjectArrayLengthList = new List<int>();
@@ -83,6 +83,10 @@ namespace ClassicUO.Grpc
 
     	public uint actionType;
     	public uint walkDirection;
+    	public uint mobileSerial;
+    	public uint itemSerial;
+    	public uint index;
+    	public uint amount;
 
     	byte[] actionTypeArrRead;
     	byte[] walkDirectionArrRead;
@@ -109,7 +113,7 @@ namespace ClassicUO.Grpc
 
 			_replayName = userName + "-" + currentYear + "-" + currentMonth + "-" + currentDay + "-" + currentHour;
 
-			_replayName = "kimbring2-2023-5-28-09-41-49";
+			//_replayName = "kimbring2-2023-5-28-09-41-49";
 			//Console.WriteLine("_replayName: {0}", _replayName);
         }
 
@@ -346,6 +350,7 @@ namespace ClassicUO.Grpc
             	actionTypeArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.actionType");
     			walkDirectionArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.walkDirection");
 
+
             	//Console.WriteLine("mobileObjectLengthArrRead.Length: {0}, mobileObjectArrRead.Length: {1} ", 
             	//					 mobileObjectLengthArrRead.Length, mobileObjectArrRead.Length);
 				_mpqStep++;
@@ -510,7 +515,14 @@ namespace ClassicUO.Grpc
             actionTypeList.Add((int) actionType);
     		walkDirectionList.Add((int) walkDirection);
 
-            if (actions.ActionType == 1) {
+    		if (actions.ActionType == 0) {
+            	// Walk to Direction
+            	if (World.InGame == true) {
+            		corpseItemDataList.Clear();
+            	}
+	        }
+            else if (actions.ActionType == 1) {
+            	// Walk to Direction
             	if (World.InGame == true) {
             		if (actions.WalkDirection == 0) {
 	            		World.Player.Walk(Direction.Up, true);
@@ -527,11 +539,13 @@ namespace ClassicUO.Grpc
             	}
 	        }
 	        else if (actions.ActionType == 2) {
+	        	// Attack Target by it's Serial
 	        	if (World.Player != null) {
         			GameActions.DoubleClick(actions.MobileSerial);
 	        	}
 	        }
 	        else if (actions.ActionType == 3) {
+	        	// Pick Up the amount of item by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 3");
 
@@ -549,6 +563,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 4) {
+	        	// Drop the holded item into my backpack
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 4");
         			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
@@ -556,6 +571,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 5) {
+	        	// Drop the holded item on land around Player
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 5");
 
@@ -566,7 +582,7 @@ namespace ClassicUO.Grpc
 	        		try
 	        		{
 	        			GrpcGameObjectData selected = grpcItemDropableLandList[index];
-	        			Console.WriteLine("ItemSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
+	        			//Console.WriteLine("ItemSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
 	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
 	        		}
 	        		catch (Exception ex)
@@ -576,18 +592,39 @@ namespace ClassicUO.Grpc
 	        	}
 	        } 
 	        else if (actions.ActionType == 6) {
+	        	// Equip the holded item
 	        	if (World.Player != null) {
                     GameActions.Equip();
 	        	}
 	        }
 	        else if (actions.ActionType == 7) {
+	        	// Open the Corpse of mobile by it's Serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 7");
 
                     try
                     {
-                    	Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
+                    	//Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
                     	GameActions.OpenCorpse(actions.ItemSerial);
+
+                    	try 
+			        	{
+		                    Item item = World.Items.Get(actions.ItemSerial);
+			        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
+
+				            for (LinkedObject i = item.Items; i != null; i = i.Next)
+				            {
+				                Item child = (Item) i;
+				                Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+				                
+			            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
+				              									         Serial = (uint) child.Serial, Amount = (uint) child.Amount });
+				            }
+				        }
+				        catch (Exception ex)
+			            {
+			            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
+			            }
 			        }
 			        catch (Exception ex)
 		            {
@@ -596,6 +633,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 8) {
+	        	// Close the opened corpse
 	        	if (World.Player != null) {
                     Console.WriteLine("actions.ActionType == 8");
                     try {
@@ -610,6 +648,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 9) {
+	        	// Close the opened corpse
 	        	if (World.Player != null) {
                     Console.WriteLine("actions.ActionType == 9");
 	        		try 
@@ -635,7 +674,6 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 10) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 10");
-
 	        		grpcClilocDataList.Clear();
 	        		GameActions.OpenPopupMenu(actions.MobileSerial);
 	        	}
@@ -643,7 +681,6 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 11) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 11");
-
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        		grpcPopupMenuList.Clear();
 	        	}
@@ -700,6 +737,10 @@ namespace ClassicUO.Grpc
 
 	        actionType = 0;
     		walkDirection = 0;
+    		mobileSerial = 0;
+    		itemSerial = 0;
+    		amount = 0;
+    		index = 0;
 
             return Task.FromResult(new Empty {});
         }

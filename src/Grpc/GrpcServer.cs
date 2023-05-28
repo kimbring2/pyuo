@@ -87,6 +87,7 @@ namespace ClassicUO.Grpc
     	public uint itemSerial;
     	public uint index;
     	public uint amount;
+    	public uint openedCorpse;
 
     	byte[] actionTypeArrRead;
     	byte[] walkDirectionArrRead;
@@ -102,6 +103,14 @@ namespace ClassicUO.Grpc
 	            Services = { UoService.BindService(this) },
 	            Ports = { new ServerPort("localhost", _port, ServerCredentials.Insecure) }
 	        };
+
+	        actionType = 0;
+	    	walkDirection = 0;
+	    	mobileSerial = 0;
+	    	itemSerial = 0;
+	    	index = 0;
+	    	amount = 0;
+	    	openedCorpse = 0;
 
 	        string userName = Settings.GlobalSettings.Username;
 
@@ -309,6 +318,29 @@ namespace ClassicUO.Grpc
 		        								  Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
 		    }
 
+		    if (openedCorpse != 0) 
+		    {
+		    	//Console.WriteLine("openedCorpse != 0");
+			    try 
+	        	{
+	                Item item = World.Items.Get(openedCorpse);
+	        		//Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
+
+		            for (LinkedObject i = item.Items; i != null; i = i.Next)
+		            {
+		                Item child = (Item) i;
+		                //Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+		                
+	            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
+		              									         Serial = (uint) child.Serial, Amount = (uint) child.Amount });
+		            }
+		        }
+		        catch (Exception ex)
+	            {
+	            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
+	            }
+	        }
+
             States states = new States();
 
             if ( (_mpqStep == 0) )
@@ -512,13 +544,18 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
         	//Console.WriteLine("actions.WalkDirection: {0}", actions.WalkDirection);
 
+        	if (actionType != 0) 
+		    {
+		    	Console.WriteLine("gameTick: {0}, actionType: {1}", _controller._gameTick, actionType);
+		    }
+
             actionTypeList.Add((int) actionType);
     		walkDirectionList.Add((int) walkDirection);
 
     		if (actions.ActionType == 0) {
             	// Walk to Direction
             	if (World.InGame == true) {
-            		corpseItemDataList.Clear();
+            		//corpseItemDataList.Clear();
             	}
 	        }
             else if (actions.ActionType == 1) {
@@ -548,7 +585,6 @@ namespace ClassicUO.Grpc
 	        	// Pick Up the amount of item by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 3");
-
 	        		try
 	        		{
 	        			Item item = World.Items.Get(actions.ItemSerial);
@@ -601,30 +637,11 @@ namespace ClassicUO.Grpc
 	        	// Open the Corpse of mobile by it's Serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 7");
-
                     try
                     {
                     	//Console.WriteLine("actions.ItemSerial: {0}", actions.ItemSerial);
                     	GameActions.OpenCorpse(actions.ItemSerial);
-
-                    	try 
-			        	{
-		                    Item item = World.Items.Get(actions.ItemSerial);
-			        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
-
-				            for (LinkedObject i = item.Items; i != null; i = i.Next)
-				            {
-				                Item child = (Item) i;
-				                Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-				                
-			            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
-				              									         Serial = (uint) child.Serial, Amount = (uint) child.Amount });
-				            }
-				        }
-				        catch (Exception ex)
-			            {
-			            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
-			            }
+                    	openedCorpse = actions.ItemSerial;
 			        }
 			        catch (Exception ex)
 		            {
@@ -636,8 +653,10 @@ namespace ClassicUO.Grpc
 	        	// Close the opened corpse
 	        	if (World.Player != null) {
                     Console.WriteLine("actions.ActionType == 8");
-                    try {
+                    try 
+                    {
                     	UIManager.GetGump<ContainerGump>(actions.ItemSerial).CloseWindow();
+                    	openedCorpse = 0;
                     }
                     catch (Exception ex)
 		            {

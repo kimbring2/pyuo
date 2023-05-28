@@ -1529,6 +1529,7 @@ namespace ClassicUO.Game.GameObjects
         public bool Walk(Direction direction, bool run)
         {
             Client.Game._uoServiceImpl.actionType = 1;
+            
             if (direction == Direction.Up) {
                Client.Game._uoServiceImpl.walkDirection = 1;
             }
@@ -1541,7 +1542,7 @@ namespace ClassicUO.Game.GameObjects
             else if (direction == Direction.Down) {
                Client.Game._uoServiceImpl.walkDirection = 4;
             }
-            
+
             if (Walker.WalkingFailed || Walker.LastStepRequestTime > Time.Ticks || Walker.StepsCount >= Constants.MAX_STEP_COUNT || Client.Version >= ClientVersion.CV_60142 && IsParalyzed)
             {
                 return false;

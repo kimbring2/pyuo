@@ -86,7 +86,6 @@ namespace ClassicUO.Game
         public static void OpenPaperdoll(uint serial)
         {
             PaperDollGump paperDollGump = UIManager.GetGump<PaperDollGump>(serial);
-
             if (paperDollGump == null)
             {
                 DoubleClick(serial | 0x80000000);
@@ -106,7 +105,6 @@ namespace ClassicUO.Game
         public static void OpenSettings(int page = 0)
         {
             OptionsGump opt = UIManager.GetGump<OptionsGump>();
-
             if (opt == null)
             {
                 OptionsGump optionsGump = new OptionsGump
@@ -129,7 +127,6 @@ namespace ClassicUO.Game
         public static void OpenStatusBar()
         {
             Client.Game.Scene.Audio.StopWarMusic();
-
             if (StatusGumpBase.GetStatusGump() == null)
             {
                 UIManager.Add(StatusGumpBase.AddStatusGump(100, 100));
@@ -139,7 +136,6 @@ namespace ClassicUO.Game
         public static void OpenJournal()
         {
             JournalGump journalGump = UIManager.GetGump<JournalGump>();
-
             if (journalGump == null)
             {
                 UIManager.Add(new JournalGump { X = 64, Y = 64 });
@@ -159,7 +155,6 @@ namespace ClassicUO.Game
         public static void OpenSkills()
         {
             StandardSkillsGump skillsGump = UIManager.GetGump<StandardSkillsGump>();
-
             if (skillsGump != null && skillsGump.IsMinimized)
             {
                 skillsGump.IsMinimized = false;
@@ -174,7 +169,6 @@ namespace ClassicUO.Game
         public static void OpenMiniMap()
         {
             MiniMapGump miniMapGump = UIManager.GetGump<MiniMapGump>();
-
             if (miniMapGump == null)
             {
                 UIManager.Add(new MiniMapGump());
@@ -190,7 +184,6 @@ namespace ClassicUO.Game
         public static void OpenWorldMap()
         {
             WorldMapGump worldMap = UIManager.GetGump<WorldMapGump>();
-
             if (worldMap == null || worldMap.IsDisposed)
             {
                 worldMap = new WorldMapGump();
@@ -238,6 +231,7 @@ namespace ClassicUO.Game
         public static bool OpenCorpse(uint serial)
         {
             //Console.WriteLine("OpenCorpse()");
+            Client.Game._uoServiceImpl.actionType = 4;
             Client.Game._uoServiceImpl.mobileSerial = serial;
 
             if (!SerialHelper.IsItem(serial))
@@ -549,6 +543,19 @@ namespace ClassicUO.Game
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
             //Console.WriteLine("DropItem()");
+
+            Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+            if (serial == backpack.Serial) 
+            {
+                //Console.WriteLine("actionType == 4");
+                Client.Game._uoServiceImpl.actionType = 4;
+            }
+            else if (serial == 0xFFFF_FFFF) 
+            {
+                //Console.WriteLine("actionType == 5");
+                Client.Game._uoServiceImpl.actionType = 5;
+            }
+            
             Client.Game._uoServiceImpl.itemSerial = serial;
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))

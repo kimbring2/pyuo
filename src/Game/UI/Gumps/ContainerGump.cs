@@ -247,7 +247,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
-            Console.WriteLine("ContainerGump OnMouseUp()");
+            //Console.WriteLine("ContainerGump OnMouseUp()");
 
             if (button != MouseButtonType.Left || UIManager.IsMouseOverWorld)
             {
@@ -635,10 +635,8 @@ namespace ClassicUO.Game.UI.Gumps
         public override void Dispose()
         {
             //Console.WriteLine("Dispose()");
-
             Item item = World.Items.Get(LocalSerial);
-
-            Console.WriteLine(item);
+            //Console.WriteLine(item);
 
             if (item != null)
             {
@@ -663,6 +661,9 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
+            //Console.WriteLine("actionType == 8");
+            Client.Game._uoServiceImpl.actionType = 8;
+
             base.CloseWithRightClick();
 
             if (_data.ClosedSound != 0)
@@ -673,7 +674,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         public void CloseWindow()
         {
-            Console.WriteLine("CloseWindow()");
+            //Console.WriteLine("CloseWindow()");
             CloseWithRightClick();
         }
 

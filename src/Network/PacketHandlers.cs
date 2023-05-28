@@ -1144,7 +1144,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            Console.WriteLine("OpenContainer()");
+            //Console.WriteLine("OpenContainer()");
             if (World.Player == null)
             {
                 return;

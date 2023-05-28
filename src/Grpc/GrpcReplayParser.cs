@@ -39,7 +39,6 @@ namespace ClassicUO.Grpc
     {
     	int _port;
         Server _grpcServer;
-        Channel _grpcChannel;
 
     	int _arrayOffset = 0;
     	int _replayStep = 0;
@@ -57,7 +56,6 @@ namespace ClassicUO.Grpc
         {
             _port = port;
 
-            _grpcChannel = new Channel("127.0.0.1:50052", ChannelCredentials.Insecure);
             _grpcServer = new Server
 	        {
 	            Services = { UoService.BindService(this) },
@@ -70,6 +68,7 @@ namespace ClassicUO.Grpc
         	_grpcServer.Start();
         }
 
+        /*
     	public void ReadMPQFile(string replayName) 
         {
         	Console.WriteLine("ReadMPQFile()");
@@ -79,6 +78,23 @@ namespace ClassicUO.Grpc
 
         	actionTypeArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.actionType");
 			walkDirectionArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.walkDirection");
+        }
+        */
+
+        public override Task<Empty> ReadMPQFile(Config config, ServerCallContext context)
+        {
+            Console.WriteLine("ReadMPQFile()");
+
+            Console.WriteLine("config.Name: {0}", config.Name);
+            string replayName =config.Name;
+            
+        	mobileObjectLengthArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.metadata.length");
+        	mobileObjectArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.object.mobile");
+
+        	actionTypeArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.actionType");
+			walkDirectionArrRead = ReadFromMpqArchive("Replay/" + replayName + ".uoreplay", "replay.walkDirection");
+
+            return Task.FromResult(new Empty {});
         }
 
     	// Server side handler of the SayHello RPC

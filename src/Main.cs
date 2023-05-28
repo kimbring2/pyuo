@@ -254,10 +254,9 @@ namespace ClassicUO
                         break;
                 }
                 
-                Log.Trace("Client.Run()");
-
                 if (Settings.Replay == false) 
                 {
+                    Log.Trace("Client.Run()");
                     Client.Run();
                 }
                 else
@@ -265,7 +264,7 @@ namespace ClassicUO
                     Console.WriteLine("Run the replay");
                     UoServiceReplayImpl _uoServiceReplayImpl = new UoServiceReplayImpl(Settings.GlobalSettings.GrpcPort);
 
-                    _uoServiceReplayImpl.ReadMPQFile("kimbring2-2023-5-28-09-41-49");
+                    //_uoServiceReplayImpl.ReadMPQFile("kimbring2-2023-5-28-09-41-49");
                     _uoServiceReplayImpl.Start();
 
                     while (true)

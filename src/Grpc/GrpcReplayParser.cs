@@ -238,12 +238,27 @@ namespace ClassicUO.Grpc
         public byte[] GetSubsetArray(int index, List<int> lengthListRead, ref int offset, byte[] arrRead) 
         {	
         	int item = lengthListRead[index];
+
         	int startIndex = offset; 
         	int length = offset + item; 
 
         	byte[] subsetArray = new byte[item];
-			Array.Copy(arrRead, startIndex, subsetArray, 0, item);
+
+        	try 
+            {
+				Array.Copy(arrRead, startIndex, subsetArray, 0, item);
+			}
+			catch (Exception ex)
+            {
+            	Console.WriteLine("Failed to parser the GetSubsetArray from original array: " + ex.Message);
+            	Console.WriteLine("arrRead.Length: {0}", arrRead.Length);
+            	Console.WriteLine("item: {0}", item);
+            	Console.WriteLine("startIndex: {0}", startIndex);
+            	Console.WriteLine("\n");
+            }
+
             offset += item;
+            //Console.WriteLine("item: {0}, offset: {1}", item, offset);
 
             return subsetArray;
         }
@@ -252,7 +267,7 @@ namespace ClassicUO.Grpc
         public override Task<States> ReadReplay(Config config, ServerCallContext context)
         {
         	//Console.WriteLine("ReadReplay()");
-        	Console.WriteLine("_replayStep: {0}", _replayStep);
+        	//Console.WriteLine("_replayStep: {0}", _replayStep);
 
         	/*
         	if (_replayStep % 1000 == 0)
@@ -278,44 +293,43 @@ namespace ClassicUO.Grpc
         	*/
         	
         	int index = _replayStep;
+			byte[] mobileObjectSubsetArray = GetSubsetArray(index, mobileObjectArrayLengthListRead, ref _mobileObjectArrayOffset, mobileObjectArrRead);
 
-            // ###############
-			byte[] mobileDataSubsetArray = GetSubsetArray(index, mobileDataArrayLengthListRead, ref _mobileDataArrayOffset, mobileDataArrRead);
-			//byte[] worldItemSubsetArray = GetSubsetArray(index, worldItemArrayLengthListRead, ref _worldItemArrayOffset, worldItemArrRead);
-			byte[] equippedItemSubsetArray = GetSubsetArray(index, equippedItemArrayLengthListRead, ref _equippedItemArrayOffset, equippedItemArrRead);
-			byte[] backpackItemSubsetArray = GetSubsetArray(index, backpackItemArrayLengthListRead, ref _backpackItemArrayOffset, backpackItemArrRead);
-			//byte[] corpseItemSubsetArray = GetSubsetArray(index, corpseItemArrayLengthListRead, ref _corpseItemArrayOffset, corpseItemArrRead);
-			//byte[] popupMenuSubsetArray = GetSubsetArray(index, popupMenuArrayLengthListRead, ref _popupMenuArrayOffset, popupMenuArrRead);
-			byte[] clilocDataSubsetArray = GetSubsetArray(index, clilocDataArrayLengthListRead, ref _clilocDataArrayOffset, clilocDataArrRead);
-
-            byte[] playerMobileObjectSubsetArray = GetSubsetArray(index, playerMobileObjectArrayLengthListRead, ref _playerMobileObjectArrayOffset, playerMobileObjectArrRead);
-            byte[] mobileObjectSubsetArray = GetSubsetArray(index, mobileObjectArrayLengthListRead, ref _mobileObjectArrayOffset, mobileObjectArrRead);
-            byte[] itemObjectSubsetArray = GetSubsetArray(index, itemObjectArrayLengthListRead, ref _itemObjectArrayOffset, itemObjectArrRead);
-            byte[] itemDropableLandSubsetArray = GetSubsetArray(index, itemDropableLandArrayLengthListRead, ref _itemDropableLandArrayOffset, itemDropableLandArrRead);
-            //byte[] vendorItemObjectSubsetArray = GetSubsetArray(index, vendorItemObjectArrayLengthListRead, ref _vendorItemObjectArrayOffset, vendorItemObjectArrRead);
-			
-            try 
+        	try 
             {
-            	// ###############
-            	grpcMobileDataReplay = GrpcMobileList.Parser.ParseFrom(mobileDataSubsetArray);
+	            // ###############
+				//byte[] mobileDataSubsetArray = GetSubsetArray(index, mobileDataArrayLengthListRead, ref _mobileDataArrayOffset, mobileDataArrRead);
+				//byte[] worldItemSubsetArray = GetSubsetArray(index, worldItemArrayLengthListRead, ref _worldItemArrayOffset, worldItemArrRead);
+				//byte[] equippedItemSubsetArray = GetSubsetArray(index, equippedItemArrayLengthListRead, ref _equippedItemArrayOffset, equippedItemArrRead);
+				//byte[] backpackItemSubsetArray = GetSubsetArray(index, backpackItemArrayLengthListRead, ref _backpackItemArrayOffset, backpackItemArrRead);
+				//byte[] corpseItemSubsetArray = GetSubsetArray(index, corpseItemArrayLengthListRead, ref _corpseItemArrayOffset, corpseItemArrRead);
+				//byte[] popupMenuSubsetArray = GetSubsetArray(index, popupMenuArrayLengthListRead, ref _popupMenuArrayOffset, popupMenuArrRead);
+				//byte[] clilocDataSubsetArray = GetSubsetArray(index, clilocDataArrayLengthListRead, ref _clilocDataArrayOffset, clilocDataArrRead);
+
+	            //byte[] playerMobileObjectSubsetArray = GetSubsetArray(index, playerMobileObjectArrayLengthListRead, ref _playerMobileObjectArrayOffset, playerMobileObjectArrRead);
+	            //byte[] itemObjectSubsetArray = GetSubsetArray(index, itemObjectArrayLengthListRead, ref _itemObjectArrayOffset, itemObjectArrRead);
+	            //byte[] itemDropableLandSubsetArray = GetSubsetArray(index, itemDropableLandArrayLengthListRead, ref _itemDropableLandArrayOffset, itemDropableLandArrRead);
+	            //byte[] vendorItemObjectSubsetArray = GetSubsetArray(index, vendorItemObjectArrayLengthListRead, ref _vendorItemObjectArrayOffset, vendorItemObjectArrRead);
+
+	            // ###############
+            	//grpcMobileDataReplay = GrpcMobileList.Parser.ParseFrom(mobileDataSubsetArray);
 	    		//grpcWorldItemReplay = GrpcItemList.Parser.ParseFrom(worldItemSubsetArray);
-		    	grpcEquippedItemReplay = GrpcItemList.Parser.ParseFrom(equippedItemSubsetArray);
-		    	grpcBackpackItemReplay = GrpcItemList.Parser.ParseFrom(backpackItemSubsetArray);
+		    	//grpcEquippedItemReplay = GrpcItemList.Parser.ParseFrom(equippedItemSubsetArray);
+		    	//grpcBackpackItemReplay = GrpcItemList.Parser.ParseFrom(backpackItemSubsetArray);
 		    	//grpcCorpseItemReplay = GrpcItemList.Parser.ParseFrom(corpseItemSubsetArray);
 		    	//grpcPopupMenuReplay = GrpcPopupMenuList.Parser.ParseFrom(popupMenuSubsetArray);
-		    	grpcClilocDataReplay = GrpcClilocDataList.Parser.ParseFrom(clilocDataSubsetArray);
+		    	//grpcClilocDataReplay = GrpcClilocDataList.Parser.ParseFrom(clilocDataSubsetArray);
 
 		    	// ###############
-            	grpcPlayerMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(playerMobileObjectSubsetArray);
+            	//grpcPlayerMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(playerMobileObjectSubsetArray);
             	grpcMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(mobileObjectSubsetArray);
-            	grpcItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemObjectSubsetArray);
-            	grpcItemDropableLandReplay = GrpcGameObjectSimpleList.Parser.ParseFrom(itemDropableLandSubsetArray);
+            	//grpcItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemObjectSubsetArray);
+            	//grpcItemDropableLandReplay = GrpcGameObjectSimpleList.Parser.ParseFrom(itemDropableLandSubsetArray);
             	//grpcVendorItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(vendorItemObjectSubsetArray);
-            	
-            }
+			}
             catch (Exception ex)
             {
-            	//Console.WriteLine("Failed to parser the GrpcMobileList from Byte array: " + ex.Message);
+            	//Console.WriteLine("Failed to parser the GetSubsetArray from original array: " + ex.Message);
             }
 
             List<int> actionTypeList = ConvertByteArrayToIntList(actionTypeArrRead);
@@ -324,24 +338,25 @@ namespace ClassicUO.Grpc
 			// ###############
 	        States states = new States();
 
-            states.MobileList = grpcMobileDataReplay;
+            //states.MobileList = grpcMobileDataReplay;
             //states.WorldItemList = grpcWorldItemReplay;
-            states.EquippedItemList = grpcEquippedItemReplay;
-            states.BackpackItemList = grpcBackpackItemReplay;
+            //states.EquippedItemList = grpcEquippedItemReplay;
+            //states.BackpackItemList = grpcBackpackItemReplay;
             //states.CorpseItemList = grpcCorpseItemReplay;
             //states.PopupMenuList = grpcPopupMenuReplay;
-            states.ClilocDataList = grpcClilocDataReplay;
+            //states.ClilocDataList = grpcClilocDataReplay;
 
-            states.PlayerMobileObjectList = grpcPlayerMobileObjectReplay;
-            states.MobileObjectList = grpcMobileObjectReplay;
-            states.ItemObjectList = grpcItemObjectReplay;
-            states.ItemDropableLandList = grpcItemDropableLandReplay;
+            //states.PlayerMobileObjectList = grpcPlayerMobileObjectReplay;
+            //states.MobileObjectList = grpcMobileObjectReplay;
+            //states.ItemObjectList = grpcItemObjectReplay;
+            //states.ItemDropableLandList = grpcItemDropableLandReplay;
             //states.VendorItemObjectList = grpcVendorItemObjectReplay;
 			
             _replayStep++;
 
             if (_replayStep >= _replayLength) {
             	Console.WriteLine("_replayStep >= _replayLength");
+            	Environment.Exit(0);
             }
            
             return Task.FromResult(states);

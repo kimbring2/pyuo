@@ -143,7 +143,7 @@ namespace StormLibSharp
         {
             VerifyHandle();
 
-            Console.WriteLine("Write() buffer.Length: {0}", buffer.Length);
+            //Console.WriteLine("Write() buffer.Length: {0}", buffer.Length);
 
             if (buffer == null)
                 throw new ArgumentNullException("buffer");
@@ -156,7 +156,7 @@ namespace StormLibSharp
 
             VerifyHandle();
 
-            Console.WriteLine("Write() count: {0}", count);
+            //Console.WriteLine("Write() count: {0}", count);
 
             bool success;
             fixed (byte* pb = &buffer[offset])

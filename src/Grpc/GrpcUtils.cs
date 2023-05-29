@@ -21,7 +21,7 @@ namespace ClassicUO.Grpc
 			Array.Copy(array2, 0, result, array1.Length, array2.Length);
 			return result;
     	}
-    	
+
     	static byte[] ConvertIntListToByteArray(List<int> intList)
 	    {
 	        List<byte> byteList = new List<byte>();
@@ -58,11 +58,11 @@ namespace ClassicUO.Grpc
 
 		public void WrtieToMpqArchive(string mpqArchiveName, string fileName, byte[] grpcArr)
 		{
-			Console.WriteLine("WrtieToMpqArchive()");
-			Console.WriteLine("fileName: {0}", fileName);
+			//Console.WriteLine("WrtieToMpqArchive()");
+			//Console.WriteLine("fileName: {0}", fileName);
 
 			uint arr_size = (uint) grpcArr.Length;
-			Console.WriteLine("arr_size: {0}, ", arr_size);
+			//Console.WriteLine("arr_size: {0}, ", arr_size);
 
 			if (arr_size == 0)
 			{

@@ -53,23 +53,28 @@ namespace ClassicUO.Grpc
 			Console.WriteLine("WrtieToMpqArchive()");
 			Console.WriteLine("fileName: {0}", fileName);
 
-			uint file_size = (uint) grpcArr.Length;
-			//Console.WriteLine("file_size: {0}, ", file_size);
+			uint arr_size = (uint) grpcArr.Length;
+			Console.WriteLine("arr_size: {0}, ", arr_size);
+
+			if (arr_size == 0)
+			{
+				return;
+			}
 
 		    using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.ReadWrite))
 		    {
 		        //Console.WriteLine("MpqArchive is opened");
 
-		        using (MpqFileStream fs = archive.CreateFile(fileName, file_size))
+		        using (MpqFileStream fs = archive.CreateFile(fileName, arr_size))
 		        {
 		            var arr = new List<byte>();
-		            for (int i = 0; i < file_size; i++) 
+		            for (int i = 0; i < arr_size; i++) 
 		            {
 		                arr.Add((byte) grpcArr[i]);
 		            }
 
 		            byte[] buffer = arr.ToArray();
-		            fs.Write(arr.ToArray(), 0, (int) file_size);
+		            fs.Write(arr.ToArray(), 0, (int) arr_size);
 		        }
 		    }
 		}
@@ -98,13 +103,23 @@ namespace ClassicUO.Grpc
         {
         	using (MpqArchive archive = new MpqArchive(mpqArchiveName, FileAccess.Read))
             {
-            	//Console.WriteLine("MpqArchive is opened");
+            	Console.WriteLine("MpqArchive is opened");
+            	Console.WriteLine("fileName: {0}", fileName);
 
                 MpqArchiveVerificationResult archive_verify_result = archive.VerifyArchive();
                 //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
 
                 MpqFileVerificationResults file_verify_result = archive.VerifyFile(fileName);
-                //Console.WriteLine("file_verify_result: {0}", file_verify_result);
+                Console.WriteLine("file_verify_result: {0}", file_verify_result);
+
+                if (file_verify_result == MpqFileVerificationResults.Error)
+                {	
+                	Console.WriteLine("return null");
+                	Console.WriteLine("\n");
+                	return null;
+                }
+
+                Console.WriteLine("\n");
 
                 using (MpqFileStream fs = archive.OpenFile(fileName))
                 {

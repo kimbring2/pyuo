@@ -14,6 +14,14 @@ namespace ClassicUO.Grpc
 {
 	internal partial class UoServiceImpl
     {
+    	public byte[] ConcatByteArrays(byte[] array1, byte[] array2)
+    	{
+    		byte[] result = new byte[array1.Length + array2.Length];
+			Array.Copy(array1, result, array1.Length);
+			Array.Copy(array2, 0, result, array1.Length, array2.Length);
+			return result;
+    	}
+    	
     	static byte[] ConvertIntListToByteArray(List<int> intList)
 	    {
 	        List<byte> byteList = new List<byte>();

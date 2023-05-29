@@ -57,7 +57,7 @@ namespace ClassicUO.Grpc
     	int _mobileObjectArrayOffset = 0;
     	int _itemObjectArrayOffset = 0;
     	int _staticObjectArrayOffset = 0;
-    	int _itemDropableLandObjectArrayOffset = 0;
+    	int _itemDropableLandArrayOffset = 0;
     	int _vendorItemObjectArrayOffset = 0;
 
     	int _playerStatusArrayOffset = 0;
@@ -71,12 +71,12 @@ namespace ClassicUO.Grpc
         byte[] popupMenuArrayLengthArrRead;
         byte[] clilocDataArrayLengthArrRead;
 
-        byte[] landObjectArrayLengthArrRead;
+        //byte[] landObjectArrayLengthArrRead;
         byte[] playerMobileObjectArrayLengthArrRead;
     	byte[] mobileObjectArrayLengthArrRead;
     	byte[] itemObjectArrayLengthArrRead;
-    	byte[] staticObjectArrayLengthArrRead;
-    	byte[] itemDropableLandObjectArrayLengthArrRead;
+    	//byte[] staticObjectArrayLengthArrRead;
+    	byte[] itemDropableLandArrayLengthArrRead;
     	byte[] vendorItemObjectArrayLengthArrRead;
 
     	byte[] playerStatusArrayLengthArrRead;
@@ -90,12 +90,12 @@ namespace ClassicUO.Grpc
 		byte[] popupMenuArrRead;
 		byte[] clilocDataArrRead;
 
-        byte[] landObjectArrRead;
+        //byte[] landObjectArrRead;
         byte[] playerMobileObjectArrRead;
     	byte[] mobileObjectArrRead;
     	byte[] itemObjectArrRead;
-    	byte[] staticObjectArrRead;
-    	byte[] itemDropableLandObjectArrRead;
+    	//byte[] staticObjectArrRead;
+    	byte[] itemDropableLandArrRead;
     	byte[] vendorItemObjectArrRead;
 
     	// ###############
@@ -113,12 +113,12 @@ namespace ClassicUO.Grpc
     	public PlayerStatus grpcPlayerStatusReplay;
 
     	// ###############
-    	public GrpcGameObjectList grpcLandObjectReplay;
+    	//public GrpcGameObjectList grpcLandObjectReplay;
     	public GrpcGameObjectList grpcPlayerMobileObjectReplay;
     	public GrpcGameObjectList grpcMobileObjectReplay;
     	public GrpcGameObjectList grpcItemObjectReplay;
-    	public GrpcGameObjectList grpcStaticObjectReplay;
-    	public GrpcGameObjectList grpcItemDropableLandObjectReplay;
+    	//public GrpcGameObjectList grpcStaticObjectReplay;
+    	public GrpcGameObjectSimpleList grpcItemDropableLandReplay;
     	public GrpcGameObjectList grpcVendorItemObjectReplay;
 
     	public UoServiceReplayImpl(int port)
@@ -155,13 +155,13 @@ namespace ClassicUO.Grpc
 	            popupMenuArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.popupMenuLen");
 	            clilocDataArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.clilocDataLen");
 
-	            landObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.landObjectLen");
+	            //landObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.landObjectLen");
 	            playerMobileObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerMobileObjectLen");
 	            mobileObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileObjectLen");
 	            itemObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemObjectLen");
-	            staticObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectLen");
-	            itemDropableLandObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandObjectLen");
-	            vendorItemObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen");
+	            //staticObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectLen");
+	            itemDropableLandArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandSimpleLen");
+	            //vendorItemObjectArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen");
 
 	            playerStatusArrayLengthArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusLen");
 
@@ -174,13 +174,13 @@ namespace ClassicUO.Grpc
 				popupMenuArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.popupMenu");
 				clilocDataArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.clilocData");
 
-		        landObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.landObject");
+		        //landObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.landObject");
 		        playerMobileObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.playerMobileObject");
 	            mobileObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileObject");
 	            itemObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemObject");
-	            staticObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.staticObject");
-	            itemDropableLandObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemDropableLandObject");
-	            vendorItemObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.vendorItemObject");
+	            //staticObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.staticObject");
+	            itemDropableLandArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemDropableLandSimple");
+	            //vendorItemObjectArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.vendorItemObject");
 
 	            // ###############
 	        	actionTypeArrRead = ReadFromMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.type");
@@ -234,13 +234,13 @@ namespace ClassicUO.Grpc
 		    	_popupMenuArrayOffset = 0;
 		    	_clilocDataArrayOffset = 0;
 
-		    	_landObjectArrayOffset = 0;
+		    	//_landObjectArrayOffset = 0;
 		    	_playerMobileObjectArrayOffset = 0;
 		    	_mobileObjectArrayOffset = 0;
 		    	_itemObjectArrayOffset = 0;
-		    	_staticObjectArrayOffset = 0;
-		    	_itemDropableLandObjectArrayOffset = 0;
-		    	_vendorItemObjectArrayOffset = 0;
+		    	//_staticObjectArrayOffset = 0;
+		    	_itemDropableLandArrayOffset = 0;
+		    	//_vendorItemObjectArrayOffset = 0;
 
 		    	_playerStatusArrayOffset = 0;
         	}
@@ -270,13 +270,13 @@ namespace ClassicUO.Grpc
             List<int> popupMenuArrayLengthListRead = ConvertByteArrayToIntList(popupMenuArrayLengthArrRead);
             List<int> clilocDataArrayLengthListRead = ConvertByteArrayToIntList(clilocDataArrayLengthArrRead);
 
-            List<int> landObjectArrayLengthListRead = ConvertByteArrayToIntList(landObjectArrayLengthArrRead);
+            //List<int> landObjectArrayLengthListRead = ConvertByteArrayToIntList(landObjectArrayLengthArrRead);
             List<int> playerMobileObjectArrayLengthListRead = ConvertByteArrayToIntList(playerMobileObjectArrayLengthArrRead);
             List<int> mobileObjectArrayLengthListRead = ConvertByteArrayToIntList(mobileObjectArrayLengthArrRead);
             List<int> itemObjectArrayLengthListRead = ConvertByteArrayToIntList(itemObjectArrayLengthArrRead);
-            List<int> staticObjectArrayLengthListRead = ConvertByteArrayToIntList(staticObjectArrayLengthArrRead);
-            List<int> itemDropableLandObjectArrayLengthListRead = ConvertByteArrayToIntList(itemDropableLandObjectArrayLengthArrRead);
-            List<int> vendorItemObjectArrayLengthListRead = ConvertByteArrayToIntList(vendorItemObjectArrayLengthArrRead);
+            //List<int> staticObjectArrayLengthListRead = ConvertByteArrayToIntList(staticObjectArrayLengthArrRead);
+            List<int> itemDropableLandArrayLengthListRead = ConvertByteArrayToIntList(itemDropableLandArrayLengthArrRead);
+            //List<int> vendorItemObjectArrayLengthListRead = ConvertByteArrayToIntList(vendorItemObjectArrayLengthArrRead);
 
             //List<int> playerStatusArrayLengthListRead = ConvertByteArrayToIntList(playerStatusArrayLengthArrRead);
             
@@ -296,24 +296,25 @@ namespace ClassicUO.Grpc
 			byte[] clilocDataSubsetArray = GetSubsetArray(index, clilocDataArrayLengthListRead, ref _clilocDataArrayOffset, clilocDataArrRead);
 
 			// ###############
-			Console.WriteLine("landObjectArrayLengthListRead[{1}]: {0}", landObjectArrayLengthListRead[index], index);
-			Console.WriteLine("landObjectArrRead.Length: {0}", landObjectArrRead.Length);
+			//Console.WriteLine("landObjectArrayLengthListRead[{1}]: {0}", landObjectArrayLengthListRead[index], index);
+			//Console.WriteLine("landObjectArrRead.Length: {0}", landObjectArrRead.Length);
+
 			try
 			{
-            	byte[] landObjectSubsetArray = GetSubsetArray(index, landObjectArrayLengthListRead, ref _landObjectArrayOffset, landObjectArrRead);
+            	//byte[] landObjectSubsetArray = GetSubsetArray(index, landObjectArrayLengthListRead, ref _landObjectArrayOffset, landObjectArrRead);
             }
             catch (Exception ex)
             {
-            	Console.WriteLine("Failed to parser the subset of Read array: " + ex.Message);
+            	//Console.WriteLine("Failed to parser the subset of Read array: " + ex.Message);
             }
 
-            Console.WriteLine("\n");
+            //Console.WriteLine("\n");
 
-            //byte[] playerMobileObjectSubsetArray = GetSubsetArray(index, playerMobileObjectArrayLengthListRead, ref _playerMobileObjectArrayOffset, playerMobileObjectArrRead);
-            //byte[] mobileObjectSubsetArray = GetSubsetArray(index, mobileObjectArrayLengthListRead, ref _mobileObjectArrayOffset, mobileObjectArrRead);
-            //byte[] itemObjectSubsetArray = GetSubsetArray(index, itemObjectArrayLengthListRead, ref _itemObjectArrayOffset, itemObjectArrRead);
+            byte[] playerMobileObjectSubsetArray = GetSubsetArray(index, playerMobileObjectArrayLengthListRead, ref _playerMobileObjectArrayOffset, playerMobileObjectArrRead);
+            byte[] mobileObjectSubsetArray = GetSubsetArray(index, mobileObjectArrayLengthListRead, ref _mobileObjectArrayOffset, mobileObjectArrRead);
+            byte[] itemObjectSubsetArray = GetSubsetArray(index, itemObjectArrayLengthListRead, ref _itemObjectArrayOffset, itemObjectArrRead);
             //byte[] staticObjectSubsetArray = GetSubsetArray(index, staticObjectArrayLengthListRead, ref _staticObjectArrayOffset, staticObjectArrRead);
-            //byte[] itemDropableLandObjectSubsetArray = GetSubsetArray(index, itemDropableLandObjectArrayLengthListRead, ref _itemDropableLandObjectArrayOffset, itemDropableLandObjectArrRead);
+            byte[] itemDropableLandSubsetArray = GetSubsetArray(index, itemDropableLandArrayLengthListRead, ref _itemDropableLandArrayOffset, itemDropableLandArrRead);
             //byte[] vendorItemObjectSubsetArray = GetSubsetArray(index, vendorItemObjectArrayLengthListRead, ref _vendorItemObjectArrayOffset, vendorItemObjectArrRead);
 			
             try 
@@ -329,11 +330,11 @@ namespace ClassicUO.Grpc
 
 		    	// ###############
             	//grpcLandObjectReplay = GrpcGameObjectList.Parser.ParseFrom(landObjectSubsetArray);
-            	//grpcPlayerMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(playerMobileObjectSubsetArray);
-            	//grpcMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(mobileObjectSubsetArray);
-            	//grpcItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemObjectSubsetArray);
+            	grpcPlayerMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(playerMobileObjectSubsetArray);
+            	grpcMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(mobileObjectSubsetArray);
+            	grpcItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemObjectSubsetArray);
             	//grpcStaticObjectReplay = GrpcGameObjectList.Parser.ParseFrom(staticObjectSubsetArray);
-            	//grpcItemDropableLandObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemDropableLandObjectSubsetArray);
+            	grpcItemDropableLandReplay = GrpcGameObjectSimpleList.Parser.ParseFrom(itemDropableLandSubsetArray);
             	//grpcVendorItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(vendorItemObjectSubsetArray);
             	
             }
@@ -357,11 +358,11 @@ namespace ClassicUO.Grpc
             states.ClilocDataList = grpcClilocDataReplay;
 
             //states.LandObjectList = grpcLandObjectReplay;
-            //states.PlayerMobileObjectList = grpcPlayerMobileObjectReplay;
-            //states.MobileObjectList = grpcMobileObjectReplay;
-            //states.ItemObjectList = grpcItemObjectReplay;
+            states.PlayerMobileObjectList = grpcPlayerMobileObjectReplay;
+            states.MobileObjectList = grpcMobileObjectReplay;
+            states.ItemObjectList = grpcItemObjectReplay;
             //states.StaticObjectList = grpcStaticObjectReplay;
-            //states.ItemDropableLandList = grpcItemDropableLandObjectReplay;
+            states.ItemDropableLandList = grpcItemDropableLandReplay;
             //states.VendorItemObjectList = grpcVendorItemObjectReplay;
 			
 

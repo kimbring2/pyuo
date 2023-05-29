@@ -64,7 +64,7 @@ namespace ClassicUO.Grpc
 
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
-        int _envStep = 0;
+        int _envStep;
         string _replayName;
 
         // ###############
@@ -102,6 +102,23 @@ namespace ClassicUO.Grpc
         byte[] playerStatusArrays;
 
         // ###############
+        byte[] mobileDataArraysTemp;
+		byte[] worldItemArraysTemp;
+		byte[] equippedItemArraysTemp;
+		byte[] backpackItemArraysTemp;
+		byte[] corpseItemArraysTemp;
+		byte[] popupMenuArraysTemp;
+		byte[] clilocDataArraysTemp;
+
+		byte[] playerMobileObjectArraysTemp;
+        byte[] mobileObjectArraysTemp;
+        byte[] itemObjectArraysTemp;
+        byte[] itemDropableLandSimpleArraysTemp;
+        byte[] vendorItemObjectArraysTemp;
+
+        byte[] playerStatusArraysTemp;
+
+        // ###############
     	List<int> actionTypeList = new List<int>();
     	List<int> walkDirectionList = new List<int>();
 
@@ -124,7 +141,78 @@ namespace ClassicUO.Grpc
 	            Ports = { new ServerPort("localhost", _port, ServerCredentials.Insecure) }
 	        };
 
+	        _envStep = 0;
+
 	        actionType = 0;
+	    	walkDirection = 0;
+	    	mobileSerial = 0;
+	    	itemSerial = 0;
+	    	index = 0;
+	    	amount = 0;
+	    	openedCorpse = 0;
+        }
+
+        public void Reset()
+        {
+        	// ###############
+	    	mobileDataArrayLengthList.Clear();
+	    	worldItemArrayLengthList.Clear();
+	    	equippedItemArrayLengthList.Clear();
+	    	backpackItemArrayLengthList.Clear();
+	    	corpseItemArrayLengthList.Clear();
+	    	popupMenuArrayLengthList.Clear();
+	    	clilocDataArrayLengthList.Clear();
+
+	    	playerMobileObjectArrayLengthList.Clear();
+	        mobileObjectArrayLengthList.Clear();
+	        itemObjectArrayLengthList.Clear();
+	        itemDropableLandSimpleArrayLengthList.Clear();
+	        vendorItemObjectArrayLengthList.Clear();
+
+	        playerStatusArrayLengthList.Clear();
+
+	        // ###############
+	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
+	        Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
+	        Array.Clear(equippedItemArrays, 0, equippedItemArrays.Length);
+	        Array.Clear(backpackItemArrays, 0, backpackItemArrays.Length);
+	        Array.Clear(corpseItemArrays, 0, corpseItemArrays.Length);
+	        Array.Clear(popupMenuArrays, 0, popupMenuArrays.Length);
+	        Array.Clear(clilocDataArrays, 0, clilocDataArrays.Length);
+
+	        Array.Clear(playerMobileObjectArrays, 0, playerMobileObjectArrays.Length);
+	        Array.Clear(mobileObjectArrays, 0, mobileObjectArrays.Length);
+	        Array.Clear(itemObjectArrays, 0, itemObjectArrays.Length);
+	        Array.Clear(itemDropableLandSimpleArrays, 0, itemDropableLandSimpleArrays.Length);
+	        Array.Clear(vendorItemObjectArrays, 0, vendorItemObjectArrays.Length);
+
+	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
+
+	        // ###############
+			Array.Clear(mobileDataArraysTemp, 0, mobileDataArraysTemp.Length);
+	        Array.Clear(worldItemArraysTemp, 0, worldItemArraysTemp.Length);
+	        Array.Clear(equippedItemArraysTemp, 0, equippedItemArraysTemp.Length);
+	        Array.Clear(backpackItemArraysTemp, 0, backpackItemArraysTemp.Length);
+	        Array.Clear(corpseItemArraysTemp, 0, corpseItemArraysTemp.Length);
+	        Array.Clear(popupMenuArraysTemp, 0, popupMenuArraysTemp.Length);
+	        Array.Clear(clilocDataArraysTemp, 0, clilocDataArraysTemp.Length);
+
+	        Array.Clear(playerMobileObjectArraysTemp, 0, playerMobileObjectArraysTemp.Length);
+	        Array.Clear(mobileObjectArraysTemp, 0, mobileObjectArraysTemp.Length);
+	        Array.Clear(itemObjectArraysTemp, 0, itemObjectArraysTemp.Length);
+	        Array.Clear(itemDropableLandSimpleArraysTemp, 0, itemDropableLandSimpleArraysTemp.Length);
+	        Array.Clear(vendorItemObjectArraysTemp, 0, vendorItemObjectArraysTemp.Length);
+
+	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
+
+	        // ###############
+    		actionTypeList.Clear();
+    		walkDirectionList.Clear();
+
+    		// ###############
+    		_envStep = 0;
+
+    		actionType = 0;
 	    	walkDirection = 0;
 	    	mobileSerial = 0;
 	    	itemSerial = 0;
@@ -153,11 +241,6 @@ namespace ClassicUO.Grpc
         public void SaveReplayFile()
         {
         	Console.WriteLine("SaveReplayFile()");
-
-        	foreach (int ary_len in mobileObjectArrayLengthList)
-	        {
-	            //Console.WriteLine("ary_len: {0}", ary_len);
-	        }
 
             byte[] mobileDataArrayLengthArray = ConvertIntListToByteArray(mobileDataArrayLengthList);
             byte[] worldItemArrayLengthArray = ConvertIntListToByteArray(worldItemArrayLengthList);
@@ -307,7 +390,7 @@ namespace ClassicUO.Grpc
 
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
-        	Console.WriteLine("_envStep: {0}", _envStep);
+        	//Console.WriteLine("_envStep: {0}", _envStep);
 
             try
             {
@@ -491,57 +574,92 @@ namespace ClassicUO.Grpc
 	        	if ( (playerMobileObjectArray.Length != 0) ) {
 	            	if (_envStep == 0) 
 	            	{
-	            		mobileDataArrays = mobileDataArray;
-	            		worldItemArrays = worldItemArray;
-	            		equippedItemArrays = equippedItemArray;
-	            		backpackItemArrays = backpackItemArray;
-	            		corpseItemArrays = corpseItemArray;
-	            		popupMenuArrays = popupMenuArray;
-	            		clilocDataArrays = clilocDataArray;
+	            		mobileDataArraysTemp = mobileDataArray;
+	            		worldItemArraysTemp = worldItemArray;
+	            		equippedItemArraysTemp = equippedItemArray;
+	            		backpackItemArraysTemp = backpackItemArray;
+	            		corpseItemArraysTemp = corpseItemArray;
+	            		popupMenuArraysTemp = popupMenuArray;
+	            		clilocDataArraysTemp = clilocDataArray;
 
-	            		playerMobileObjectArrays = playerMobileObjectArray;
-	            		mobileObjectArrays = mobileObjectArray;
-	            		itemObjectArrays = itemObjectArray;
-	            		itemDropableLandSimpleArrays = itemDropableLandSimpleArray;
-	            		vendorItemObjectArrays = vendorItemObjectArray;
+	            		playerMobileObjectArraysTemp = playerMobileObjectArray;
+	            		mobileObjectArraysTemp = mobileObjectArray;
+	            		itemObjectArraysTemp = itemObjectArray;
+	            		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
+	            		vendorItemObjectArraysTemp = vendorItemObjectArray;
 
-	            		playerStatusArrays = playerStatusArray;
+	            		playerStatusArraysTemp = playerStatusArray;
+	            	}
+	            	else if (_envStep == 1001) 
+	            	{
+		            	mobileDataArrays = mobileDataArraysTemp;
+		            	worldItemArrays = worldItemArraysTemp;
+		            	equippedItemArrays = equippedItemArraysTemp;
+		            	backpackItemArrays = backpackItemArraysTemp;
+		            	corpseItemArrays = corpseItemArraysTemp;
+		            	popupMenuArrays = popupMenuArraysTemp;
+		            	clilocDataArrays = clilocDataArraysTemp;
+
+		            	playerMobileObjectArrays = playerMobileObjectArraysTemp;
+		            	mobileObjectArrays = mobileObjectArraysTemp;
+		            	itemObjectArrays = itemObjectArraysTemp;
+		            	itemDropableLandSimpleArrays = itemDropableLandSimpleArraysTemp;
+		            	vendorItemObjectArrays = vendorItemObjectArraysTemp;
+
+		            	playerStatusArrays = playerStatusArraysTemp;
+	            	}
+	            	else if (_envStep % 1001 == 0) 
+	            	{
+		            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
+		            	worldItemArrays = ConcatByteArrays(worldItemArrays, worldItemArraysTemp);
+		            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
+		            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
+		            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
+		            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
+		            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
+
+		            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArraysTemp);
+		            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArraysTemp);
+		            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArraysTemp);
+		            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArraysTemp);
+		            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArraysTemp);
+
+		            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
+
+		            	// ##################################################################################
+		            	mobileDataArraysTemp = mobileDataArray;
+	            		worldItemArraysTemp = worldItemArray;
+	            		equippedItemArraysTemp = equippedItemArray;
+	            		backpackItemArraysTemp = backpackItemArray;
+	            		corpseItemArraysTemp = corpseItemArray;
+	            		popupMenuArraysTemp = popupMenuArray;
+	            		clilocDataArraysTemp = clilocDataArray;
+
+	            		playerMobileObjectArraysTemp = playerMobileObjectArray;
+	            		mobileObjectArraysTemp = mobileObjectArray;
+	            		itemObjectArraysTemp = itemObjectArray;
+	            		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
+	            		vendorItemObjectArraysTemp = vendorItemObjectArray;
+
+	            		playerStatusArraysTemp = playerStatusArray;
 	            	}
 	            	else
 	            	{
-	            		/*
-	            		mobileDataArrays = mobileDataArrays.Concat(mobileDataArray).ToArray();
-	            		worldItemArrays = worldItemArrays.Concat(worldItemArray).ToArray();
-	            		equippedItemArrays = equippedItemArrays.Concat(equippedItemArray).ToArray();
-	            		backpackItemArrays = backpackItemArrays.Concat(backpackItemArray).ToArray();
-	            		corpseItemArrays = corpseItemArrays.Concat(corpseItemArray).ToArray();
-	            		popupMenuArrays = popupMenuArrays.Concat(popupMenuArray).ToArray();
-	            		clilocDataArrays = clilocDataArrays.Concat(clilocDataArray).ToArray();
-	            		
-	            		playerMobileObjectArrays = playerMobileObjectArrays.Concat(playerMobileObjectArray).ToArray();
-		            	mobileObjectArrays = mobileObjectArrays.Concat(mobileObjectArray).ToArray();
-		            	itemObjectArrays = itemObjectArrays.Concat(itemObjectArray).ToArray();
-		            	itemDropableLandSimpleArrays = itemDropableLandSimpleArrays.Concat(itemDropableLandSimpleArray).ToArray();
-		            	vendorItemObjectArrays = vendorItemObjectArrays.Concat(vendorItemObjectArray).ToArray();
+	            		mobileDataArraysTemp = ConcatByteArrays(mobileDataArraysTemp, mobileDataArray);
+		            	worldItemArraysTemp = ConcatByteArrays(worldItemArraysTemp, worldItemArray);
+		            	equippedItemArraysTemp = ConcatByteArrays(equippedItemArraysTemp, equippedItemArray);
+		            	backpackItemArraysTemp = ConcatByteArrays(backpackItemArraysTemp, backpackItemArray);
+		            	corpseItemArraysTemp = ConcatByteArrays(corpseItemArraysTemp, corpseItemArray);
+		            	popupMenuArraysTemp = ConcatByteArrays(popupMenuArraysTemp, popupMenuArray);
+		            	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
 
-		            	playerStatusArrays = playerStatusArrays.Concat(playerStatusArray).ToArray();
-		            	*/
+		            	playerMobileObjectArraysTemp = ConcatByteArrays(playerMobileObjectArraysTemp, playerMobileObjectArray);
+		            	mobileObjectArraysTemp = ConcatByteArrays(mobileObjectArraysTemp, mobileObjectArray);
+		            	itemObjectArraysTemp = ConcatByteArrays(itemObjectArraysTemp, itemObjectArray);
+		            	itemDropableLandSimpleArraysTemp = ConcatByteArrays(itemDropableLandSimpleArraysTemp, itemDropableLandSimpleArray);
+		            	vendorItemObjectArraysTemp = ConcatByteArrays(vendorItemObjectArraysTemp, vendorItemObjectArray);
 
-		            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArray);
-		            	worldItemArrays = ConcatByteArrays(worldItemArrays, worldItemArray);
-		            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArray);
-		            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArray);
-		            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArray);
-		            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArray);
-		            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArray);
-
-		            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArray);
-		            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArray);
-		            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArray);
-		            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArray);
-		            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArray);
-
-		            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArray);
+		            	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
 	            	}
 
 					mobileDataArrayLengthList.Add((int) mobileDataArray.Length);
@@ -569,9 +687,11 @@ namespace ClassicUO.Grpc
 
 	            	_envStep++;
 
-	            	if (_envStep == 1500) 
+	            	if (_envStep == 5000) 
 	            	{
-	            		SaveReplayFile();
+	            		//SaveReplayFile();
+	            		Reset();
+	            		//CreateMpqFile();
 	            	}
 	            }
 	        }

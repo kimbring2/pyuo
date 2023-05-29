@@ -49,7 +49,7 @@ namespace ClassicUO.Grpc
         };
 
         List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
-        List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
+        //List<GrpcItemData> worldItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> corpseItemDataList = new List<GrpcItemData>();
@@ -69,7 +69,7 @@ namespace ClassicUO.Grpc
 
         // ###############
     	List<int> mobileDataArrayLengthList = new List<int>();
-    	List<int> worldItemArrayLengthList = new List<int>();
+    	//List<int> worldItemArrayLengthList = new List<int>();
     	List<int> equippedItemArrayLengthList = new List<int>();
     	List<int> backpackItemArrayLengthList = new List<int>();
     	List<int> corpseItemArrayLengthList = new List<int>();
@@ -86,7 +86,7 @@ namespace ClassicUO.Grpc
 
         // ###############
         byte[] mobileDataArrays;
-		byte[] worldItemArrays;
+		//byte[] worldItemArrays;
 		byte[] equippedItemArrays;
 		byte[] backpackItemArrays;
 		byte[] corpseItemArrays;
@@ -103,7 +103,7 @@ namespace ClassicUO.Grpc
 
         // ###############
         byte[] mobileDataArraysTemp;
-		byte[] worldItemArraysTemp;
+		//byte[] worldItemArraysTemp;
 		byte[] equippedItemArraysTemp;
 		byte[] backpackItemArraysTemp;
 		byte[] corpseItemArraysTemp;
@@ -156,7 +156,7 @@ namespace ClassicUO.Grpc
         {
         	// ###############
 	    	mobileDataArrayLengthList.Clear();
-	    	worldItemArrayLengthList.Clear();
+	    	//worldItemArrayLengthList.Clear();
 	    	equippedItemArrayLengthList.Clear();
 	    	backpackItemArrayLengthList.Clear();
 	    	corpseItemArrayLengthList.Clear();
@@ -173,7 +173,7 @@ namespace ClassicUO.Grpc
 
 	        // ###############
 	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
-	        Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
+	        //Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
 	        Array.Clear(equippedItemArrays, 0, equippedItemArrays.Length);
 	        Array.Clear(backpackItemArrays, 0, backpackItemArrays.Length);
 	        Array.Clear(corpseItemArrays, 0, corpseItemArrays.Length);
@@ -190,7 +190,7 @@ namespace ClassicUO.Grpc
 
 	        // ###############
 			Array.Clear(mobileDataArraysTemp, 0, mobileDataArraysTemp.Length);
-	        Array.Clear(worldItemArraysTemp, 0, worldItemArraysTemp.Length);
+	        //Array.Clear(worldItemArraysTemp, 0, worldItemArraysTemp.Length);
 	        Array.Clear(equippedItemArraysTemp, 0, equippedItemArraysTemp.Length);
 	        Array.Clear(backpackItemArraysTemp, 0, backpackItemArraysTemp.Length);
 	        Array.Clear(corpseItemArraysTemp, 0, corpseItemArraysTemp.Length);
@@ -243,7 +243,7 @@ namespace ClassicUO.Grpc
         	Console.WriteLine("SaveReplayFile()");
 
             byte[] mobileDataArrayLengthArray = ConvertIntListToByteArray(mobileDataArrayLengthList);
-            byte[] worldItemArrayLengthArray = ConvertIntListToByteArray(worldItemArrayLengthList);
+            //byte[] worldItemArrayLengthArray = ConvertIntListToByteArray(worldItemArrayLengthList);
             byte[] equippedItemArrayLengthArray = ConvertIntListToByteArray(equippedItemArrayLengthList);
             byte[] backpackItemArrayLengthArray = ConvertIntListToByteArray(backpackItemArrayLengthList);
             byte[] corpseItemArrayLengthArray = ConvertIntListToByteArray(corpseItemArrayLengthList);
@@ -267,7 +267,7 @@ namespace ClassicUO.Grpc
 
 	    	// ###############
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileDataLen", mobileDataArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.worldItemLen", worldItemArrayLengthArray);
+            //WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.worldItemLen", worldItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.equippedItemLen", equippedItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.backpackitemLen", backpackItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.corpseItemLen", corpseItemArrayLengthArray);
@@ -284,7 +284,7 @@ namespace ClassicUO.Grpc
 
             // ###############
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
-			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.worldItem", worldItemArrays);
+			//WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.worldItem", worldItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.equippedItem", equippedItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.backpackItem", backpackItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.corpseItem", corpseItemArrays);
@@ -390,7 +390,7 @@ namespace ClassicUO.Grpc
 
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
-        	//Console.WriteLine("_envStep: {0}", _envStep);
+        	Console.WriteLine("_envStep: {0}", _envStep);
 
             try
             {
@@ -416,6 +416,7 @@ namespace ClassicUO.Grpc
 	                									   Race = (uint) 0, Serial = (uint) 1234 });
             }
 
+            /*
             foreach (Item item in World.Items.Values)
             {
             	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, item.Amount, item.Serial);
@@ -424,6 +425,7 @@ namespace ClassicUO.Grpc
 
 
             }
+            */
 
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
@@ -500,9 +502,9 @@ namespace ClassicUO.Grpc
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
             states.MobileList = grpcMobileList;
 
-            GrpcItemList worldItemList = new GrpcItemList();
-            worldItemList.Item.AddRange(worldItemDataList);
-            states.WorldItemList = worldItemList;
+            //GrpcItemList worldItemList = new GrpcItemList();
+            //worldItemList.Item.AddRange(worldItemDataList);
+            //states.WorldItemList = worldItemList;
 
             GrpcItemList equippedItemList = new GrpcItemList();
             equippedItemList.Item.AddRange(equippedItemDataList);
@@ -549,7 +551,7 @@ namespace ClassicUO.Grpc
 
 	            // ##################################################################################
 	            byte[] mobileDataArray = grpcMobileList.ToByteArray();
-	            byte[] worldItemArray = worldItemList.ToByteArray();
+	            //byte[] worldItemArray = worldItemList.ToByteArray();
 	            byte[] equippedItemArray = equippedItemList.ToByteArray();
 	            byte[] backpackItemArray = backpackItemList.ToByteArray();
 	            byte[] corpseItemArray = corpseItemList.ToByteArray();
@@ -575,7 +577,7 @@ namespace ClassicUO.Grpc
 	            	if (_envStep == 0) 
 	            	{
 	            		mobileDataArraysTemp = mobileDataArray;
-	            		worldItemArraysTemp = worldItemArray;
+	            		//worldItemArraysTemp = worldItemArray;
 	            		equippedItemArraysTemp = equippedItemArray;
 	            		backpackItemArraysTemp = backpackItemArray;
 	            		corpseItemArraysTemp = corpseItemArray;
@@ -593,7 +595,7 @@ namespace ClassicUO.Grpc
 	            	else if (_envStep == 1001) 
 	            	{
 		            	mobileDataArrays = mobileDataArraysTemp;
-		            	worldItemArrays = worldItemArraysTemp;
+		            	//worldItemArrays = worldItemArraysTemp;
 		            	equippedItemArrays = equippedItemArraysTemp;
 		            	backpackItemArrays = backpackItemArraysTemp;
 		            	corpseItemArrays = corpseItemArraysTemp;
@@ -611,7 +613,7 @@ namespace ClassicUO.Grpc
 	            	else if (_envStep % 1001 == 0) 
 	            	{
 		            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
-		            	worldItemArrays = ConcatByteArrays(worldItemArrays, worldItemArraysTemp);
+		            	//worldItemArrays = ConcatByteArrays(worldItemArrays, worldItemArraysTemp);
 		            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
 		            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
 		            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
@@ -628,7 +630,7 @@ namespace ClassicUO.Grpc
 
 		            	// ##################################################################################
 		            	mobileDataArraysTemp = mobileDataArray;
-	            		worldItemArraysTemp = worldItemArray;
+	            		//worldItemArraysTemp = worldItemArray;
 	            		equippedItemArraysTemp = equippedItemArray;
 	            		backpackItemArraysTemp = backpackItemArray;
 	            		corpseItemArraysTemp = corpseItemArray;
@@ -646,7 +648,7 @@ namespace ClassicUO.Grpc
 	            	else
 	            	{
 	            		mobileDataArraysTemp = ConcatByteArrays(mobileDataArraysTemp, mobileDataArray);
-		            	worldItemArraysTemp = ConcatByteArrays(worldItemArraysTemp, worldItemArray);
+		            	//worldItemArraysTemp = ConcatByteArrays(worldItemArraysTemp, worldItemArray);
 		            	equippedItemArraysTemp = ConcatByteArrays(equippedItemArraysTemp, equippedItemArray);
 		            	backpackItemArraysTemp = ConcatByteArrays(backpackItemArraysTemp, backpackItemArray);
 		            	corpseItemArraysTemp = ConcatByteArrays(corpseItemArraysTemp, corpseItemArray);
@@ -663,7 +665,7 @@ namespace ClassicUO.Grpc
 	            	}
 
 					mobileDataArrayLengthList.Add((int) mobileDataArray.Length);
-					worldItemArrayLengthList.Add((int) worldItemArray.Length);
+					//worldItemArrayLengthList.Add((int) worldItemArray.Length);
 					equippedItemArrayLengthList.Add((int) equippedItemArray.Length);
 					backpackItemArrayLengthList.Add((int) backpackItemArray.Length);
 					corpseItemArrayLengthList.Add((int) corpseItemArray.Length);
@@ -689,9 +691,9 @@ namespace ClassicUO.Grpc
 
 	            	if (_envStep == 5000) 
 	            	{
-	            		//SaveReplayFile();
+	            		SaveReplayFile();
 	            		Reset();
-	            		//CreateMpqFile();
+	            		CreateMpqFile();
 	            	}
 	            }
 	        }
@@ -701,7 +703,7 @@ namespace ClassicUO.Grpc
             }
             
             grpcMobileDataList.Clear();
-	        worldItemDataList.Clear();
+	        //worldItemDataList.Clear();
 	        equippedItemDataList.Clear();
 	        backpackItemDataList.Clear();
 

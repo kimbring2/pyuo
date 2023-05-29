@@ -54,12 +54,10 @@ namespace ClassicUO.Grpc
         List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> corpseItemDataList = new List<GrpcItemData>();
 
-        public List<GrpcGameObjectSimpleData> grpcLandObjectSimpleList = new List<GrpcGameObjectSimpleData>();
         public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
         public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
-        public List<GrpcGameObjectSimpleData> grpcStaticObjectSimpleList = new List<GrpcGameObjectSimpleData>();
-        public List<GrpcGameObjectData> grpcItemDropableLandObjectList = new List<GrpcGameObjectData>();
+        public List<GrpcGameObjectSimpleData> grpcItemDropableLandSimpleList = new List<GrpcGameObjectSimpleData>();
         public List<GrpcGameObjectData> grpcVendorItemObjectList = new List<GrpcGameObjectData>();
 
         public List<string> grpcPopupMenuList = new List<string>();
@@ -78,12 +76,10 @@ namespace ClassicUO.Grpc
     	List<int> popupMenuArrayLengthList = new List<int>();
     	List<int> clilocDataArrayLengthList = new List<int>();
 
-    	List<int> landObjectSimpleArrayLengthList = new List<int>();
     	List<int> playerMobileObjectArrayLengthList = new List<int>();
         List<int> mobileObjectArrayLengthList = new List<int>();
         List<int> itemObjectArrayLengthList = new List<int>();
-        List<int> staticObjectSimpleArrayLengthList = new List<int>();
-        List<int> itemDropableLandObjectArrayLengthList = new List<int>();
+        List<int> itemDropableLandSimpleArrayLengthList = new List<int>();
         List<int> vendorItemObjectArrayLengthList = new List<int>();
 
         List<int> playerStatusArrayLengthList = new List<int>();
@@ -97,12 +93,10 @@ namespace ClassicUO.Grpc
 		byte[] popupMenuArrays;
 		byte[] clilocDataArrays;
 
-		byte[] landObjectSimpleArrays;
 		byte[] playerMobileObjectArrays;
         byte[] mobileObjectArrays;
         byte[] itemObjectArrays;
-        byte[] staticObjectSimpleArrays;
-        byte[] itemDropableLandObjectArrays;
+        byte[] itemDropableLandSimpleArrays;
         byte[] vendorItemObjectArrays;
 
         byte[] playerStatusArrays;
@@ -173,12 +167,10 @@ namespace ClassicUO.Grpc
             byte[] popupMenuArrayLengthArray = ConvertIntListToByteArray(popupMenuArrayLengthList);
             byte[] clilocDataArrayLengthArray = ConvertIntListToByteArray(clilocDataArrayLengthList);
 
-	        byte[] landObjectSimpleArrayLengthArray = ConvertIntListToByteArray(landObjectSimpleArrayLengthList);
 	        byte[] playerMobileObjectArrayLengthArray = ConvertIntListToByteArray(playerMobileObjectArrayLengthList);
 	    	byte[] mobileObjectArrayLengthArray = ConvertIntListToByteArray(mobileObjectArrayLengthList);
 	    	byte[] itemObjectArrayLengthArray = ConvertIntListToByteArray(itemObjectArrayLengthList);
-	    	byte[] staticObjectSimpleArrayLengthArray = ConvertIntListToByteArray(staticObjectSimpleArrayLengthList);
-	    	byte[] itemDropableLandObjectArrayLengthArray = ConvertIntListToByteArray(itemDropableLandObjectArrayLengthList);
+	    	byte[] itemDropableLandSimpleArrayLengthArray = ConvertIntListToByteArray(itemDropableLandSimpleArrayLengthList);
 	    	byte[] vendorItemObjectArrayLengthArray = ConvertIntListToByteArray(vendorItemObjectArrayLengthList);
 
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
@@ -199,12 +191,10 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.popupMenuLen", popupMenuArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
 
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.landObjectSimpleLen", landObjectSimpleArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerMobileObjectLen", playerMobileObjectArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileObjectLen", mobileObjectArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemObjectLen", itemObjectArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectSimpleLen", staticObjectSimpleArrayLengthArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandObjectLen", itemDropableLandObjectArrayLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandSimpleLen", itemDropableLandSimpleArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen", vendorItemObjectArrayLengthArray);
 
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
@@ -218,12 +208,10 @@ namespace ClassicUO.Grpc
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.popupMenu", popupMenuArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.clilocData", clilocDataArrays);
 
-	        WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.landSimpleObject", landObjectSimpleArrays);
 	        WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.playerMobileObject", playerMobileObjectArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileObject", mobileObjectArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemObject", itemObjectArrays);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.staticSimpleObject", staticObjectSimpleArrays);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemDropableLandObject", itemDropableLandObjectArrays);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemDropableLandSimple", itemDropableLandSimpleArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.vendorItemObject", vendorItemObjectArrays);
         }
 
@@ -232,25 +220,29 @@ namespace ClassicUO.Grpc
         	grpcClilocDataList.Add(new GrpcClilocData{ Text=text, Affix=affix });
         }
 
+        public void AddGameSimpleObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y)
+        {
+        	try 
+        	{
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
+        		bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
+        		if (can_drop)
+            	{
+        			grpcItemDropableLandSimpleList.Add(new GrpcGameObjectSimpleData{ GameX=game_x, GameY=game_y });
+        		}
+	        }
+	        catch (Exception ex)
+            {
+                //Console.WriteLine("Failed to add the object: " + ex.Message);
+            }
+        }
+
         public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, 
         						  uint serial, string name, bool is_corpse, string title, uint amount, uint price)
         {
         	try 
         	{
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
-        		
-	        	if (type == "Land") {
-	        		grpcLandObjectSimpleList.Add(new GrpcGameObjectSimpleData{ Type=type, ScreenX=screen_x, ScreenY=screen_y});
-
-	        		bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
-	        		if (can_drop)
-                	{
-	        			grpcItemDropableLandObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
-	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        													     Title=title, Amount=amount, Price=price});
-	        		}
-	        	}
-
 	        	if (type == "PlayerMobile") {
 	        		grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        														 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
@@ -260,9 +252,6 @@ namespace ClassicUO.Grpc
 	        		grpcItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
-	        	}
-	        	else if (type == "Static") {
-	        		grpcStaticObjectSimpleList.Add(new GrpcGameObjectSimpleData{ Type=type, ScreenX=screen_x, ScreenY=screen_y });
 	        	}
 	        	else if (type == "Mobile") {
 	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, screen_x, screen_y, distance);
@@ -456,29 +445,25 @@ namespace ClassicUO.Grpc
 
             try
             {
-	            GrpcGameObjectSimpleList landObjectSimpleList = new GrpcGameObjectSimpleList();
 	            GrpcGameObjectList playerMobileObjectList = new GrpcGameObjectList();
-	            GrpcGameObjectSimpleList staticObjectSimpleList = new GrpcGameObjectSimpleList();
 	            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
 	            GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
-	            GrpcGameObjectList itemDropableLandObjectList = new GrpcGameObjectList();
+	            GrpcGameObjectSimpleList itemDropableLandSimpleList = new GrpcGameObjectSimpleList();
 	            GrpcGameObjectList vendorItemObjectList = new GrpcGameObjectList();
 
-	            landObjectSimpleList.GameSimpleObject.AddRange(grpcLandObjectSimpleList);
+	            //landObjectSimpleList.GameSimpleObject.AddRange(grpcLandObjectSimpleList);
 	            playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
-	            staticObjectSimpleList.GameSimpleObject.AddRange(grpcStaticObjectSimpleList);
+	            //staticObjectSimpleList.GameSimpleObject.AddRange(grpcStaticObjectSimpleList);
 	            itemObjectList.GameObject.AddRange(grpcItemObjectList);
 	            mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
-	            itemDropableLandObjectList.GameObject.AddRange(grpcItemDropableLandObjectList);
+	            itemDropableLandSimpleList.GameSimpleObject.AddRange(grpcItemDropableLandSimpleList);
 	            vendorItemObjectList.GameObject.AddRange(grpcVendorItemObjectList);
 
-	            states.LandObjectSimpleList = landObjectSimpleList;
 	            states.MobileObjectList = mobileObjectList;
-	            states.StaticObjectSimpleList = staticObjectSimpleList;
 	            states.PlayerMobileObjectList = playerMobileObjectList;
 	            states.MobileObjectList = mobileObjectList;
 	            states.ItemObjectList = itemObjectList;
-	            states.ItemDropableLandList = itemDropableLandObjectList;
+	            states.ItemDropableLandList = itemDropableLandSimpleList;
 	            states.VendorItemObjectList = vendorItemObjectList;
 
 	            // ##################################################################################
@@ -490,23 +475,18 @@ namespace ClassicUO.Grpc
 	            byte[] popupMenuArray = popupMenuList.ToByteArray();
 	            byte[] clilocDataArray = clilocDataList.ToByteArray();
 
-	        	byte[] landObjectSimpleArray = landObjectSimpleList.ToByteArray();
 	        	byte[] playerMobileObjectArray = playerMobileObjectList.ToByteArray();
-	        	byte[] staticObjectSimpleArray = staticObjectSimpleList.ToByteArray();
 	        	byte[] itemObjectArray = itemObjectList.ToByteArray();
 	        	byte[] mobileObjectArray = mobileObjectList.ToByteArray();
-	        	byte[] itemDropableLandObjectArray = itemDropableLandObjectList.ToByteArray();
+	        	byte[] itemDropableLandSimpleArray = itemDropableLandSimpleList.ToByteArray();
 	        	byte[] vendorItemObjectArray = vendorItemObjectList.ToByteArray();
-	        	/*
-	        	Console.WriteLine("landObjectSimpleArray.Length: {0}" + landObjectSimpleArray.Length);
+	        	
 	        	Console.WriteLine("playerMobileObjectArray.Length: {0}" + playerMobileObjectArray.Length);
-	        	Console.WriteLine("staticObjectSimpleArray.Length: {0}" + staticObjectSimpleArray.Length);
 	        	Console.WriteLine("itemObjectArray.Length: {0}" + itemObjectArray.Length);
 	        	Console.WriteLine("mobileObjectArray.Length: {0}" + mobileObjectArray.Length);
-	        	Console.WriteLine("itemDropableLandObjectArray.Length: {0}" + itemDropableLandObjectArray.Length);
+	        	Console.WriteLine("itemDropableLandSimpleArray.Length: {0}" + itemDropableLandSimpleArray.Length);
 	        	Console.WriteLine("vendorItemObjectArray.Length: {0}" + vendorItemObjectArray.Length);
 	        	Console.WriteLine("\n");
-				*/
 
 	        	byte[] playerStatusArray = playerStatus.ToByteArray();
 
@@ -521,12 +501,10 @@ namespace ClassicUO.Grpc
 	            		popupMenuArrays = popupMenuArray;
 	            		clilocDataArrays = clilocDataArray;
 
-	            		landObjectSimpleArrays = landObjectSimpleArray;
 	            		playerMobileObjectArrays = playerMobileObjectArray;
 	            		mobileObjectArrays = mobileObjectArray;
 	            		itemObjectArrays = itemObjectArray;
-	            		staticObjectSimpleArrays = staticObjectSimpleArray;
-	            		itemDropableLandObjectArrays = itemDropableLandObjectArray;
+	            		itemDropableLandSimpleArrays = itemDropableLandSimpleArray;
 	            		vendorItemObjectArrays = vendorItemObjectArray;
 
 	            		playerStatusArrays = playerStatusArray;
@@ -541,12 +519,10 @@ namespace ClassicUO.Grpc
 	            		popupMenuArrays = popupMenuArrays.Concat(popupMenuArray).ToArray();
 	            		clilocDataArrays = clilocDataArrays.Concat(clilocDataArray).ToArray();
 	            		
-	            		landObjectSimpleArrays = landObjectSimpleArrays.Concat(landObjectSimpleArray).ToArray();
 	            		playerMobileObjectArrays = playerMobileObjectArrays.Concat(playerMobileObjectArray).ToArray();
 		            	mobileObjectArrays = mobileObjectArrays.Concat(mobileObjectArray).ToArray();
 		            	itemObjectArrays = itemObjectArrays.Concat(itemObjectArray).ToArray();
-		            	staticObjectSimpleArrays = staticObjectSimpleArrays.Concat(staticObjectSimpleArray).ToArray();
-		            	itemDropableLandObjectArrays = itemDropableLandObjectArrays.Concat(itemDropableLandObjectArray).ToArray();
+		            	itemDropableLandSimpleArrays = itemDropableLandSimpleArrays.Concat(itemDropableLandSimpleArray).ToArray();
 		            	vendorItemObjectArrays = vendorItemObjectArrays.Concat(vendorItemObjectArray).ToArray();
 
 		            	playerStatusArrays = playerStatusArrays.Concat(playerStatusArray).ToArray();
@@ -560,12 +536,10 @@ namespace ClassicUO.Grpc
 					popupMenuArrayLengthList.Add((int) popupMenuArray.Length);
 					clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
 
-	            	landObjectSimpleArrayLengthList.Add((int) landObjectSimpleArray.Length);
 	            	playerMobileObjectArrayLengthList.Add((int) playerMobileObjectArray.Length);
 	            	mobileObjectArrayLengthList.Add((int) mobileObjectArray.Length);
 	            	itemObjectArrayLengthList.Add((int) itemObjectArray.Length);
-	            	staticObjectSimpleArrayLengthList.Add((int) staticObjectSimpleArray.Length);
-	            	itemDropableLandObjectArrayLengthList.Add((int) itemDropableLandObjectArray.Length);
+	            	itemDropableLandSimpleArrayLengthList.Add((int) itemDropableLandSimpleArray.Length);
 	            	vendorItemObjectArrayLengthList.Add((int) vendorItemObjectArray.Length);
 					
 	            	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
@@ -588,12 +562,10 @@ namespace ClassicUO.Grpc
 	        equippedItemDataList.Clear();
 	        backpackItemDataList.Clear();
 
-            grpcLandObjectSimpleList.Clear();
-            grpcItemDropableLandObjectList.Clear();
+            grpcItemDropableLandSimpleList.Clear();
             grpcPlayerMobileObjectList.Clear();
             grpcMobileObjectList.Clear();
             grpcItemObjectList.Clear();
-            grpcStaticObjectSimpleList.Clear();
 
             return Task.FromResult(states);
         }
@@ -674,11 +646,11 @@ namespace ClassicUO.Grpc
 
 	        		int randomNumber;
 					Random RNG = new Random();
-	        		int index = RNG.Next(grpcItemDropableLandObjectList.Count);
+	        		int index = RNG.Next(grpcItemDropableLandSimpleList.Count);
 
 	        		try
-	        		{
-	        			GrpcGameObjectData selected = grpcItemDropableLandObjectList[index];
+	        		{   
+	        			GrpcGameObjectSimpleData selected = grpcItemDropableLandSimpleList[index];
 	        			//Console.WriteLine("ItemSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
 	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
 	        		}

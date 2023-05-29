@@ -1069,8 +1069,7 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (obj is Land) 
                     {
-                        Client.Game._uoServiceImpl.AddGameObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                 obj.X, obj.Y, objSerial, "None", IsCorpse, title, 0, 0);
+                        Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
                     }
                     else if (obj is PlayerMobile) 
                     {

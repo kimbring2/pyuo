@@ -126,8 +126,8 @@ namespace ClassicUO.Grpc
     	public uint amount;
     	public uint openedCorpse;
 
-    	public uint LastActionType;
-    	public uint LastWalkDirection;
+    	//public uint LastActionType;
+    	//public uint LastWalkDirection;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -155,13 +155,6 @@ namespace ClassicUO.Grpc
         {
         	Console.WriteLine("Reset()");
 
-        	//Console.WriteLine("mobileObjectArrayLengthList.Count: {0}", mobileObjectArrayLengthList.Count);
-        	//int list_len = mobileObjectArrayLengthList.Count;
-        	//for (int i = 0; i < 10; i ++)
-	        //{
-	        //    Console.WriteLine("mobileObjectArrayLengthList[i]: {0}", mobileObjectArrayLengthList[i]);
-	        //}
-
         	// ###############
 	    	mobileDataArrayLengthList.Clear();
 	    	equippedItemArrayLengthList.Clear();
@@ -177,12 +170,6 @@ namespace ClassicUO.Grpc
 	        vendorItemObjectArrayLengthList.Clear();
 
 	        playerStatusArrayLengthList.Clear();
-
-			//for (int i = 0; i < 10; i ++)
-	        //{
-	        //    Console.WriteLine("After reset, mobileObjectArrayLengthList[i]: {0}", mobileObjectArrayLengthList[i]);
-	        //}
-	        //Console.WriteLine("sum_length: {0}", sum_length);
 
 	        // ###############
 	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
@@ -500,7 +487,6 @@ namespace ClassicUO.Grpc
 	        }
 
             States states = new States();
-            //Console.WriteLine("test 1");
 
 			GrpcMobileList grpcMobileList = new GrpcMobileList();
             grpcMobileList.Mobile.AddRange(grpcMobileDataList);
@@ -526,51 +512,25 @@ namespace ClassicUO.Grpc
             clilocDataList.ClilocData.AddRange(grpcClilocDataList);
             states.ClilocDataList = clilocDataList;
 
-            //Console.WriteLine("test 2");
-
             states.PlayerStatus = playerStatus;
 
             GrpcGameObjectList playerMobileObjectList = new GrpcGameObjectList();
-            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
             GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
+            GrpcGameObjectList itemObjectList = new GrpcGameObjectList();
             GrpcGameObjectSimpleList itemDropableLandSimpleList = new GrpcGameObjectSimpleList();
             GrpcGameObjectList vendorItemObjectList = new GrpcGameObjectList();
 
-            //Console.WriteLine("grpcPlayerMobileObjectList.Count: {0}", grpcPlayerMobileObjectList.Count);
-            //Console.WriteLine("grpcItemObjectList.Count: {0}", grpcItemObjectList.Count);
-            //Console.WriteLine("grpcMobileObjectList.Count: {0}", grpcMobileObjectList.Count);
-            //Console.WriteLine("grpcItemDropableLandSimpleList.Count: {0}", grpcItemDropableLandSimpleList.Count);
-            //Console.WriteLine("grpcVendorItemObjectList.Count: {0}", grpcVendorItemObjectList.Count);
-
             playerMobileObjectList.GameObject.AddRange(grpcPlayerMobileObjectList);
             mobileObjectList.GameObject.AddRange(grpcMobileObjectList);
-            //itemObjectList.GameObject.AddRange(grpcItemObjectList);
-            
-            try
-            {
-            	itemDropableLandSimpleList.GameSimpleObject.AddRange(grpcItemDropableLandSimpleList);
-            }
-            catch (Exception ex)
-            {
-            	Console.WriteLine("Failed to add the data to GRPC message: " + ex.Message);
-
-            	for (int i = 0; i < grpcItemDropableLandSimpleList.Count; i++)
-		        {
-		            Console.WriteLine("grpcItemDropableLandSimpleList[i]: {0}", grpcItemDropableLandSimpleList[i]);
-		        }
-
-		        Console.WriteLine("");
-		    }
-
-            //vendorItemObjectList.GameObject.AddRange(grpcVendorItemObjectList);
+            itemObjectList.GameObject.AddRange(grpcItemObjectList);
+            itemDropableLandSimpleList.GameSimpleObject.AddRange(grpcItemDropableLandSimpleList);
+            vendorItemObjectList.GameObject.AddRange(grpcVendorItemObjectList);
 
             states.PlayerMobileObjectList = playerMobileObjectList;
             states.MobileObjectList = mobileObjectList;
-            //states.ItemObjectList = itemObjectList;
-            //states.ItemDropableLandList = itemDropableLandSimpleList;
-            //states.VendorItemObjectList = vendorItemObjectList;
-
-            //Console.WriteLine("test 3");
+            states.ItemObjectList = itemObjectList;
+            states.ItemDropableLandList = itemDropableLandSimpleList;
+            states.VendorItemObjectList = vendorItemObjectList;
 
             // ##################################################################################
             byte[] mobileDataArray = grpcMobileList.ToByteArray();
@@ -581,167 +541,157 @@ namespace ClassicUO.Grpc
             byte[] clilocDataArray = clilocDataList.ToByteArray();
 
         	byte[] playerMobileObjectArray = playerMobileObjectList.ToByteArray();
-        	byte[] itemObjectArray = itemObjectList.ToByteArray();
         	byte[] mobileObjectArray = mobileObjectList.ToByteArray();
+        	byte[] itemObjectArray = itemObjectList.ToByteArray();
         	byte[] itemDropableLandSimpleArray = itemDropableLandSimpleList.ToByteArray();
         	byte[] vendorItemObjectArray = vendorItemObjectList.ToByteArray();
         	
         	byte[] playerStatusArray = playerStatus.ToByteArray();
 
-        	//Console.WriteLine("test 4");
+        	if (_envStep == 0) 
+        	{
+        		mobileDataArraysTemp = mobileDataArray;
+        		equippedItemArraysTemp = equippedItemArray;
+        		backpackItemArraysTemp = backpackItemArray;
+        		corpseItemArraysTemp = corpseItemArray;
+        		popupMenuArraysTemp = popupMenuArray;
+        		clilocDataArraysTemp = clilocDataArray;
 
-        	if ( (playerMobileObjectArray.Length != 0) ) {
-            	if (_envStep == 0) 
-            	{
-            		mobileDataArraysTemp = mobileDataArray;
-            		equippedItemArraysTemp = equippedItemArray;
-            		backpackItemArraysTemp = backpackItemArray;
-            		corpseItemArraysTemp = corpseItemArray;
-            		popupMenuArraysTemp = popupMenuArray;
-            		clilocDataArraysTemp = clilocDataArray;
+        		playerMobileObjectArraysTemp = playerMobileObjectArray;
+        		mobileObjectArraysTemp = mobileObjectArray;
+        		itemObjectArraysTemp = itemObjectArray;
+        		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
+        		vendorItemObjectArraysTemp = vendorItemObjectArray;
 
-            		playerMobileObjectArraysTemp = playerMobileObjectArray;
-            		mobileObjectArraysTemp = mobileObjectArray;
-            		itemObjectArraysTemp = itemObjectArray;
-            		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
-            		vendorItemObjectArraysTemp = vendorItemObjectArray;
-
-            		playerStatusArraysTemp = playerStatusArray;
-            	}
-            	else if (_envStep == 1001) 
-            	{	
-	            	// ##################################################################################
-	            	mobileDataArrays = mobileDataArraysTemp;
-	            	equippedItemArrays = equippedItemArraysTemp;
-	            	backpackItemArrays = backpackItemArraysTemp;
-	            	corpseItemArrays = corpseItemArraysTemp;
-	            	popupMenuArrays = popupMenuArraysTemp;
-	            	clilocDataArrays = clilocDataArraysTemp;
-
-	            	playerMobileObjectArrays = playerMobileObjectArraysTemp;
-	            	mobileObjectArrays = mobileObjectArraysTemp;
-	            	itemObjectArrays = itemObjectArraysTemp;
-	            	itemDropableLandSimpleArrays = itemDropableLandSimpleArraysTemp;
-	            	vendorItemObjectArrays = vendorItemObjectArraysTemp;
-
-	            	playerStatusArrays = playerStatusArraysTemp;
-
-					// ##################################################################################
-            		mobileDataArraysTemp = mobileDataArray;
-            		equippedItemArraysTemp = equippedItemArray;
-            		backpackItemArraysTemp = backpackItemArray;
-            		corpseItemArraysTemp = corpseItemArray;
-            		popupMenuArraysTemp = popupMenuArray;
-            		clilocDataArraysTemp = clilocDataArray;
-
-            		playerMobileObjectArraysTemp = playerMobileObjectArray;
-            		mobileObjectArraysTemp = mobileObjectArray;
-            		itemObjectArraysTemp = itemObjectArray;
-            		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
-            		vendorItemObjectArraysTemp = vendorItemObjectArray;
-
-            		playerStatusArraysTemp = playerStatusArray;
-            	}
-            	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * 5) )
-            	{
-					// ##################################################################################
-	            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
-	            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
-	            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
-	            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
-	            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
-	            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
-
-	            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArraysTemp);
-	            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArraysTemp);
-	            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArraysTemp);
-	            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArraysTemp);
-	            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArraysTemp);
-
-	            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
-
-					// ##################################################################################
-            		mobileDataArraysTemp = mobileDataArray;
-            		equippedItemArraysTemp = equippedItemArray;
-            		backpackItemArraysTemp = backpackItemArray;
-            		corpseItemArraysTemp = corpseItemArray;
-            		popupMenuArraysTemp = popupMenuArray;
-            		clilocDataArraysTemp = clilocDataArray;
-
-            		playerMobileObjectArraysTemp = playerMobileObjectArray;
-            		mobileObjectArraysTemp = mobileObjectArray;
-            		itemObjectArraysTemp = itemObjectArray;
-            		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
-            		vendorItemObjectArraysTemp = vendorItemObjectArray;
-
-            		playerStatusArraysTemp = playerStatusArray;
-
-            	}
-            	else if (_envStep == 1001 * 5)
-            	{
-            		// ##################################################################################
-	            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
-	            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
-	            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
-	            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
-	            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
-	            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
-
-	            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArraysTemp);
-	            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArraysTemp);
-	            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArraysTemp);
-	            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArraysTemp);
-	            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArraysTemp);
-
-	            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
-					
-            		SaveReplayFile();
-            		CreateMpqFile();
-            		Reset();
-
-            		return Task.FromResult(states);
-            	}
-            	else
-            	{
-            		//Console.WriteLine("else");
-            		mobileDataArraysTemp = ConcatByteArrays(mobileDataArraysTemp, mobileDataArray);
-	            	equippedItemArraysTemp = ConcatByteArrays(equippedItemArraysTemp, equippedItemArray);
-	            	backpackItemArraysTemp = ConcatByteArrays(backpackItemArraysTemp, backpackItemArray);
-	            	corpseItemArraysTemp = ConcatByteArrays(corpseItemArraysTemp, corpseItemArray);
-	            	popupMenuArraysTemp = ConcatByteArrays(popupMenuArraysTemp, popupMenuArray);
-	            	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
-
-	            	playerMobileObjectArraysTemp = ConcatByteArrays(playerMobileObjectArraysTemp, playerMobileObjectArray);
-	            	mobileObjectArraysTemp = ConcatByteArrays(mobileObjectArraysTemp, mobileObjectArray);
-	            	itemObjectArraysTemp = ConcatByteArrays(itemObjectArraysTemp, itemObjectArray);
-	            	itemDropableLandSimpleArraysTemp = ConcatByteArrays(itemDropableLandSimpleArraysTemp, itemDropableLandSimpleArray);
-	            	vendorItemObjectArraysTemp = ConcatByteArrays(vendorItemObjectArraysTemp, vendorItemObjectArray);
-
-	            	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
-            	}
-
+        		playerStatusArraysTemp = playerStatusArray;
+        	}
+        	else if (_envStep == 1001) 
+        	{	
             	// ##################################################################################
-				mobileDataArrayLengthList.Add((int) mobileDataArray.Length);
-				equippedItemArrayLengthList.Add((int) equippedItemArray.Length);
-				backpackItemArrayLengthList.Add((int) backpackItemArray.Length);
-				corpseItemArrayLengthList.Add((int) corpseItemArray.Length);
-				popupMenuArrayLengthList.Add((int) popupMenuArray.Length);
-				clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
+            	mobileDataArrays = mobileDataArraysTemp;
+            	equippedItemArrays = equippedItemArraysTemp;
+            	backpackItemArrays = backpackItemArraysTemp;
+            	corpseItemArrays = corpseItemArraysTemp;
+            	popupMenuArrays = popupMenuArraysTemp;
+            	clilocDataArrays = clilocDataArraysTemp;
 
-            	playerMobileObjectArrayLengthList.Add((int) playerMobileObjectArray.Length);
-            	mobileObjectArrayLengthList.Add((int) mobileObjectArray.Length);
-            	itemObjectArrayLengthList.Add((int) itemObjectArray.Length);
-            	itemDropableLandSimpleArrayLengthList.Add((int) itemDropableLandSimpleArray.Length);
-            	vendorItemObjectArrayLengthList.Add((int) vendorItemObjectArray.Length);
+            	playerMobileObjectArrays = playerMobileObjectArraysTemp;
+            	mobileObjectArrays = mobileObjectArraysTemp;
+            	itemObjectArrays = itemObjectArraysTemp;
+            	itemDropableLandSimpleArrays = itemDropableLandSimpleArraysTemp;
+            	vendorItemObjectArrays = vendorItemObjectArraysTemp;
+
+            	playerStatusArrays = playerStatusArraysTemp;
+
+				// ##################################################################################
+        		mobileDataArraysTemp = mobileDataArray;
+        		equippedItemArraysTemp = equippedItemArray;
+        		backpackItemArraysTemp = backpackItemArray;
+        		corpseItemArraysTemp = corpseItemArray;
+        		popupMenuArraysTemp = popupMenuArray;
+        		clilocDataArraysTemp = clilocDataArray;
+
+        		playerMobileObjectArraysTemp = playerMobileObjectArray;
+        		mobileObjectArraysTemp = mobileObjectArray;
+        		itemObjectArraysTemp = itemObjectArray;
+        		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
+        		vendorItemObjectArraysTemp = vendorItemObjectArray;
+
+        		playerStatusArraysTemp = playerStatusArray;
+        	}
+        	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * 5) )
+        	{
+				// ##################################################################################
+            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
+            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
+            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
+            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
+            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
+            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
+
+            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArraysTemp);
+            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArraysTemp);
+            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArraysTemp);
+            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArraysTemp);
+            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArraysTemp);
+
+            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
+
+				// ##################################################################################
+        		mobileDataArraysTemp = mobileDataArray;
+        		equippedItemArraysTemp = equippedItemArray;
+        		backpackItemArraysTemp = backpackItemArray;
+        		corpseItemArraysTemp = corpseItemArray;
+        		popupMenuArraysTemp = popupMenuArray;
+        		clilocDataArraysTemp = clilocDataArray;
+
+        		playerMobileObjectArraysTemp = playerMobileObjectArray;
+        		mobileObjectArraysTemp = mobileObjectArray;
+        		itemObjectArraysTemp = itemObjectArray;
+        		itemDropableLandSimpleArraysTemp = itemDropableLandSimpleArray;
+        		vendorItemObjectArraysTemp = vendorItemObjectArray;
+
+        		playerStatusArraysTemp = playerStatusArray;
+        	}
+        	else if (_envStep == 1001 * 5)
+        	{
+        		// ##################################################################################
+            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
+            	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
+            	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
+            	corpseItemArrays = ConcatByteArrays(corpseItemArrays, corpseItemArraysTemp);
+            	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
+            	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
+
+            	playerMobileObjectArrays = ConcatByteArrays(playerMobileObjectArrays, playerMobileObjectArraysTemp);
+            	mobileObjectArrays = ConcatByteArrays(mobileObjectArrays, mobileObjectArraysTemp);
+            	itemObjectArrays = ConcatByteArrays(itemObjectArrays, itemObjectArraysTemp);
+            	itemDropableLandSimpleArrays = ConcatByteArrays(itemDropableLandSimpleArrays, itemDropableLandSimpleArraysTemp);
+            	vendorItemObjectArrays = ConcatByteArrays(vendorItemObjectArrays, vendorItemObjectArraysTemp);
+
+            	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
 				
-            	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
+        		SaveReplayFile();
+        		CreateMpqFile();
+        		Reset();
 
-            	actionTypeList.Add((int) LastActionType);
-				walkDirectionList.Add((int) LastWalkDirection);
+        		return Task.FromResult(states);
+        	}
+        	else
+        	{
+        		mobileDataArraysTemp = ConcatByteArrays(mobileDataArraysTemp, mobileDataArray);
+            	equippedItemArraysTemp = ConcatByteArrays(equippedItemArraysTemp, equippedItemArray);
+            	backpackItemArraysTemp = ConcatByteArrays(backpackItemArraysTemp, backpackItemArray);
+            	corpseItemArraysTemp = ConcatByteArrays(corpseItemArraysTemp, corpseItemArray);
+            	popupMenuArraysTemp = ConcatByteArrays(popupMenuArraysTemp, popupMenuArray);
+            	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
 
-            	_envStep++;
+            	playerMobileObjectArraysTemp = ConcatByteArrays(playerMobileObjectArraysTemp, playerMobileObjectArray);
+            	mobileObjectArraysTemp = ConcatByteArrays(mobileObjectArraysTemp, mobileObjectArray);
+            	itemObjectArraysTemp = ConcatByteArrays(itemObjectArraysTemp, itemObjectArray);
+            	itemDropableLandSimpleArraysTemp = ConcatByteArrays(itemDropableLandSimpleArraysTemp, itemDropableLandSimpleArray);
+            	vendorItemObjectArraysTemp = ConcatByteArrays(vendorItemObjectArraysTemp, vendorItemObjectArray);
 
-	        }
+            	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
+        	}
+
+        	// ##################################################################################
+			mobileDataArrayLengthList.Add((int) mobileDataArray.Length);
+			equippedItemArrayLengthList.Add((int) equippedItemArray.Length);
+			backpackItemArrayLengthList.Add((int) backpackItemArray.Length);
+			corpseItemArrayLengthList.Add((int) corpseItemArray.Length);
+			popupMenuArrayLengthList.Add((int) popupMenuArray.Length);
+			clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
+
+        	playerMobileObjectArrayLengthList.Add((int) playerMobileObjectArray.Length);
+        	mobileObjectArrayLengthList.Add((int) mobileObjectArray.Length);
+        	itemObjectArrayLengthList.Add((int) itemObjectArray.Length);
+        	itemDropableLandSimpleArrayLengthList.Add((int) itemDropableLandSimpleArray.Length);
+        	vendorItemObjectArrayLengthList.Add((int) vendorItemObjectArray.Length);
+			
+        	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
+
+        	_envStep++;
 
 	        grpcMobileDataList.Clear();
 	        equippedItemDataList.Clear();
@@ -767,8 +717,8 @@ namespace ClassicUO.Grpc
 		    	//Console.WriteLine("gameTick: {0}, actionType: {1}", _controller._gameTick, actionType);
 		    }
 
-		    LastActionType = actions.ActionType;
-    		LastWalkDirection = actions.WalkDirection;
+		    actionTypeList.Add((int) actions.ActionType);
+			walkDirectionList.Add((int) actions.WalkDirection);
 
     		if (actions.ActionType == 0) {
             	// Walk to Direction

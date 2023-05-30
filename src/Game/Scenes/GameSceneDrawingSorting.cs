@@ -158,9 +158,6 @@ namespace ClassicUO.Game.Scenes
                         continue;
                     }
 
-                    //if (obj is Item it && !it.ItemData.IsRoof || !(obj is Static) && !(obj is Multi))
-                    //    continue;
-
                     if (tileZ > pz14 && _maxZ > tileZ)
                     {
                         ref StaticTiles itemdata = ref TileDataLoader.Instance.StaticData[obj.Graphic];
@@ -189,16 +186,12 @@ namespace ClassicUO.Game.Scenes
 
                     for (GameObject obj2 = chunk.GetHeadObject(x, y); obj2 != null; obj2 = obj2.TNext)
                     {
-                        //if (obj is Item it && !it.ItemData.IsRoof || !(obj is Static) && !(obj is Multi))
-                        //    continue;
-
                         if (obj2 is Mobile)
                         {
                             continue;
                         }
 
                         sbyte tileZ = obj2.Z;
-
                         if (tileZ > pz14 && _maxZ > tileZ)
                         {
                             if (!(obj2 is Land))
@@ -213,14 +206,6 @@ namespace ClassicUO.Game.Scenes
                                     _noDrawRoofs = true;
                                 }
                             }
-
-                            //if (GameObjectHelper.TryGetStaticData(obj2, out var itemdata) && ((ulong) itemdata.Flags & 0x204) == 0 && itemdata.IsRoof)
-                            //{
-                            //    _maxZ = tileZ;
-                            //    World.Map.ClearBockAccess();
-                            //    _maxGroundZ = World.Map.CalculateNearZ(tileZ, playerX, playerY, tileZ);
-                            //    _noDrawRoofs = true;
-                            //}
                         }
                     }
 
@@ -228,7 +213,6 @@ namespace ClassicUO.Game.Scenes
                 }
 
                 _maxZ = _maxGroundZ;
-
                 if (tempZ < pz16)
                 {
                     _maxZ = pz16;
@@ -312,7 +296,6 @@ namespace ClassicUO.Game.Scenes
                     sbyte index = 0;
 
                     bool check = World.Player.X <= worldX && World.Player.Y <= worldY;
-
                     if (!check)
                     {
                         check = World.Player.Y <= worldY && World.Player.X <= worldX + 1;
@@ -618,12 +601,6 @@ namespace ClassicUO.Game.Scenes
         {
             for (; obj != null; obj = obj.TNext)
             {
-                // i think we can remove this property. It's used to the "odd sorting system"
-                //if (obj.CurrentRenderIndex == _renderIndex)
-                //{
-                //    continue;
-                //}
-
                 if (UpdateDrawPosition && obj.CurrentRenderIndex != _renderIndex || obj.IsPositionChanged)
                 {
                     obj.UpdateRealScreenPosition(_offset.X, _offset.Y);
@@ -632,7 +609,6 @@ namespace ClassicUO.Game.Scenes
                 obj.UseInRender = 0xFF;
 
                 int screenX = obj.RealScreenPosition.X;
-
                 if (screenX < _minPixel.X || screenX > _maxPixel.X)
                 {
                     break;
@@ -811,6 +787,8 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (obj is Mobile mobile)
                 {
+                    //Console.WriteLine("obj is Mobile mobile");
+
                     UpdateObjectHandles(mobile, useObjectHandles);
 
                     maxObjectZ += Constants.DEFAULT_CHARACTER_HEIGHT;
@@ -934,7 +912,6 @@ namespace ClassicUO.Game.Scenes
 
             return false;
         }
-
 
         private void GetViewPort()
         {

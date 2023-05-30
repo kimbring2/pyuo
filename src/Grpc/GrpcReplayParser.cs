@@ -127,6 +127,10 @@ namespace ClassicUO.Grpc
 
         //List<int> playerStatusArrayLengthListRead;
 
+        // ###############
+        List<int> actionTypeList;
+        List<int> walkDirectionList;
+
     	public UoServiceReplayImpl(int port)
         {
             _port = port;
@@ -237,8 +241,12 @@ namespace ClassicUO.Grpc
 		        	sum_length += mobileObjectArrayLengthListRead[i];
 		        }
 
-		        Console.WriteLine("sum_length: {0}", sum_length);
-				Console.WriteLine("mobileObjectArrRead.Length: {0}", mobileObjectArrRead.Length);
+		        // ###############
+		        actionTypeList = ConvertByteArrayToIntList(actionTypeArrRead);
+            	walkDirectionList = ConvertByteArrayToIntList(walkDirectionArrRead);
+
+				Console.WriteLine("actionTypeList.Count: {0}", actionTypeList.Count);
+				Console.WriteLine("walkDirectionList.Count: {0}", walkDirectionList.Count);
 			}
 			catch (Exception ex)
             {
@@ -386,6 +394,10 @@ namespace ClassicUO.Grpc
 
         	int index = _replayStep;
 
+        	//Console.WriteLine("actionTypeList[{0}]: {1}", index, actionTypeList[index]);
+        	//Console.WriteLine("walkDirectionList[{0}]: {1}", index, walkDirectionList[index]);
+        	//Console.WriteLine("");
+
         	byte[] mobileDataSubsetArray = GetSubsetArray(index, mobileDataArrayLengthListRead, ref _mobileDataArrayOffset, mobileDataArrRead);
         	byte[] equippedItemSubsetArray = GetSubsetArray(index, equippedItemArrayLengthListRead, ref _equippedItemArrayOffset, equippedItemArrRead);
         	byte[] backpackItemSubsetArray = GetSubsetArray(index, backpackItemArrayLengthListRead, ref _backpackItemArrayOffset, backpackItemArrRead);
@@ -424,9 +436,6 @@ namespace ClassicUO.Grpc
             {
             	Console.WriteLine("Failed to parser the GetSubsetArray from original array: " + ex.Message);
             }
-
-            List<int> actionTypeList = ConvertByteArrayToIntList(actionTypeArrRead);
-            List<int> walkDirectionList = ConvertByteArrayToIntList(walkDirectionArrRead);
 
 			// ###############
 	        States states = new States();

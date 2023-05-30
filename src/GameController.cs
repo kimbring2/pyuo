@@ -420,7 +420,7 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("Step 4:");
+            //Console.WriteLine("Step 4");
             if (World.Player != null) 
             {
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
@@ -480,6 +480,8 @@ namespace ClassicUO
             _totalElapsed %= x;
 
             base.Update(gameTime);
+
+            //Console.WriteLine("Step 2");
 
             semObservation.Release();
             semPhysics.Release();

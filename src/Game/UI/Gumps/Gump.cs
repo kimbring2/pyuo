@@ -73,6 +73,9 @@ namespace ClassicUO.Game.UI.Gumps
         {
             if (InvalidateContents)
             {
+                //Console.WriteLine("Gump Update()");
+                //Console.WriteLine("InvalidateContents");
+
                 UpdateContents();
                 InvalidateContents = false;
             }

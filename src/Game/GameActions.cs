@@ -231,6 +231,7 @@ namespace ClassicUO.Game
         public static bool OpenCorpse(uint serial)
         {
             //Console.WriteLine("OpenCorpse()");
+
             Client.Game._uoServiceImpl.actionType = 4;
             Client.Game._uoServiceImpl.mobileSerial = serial;
 
@@ -246,6 +247,7 @@ namespace ClassicUO.Game
             }
 
             World.Player.ManualOpenedCorpses.Add(serial);
+
             DoubleClick(serial);
 
             return true;

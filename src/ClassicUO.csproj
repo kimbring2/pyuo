@@ -21,7 +21,6 @@
     <Description>An open source implementation of the Ultima Online Classic Client.</Description>
   </PropertyGroup>
 
-
   <PropertyGroup Condition="'$(IS_DEV_BUILD)' == 'true'">
     <OutputType>WinExe</OutputType>
     <DefineConstants>$(DefineConstants);DEV_BUILD</DefineConstants>

@@ -634,6 +634,8 @@ namespace ClassicUO.Network
 
         private static void UpdateItem(ref StackDataReader p)
         {
+            //Console.WriteLine("UpdateItem()");
+
             if (World.Player == null)
             {
                 return;
@@ -1145,6 +1147,7 @@ namespace ClassicUO.Network
         private static void OpenContainer(ref StackDataReader p)
         {
             //Console.WriteLine("OpenContainer()");
+
             if (World.Player == null)
             {
                 return;
@@ -1155,7 +1158,6 @@ namespace ClassicUO.Network
             if (graphic == 0xFFFF)
             {
                 Item spellBookItem = World.Items.Get(serial);
-
                 if (spellBookItem == null)
                 {
                     return;
@@ -1213,9 +1215,9 @@ namespace ClassicUO.Network
                     {
                         Item it = (Item) first;
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
-                        Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
-                                                                  0, 0, it.Serial, it.Name, false, "None", 
-                                                                  it.Amount, it.Price);
+                        //Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
+                        //                                          0, 0, it.Serial, it.Name, false, "None", 
+                        //                                          it.Amount, it.Price);
 
                         gump.AddItem
                         (
@@ -1244,14 +1246,10 @@ namespace ClassicUO.Network
                 Item item = World.Items.Get(serial);
                 if (item != null)
                 {
-                    //Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
+                    Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
 
                     if (item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2))
                     {
-                        //Console.WriteLine("item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2");
-
-                        //UIManager.GetGump<GridLootGump>(serial)?.Dispose();
-                        //UIManager.Add(new GridLootGump(serial));
                         _requestedGridLoot = serial;
 
                         if (ProfileManager.CurrentProfile.GridLootType == 1)
@@ -1261,7 +1259,22 @@ namespace ClassicUO.Network
                     }
 
                     ContainerGump container = UIManager.GetGump<ContainerGump>(serial);
+
+                    /*
+                    for (LinkedObject i = item.Items; i != null; i = i.Next)
+                    {
+                        Item child = (Item) i;
+                        Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}", child.Name, child.Serial, child.Amount);
+
+                        if (child.Container == item)
+                        {
+                            UIManager.GetGump<ContainerGump>(child)?.Dispose();
+                        }
+                    }
+                    */
+
                     //Console.WriteLine("container: {0}", container);
+                    //Console.WriteLine("corpse item end check");
 
                     bool playsound = false;
                     int x, y;
@@ -1399,6 +1412,8 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
+            //Console.WriteLine("UpdateContainedItem()");
+
             if (!World.InGame)
             {
                 return;
@@ -1896,13 +1911,14 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
+            Console.WriteLine("UpdateContainedItems()");
+
             if (!World.InGame)
             {
                 return;
             }
 
             ushort count = p.ReadUInt16BE();
-
             for (int i = 0; i < count; i++)
             {
                 uint serial = p.ReadUInt32BE();
@@ -1922,7 +1938,6 @@ namespace ClassicUO.Network
                 if (i == 0)
                 {
                     Entity container = World.Get(containerSerial);
-
                     if (container != null)
                     {
                         ClearContainerAndRemoveItems(container, container.Graphic == 0x2006);
@@ -5724,6 +5739,8 @@ namespace ClassicUO.Network
             uint containerSerial
         )
         {
+            //Console.WriteLine("AddItemToContainer()");
+
             if (ItemHold.Serial == serial)
             {
                 if (ItemHold.Dropped)
@@ -5734,8 +5751,12 @@ namespace ClassicUO.Network
             }
 
             Entity container = World.Get(containerSerial);
+
+            //Console.WriteLine("container.Name: {0}", container.Name);
+
             if (container == null)
             {
+                //Console.WriteLine("container == null");
                 Log.Warn($"No container ({containerSerial}) found");
 
                 return;
@@ -5745,6 +5766,8 @@ namespace ClassicUO.Network
 
             if (SerialHelper.IsMobile(serial))
             {
+                //Console.WriteLine("SerialHelper.IsMobile(serial)");
+
                 World.RemoveMobile(serial, true);
                 Log.Warn("AddItemToContainer function adds mobile as Item");
             }
@@ -5784,7 +5807,6 @@ namespace ClassicUO.Network
             else if (SerialHelper.IsItem(containerSerial))
             {
                 Gump gump = UIManager.GetGump<BulletinBoardGump>(containerSerial);
-
                 if (gump != null)
                 {
                     NetClient.Socket.Send_BulletinBoardRequestMessageSummary(containerSerial, serial);

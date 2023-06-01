@@ -66,7 +66,7 @@ namespace ClassicUO.Grpc
         int _envStep;
         string _replayName;
 
-        // ###############
+        // ##################################################################################
     	List<int> mobileDataArrayLengthList = new List<int>();
     	List<int> equippedItemArrayLengthList = new List<int>();
     	List<int> backpackItemArrayLengthList = new List<int>();
@@ -82,7 +82,7 @@ namespace ClassicUO.Grpc
 
         List<int> playerStatusArrayLengthList = new List<int>();
 
-        // ###############
+        // ##################################################################################
         byte[] mobileDataArrays;
 		byte[] equippedItemArrays;
 		byte[] backpackItemArrays;
@@ -98,7 +98,7 @@ namespace ClassicUO.Grpc
 
         byte[] playerStatusArrays;
 
-        // ###############
+        // ##################################################################################
         byte[] mobileDataArraysTemp;
 		byte[] equippedItemArraysTemp;
 		byte[] backpackItemArraysTemp;
@@ -114,7 +114,7 @@ namespace ClassicUO.Grpc
 
         byte[] playerStatusArraysTemp;
 
-        // ###############
+        // ##################################################################################
     	List<int> actionTypeList = new List<int>();
     	List<int> walkDirectionList = new List<int>();
 
@@ -125,6 +125,8 @@ namespace ClassicUO.Grpc
     	public uint index;
     	public uint amount;
     	public uint openedCorpse;
+
+    	public bool corpseOpened;
 
     	//public uint LastActionType;
     	//public uint LastWalkDirection;
@@ -149,13 +151,15 @@ namespace ClassicUO.Grpc
 	    	index = 0;
 	    	amount = 0;
 	    	openedCorpse = 0;
+
+	    	corpseOpened = false;
         }
 
         public void Reset()
         {
         	Console.WriteLine("Reset()");
 
-        	// ###############
+        	// ##################################################################################
 	    	mobileDataArrayLengthList.Clear();
 	    	equippedItemArrayLengthList.Clear();
 	    	backpackItemArrayLengthList.Clear();
@@ -171,7 +175,7 @@ namespace ClassicUO.Grpc
 
 	        playerStatusArrayLengthList.Clear();
 
-	        // ###############
+	        // ##################################################################################
 	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
 	        Array.Clear(equippedItemArrays, 0, equippedItemArrays.Length);
 	        Array.Clear(backpackItemArrays, 0, backpackItemArrays.Length);
@@ -187,7 +191,7 @@ namespace ClassicUO.Grpc
 
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
 
-	        // ###############
+	        // ##################################################################################
 			Array.Clear(mobileDataArraysTemp, 0, mobileDataArraysTemp.Length);
 	        Array.Clear(equippedItemArraysTemp, 0, equippedItemArraysTemp.Length);
 	        Array.Clear(backpackItemArraysTemp, 0, backpackItemArraysTemp.Length);
@@ -203,11 +207,11 @@ namespace ClassicUO.Grpc
 
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
 
-	        // ###############
+	        // ##################################################################################
     		actionTypeList.Clear();
     		walkDirectionList.Clear();
 
-    		// ###############
+    		// ##################################################################################
     		_envStep = 0;
     		actionType = 0;
 	    	walkDirection = 0;
@@ -216,6 +220,8 @@ namespace ClassicUO.Grpc
 	    	index = 0;
 	    	amount = 0;
 	    	openedCorpse = 0;
+
+	    	corpseOpened = false;
         }
 
         public void CreateMpqFile()
@@ -261,11 +267,11 @@ namespace ClassicUO.Grpc
 	    	byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
 
-            // ###############
+            // ##################################################################################
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.type", actionTypeArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.walkDirection", walkDirectionArray);
 
-	    	// ###############
+	    	// ##################################################################################
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileDataLen", mobileDataArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.equippedItemLen", equippedItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.backpackitemLen", backpackItemArrayLengthArray);
@@ -281,7 +287,7 @@ namespace ClassicUO.Grpc
 
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
 
-            // ###############
+            // ##################################################################################
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.equippedItem", equippedItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.backpackItem", backpackItemArrays);
@@ -463,10 +469,11 @@ namespace ClassicUO.Grpc
 		        								  Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
 		    }
 
-		    if (openedCorpse != 0) 
+		    if ( (corpseOpened == true) && (openedCorpse != 0) )
 		    {
-		    	//Console.WriteLine("openedCorpse != 0");
-			    try 
+		    	Console.WriteLine("(corpseOpened == true) && (openedCorpse != 0)");
+		    	corpseItemDataList.Clear();
+			    try
 	        	{
 	                Item item = World.Items.Get(openedCorpse);
 	        		//Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
@@ -474,8 +481,7 @@ namespace ClassicUO.Grpc
 		            for (LinkedObject i = item.Items; i != null; i = i.Next)
 		            {
 		                Item child = (Item) i;
-		                //Console.WriteLine("i test: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-		                
+		                //Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}, ", i, child.Name, child.Serial, child.Amount);
 	            		corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
 		              									         Serial = (uint) child.Serial, Amount = (uint) child.Amount });
 		            }
@@ -485,6 +491,15 @@ namespace ClassicUO.Grpc
 	            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
 	            }
 	        }
+	        else
+	        {
+	        	corpseItemDataList.Clear();
+	        	
+	        }
+
+	        //Console.WriteLine("corpseItemDataList.Count: {0}", corpseItemDataList.Count);
+	        //corpseItemDataList.Add(new GrpcItemData{ Name = name, Layer = (uint) layer,
+            //                                         Serial = (uint) serial, Amount = (uint) amount });
 
             States states = new States();
 
@@ -599,7 +614,7 @@ namespace ClassicUO.Grpc
 
         		playerStatusArraysTemp = playerStatusArray;
         	}
-        	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * 5) )
+        	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * 10) )
         	{
 				// ##################################################################################
             	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
@@ -633,7 +648,7 @@ namespace ClassicUO.Grpc
 
         		playerStatusArraysTemp = playerStatusArray;
         	}
-        	else if (_envStep == 1001 * 5)
+        	else if (_envStep == 1001 * 10)
         	{
         		// ##################################################################################
             	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
@@ -835,7 +850,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 9) {
-	        	// Close the opened corpse
+	        	// Update the items of opened corpse 
 	        	if (World.Player != null) {
                     Console.WriteLine("actions.ActionType == 9");
 	        		try 

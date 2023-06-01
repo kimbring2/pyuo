@@ -63,8 +63,9 @@ namespace ClassicUO.Game.UI.Gumps
 
         public ContainerGump(uint serial, ushort gumpid, bool playsound) : base(serial, 0)
         {
-            Item item = World.Items.Get(serial);
+            Console.WriteLine("ContainerGump():");
 
+            Item item = World.Items.Get(serial);
             if (item == null)
             {
                 Dispose();
@@ -117,6 +118,7 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 if (World.Player.ManualOpenedCorpses.Contains(LocalSerial))
                 {
+                    //Console.WriteLine("World.Player.ManualOpenedCorpses.Contains(LocalSerial)");
                     World.Player.ManualOpenedCorpses.Remove(LocalSerial);
                 }
                 else if (World.Player.AutoOpenedCorpses.Contains(LocalSerial) && ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.SkipEmptyCorpse)
@@ -166,6 +168,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void BuildGump()
         {
+            //Console.WriteLine("BuildGump(), LocalSerial: {0}", LocalSerial);
+
             // gump: ClassicUO.Game.UI.Gumps.ContainerGump+GumpPicContainer
             //Console.WriteLine("ContainerGump BuildGump()");
 
@@ -174,18 +178,35 @@ namespace ClassicUO.Game.UI.Gumps
             WantUpdateSize = false;
 
             Item item = World.Items.Get(LocalSerial);
-            //Console.WriteLine("item.Name: {0}", item.Name);
+            //Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
 
-            for (LinkedObject i = item.Items; i != null; i = i.Next)
+            if ( (Client.Game._uoServiceImpl.corpseOpened == false) && (item.IsCorpse) )
             {
-                Item child = (Item) i;
-                //Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-
-                if (child.Container == item)
-                {
-                    UIManager.GetGump<ContainerGump>(child)?.Dispose();
-                }
+                Client.Game._uoServiceImpl.corpseOpened = true;
+                Client.Game._uoServiceImpl.openedCorpse = LocalSerial;
+                //Console.WriteLine("InvalidateContents: {0}", InvalidateContents);
             }
+
+            //Console.WriteLine("InvalidateContents: {0}", InvalidateContents);
+
+            /*
+            if (InvalidateContents == false) 
+            {
+                //Console.WriteLine("item.Name: {0}", item.Name);
+                Console.WriteLine("InvalidateContents == false");
+
+                for (LinkedObject i = item.Items; i != null; i = i.Next)
+                {
+                    Item child = (Item) i;
+                    //Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
+
+                    //public void AddGameItem(string type, string name, uint layer, uint serial, uint amount)
+                    Client.Game._uoServiceImpl.AddGameItem("CorpseItem", (string) child.Name, (uint) child.Layer, (uint) child.Serial, 
+                                                            child.Amount);
+                }
+
+            }
+            */
 
             if (item == null)
             {
@@ -217,7 +238,6 @@ namespace ClassicUO.Game.UI.Gumps
                 _eyeGumpPic.Width = (int) (_eyeGumpPic.Width * scale);
                 _eyeGumpPic.Height = (int) (_eyeGumpPic.Height * scale);
             }
-
 
             Width = _gumpPicContainer.Width = (int) (_gumpPicContainer.Width * scale);
             Height = _gumpPicContainer.Height = (int) (_gumpPicContainer.Height * scale);
@@ -270,10 +290,9 @@ namespace ClassicUO.Game.UI.Gumps
             }
             else
             {
-                Console.WriteLine("dropcontainer: {0}", dropcontainer);
+                //Console.WriteLine("dropcontainer: {0}", dropcontainer);
 
                 Entity thisCont = World.Items.Get(dropcontainer);
-
                 if (thisCont == null)
                 {
                     return;
@@ -287,7 +306,6 @@ namespace ClassicUO.Game.UI.Gumps
                 }
 
                 bool candrop = thisCont.Distance <= Constants.DRAG_ITEMS_DISTANCE;
-
                 if (candrop && SerialHelper.IsValid(serial))
                 {
                     candrop = false;
@@ -297,7 +315,6 @@ namespace ClassicUO.Game.UI.Gumps
                         candrop = true;
 
                         Item target = World.Items.Get(serial);
-
                         if (target != null)
                         {
                             if (target.ItemData.IsContainer)
@@ -343,7 +360,6 @@ namespace ClassicUO.Game.UI.Gumps
                 if (candrop && ItemHold.Enabled && !ItemHold.IsFixedPosition)
                 {
                     ContainerGump gump = UIManager.GetGump<ContainerGump>(dropcontainer);
-
                     if (gump != null && (it == null || it.Serial != dropcontainer && it is Item item && !item.ItemData.IsContainer))
                     {
                         if (gump.IsChessboard)
@@ -447,7 +463,6 @@ namespace ClassicUO.Game.UI.Gumps
             }
 
             Item item = World.Items.Get(LocalSerial);
-
             if (item == null || item.IsDestroyed)
             {
                 Dispose();
@@ -473,7 +488,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void UpdateContents()
         {
-            //Console.WriteLine("UpdateContents()");
+            Console.WriteLine("UpdateContents()");
             
             Clear();
             BuildGump();
@@ -516,7 +531,6 @@ namespace ClassicUO.Game.UI.Gumps
 
             bool is_corpse = container.Graphic == 0x2006;
 
-
             if (!container.IsEmpty && _hideIfEmpty && !IsVisible)
             {
                 IsVisible = true;
@@ -525,6 +539,7 @@ namespace ClassicUO.Game.UI.Gumps
             for (LinkedObject i = container.Items; i != null; i = i.Next)
             {
                 Item item = (Item) i;
+                //Console.WriteLine("item: {0}", item);
 
                 if (((item.Layer == 0 && 
                     (Layer)item.ItemData.Layer != Layer.Face &&
@@ -555,7 +570,6 @@ namespace ClassicUO.Game.UI.Gumps
 
                     itemControl.X = (int) ((short) item.X * scale);
                     itemControl.Y = (int) (((short) item.Y - (IsChessboard ? 20 : 0)) * scale);
-
 
                     Add(itemControl);
                 }
@@ -661,8 +675,11 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
-            //Console.WriteLine("actionType == 8");
+            Console.WriteLine("CloseWithRightClick()");
+
             Client.Game._uoServiceImpl.actionType = 8;
+            Client.Game._uoServiceImpl.corpseOpened = false;
+            Client.Game._uoServiceImpl.openedCorpse = 0;
 
             base.CloseWithRightClick();
 

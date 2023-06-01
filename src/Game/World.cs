@@ -222,6 +222,9 @@ namespace ClassicUO.Game
                             }
                             else if (SerialHelper.IsItem(container.Serial))
                             {
+
+                                Console.WriteLine("SerialHelper.IsItem(container.Serial)");
+                                
                                 UIManager.GetGump<ContainerGump>(container.Serial)?.RequestUpdateContents();
 
                                 if (container.Graphic == 0x2006)
@@ -382,7 +385,6 @@ namespace ClassicUO.Game
         public static Item GetOrCreateItem(uint serial)
         {
             Item item = Items.Get(serial);
-
             if (item != null && item.IsDestroyed)
             {
                 Items.Remove(serial);

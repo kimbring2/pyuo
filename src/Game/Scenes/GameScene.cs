@@ -703,13 +703,6 @@ namespace ClassicUO.Game.Scenes
         {
             for (; obj != null; obj = obj.TNext)
             {
-                if (UpdateDrawPosition && obj.CurrentRenderIndex != _renderIndex || obj.IsPositionChanged)
-                {
-                    //obj.UpdateRealScreenPosition(_offset.X, _offset.Y);
-                }
-
-                //obj.UseInRender = 0xFF;
-
                 int screenX = obj.RealScreenPosition.X;
                 if (screenX < _minPixel.X || screenX > _maxPixel.X)
                 {
@@ -725,8 +718,6 @@ namespace ClassicUO.Game.Scenes
                     {
                         return;
                     }
-
-                    //obj.CurrentRenderIndex = _renderIndex;
 
                     if (screenY > _maxPixel.Y)
                     {
@@ -760,11 +751,6 @@ namespace ClassicUO.Game.Scenes
                         continue;
                     }
 
-                    //if (!ProcessAlpha(obj, ref itemData, true, ref playerScreePos, cotZ, out bool allowSelection))
-                    //{
-                    //    continue;
-                    //}
-
                     //we avoid to hide impassable foliage or bushes, if present...
                     if (itemData.IsFoliage && ProfileManager.CurrentProfile.TreeToStumps)
                     {
@@ -778,24 +764,15 @@ namespace ClassicUO.Game.Scenes
 
                     byte height = 0;
 
-                    //if (obj.AllowedToDraw)
-                    //{
-                    //    height = CalculateObjectHeight(ref maxObjectZ, ref itemData);
-                    //}
-
                     if (maxObjectZ > maxZ)
                     {
                         return;;
                     }
 
-                    //obj.CurrentRenderIndex = _renderIndex;
-
                     if (screenY < _minPixel.Y || screenY > _maxPixel.Y)
                     {
                         continue;
                     }
-
-                    //CheckIfBehindATree(obj, worldX, worldY, ref itemData);
 
                     // hacky way to render shadows without z-fight
                     if (ProfileManager.CurrentProfile.ShadowsEnabled && ProfileManager.CurrentProfile.ShadowsStatics && (StaticFilters.IsTree(obj.Graphic, out _) || itemData.IsFoliage || StaticFilters.IsRock(obj.Graphic)))
@@ -805,16 +782,7 @@ namespace ClassicUO.Game.Scenes
                     else
                     {
                         var alpha = obj.AlphaHue;
-
-                        // hack to fix transparent objects at the same level of a opaque one
-                        if (itemData.IsTranslucent || itemData.IsTransparent)
-                        {
-                            //obj.AlphaHue = 0xFF;
-                        }
-
                         PushToGameObjectList(obj);
-
-                        //obj.AlphaHue = alpha;
                     } 
                 }
                 else if (obj is Multi multi)
@@ -825,11 +793,6 @@ namespace ClassicUO.Game.Scenes
                     {
                         continue;
                     }
-
-                    //if (!ProcessAlpha(obj, ref itemData, true, ref playerScreePos, cotZ, out bool allowSelection))
-                    //{
-                    //    continue;
-                    //}
 
                     //we avoid to hide impassable foliage or bushes, if present...
 
@@ -858,8 +821,6 @@ namespace ClassicUO.Game.Scenes
                         return;
                     }
 
-                    //obj.CurrentRenderIndex = _renderIndex;
-
                     if (screenY < _minPixel.Y || screenY > _maxPixel.Y)
                     {
                         continue;
@@ -875,24 +836,11 @@ namespace ClassicUO.Game.Scenes
                     else
                     {
                         var alpha = obj.AlphaHue;
-
-                        // hack to fix transparent objects at the same level of a opaque one
-                        if (itemData.IsTranslucent || itemData.IsTransparent)
-                        {
-                            //obj.AlphaHue = 0xFF;
-                        }
-
                         PushToGameObjectList(obj);
-
-                        //obj.AlphaHue = alpha;
                     }
                 }
                 else if (obj is Mobile mobile)
                 {
-                    //Console.WriteLine("obj is Mobile mobile");
-
-                    //UpdateObjectHandles(mobile, useObjectHandles);
-
                     maxObjectZ += Constants.DEFAULT_CHARACTER_HEIGHT;
 
                     if (maxObjectZ > maxZ)
@@ -902,19 +850,10 @@ namespace ClassicUO.Game.Scenes
 
                     StaticTiles empty = default;
 
-                    //if (!ProcessAlpha(obj, ref empty, false, ref playerScreePos, cotZ, out bool allowSelection))
-                    //{
-                    //    continue;
-                    //}
-
-                    //obj.CurrentRenderIndex = _renderIndex;
-
                     if (screenY < _minPixel.Y || screenY > _maxPixel.Y)
                     {
                         continue;
                     }
-
-                    //obj.AllowedToDraw = !HasSurfaceOverhead(mobile);
 
                     PushToGameObjectList(obj);
                 }
@@ -926,21 +865,6 @@ namespace ClassicUO.Game.Scenes
                     {
                         continue;
                     }
-
-                    if (item.IsCorpse || (!item.IsMulti && (!item.IsLocked || item.IsLocked && itemData.IsContainer)))
-                    {
-                        //UpdateObjectHandles(item, useObjectHandles);
-                    }
-
-                    //if (!item.IsMulti && !IsFoliageVisibleAtSeason(ref itemData, World.Season))
-                    //{
-                    //    continue;
-                    //}
-
-                    //if (!ProcessAlpha(obj, ref itemData, false, ref playerScreePos, cotZ, out bool allowSelection))
-                    //{
-                    //    continue;
-                    //}
 
                     if (!itemData.IsMultiMovable && itemData.IsFoliage && ProfileManager.CurrentProfile.TreeToStumps)
                     {
@@ -959,8 +883,6 @@ namespace ClassicUO.Game.Scenes
                         return;
                     }
 
-                    //obj.CurrentRenderIndex = _renderIndex;
-
                     if (screenY < _minPixel.Y || screenY > _maxPixel.Y)
                     {
                         continue;
@@ -973,11 +895,6 @@ namespace ClassicUO.Game.Scenes
                     {
                     }
 
-                    //if (!item.IsCorpse)
-                    //{
-                    //    CheckIfBehindATree(obj, worldX, worldY, ref itemData);
-                    //}
-
                     if (item.IsCorpse)
                     {
                         PushToGameObjectList(obj);
@@ -989,13 +906,6 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (obj is GameEffect effect)
                 {
-                    //if (!ProcessAlpha(obj, ref TileDataLoader.Instance.StaticData[effect.Graphic], false, ref playerScreePos, cotZ, out _))
-                    //{
-                    //    continue;
-                    //}
-
-                    //obj.CurrentRenderIndex = _renderIndex;
-
                     if (screenY < _minPixel.Y || screenY > _maxPixel.Y)
                     {
                         continue;

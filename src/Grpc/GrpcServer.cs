@@ -63,6 +63,11 @@ namespace ClassicUO.Grpc
 
         public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
+        public List<uint> grpcStaticObjectGameXs = new List<uint>();
+        public List<uint> grpcStaticObjectGameYs = new List<uint>();
+        public List<uint> grpcStaticObjectScreenXs = new List<uint>();
+        public List<uint> grpcStaticObjectScreenYs = new List<uint>();
+
         int _envStep;
         string _replayName;
 
@@ -360,6 +365,19 @@ namespace ClassicUO.Grpc
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
 	        	}
+	        	else if (type == "Static") {
+	        		//public List<uint> grpcStaticObjectGameXs = new List<uint>();
+			        //public List<uint> grpcStaticObjectGameYs = new List<uint>();
+			        //public List<uint> grpcStaticObjectScreenXs = new List<uint>();
+			        //public List<uint> grpcStaticObjectScreenYs = new List<uint>();
+	        		//grpcVendorItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
+	        		//											   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
+	        		//											   Title=title, Amount=amount, Price=price });
+			        grpcStaticObjectGameXs.Add(game_x);
+			        grpcStaticObjectGameYs.Add(game_y);
+			        grpcStaticObjectScreenXs.Add(screen_x);
+			        grpcStaticObjectScreenYs.Add(screen_y);
+	        	}
 	        }
 	        catch (Exception ex)
             {
@@ -534,6 +552,13 @@ namespace ClassicUO.Grpc
             states.ClilocDataList = clilocDataList;
 
             states.PlayerStatus = playerStatus;
+
+            GrpcGameObjectInfoList gameObjectInfoList = new GrpcGameObjectInfoList();
+            gameObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
+            gameObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
+            gameObjectInfoList.ScreenXs.AddRange(grpcStaticObjectScreenXs);
+            gameObjectInfoList.ScreenYs.AddRange(grpcStaticObjectScreenYs);
+            states.StaticObjectInfoList = gameObjectInfoList;
 
             GrpcGameObjectList playerMobileObjectList = new GrpcGameObjectList();
             GrpcGameObjectList mobileObjectList = new GrpcGameObjectList();
@@ -722,6 +747,11 @@ namespace ClassicUO.Grpc
             grpcPlayerMobileObjectList.Clear();
             grpcMobileObjectList.Clear();
             grpcItemObjectList.Clear();
+
+            grpcStaticObjectGameXs.Clear();
+	        grpcStaticObjectGameYs.Clear();
+	        grpcStaticObjectScreenXs.Clear();
+	        grpcStaticObjectScreenYs.Clear();
 
             return Task.FromResult(states);
         }

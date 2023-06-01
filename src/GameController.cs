@@ -486,6 +486,14 @@ namespace ClassicUO
             semObservation.Release();
             semPhysics.Release();
 
+            _suppressedDraw = false;
+            if (_gameTick % 4 == 0) 
+            {
+                _suppressedDraw = true;
+                SuppressDraw();
+                Thread.Sleep(100);
+            }
+
             _gameTick++;
         }
 

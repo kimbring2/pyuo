@@ -282,6 +282,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerMobileObjectLen", playerMobileObjectArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileObjectLen", mobileObjectArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemObjectLen", itemObjectArrayLengthArray);
+
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandSimpleLen", itemDropableLandSimpleArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen", vendorItemObjectArrayLengthArray);
 
@@ -291,14 +292,19 @@ namespace ClassicUO.Grpc
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.equippedItem", equippedItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.backpackItem", backpackItemArrays);
+
+			Console.WriteLine("corpseItemArrays.Length: {0}", corpseItemArrays.Length);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.corpseItem", corpseItemArrays);
+
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.popupMenu", popupMenuArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.clilocData", clilocDataArrays);
-
 	        WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.playerMobileObject", playerMobileObjectArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileObject", mobileObjectArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemObject", itemObjectArrays);
+
+            //Console.WriteLine("itemDropableLandSimpleArrays.Length: {0}", itemDropableLandSimpleArrays.Length);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemDropableLandSimple", itemDropableLandSimpleArrays);
+
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.vendorItemObject", vendorItemObjectArrays);
         }
 
@@ -471,7 +477,7 @@ namespace ClassicUO.Grpc
 
 		    if ( (corpseOpened == true) && (openedCorpse != 0) )
 		    {
-		    	Console.WriteLine("(corpseOpened == true) && (openedCorpse != 0)");
+		    	//Console.WriteLine("(corpseOpened == true) && (openedCorpse != 0)");
 		    	corpseItemDataList.Clear();
 			    try
 	        	{
@@ -494,7 +500,7 @@ namespace ClassicUO.Grpc
 	        else
 	        {
 	        	corpseItemDataList.Clear();
-	        	
+
 	        }
 
 	        //Console.WriteLine("corpseItemDataList.Count: {0}", corpseItemDataList.Count);
@@ -727,13 +733,13 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
         	//Console.WriteLine("actions.WalkDirection: {0}", actions.WalkDirection);
 
-        	if (actionType != 0) 
+        	if ( (actionType != 1) && (actionType != 0) ) 
 		    {
-		    	//Console.WriteLine("gameTick: {0}, actionType: {1}", _controller._gameTick, actionType);
+		    	Console.WriteLine("gameTick: {0}, actionType: {1}", _controller._gameTick, actionType);
 		    }
 
-		    actionTypeList.Add((int) actions.ActionType);
-			walkDirectionList.Add((int) actions.WalkDirection);
+		    actionTypeList.Add((int) actionType);
+			walkDirectionList.Add((int) walkDirection);
 
     		if (actions.ActionType == 0) {
             	// Walk to Direction

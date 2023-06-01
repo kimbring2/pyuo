@@ -184,6 +184,7 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 Client.Game._uoServiceImpl.corpseOpened = true;
                 Client.Game._uoServiceImpl.openedCorpse = LocalSerial;
+                Client.Game._uoServiceImpl.actionType = 4;
                 //Console.WriteLine("InvalidateContents: {0}", InvalidateContents);
             }
 

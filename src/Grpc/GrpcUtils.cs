@@ -118,11 +118,11 @@ namespace ClassicUO.Grpc
                 //Console.WriteLine("archive_verify_result: {0}", archive_verify_result);
 
                 MpqFileVerificationResults file_verify_result = archive.VerifyFile(fileName);
-                Console.WriteLine("file_verify_result: {0}", file_verify_result);
+                //Console.WriteLine("file_verify_result: {0}", file_verify_result);
 
                 if (file_verify_result == MpqFileVerificationResults.Error)
                 {	
-                	Console.WriteLine("return null");
+                	Console.WriteLine("file_verify_result == MpqFileVerificationResults.Error");
                 	Console.WriteLine("\n");
                 	return null;
                 }

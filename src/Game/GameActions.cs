@@ -550,7 +550,7 @@ namespace ClassicUO.Game
             if (serial == backpack.Serial) 
             {
                 //Console.WriteLine("actionType == 4");
-                Client.Game._uoServiceImpl.actionType = 4;
+                //Client.Game._uoServiceImpl.actionType = 4;
             }
             else if (serial == 0xFFFF_FFFF) 
             {

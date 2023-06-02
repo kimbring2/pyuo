@@ -22,6 +22,12 @@ namespace ClassicUO.Grpc
 			return result;
     	}
 
+    	static byte[] ConvertIntToByte(int intValue)
+	    {
+            byte[] byteValue = BitConverter.GetBytes(intValue);
+	        return byteValue;
+	    }
+
     	static byte[] ConvertIntListToByteArray(List<int> intList)
 	    {
 	        List<byte> byteList = new List<byte>();
@@ -105,6 +111,12 @@ namespace ClassicUO.Grpc
 	        }
 
 	        return intList;
+	    }
+
+	    static int ConvertByteToInt(byte[] byteArray)
+	    {
+            int intValue = BitConverter.ToInt32(byteArray, 0);
+	        return intValue;
 	    }
 
 		public byte[] ReadFromMpqArchive(string mpqArchiveName, string fileName)

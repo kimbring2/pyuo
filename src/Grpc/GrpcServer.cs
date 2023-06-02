@@ -85,7 +85,7 @@ namespace ClassicUO.Grpc
         List<int> itemDropableLandSimpleArrayLengthList = new List<int>();
         List<int> vendorItemObjectArrayLengthList = new List<int>();
 
-        List<int> playerStatusArrayLengthList = new List<int>();
+        List<int> playerStatusArrayZeroLengthStepList = new List<int>();
 
         List<int> staticObjectInfoListArraysLengthList = new List<int>();
 
@@ -183,7 +183,7 @@ namespace ClassicUO.Grpc
 	        itemDropableLandSimpleArrayLengthList.Clear();
 	        vendorItemObjectArrayLengthList.Clear();
 
-	        playerStatusArrayLengthList.Clear();
+	        playerStatusArrayZeroLengthStepList.Clear();
 
 	        // ##################################################################################
 	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
@@ -269,12 +269,16 @@ namespace ClassicUO.Grpc
 	    	byte[] itemDropableLandSimpleArrayLengthArray = ConvertIntListToByteArray(itemDropableLandSimpleArrayLengthList);
 	    	byte[] vendorItemObjectArrayLengthArray = ConvertIntListToByteArray(vendorItemObjectArrayLengthList);
 
-	    	Console.WriteLine("playerStatusArrays.Length: {0}", playerStatusArrays.Length);
-	    	byte[] playerStatusArrayLength = ConvertIntToByte(playerStatusArrays.Length);
+	    	Console.WriteLine("playerStatusArrayZeroLengthStepList.Count: {0}", playerStatusArrayZeroLengthStepList.Count);
+	    	for (int i = 0; i < playerStatusArrayZeroLengthStepList.Count; i++)
+	        {
+	        	Console.WriteLine("playerStatusArrayZeroLengthStepList[{0}]: {1}", i, playerStatusArrayZeroLengthStepList[i]);	
+	        }
+
+	        byte[] playerStatusArrayZeroLengthStepArray = ConvertIntListToByteArray(playerStatusArrayZeroLengthStepList);
 
 	    	Console.WriteLine("actionTypeList.Count: {0}", actionTypeList.Count);
 			Console.WriteLine("walkDirectionList.Count: {0}", walkDirectionList.Count);
-
 	    	byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
 
@@ -297,7 +301,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.itemDropableLandSimpleLen", itemDropableLandSimpleArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.vendorItemObjectLen", vendorItemObjectArrayLengthArray);
 
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLength);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusZeroLenStep", playerStatusArrayZeroLengthStepArray);
 
             // ##################################################################################
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
@@ -596,7 +600,8 @@ namespace ClassicUO.Grpc
 
         	if (playerStatusArray.Length != 30) 
         	{
-        		Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
+        		Console.WriteLine("playerStatusArray.Length != 30(), _envStep: {0}", _envStep);
+        		playerStatusArrayZeroLengthStepList.Add(_envStep);
         	}
 
         	if (_envStep == 0) 

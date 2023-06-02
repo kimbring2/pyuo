@@ -226,7 +226,6 @@ namespace ClassicUO.Game.GameObjects
                 for (LinkedObject i = container.Items; i != null; i = i.Next)
                 {
                     Item item = (Item) i;
-
                     if (item.Graphic == graphic)
                     {
                         return item;

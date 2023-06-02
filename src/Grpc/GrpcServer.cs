@@ -65,7 +65,7 @@ namespace ClassicUO.Grpc
         public List<uint> grpcStaticObjectScreenXs = new List<uint>();
         public List<uint> grpcStaticObjectScreenYs = new List<uint>();
 
-        int _totalStepScale = 5;
+        int _totalStepScale = 2;
         int _envStep;
         string _replayName;
 
@@ -135,9 +135,6 @@ namespace ClassicUO.Grpc
     	public uint amount;
     	public uint openedCorpse;
     	public bool corpseOpened;
-
-    	//public uint LastActionType;
-    	//public uint LastWalkDirection;
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -311,7 +308,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.playerStatusZeroLenStep", playerStatusArrayZeroLengthStepArray);
 
             Console.WriteLine("staticObjectInfoListArraysLengthArray.Length: {0}", staticObjectInfoListArraysLengthArray.Length);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListLen", staticObjectInfoListArraysLengthArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", staticObjectInfoListArraysLengthArray);
 
             // ##################################################################################
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
@@ -387,8 +384,11 @@ namespace ClassicUO.Grpc
 	        													   Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Static") {
-			        grpcStaticObjectScreenXs.Add(screen_x);
-			        grpcStaticObjectScreenYs.Add(screen_y);
+	        		if (distance <= 6) 
+	        		{
+	        			grpcStaticObjectScreenXs.Add(screen_x);
+			        	grpcStaticObjectScreenYs.Add(screen_y);
+	        		}
 	        	}
 	        }
 	        catch (Exception ex)
@@ -837,7 +837,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 3) {
-	        	// Pick Up the amount of item by it's serial
+	        	// Pick up the amount of item by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 3");
 	        		try

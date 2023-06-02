@@ -140,8 +140,8 @@ namespace ClassicUO.Grpc
         List<int> staticObjectInfoListLengthListRead;
 
         // ##################################################################################
-        List<int> actionTypeList;
-        List<int> walkDirectionList;
+        List<int> actionTypeListRead;
+        List<int> walkDirectionListRead;
 
     	public UoServiceReplayImpl(int port)
         {
@@ -203,6 +203,9 @@ namespace ClassicUO.Grpc
 	    	//_vendorItemObjectArrayOffset = 0;
 
 	    	_playerStatusArrayOffset = 0;
+
+    		_staticObjectInfoListArrayOffset = 0;
+
             try 
         	{
 	            // ##################################################################################
@@ -221,7 +224,7 @@ namespace ClassicUO.Grpc
 
 	            playerStatusZeroLenStepArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.playerStatusZeroLenStep");
 
-	            staticObjectInfoListLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.staticObjectInfoListLen");
+	            staticObjectInfoListLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.staticObjectInfoListArraysLen");
 
 	            // ##################################################################################
 		    	mobileDataArrRead = ReadFromMpqArchive(_replayName, "replay.data.mobileData");
@@ -270,8 +273,8 @@ namespace ClassicUO.Grpc
 		        	//Console.WriteLine("playerStatusZeroLenStepListRead[{0}]: {1}", i, playerStatusZeroLenStepListRead[i]);	
 		        }
 
-		        actionTypeList = ConvertByteArrayToIntList(actionTypeArrRead);
-        		walkDirectionList = ConvertByteArrayToIntList(walkDirectionArrRead);
+		        actionTypeListRead = ConvertByteArrayToIntList(actionTypeArrRead);
+        		walkDirectionListRead = ConvertByteArrayToIntList(walkDirectionArrRead);
 
 		        _replayLength = mobileDataArrayLengthListRead.Count;
 
@@ -327,9 +330,9 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
 	        States states = new States();
 
-        	if (actionTypeList[index] == 4) 
+        	if (actionTypeListRead[index] != 1) 
         	{
-        		Console.WriteLine("actionTypeList[{0}]: {1}", index, actionTypeList[index]);
+        		//Console.WriteLine("actionTypeListRead[{0}]: {1}", index, actionTypeListRead[index]);
         	}
 
         	//Console.WriteLine("walkDirectionList[{0}]: {1}", index, walkDirectionList[index]);
@@ -347,7 +350,7 @@ namespace ClassicUO.Grpc
 
 			if (playerStatusZeroLenStepListRead.Contains(index)) 
 			{
-				Console.WriteLine("playerStatusZeroLenStepListRead.Contains({0})", index);
+				//Console.WriteLine("playerStatusZeroLenStepListRead.Contains({0})", index);
 			}
 			else
 			{
@@ -407,37 +410,17 @@ namespace ClassicUO.Grpc
 
 	        grpcStaticObjectInfoListReplay = GrpcGameObjectInfoList.Parser.ParseFrom(staticObjectInfoListSubsetArrays);
 
-        	try 
-            {
-	            // ###############
-				//byte[] corpseItemSubsetArray = GetSubsetArray(index, corpseItemArrayLengthListRead, ref _corpseItemArrayOffset, corpseItemArrRead);
-				//byte[] popupMenuSubsetArray = GetSubsetArray(index, popupMenuArrayLengthListRead, ref _popupMenuArrayOffset, popupMenuArrRead);
+			//byte[] corpseItemSubsetArray = GetSubsetArray(index, corpseItemArrayLengthListRead, ref _corpseItemArrayOffset, corpseItemArrRead);
+			//byte[] popupMenuSubsetArray = GetSubsetArray(index, popupMenuArrayLengthListRead, ref _popupMenuArrayOffset, popupMenuArrRead);
 
-	            //byte[] itemDropableLandSubsetArray = GetSubsetArray(index, itemDropableLandArrayLengthListRead, ref _itemDropableLandArrayOffset, itemDropableLandArrRead);
-	            //byte[] vendorItemObjectSubsetArray = GetSubsetArray(index, vendorItemObjectArrayLengthListRead, ref _vendorItemObjectArrayOffset, vendorItemObjectArrRead);
+            //byte[] itemDropableLandSubsetArray = GetSubsetArray(index, itemDropableLandArrayLengthListRead, ref _itemDropableLandArrayOffset, itemDropableLandArrRead);
+            //byte[] vendorItemObjectSubsetArray = GetSubsetArray(index, vendorItemObjectArrayLengthListRead, ref _vendorItemObjectArrayOffset, vendorItemObjectArrRead);
 
-	            // ###############
-            	//grpcMobileDataReplay = GrpcMobileList.Parser.ParseFrom(mobileDataSubsetArray);
-		    	//grpcEquippedItemReplay = GrpcItemList.Parser.ParseFrom(equippedItemSubsetArray);
-		    	//grpcBackpackItemReplay = GrpcItemList.Parser.ParseFrom(backpackItemSubsetArray);
-		    	//grpcCorpseItemReplay = GrpcItemList.Parser.ParseFrom(corpseItemSubsetArray);
-		    	//grpcPopupMenuReplay = GrpcPopupMenuList.Parser.ParseFrom(popupMenuSubsetArray);
-		    	//grpcClilocDataReplay = GrpcClilocDataList.Parser.ParseFrom(clilocDataSubsetArray);
-
-		    	// ###############
-            	//grpcPlayerMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(playerMobileObjectSubsetArray);
-            	//grpcMobileObjectReplay = GrpcGameObjectList.Parser.ParseFrom(mobileObjectSubsetArray);
-            	//grpcItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(itemObjectSubsetArray);
-            	//grpcItemDropableLandReplay = GrpcGameObjectSimpleList.Parser.ParseFrom(itemDropableLandSubsetArray);
-            	//grpcVendorItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(vendorItemObjectSubsetArray);
-
-            	//states.MobileList = grpcMobileDataReplay;
-            	//states.PlayerMobileObjectList = grpcPlayerMobileObjectReplay;
-			}
-            catch (Exception ex)
-            {
-            	Console.WriteLine("Failed to parser the GetSubsetArray from original array 1: " + ex.Message);
-            }
+            // ##################################################################################
+	    	//grpcCorpseItemReplay = GrpcItemList.Parser.ParseFrom(corpseItemSubsetArray);
+	    	//grpcPopupMenuReplay = GrpcPopupMenuList.Parser.ParseFrom(popupMenuSubsetArray);
+	    	//grpcClilocDataReplay = GrpcClilocDataList.Parser.ParseFrom(clilocDataSubsetArray);
+        	//grpcVendorItemObjectReplay = GrpcGameObjectList.Parser.ParseFrom(vendorItemObjectSubsetArray);
 
             states.MobileList = grpcMobileDataReplay;
             states.EquippedItemList = grpcEquippedItemReplay;
@@ -450,6 +433,15 @@ namespace ClassicUO.Grpc
             states.ItemDropableLandList = grpcItemDropableLandReplay;
 
             states.StaticObjectInfoList = grpcStaticObjectInfoListReplay;
+
+            // ##################################################################################
+            //uint32 actionType = 1;
+            //uint32 mobileSerial = 2;
+            //uint32 itemSerial = 3;
+            //uint32 walkDirection = 4;
+            //uint32 index = 5;
+            //uint32 amount = 6;
+            states.ReplayActions = new Actions{ ActionType = (uint) actionTypeListRead[index], WalkDirection = (uint) walkDirectionListRead[index] };
 			
             _replayStep++;
 

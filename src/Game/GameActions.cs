@@ -232,7 +232,7 @@ namespace ClassicUO.Game
         {
             //Console.WriteLine("OpenCorpse()");
 
-            Client.Game._uoServiceImpl.actionType = 4;
+            Client.Game._uoServiceImpl.actionType = 7;
             Client.Game._uoServiceImpl.mobileSerial = serial;
 
             if (!SerialHelper.IsItem(serial))
@@ -475,6 +475,7 @@ namespace ClassicUO.Game
         )
         {
             //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
+            Client.Game._uoServiceImpl.actionType = 3;
             Client.Game._uoServiceImpl.itemSerial = serial;
             Client.Game._uoServiceImpl.amount = (uint) amount;
 
@@ -544,17 +545,17 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //Console.WriteLine("DropItem()");
+            Console.WriteLine("DropItem()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-            if (serial == backpack.Serial) 
+            if (container == backpack.Serial) 
             {
-                //Console.WriteLine("actionType == 4");
-                //Client.Game._uoServiceImpl.actionType = 4;
+                Console.WriteLine("actionType == 4");
+                Client.Game._uoServiceImpl.actionType = 4;
             }
-            else if (serial == 0xFFFF_FFFF) 
+            else if (container == 0xFFFF_FFFF) 
             {
-                //Console.WriteLine("actionType == 5");
+                Console.WriteLine("actionType == 5");
                 Client.Game._uoServiceImpl.actionType = 5;
             }
             

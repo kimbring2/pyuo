@@ -158,5 +158,13 @@ namespace ClassicUO.Game.UI.Gumps
                 Dispose();
             }
         }
+
+        protected override void CloseWithRightClick()
+        {
+            Console.WriteLine("PopuoMenu CloseWithRightClick()");
+            Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
+
+            base.CloseWithRightClick();
+        }
     }
 }

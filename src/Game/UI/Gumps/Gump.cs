@@ -219,6 +219,9 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
+            //Console.WriteLine("CloseWithRightClick()");
+            //grpcPopupMenuList.Clear();
+
             if (!CanCloseWithRightClick)
             {
                 return;

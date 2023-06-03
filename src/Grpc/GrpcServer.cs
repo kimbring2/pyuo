@@ -862,7 +862,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 5) {
-	        	// Drop the holded item on land around Player
+	        	// Drop the holded item on land around the player
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 5");
 
@@ -889,7 +889,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 7) {
-	        	// Open the Corpse of mobile by it's Serial
+	        	// Open the corpse of mobile by it's Serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 7");
                     try
@@ -947,6 +947,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 10) {
 	        	if (World.Player != null) {
+	        		// Open the pop up menu of the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 10");
 	        		grpcClilocDataList.Clear();
 	        		GameActions.OpenPopupMenu(actions.MobileSerial);

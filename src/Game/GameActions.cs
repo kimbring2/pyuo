@@ -550,11 +550,13 @@ namespace ClassicUO.Game
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             if (container == backpack.Serial) 
             {
+                // Drop the holded item into my backpack
                 Console.WriteLine("actionType == 4");
                 Client.Game._uoServiceImpl.actionType = 4;
             }
             else if (container == 0xFFFF_FFFF) 
             {
+                // Drop the holded item on land around the player
                 Console.WriteLine("actionType == 5");
                 Client.Game._uoServiceImpl.actionType = 5;
             }
@@ -737,6 +739,9 @@ namespace ClassicUO.Game
             {
                 return;
             }
+
+            Client.Game._uoServiceImpl.actionType = 10;
+            Client.Game._uoServiceImpl.mobileSerial = serial;
 
             Socket.Send_RequestPopupMenu(serial);
         }

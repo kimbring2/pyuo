@@ -334,6 +334,7 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
+                Client.Game._uoServiceImpl.actionType = 17;
             }
 
             if (!UIManager.IsMouseOverWorld)
@@ -380,8 +381,8 @@ namespace ClassicUO.Game.Scenes
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
-                //Console.WriteLine("UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y)");
                 UIManager.ShowGamePopup(null);
+                Client.Game._uoServiceImpl.actionType = 17;
             }
 
             if (_isMouseLeftDown)
@@ -805,6 +806,7 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
+                Client.Game._uoServiceImpl.actionType = 17;
             }
 
             if (!UIManager.IsMouseOverWorld)
@@ -824,6 +826,7 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
+                Client.Game._uoServiceImpl.actionType = 17;
             }
 
             _rightMousePressed = false;

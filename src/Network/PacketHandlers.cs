@@ -1213,7 +1213,6 @@ namespace ClassicUO.Network
 
                     while (first != null)
                     {
-
                         Item it = (Item) first;
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
@@ -1262,22 +1261,6 @@ namespace ClassicUO.Network
                     }
 
                     ContainerGump container = UIManager.GetGump<ContainerGump>(serial);
-
-                    /*
-                    for (LinkedObject i = item.Items; i != null; i = i.Next)
-                    {
-                        Item child = (Item) i;
-                        Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}", child.Name, child.Serial, child.Amount);
-
-                        if (child.Container == item)
-                        {
-                            UIManager.GetGump<ContainerGump>(child)?.Dispose();
-                        }
-                    }
-                    */
-
-                    //Console.WriteLine("container: {0}", container);
-                    //Console.WriteLine("corpse item end check");
 
                     bool playsound = false;
                     int x, y;

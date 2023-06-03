@@ -748,8 +748,8 @@ namespace ClassicUO.Game
 
         public static void ResponsePopupMenu(uint serial, ushort index)
         {
-            //Console.WriteLine("ResponsePopupMenu()");
-            //Console.WriteLine("index: {0}", index);
+            Console.WriteLine("ResponsePopupMenu()");
+            Console.WriteLine("index: {0}", index);
             Client.Game._uoServiceImpl.actionType = 11;
             Client.Game._uoServiceImpl.index = index;
 

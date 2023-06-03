@@ -152,8 +152,10 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
+            //Console.WriteLine("PopuoMenuGump OnMouseUp()");
             if (button == MouseButtonType.Left)
             {
+                //Console.WriteLine("button == MouseButtonType.Left");
                 GameActions.ResponsePopupMenu(_data.Serial, _selectedItem);
                 Dispose();
             }
@@ -162,6 +164,7 @@ namespace ClassicUO.Game.UI.Gumps
         protected override void CloseWithRightClick()
         {
             //Console.WriteLine("PopuoMenuGump CloseWithRightClick()");
+            Client.Game._uoServiceImpl.actionType = 17;
             Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
 
             base.CloseWithRightClick();
@@ -170,6 +173,8 @@ namespace ClassicUO.Game.UI.Gumps
         public override void Dispose()
         {
             //Console.WriteLine("PopuoMenuGump Dispose()");
+
+            //Client.Game._uoServiceImpl.actionType = 17;
             Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
 
             base.Dispose();

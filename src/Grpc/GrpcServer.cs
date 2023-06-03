@@ -812,16 +812,8 @@ namespace ClassicUO.Grpc
         // Server side handler of the SayHello RPC
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
-        	//Console.WriteLine("actions.ActionType: {0}", actions.ActionType);
-        	//Console.WriteLine("actions.MobileSerial: {0}", actions.MobileSerial);
-        	//Console.WriteLine("actions.WalkDirection: {0}", actions.WalkDirection);
-
         	if ( (actionType != 1) && (actionType != 0) ) 
 		    {
-		    	//itemSerialList.Clear();
-	    		//indexList.Clear();
-	    		//amountList.Clear();
-
 		    	Console.WriteLine("gameTick: {0}, actionType: {1}, mobileSerial: {2}, itemSerial: {3}, index: {4}, amount: {5}", 
 		    		_controller._gameTick, actionType, mobileSerial, itemSerial, index, amount);
 		    }
@@ -834,9 +826,8 @@ namespace ClassicUO.Grpc
 			amountList.Add((int) amount);
 
     		if (actions.ActionType == 0) {
-            	// Walk to Direction
             	if (World.InGame == true) {
-            		//corpseItemDataList.Clear();
+
             	}
 	        }
             else if (actions.ActionType == 1) {
@@ -857,7 +848,7 @@ namespace ClassicUO.Grpc
             	}
 	        }
 	        else if (actions.ActionType == 2) {
-	        	// Attack Target by it's Serial
+	        	// Attack target by it's serial
 	        	if (World.Player != null) {
         			GameActions.DoubleClick(actions.MobileSerial);
 	        	}
@@ -915,7 +906,7 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 7) {
-	        	// Open the corpse of mobile by it's Serial
+	        	// Open the corpse of mobile by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 7");
                     try
@@ -989,8 +980,8 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 12) {
 	        	if (World.Player != null) {
+	        		// Buy the item from vendor by selecing the item from shop gump
 	        		Console.WriteLine("actions.ActionType == 12");
-	        		//Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
@@ -1002,8 +993,8 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 13) {
 	        	if (World.Player != null) {
+	        		// Sell the item to vendor by selecing the item from shop gump
 	        		Console.WriteLine("actions.ActionType == 13");
-	        		//Console.WriteLine("ItemSerial: {0}, Amount: {1}", actions.ItemSerial, actions.Amount);
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
 	        		items[0] = new Tuple<uint, ushort>((uint)actions.ItemSerial, (ushort)actions.Amount);
@@ -1015,6 +1006,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 14) {
 	        	if (World.Player != null) {
+	        		// Use the bandage myself
 	        		Console.WriteLine("actions.ActionType == 14");
 	        		Item bandage = World.Player.FindBandage();
 	        		if (bandage != null) 
@@ -1026,14 +1018,23 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 15) {
 	        	if (World.Player != null) {
+	        		// Open the door in front of player
 	        		Console.WriteLine("actions.ActionType == 15");
 	        		GameActions.OpenDoor();
 	        	}
 	        }
 	        else if (actions.ActionType == 16) {
 	        	if (World.Player != null) {
+	        		// Drop the item to one of mobile(vendor)
 	        		Console.WriteLine("actions.ActionType == 16");
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, actions.MobileSerial);
+	        	}
+	        }
+	        else if (actions.ActionType == 17) {
+	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 17");
+	        		// Close the pop up menu
+	        		UIManager.ShowGamePopup(null);
 	        	}
 	        }
 

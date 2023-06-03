@@ -3435,6 +3435,8 @@ namespace ClassicUO.Network
         public static void Send_BuyRequest(this NetClient socket, uint serial, Tuple<uint, ushort>[] items)
         {
             Console.WriteLine("Send_BuyRequest()");
+
+            Client.Game._uoServiceImpl.grpcVendorItemObjectList.Clear();
             
             const byte ID = 0x3B;
 

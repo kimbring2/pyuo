@@ -1146,7 +1146,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenContainer()");
+            Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1213,11 +1213,14 @@ namespace ClassicUO.Network
 
                     while (first != null)
                     {
+
                         Item it = (Item) first;
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
-                        //Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
-                        //                                          0, 0, it.Serial, it.Name, false, "None", 
-                        //                                          it.Amount, it.Price);
+                        Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
+                                                                  0, 0, it.Serial, it.Name, false, "None", 
+                                                                  it.Amount, it.Price);
+
+                        Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
 
                         gump.AddItem
                         (
@@ -2325,7 +2328,6 @@ namespace ClassicUO.Network
             switch (p.ReadUInt8())
             {
                 case 0: // open
-
                 {
                     uint serial = p.ReadUInt32BE();
                     Item item = World.Items.Get(serial);
@@ -2344,11 +2346,9 @@ namespace ClassicUO.Network
                         item.Opened = true;
                     }
                 }
-
                     break;
 
                 case 1: // summary msg
-
                 {
                     uint boardSerial = p.ReadUInt32BE();
                     BulletinBoardGump bulletinBoard = UIManager.GetGump<BulletinBoardGump>(boardSerial);
@@ -2377,11 +2377,9 @@ namespace ClassicUO.Network
                     break;
 
                 case 2: // message
-
                 {
                     uint boardSerial = p.ReadUInt32BE();
                     BulletinBoardGump bulletinBoard = UIManager.GetGump<BulletinBoardGump>(boardSerial);
-
                     if (bulletinBoard != null)
                     {
                         uint serial = p.ReadUInt32BE();
@@ -2538,7 +2536,6 @@ namespace ClassicUO.Network
                     }
 
                     Item it = (Item) first;
-
                     it.Price = p.ReadUInt32BE();
                     byte nameLen = p.ReadUInt8();
                     string name = p.ReadASCII(nameLen);
@@ -2683,12 +2680,10 @@ namespace ClassicUO.Network
             if (!obj.IsEmpty)
             {
                 LinkedObject o = obj.Items;
-
                 while (o != null)
                 {
                     LinkedObject next = o.Next;
                     Item it = (Item) o;
-
                     if (!it.Opened && it.Layer != Layer.Backpack)
                     {
                         World.RemoveItem(it.Serial, true);
@@ -2711,7 +2706,6 @@ namespace ClassicUO.Network
             }
 
             uint itemSerial = p.ReadUInt32BE();
-
             while (itemSerial != 0 && p.Position < p.Length)
             {
                 //if (!SerialHelper.IsItem(itemSerial))
@@ -2730,7 +2724,6 @@ namespace ClassicUO.Network
                     itemGraphic &= 0x7FFF;
                     item_hue = p.ReadUInt16BE();
                 }
-
 
                 Item item = World.GetOrCreateItem(itemSerial);
                 item.Graphic = itemGraphic;
@@ -2804,7 +2797,6 @@ namespace ClassicUO.Network
                     if (bounds.Width != 0 && bounds.Height != 0)
                     {
                         int posY = bounds.Height;
-
                         if (posY >= 47)
                         {
                             posY = 0;
@@ -2954,11 +2946,9 @@ namespace ClassicUO.Network
             }
 
             Layer layer = (Layer) p.ReadUInt8();
-
             while (layer != Layer.Invalid && p.Position < p.Length)
             {
                 uint item_serial = p.ReadUInt32BE();
-
                 if (layer - 1 != Layer.Backpack)
                 {
                     Item item = World.GetOrCreateItem(item_serial);

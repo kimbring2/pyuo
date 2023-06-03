@@ -750,6 +750,8 @@ namespace ClassicUO.Game
         {
             //Console.WriteLine("ResponsePopupMenu()");
             //Console.WriteLine("index: {0}", index);
+            Client.Game._uoServiceImpl.actionType = 11;
+            Client.Game._uoServiceImpl.index = index;
 
             Socket.Send_PopupMenuSelection(serial, index);
         }

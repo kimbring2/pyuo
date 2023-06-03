@@ -126,6 +126,10 @@ namespace ClassicUO.Grpc
         // ##################################################################################
     	List<int> actionTypeList = new List<int>();
     	List<int> walkDirectionList = new List<int>();
+    	List<int> mobileSerialList = new List<int>();
+    	List<int> itemSerialList = new List<int>();
+    	List<int> indexList = new List<int>();
+    	List<int> amountList = new List<int>();
 
     	public uint actionType;
     	public uint walkDirection;
@@ -221,6 +225,10 @@ namespace ClassicUO.Grpc
 	        // ##################################################################################
     		actionTypeList.Clear();
     		walkDirectionList.Clear();
+    		mobileSerialList.Clear();
+    		itemSerialList.Clear();
+    		indexList.Clear();
+    		amountList.Clear();
 
     		// ##################################################################################
     		_envStep = 0;
@@ -285,10 +293,18 @@ namespace ClassicUO.Grpc
 			//Console.WriteLine("walkDirectionList.Count: {0}", walkDirectionList.Count);
 	    	byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
+            byte[] mobileSerialArray = ConvertIntListToByteArray(mobileSerialList);
+            byte[] itemSerialArray = ConvertIntListToByteArray(itemSerialList);
+            byte[] indexArray = ConvertIntListToByteArray(indexList);
+            byte[] amountArray = ConvertIntListToByteArray(amountList);
 
             // ##################################################################################
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.type", actionTypeArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.walkDirection", walkDirectionArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileSerial", mobileSerialArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.itemSerial", itemSerialArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.index", indexArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.amount", amountArray);
 
 	    	// ##################################################################################
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileDataLen", mobileDataArrayLengthArray);
@@ -379,6 +395,7 @@ namespace ClassicUO.Grpc
 	        													     Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "ShopItem") {
+	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 	        		grpcVendorItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
 	        													   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
 	        													   Title=title, Amount=amount, Price=price });
@@ -801,11 +818,20 @@ namespace ClassicUO.Grpc
 
         	if ( (actionType != 1) && (actionType != 0) ) 
 		    {
-		    	Console.WriteLine("gameTick: {0}, actionType: {1}", _controller._gameTick, actionType);
+		    	//itemSerialList.Clear();
+	    		//indexList.Clear();
+	    		//amountList.Clear();
+
+		    	Console.WriteLine("gameTick: {0}, actionType: {1}, mobileSerial: {2}, itemSerial: {3}, index: {4}, amount: {5}", 
+		    		_controller._gameTick, actionType, mobileSerial, itemSerial, index, amount);
 		    }
 
 		    actionTypeList.Add((int) actionType);
 			walkDirectionList.Add((int) walkDirection);
+			mobileSerialList.Add((int) mobileSerial);
+			itemSerialList.Add((int) itemSerial);
+			indexList.Add((int) index);
+			amountList.Add((int) amount);
 
     		if (actions.ActionType == 0) {
             	// Walk to Direction
@@ -955,6 +981,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 11) {
 	        	if (World.Player != null) {
+	        		// Select one of menu from the pop up menu the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 11");
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        		grpcPopupMenuList.Clear();

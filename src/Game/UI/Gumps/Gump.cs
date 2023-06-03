@@ -90,8 +90,9 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void Dispose()
         {
-            Item it = World.Items.Get(LocalSerial);
+            //Console.WriteLine("Gump Dispose()");
 
+            Item it = World.Items.Get(LocalSerial);
             if (it != null && it.Opened)
             {
                 it.Opened = false;
@@ -219,7 +220,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
-            //Console.WriteLine("CloseWithRightClick()");
+            Console.WriteLine("Gump CloseWithRightClick()");
             //grpcPopupMenuList.Clear();
 
             if (!CanCloseWithRightClick)

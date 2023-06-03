@@ -161,10 +161,18 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
-            Console.WriteLine("PopuoMenu CloseWithRightClick()");
+            //Console.WriteLine("PopuoMenuGump CloseWithRightClick()");
             Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
 
             base.CloseWithRightClick();
+        }
+
+        public override void Dispose()
+        {
+            //Console.WriteLine("PopuoMenuGump Dispose()");
+            Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
+
+            base.Dispose();
         }
     }
 }

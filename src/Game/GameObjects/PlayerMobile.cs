@@ -52,7 +52,6 @@ namespace ClassicUO.Game.GameObjects
         public PlayerMobile(uint serial) : base(serial)
         {
             Skills = new Skill[SkillsLoader.Instance.SkillsCount];
-
             for (int i = 0; i < Skills.Length; i++)
             {
                 SkillEntry skill = SkillsLoader.Instance.Skills[i];

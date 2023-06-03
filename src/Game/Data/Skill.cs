@@ -51,23 +51,14 @@ namespace ClassicUO.Game.Data
         }
 
         public Lock Lock { get; internal set; }
-
         public ushort ValueFixed { get; internal set; }
-
         public ushort BaseFixed { get; internal set; }
-
         public ushort CapFixed { get; internal set; }
-
         public float Value => ValueFixed / 10.0f;
-
         public float Base => BaseFixed / 10.0f;
-
         public float Cap => CapFixed / 10.0f;
-
         public bool IsClickable { get; }
-
         public string Name { get; }
-
         public int Index { get; }
 
         public override string ToString()

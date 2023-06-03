@@ -560,8 +560,14 @@ namespace ClassicUO.Game
                 Console.WriteLine("actionType == 5");
                 Client.Game._uoServiceImpl.actionType = 5;
             }
+            else
+            {
+                Console.WriteLine("actionType == 16");
+                Client.Game._uoServiceImpl.actionType = 16;
+            }
             
             Client.Game._uoServiceImpl.itemSerial = serial;
+            Client.Game._uoServiceImpl.mobileSerial = container;
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {

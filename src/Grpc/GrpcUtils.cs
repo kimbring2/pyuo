@@ -19,12 +19,14 @@ namespace ClassicUO.Grpc
     		byte[] result = new byte[array1.Length + array2.Length];
 			Array.Copy(array1, result, array1.Length);
 			Array.Copy(array2, 0, result, array1.Length, array2.Length);
+
 			return result;
     	}
 
     	static byte[] ConvertIntToByte(int intValue)
 	    {
             byte[] byteValue = BitConverter.GetBytes(intValue);
+
 	        return byteValue;
 	    }
 
@@ -43,6 +45,15 @@ namespace ClassicUO.Grpc
 
 	    static List<int> ConvertByteArrayToIntList(byte[] byteArray)
 	    {
+	    	if (byteArray != null) 
+	        {
+	        	//playerStatusZeroLenStepListRead = ConvertByteArrayToIntList(playerStatusZeroLenStepArrRead);
+	        }
+	        else
+	        {
+	        	Console.WriteLine("byteArray is null");
+	        }
+
 	        List<int> intList = new List<int>();
 
 	        for (int i = 0; i < byteArray.Length; i += sizeof(int))

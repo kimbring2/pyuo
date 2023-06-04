@@ -638,6 +638,7 @@ namespace ClassicUO.Game
 
         public static void ChangeSkillLockStatus(ushort skillindex, byte lockstate)
         {
+            Console.WriteLine("ChangeSkillLockStatus(), skillindex: {0}, lockstate: {1}", skillindex, lockstate);
             Socket.Send_SkillStatusChangeRequest(skillindex, lockstate);
         }
 

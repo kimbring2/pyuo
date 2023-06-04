@@ -176,8 +176,9 @@ namespace ClassicUO.Grpc
         {
             Console.WriteLine("ReadMPQFile()");
 
-            folderPath = config.Name;
-            Console.WriteLine("folderPath: {0}", folderPath);
+            //folderPath = config.Name;
+            _replayName = config.ReplayName;
+            //Console.WriteLine("_replayName: {0}", _replayName);
 
             Reset();
 
@@ -188,6 +189,7 @@ namespace ClassicUO.Grpc
         {
         	Console.WriteLine("Reset()");
 
+        	/*
 			string[] files = Directory.GetFiles(folderPath);
 			Random random = new Random();
 			int randomIndex = random.Next(files.Length);
@@ -196,11 +198,11 @@ namespace ClassicUO.Grpc
 
 			// Use the randomly selected file path as desired
 			Console.WriteLine("Randomly selected file: {0}", randomFilePath);
-
+			*/
             //_replayName = config.Name;
-            _replayName = randomFilePath;
+            //_replayName = randomFilePath;
             Console.WriteLine("_replayName: {0}" + _replayName);
-            	
+            
             _replayStep = 0;
 
     		_mobileDataArrayOffset = 0;
@@ -271,45 +273,134 @@ namespace ClassicUO.Grpc
     			indexArrRead = ReadFromMpqArchive(_replayName, "replay.data.index");
     			amountArrRead = ReadFromMpqArchive(_replayName, "replay.data.amount");
 
-				Console.WriteLine("MPQ load end");
 
 				// ##################################################################################
-				Console.WriteLine("mobileDataArrayLengthArrRead.Length: {0}", mobileDataArrayLengthArrRead.Length);
-				Console.WriteLine("equippedItemArrayLengthArrRead.Length: {0}", equippedItemArrayLengthArrRead.Length);
-				Console.WriteLine("backpackItemArrayLengthArrRead.Length: {0}", backpackItemArrayLengthArrRead.Length);
-				Console.WriteLine("corpseItemArrayLengthArrRead.Length: {0}", corpseItemArrayLengthArrRead.Length);
-				Console.WriteLine("popupMenuArrayLengthArrRead.Length: {0}", popupMenuArrayLengthArrRead.Length);
+				if (mobileDataArrayLengthArrRead != null) 
+		        {
+		        	mobileDataArrayLengthListRead = ConvertByteArrayToIntList(mobileDataArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("mobileDataArrayLengthArrRead is null");
+		        }
 
-				mobileDataArrayLengthListRead = ConvertByteArrayToIntList(mobileDataArrayLengthArrRead);
-		        equippedItemArrayLengthListRead = ConvertByteArrayToIntList(equippedItemArrayLengthArrRead);
-		        backpackItemArrayLengthListRead = ConvertByteArrayToIntList(backpackItemArrayLengthArrRead);
-		        corpseItemArrayLengthListRead = ConvertByteArrayToIntList(corpseItemArrayLengthArrRead);
-		        popupMenuArrayLengthListRead = ConvertByteArrayToIntList(popupMenuArrayLengthArrRead);
-		        //clilocDataArrayLengthListRead = ConvertByteArrayToIntList(clilocDataArrayLengthArrRead);
+		        if (equippedItemArrayLengthArrRead != null) 
+		        {
+		        	equippedItemArrayLengthListRead = ConvertByteArrayToIntList(equippedItemArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("equippedItemArrayLengthArrRead is null");
+		        }
 
-		        Console.WriteLine("playerMobileObjectArrayLengthArrRead.Length: {0}", playerMobileObjectArrayLengthArrRead.Length);
-		        Console.WriteLine("mobileObjectArrayLengthArrRead.Length: {0}", mobileObjectArrayLengthArrRead.Length);
-		        Console.WriteLine("itemObjectArrayLengthArrRead.Length: {0}", itemObjectArrayLengthArrRead.Length);
-		        Console.WriteLine("itemDropableLandArrayLengthArrRead.Length: {0}", itemDropableLandArrayLengthArrRead.Length);
-		        Console.WriteLine("vendorItemObjectArrayLengthArrRead.Length: {0}", vendorItemObjectArrayLengthArrRead.Length);
+		        if (backpackItemArrayLengthArrRead != null) 
+		        {
+		        	backpackItemArrayLengthListRead = ConvertByteArrayToIntList(backpackItemArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("backpackItemArrayLengthArrRead is null");
+		        }
 
-		        playerMobileObjectArrayLengthListRead = ConvertByteArrayToIntList(playerMobileObjectArrayLengthArrRead);
-		        mobileObjectArrayLengthListRead = ConvertByteArrayToIntList(mobileObjectArrayLengthArrRead);
-		        itemObjectArrayLengthListRead = ConvertByteArrayToIntList(itemObjectArrayLengthArrRead);
-		        itemDropableLandArrayLengthListRead = ConvertByteArrayToIntList(itemDropableLandArrayLengthArrRead);
-		        vendorItemObjectArrayLengthListRead = ConvertByteArrayToIntList(vendorItemObjectArrayLengthArrRead);
+		        if (corpseItemArrayLengthArrRead != null) 
+		        {
+		        	corpseItemArrayLengthListRead = ConvertByteArrayToIntList(corpseItemArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("corpseItemArrayLengthArrRead is null");
+		        }
 
-		        Console.WriteLine("playerStatusZeroLenStepArrRead.Length: {0}", playerStatusZeroLenStepArrRead.Length);
-		        Console.WriteLine("playerSkillListArrayLengthArrRead.Length: {0}", playerSkillListArrayLengthArrRead.Length);
+		        if (popupMenuArrayLengthArrRead != null) 
+		        {
+		        	popupMenuArrayLengthListRead = ConvertByteArrayToIntList(popupMenuArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("popupMenuArrayLengthArrRead is null");
+		        }
 
-		        playerStatusZeroLenStepListRead = ConvertByteArrayToIntList(playerStatusZeroLenStepArrRead);
-		        playerSkillListArrayLengthListRead = ConvertByteArrayToIntList(playerSkillListArrayLengthArrRead);
+		        if (clilocDataArrayLengthArrRead != null) 
+		        {
+		        	clilocDataArrayLengthListRead = ConvertByteArrayToIntList(clilocDataArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("clilocDataArrayLengthArrRead is null");
+		        }
 
-		        Console.WriteLine("staticObjectInfoListLengthArrRead.Length: {0}", staticObjectInfoListLengthArrRead.Length);
-		        staticObjectInfoListLengthListRead = ConvertByteArrayToIntList(staticObjectInfoListLengthArrRead);
-		        //Console.WriteLine("staticObjectInfoListLengthListRead.Count: {0}", staticObjectInfoListLengthListRead.Count);
+		        if (playerMobileObjectArrayLengthArrRead != null) 
+		        {
+		        	playerMobileObjectArrayLengthListRead = ConvertByteArrayToIntList(playerMobileObjectArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("playerMobileObjectArrayLengthArrRead is null");
+		        }
 
-		        Console.WriteLine("ConvertByteArrayToIntList end");
+		        if (mobileObjectArrayLengthArrRead != null) 
+		        {
+		        	mobileObjectArrayLengthListRead = ConvertByteArrayToIntList(mobileObjectArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("mobileObjectArrayLengthListRead is null");
+		        }
+
+		        if (itemObjectArrayLengthArrRead != null) 
+		        {
+		        	itemObjectArrayLengthListRead = ConvertByteArrayToIntList(itemObjectArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("itemObjectArrayLengthArrRead is null");
+		        }
+
+		        if (itemDropableLandArrayLengthArrRead != null) 
+		        {
+		        	itemDropableLandArrayLengthListRead = ConvertByteArrayToIntList(itemDropableLandArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("itemDropableLandArrayLengthArrRead is null");
+		        }
+
+		        if (vendorItemObjectArrayLengthArrRead != null) 
+		        {
+		        	vendorItemObjectArrayLengthListRead = ConvertByteArrayToIntList(vendorItemObjectArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("vendorItemObjectArrayLengthArrRead is null");
+		        }
+
+		        if (playerStatusZeroLenStepArrRead != null) 
+		        {
+		        	playerStatusZeroLenStepListRead = ConvertByteArrayToIntList(playerStatusZeroLenStepArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("playerStatusZeroLenStepArrRead is null");
+		        }
+		        
+		        if (playerSkillListArrayLengthArrRead != null) 
+		        {
+		        	playerSkillListArrayLengthListRead = ConvertByteArrayToIntList(playerSkillListArrayLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("playerSkillListArrayLengthArrRead is null");
+		        }
+
+		        if (staticObjectInfoListLengthArrRead != null) 
+		        {
+		        	staticObjectInfoListLengthListRead = ConvertByteArrayToIntList(staticObjectInfoListLengthArrRead);
+		        }
+		        else
+		        {
+		        	Console.WriteLine("staticObjectInfoListLengthArrRead is null");
+		        }
+
 		    	for (int i = 0; i < playerSkillListArrayLengthListRead.Count; i++)
 		        {
 		        	//Console.WriteLine("playerSkillArrayLengthListRead[{0}]: {1}", i, playerSkillArrayLengthListRead[i]);	
@@ -370,7 +461,6 @@ namespace ClassicUO.Grpc
         {
         	//Console.WriteLine("\nReadReplay()");
         	//Console.WriteLine("_replayStep: {0}", _replayStep);
-
         	int index = _replayStep;
 
         	// ##################################################################################
@@ -394,16 +484,23 @@ namespace ClassicUO.Grpc
 
 			byte[] staticObjectInfoListSubsetArrays = GetSubsetArray(index, staticObjectInfoListLengthListRead, ref _staticObjectInfoListArrayOffset, staticObjectInfoListArrRead);
 
-			if (playerStatusZeroLenStepListRead.Contains(index)) 
+			try
 			{
-				//Console.WriteLine("playerStatusZeroLenStepListRead.Contains({0})", index);
+				if (playerStatusZeroLenStepListRead.Contains(index)) 
+				{
+					//Console.WriteLine("playerStatusZeroLenStepListRead.Contains({0})", index);
+				}
+				else
+				{
+					byte[] playerStatusSubsetArray = GetSubsetArrayFix(index, (int) 30, ref _playerStatusArrayOffset, playerStatusArrRead);
+					grpcPlayerStatusReplay = GrpcPlayerStatus.Parser.ParseFrom(playerStatusSubsetArray);
+					states.PlayerStatus = grpcPlayerStatusReplay;
+				}
 			}
-			else
-			{
-				byte[] playerStatusSubsetArray = GetSubsetArrayFix(index, (int) 30, ref _playerStatusArrayOffset, playerStatusArrRead);
-				grpcPlayerStatusReplay = GrpcPlayerStatus.Parser.ParseFrom(playerStatusSubsetArray);
-				states.PlayerStatus = grpcPlayerStatusReplay;
-			}
+			catch (Exception ex)
+            {
+            	//Console.WriteLine("Failed to parser the playerStatusArrRead : " + ex.Message);
+            }
 
 			try
 			{
@@ -530,12 +627,17 @@ namespace ClassicUO.Grpc
 			
             _replayStep++;
 
-            if (_replayStep >= _replayLength) {
-            	Console.WriteLine("_replayStep >= _replayLength");
-            	Reset();
-            	//Environment.Exit(0);
+            if (_replayStep >= _replayLength) 
+            {
+            	Console.WriteLine("Replay Parsing End");
+            	states.ReplayParseEnd = true;
+            	//Reset();
             }
-           
+            else 
+            {
+            	states.ReplayParseEnd = false;
+            }
+
             return Task.FromResult(states);
         }
     }

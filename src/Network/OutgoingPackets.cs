@@ -3220,6 +3220,8 @@ namespace ClassicUO.Network
 
         public static void Send_SkillStatusChangeRequest(this NetClient socket, ushort skillindex, byte lockstate)
         {
+            Console.WriteLine("Send_SkillStatusChangeRequest()");
+
             const byte ID = 0x3A;
 
             int length = PacketsTable.GetPacketLength(ID);

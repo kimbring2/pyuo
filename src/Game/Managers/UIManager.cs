@@ -154,7 +154,7 @@ namespace ClassicUO.Game.Managers
 
         public static void OnMouseButtonDown(MouseButtonType button)
         {
-            Console.WriteLine("OnMouseButtonDown()");
+            //Console.WriteLine("OnMouseButtonDown()");
 
             HandleMouseInput();
 
@@ -188,7 +188,6 @@ namespace ClassicUO.Game.Managers
                 {
                     if (s.IsModal && s.ModalClickOutsideAreaClosesThisControl)
                     {
-                        Console.WriteLine("s.IsModal && s.ModalClickOutsideAreaClosesThisControl");
                         s.Dispose();
                         Mouse.CancelDoubleClick = true;
                     }
@@ -292,9 +291,7 @@ namespace ClassicUO.Game.Managers
         public static void ShowContextMenu(ContextMenuShowMenu menu)
         {
             ContextMenu?.Dispose();
-
             ContextMenu = menu;
-
             if (ContextMenu == null || menu.IsDisposed)
             {
                 return;

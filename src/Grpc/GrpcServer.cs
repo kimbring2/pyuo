@@ -289,7 +289,7 @@ namespace ClassicUO.Grpc
 	    	//Console.WriteLine("staticObjectInfoListArraysLengthList.Count: {0}", staticObjectInfoListArraysLengthList.Count);
 	    	byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
 
-	    	//Console.WriteLine("playerStatusArrayZeroLengthStepList.Count: {0}", playerStatusArrayZeroLengthStepList.Count);
+	    	Console.WriteLine("playerStatusArrayZeroLengthStepList.Count: {0}", playerStatusArrayZeroLengthStepList.Count);
 	    	for (int i = 0; i < playerStatusArrayZeroLengthStepList.Count; i++)
 	        {
 	        	//Console.WriteLine("playerStatusArrayZeroLengthStepList[{0}]: {1}", i, playerStatusArrayZeroLengthStepList[i]);	
@@ -354,7 +354,6 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.playerStatus", playerStatusArrays);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.playerSkillList", playerSkillListArrays);
 
-            //Console.WriteLine("staticObjectInfoListArrays.Length: {0}", staticObjectInfoListArrays.Length);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.staticObjectInfoList", staticObjectInfoListArrays);
         }
 
@@ -572,15 +571,6 @@ namespace ClassicUO.Grpc
 	            	Skill skill = World.Player.Skills[i];
 	            	//Console.WriteLine("Name: {0}, Index: {1}, IsClickable: {2}, Value: {3}, Base: {4}, Cap: {5}, Lock: {6}", 
 	            	//	skill.Name, skill.Index, skill.IsClickable, skill.Value, skill.Base, skill.Cap, skill.Lock);
-	            	/*
-	            	string name = 1;
-				    uint32 index = 2;
-				    bool isClickable = 3;
-				    uint32 value = 4;
-				    uint32 base = 5;
-				    uint32 cap = 6;
-				    uint32 lock = 7;
-				    */
 	            	grpcPlayerSkillListList.Add(new GrpcSkill{ Name = skill.Name, Index = (uint) skill.Index, IsClickable = (bool) skill.IsClickable,
 		              								           Value = (uint) skill.Value, Base = (uint) skill.Base, Cap = (uint) skill.Cap, 
 		              								           Lock = (uint) skill.Lock });

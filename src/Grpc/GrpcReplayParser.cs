@@ -60,7 +60,7 @@ namespace ClassicUO.Grpc
     	int _vendorItemObjectArrayOffset;
 
     	int _playerStatusArrayOffset;
-    	int _playerSkillArrayOffset;
+    	int _playerSkillListArrayOffset;
 
     	int _staticObjectInfoListArrayOffset;
 
@@ -79,7 +79,7 @@ namespace ClassicUO.Grpc
     	byte[] vendorItemObjectArrayLengthArrRead;
 
     	byte[] playerStatusZeroLenStepArrRead;
-    	byte[] playerSkillArrayLengthArrRead;
+    	byte[] playerSkillListArrayLengthArrRead;
 
     	byte[] staticObjectInfoListLengthArrRead;
 
@@ -98,7 +98,7 @@ namespace ClassicUO.Grpc
     	byte[] vendorItemObjectArrRead;
 
     	byte[] playerStatusArrRead;
-    	byte[] playerSkillArrRead;
+    	byte[] playerSkillListArrRead;
 
     	byte[] staticObjectInfoListArrRead;
 
@@ -119,7 +119,7 @@ namespace ClassicUO.Grpc
     	public GrpcClilocDataList grpcClilocDataReplay;
 
     	public GrpcPlayerStatus grpcPlayerStatusReplay;
-    	public GrpcSkillList grpcPlayerSkillReplay;
+    	public GrpcSkillList grpcPlayerSkillListReplay;
 
     	public GrpcGameObjectInfoList grpcStaticObjectInfoListReplay;
 
@@ -145,7 +145,7 @@ namespace ClassicUO.Grpc
         List<int> vendorItemObjectArrayLengthListRead;
 
         List<int> playerStatusZeroLenStepListRead;
-        List<int> playerSkillArrayLengthListRead;
+        List<int> playerSkillListArrayLengthListRead;
 
         List<int> staticObjectInfoListLengthListRead;
 
@@ -217,7 +217,7 @@ namespace ClassicUO.Grpc
 	    	_vendorItemObjectArrayOffset = 0;
 
 	    	_playerStatusArrayOffset = 0;
-	    	_playerSkillArrayOffset = 0;
+	    	_playerSkillListArrayOffset = 0;
 
     		_staticObjectInfoListArrayOffset = 0;
 
@@ -238,7 +238,7 @@ namespace ClassicUO.Grpc
 	            vendorItemObjectArrayLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.vendorItemObjectLen");
 
 	            playerStatusZeroLenStepArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.playerStatusZeroLenStep");
-	            playerSkillArrayLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.playerSkillLen");
+	            playerSkillListArrayLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.playerSkillListLen");
 
 	            staticObjectInfoListLengthArrRead = ReadFromMpqArchive(_replayName, "replay.metadata.staticObjectInfoListArraysLen");
 
@@ -258,7 +258,7 @@ namespace ClassicUO.Grpc
 	            vendorItemObjectArrRead = ReadFromMpqArchive(_replayName, "replay.data.vendorItemObject");
 
 	            playerStatusArrRead = ReadFromMpqArchive(_replayName, "replay.data.playerStatus");
-	            playerSkillArrRead = ReadFromMpqArchive(_replayName, "replay.data.playerSkill");
+	            playerSkillListArrRead = ReadFromMpqArchive(_replayName, "replay.data.playerSkillList");
 
 	            staticObjectInfoListArrRead = ReadFromMpqArchive(_replayName, "replay.data.staticObjectInfoList");
 	            //Console.WriteLine("staticObjectInfoListArrRead.Length: {0}", staticObjectInfoListArrRead.Length);
@@ -300,20 +300,19 @@ namespace ClassicUO.Grpc
 		        vendorItemObjectArrayLengthListRead = ConvertByteArrayToIntList(vendorItemObjectArrayLengthArrRead);
 
 		        Console.WriteLine("playerStatusZeroLenStepArrRead.Length: {0}", playerStatusZeroLenStepArrRead.Length);
-		        Console.WriteLine("playerSkillArrayLengthArrRead.Length: {0}", playerSkillArrayLengthArrRead.Length);
+		        Console.WriteLine("playerSkillListArrayLengthArrRead.Length: {0}", playerSkillListArrayLengthArrRead.Length);
 
 		        playerStatusZeroLenStepListRead = ConvertByteArrayToIntList(playerStatusZeroLenStepArrRead);
-		        playerSkillArrayLengthListRead = ConvertByteArrayToIntList(playerSkillArrayLengthArrRead);
+		        playerSkillListArrayLengthListRead = ConvertByteArrayToIntList(playerSkillListArrayLengthArrRead);
 
 		        Console.WriteLine("staticObjectInfoListLengthArrRead.Length: {0}", staticObjectInfoListLengthArrRead.Length);
 		        staticObjectInfoListLengthListRead = ConvertByteArrayToIntList(staticObjectInfoListLengthArrRead);
 		        //Console.WriteLine("staticObjectInfoListLengthListRead.Count: {0}", staticObjectInfoListLengthListRead.Count);
 
 		        Console.WriteLine("ConvertByteArrayToIntList end");
-
-		    	for (int i = 0; i < playerSkillArrayLengthListRead.Count; i++)
+		    	for (int i = 0; i < playerSkillListArrayLengthListRead.Count; i++)
 		        {
-		        	Console.WriteLine("playerSkillArrayLengthListRead[{0}]: {1}", i, playerSkillArrayLengthListRead[i]);	
+		        	//Console.WriteLine("playerSkillArrayLengthListRead[{0}]: {1}", i, playerSkillArrayLengthListRead[i]);	
 		        }
 
 		        actionTypeListRead = ConvertByteArrayToIntList(actionTypeArrRead);
@@ -326,7 +325,7 @@ namespace ClassicUO.Grpc
 		        _replayLength = mobileDataArrayLengthListRead.Count;
 
 		        Console.WriteLine("_replayLength: {0}", _replayLength);
-		        Console.WriteLine("playerSkillArrRead.Length: {0}", playerSkillArrRead.Length);
+		        Console.WriteLine("playerSkillListArrRead.Length: {0}", playerSkillListArrRead.Length);
 		        int sum_length = 0;
 				for (int i = 0; i < mobileObjectArrayLengthListRead.Count; i++)
 		        {
@@ -405,6 +404,19 @@ namespace ClassicUO.Grpc
 				grpcPlayerStatusReplay = GrpcPlayerStatus.Parser.ParseFrom(playerStatusSubsetArray);
 				states.PlayerStatus = grpcPlayerStatusReplay;
 			}
+
+			try
+			{
+				byte[] playerSkillListSubsetArray = GetSubsetArray(index, playerSkillListArrayLengthListRead, ref _playerSkillListArrayOffset, 
+																   playerSkillListArrRead);
+				grpcPlayerSkillListReplay = GrpcSkillList.Parser.ParseFrom(playerSkillListSubsetArray);
+				states.PlayerSkillList = grpcPlayerSkillListReplay;
+			}
+            catch (Exception ex)
+            {
+            	//Console.WriteLine("Failed to parser the playerSkillListSubsetArray : " + ex.Message);
+            	//Console.WriteLine("corpseItemArrayLengthListRead[{0}]: {1}", index, corpseItemArrayLengthListRead[index]);
+            }
 
 	        try
 			{

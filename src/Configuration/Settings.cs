@@ -42,6 +42,7 @@ namespace ClassicUO.Configuration
         public static Settings GlobalSettings = new Settings();
         public static string CustomSettingsFilepath = null;
         public static bool Replay = false;
+        public static bool HumanPlay = false;
 
         [JsonProperty("username")] public string Username { get; set; } = string.Empty;
 

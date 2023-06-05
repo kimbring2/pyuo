@@ -264,9 +264,7 @@ namespace ClassicUO
                     Console.WriteLine("Run the replay");
                     UoServiceReplayImpl _uoServiceReplayImpl = new UoServiceReplayImpl(Settings.GlobalSettings.GrpcPort);
 
-                    //_uoServiceReplayImpl.ReadMPQFile("kimbring2-2023-5-28-09-41-49");
                     _uoServiceReplayImpl.Start();
-
                     while (true)
                     {
                         Thread.Sleep(1000);
@@ -310,6 +308,10 @@ namespace ClassicUO
                     // to load and save ClassicUO main settings instead of default `./settings.json`
                     // NOTE: All individual settings like `username`, `password`, etc passed in command-line options
                     // will override and overwrite those in the settings file because they have higher priority
+                    case "human_play":
+                        Settings.HumanPlay = true;
+                        break;
+
                     case "replay":
                         Settings.Replay = true;
                         break;

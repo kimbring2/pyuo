@@ -426,7 +426,11 @@ namespace ClassicUO.Grpc
 
         public void Start() 
         {
-        	_grpcServer.Start();
+        	if (Settings.HumanPlay == false)
+            {
+                _grpcServer.Start();
+            }
+
         	CreateMpqFile();
         }
 
@@ -458,8 +462,10 @@ namespace ClassicUO.Grpc
             return Task.FromResult(states);
         }
 
-        public override Task<States> ReadObs(Config config, ServerCallContext context)
+        public States ReadObs()
         {
+        	//Console.WriteLine("_envStep: {0}", _envStep);
+
         	if (_envStep % 1000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
@@ -784,7 +790,7 @@ namespace ClassicUO.Grpc
         		CreateMpqFile();
         		Reset();
 
-        		return Task.FromResult(states);
+        		return states;
         	}
         	else
         	{
@@ -842,16 +848,22 @@ namespace ClassicUO.Grpc
 	        grpcStaticObjectScreenXs.Clear();
 	        grpcStaticObjectScreenYs.Clear();
 
-            return Task.FromResult(states);
+	        return states;
         }
 
-        // Server side handler of the SayHello RPC
-        public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
+        public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
-        	if ( (actionType != 1) && (actionType != 0) ) 
+        	States obs = ReadObs();
+
+            return Task.FromResult(obs);
+        }
+
+        public void WriteAct()
+        {
+            if ( (actionType != 1) && (actionType != 0) ) 
 		    {
-		    	Console.WriteLine("gameTick: {0}, actionType: {1}, mobileSerial: {2}, itemSerial: {3}, index: {4}, amount: {5}", 
-		    		_controller._gameTick, actionType, mobileSerial, itemSerial, index, amount);
+		    	Console.WriteLine("gameTick: {0}, actionType: {1}, mobileSerial: {2}, itemSerial: {3}, index: {4}, amount: {5}, walkDirection: {6}", 
+		    		_controller._gameTick, actionType, mobileSerial, itemSerial, index, amount, walkDirection);
 		    }
 
 		    actionTypeList.Add((int) actionType);
@@ -860,7 +872,11 @@ namespace ClassicUO.Grpc
 			itemSerialList.Add((int) itemSerial);
 			indexList.Add((int) index);
 			amountList.Add((int) amount);
+        }
 
+        // Server side handler of the SayHello RPC
+        public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
+        {
     		if (actions.ActionType == 0) {
             	if (World.InGame == true) {
 
@@ -1083,11 +1099,23 @@ namespace ClassicUO.Grpc
             return Task.FromResult(new Empty {});
         }
 
+        public void ActSemaphoreControl()
+        {
+        	Console.WriteLine("Step 1");
+            _controller.semAction.Release();
+        }
+
+        public void ObsSemaphoreControl()
+        {
+        	Console.WriteLine("Step 3");
+            _controller.semObservation.WaitOne();
+        }
+
         public override Task<Empty> ActSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
-            //Console.WriteLine("Step 1");
-            _controller.semAction.Release();
+            //_controller.semAction.Release();
+            ActSemaphoreControl();
 
             return Task.FromResult(new Empty {});
         }
@@ -1095,8 +1123,7 @@ namespace ClassicUO.Grpc
         public override Task<Empty> ObsSemaphoreControl(SemaphoreAction action, ServerCallContext context)
         {
             //Console.WriteLine("action.Mode: {0}", action.Mode);
-            //Console.WriteLine("Step 3");
-            _controller.semObservation.WaitOne();
+            ObsSemaphoreControl();
 
             return Task.FromResult(new Empty {});
         }

@@ -420,7 +420,7 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("Step 4");
+            Console.WriteLine("Step 4");
             if (World.Player != null) 
             {
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
@@ -431,6 +431,14 @@ namespace ClassicUO
                 {
                     //Console.WriteLine("item.Name: {0}", item.Name);
                 }
+            }
+
+            //Console.WriteLine("Settings.HumanPlay: {0}", Settings.HumanPlay);
+
+            if (Settings.HumanPlay == true)
+            {
+                _uoServiceImpl.WriteAct();
+                _uoServiceImpl.ActSemaphoreControl();
             }
 
             semPhysics.WaitOne();
@@ -481,10 +489,16 @@ namespace ClassicUO
 
             base.Update(gameTime);
 
-            //Console.WriteLine("Step 2");
+            Console.WriteLine("Step 2");
 
             semObservation.Release();
             semPhysics.Release();
+
+            if (Settings.HumanPlay == true)
+            {
+                _uoServiceImpl.ReadObs();
+                _uoServiceImpl.ObsSemaphoreControl();
+            }
 
             _suppressedDraw = false;
             if (_gameTick % 4 == 0) 

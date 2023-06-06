@@ -398,9 +398,9 @@ namespace ClassicUO.Grpc
 		        	Console.WriteLine("staticObjectInfoListLengthArrRead is null");
 		        }
 
-		    	for (int i = 0; i < playerSkillListArrayLengthListRead.Count; i++)
+		    	for (int i = 0; i < mobileDataArrayLengthListRead.Count; i++)
 		        {
-		        	//Console.WriteLine("playerSkillArrayLengthListRead[{0}]: {1}", i, playerSkillArrayLengthListRead[i]);	
+		        	Console.WriteLine("mobileDataArrayLengthListRead[{0}]: {1}", i, mobileDataArrayLengthListRead[i]);	
 		        }
 
 		        actionTypeListRead = ConvertByteArrayToIntList(actionTypeArrRead);

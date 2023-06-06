@@ -164,14 +164,16 @@ namespace ClassicUO.Grpc
 	    	itemSerial = 0;
 	    	index = 0;
 	    	amount = 0;
-	    	openedCorpse = 0;
 
+	    	openedCorpse = 0;
 	    	corpseOpened = false;
         }
 
         public void Reset()
         {
         	Console.WriteLine("Reset()");
+
+        	// Clear all List and Array before using them
 
         	// ##################################################################################
 	    	mobileDataArrayLengthList.Clear();
@@ -240,14 +242,17 @@ namespace ClassicUO.Grpc
 
     		// ##################################################################################
     		_envStep = 0;
+
+    		// Action related values
     		actionType = 0;
 	    	walkDirection = 0;
 	    	mobileSerial = 0;
 	    	itemSerial = 0;
 	    	index = 0;
 	    	amount = 0;
-	    	openedCorpse = 0;
 
+	    	// Corpse manage values
+	    	openedCorpse = 0;
 	    	corpseOpened = false;
         }
 
@@ -271,7 +276,7 @@ namespace ClassicUO.Grpc
 
         public void SaveReplayFile()
         {
-        	Console.WriteLine("SaveReplayFile()");
+        	//Console.WriteLine("SaveReplayFile()");
 
             byte[] mobileDataArrayLengthArray = ConvertIntListToByteArray(mobileDataArrayLengthList);
             byte[] equippedItemArrayLengthArray = ConvertIntListToByteArray(equippedItemArrayLengthList);
@@ -289,7 +294,7 @@ namespace ClassicUO.Grpc
 	    	//Console.WriteLine("staticObjectInfoListArraysLengthList.Count: {0}", staticObjectInfoListArraysLengthList.Count);
 	    	byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
 
-	    	Console.WriteLine("playerStatusArrayZeroLengthStepList.Count: {0}", playerStatusArrayZeroLengthStepList.Count);
+	    	//Console.WriteLine("playerStatusArrayZeroLengthStepList.Count: {0}", playerStatusArrayZeroLengthStepList.Count);
 	    	for (int i = 0; i < playerStatusArrayZeroLengthStepList.Count; i++)
 	        {
 	        	//Console.WriteLine("playerStatusArrayZeroLengthStepList[{0}]: {1}", i, playerStatusArrayZeroLengthStepList[i]);	
@@ -431,7 +436,10 @@ namespace ClassicUO.Grpc
                 _grpcServer.Start();
             }
 
-        	CreateMpqFile();
+            if (Settings.Replay == true)
+            {
+                CreateMpqFile();
+            }
         }
 
         public override Task<States> Reset(Config config, ServerCallContext context)
@@ -786,9 +794,12 @@ namespace ClassicUO.Grpc
 
             	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
 				
-        		SaveReplayFile();
-        		CreateMpqFile();
-        		Reset();
+            	if (Settings.Replay == true)
+	            {
+	                SaveReplayFile();
+	        		CreateMpqFile();
+	        		Reset();
+	            }
 
         		return states;
         	}
@@ -872,6 +883,13 @@ namespace ClassicUO.Grpc
 			itemSerialList.Add((int) itemSerial);
 			indexList.Add((int) index);
 			amountList.Add((int) amount);
+
+			actionType = 0;
+	    	walkDirection = 0;
+	    	mobileSerial = 0;
+	    	itemSerial = 0;
+	    	index = 0;
+	    	amount = 0;
         }
 
         // Server side handler of the SayHello RPC
@@ -1101,13 +1119,13 @@ namespace ClassicUO.Grpc
 
         public void ActSemaphoreControl()
         {
-        	Console.WriteLine("Step 1");
+        	//Console.WriteLine("Step 1");
             _controller.semAction.Release();
         }
 
         public void ObsSemaphoreControl()
         {
-        	Console.WriteLine("Step 3");
+        	//Console.WriteLine("Step 3");
             _controller.semObservation.WaitOne();
         }
 

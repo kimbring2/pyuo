@@ -28,7 +28,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// ./ClassicUO -username kimbring2 -password kimbring2 -grpc_port 50051
+// ./ClassicUO -username kimbring2 -password kimbring2 -grpc_port 60051 -human_play -replay
 // ./ClassicUO -username bot1 -password bot1 -grpc_port 50052
 // ./ClassicUO -username bot2 -password bot2 -grpc_port 50053
 
@@ -254,6 +254,10 @@ namespace ClassicUO
                         break;
                 }
                 
+                Log.Trace("Client.Run()");
+                Client.Run();
+
+                /*
                 if (Settings.Replay == false) 
                 {
                     Log.Trace("Client.Run()");
@@ -270,6 +274,7 @@ namespace ClassicUO
                         Thread.Sleep(1000);
                     }
                 }
+                */
             }
 
             Log.Trace("Closing...");

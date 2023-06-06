@@ -130,6 +130,7 @@ namespace ClassicUO
         {
             //Log.Trace("Initialize()");
             _uoServiceImpl.Start();
+
             semPhysics.Release();
 
             if (GraphicManager.GraphicsDevice.Adapter.IsProfileSupported(GraphicsProfile.HiDef))
@@ -420,7 +421,7 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine("Step 4");
+            //Console.WriteLine("Step 4");
             if (World.Player != null) 
             {
                 //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
@@ -489,7 +490,7 @@ namespace ClassicUO
 
             base.Update(gameTime);
 
-            Console.WriteLine("Step 2");
+            //Console.WriteLine("Step 2");
 
             semObservation.Release();
             semPhysics.Release();

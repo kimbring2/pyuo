@@ -1526,8 +1526,11 @@ namespace ClassicUO.Game.GameObjects
 
         public bool Walk(Direction direction, bool run)
         {
-            Client.Game._uoServiceImpl.actionType = 1;
-            Client.Game._uoServiceImpl.walkDirection = (uint) direction;
+            //Client.Game._uoServiceImpl.actionType = 1;
+            Client.Game._uoServiceImpl.SetActionType(1);
+
+            //Client.Game._uoServiceImpl.walkDirection = (uint) direction;
+            Client.Game._uoServiceImpl.SetWalkDirection((uint) direction);
 
             //Console.WriteLine("direction: {0}", direction);
 

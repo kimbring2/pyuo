@@ -3438,7 +3438,8 @@ namespace ClassicUO.Network
         {
             Console.WriteLine("Send_BuyRequest()");
 
-            Client.Game._uoServiceImpl.grpcVendorItemObjectList.Clear();
+            //Client.Game._uoServiceImpl.grpcVendorItemObjectList.Clear();
+            Client.Game._uoServiceImpl.ClearVendorItemObjectList();
             
             const byte ID = 0x3B;
 

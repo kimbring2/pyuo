@@ -1219,7 +1219,8 @@ namespace ClassicUO.Network
                                                                   0, 0, it.Serial, it.Name, false, "None", 
                                                                   it.Amount, it.Price);
 
-                        Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
+                        //Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
+                        Client.Game._uoServiceImpl.ClearPopupMenuList();
 
                         gump.AddItem
                         (
@@ -1728,7 +1729,7 @@ namespace ClassicUO.Network
         private static void UpdateSkills(ref StackDataReader p)
         {
             Console.WriteLine("UpdateSkills()");
-            
+
             if (!World.InGame)
             {
                 return;

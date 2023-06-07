@@ -48,22 +48,22 @@ namespace ClassicUO.Grpc
             Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
         };
 
-        public List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
-        public List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
-        public List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
-        public List<GrpcOpenedCorpse> openedCorpseDataList = new List<GrpcOpenedCorpse>();
+        List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
+        List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
+        List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
+        List<GrpcOpenedCorpse> openedCorpseDataList = new List<GrpcOpenedCorpse>();
 
-        public List<string> grpcPopupMenuList = new List<string>();
-        public List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
+        List<string> grpcPopupMenuList = new List<string>();
+        List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
-        public List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
-        public List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
-        public List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
-        public List<GrpcGameObjectSimpleData> grpcItemDropableLandSimpleList = new List<GrpcGameObjectSimpleData>();
-        public List<GrpcGameObjectData> grpcVendorItemObjectList = new List<GrpcGameObjectData>();
+        List<GrpcGameObjectData> grpcPlayerMobileObjectList = new List<GrpcGameObjectData>();
+        List<GrpcGameObjectData> grpcMobileObjectList = new List<GrpcGameObjectData>();
+        List<GrpcGameObjectData> grpcItemObjectList = new List<GrpcGameObjectData>();
+        List<GrpcGameObjectSimpleData> grpcItemDropableLandSimpleList = new List<GrpcGameObjectSimpleData>();
+        List<GrpcGameObjectData> grpcVendorItemObjectList = new List<GrpcGameObjectData>();
 
-        public List<uint> grpcStaticObjectScreenXs = new List<uint>();
-        public List<uint> grpcStaticObjectScreenYs = new List<uint>();
+        List<uint> grpcStaticObjectScreenXs = new List<uint>();
+        List<uint> grpcStaticObjectScreenYs = new List<uint>();
 
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
 
@@ -136,14 +136,69 @@ namespace ClassicUO.Grpc
     	List<int> indexList = new List<int>();
     	List<int> amountList = new List<int>();
 
-    	public uint actionType;
-    	public uint walkDirection;
-    	public uint mobileSerial;
-    	public uint itemSerial;
-    	public uint index;
-    	public uint amount;
-    	public uint openedCorpse;
-    	public bool corpseOpened;
+    	uint actionType;
+    	uint walkDirection;
+    	uint mobileSerial;
+    	uint itemSerial;
+    	uint index;
+    	uint amount;
+    	uint openedCorpse;
+    	bool corpseOpened;
+
+    	public void SetActionType(uint value)
+	    {
+	        actionType = value;
+	    }
+
+	    public void SetWalkDirection(uint value)
+	    {
+	        walkDirection = value;
+	    }
+
+	    public void SetMobileSerial(uint value)
+	    {
+	        mobileSerial = value;
+	    }
+
+	    public void SetItemSerial(uint value)
+	    {
+	        itemSerial = value;
+	    }
+
+	    public void SetIndex(uint value)
+	    {
+	        index = value;
+	    }
+
+	    public void SetAmount(uint value)
+	    {
+	        amount = value;
+	    }
+
+	    public void SetOpenedCorpse(uint value)
+	    {
+	        openedCorpse = value;
+	    }
+
+	    public void SetOpenedCorpse(bool value)
+	    {
+	        corpseOpened = value;
+	    }
+
+	    public void AddToPopupMenuList(string text)
+	    {
+	        grpcPopupMenuList.Add(text);
+	    }
+
+	    public void ClearPopupMenuList()
+	    {
+	        grpcPopupMenuList.Clear();
+	    }
+
+	    public void ClearVendorItemObjectList()
+	    {
+	        grpcVendorItemObjectList.Clear();
+	    }
 
         public UoServiceImpl(GameController controller, int port)
         {
@@ -169,7 +224,7 @@ namespace ClassicUO.Grpc
 	    	corpseOpened = false;
         }
 
-        public void Reset()
+        private void Reset()
         {
         	Console.WriteLine("Reset()");
 
@@ -252,7 +307,7 @@ namespace ClassicUO.Grpc
 	    	amount = 0;
         }
 
-        public void CreateMpqFile()
+        private void CreateMpqFile()
         {
         	Console.WriteLine("###########################################################");
         	Console.WriteLine("CreateMpqFile()");
@@ -270,7 +325,7 @@ namespace ClassicUO.Grpc
         	CreateMpqArchive("Replay/" + _replayName + ".uoreplay");
         }
 
-        public void SaveReplayFile()
+        private void SaveReplayFile()
         {
         	//Console.WriteLine("SaveReplayFile()");
 

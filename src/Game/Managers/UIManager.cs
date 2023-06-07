@@ -332,7 +332,8 @@ namespace ClassicUO.Game.Managers
 
         public static Gump GetGump(uint serial)
         {
-            Client.Game._uoServiceImpl.itemSerial = (uint) serial;
+            //Client.Game._uoServiceImpl.itemSerial = (uint) serial;
+            Client.Game._uoServiceImpl.SetItemSerial((uint) serial);
 
             for (LinkedListNode<Gump> last = Gumps.Last; last != null; last = last.Previous)
             {

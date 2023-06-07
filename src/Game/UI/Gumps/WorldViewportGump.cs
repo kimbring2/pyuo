@@ -81,6 +81,8 @@ namespace ClassicUO.Game.UI.Gumps
                 }
             };
 
+            
+
             _button.MouseUp += (sender, e) =>
             {
                 if (!ProfileManager.CurrentProfile.GameWindowLock)
@@ -98,9 +100,8 @@ namespace ClassicUO.Game.UI.Gumps
                 }
             };
 
-
-            Console.WriteLine("_worldWidth: {0}", _worldWidth);
-            Console.WriteLine("_worldHeight: {0}", _worldHeight);
+            //Console.WriteLine("_worldWidth: {0}", _worldWidth);
+            //Console.WriteLine("_worldHeight: {0}", _worldHeight);
 
             _button.SetTooltip(ResGumps.ResizeGameWindow);
 

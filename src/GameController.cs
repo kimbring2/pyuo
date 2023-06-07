@@ -557,19 +557,20 @@ namespace ClassicUO
 
             Plugin.ProcessDrawCmdList(GraphicsDevice);
 
-            /*
             if (_startFlag == true) {
                 WorldViewportGump viewport = UIManager.GetGump<WorldViewportGump>();
                 if (viewport != null)
                 {
-                    viewport.ResizeGameWindow(new Point(1600, 1280));
+                    //Console.WriteLine("GameController");
+                    //Console.WriteLine("WindowWidth: {0}, WindowHeight: {1}", Settings.WindowWidth, Settings.WindowHeight);
+
+                    viewport.ResizeGameWindow(new Point(Settings.WindowWidth, Settings.WindowHeight));
                     viewport.X = -5;
                     viewport.Y = -5;
 
                     _startFlag = false;
                 }
             }
-            */
         }
 
         private void OnNetworkUpdate(double totalTime, double frameTime)

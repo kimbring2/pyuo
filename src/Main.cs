@@ -313,6 +313,14 @@ namespace ClassicUO
                     // to load and save ClassicUO main settings instead of default `./settings.json`
                     // NOTE: All individual settings like `username`, `password`, etc passed in command-line options
                     // will override and overwrite those in the settings file because they have higher priority
+                    case "window_width":
+                        Settings.WindowWidth = ushort.Parse(value);
+                        break;
+
+                    case "window_height":
+                        Settings.WindowHeight = ushort.Parse(value);
+                        break;
+
                     case "human_play":
                         Settings.HumanPlay = true;
                         break;

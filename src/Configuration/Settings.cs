@@ -43,6 +43,8 @@ namespace ClassicUO.Configuration
         public static string CustomSettingsFilepath = null;
         public static bool Replay = false;
         public static bool HumanPlay = false;
+        public static int WindowWidth = 1600;
+        public static int WindowHeight = 1280;
 
         [JsonProperty("username")] public string Username { get; set; } = string.Empty;
 
@@ -70,6 +72,7 @@ namespace ClassicUO.Configuration
         [JsonProperty("fps")] public int FPS { get; set; } = 60;
 
         [JsonProperty("window_position")] public Point? WindowPosition { get; set; }
+
         [JsonProperty("window_size")] public Point? WindowSize { get; set; }
 
         [JsonProperty("is_win_maximized")] public bool IsWindowMaximized { get; set; } = true;

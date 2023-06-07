@@ -231,9 +231,8 @@ namespace ClassicUO.Game
         public static bool OpenCorpse(uint serial)
         {
             //Console.WriteLine("OpenCorpse()");
-
-            Client.Game._uoServiceImpl.actionType = 7;
-            Client.Game._uoServiceImpl.mobileSerial = serial;
+            //Client.Game._uoServiceImpl.actionType = 7;
+            //Client.Game._uoServiceImpl.mobileSerial = serial;
 
             if (!SerialHelper.IsItem(serial))
             {

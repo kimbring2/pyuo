@@ -28,7 +28,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// ./ClassicUO -username kimbring2 -password kimbring2 -grpc_port 60051 -human_play -replay
+// ./ClassicUO -username kimbring2 -password kimbring2 -grpc_port 60051 -human_play -window_width 1400 -window_height 700 -replay
 // ./ClassicUO -username bot1 -password bot1 -grpc_port 50052
 // ./ClassicUO -username bot2 -password bot2 -grpc_port 50053
 
@@ -256,25 +256,6 @@ namespace ClassicUO
                 
                 Log.Trace("Client.Run()");
                 Client.Run();
-
-                /*
-                if (Settings.Replay == false) 
-                {
-                    Log.Trace("Client.Run()");
-                    Client.Run();
-                }
-                else
-                {
-                    Console.WriteLine("Run the replay");
-                    UoServiceReplayImpl _uoServiceReplayImpl = new UoServiceReplayImpl(Settings.GlobalSettings.GrpcPort);
-
-                    _uoServiceReplayImpl.Start();
-                    while (true)
-                    {
-                        Thread.Sleep(1000);
-                    }
-                }
-                */
             }
 
             Log.Trace("Closing...");

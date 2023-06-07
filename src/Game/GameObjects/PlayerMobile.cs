@@ -1530,20 +1530,6 @@ namespace ClassicUO.Game.GameObjects
             Client.Game._uoServiceImpl.walkDirection = (uint) direction;
 
             //Console.WriteLine("direction: {0}", direction);
-            /*
-            if (direction == Direction.Up) {
-               Client.Game._uoServiceImpl.walkDirection = 1;
-            }
-            else if (direction == Direction.Right) {
-               Client.Game._uoServiceImpl.walkDirection = 2;
-            }
-            else if (direction == Direction.Left) {
-               Client.Game._uoServiceImpl.walkDirection = 3;
-            }
-            else if (direction == Direction.Down) {
-               Client.Game._uoServiceImpl.walkDirection = 4;
-            }
-            */
 
             if (Walker.WalkingFailed || Walker.LastStepRequestTime > Time.Ticks || Walker.StepsCount >= Constants.MAX_STEP_COUNT || Client.Version >= ClientVersion.CV_60142 && IsParalyzed)
             {

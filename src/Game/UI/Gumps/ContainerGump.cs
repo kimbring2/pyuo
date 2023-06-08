@@ -171,52 +171,31 @@ namespace ClassicUO.Game.UI.Gumps
         private void BuildGump()
         {
             //Console.WriteLine("BuildGump(), LocalSerial: {0}", LocalSerial);
-
-            // gump: ClassicUO.Game.UI.Gumps.ContainerGump+GumpPicContainer
-            //Console.WriteLine("ContainerGump BuildGump()");
-
             CanMove = true;
             CanCloseWithRightClick = true;
             WantUpdateSize = false;
 
             Item item = World.Items.Get(LocalSerial);
-            if (item.IsCorpse) 
-            {
-                Console.WriteLine("Open corpse");
-                //Client.Game._uoServiceImpl.actionType = 7;
-                //Client.Game._uoServiceImpl.mobileSerial = LocalSerial;
-
-                Client.Game._uoServiceImpl.SetActionType(7);
-                Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
-
-                World.Player.ManualOpenedCorpses.Add(LocalSerial);
-            }
-
             //Console.WriteLine("InvalidateContents: {0}", InvalidateContents);
-
-            /*
-            if (InvalidateContents == false) 
-            {
-                //Console.WriteLine("item.Name: {0}", item.Name);
-                Console.WriteLine("InvalidateContents == false");
-
-                for (LinkedObject i = item.Items; i != null; i = i.Next)
-                {
-                    Item child = (Item) i;
-                    //Console.WriteLine("i: {0}, child.Name: {1}, child.Serial: {2}", i, child.Name, child.Serial);
-
-                    //public void AddGameItem(string type, string name, uint layer, uint serial, uint amount)
-                    Client.Game._uoServiceImpl.AddGameItem("CorpseItem", (string) child.Name, (uint) child.Layer, (uint) child.Serial, 
-                                                            child.Amount);
-                }
-
-            }
-            */
 
             if (item == null)
             {
                 Dispose();
                 return;
+            }
+            else
+            {
+                if (item.IsCorpse) 
+                {
+                    Console.WriteLine("Open corpse");
+                    //Client.Game._uoServiceImpl.actionType = 7;
+                    //Client.Game._uoServiceImpl.mobileSerial = LocalSerial;
+
+                    Client.Game._uoServiceImpl.SetActionType(7);
+                    Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
+
+                    World.Player.ManualOpenedCorpses.Add(LocalSerial);
+                }
             }
 
             float scale = GetScale();
@@ -652,9 +631,13 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void Dispose()
         {
-            //Console.WriteLine("Dispose()");
+            Console.WriteLine("Dispose()");
             Item item = World.Items.Get(LocalSerial);
-            //Console.WriteLine(item);
+
+            if (item.IsCorpse) 
+            {
+                World.Player.ManualOpenedCorpses.Remove(LocalSerial);
+            }
 
             if (item != null)
             {
@@ -679,17 +662,12 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
-            Console.WriteLine("CloseWithRightClick()");
+            //Console.WriteLine("CloseWithRightClick()");
 
             Item item = World.Items.Get(LocalSerial);
             if (item.IsCorpse) 
             {
-                Console.WriteLine("Clsoe corpse");
-                //Client.Game._uoServiceImpl.corpseOpened = true;
-                //Client.Game._uoServiceImpl.openedCorpse = LocalSerial;
-
-                //Client.Game._uoServiceImpl.actionType = 8;
-                //Client.Game._uoServiceImpl.mobileSerial = LocalSerial;
+                //Console.WriteLine("Clsoe corpse");
                 Client.Game._uoServiceImpl.SetActionType(8);
                 Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
 

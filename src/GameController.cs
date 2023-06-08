@@ -435,7 +435,6 @@ namespace ClassicUO
             }
 
             //Console.WriteLine("Settings.HumanPlay: {0}", Settings.HumanPlay);
-
             if (Settings.HumanPlay == true)
             {
                 _uoServiceImpl.WriteAct();

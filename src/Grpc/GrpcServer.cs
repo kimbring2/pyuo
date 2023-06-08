@@ -202,6 +202,8 @@ namespace ClassicUO.Grpc
 
         public UoServiceImpl(GameController controller, int port)
         {
+        	Console.WriteLine("port: {0}", port);
+
             _controller = controller;
             _port = port;
 
@@ -600,76 +602,43 @@ namespace ClassicUO.Grpc
 		        								      Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
 		    }
 
-		    /*
-		    if ( (corpseOpened == true) && (openedCorpse != 0) )
-		    {
-		    	//Console.WriteLine("(corpseOpened == true) && (openedCorpse != 0)");
-		    	//corpseItemDataList.Clear();
-			    try
-	        	{
-	                Item item = World.Items.Get(openedCorpse);
-	        		//Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
-
-		            for (LinkedObject i = item.Items; i != null; i = i.Next)
-		            {
-		                Item child = (Item) i;
-		                //Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}, ", i, child.Name, child.Serial, child.Amount);
-	            		//corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
-		              	//								         Serial = (uint) child.Serial, Amount = (uint) child.Amount });
-		            }
-		        }
-		        catch (Exception ex)
-	            {
-	            	Console.WriteLine("Failed to save the corpse items: " + ex.Message);
-	            }
-	        }
-	        else
-	        {
-	        	//corpseItemDataList.Clear();
-	        }
-	        */
-	        //List<GrpcOpenedCorpse> openedCorpseDataList = new List<GrpcOpenedCorpse>();
 	        if ((World.Player != null) && (World.InGame == true))
 	        {
 		        foreach (uint corpseSerial in World.Player.ManualOpenedCorpses)
 			    {
 			    	//Console.WriteLine("corpseSerial: {0}", corpseSerial);
-
+			    	
 			    	Item corpseObj = World.Items.Get(corpseSerial);
-			    	Vector2 corpseObjPos = corpseObj.GetScreenPosition();
+			    	//Console.WriteLine("corpseObj: {0}", corpseObj);
+			    	if (corpseObj != null)
+            		{
+				    	Vector2 corpseObjPos = corpseObj.GetScreenPosition();
 
-			        //message GrpcOpenedCorpse {
-					//  GrpcGameObjectData corpse = 1;
-					//  GrpcItemList corpseItemList = 2;
-					//}
+						//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", "Corpse", corpseObjPos.X, corpseObjPos.Y, corpseObj.Distance, corpseObj.Name);
+			        	GrpcGameObjectData corpse = new GrpcGameObjectData{ Type="Corpse", ScreenX=(uint) corpseObjPos.X, ScreenY=(uint) corpseObjPos.Y, 
+			        												  		Distance=(uint) corpseObj.Distance, GameX=corpseObj.X, GameY=corpseObj.Y, 
+			        												  		Serial=corpseSerial, Name=corpseObj.Name, IsCorpse=true, Title="None", 
+			        												  		Amount=corpseObj.Amount, Price=corpseObj.Price };
 
-					//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", "Corpse", corpseObjPos.X, corpseObjPos.Y, corpseObj.Distance, corpseObj.Name);
+			        	List<GrpcItemData> corpseItemDataList = new List<GrpcItemData>();										
+			        	for (LinkedObject i = corpseObj.Items; i != null; i = i.Next)
+			            {
+			                Item child = (Item) i;
+			                if (child.Name != null)
+			                {
+			                	//Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}, ", child.Name, child.Serial, child.Amount);
+		            			corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
+			              									         	Serial = (uint) child.Serial, Amount = (uint) child.Amount });
+		            		}
+			            }
 
-		        	GrpcGameObjectData corpse = new GrpcGameObjectData{ Type="Corpse", ScreenX=(uint) corpseObjPos.X, ScreenY=(uint) corpseObjPos.Y, 
-		        												  		Distance=(uint) corpseObj.Distance, GameX=corpseObj.X, GameY=corpseObj.Y, 
-		        												  		Serial=corpseSerial, Name=corpseObj.Name, IsCorpse=true, Title="None", 
-		        												  		Amount=corpseObj.Amount, Price=corpseObj.Price };
+			            GrpcItemList corpseItemList = new GrpcItemList();
+			            corpseItemList.Item.AddRange(corpseItemDataList);
 
-		        	List<GrpcItemData> corpseItemDataList = new List<GrpcItemData>();										
-		        	for (LinkedObject i = corpseObj.Items; i != null; i = i.Next)
-		            {
-		                Item child = (Item) i;
-		                if (child.Name != null)
-		                {
-		                	//Console.WriteLine("Name: {0}, Serial: {1}, Amount: {2}, ", child.Name, child.Serial, child.Amount);
-	            			corpseItemDataList.Add(new GrpcItemData{ Name = child.Name, Layer = (uint) child.Layer,
-		              									         	Serial = (uint) child.Serial, Amount = (uint) child.Amount });
-	            		}
-		            }
+			        	GrpcOpenedCorpse openedCorpse = new GrpcOpenedCorpse{ Corpse = corpse, CorpseItemList = corpseItemList };
 
-		            GrpcItemList corpseItemList = new GrpcItemList();
-		            corpseItemList.Item.AddRange(corpseItemDataList);
-
-		        	GrpcOpenedCorpse openedCorpse = new GrpcOpenedCorpse{ Corpse = corpse, CorpseItemList = corpseItemList };
-
-		        	openedCorpseDataList.Add(openedCorpse);
-
-		        	//Console.WriteLine("");
+			        	openedCorpseDataList.Add(openedCorpse);
+			        }
 			    }
 			}
 

@@ -415,9 +415,9 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.staticObjectInfoList", staticObjectInfoListArrays);
         }
 
-        public void AddClilocData(string text, string affix)
+        public void AddClilocData(uint serial, string text, string affix, string name)
         {
-        	grpcClilocDataList.Add(new GrpcClilocData{ Text=text, Affix=affix });
+        	grpcClilocDataList.Add(new GrpcClilocData{ Serial=serial, Text=text, Affix=affix, Name=name });
         }
 
         public void AddGameSimpleObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y)
@@ -607,7 +607,7 @@ namespace ClassicUO.Grpc
 		        foreach (uint corpseSerial in World.Player.ManualOpenedCorpses)
 			    {
 			    	//Console.WriteLine("corpseSerial: {0}", corpseSerial);
-			    	
+
 			    	Item corpseObj = World.Items.Get(corpseSerial);
 			    	//Console.WriteLine("corpseObj: {0}", corpseObj);
 			    	if (corpseObj != null)

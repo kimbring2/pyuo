@@ -81,11 +81,9 @@ namespace ClassicUO.Game.GameObjects
         }
 
         public byte AnimIndex;
-
         public Flags Flags;
         public ushort Hits;
         public ushort HitsMax;
-
         public byte HitsPercentage;
         public RenderedText HitsTexture;
         public bool IsClicked;

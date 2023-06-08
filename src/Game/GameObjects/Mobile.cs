@@ -422,7 +422,6 @@ namespace ClassicUO.Game.GameObjects
                 }
 
                 ANIMATION_FLAGS flags = AnimationsLoader.Instance.DataIndex[graphic].Flags;
-
                 ANIMATION_GROUPS animGroup = ANIMATION_GROUPS.AG_NONE;
 
                 bool isLowExtended = false;

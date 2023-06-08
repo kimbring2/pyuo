@@ -325,8 +325,7 @@ namespace ClassicUO.Game
             //Log.Trace("DoubleClick");
             //Console.WriteLine("DoubleClick()");
 
-            //Client.Game._uoServiceImpl.mobileSerial = serial;
-            Client.Game._uoServiceImpl.SetMobileSerial(serial);
+            Client.Game._uoServiceImpl.SetTargetSerial(serial);
             
             if (serial != World.Player && SerialHelper.IsMobile(serial) && World.Player.InWarMode)
             {
@@ -473,11 +472,8 @@ namespace ClassicUO.Game
         )
         {
             //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
-            //Client.Game._uoServiceImpl.actionType = 3;
             Client.Game._uoServiceImpl.SetActionType(3);
-            //Client.Game._uoServiceImpl.itemSerial = serial;
-            Client.Game._uoServiceImpl.SetItemSerial(serial);
-            //Client.Game._uoServiceImpl.amount = (uint) amount;
+            Client.Game._uoServiceImpl.SetSelectedSerial(serial);
             Client.Game._uoServiceImpl.SetAmount((uint) amount);
 
             if (World.Player.IsDead || ItemHold.Enabled)
@@ -553,28 +549,22 @@ namespace ClassicUO.Game
             {
                 // Drop the holded item into my backpack
                 Console.WriteLine("actionType == 4");
-                //Client.Game._uoServiceImpl.actionType = 4;
                 Client.Game._uoServiceImpl.SetActionType(4);
             }
             else if (container == 0xFFFF_FFFF) 
             {
                 // Drop the holded item on land around the player
                 Console.WriteLine("actionType == 5");
-                //Client.Game._uoServiceImpl.actionType = 5;
                 Client.Game._uoServiceImpl.SetActionType(5);
             }
             else
             {
                 Console.WriteLine("actionType == 16");
-                //Client.Game._uoServiceImpl.actionType = 16;
                 Client.Game._uoServiceImpl.SetActionType(16);
             }
             
-            //Client.Game._uoServiceImpl.itemSerial = serial;
-            Client.Game._uoServiceImpl.SetItemSerial(serial);
-
-            //Client.Game._uoServiceImpl.mobileSerial = container;
-            Client.Game._uoServiceImpl.SetMobileSerial(container);
+            Client.Game._uoServiceImpl.SetSelectedSerial(serial);
+            Client.Game._uoServiceImpl.SetTargetSerial(container);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {
@@ -757,8 +747,8 @@ namespace ClassicUO.Game
             //Client.Game._uoServiceImpl.actionType = 10;
             Client.Game._uoServiceImpl.SetActionType(10);
 
-            //Client.Game._uoServiceImpl.mobileSerial = serial;
-            Client.Game._uoServiceImpl.SetMobileSerial(serial);
+            //Client.Game._uoServiceImpl.targetSerial = serial;
+            Client.Game._uoServiceImpl.SetTargetSerial(serial);
 
             Socket.Send_RequestPopupMenu(serial);
         }
@@ -766,7 +756,7 @@ namespace ClassicUO.Game
         public static void ResponsePopupMenu(uint serial, ushort index)
         {
             Console.WriteLine("ResponsePopupMenu()");
-            Console.WriteLine("index: {0}", index);
+            //Console.WriteLine("index: {0}", index);
 
             //Client.Game._uoServiceImpl.actionType = 11;
             Client.Game._uoServiceImpl.SetActionType(11);
@@ -836,7 +826,7 @@ namespace ClassicUO.Game
 
         public static void UsePrimaryAbility()
         {
-            Console.WriteLine("UsePrimaryAbility()");
+            //Console.WriteLine("UsePrimaryAbility()");
 
             ref Ability ability = ref World.Player.Abilities[0];
 
@@ -859,7 +849,7 @@ namespace ClassicUO.Game
 
         public static void UseSecondaryAbility()
         {
-            Console.WriteLine("UseSecondaryAbility()");
+            //Console.WriteLine("UseSecondaryAbility()");
 
             ref Ability ability = ref World.Player.Abilities[1];
 

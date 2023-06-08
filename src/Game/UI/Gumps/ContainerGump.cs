@@ -192,7 +192,7 @@ namespace ClassicUO.Game.UI.Gumps
                     //Client.Game._uoServiceImpl.mobileSerial = LocalSerial;
 
                     Client.Game._uoServiceImpl.SetActionType(7);
-                    Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
+                    Client.Game._uoServiceImpl.SetTargetSerial(LocalSerial);
 
                     World.Player.ManualOpenedCorpses.Add(LocalSerial);
                 }
@@ -669,7 +669,7 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 //Console.WriteLine("Clsoe corpse");
                 Client.Game._uoServiceImpl.SetActionType(8);
-                Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
+                Client.Game._uoServiceImpl.SetTargetSerial(LocalSerial);
 
                 World.Player.ManualOpenedCorpses.Remove(LocalSerial);
             }

@@ -4482,7 +4482,7 @@ namespace ClassicUO.Network
 
         private static void DisplayClilocString(ref StackDataReader p)
         {
-            Console.WriteLine("DisplayClilocString()");
+            //Console.WriteLine("DisplayClilocString()");
 
             if (World.Player == null)
             {
@@ -4573,7 +4573,7 @@ namespace ClassicUO.Network
                 }
             }
 
-            Console.WriteLine("serial: {0}, text: {1}, affix: {2}, name: {3}", serial, text, affix, name);
+            //Console.WriteLine("serial: {0}, text: {1}, affix: {2}, name: {3}", serial, text, affix, name);
             Client.Game._uoServiceImpl.AddClilocData(serial, text, affix, name);
 
             MessageManager.HandleMessage

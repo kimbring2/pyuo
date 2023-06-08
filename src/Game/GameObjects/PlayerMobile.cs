@@ -1532,7 +1532,7 @@ namespace ClassicUO.Game.GameObjects
             //Client.Game._uoServiceImpl.walkDirection = (uint) direction;
             Client.Game._uoServiceImpl.SetWalkDirection((uint) direction);
 
-            //Console.WriteLine("direction: {0}", direction);
+            Client.Game._uoServiceImpl.SetRun(run);
 
             if (Walker.WalkingFailed || Walker.LastStepRequestTime > Time.Ticks || Walker.StepsCount >= Constants.MAX_STEP_COUNT || Client.Version >= ClientVersion.CV_60142 && IsParalyzed)
             {

@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,6 +42,15 @@ namespace ClassicUO.Grpc
 	        }
 
 	        return byteList.ToArray();
+	    }
+
+	    static byte[] ConvertBoolListToByteArray(List<bool> boolList)
+	    {
+	        BitArray bitArray = new BitArray(boolList.ToArray());
+			byte[] byteArray = new byte[(boolList.Count + 7) / 8];
+			bitArray.CopyTo(byteArray, 0);
+
+			return byteArray;
 	    }
 
 	    static List<int> ConvertByteArrayToIntList(byte[] byteArray)

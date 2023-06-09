@@ -1218,8 +1218,6 @@ namespace ClassicUO.Network
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
                                                                   0, 0, it.Serial, it.Name, false, "None", 
                                                                   it.Amount, it.Price);
-
-                        //Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
                         Client.Game._uoServiceImpl.ClearPopupMenuList();
 
                         gump.AddItem
@@ -3574,6 +3572,7 @@ namespace ClassicUO.Network
         private static void OpenGump(ref StackDataReader p)
         {
             Console.WriteLine("OpenGump()");
+
             if (World.Player == null)
             {
                 return;
@@ -3588,6 +3587,7 @@ namespace ClassicUO.Network
             string cmd = p.ReadASCII(cmdLen);
 
             ushort textLinesCount = p.ReadUInt16BE();
+            //Console.WriteLine("textLinesCount: {0}", textLinesCount);
 
             string[] lines = new string[textLinesCount];
 
@@ -3603,6 +3603,8 @@ namespace ClassicUO.Network
                 {
                     lines[i] = string.Empty;
                 }
+
+                //Console.WriteLine("lines[{0}]: {1}", i, lines[i]);
             }
 
             CreateGump
@@ -5092,6 +5094,8 @@ namespace ClassicUO.Network
 
         private static void OpenCompressedGump(ref StackDataReader p)
         {
+            Console.WriteLine("OpenCompressedGump()");
+
             uint sender = p.ReadUInt32BE();
             uint gumpID = p.ReadUInt32BE();
             uint x = p.ReadUInt32BE();
@@ -5163,7 +5167,6 @@ namespace ClassicUO.Network
                         for (int i = 0; i < linesNum; ++i)
                         {
                             int remaining = reader.Remaining;
-
                             if (remaining >= 2)
                             {
                                 int length = reader.ReadUInt16BE();
@@ -5770,7 +5773,6 @@ namespace ClassicUO.Network
             {
                 Mobile m = World.Mobiles.Get(containerSerial);
                 Item secureBox = m?.GetSecureTradeBox();
-
                 if (secureBox != null)
                 {
                     UIManager.GetTradingGump(secureBox)?.RequestUpdateContents();
@@ -5790,11 +5792,9 @@ namespace ClassicUO.Network
                 else
                 {
                     gump = UIManager.GetGump<SpellbookGump>(containerSerial);
-
                     if (gump == null)
                     {
                         gump = UIManager.GetGump<ContainerGump>(containerSerial);
-
                         if (gump != null)
                         {
                             ((ContainerGump) gump).CheckItemControlPosition(item);
@@ -5803,7 +5803,6 @@ namespace ClassicUO.Network
                         if (ProfileManager.CurrentProfile.GridLootType > 0)
                         {
                             GridLootGump grid_gump = UIManager.GetGump<GridLootGump>(containerSerial);
-
                             if (grid_gump == null && SerialHelper.IsValid(_requestedGridLoot) && _requestedGridLoot == containerSerial)
                             {
                                 grid_gump = new GridLootGump(_requestedGridLoot);
@@ -6192,6 +6191,8 @@ namespace ClassicUO.Network
             string[] lines
         )
         {
+            Console.WriteLine("CreateGump()");
+
             List<string> cmdlist = _parser.GetTokens(layout);
             int cmdlen = cmdlist.Count;
 
@@ -6211,7 +6212,6 @@ namespace ClassicUO.Network
                 for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
                 {
                     Control g = last.Value;
-
                     if (!g.IsDisposed && g.LocalSerial == sender && g.ServerSerial == gumpID)
                     {
                         g.Clear();
@@ -6227,6 +6227,7 @@ namespace ClassicUO.Network
                 UIManager.SavePosition(gumpID, new Point(x, y));
             }
 
+            Console.WriteLine("gump 1: {0}", gump);
             if (gump == null)
             {
                 gump = new Gump(sender, gumpID)
@@ -6241,11 +6242,13 @@ namespace ClassicUO.Network
                 };
             }
 
+            Console.WriteLine("gump 2: {0}", gump);
+
             int group = 0;
             int page = 0;
-
-
             bool textBoxFocused = false;
+
+            Console.WriteLine("cmdlen: {0}", cmdlen);
 
             for (int cnt = 0; cnt < cmdlen; cnt++)
             {
@@ -6257,6 +6260,7 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
+                Console.WriteLine("entry: {0}", entry);
 
                 if (string.Equals(entry, "button", StringComparison.InvariantCultureIgnoreCase))
                 {

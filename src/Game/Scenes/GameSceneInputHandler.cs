@@ -334,7 +334,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                //Client.Game._uoServiceImpl.actionType = 17;
                 Client.Game._uoServiceImpl.SetActionType(17);
             }
 
@@ -383,7 +382,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                //Client.Game._uoServiceImpl.actionType = 17;
                 Client.Game._uoServiceImpl.SetActionType(17);
             }
 
@@ -808,7 +806,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                //Client.Game._uoServiceImpl.actionType = 17;
                 Client.Game._uoServiceImpl.SetActionType(17);
             }
 
@@ -829,7 +826,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                //Client.Game._uoServiceImpl.actionType = 17;
                 Client.Game._uoServiceImpl.SetActionType(17);
             }
 

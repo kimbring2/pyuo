@@ -170,13 +170,14 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void BuildGump()
         {
-            //Console.WriteLine("BuildGump(), LocalSerial: {0}", LocalSerial);
+            Console.WriteLine("BuildGump()");
+
             CanMove = true;
             CanCloseWithRightClick = true;
             WantUpdateSize = false;
 
             Item item = World.Items.Get(LocalSerial);
-            //Console.WriteLine("InvalidateContents: {0}", InvalidateContents);
+            Console.WriteLine("item: {0}", item);
 
             if (item == null)
             {
@@ -188,8 +189,6 @@ namespace ClassicUO.Game.UI.Gumps
                 if (item.IsCorpse) 
                 {
                     Console.WriteLine("Open corpse");
-                    //Client.Game._uoServiceImpl.actionType = 7;
-                    //Client.Game._uoServiceImpl.mobileSerial = LocalSerial;
 
                     Client.Game._uoServiceImpl.SetActionType(7);
                     Client.Game._uoServiceImpl.SetTargetSerial(LocalSerial);

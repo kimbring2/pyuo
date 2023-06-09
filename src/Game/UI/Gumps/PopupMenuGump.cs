@@ -68,9 +68,7 @@ namespace ClassicUO.Game.UI.Gumps
                 ref PopupMenuItem item = ref data.Items[i];
 
                 string text = ClilocLoader.Instance.GetString(item.Cliloc);
-                //Console.WriteLine("text:{0}", text);
 
-                //Client.Game._uoServiceImpl.grpcPopupMenuList.Add(text);
                 Client.Game._uoServiceImpl.AddToPopupMenuList(text);
 
                 ushort hue = item.Hue;
@@ -165,11 +163,7 @@ namespace ClassicUO.Game.UI.Gumps
         protected override void CloseWithRightClick()
         {
             //Console.WriteLine("PopuoMenuGump CloseWithRightClick()");
-
-            //Client.Game._uoServiceImpl.actionType = 17;
             Client.Game._uoServiceImpl.SetActionType(17);
-
-            //Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
             Client.Game._uoServiceImpl.ClearPopupMenuList();
 
             base.CloseWithRightClick();
@@ -178,9 +172,6 @@ namespace ClassicUO.Game.UI.Gumps
         public override void Dispose()
         {
             //Console.WriteLine("PopuoMenuGump Dispose()");
-
-            //Client.Game._uoServiceImpl.actionType = 17;
-            //Client.Game._uoServiceImpl.grpcPopupMenuList.Clear();
             Client.Game._uoServiceImpl.ClearPopupMenuList();
 
             base.Dispose();

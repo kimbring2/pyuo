@@ -395,11 +395,12 @@ namespace ClassicUO.Game.Managers
             {
                 Control g = last.Value;
 
-                //Console.WriteLine("g: ");
-                //Console.WriteLine(g);
+                //Console.WriteLine("g: {0}", g);
 
                 g.Draw(batcher, g.X, g.Y);
             }
+
+            //Console.WriteLine("")
 
             GameCursor?.Draw(batcher);
 

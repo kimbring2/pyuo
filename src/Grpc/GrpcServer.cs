@@ -51,7 +51,7 @@ namespace ClassicUO.Grpc
         List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
         List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
-        List<GrpcOpenedCorpse> openedCorpseDataList = new List<GrpcOpenedCorpse>();
+        List<GrpcContainerData> openedCorpseDataList = new List<GrpcContainerData>();
 
         List<string> grpcPopupMenuList = new List<string>();
         List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
@@ -603,10 +603,7 @@ namespace ClassicUO.Grpc
 	        {
 		        foreach (uint corpseSerial in World.Player.ManualOpenedCorpses)
 			    {
-			    	//Console.WriteLine("corpseSerial: {0}", corpseSerial);
-
 			    	Item corpseObj = World.Items.Get(corpseSerial);
-			    	//Console.WriteLine("corpseObj: {0}", corpseObj);
 			    	if (corpseObj != null)
             		{
 				    	Vector2 corpseObjPos = corpseObj.GetScreenPosition();
@@ -632,7 +629,7 @@ namespace ClassicUO.Grpc
 			            GrpcItemList corpseItemList = new GrpcItemList();
 			            corpseItemList.Item.AddRange(corpseItemDataList);
 
-			        	GrpcOpenedCorpse openedCorpse = new GrpcOpenedCorpse{ Corpse = corpse, CorpseItemList = corpseItemList };
+			        	GrpcContainerData openedCorpse = new GrpcContainerData{ Container = corpse, ContainerItemList = corpseItemList };
 
 			        	openedCorpseDataList.Add(openedCorpse);
 			        }
@@ -667,8 +664,8 @@ namespace ClassicUO.Grpc
             backpackItemList.Item.AddRange(backpackItemDataList);
             states.BackpackItemList = backpackItemList;
 
-            GrpcOpenedCorpseList openedCorpseList = new GrpcOpenedCorpseList();
-            openedCorpseList.Corpse.AddRange(openedCorpseDataList);
+            GrpcContainerDataList openedCorpseList = new GrpcContainerDataList();
+            openedCorpseList.Containers.AddRange(openedCorpseDataList);
             states.OpenedCorpseList = openedCorpseList;
 
             GrpcPopupMenuList popupMenuList = new GrpcPopupMenuList();

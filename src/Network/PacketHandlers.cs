@@ -1268,7 +1268,6 @@ namespace ClassicUO.Network
                     if (Client.Version >= Data.ClientVersion.CV_706000 && ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.UseLargeContainerGumps)
                     {
                         GumpsLoader loader = GumpsLoader.Instance;
-
                         switch (graphic)
                         {
                             case 0x0048:
@@ -1726,7 +1725,7 @@ namespace ClassicUO.Network
 
         private static void UpdateSkills(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateSkills()");
+            //Console.WriteLine("UpdateSkills()");
 
             if (!World.InGame)
             {
@@ -3908,8 +3907,9 @@ namespace ClassicUO.Network
 
         private static void ExtendedCommand(ref StackDataReader p)
         {
-            ushort cmd = p.ReadUInt16BE();
+            Console.WriteLine("ExtendedCommand()");
 
+            ushort cmd = p.ReadUInt16BE();
             switch (cmd)
             {
                 case 0: break;
@@ -4122,6 +4122,8 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 0x14: // display popup/context menu
+                    //Console.WriteLine("display popup/context menu");
+
                     UIManager.ShowGamePopup
                     (
                         new PopupMenuGump(PopupMenuData.Parse(ref p))
@@ -5097,7 +5099,7 @@ namespace ClassicUO.Network
 
         private static void OpenCompressedGump(ref StackDataReader p)
         {
-            Console.WriteLine("OpenCompressedGump()");
+            //Console.WriteLine("OpenCompressedGump()");
 
             uint sender = p.ReadUInt32BE();
             uint gumpID = p.ReadUInt32BE();

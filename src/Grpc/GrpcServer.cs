@@ -1167,6 +1167,7 @@ namespace ClassicUO.Grpc
 	        		// Select one of menu from the pop up menu the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 11");
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
+	        		UIManager.ShowGamePopup(null);
 	        		grpcPopupMenuList.Clear();
 	        	}
 	        }
@@ -1233,6 +1234,14 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		// Drop the item to the bank
 	        		Console.WriteLine("actions.ActionType == 18");
+        			Item bank = World.Player.FindItemByLayer(Layer.Bank);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
+	        	}
+	        }
+	        else if (actions.ActionType == 19) {
+	        	if (World.Player != null) {
+	        		// Change the lock status of skill
+	        		Console.WriteLine("actions.ActionType == 19");
         			Item bank = World.Player.FindItemByLayer(Layer.Bank);
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
 	        	}

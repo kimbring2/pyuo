@@ -513,7 +513,6 @@ namespace ClassicUO.Game.UI.Gumps
                 };
             }
 
-
             public int Count => _skills.Count;
 
             public bool IsMinimized
@@ -536,7 +535,6 @@ namespace ClassicUO.Game.UI.Gumps
                     WantUpdateSize = true;
                 }
             }
-
 
             public void AddSkill(int index, int x, int y)
             {
@@ -858,8 +856,8 @@ namespace ClassicUO.Game.UI.Gumps
                     }
 
                     Skill skill = World.Player.Skills[Index];
+                    
                     byte newStatus = (byte) skill.Lock;
-
                     if (newStatus < 2)
                     {
                         newStatus++;
@@ -869,11 +867,9 @@ namespace ClassicUO.Game.UI.Gumps
                         newStatus = 0;
                     }
 
-                    //Console.WriteLine("NetClient.Socket.Send_SkillStatusChangeRequest((ushort)Index, newStatus)");
-                    //Console.WriteLine("Index: {0}, newStatus: {1}", Index, newStatus);
+                    Console.WriteLine("Index: {0}, newStatus: {1}", Index, newStatus);
 
-                    NetClient.Socket.Send_SkillStatusChangeRequest((ushort)Index, newStatus);
-
+                    NetClient.Socket.Send_SkillStatusChangeRequest((ushort) Index, newStatus);
                     skill.Lock = (Lock) newStatus;
                     SetStatus((Lock) newStatus);
                 }

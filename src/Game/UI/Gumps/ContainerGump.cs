@@ -189,10 +189,6 @@ namespace ClassicUO.Game.UI.Gumps
                 if (item.IsCorpse) 
                 {
                     Console.WriteLine("Open corpse");
-
-                    Client.Game._uoServiceImpl.SetActionType(7);
-                    Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
-
                     World.Player.ManualOpenedCorpses.Add(LocalSerial);
                 }
             }
@@ -666,9 +662,6 @@ namespace ClassicUO.Game.UI.Gumps
             if (item.IsCorpse) 
             {
                 //Console.WriteLine("Clsoe corpse");
-                Client.Game._uoServiceImpl.SetActionType(8);
-                Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
-
                 World.Player.ManualOpenedCorpses.Remove(LocalSerial);
             }
 

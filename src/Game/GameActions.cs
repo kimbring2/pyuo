@@ -765,8 +765,6 @@ namespace ClassicUO.Game
             //Console.WriteLine("index: {0}", index);
 
             Client.Game._uoServiceImpl.SetActionType(11);
-
-            //Client.Game._uoServiceImpl.index = index;
             Client.Game._uoServiceImpl.SetIndex(index);
 
             Socket.Send_PopupMenuSelection(serial, index);
@@ -834,7 +832,6 @@ namespace ClassicUO.Game
             //Console.WriteLine("UsePrimaryAbility()");
 
             ref Ability ability = ref World.Player.Abilities[0];
-
             if (((byte) ability & 0x80) == 0)
             {
                 for (int i = 0; i < 2; i++)

@@ -1,0 +1,24 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 06/10/2023 04:20:19
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+  at System.Collections.Generic.List`1+Enumerator[T].MoveNextRare () [0x00013] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Collections.Generic.List`1+Enumerator[T].MoveNext () [0x0004a] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.Game.UI.Controls.Control.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher, System.Int32 x, System.Int32 y) [0x00058] in <d602784112db4932b77640deb4cfb192>:0 
+  at ClassicUO.Game.UI.Gumps.Gump.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher, System.Int32 x, System.Int32 y) [0x00008] in <d602784112db4932b77640deb4cfb192>:0 
+  at ClassicUO.Game.Managers.UIManager.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher) [0x0002e] in <d602784112db4932b77640deb4cfb192>:0 
+  at ClassicUO.GameController.Draw (Microsoft.Xna.Framework.GameTime gameTime) [0x0007c] in <d602784112db4932b77640deb4cfb192>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x00222] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x00085] in <d602784112db4932b77640deb4cfb192>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00379] in <d602784112db4932b77640deb4cfb192>:0 
+######################## [END LOG] ########################
+
+

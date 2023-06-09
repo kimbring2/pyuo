@@ -389,22 +389,25 @@ namespace ClassicUO.Game.Managers
         {
             SortControlsByInfo();
 
-            batcher.Begin();
-
-            for (LinkedListNode<Gump> last = Gumps.Last; last != null; last = last.Previous)
+            if (Settings.HumanPlay == true)
             {
-                Control g = last.Value;
+                batcher.Begin();
 
-                //Console.WriteLine("g: {0}", g);
+                for (LinkedListNode<Gump> last = Gumps.Last; last != null; last = last.Previous)
+                {
+                    Control g = last.Value;
 
-                g.Draw(batcher, g.X, g.Y);
+                    //Console.WriteLine("g: {0}", g);
+
+                    g.Draw(batcher, g.X, g.Y);
+                }
+
+                //Console.WriteLine("");
+
+                GameCursor?.Draw(batcher);
+
+                batcher.End();
             }
-
-            //Console.WriteLine("");
-
-            GameCursor?.Draw(batcher);
-
-            batcher.End();
         }
 
         public static void Add(Gump gump, bool front = true)

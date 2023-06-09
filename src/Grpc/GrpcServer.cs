@@ -135,16 +135,16 @@ namespace ClassicUO.Grpc
         // ##################################################################################
     	List<int> actionTypeList = new List<int>();
     	List<int> walkDirectionList = new List<int>();
-    	List<int> selectedSerialList = new List<int>();
-    	List<int> targetSerialList = new List<int>();
+    	List<int> itemSerialList = new List<int>();
+    	List<int> mobileSerialList = new List<int>();
     	List<int> indexList = new List<int>();
     	List<int> amountList = new List<int>();
     	List<bool> runList = new List<bool>();
 
     	uint actionType;
     	uint walkDirection;
-    	uint selectedSerial;
-    	uint targetSerial;
+    	uint itemSerial;
+    	uint mobileSerial;
     	uint index;
     	uint amount;
     	bool run;
@@ -159,14 +159,14 @@ namespace ClassicUO.Grpc
 	        walkDirection = value;
 	    }
 
-	    public void SetSelectedSerial(uint value)
+	    public void SetItemSerial(uint value)
 	    {
-	        selectedSerial = value;
+	        itemSerial = value;
 	    }
 
-	    public void SetTargetSerial(uint value)
+	    public void SetMobileSerial(uint value)
 	    {
-	        targetSerial = value;
+	        mobileSerial = value;
 	    }
 
 	    public void SetIndex(uint value)
@@ -216,8 +216,8 @@ namespace ClassicUO.Grpc
 
 	        actionType = 0;
 	    	walkDirection = 0;
-	    	selectedSerial = 0;
-	    	targetSerial = 0;
+	    	itemSerial = 0;
+	    	mobileSerial = 0;
 	    	index = 0;
 	    	amount = 0;
 	    	run = false;
@@ -292,8 +292,8 @@ namespace ClassicUO.Grpc
 	        // ##################################################################################
     		actionTypeList.Clear();
     		walkDirectionList.Clear();
-    		selectedSerialList.Clear();
-    		targetSerialList.Clear();
+    		itemSerialList.Clear();
+    		mobileSerialList.Clear();
     		indexList.Clear();
     		amountList.Clear();
     		runList.Clear();
@@ -304,8 +304,8 @@ namespace ClassicUO.Grpc
     		// Action related values
     		actionType = 0;
 	    	walkDirection = 0;
-	    	selectedSerial = 0;
-	    	targetSerial = 0;
+	    	itemSerial = 0;
+	    	mobileSerial = 0;
 	    	index = 0;
 	    	amount = 0;
 	    	run = false;
@@ -363,8 +363,8 @@ namespace ClassicUO.Grpc
 			//Console.WriteLine("walkDirectionList.Count: {0}", walkDirectionList.Count);
 	    	byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
-            byte[] selectedSerialArray = ConvertIntListToByteArray(selectedSerialList);
-            byte[] targetSerialArray = ConvertIntListToByteArray(targetSerialList);
+            byte[] itemSerialArray = ConvertIntListToByteArray(itemSerialList);
+            byte[] mobileSerialArray = ConvertIntListToByteArray(mobileSerialList);
             byte[] indexArray = ConvertIntListToByteArray(indexList);
             byte[] amountArray = ConvertIntListToByteArray(amountList);
             byte[] runArray = ConvertBoolListToByteArray(runList);
@@ -372,8 +372,8 @@ namespace ClassicUO.Grpc
             // ##################################################################################
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.type", actionTypeArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.walkDirection", walkDirectionArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.selectedSerial", selectedSerialArray);
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.targetSerial", targetSerialArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.itemSerial", itemSerialArray);
+            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.mobileSerial", mobileSerialArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.index", indexArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.amount", amountArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.run", runArray);
@@ -999,21 +999,21 @@ namespace ClassicUO.Grpc
             if ( (actionType != 1) && (actionType != 0) ) 
 		    {
 		    	Console.WriteLine("Tick:{0},Type:{1},Selected:{2},Target:{3},Index:{4},Amount:{5},Direction:{6},Run:{7}", 
-		    		_controller._gameTick, actionType, selectedSerial, targetSerial, index, amount, walkDirection, run);
+		    		_controller._gameTick, actionType, itemSerial, mobileSerial, index, amount, walkDirection, run);
 		    }
 
 		    actionTypeList.Add((int) actionType);
 			walkDirectionList.Add((int) walkDirection);
-			selectedSerialList.Add((int) selectedSerial);
-			targetSerialList.Add((int) targetSerial);
+			itemSerialList.Add((int) itemSerial);
+			mobileSerialList.Add((int) mobileSerial);
 			indexList.Add((int) index);
 			amountList.Add((int) amount);
 			runList.Add((bool) run);
 
 			actionType = 0;
 	    	walkDirection = 0;
-	    	selectedSerial = 0;
-	    	targetSerial = 0;
+	    	itemSerial = 0;
+	    	mobileSerial = 0;
 	    	index = 0;
 	    	amount = 0;
 	    	run = false;
@@ -1047,7 +1047,7 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 2) {
 	        	// Attack target by it's serial
 	        	if (World.Player != null) {
-        			GameActions.DoubleClick(actions.SelectedSerial);
+        			GameActions.DoubleClick(actions.MobileSerial);
 	        	}
 	        }
 	        else if (actions.ActionType == 3) {
@@ -1056,10 +1056,10 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 3");
 	        		try
 	        		{
-	        			Item item = World.Items.Get(actions.TargetSerial);
+	        			Item item = World.Items.Get(actions.ItemSerial);
 	        			Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
             																		     	 item.Amount, item.Serial);
-	        			GameActions.PickUp(actions.TargetSerial, 0, 0, (int) actions.Amount);
+	        			GameActions.PickUp(actions.ItemSerial, 0, 0, (int) actions.Amount);
 					}
 	        		catch (Exception ex)
 		            {
@@ -1072,7 +1072,7 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 4");
         			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-        			GameActions.DropItem(actions.TargetSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
 	        }
 	        else if (actions.ActionType == 5) {
@@ -1086,8 +1086,8 @@ namespace ClassicUO.Grpc
 	        		try
 	        		{   
 	        			GrpcGameObjectSimpleData selected = grpcItemDropableLandSimpleList[index];
-	        			//Console.WriteLine("targetSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
-	        			GameActions.DropItem(actions.TargetSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
+	        			//Console.WriteLine("mobileSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
+	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
 	        		}
 	        		catch (Exception ex)
 		            {
@@ -1107,8 +1107,8 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 7");
                     try
                     {
-                    	//Console.WriteLine("actions.targetSerial: {0}", actions.targetSerial);
-                    	GameActions.OpenCorpse(actions.TargetSerial);
+                    	//Console.WriteLine("actions.mobileSerial: {0}", actions.mobileSerial);
+                    	GameActions.OpenCorpse(actions.ItemSerial);
 			        }
 			        catch (Exception ex)
 		            {
@@ -1122,14 +1122,12 @@ namespace ClassicUO.Grpc
                     Console.WriteLine("actions.ActionType == 8");
                     try 
                     {
-                    	UIManager.GetGump<ContainerGump>(actions.TargetSerial).CloseWindow();
+                    	UIManager.GetGump<ContainerGump>(actions.ItemSerial).CloseWindow();
                     }
                     catch (Exception ex)
 		            {
 		            	Console.WriteLine("Failed to close the container gump of the corpse: " + ex.Message);
 		            }
-
-                    //corpseItemDataList.Clear();
 	        	}
 	        }
 	        else if (actions.ActionType == 9) {
@@ -1138,7 +1136,7 @@ namespace ClassicUO.Grpc
                     Console.WriteLine("actions.ActionType == 9");
 	        		try 
 		        	{
-	                    Item item = World.Items.Get(actions.TargetSerial);
+	                    Item item = World.Items.Get(actions.ItemSerial);
 		        		Console.WriteLine("item: {0}, item.Items: {1}", item, item.Items);
 
 			            for (LinkedObject i = item.Items; i != null; i = i.Next)
@@ -1161,14 +1159,14 @@ namespace ClassicUO.Grpc
 	        		// Open the pop up menu of the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 10");
 	        		grpcClilocDataList.Clear();
-	        		GameActions.OpenPopupMenu(actions.SelectedSerial);
+	        		GameActions.OpenPopupMenu(actions.MobileSerial);
 	        	}
 	        }
 	        else if (actions.ActionType == 11) {
 	        	if (World.Player != null) {
 	        		// Select one of menu from the pop up menu the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 11");
-	        		GameActions.ResponsePopupMenu(actions.SelectedSerial, (ushort) actions.Index);
+	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        		grpcPopupMenuList.Clear();
 	        	}
 	        }
@@ -1178,10 +1176,10 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 12");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
-	        		items[0] = new Tuple<uint, ushort>((uint)actions.TargetSerial, (ushort)actions.Amount);
-	        		NetClient.Socket.Send_BuyRequest(actions.SelectedSerial, items);
+	        		items[0] = new Tuple<uint, ushort>((uint) actions.ItemSerial, (ushort) actions.Amount);
+	        		NetClient.Socket.Send_BuyRequest(actions.MobileSerial, items);
 
-	        		UIManager.GetGump<ShopGump>(actions.SelectedSerial).CloseWindow();
+	        		UIManager.GetGump<ShopGump>(actions.MobileSerial).CloseWindow();
 	        		grpcVendorItemObjectList.Clear();
 	        	}
 	        }
@@ -1191,10 +1189,10 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 13");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
-	        		items[0] = new Tuple<uint, ushort>((uint)actions.TargetSerial, (ushort)actions.Amount);
-	        		NetClient.Socket.Send_SellRequest(actions.SelectedSerial, items);
+	        		items[0] = new Tuple<uint, ushort>((uint) actions.ItemSerial, (ushort) actions.Amount);
+	        		NetClient.Socket.Send_SellRequest(actions.MobileSerial, items);
 
-	        		UIManager.GetGump<ShopGump>(actions.SelectedSerial).CloseWindow();
+	        		UIManager.GetGump<ShopGump>(actions.MobileSerial).CloseWindow();
 	        		grpcVendorItemObjectList.Clear();
 	        	}
 	        }
@@ -1221,7 +1219,7 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		// Drop the item to one of mobile(vendor)
 	        		Console.WriteLine("actions.ActionType == 16");
-        			GameActions.DropItem(actions.TargetSerial, 0xFFFF, 0xFFFF, 0, actions.SelectedSerial);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, actions.MobileSerial);
 	        	}
 	        }
 	        else if (actions.ActionType == 17) {
@@ -1236,14 +1234,14 @@ namespace ClassicUO.Grpc
 	        		// Drop the item to the bank
 	        		Console.WriteLine("actions.ActionType == 18");
         			Item bank = World.Player.FindItemByLayer(Layer.Bank);
-        			GameActions.DropItem(actions.TargetSerial, 0xFFFF, 0xFFFF, 0, bank);
+        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
 	        	}
 	        }
 
 	        actionType = 0;
     		walkDirection = 0;
-    		selectedSerial = 0;
-    		targetSerial = 0;
+    		itemSerial = 0;
+    		mobileSerial = 0;
     		amount = 0;
     		index = 0;
     		run = false;

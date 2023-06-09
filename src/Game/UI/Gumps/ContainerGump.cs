@@ -170,14 +170,14 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void BuildGump()
         {
-            Console.WriteLine("BuildGump()");
+            //Console.WriteLine("BuildGump()");
 
             CanMove = true;
             CanCloseWithRightClick = true;
             WantUpdateSize = false;
 
             Item item = World.Items.Get(LocalSerial);
-            Console.WriteLine("item: {0}", item);
+            //Console.WriteLine("item: {0}", item);
 
             if (item == null)
             {
@@ -191,7 +191,7 @@ namespace ClassicUO.Game.UI.Gumps
                     Console.WriteLine("Open corpse");
 
                     Client.Game._uoServiceImpl.SetActionType(7);
-                    Client.Game._uoServiceImpl.SetTargetSerial(LocalSerial);
+                    Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
 
                     World.Player.ManualOpenedCorpses.Add(LocalSerial);
                 }
@@ -502,7 +502,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ItemsOnAdded()
         {
-            Console.WriteLine("ItemsOnAdded()");
+            //Console.WriteLine("ItemsOnAdded()");
 
             Entity container = World.Get(LocalSerial);
 
@@ -667,7 +667,7 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 //Console.WriteLine("Clsoe corpse");
                 Client.Game._uoServiceImpl.SetActionType(8);
-                Client.Game._uoServiceImpl.SetTargetSerial(LocalSerial);
+                Client.Game._uoServiceImpl.SetMobileSerial(LocalSerial);
 
                 World.Player.ManualOpenedCorpses.Remove(LocalSerial);
             }

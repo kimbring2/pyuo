@@ -325,7 +325,7 @@ namespace ClassicUO.Game
             //Log.Trace("DoubleClick");
             //Console.WriteLine("DoubleClick()");
 
-            Client.Game._uoServiceImpl.SetTargetSerial(serial);
+            Client.Game._uoServiceImpl.SetMobileSerial(serial);
             
             if (serial != World.Player && SerialHelper.IsMobile(serial) && World.Player.InWarMode)
             {
@@ -473,7 +473,7 @@ namespace ClassicUO.Game
         {
             //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
             Client.Game._uoServiceImpl.SetActionType(3);
-            Client.Game._uoServiceImpl.SetSelectedSerial(serial);
+            Client.Game._uoServiceImpl.SetItemSerial(serial);
             Client.Game._uoServiceImpl.SetAmount((uint) amount);
 
             if (World.Player.IsDead || ItemHold.Enabled)
@@ -545,6 +545,8 @@ namespace ClassicUO.Game
             Console.WriteLine("DropItem()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+            Item bank = World.Player.FindItemByLayer(Layer.Bank);
+
             if (container == backpack.Serial) 
             {
                 // Drop the holded item into my backpack
@@ -557,14 +559,21 @@ namespace ClassicUO.Game
                 //Console.WriteLine("actionType == 5");
                 Client.Game._uoServiceImpl.SetActionType(5);
             }
+            else if (container == bank) 
+            {
+                // Drop the holded item on bank
+                //Console.WriteLine("actionType == 18");
+                Client.Game._uoServiceImpl.SetActionType(18);
+            }
             else
             {
+                // Drop the holded item on teacher
                 //Console.WriteLine("actionType == 16");
                 Client.Game._uoServiceImpl.SetActionType(16);
             }
             
-            Client.Game._uoServiceImpl.SetSelectedSerial(serial);
-            Client.Game._uoServiceImpl.SetTargetSerial(container);
+            Client.Game._uoServiceImpl.SetItemSerial(serial);
+            Client.Game._uoServiceImpl.SetMobileSerial(container);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {
@@ -744,11 +753,8 @@ namespace ClassicUO.Game
                 return;
             }
 
-            //Client.Game._uoServiceImpl.actionType = 10;
             Client.Game._uoServiceImpl.SetActionType(10);
-
-            //Client.Game._uoServiceImpl.targetSerial = serial;
-            Client.Game._uoServiceImpl.SetTargetSerial(serial);
+            Client.Game._uoServiceImpl.SetMobileSerial(serial);
 
             Socket.Send_RequestPopupMenu(serial);
         }
@@ -758,7 +764,6 @@ namespace ClassicUO.Game
             Console.WriteLine("ResponsePopupMenu()");
             //Console.WriteLine("index: {0}", index);
 
-            //Client.Game._uoServiceImpl.actionType = 11;
             Client.Game._uoServiceImpl.SetActionType(11);
 
             //Client.Game._uoServiceImpl.index = index;

@@ -4651,13 +4651,14 @@ namespace ClassicUO.Network
 
         private static void MegaCliloc(ref StackDataReader p)
         {
+            //Console.WriteLine("MegaCliloc()");
+
             if (!World.InGame)
             {
                 return;
             }
 
             ushort unknown = p.ReadUInt16BE();
-
             if (unknown > 1)
             {
                 return;
@@ -4787,7 +4788,9 @@ namespace ClassicUO.Network
                 sb.Dispose();
             }
 
+            //Console.WriteLine("OPL name: {0}, data: {1}", name, data);
             World.OPL.Add(serial, revision, name, data);
+            //Console.WriteLine("");
 
             if (inBuyList && container != null && SerialHelper.IsValid(container.Serial))
             {
@@ -5316,7 +5319,6 @@ namespace ClassicUO.Network
             }
 
             Mobile mobile = World.Mobiles.Get(p.ReadUInt32BE());
-
             if (mobile == null)
             {
                 return;
@@ -6227,7 +6229,7 @@ namespace ClassicUO.Network
                 UIManager.SavePosition(gumpID, new Point(x, y));
             }
 
-            Console.WriteLine("gump 1: {0}", gump);
+            //Console.WriteLine("gump 1: {0}", gump);
             if (gump == null)
             {
                 gump = new Gump(sender, gumpID)
@@ -6242,13 +6244,13 @@ namespace ClassicUO.Network
                 };
             }
 
-            Console.WriteLine("gump 2: {0}", gump);
+            //Console.WriteLine("gump 2: {0}", gump);
 
             int group = 0;
             int page = 0;
             bool textBoxFocused = false;
 
-            Console.WriteLine("cmdlen: {0}", cmdlen);
+            //Console.WriteLine("cmdlen: {0}", cmdlen);
 
             for (int cnt = 0; cnt < cmdlen; cnt++)
             {
@@ -6260,7 +6262,7 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
-                Console.WriteLine("entry: {0}", entry);
+                //Console.WriteLine("entry: {0}", entry);
 
                 if (string.Equals(entry, "button", StringComparison.InvariantCultureIgnoreCase))
                 {

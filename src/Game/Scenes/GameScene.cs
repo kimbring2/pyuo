@@ -637,17 +637,6 @@ namespace ClassicUO.Game.Scenes
 
                     while (x >= minX && x <= maxX && y >= minY && y <= maxY)
                     {
-                        /*
-                        GameObject temp_obj = map.GetTile(x, y);
-                        for (; temp_obj != null; temp_obj = temp_obj.TNext)
-                        {
-                            if ( (!(temp_obj is Land)) && (!(temp_obj is Static)) )
-                            {
-                                //Console.WriteLine("temp_obj: {0}", temp_obj);
-                            }
-                        }
-                        */
-
                         AddTileToRenderList
                         (
                             map.GetTile(x, y), x, y, use_handles, 150, maxCotZ, ref playerPos
@@ -1574,7 +1563,6 @@ namespace ClassicUO.Game.Scenes
             World.WorldTextManager.ProcessWorldText(true);
             World.WorldTextManager.Draw(batcher, x, y, renderIndex);
 
-            //Console.WriteLine("SelectedObject.Object: {0}\n", SelectedObject.Object);
             SelectedObject.LastObject = SelectedObject.Object;
         }
 

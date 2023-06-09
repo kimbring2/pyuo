@@ -401,7 +401,6 @@ namespace ClassicUO.Game.GameObjects
 
                 int tiles = (byte)owner.Direction % 2 == 0 ? 2 : 2;
 
-
                 for (int i = 0; i < count; ++i)
                 {
                     //hueVec.Y = 1;
@@ -514,7 +513,6 @@ namespace ClassicUO.Game.GameObjects
                     MathHelper.InRange(Amount, 0x02B6, 0x02B7) ||
                     Amount == 0x03DB || Amount == 0x03DF || Amount == 0x03E2 ||
                     Amount == 0x02E8 || Amount == 0x02E9;
-
 
                 for (int i = -1; i < Constants.USED_LAYER_COUNT; i++)
                 {

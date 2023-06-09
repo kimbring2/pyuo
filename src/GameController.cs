@@ -434,7 +434,8 @@ namespace ClassicUO
                 }
             }
 
-            //Console.WriteLine("Settings.HumanPlay: {0}", Settings.HumanPlay);
+            //Console.WriteLine("SelectedObject.Object: {0}", SelectedObject.Object);
+
             if (Settings.HumanPlay == true)
             {
                 _uoServiceImpl.WriteAct();

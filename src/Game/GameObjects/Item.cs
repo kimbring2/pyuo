@@ -500,6 +500,8 @@ namespace ClassicUO.Game.GameObjects
 
         public override void Update(double totalTime, double frameTime)
         {
+            //Console.WriteLine("Item gump Update()");
+
             if (IsDestroyed)
             {
                 return;
@@ -519,7 +521,6 @@ namespace ClassicUO.Game.GameObjects
                 switch (graphic)
                 {
                     case 0x3E90: // 16016 Reptalon
-
                     {
                         graphic = 0x0114;
 
@@ -527,7 +528,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E91: // 16017
-
                     {
                         graphic = 0x0115;
 
@@ -535,7 +535,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E92: // 16018
-
                     {
                         graphic = 0x011C;
 
@@ -543,7 +542,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E94: // 16020
-
                     {
                         graphic = 0x00F3;
 
@@ -551,7 +549,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E95: // 16021
-
                     {
                         graphic = 0x00A9;
 
@@ -559,7 +556,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E97: // 16023 Ethereal Giant Beetle
-
                     {
                         graphic = 0x00C3;
 
@@ -567,7 +563,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E98: // 16024 Ethereal Swamp Dragon
-
                     {
                         graphic = 0x00C2;
 
@@ -575,7 +570,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E9A: // 16026 Ethereal Ridgeback
-
                     {
                         graphic = 0x00C1;
 
@@ -584,13 +578,11 @@ namespace ClassicUO.Game.GameObjects
 
                     case 0x3E9B: // 16027
                     case 0x3E9D: // 16029 Ethereal Unicorn
-
                     {
                         return 0x00C0;
                     }
 
                     case 0x3E9C: // 16028 Ethereal Kirin
-
                     {
                         graphic = 0x00BF;
 
@@ -598,7 +590,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3E9E: // 16030
-
                     {
                         graphic = 0x00BE;
 
@@ -606,7 +597,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA0: // 16032 light grey/horse3
-
                     {
                         graphic = 0x00E2;
 
@@ -614,7 +604,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA1: // 16033 greybrown/horse4
-
                     {
                         graphic = 0x00E4;
 
@@ -622,7 +611,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA2: // 16034 dark brown/horse
-
                     {
                         graphic = 0x00CC;
 
@@ -630,7 +618,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA3: // 16035 desert ostard
-
                     {
                         graphic = 0x00D2;
 
@@ -638,7 +625,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA4: // 16036 frenzied ostard (=zostrich)
-
                     {
                         graphic = 0x00DA;
 
@@ -646,7 +632,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA5: // 16037 forest ostard
-
                     {
                         graphic = 0x00DB;
 
@@ -654,7 +639,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA6: // 16038 Llama
-
                     {
                         graphic = 0x00DC;
 
@@ -662,7 +646,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA7: // 16039 Nightmare / Vortex
-
                     {
                         graphic = 0x0074;
 
@@ -670,7 +653,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA8: // 16040 Silver Steed
-
                     {
                         graphic = 0x0075;
 
@@ -678,7 +660,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EA9: // 16041 Nightmare
-
                     {
                         graphic = 0x0072;
 
@@ -686,7 +667,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EAA: // 16042 Ethereal Horse
-
                     {
                         graphic = 0x0073;
 
@@ -694,7 +674,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EAB: // 16043 Ethereal Llama
-
                     {
                         graphic = 0x00AA;
 
@@ -702,7 +681,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EAC: // 16044 Ethereal Ostard
-
                     {
                         graphic = 0x00AB;
 
@@ -710,7 +688,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EAD: // 16045 Kirin
-
                     {
                         graphic = 0x0084;
 
@@ -718,7 +695,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EAF: // 16047 War Horse (Blood Red)
-
                     {
                         graphic = 0x0078;
 
@@ -726,7 +702,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB0: // 16048 War Horse (Light Green)
-
                     {
                         graphic = 0x0079;
 
@@ -734,7 +709,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB1: // 16049 War Horse (Light Blue)
-
                     {
                         graphic = 0x0077;
 
@@ -742,7 +716,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB2: // 16050 War Horse (Purple)
-
                     {
                         graphic = 0x0076;
 
@@ -750,7 +723,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB3: // 16051 Sea Horse (Medium Blue)
-
                     {
                         graphic = 0x0090;
 
@@ -758,7 +730,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB4: // 16052 Unicorn
-
                     {
                         graphic = 0x007A;
 
@@ -766,7 +737,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB5: // 16053 Nightmare
-
                     {
                         graphic = 0x00B1;
 
@@ -774,7 +744,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB6: // 16054 Nightmare 4
-
                     {
                         graphic = 0x00B2;
 
@@ -782,7 +751,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB7: // 16055 Dark Steed
-
                     {
                         graphic = 0x00B3;
 
@@ -790,7 +758,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EB8: // 16056 Ridgeback
-
                     {
                         graphic = 0x00BC;
 
@@ -798,7 +765,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EBA: // 16058 Ridgeback, Savage
-
                     {
                         graphic = 0x00BB;
 
@@ -806,7 +772,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EBB: // 16059 Skeletal Mount
-
                     {
                         graphic = 0x0319;
 
@@ -814,7 +779,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EBC: // 16060 Beetle
-
                     {
                         graphic = 0x0317;
 
@@ -822,7 +786,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EBD: // 16061 SwampDragon
-
                     {
                         graphic = 0x031A;
 
@@ -830,7 +793,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EBE: // 16062 Armored Swamp Dragon
-
                     {
                         graphic = 0x031F;
 
@@ -838,7 +800,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EC3: //16067 Beetle
-
                     {
                         graphic = 0x02D4;
 
@@ -854,7 +815,6 @@ namespace ClassicUO.Game.GameObjects
 
                     case 0x3EC5: // 16069
                     case 0x3F3A: // 16186 snow bear ???
-
                     {
                         graphic = 0x00D5;
 
@@ -862,7 +822,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EC6: // 16070 Boura
-
                     {
                         graphic = 0x01B0;
 
@@ -870,7 +829,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EC7: // 16071 Tiger
-
                     {
                         graphic = 0x04E6;
 
@@ -878,7 +836,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EC8: // 16072 Tiger
-
                     {
                         graphic = 0x04E7;
 
@@ -886,7 +843,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3EC9: // 16073
-
                     {
                         graphic = 0x042D;
 
@@ -894,7 +850,6 @@ namespace ClassicUO.Game.GameObjects
                     }
 
                     case 0x3ECA: // tarantula
-
                     {
                         graphic = 0x0579;
 
@@ -976,12 +931,15 @@ namespace ClassicUO.Game.GameObjects
 
         public override void UpdateTextCoordsV()
         {
+            //Console.WriteLine("UpdateTextCoordsV()");
+
             if (TextContainer == null)
             {
                 return;
             }
 
             TextObject last = (TextObject) TextContainer.Items;
+            //Console.WriteLine("last.RenderedText.Text: {0}", last.RenderedText.Text);
 
             while (last?.Next != null)
             {

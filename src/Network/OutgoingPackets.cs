@@ -3284,7 +3284,6 @@ namespace ClassicUO.Network
                 writer.WriteZero(length - writer.BytesWritten);
             }
 
-
             socket.Send(writer.AllocatedBuffer, writer.BytesWritten);
             writer.Dispose();
         }

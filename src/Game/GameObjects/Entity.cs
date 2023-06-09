@@ -205,7 +205,6 @@ namespace ClassicUO.Game.GameObjects
                 for (LinkedObject i = Items; i != null; i = i.Next)
                 {
                     Item it = (Item) i;
-
                     if (it.Graphic == graphic)
                     {
                         if (it.Hue < minColor)
@@ -218,7 +217,6 @@ namespace ClassicUO.Game.GameObjects
                     if (SerialHelper.IsValid(it.Container))
                     {
                         Item found = it.FindItem(graphic, hue);
-
                         if (found != null && found.Hue < minColor)
                         {
                             item = found;

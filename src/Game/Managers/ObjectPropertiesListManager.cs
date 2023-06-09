@@ -39,7 +39,6 @@ namespace ClassicUO.Game.Managers
     {
         private readonly Dictionary<uint, ItemProperty> _itemsProperties = new Dictionary<uint, ItemProperty>();
 
-
         public void Add(uint serial, uint revision, string name, string data)
         {
             if (!_itemsProperties.TryGetValue(serial, out ItemProperty prop))
@@ -57,7 +56,6 @@ namespace ClassicUO.Game.Managers
             prop.Name = name;
             prop.Data = data;
         }
-
 
         public bool Contains(uint serial)
         {

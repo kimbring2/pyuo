@@ -502,7 +502,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ItemsOnAdded()
         {
-            //Console.WriteLine("ItemsOnAdded()");
+            Console.WriteLine("ItemsOnAdded()");
 
             Entity container = World.Get(LocalSerial);
 
@@ -521,7 +521,6 @@ namespace ClassicUO.Game.UI.Gumps
             for (LinkedObject i = container.Items; i != null; i = i.Next)
             {
                 Item item = (Item) i;
-                //Console.WriteLine("item: {0}", item);
 
                 if (((item.Layer == 0 && 
                     (Layer)item.ItemData.Layer != Layer.Face &&

@@ -1388,13 +1388,11 @@ namespace ClassicUO.Game.GameObjects
         public void CloseBank()
         {
             Item bank = FindItemByLayer(Layer.Bank);
-
             if (bank != null && bank.Opened)
             {
                 if (!bank.IsEmpty)
                 {
                     Item first = (Item) bank.Items;
-
                     while (first != null)
                     {
                         Item next = (Item) first.Next;
@@ -1408,7 +1406,6 @@ namespace ClassicUO.Game.GameObjects
                 }
 
                 UIManager.GetGump<ContainerGump>(bank.Serial)?.Dispose();
-
                 bank.Opened = false;
             }
         }

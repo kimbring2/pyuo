@@ -62,6 +62,7 @@ namespace ClassicUO.Game.UI
             {
                 _hash = revision;
                 Text = ReadProperties(Serial, out _textHTML);
+                //Console.WriteLine("Text: {0}", Text);
             }
 
             if (string.IsNullOrEmpty(Text))
@@ -83,7 +84,6 @@ namespace ClassicUO.Game.UI
             {
                 font = ProfileManager.CurrentProfile.TooltipFont;
                 alpha = ProfileManager.CurrentProfile.TooltipBackgroundOpacity / 100f;
-
                 if (float.IsNaN(alpha))
                 {
                     alpha = 0f;
@@ -111,6 +111,8 @@ namespace ClassicUO.Game.UI
                     hue: hue
                 );
             }
+
+            //Console.WriteLine("_renderedText.Text: {0}", _renderedText.Text);
 
             if (_renderedText.Text != Text)
             {
@@ -248,7 +250,6 @@ namespace ClassicUO.Game.UI
             }
         }
 
-
         private string ReadProperties(uint serial, out string htmltext)
         {
             bool hasStartColor = false;
@@ -266,13 +267,13 @@ namespace ClassicUO.Game.UI
                         {
                             if (SerialHelper.IsItem(serial))
                             {
+                                //Console.WriteLine("SerialHelper.IsItem(serial)");
                                 sbHTML.Append("<basefont color=\"yellow\">");
                                 hasStartColor = true;
                             }
                             else
                             {
                                 Mobile mob = World.Mobiles.Get(serial);
-
                                 if (mob != null)
                                 {
                                     sbHTML.Append(Notoriety.GetHTMLHue(mob.NotorietyFlag));
@@ -305,6 +306,7 @@ namespace ClassicUO.Game.UI
                     }
                 }
             }
+
             return string.IsNullOrEmpty(result) ? null : result;
         }
 

@@ -548,18 +548,18 @@ namespace ClassicUO.Game
             if (container == backpack.Serial) 
             {
                 // Drop the holded item into my backpack
-                Console.WriteLine("actionType == 4");
+                //Console.WriteLine("actionType == 4");
                 Client.Game._uoServiceImpl.SetActionType(4);
             }
             else if (container == 0xFFFF_FFFF) 
             {
                 // Drop the holded item on land around the player
-                Console.WriteLine("actionType == 5");
+                //Console.WriteLine("actionType == 5");
                 Client.Game._uoServiceImpl.SetActionType(5);
             }
             else
             {
-                Console.WriteLine("actionType == 16");
+                //Console.WriteLine("actionType == 16");
                 Client.Game._uoServiceImpl.SetActionType(16);
             }
             

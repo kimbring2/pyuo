@@ -211,8 +211,6 @@ namespace ClassicUO.Game.Managers
                     {
                         if (t.Owner != null)
                         {
-                            //Console.WriteLine("ProcessWorldText(), Text: {0}", t.RenderedText.Text);
-
                             t.IsTransparent = Collides(t);
                             CalculateAlpha(t);
                         }
@@ -231,11 +229,9 @@ namespace ClassicUO.Game.Managers
             if (ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.TextFading)
             {
                 int delta = (int) (msg.Time - ClassicUO.Time.Ticks);
-
                 if (delta >= 0 && delta <= 1000)
                 {
                     delta /= 10;
-
                     if (delta > 100)
                     {
                         delta = 100;
@@ -246,7 +242,6 @@ namespace ClassicUO.Game.Managers
                     }
 
                     delta = 255 * delta / 100;
-
                     if (!msg.IsTransparent || delta <= 0x7F)
                     {
                         msg.Alpha = (byte) delta;

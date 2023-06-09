@@ -108,6 +108,8 @@ namespace ClassicUO.Game.UI.Controls
 
         public override void Update(double totalTime, double frameTime)
         {
+            //Console.WriteLine("ItemGump Update()");
+
             if (IsDisposed)
             {
                 return;
@@ -254,6 +256,7 @@ namespace ClassicUO.Game.UI.Controls
 
         protected override void OnMouseOver(int x, int y)
         {
+            //Console.WriteLine("ItemGumps OnMouseOver()");
             SelectedObject.Object = World.Get(LocalSerial);
         }
 

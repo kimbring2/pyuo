@@ -400,7 +400,7 @@ namespace ClassicUO.Game.Managers
                 g.Draw(batcher, g.X, g.Y);
             }
 
-            //Console.WriteLine("")
+            //Console.WriteLine("");
 
             GameCursor?.Draw(batcher);
 

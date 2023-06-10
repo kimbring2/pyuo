@@ -389,7 +389,7 @@ namespace ClassicUO.Game.Managers
         {
             SortControlsByInfo();
 
-            if (Settings.HumanPlay == true)
+            //if (Settings.HumanPlay == true)
             {
                 batcher.Begin();
 
@@ -679,7 +679,6 @@ namespace ClassicUO.Game.Managers
         private static void DoDragControl()
         {
             //Console.WriteLine("DoDragControl()");
-
             if (DraggingControl == null)
             {
                 return;
@@ -696,8 +695,6 @@ namespace ClassicUO.Game.Managers
         private static void EndDragControl(Point mousePosition)
         {
             //Console.WriteLine("EndDragControl()");
-            //Console.WriteLine("_isDraggingControl:");
-            //Console.WriteLine(_isDraggingControl);
 
             if (_isDraggingControl)
             {

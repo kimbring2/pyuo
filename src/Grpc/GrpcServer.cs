@@ -1242,8 +1242,23 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		// Change the lock status of skill
 	        		Console.WriteLine("actions.ActionType == 19");
-        			Item bank = World.Player.FindItemByLayer(Layer.Bank);
-        			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
+
+	        		Skill skill = World.Player.Skills[actions.Index];
+
+                    byte newStatus = (byte) skill.Lock;
+                    if (newStatus < 2)
+                    {
+                        newStatus++;
+                    }
+                    else
+                    {
+                        newStatus = 0;
+                    }
+
+                    Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
+
+                    NetClient.Socket.Send_SkillStatusChangeRequest((ushort) actions.Index, newStatus);
+                    skill.Lock = (Lock) newStatus;
 	        	}
 	        }
 

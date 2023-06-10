@@ -843,6 +843,7 @@ namespace ClassicUO.Game.UI.Gumps
             public override void OnButtonClick(int buttonID)
             {
                 Console.WriteLine("OnButtonClick()");
+                Console.WriteLine("buttonID: {0}", buttonID);
 
                 if (buttonID == 0) // use
                 {
@@ -856,7 +857,7 @@ namespace ClassicUO.Game.UI.Gumps
                     }
 
                     Skill skill = World.Player.Skills[Index];
-                    
+
                     byte newStatus = (byte) skill.Lock;
                     if (newStatus < 2)
                     {

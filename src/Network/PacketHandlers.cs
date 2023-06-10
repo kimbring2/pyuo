@@ -1725,7 +1725,7 @@ namespace ClassicUO.Network
 
         private static void UpdateSkills(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateSkills()");
+            Console.WriteLine("UpdateSkills()");
 
             if (!World.InGame)
             {
@@ -4748,7 +4748,6 @@ namespace ClassicUO.Network
                 inBuyList = container.Layer == Layer.ShopBuy || container.Layer == Layer.ShopBuyRestock || container.Layer == Layer.ShopSell;
             }
 
-
             bool first = true;
 
             string name = string.Empty;
@@ -5134,7 +5133,6 @@ namespace ClassicUO.Network
                 System.Buffers.ArrayPool<byte>.Shared.Return(decData);
             }
 
- 
             p.Skip((int) clen);
 
             uint linesNum = p.ReadUInt32BE();

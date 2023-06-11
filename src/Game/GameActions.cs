@@ -542,8 +542,7 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            Console.WriteLine("DropItem()");
-
+            //Console.WriteLine("DropItem()");
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             Item bank = World.Player.FindItemByLayer(Layer.Bank);
 
@@ -603,7 +602,6 @@ namespace ClassicUO.Game
         public static void Equip(uint container = 0)
         {
             //Console.WriteLine("Equip(), container: {0}", container);
-
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && ItemHold.ItemData.IsWearable)
             {
                 if (!SerialHelper.IsValid(container))
@@ -644,7 +642,7 @@ namespace ClassicUO.Game
 
         public static void ChangeSkillLockStatus(ushort skillindex, byte lockstate)
         {
-            Console.WriteLine("ChangeSkillLockStatus(), skillindex: {0}, lockstate: {1}", skillindex, lockstate);
+            //Console.WriteLine("ChangeSkillLockStatus(), skillindex: {0}, lockstate: {1}", skillindex, lockstate);
             Socket.Send_SkillStatusChangeRequest(skillindex, lockstate);
         }
 
@@ -735,7 +733,7 @@ namespace ClassicUO.Game
 
         public static void UseSkill(int index)
         {
-            Console.WriteLine("UseSkill()");
+            //Console.WriteLine("UseSkill()");
 
             if (index >= 0)
             {
@@ -761,7 +759,7 @@ namespace ClassicUO.Game
 
         public static void ResponsePopupMenu(uint serial, ushort index)
         {
-            Console.WriteLine("ResponsePopupMenu()");
+            //Console.WriteLine("ResponsePopupMenu()");
             //Console.WriteLine("index: {0}", index);
 
             Client.Game._uoServiceImpl.SetActionType(11);

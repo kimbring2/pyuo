@@ -3907,7 +3907,7 @@ namespace ClassicUO.Network
 
         private static void ExtendedCommand(ref StackDataReader p)
         {
-            Console.WriteLine("ExtendedCommand()");
+            //Console.WriteLine("ExtendedCommand()");
 
             ushort cmd = p.ReadUInt16BE();
             switch (cmd)

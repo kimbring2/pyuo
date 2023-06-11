@@ -47,7 +47,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         public PopupMenuGump(PopupMenuData data) : base(0, 0)
         {
-            Console.WriteLine("PopupMenuGump()");
+            //Console.WriteLine("PopupMenuGump()");
 
             CanMove = false;
             CanCloseWithRightClick = true;

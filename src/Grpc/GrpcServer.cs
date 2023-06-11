@@ -48,7 +48,6 @@ namespace ClassicUO.Grpc
             Layer.Hair, Layer.Beard, Layer.Earrings, Layer.Helmet, Layer.OneHanded, Layer.TwoHanded, Layer.Talisman
         };
 
-        List<GrpcMobileData> grpcMobileDataList = new List<GrpcMobileData>();
         List<GrpcItemData> equippedItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> backpackItemDataList = new List<GrpcItemData>();
         List<GrpcItemData> bankItemDataList = new List<GrpcItemData>();
@@ -73,7 +72,6 @@ namespace ClassicUO.Grpc
         string _replayName;
 
         // ##################################################################################
-    	List<int> mobileDataArrayLengthList = new List<int>();
     	List<int> equippedItemArrayLengthList = new List<int>();
     	List<int> backpackItemArrayLengthList = new List<int>();
     	List<int> bankItemArrayLengthList = new List<int>();
@@ -93,7 +91,6 @@ namespace ClassicUO.Grpc
         List<int> staticObjectInfoListArraysLengthList = new List<int>();
 
         // ##################################################################################
-        byte[] mobileDataArrays;
 		byte[] equippedItemArrays;
 		byte[] backpackItemArrays;
 		byte[] bankItemArrays;
@@ -113,7 +110,6 @@ namespace ClassicUO.Grpc
         byte[] staticObjectInfoListArrays;
 
         // ##################################################################################
-        byte[] mobileDataArraysTemp;
 		byte[] equippedItemArraysTemp;
 		byte[] backpackItemArraysTemp;
 		byte[] bankItemArraysTemp;
@@ -230,7 +226,6 @@ namespace ClassicUO.Grpc
         	// Clear all List and Array before using them
 
         	// ##################################################################################
-	    	mobileDataArrayLengthList.Clear();
 	    	equippedItemArrayLengthList.Clear();
 	    	backpackItemArrayLengthList.Clear();
 	    	bankItemArrayLengthList.Clear();
@@ -250,7 +245,6 @@ namespace ClassicUO.Grpc
 	        staticObjectInfoListArraysLengthList.Clear();
 
 	        // ##################################################################################
-	        Array.Clear(mobileDataArrays, 0, mobileDataArrays.Length);
 	        Array.Clear(equippedItemArrays, 0, equippedItemArrays.Length);
 	        Array.Clear(backpackItemArrays, 0, backpackItemArrays.Length);
 	        Array.Clear(bankItemArrays, 0, bankItemArrays.Length);
@@ -270,7 +264,6 @@ namespace ClassicUO.Grpc
 	        Array.Clear(staticObjectInfoListArrays, 0, staticObjectInfoListArrays.Length);
 
 	        // ##################################################################################
-			Array.Clear(mobileDataArraysTemp, 0, mobileDataArraysTemp.Length);
 	        Array.Clear(equippedItemArraysTemp, 0, equippedItemArraysTemp.Length);
 	        Array.Clear(backpackItemArraysTemp, 0, backpackItemArraysTemp.Length);
 	        Array.Clear(bankItemArraysTemp, 0, bankItemArraysTemp.Length);
@@ -333,7 +326,6 @@ namespace ClassicUO.Grpc
         {
         	//Console.WriteLine("SaveReplayFile()");
 
-            byte[] mobileDataArrayLengthArray = ConvertIntListToByteArray(mobileDataArrayLengthList);
             byte[] equippedItemArrayLengthArray = ConvertIntListToByteArray(equippedItemArrayLengthList);
             byte[] backpackItemArrayLengthArray = ConvertIntListToByteArray(backpackItemArrayLengthList);
             byte[] bankItemArrayLengthArray = ConvertIntListToByteArray(bankItemArrayLengthList);
@@ -379,7 +371,6 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.action.run", runArray);
 
 	    	// ##################################################################################
-            WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.mobileDataLen", mobileDataArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.equippedItemLen", equippedItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.backpackitemLen", backpackItemArrayLengthArray);
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.bankitemLen", bankItemArrayLengthArray);
@@ -401,7 +392,6 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", staticObjectInfoListArraysLengthArray);
 
             // ##################################################################################   
-			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.mobileData", mobileDataArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.equippedItem", equippedItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.backpackItem", backpackItemArrays);
 			WrtieToMpqArchive("Replay/" + _replayName + ".uoreplay", "replay.data.bankItem", bankItemArrays);
@@ -424,13 +414,18 @@ namespace ClassicUO.Grpc
 
         public void AddClilocData(uint serial, string text, string affix, string name)
         {
+        	if (grpcClilocDataList.Count >= 50) 
+        	{
+        		Console.WriteLine("grpcClilocDataList.Count: {0}", grpcClilocDataList.Count);
+        		grpcClilocDataList.Clear();
+        	}
+
         	grpcClilocDataList.Add(new GrpcClilocData{ Serial=serial, Text=text, Affix=affix, Name=name });
         }
 
         public void AddGameSimpleObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y)
         {
         	//Console.WriteLine("AddGameSimpleObject()");
-
         	try 
         	{
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
@@ -476,7 +471,7 @@ namespace ClassicUO.Grpc
 	        													   Title=title, Amount=amount, Price=price });
 	        	}
 	        	else if (type == "Static") {
-	        		if (distance <= 6) 
+	        		//if (distance <= 6) 
 	        		{
 	        			grpcStaticObjectScreenXs.Add(screen_x);
 			        	grpcStaticObjectScreenYs.Add(screen_y);
@@ -523,10 +518,6 @@ namespace ClassicUO.Grpc
 
             States states = new States();
 
-            GrpcMobileList grpcMobileList = new GrpcMobileList();
-            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
-            states.MobileList = grpcMobileList;
-
             return Task.FromResult(states);
         }
 
@@ -538,30 +529,6 @@ namespace ClassicUO.Grpc
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
-
-            try
-            {
-	            foreach (Mobile mob in World.Mobiles.Values)
-	            {
-	            	//Console.WriteLine("mob.GetScreenPosition().X: {0}, mob.GetScreenPosition().Y: {1}", 
-	            	//				     mob.GetScreenPosition().X, mob.GetScreenPosition().Y);
-	            	//Console.WriteLine("Name: {0}, Race: {1}, Title: {2}, Serial: {3}", mob.Name, mob.Race, mob.Title, mob.Serial);
-
-	            	if ( (mob.GetScreenPosition().X <= 0.0) || (mob.GetScreenPosition().Y <= 0.0) ) 
-	            	{
-	            		continue;
-	            	}
-
-	                grpcMobileDataList.Add(new GrpcMobileData{ Name = mob.Name, X = (float) mob.GetScreenPosition().X, Y = (float) mob.GetScreenPosition().Y,
-	                										   Race = (uint) mob.Race, Serial = (uint) mob.Serial });
-	            }
-	        }
-	        catch (Exception ex)
-            {
-            	//Console.WriteLine("Failed to load the mobile: " + ex.Message);
-            	grpcMobileDataList.Add(new GrpcMobileData{ Name = "base", X = (float) 500.0, Y = (float) 500.0,
-	                									   Race = (uint) 0, Serial = (uint) 1234 });
-            }
 
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
@@ -698,10 +665,6 @@ namespace ClassicUO.Grpc
  
             States states = new States();
 
-			GrpcMobileList grpcMobileList = new GrpcMobileList();
-            grpcMobileList.Mobile.AddRange(grpcMobileDataList);
-            states.MobileList = grpcMobileList;
-
             GrpcItemList equippedItemList = new GrpcItemList();
             equippedItemList.Item.AddRange(equippedItemDataList);
             states.EquippedItemList = equippedItemList;
@@ -756,7 +719,6 @@ namespace ClassicUO.Grpc
             states.VendorItemObjectList = vendorItemObjectList;
 
             // ##################################################################################
-            byte[] mobileDataArray = grpcMobileList.ToByteArray();
             byte[] equippedItemArray = equippedItemList.ToByteArray();
             byte[] backpackItemArray = backpackItemList.ToByteArray();
             byte[] bankItemArray = bankItemList.ToByteArray();
@@ -785,7 +747,6 @@ namespace ClassicUO.Grpc
 
         	if (_envStep == 0) 
         	{
-        		mobileDataArraysTemp = mobileDataArray;
         		equippedItemArraysTemp = equippedItemArray;
         		backpackItemArraysTemp = backpackItemArray;
         		bankItemArraysTemp = bankItemArray;
@@ -807,7 +768,6 @@ namespace ClassicUO.Grpc
         	else if (_envStep == 1001) 
         	{	
             	// ##################################################################################
-            	mobileDataArrays = mobileDataArraysTemp;
             	equippedItemArrays = equippedItemArraysTemp;
             	backpackItemArrays = backpackItemArraysTemp;
             	bankItemArrays = bankItemArraysTemp;
@@ -827,7 +787,6 @@ namespace ClassicUO.Grpc
 				staticObjectInfoListArrays = staticObjectInfoListArraysTemp;
 
 				// ##################################################################################
-        		mobileDataArraysTemp = mobileDataArray;
         		equippedItemArraysTemp = equippedItemArray;
         		backpackItemArraysTemp = backpackItemArray;
         		bankItemArraysTemp = bankItemArray;
@@ -849,7 +808,6 @@ namespace ClassicUO.Grpc
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
 				// ##################################################################################
-            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
             	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
             	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
             	bankItemArrays = ConcatByteArrays(bankItemArrays, bankItemArraysTemp);
@@ -869,7 +827,6 @@ namespace ClassicUO.Grpc
             	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
 
 				// ##################################################################################
-        		mobileDataArraysTemp = mobileDataArray;
         		equippedItemArraysTemp = equippedItemArray;
         		backpackItemArraysTemp = backpackItemArray;
         		bankItemArraysTemp = bankItemArray;
@@ -891,7 +848,6 @@ namespace ClassicUO.Grpc
         	else if (_envStep == 1001 * _totalStepScale)
         	{
         		// ##################################################################################
-            	mobileDataArrays = ConcatByteArrays(mobileDataArrays, mobileDataArraysTemp);
             	equippedItemArrays = ConcatByteArrays(equippedItemArrays, equippedItemArraysTemp);
             	backpackItemArrays = ConcatByteArrays(backpackItemArrays, backpackItemArraysTemp);
             	bankItemArrays = ConcatByteArrays(bankItemArrays, bankItemArraysTemp);
@@ -925,7 +881,6 @@ namespace ClassicUO.Grpc
         	}
         	else
         	{
-        		mobileDataArraysTemp = ConcatByteArrays(mobileDataArraysTemp, mobileDataArray);
             	equippedItemArraysTemp = ConcatByteArrays(equippedItemArraysTemp, equippedItemArray);
             	backpackItemArraysTemp = ConcatByteArrays(backpackItemArraysTemp, backpackItemArray);
             	bankItemArraysTemp = ConcatByteArrays(bankItemArraysTemp, bankItemArray);
@@ -948,7 +903,6 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
 
-			mobileDataArrayLengthList.Add((int) mobileDataArray.Length);
 			equippedItemArrayLengthList.Add((int) equippedItemArray.Length);
 			backpackItemArrayLengthList.Add((int) backpackItemArray.Length);
 			bankItemArrayLengthList.Add((int) bankItemArray.Length);
@@ -969,7 +923,6 @@ namespace ClassicUO.Grpc
 
         	grpcPlayerSkillListList.Clear();
 
-	        grpcMobileDataList.Clear();
 	        equippedItemDataList.Clear();
 	        backpackItemDataList.Clear();
 	        bankItemDataList.Clear();
@@ -1117,17 +1070,26 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (actions.ActionType == 8) {
-	        	// Close the opened corpse
+	        	// Change the lock status of skill
 	        	if (World.Player != null) {
-                    Console.WriteLine("actions.ActionType == 8");
-                    try 
+	        		Console.WriteLine("actions.ActionType == 8");
+
+	        		Skill skill = World.Player.Skills[actions.Index];
+
+                    byte newStatus = (byte) skill.Lock;
+                    if (newStatus < 2)
                     {
-                    	UIManager.GetGump<ContainerGump>(actions.ItemSerial).CloseWindow();
+                        newStatus++;
                     }
-                    catch (Exception ex)
-		            {
-		            	Console.WriteLine("Failed to close the container gump of the corpse: " + ex.Message);
-		            }
+                    else
+                    {
+                        newStatus = 0;
+                    }
+
+                    Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
+
+                    NetClient.Socket.Send_SkillStatusChangeRequest((ushort) actions.Index, newStatus);
+                    skill.Lock = (Lock) newStatus;
 	        	}
 	        }
 	        else if (actions.ActionType == 9) {
@@ -1236,29 +1198,6 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 18");
         			Item bank = World.Player.FindItemByLayer(Layer.Bank);
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
-	        	}
-	        }
-	        else if (actions.ActionType == 19) {
-	        	if (World.Player != null) {
-	        		// Change the lock status of skill
-	        		Console.WriteLine("actions.ActionType == 19");
-
-	        		Skill skill = World.Player.Skills[actions.Index];
-
-                    byte newStatus = (byte) skill.Lock;
-                    if (newStatus < 2)
-                    {
-                        newStatus++;
-                    }
-                    else
-                    {
-                        newStatus = 0;
-                    }
-
-                    Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
-
-                    NetClient.Socket.Send_SkillStatusChangeRequest((ushort) actions.Index, newStatus);
-                    skill.Lock = (Lock) newStatus;
 	        	}
 	        }
 

@@ -613,6 +613,16 @@ namespace ClassicUO.Game.Scenes
             int maxCotZ = World.Player.Z + 5;
             Vector2 playerPos = World.Player.GetScreenPosition();
 
+            int X_Player = World.Player.X;
+            int Y_Player = World.Player.Y;
+            int Z_Player = World.Player.Z;
+            //Console.WriteLine("X_Player: {0}, Y_Player: {1}, Z_Player: {2}", X_Player, Y_Player, Z_Player);
+
+            int ScreenPosition_X = (X_Player - Y_Player) * 22;
+            int ScreenPosition_Y = (X_Player + Y_Player) * 22 - (Z_Player << 2);
+
+            //Console.WriteLine("ScreenPosition_X: {0}, Y: {1}\n", ScreenPosition_X, ScreenPosition_Y);
+
             for (int i = 0; i < 2; ++i)
             {
                 int minValue = minY;
@@ -786,7 +796,6 @@ namespace ClassicUO.Game.Scenes
                     }
 
                     //we avoid to hide impassable foliage or bushes, if present...
-
                     if (!itemData.IsMultiMovable)
                     {
                         if (itemData.IsFoliage && ProfileManager.CurrentProfile.TreeToStumps)
@@ -945,7 +954,6 @@ namespace ClassicUO.Game.Scenes
 
                     //Console.WriteLine("Serial: {0}, Name: {1}, IsCorpse: {2}, Graphic: {3}", 
                     //                  objSerial, itemEntity.Name, itemEntity.IsCorpse, itemEntity.Graphic);
-                    
                     Client.Game._uoServiceImpl.AddGameObject("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
                                                              obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title, 
                                                              itemEntity.Amount, itemEntity.Price);

@@ -1047,7 +1047,6 @@ namespace ClassicUO.Game.Scenes
             switch (e.keysym.sym)
             {
                 case SDL.SDL_Keycode.SDLK_ESCAPE:
-
                     if (Pathfinder.AutoWalking && Pathfinder.PathindingCanBeCancelled)
                     {
                         Pathfinder.StopAutoWalk();
@@ -1056,7 +1055,6 @@ namespace ClassicUO.Game.Scenes
                     break;
 
                 case SDL.SDL_Keycode.SDLK_TAB when !ProfileManager.CurrentProfile.DisableTabBtn:
-
                     if (ProfileManager.CurrentProfile.HoldDownKeyTab)
                     {
                         if (!_requestedWarMode)
@@ -1065,6 +1063,8 @@ namespace ClassicUO.Game.Scenes
 
                             if (!World.Player.InWarMode)
                             {
+                                //Console.WriteLine("!World.Player.InWarMode");
+                                //Console.WriteLine("NetClient.Socket.Send_ChangeWarMode(true)\n");
                                 NetClient.Socket.Send_ChangeWarMode(true);
                             }
                         }
@@ -1075,7 +1075,6 @@ namespace ClassicUO.Game.Scenes
                 // chat system activation
                 case SDL.SDL_Keycode.SDLK_1 when Keyboard.Shift:         // !
                 case SDL.SDL_Keycode.SDLK_BACKSLASH when Keyboard.Shift: // \
-
                     if (ProfileManager.CurrentProfile.ActivateChatAfterEnter && ProfileManager.CurrentProfile.ActivateChatAdditionalButtons && !UIManager.SystemChat.IsActive)
                     {
                         UIManager.SystemChat.IsActive = true;
@@ -1250,7 +1249,6 @@ namespace ClassicUO.Game.Scenes
             if (_flags[4])
             {
                 Macro macro = Macros.FindMacro(e.keysym.sym, Keyboard.Alt, Keyboard.Ctrl, Keyboard.Shift);
-
                 if (macro != null && e.keysym.sym != SDL.SDL_Keycode.SDLK_UNKNOWN)
                 {
                     if (macro.Items != null && macro.Items is MacroObject mac && mac.Code == MacroType.Walk)
@@ -1350,6 +1348,9 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (_requestedWarMode)
                     {
+                        Console.WriteLine("_requestedWarMode");
+                        Console.WriteLine("NetClient.Socket.Send_ChangeWarMode(false)\n");
+
                         NetClient.Socket.Send_ChangeWarMode(false);
                         _requestedWarMode = false;
                     }

@@ -586,12 +586,14 @@ namespace ClassicUO.Grpc
 	        GrpcPlayerStatus playerStatus = new GrpcPlayerStatus();
 	        if ((World.Player != null) && (World.InGame == true))
             {
+            	//Console.WriteLine("(uint) ItemHold.Serial: {0}", (uint) ItemHold.Serial);
 		        playerStatus = new GrpcPlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
 		        								      Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
 		        								      HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
 		        								      StaminaMax = (uint) World.Player.StaminaMax, Mana = (uint) World.Player.Mana,
 		        								      Gold = (uint) World.Player.Gold, PhysicalResistance = (uint) World.Player.PhysicalResistance,
-		        								      Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
+		        								      Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax,
+		        								      HoldItemSerial = (uint) ItemHold.Serial };
 		    }
 
 		    // Add corpse item
@@ -721,7 +723,8 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
 
         	byte[] gameObjectInfoListArray = gameObjectInfoList.ToByteArray();
-        	//Console.WriteLine("gameObjectInfoListArray.Length: {0}", gameObjectInfoListArray.Length);
+
+        	//Console.WriteLine("ItemHold.Serial: {0}", ItemHold.Serial);
 
         	if (playerStatusArray.Length != 30) 
         	{
@@ -960,24 +963,46 @@ namespace ClassicUO.Grpc
         public override Task<Empty> WriteAct(Actions actions, ServerCallContext context)
         {
     		if (actions.ActionType == 0) {
+    			// Do nothing
             	if (World.InGame == true) {
-
             	}
 	        }
             else if (actions.ActionType == 1) {
             	// Walk to Direction
+            	/*
+            	North = 0x00,
+		        Right = 0x01,
+		        East = 0x02,
+		        Down = 0x03,
+		        South = 0x04,
+		        Left = 0x05,
+		        West = 0x06,
+		        Up = 0x07
+		        */
             	if (World.InGame == true) {
-            		if (actions.WalkDirection == 0) {
-	            		World.Player.Walk(Direction.Up, true);
+            		if (actions.WalkDirection == 0x00) {
+	            		World.Player.Walk(Direction.North, actions.Run);
 	            	}
-	            	else if (actions.WalkDirection == 2) {
-	            		World.Player.Walk(Direction.Right, true);
+	            	else if (actions.WalkDirection == 0x01) {
+	            		World.Player.Walk(Direction.Right, actions.Run);
 	            	}	
-	            	else if (actions.WalkDirection == 3) {
-	            		World.Player.Walk(Direction.Left, true);
+	            	else if (actions.WalkDirection == 0x02) {
+	            		World.Player.Walk(Direction.East, actions.Run);
 	            	}
-	            	else if (actions.WalkDirection == 4) {
-	            		World.Player.Walk(Direction.Down, true);
+	            	else if (actions.WalkDirection == 0x03) {
+	            		World.Player.Walk(Direction.Down, actions.Run);
+	            	}
+	            	else if (actions.WalkDirection == 0x04) {
+	            		World.Player.Walk(Direction.South, actions.Run);
+	            	}
+	            	else if (actions.WalkDirection == 0x05) {
+	            		World.Player.Walk(Direction.Left, actions.Run);
+	            	}	
+	            	else if (actions.WalkDirection == 0x06) {
+	            		World.Player.Walk(Direction.West, actions.Run);
+	            	}
+	            	else if (actions.WalkDirection == 0x07) {
+	            		World.Player.Walk(Direction.Up, actions.Run);
 	            	}
             	}
 	        }
@@ -991,6 +1016,7 @@ namespace ClassicUO.Grpc
 	        	// Pick up the amount of item by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 3");
+
 	        		try
 	        		{
 	        			Item item = World.Items.Get(actions.ItemSerial);
@@ -1008,6 +1034,7 @@ namespace ClassicUO.Grpc
 	        	// Drop the holded item into my backpack
 	        	if (World.Player != null) {
 	        		Console.WriteLine("actions.ActionType == 4");
+
         			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
 	        	}
@@ -1023,7 +1050,6 @@ namespace ClassicUO.Grpc
 	        		try
 	        		{   
 	        			GrpcGameObjectSimpleData selected = grpcItemDropableLandSimpleList[index];
-	        			//Console.WriteLine("mobileSerial: {0}, GameX: {0}, GameY: {1}", selected.GameX, selected.GameY);
 	        			GameActions.DropItem(actions.ItemSerial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
 	        		}
 	        		catch (Exception ex)
@@ -1182,6 +1208,17 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 18");
         			Item bank = World.Player.FindItemByLayer(Layer.Bank);
         			GameActions.DropItem(actions.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
+	        	}
+	        }
+	        else if (actions.ActionType == 19) {
+	        	if (World.Player != null) {
+	        		// Change the war mode
+	        		Console.WriteLine("actions.ActionType == 19");
+	        		bool boolIndex = Convert.ToBoolean(actions.Index);
+
+	        		Console.WriteLine("boolIndex: {0}", boolIndex);
+        			NetClient.Socket.Send_ChangeWarMode(boolIndex);
+        			World.Player.InWarMode = boolIndex;
 	        	}
 	        }
 

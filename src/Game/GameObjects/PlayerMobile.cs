@@ -1523,12 +1523,8 @@ namespace ClassicUO.Game.GameObjects
 
         public bool Walk(Direction direction, bool run)
         {
-            //Client.Game._uoServiceImpl.actionType = 1;
             Client.Game._uoServiceImpl.SetActionType(1);
-
-            //Client.Game._uoServiceImpl.walkDirection = (uint) direction;
             Client.Game._uoServiceImpl.SetWalkDirection((uint) direction);
-
             Client.Game._uoServiceImpl.SetRun(run);
 
             if (Walker.WalkingFailed || Walker.LastStepRequestTime > Time.Ticks || Walker.StepsCount >= Constants.MAX_STEP_COUNT || Client.Version >= ClientVersion.CV_60142 && IsParalyzed)

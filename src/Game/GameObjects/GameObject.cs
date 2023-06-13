@@ -157,13 +157,8 @@ namespace ClassicUO.Game.GameObjects
 
         public void UpdateScreenPosition()
         {
-            //Console.WriteLine("X: {0}, Y: {1}, Z: {2}", X, Y, Z);
-
             _screenPosition.X = (X - Y) * 22;
             _screenPosition.Y = (X + Y) * 22 - (Z << 2);
-
-            //Console.WriteLine("_screenPosition.X: {0}, _screenPosition.Y: {1}", 
-            //                    _screenPosition.X, _screenPosition.Y);
 
             IsPositionChanged = true;
             OnPositionChanged();
@@ -173,9 +168,6 @@ namespace ClassicUO.Game.GameObjects
         {
             RealScreenPosition.X = _screenPosition.X - offsetX - 22;
             RealScreenPosition.Y = _screenPosition.Y - offsetY - 22;
-
-            //Console.WriteLine("RealScreenPosition.X: {0}, RealScreenPosition.Y: {1}", 
-            //                    RealScreenPosition.X, RealScreenPosition.Y);
 
             IsPositionChanged = false;
 
@@ -222,8 +214,6 @@ namespace ClassicUO.Game.GameObjects
             var bounds = ArtLoader.Instance.GetRealArtBounds(Graphic);
 
             p.Y -= bounds.Height >> 1;
-
-            //Console.WriteLine("Offset.X: {0}, Offset.Y: {1}", Offset.X, Offset.Y);
 
             p.X += (int) Offset.X + 22;
             p.Y += (int) (Offset.Y - Offset.Z) + 44;

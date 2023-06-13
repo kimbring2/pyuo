@@ -60,6 +60,9 @@ namespace ClassicUO.Game
 
         public static void RequestWarMode(bool war)
         {
+            //Console.WriteLine("RequestWarMode()");
+            //Console.WriteLine("war: {0}\n", war);
+
             if (!World.Player.IsDead)
             {
                 if (war && ProfileManager.CurrentProfile != null && ProfileManager.CurrentProfile.EnableMusic)
@@ -482,7 +485,6 @@ namespace ClassicUO.Game
             }
 
             Item item = World.Items.Get(serial);
-            //Console.WriteLine("serial: {0}, item: {1}\n", serial, item);
 
             if (item == null || item.IsDestroyed || item.IsMulti || item.OnGround && (item.IsLocked || item.Distance > Constants.DRAG_ITEMS_DISTANCE))
             {
@@ -491,13 +493,9 @@ namespace ClassicUO.Game
 
             if (amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable)
             {
-                //Console.WriteLine("amount <= -1 && item.Amount > 1 && item.ItemData.IsStackable");
-
                 if (ProfileManager.CurrentProfile.HoldShiftToSplitStack == Keyboard.Shift)
                 {
                     SplitMenuGump gump = UIManager.GetGump<SplitMenuGump>(item);
-                    //Console.WriteLine("gump: {0}", gump);
-
                     if (gump != null)
                     {
                         return false;
@@ -532,8 +530,6 @@ namespace ClassicUO.Game
             }
 
             item.TextContainer?.Clear();
-
-            //Console.WriteLine("World.ObjectToRemove: {0}", World.ObjectToRemove);
 
             World.ObjectToRemove = item.Serial;
 

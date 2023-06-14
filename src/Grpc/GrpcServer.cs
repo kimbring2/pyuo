@@ -586,15 +586,15 @@ namespace ClassicUO.Grpc
 	        GrpcPlayerStatus playerStatus = new GrpcPlayerStatus();
 	        if ((World.Player != null) && (World.InGame == true))
             {
-            	Console.WriteLine("(uint) ItemHold.Serial: {0}", (uint) ItemHold.Serial);
-
+            	//Console.WriteLine("(uint) ItemHold.Serial: {0}", (uint) ItemHold.Serial);
+            	//Console.WriteLine("(bool) World.Player.InWarMode: {0}", (bool) World.Player.InWarMode);
 		        playerStatus = new GrpcPlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
 		        								      Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
 		        								      HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
 		        								      StaminaMax = (uint) World.Player.StaminaMax, Mana = (uint) World.Player.Mana,
 		        								      Gold = (uint) World.Player.Gold, PhysicalResistance = (uint) World.Player.PhysicalResistance,
 		        								      Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax,
-		        								      HoldItemSerial = (uint) ItemHold.Serial };
+		        								      HoldItemSerial = (uint) ItemHold.Serial, WarMode = (bool) World.Player.InWarMode };
 		    }
 
 		    // Add corpse item
@@ -973,6 +973,8 @@ namespace ClassicUO.Grpc
 		        Up = 0x07
 		        */
             	if (World.InGame == true) {
+            		//Console.WriteLine("actions.WalkDirection: {0}", actions.WalkDirection);
+
             		if (actions.WalkDirection == 0x00) {
 	            		World.Player.Walk(Direction.North, actions.Run);
 	            	}
@@ -1213,7 +1215,7 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("actions.ActionType == 19");
 	        		bool boolIndex = Convert.ToBoolean(actions.Index);
 
-	        		Console.WriteLine("boolIndex: {0}", boolIndex);
+	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
         			NetClient.Socket.Send_ChangeWarMode(boolIndex);
         			World.Player.InWarMode = boolIndex;
 	        	}

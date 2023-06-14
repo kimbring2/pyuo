@@ -1725,7 +1725,7 @@ namespace ClassicUO.Network
 
         private static void UpdateSkills(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateSkills()");
+            //Console.WriteLine("UpdateSkills()");
 
             if (!World.InGame)
             {

@@ -634,7 +634,7 @@ namespace ClassicUO.Network
 
         private static void UpdateItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateItem()");
+            Console.WriteLine("UpdateItem()");
 
             if (World.Player == null)
             {
@@ -1146,7 +1146,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            Console.WriteLine("OpenContainer()");
+            //Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -5422,6 +5422,8 @@ namespace ClassicUO.Network
 
         private static void UpdateItemSA(ref StackDataReader p)
         {
+            Console.WriteLine("UpdateItemSA()");
+
             if (World.Player == null)
             {
                 return;
@@ -5482,6 +5484,8 @@ namespace ClassicUO.Network
                     dir
                 );
             }
+
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void BoatMoving(ref StackDataReader p)
@@ -5720,7 +5724,7 @@ namespace ClassicUO.Network
             uint containerSerial
         )
         {
-            //Console.WriteLine("AddItemToContainer()");
+            Console.WriteLine("AddItemToContainer()");
 
             if (ItemHold.Serial == serial)
             {
@@ -5896,6 +5900,8 @@ namespace ClassicUO.Network
                 }
                 else
                 {
+                    //Console.WriteLine("World.GetOrCreateItem(serial)");
+
                     item = World.GetOrCreateItem(serial);
 
                     if (item == null)
@@ -6072,6 +6078,8 @@ namespace ClassicUO.Network
                     }
                 }
             }
+
+            Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void UpdatePlayer

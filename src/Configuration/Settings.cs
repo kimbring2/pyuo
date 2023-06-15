@@ -42,6 +42,7 @@ namespace ClassicUO.Configuration
         public static Settings GlobalSettings = new Settings();
         public static string CustomSettingsFilepath = null;
         public static bool Replay = false;
+        public static string ReplayPath = "Replay/";
         public static bool HumanPlay = false;
         public static int WindowWidth = 1600;
         public static int WindowHeight = 1280;

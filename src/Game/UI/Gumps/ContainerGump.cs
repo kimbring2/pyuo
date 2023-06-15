@@ -466,7 +466,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void UpdateContents()
         {
-            Console.WriteLine("UpdateContents()");
+            //Console.WriteLine("UpdateContents()");
             
             Clear();
             BuildGump();
@@ -625,33 +625,40 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void Dispose()
         {
-            Console.WriteLine("Dispose()");
-            Item item = World.Items.Get(LocalSerial);
+            //Console.WriteLine("Dispose()");
 
-            if (item.IsCorpse) 
+            try
             {
-                World.Player.ManualOpenedCorpses.Remove(LocalSerial);
-            }
+                Item item = World.Items.Get(LocalSerial);
 
-            if (item != null)
-            {
-                if (World.Player != null && ProfileManager.CurrentProfile?.OverrideContainerLocationSetting == 3)
+                if (item.IsCorpse) 
                 {
-                    UIManager.SavePosition(item, Location);
+                    World.Player.ManualOpenedCorpses.Remove(LocalSerial);
                 }
 
-                for (LinkedObject i = item.Items; i != null; i = i.Next)
+                if (item != null)
                 {
-                    Item child = (Item) i;
-
-                    if (child.Container == item)
+                    if (World.Player != null && ProfileManager.CurrentProfile?.OverrideContainerLocationSetting == 3)
                     {
-                        UIManager.GetGump<ContainerGump>(child)?.Dispose();
+                        UIManager.SavePosition(item, Location);
+                    }
+
+                    for (LinkedObject i = item.Items; i != null; i = i.Next)
+                    {
+                        Item child = (Item) i;
+                        if (child.Container == item)
+                        {
+                            UIManager.GetGump<ContainerGump>(child)?.Dispose();
+                        }
                     }
                 }
-            }
 
-            base.Dispose();
+                base.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to dispose the corpse container: " + ex.Message);
+            }
         }
 
         protected override void CloseWithRightClick()

@@ -394,6 +394,8 @@ namespace ClassicUO.Game
             if (item == null /*|| item.IsDestroyed*/)
             {
                 item = Item.Create(serial);
+
+                //Console.WriteLine("item.Name: ", item.Name);
                 Items.Add(item);
             }
 

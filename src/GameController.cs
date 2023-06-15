@@ -422,20 +422,6 @@ namespace ClassicUO
         protected override void Update(GameTime gameTime)
         {
             //Console.WriteLine("Step 4");
-            if (World.Player != null) 
-            {
-                //Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
-                //Console.WriteLine("Mouse.Position.X: {0}, Mouse.Position.Y: {1}", Mouse.Position.X, Mouse.Position.Y);
-                //Console.WriteLine("SelectedObject.LastObject: {0}\n", SelectedObject.LastObject);
-                Item item = World.Player.FindItemByLayer(Layer.Mount);
-                if (item != null) 
-                {
-                    //Console.WriteLine("item.Name: {0}", item.Name);
-                }
-            }
-
-            //Console.WriteLine("SelectedObject.Object: {0}", SelectedObject.Object);
-
             if (Settings.HumanPlay == true)
             {
                 _uoServiceImpl.WriteAct();

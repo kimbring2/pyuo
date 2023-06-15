@@ -1597,7 +1597,6 @@ namespace ClassicUO.Network
             uint serial = p.ReadUInt32BE();
 
             Entity entity = World.Get(serial);
-
             if (entity == null)
             {
                 return;
@@ -1614,7 +1613,6 @@ namespace ClassicUO.Network
             if (SerialHelper.IsMobile(serial))
             {
                 Mobile mobile = entity as Mobile;
-
                 if (mobile == null)
                 {
                     return;
@@ -5427,7 +5425,7 @@ namespace ClassicUO.Network
 
         private static void UpdateItemSA(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateItemSA()");
+            //Console.WriteLine("UpdateItemSA()");
 
             if (World.Player == null)
             {
@@ -5729,7 +5727,7 @@ namespace ClassicUO.Network
             uint containerSerial
         )
         {
-            Console.WriteLine("AddItemToContainer()");
+            //Console.WriteLine("AddItemToContainer()");
 
             if (ItemHold.Serial == serial)
             {
@@ -5976,6 +5974,8 @@ namespace ClassicUO.Network
                 item.Flags = flagss;
                 item.Direction = direction;
                 item.CheckGraphicChange(item.AnimIndex);
+
+                Client.Game._uoServiceImpl.UpdateWorldItems();
             }
             else
             {
@@ -6017,6 +6017,8 @@ namespace ClassicUO.Network
                 mobile.Graphic = (ushort) (graphic & 0x3FFF);
                 mobile.FixHue(hue);
                 mobile.Flags = flagss;
+
+                Client.Game._uoServiceImpl.UpdateWorldMobiles();
             }
 
             if (created && !obj.IsClicked)
@@ -6048,12 +6050,9 @@ namespace ClassicUO.Network
                     // Real UO client does it only when LastAttack == serial.
                     // We force to close suddenly.
                     GameActions.RequestMobileStatus(serial);
-
-                    //if (TargetManager.LastAttack != serial)
-                    //{
-                    //    GameActions.SendCloseStatus(serial);
-                    //}
                 }
+
+                Client.Game._uoServiceImpl.UpdateWorldMobiles();
             }
             else
             {
@@ -6075,9 +6074,9 @@ namespace ClassicUO.Network
                         World.Player.TryOpenCorpses();
                     }
                 }
-            }
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+                Client.Game._uoServiceImpl.UpdateWorldItems();
+            }
         }
 
         private static void UpdatePlayer

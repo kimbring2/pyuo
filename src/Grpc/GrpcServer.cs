@@ -570,7 +570,8 @@ namespace ClassicUO.Grpc
 	                    //                  item.Name, item.IsCorpse, item.Amount);
 	                    worldItemObjectList.Add(new GrpcGameObjectData{ Type="Item", ScreenX=(uint) itemPos.X, ScreenY=(uint) itemPos.Y, 
 	                    												Distance=(uint) item.Distance, GameX=(uint) item.X, GameY=(uint) item.Y, Serial=item.Serial, 
-	                    												Name=item.Name, IsCorpse=item.IsCorpse, Title="None", Amount=item.Amount, Price=item.Price });
+	                    												Name=item.Name, IsCorpse=item.IsCorpse, Title="None", Amount=item.Amount, Price=item.Price,
+	                    												Layer=(uint) item.Layer });
 	            	}
 	            }
 	        }
@@ -604,7 +605,7 @@ namespace ClassicUO.Grpc
 
 	                    worldMobileObjectList.Add(new GrpcGameObjectData{ Type="Mobile", ScreenX=(uint) mobilePos.X, ScreenY=(uint) mobilePos.Y, 
 	                    												  Distance=(uint) mobile.Distance, GameX=mobile.X, GameY=mobile.X, Serial=mobileSerial, 
-	                    												  Name=name, IsCorpse=false, Title=title, Amount=0, Price=0 });
+	                    												  Name=name, IsCorpse=false, Title=title, Amount=0, Price=0, Layer=0 });
 	            	}
 	            }
 	        }
@@ -779,7 +780,7 @@ namespace ClassicUO.Grpc
             states.WorldItemList = grpcWorldItemList;
 
             GrpcGameObjectList grpcWorldMobileList = new GrpcGameObjectList();
-            grpcWorldMobileList.GameObjects.AddRange(worldItemObjectList);
+            grpcWorldMobileList.GameObjects.AddRange(worldMobileObjectList);
             states.WorldItemList = grpcWorldMobileList;
 
             GrpcSerialList grpcEquippedItemSerialList = new GrpcSerialList();

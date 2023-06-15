@@ -1146,7 +1146,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenContainer()");
+            Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1214,6 +1214,11 @@ namespace ClassicUO.Network
                     while (first != null)
                     {
                         Item it = (Item) first;
+
+                        Item itemWorld = World.Items.Get(it.Serial);
+                        Console.WriteLine("Name: {0}, amount: {1}, price: {2}", itemWorld.Name, itemWorld.Amount, itemWorld.Price);
+
+
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
                                                                   0, 0, it.Serial, it.Name, false, "None", 
@@ -5882,7 +5887,6 @@ namespace ClassicUO.Network
                 if (SerialHelper.IsMobile(serial) && type != 3)
                 {
                     mobile = World.GetOrCreateMobile(serial);
-
                     if (mobile == null)
                     {
                         return;
@@ -5900,10 +5904,7 @@ namespace ClassicUO.Network
                 }
                 else
                 {
-                    //Console.WriteLine("World.GetOrCreateItem(serial)");
-
                     item = World.GetOrCreateItem(serial);
-
                     if (item == null)
                     {
                         return;
@@ -5944,9 +5945,7 @@ namespace ClassicUO.Network
                 if (type == 2)
                 {
                     item.IsMulti = true;
-
                     item.WantUpdateMulti = (graphic & 0x3FFF) != item.Graphic || item.X != x || item.Y != y || item.Z != z;
-
                     item.Graphic = (ushort) (graphic & 0x3FFF);
                 }
                 else
@@ -5955,7 +5954,6 @@ namespace ClassicUO.Network
                     item.IsMulti = false;
                     item.Graphic = graphic;
                 }
-
 
                 item.X = x;
                 item.Y = y;

@@ -1218,7 +1218,6 @@ namespace ClassicUO.Network
                         Item itemWorld = World.Items.Get(it.Serial);
                         Console.WriteLine("Name: {0}, amount: {1}, price: {2}", itemWorld.Name, itemWorld.Amount, itemWorld.Price);
 
-
                         //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
                         Client.Game._uoServiceImpl.AddGameObject("ShopItem", (uint) 0, (uint) 0, (uint) 0, 
                                                                   0, 0, it.Serial, it.Name, false, "None", 

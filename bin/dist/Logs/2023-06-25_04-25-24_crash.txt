@@ -1,0 +1,22 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 06/25/2023 04:25:24
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ClassicUO.Grpc.UoServiceImpl.WrtieToMpqArchive (System.String mpqArchiveName, System.String fileName, System.Byte[] grpcArr) [0x00000] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+  at ClassicUO.Grpc.UoServiceImpl.SaveReplayFile () [0x00461] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+  at ClassicUO.Grpc.UoServiceImpl.ReadObs (System.Boolean config_init) [0x009f3] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+  at ClassicUO.GameController.Update (Microsoft.Xna.Framework.GameTime gameTime) [0x00231] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x001fe] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x00085] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00379] in <b6861b3ce96a4c1ebd695854c4045e05>:0 
+######################## [END LOG] ########################
+
+

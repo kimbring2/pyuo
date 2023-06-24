@@ -77,6 +77,9 @@ namespace ClassicUO.Grpc
         string _replayName;
         string _replayPath;
 
+        int _worldMobileUpdate = -1;
+        int _worldItemUpdate = -1;
+
         // ##################################################################################
         List<int> worldItemArrayLengthList = new List<int>();
         List<int> worldMobileArrayLengthList = new List<int>();
@@ -160,6 +163,16 @@ namespace ClassicUO.Grpc
     	uint preIndex;
     	uint preAmount;
     	bool preRun;
+
+    	public void SetWorldItemUpdate()
+	    {
+	        _worldItemUpdate = 2;
+	    }
+
+	    public void SetWorldMobileUpdate()
+	    {
+	        _worldMobileUpdate = 2;
+	    }
 
     	public void SetActionType(uint value)
 	    {
@@ -474,36 +487,46 @@ namespace ClassicUO.Grpc
         }
 
         public void AddGameObject(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, 
+        						  uint serial, string name, bool is_corpse, string title, uint amount, uint price, uint layer)
+        {
+        	try 
+        	{
+        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
+	        	if (type == "Mobile") {
+	        		worldMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, 
+	                    											  Distance=distance, GameX=game_x, GameY=game_y, 
+	                    											  Serial=serial, Name=name, IsCorpse=is_corpse, Title=title, 
+	                    											  Amount=amount, Price=price, Layer=layer });
+	        	}
+	        	else if (type == "Item") {
+	        		worldItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, 
+	                    											Distance=distance, GameX=game_x, GameY=game_y, 
+	                    											Serial=serial, Name=name, IsCorpse=is_corpse, Title=title, 
+	                    											Amount=amount, Price=price, Layer=layer });
+	        	}
+	        }
+	        catch (Exception ex)
+            {
+                //Console.WriteLine("Failed to add the object: " + ex.Message);
+            }
+        }
+
+        public void AddGameObjectSerial(string type, uint screen_x, uint screen_y, uint distance, uint game_x, uint game_y, 
         						  uint serial, string name, bool is_corpse, string title, uint amount, uint price)
         {
         	try 
         	{
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
 	        	if (type == "PlayerMobile") {
-	        		//Console.WriteLine("PlayerMobile / screen_x: {0}, screen_y: {1}\n", screen_x, screen_y);
-	        		//grpcPlayerMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
-	        		//												 	   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        		//											           Title=title, Amount=amount, Price=price });
 	        		scenePlayerMobileSerialList.Add(serial);
 	        	}
 	        	else if (type == "Item") {
-	        		//grpcItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
-	        		//											   GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        		//											   Title=title, Amount=amount, Price=price });
 	        		sceneItemSerialList.Add(serial);
 	        	}
 	        	else if (type == "Mobile") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, distance: {3}", type, screen_x, screen_y, distance);
-	        		//grpcMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
-	        		//												 GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        		//											     Title=title, Amount=amount, Price=price });
 	        		sceneMobileSerialList.Add(serial);
 	        	}
 	        	else if (type == "ShopItem") {
-	        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
-	        		//vendorItemSerialList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, Distance=distance, 
-	        		//											         GameX=game_x, GameY=game_y, Serial=serial, Name=name, IsCorpse=is_corpse,
-	        		//											         Title=title, Amount=amount, Price=price });
 	        		vendorItemSerialList.Add(serial);
 	        	}
 	        	else if (type == "Static") {
@@ -516,12 +539,14 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the object: " + ex.Message);
+                //Console.WriteLine("Failed to add the object serial: " + ex.Message);
             }
         }
 
         public void UpdateWorldItems()
         {
+        	Console.WriteLine("UpdateWorldItems()");
+
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {
 		        foreach (Item item in World.Items.Values)
@@ -530,7 +555,6 @@ namespace ClassicUO.Grpc
 	            	if (name != null)
 	            	{
 	            		//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
-	            		//Item item = (Item) item;
 	                    itemSerial = (uint) item;
 
 	                    Vector2 itemPos = item.GetScreenPosition();
@@ -538,10 +562,8 @@ namespace ClassicUO.Grpc
 	                    //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
 	                    //                  (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y,
 	                    //                  item.Name, item.IsCorpse, item.Amount);
-	                    worldItemObjectList.Add(new GrpcGameObjectData{ Type="Item", ScreenX=(uint) itemPos.X, ScreenY=(uint) itemPos.Y, 
-	                    												Distance=(uint) item.Distance, GameX=(uint) item.X, GameY=(uint) item.Y, Serial=item.Serial, 
-	                    												Name=item.Name, IsCorpse=item.IsCorpse, Title="None", Amount=item.Amount, Price=item.Price,
-	                    												Layer=(uint) item.Layer });
+	                    AddGameObject("Item", (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y, 
+        						      item.Serial, item.Name, item.IsCorpse, "None", item.Amount, item.Price, (uint) item.Layer);
 	            	}
 	            }
 	        }
@@ -549,6 +571,8 @@ namespace ClassicUO.Grpc
 
         public void UpdateWorldMobiles()
         {
+        	//Console.WriteLine("UpdateWorldMobiles()");
+
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {
 		        foreach (Mobile mobile in World.Mobiles.Values)
@@ -573,13 +597,30 @@ namespace ClassicUO.Grpc
 		                    //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
 		                }
 
-	                    worldMobileObjectList.Add(new GrpcGameObjectData{ Type="Mobile", ScreenX=(uint) mobilePos.X, ScreenY=(uint) mobilePos.Y, 
-	                    												  Distance=(uint) mobile.Distance, GameX=mobile.X, GameY=mobile.X, Serial=mobileSerial, 
-	                    												  Name=name, IsCorpse=false, Title=title, Amount=0, Price=0, Layer=0 });
+	                    AddGameObject("Mobile", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
+        						      mobileSerial, name, false, title, 0, 0, 0);
 	            	}
 	            }
 	        }
         }
+
+        public void UpdatePlayerSkills()
+        {
+        	// Add player skill 
+	        if ((World.Player != null) && (World.InGame == true))
+	        {
+	            //Console.WriteLine("\nWorld.Player.Skills.Length: {0}", World.Player.Skills.Length);
+		        for (int i = 0; i < World.Player.Skills.Length; i++)
+	            {
+	            	Skill skill = World.Player.Skills[i];
+	            	//Console.WriteLine("Name: {0}, Index: {1}, IsClickable: {2}, Value: {3}, Base: {4}, Cap: {5}, Lock: {6}", 
+	            	//	skill.Name, skill.Index, skill.IsClickable, skill.Value, skill.Base, skill.Cap, skill.Lock);
+	            	grpcPlayerSkillListList.Add(new GrpcSkill{ Name = skill.Name, Index = (uint) skill.Index, IsClickable = (bool) skill.IsClickable,
+		              								           Value = (uint) skill.Value, Base = (uint) skill.Base, Cap = (uint) skill.Cap, 
+		              								           Lock = (uint) skill.Lock });
+	            }
+	        }
+	    }
 
         public void Start() 
         {
@@ -611,21 +652,32 @@ namespace ClassicUO.Grpc
         	//	return states;
         	//}
 
-        	//Console.WriteLine("_envStep: {0}", _envStep);
+        	if (_worldItemUpdate > 0)
+	        {
+	        	_worldItemUpdate -= 1;
+	        }
+	        else if (_worldItemUpdate == 0)
+	        {
+	        	//UpdateWorldItems();
+	        	_worldItemUpdate = -1;
+	        }
+
+	        if (_worldMobileUpdate > 0)
+	        {
+	        	_worldMobileUpdate -= 1;
+	        }
+	        else if (_worldMobileUpdate == 0)
+	        {
+	        	//UpdateWorldMobiles();
+	        	_worldMobileUpdate = -1;
+	        }
+
+        	//Console.WriteLine("_envStep: {0}\n", _envStep);
 
         	if (_envStep % 1000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
-
-        	/*
-        	foreach (Item item in World.Items.Values)
-            {
-            	//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, item.Amount, item.Serial);
-            	worldItemObjectList.Add(new GrpcItemData{ Name = !string.IsNullOrEmpty(item.Name) ? item.Name : "Null", Layer = (uint) item.Layer,
-	              									    Serial = (uint) item.Serial, Amount = (uint) item.Amount });
-            }
-            */
 
             if ((World.Player != null) && (World.InGame == true)) 
 	        {
@@ -648,7 +700,6 @@ namespace ClassicUO.Grpc
                 for (LinkedObject i = backpack.Items; i != null; i = i.Next)
                 {
                     Item item = (Item) i;
-                	
             		try 
 	        		{
 		              	backpackItemSerialList.Add((uint) item.Serial);
@@ -698,18 +749,6 @@ namespace ClassicUO.Grpc
             	Vector2 playerPos = World.Player.GetScreenPosition();
 
             	//Console.WriteLine("playerPos.X: {0}, playerPos.Y: {1}", playerPos.X, playerPos.Y);
-            	/*
-		        playerStatus = new GrpcPlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
-		        								      Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
-		        								      HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
-		        								      StaminaMax = (uint) World.Player.StaminaMax, Mana = (uint) World.Player.Mana,
-		        								      Gold = (uint) World.Player.Gold, PhysicalResistance = (uint) World.Player.PhysicalResistance,
-		        								      Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax,
-		        								      HoldItemSerial = (uint) ItemHold.Serial, WarMode = (bool) World.Player.InWarMode,
-		        								      ScreenX = (uint) playerPos.X, ScreenY = (uint) playerPos.Y,
-		        								  	  GameX = (uint) World.Player.X, GameY = (uint) World.Player.Y};
-		    	*/
-
 		        grpcPlayerStatus = new GrpcPlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
 		        								          Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
 		        								          HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
@@ -746,6 +785,7 @@ namespace ClassicUO.Grpc
 			    }
 			}
 
+			/*
 			// Add player skill 
 	        if ((World.Player != null) && (World.InGame == true))
 	        {
@@ -760,6 +800,7 @@ namespace ClassicUO.Grpc
 		              								           Lock = (uint) skill.Lock });
 	            }
 	        }
+	        */
 
 	        // Player Status Etc
 	        GrpcPlayerStatusEtc grpcPlayerStatusEtc = new GrpcPlayerStatusEtc();
@@ -767,7 +808,6 @@ namespace ClassicUO.Grpc
 	        {
 	        	//Console.WriteLine("(bool) World.Player.InWarMode: {0}", (bool) World.Player.InWarMode);
 	        	//Console.WriteLine("(uint) ItemHold.Serial: {0}", (uint) ItemHold.Serial);
-
 	        	grpcPlayerStatusEtc = new GrpcPlayerStatusEtc { HoldItemSerial = (uint) ItemHold.Serial, 
 	        											        WarMode = (bool) World.Player.InWarMode };
 
@@ -778,14 +818,12 @@ namespace ClassicUO.Grpc
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
 	        	//Console.WriteLine("Add player game object");
-
 	        	Mobile playerMobile = (Mobile) World.Player;
 	        	Vector2 playerPos = playerMobile.GetScreenPosition();
 
 	        	//Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
 	            //                  (uint) playerPos.X, (uint) playerPos.Y, (uint) playerMobile.Distance, (uint) playerMobile.X, (uint) playerMobile.Y,
 	            //                  playerMobile.Name, false, 0);
-
 		        grpcPlayerGameObject = new GrpcGameObjectData{ Type="Player", ScreenX=(uint) playerPos.X, ScreenY=(uint) playerPos.Y, 
 		                    							       Distance=(uint) playerMobile.Distance, 
 		                    							       GameX=(uint) playerMobile.X, GameY=(uint) playerMobile.Y, 
@@ -802,7 +840,7 @@ namespace ClassicUO.Grpc
 
             GrpcGameObjectList grpcWorldMobileList = new GrpcGameObjectList();
             grpcWorldMobileList.GameObjects.AddRange(worldMobileObjectList);
-            states.WorldItemList = grpcWorldMobileList;
+            states.WorldMobileList = grpcWorldMobileList;
 
             GrpcSerialList grpcEquippedItemSerialList = new GrpcSerialList();
             grpcEquippedItemSerialList.Serials.AddRange(equippedItemSerialList);
@@ -873,6 +911,7 @@ namespace ClassicUO.Grpc
 
         	byte[] gameObjectInfoListArray = gameObjectInfoList.ToByteArray();
 
+        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
         	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
         	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
         	//Console.WriteLine("playerStatusEtcArray.Length: {0}", playerStatusEtcArray.Length);
@@ -1048,6 +1087,7 @@ namespace ClassicUO.Grpc
 
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
+        	//Console.WriteLine("config.Init: {0}", config.Init);
         	States obs = ReadObs();
 
             return Task.FromResult(obs);
@@ -1099,7 +1139,7 @@ namespace ClassicUO.Grpc
 	    	run = false;
 
 	    	worldItemObjectList.Clear();
-
+	    	worldMobileObjectList.Clear();
 	        equippedItemSerialList.Clear();
 	        backpackItemSerialList.Clear();
 	        bankItemSerialList.Clear();

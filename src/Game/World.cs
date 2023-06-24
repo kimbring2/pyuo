@@ -244,10 +244,6 @@ namespace ClassicUO.Game
 
                 foreach (Mobile mob in Mobiles.Values)
                 {
-                    //Console.WriteLine("mob.Name: ");
-                    //Console.WriteLine(mob.Name);
-                    //mob.Name: masterkim
-
                     mob.Update(totalTime, frameTime);
 
                     if (do_delete && mob.Distance > ClientViewRange /*CheckToRemove(mob, ClientViewRange)*/)
@@ -367,7 +363,6 @@ namespace ClassicUO.Game
             else
             {
                 ent = Items.Get(serial);
-
                 if (ent == null)
                 {
                     ent = Mobiles.Get(serial);

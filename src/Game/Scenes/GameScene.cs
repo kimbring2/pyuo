@@ -942,7 +942,7 @@ namespace ClassicUO.Game.Scenes
                     //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, playerMobileEntity.Name);
 
                     Client.Game._uoServiceImpl.AddGameObjectSerial("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                             obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title, 0, 0);
+                                                                   obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title, 0, 0);
                 } 
                 else if (obj is Item)
                 {
@@ -955,8 +955,8 @@ namespace ClassicUO.Game.Scenes
                     //Console.WriteLine("Serial: {0}, Name: {1}, IsCorpse: {2}, Graphic: {3}", 
                     //                  objSerial, itemEntity.Name, itemEntity.IsCorpse, itemEntity.Graphic);
                     Client.Game._uoServiceImpl.AddGameObjectSerial("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                              obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title, 
-                                                              itemEntity.Amount, itemEntity.Price);
+                                                                   obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title, 
+                                                                   itemEntity.Amount, itemEntity.Price);
                 }
                 else if (obj is Mobile)
                 {

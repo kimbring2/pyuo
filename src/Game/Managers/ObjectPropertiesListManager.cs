@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using ClassicUO.Network;
 
@@ -50,6 +51,9 @@ namespace ClassicUO.Game.Managers
             {
                 
             }
+
+            //Console.WriteLine("OPL() Add");
+            //Console.WriteLine("name: {0}", name);
 
             prop.Serial = serial;
             prop.Revision = revision;

@@ -483,7 +483,7 @@ namespace ClassicUO
 
             if (Settings.HumanPlay == true)
             {
-                _uoServiceImpl.ReadObs();
+                _uoServiceImpl.ReadObs(false);
                 _uoServiceImpl.ObsSemaphoreControl();
             }
 

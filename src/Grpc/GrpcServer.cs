@@ -209,6 +209,11 @@ namespace ClassicUO.Grpc
 	        run = value;
 	    }
 
+	    public int GetEnvStep()
+	    {
+	        return _envStep;
+	    }
+
 	    public void AddToPopupMenuList(string text)
 	    {
 	        grpcPopupMenuList.Add(text);
@@ -492,13 +497,20 @@ namespace ClassicUO.Grpc
         	try 
         	{
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
-	        	if (type == "Mobile") {
+	        	if (type == "Mobile") 
+	        	{
 	        		worldMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, 
 	                    											  Distance=distance, GameX=game_x, GameY=game_y, 
 	                    											  Serial=serial, Name=name, IsCorpse=is_corpse, Title=title, 
 	                    											  Amount=amount, Price=price, Layer=layer });
 	        	}
-	        	else if (type == "Item") {
+	        	else if (type == "Item") 
+	        	{
+	        		//Console.WriteLine("AddGameObject(), type == \"Item\"");
+	        		//Console.WriteLine("_envStep: {0}", _envStep);
+
+	        		//Console.WriteLine("Screen X:{0},Screen Y:{1},Distance:{2},Game X:{3},Game Y:{4},Name:{5},IsCorpse:{6},Amount:{7},price:{8},layer:{9}", 
+            		//                  screen_x, screen_y, distance, game_x, game_y, name, is_corpse, amount, price, layer);
 	        		worldItemObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, 
 	                    											Distance=distance, GameX=game_x, GameY=game_y, 
 	                    											Serial=serial, Name=name, IsCorpse=is_corpse, Title=title, 
@@ -507,7 +519,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the object: " + ex.Message);
+                Console.WriteLine("Failed to add the object: " + ex.Message);
             }
         }
 
@@ -644,7 +656,7 @@ namespace ClassicUO.Grpc
             return Task.FromResult(states);
         }
 
-        public States ReadObs()
+        public States ReadObs(bool config_init)
         {
         	States states = new States();
         	//if (preActionType == 0) 
@@ -652,6 +664,12 @@ namespace ClassicUO.Grpc
         	//	return states;
         	//}
 
+        	if (config_init == true)
+        	{
+        		UpdateWorldItems();
+        	}
+
+        	/*
         	if (_worldItemUpdate > 0)
 	        {
 	        	_worldItemUpdate -= 1;
@@ -671,6 +689,7 @@ namespace ClassicUO.Grpc
 	        	//UpdateWorldMobiles();
 	        	_worldMobileUpdate = -1;
 	        }
+	        */
 
         	//Console.WriteLine("_envStep: {0}\n", _envStep);
 
@@ -835,6 +854,7 @@ namespace ClassicUO.Grpc
 		    states.PlayerStatusEtc = grpcPlayerStatusEtc;
 
 	        GrpcGameObjectList grpcWorldItemList = new GrpcGameObjectList();
+
             grpcWorldItemList.GameObjects.AddRange(worldItemObjectList);
             states.WorldItemList = grpcWorldItemList;
 
@@ -1088,7 +1108,7 @@ namespace ClassicUO.Grpc
         public override Task<States> ReadObs(Config config, ServerCallContext context)
         {
         	//Console.WriteLine("config.Init: {0}", config.Init);
-        	States obs = ReadObs();
+        	States obs = ReadObs(config.Init);
 
             return Task.FromResult(obs);
         }
@@ -1137,6 +1157,11 @@ namespace ClassicUO.Grpc
 	    	index = 0;
 	    	amount = 0;
 	    	run = false;
+
+	    	if (worldItemObjectList.Count != 0) 
+	        {
+	        	Console.WriteLine("WriteAct() worldItemObjectList.Count: {0}", worldItemObjectList.Count);
+	        }
 
 	    	worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
@@ -1326,7 +1351,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 12) {
 	        	if (World.Player != null) {
-	        		// Buy the item from vendor by selecing the item from shop gump
+	        		// Buy the item from vendor by selecting the item from shop gump
 	        		Console.WriteLine("actions.ActionType == 12");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
@@ -1339,7 +1364,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (actions.ActionType == 13) {
 	        	if (World.Player != null) {
-	        		// Sell the item to vendor by selecing the item from shop gump
+	        		// Sell the item to vendor by selecting the item from shop gump
 	        		Console.WriteLine("actions.ActionType == 13");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
@@ -1411,6 +1436,11 @@ namespace ClassicUO.Grpc
     		index = 0;
     		run = false;
 
+    		if (worldItemObjectList.Count != 0) 
+	        {
+	        	Console.WriteLine("WriteAct() worldItemObjectList.Count: {0}", worldItemObjectList.Count);
+	        }
+
     		worldItemObjectList.Clear();
     		worldMobileObjectList.Clear();
     		grpcPlayerSkillListList.Clear();
@@ -1423,6 +1453,7 @@ namespace ClassicUO.Grpc
             sceneItemSerialList.Clear();
 	        grpcStaticObjectScreenXs.Clear();
 	        grpcStaticObjectScreenYs.Clear();
+	        grpcPlayerSkillListList.Clear();
 
             return Task.FromResult(new Empty {});
         }

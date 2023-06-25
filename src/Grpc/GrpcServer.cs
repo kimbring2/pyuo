@@ -528,7 +528,15 @@ namespace ClassicUO.Grpc
         	try 
         	{
         		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
-	        	if (type == "Mobile") 
+
+        		if (type == "Player") 
+	        	{
+	        		worldMobileObjectList.Add(new GrpcGameObjectData{ Type="Player", ScreenX=screen_x, ScreenY=screen_y, 
+	                    											  Distance=distance, GameX=game_x, GameY=game_y, 
+	                    											  Serial=serial, Name=name, IsCorpse=is_corpse, Title=title, 
+	                    											  Amount=amount, Price=price, Layer=layer });
+	        	}
+	        	else if (type == "Mobile") 
 	        	{
 	        		worldMobileObjectList.Add(new GrpcGameObjectData{ Type=type, ScreenX=screen_x, ScreenY=screen_y, 
 	                    											  Distance=distance, GameX=game_x, GameY=game_y, 

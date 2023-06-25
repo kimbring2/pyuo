@@ -3121,6 +3121,8 @@ namespace ClassicUO.Network
 
         private static void MovePlayer(ref StackDataReader p)
         {
+            Console.WriteLine("MovePlayer()");
+
             if (!World.InGame)
             {
                 return;
@@ -4863,11 +4865,16 @@ namespace ClassicUO.Network
                             //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
                         }
 
-                        //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-                        //                  (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y,
-                        //                  mobileName, false, 0);
-                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
-                                                                 (uint) mobile.X, (uint) mobile.Y, mobileSerial, mobileName, false, title, 0, 0, 0);
+                        if (World.Player.Serial == mobileSerial)
+                        {
+                            Client.Game._uoServiceImpl.AddGameObject("Player", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
+                                                                     (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title, 0, 0, 0);
+                        }
+                        else
+                        {
+                            Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
+                                                                     (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title, 0, 0, 0);
+                        }
                     }
                 }
             }
@@ -6188,9 +6195,6 @@ namespace ClassicUO.Network
                     uint itemSerial = (uint) item;
 
                     Vector2 itemPos = item.GetScreenPosition();
-                    //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-                    //                  (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y,
-                    //                  item.Name, item.IsCorpse, item.Amount);
                     Client.Game._uoServiceImpl.AddGameObject("Item", (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, 
                                                              (uint) item.X, (uint) item.Y, item.Serial, item.Name, item.IsCorpse, 
                                                              "None", item.Amount, item.Price, (uint) item.Layer);
@@ -6218,11 +6222,16 @@ namespace ClassicUO.Network
                         //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
                     }
 
-                    //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-                    //                  (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y,
-                    //                  name, false, 0);
-                    Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
-                                                             (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title, 0, 0, 0);
+                    if (World.Player.Serial == mobileSerial)
+                    {
+                        Client.Game._uoServiceImpl.AddGameObject("Player", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
+                                                                 (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title, 0, 0, 0);
+                    }
+                    else
+                    {
+                        Client.Game._uoServiceImpl.AddGameObject("Mobile", (uint) mobilePos.X, (uint) mobilePos.Y, (uint) mobile.Distance, 
+                                                                 (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title, 0, 0, 0);
+                    }
                 }
             }
 
@@ -6246,6 +6255,8 @@ namespace ClassicUO.Network
         {
             if (serial == World.Player)
             {
+                Console.WriteLine("UpdatePlayer()");
+
                 World.Player.CloseBank();
 
                 World.Player.Walker.WalkingFailed = false;

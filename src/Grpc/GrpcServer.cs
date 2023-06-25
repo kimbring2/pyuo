@@ -68,7 +68,6 @@ namespace ClassicUO.Grpc
         List<uint> grpcStaticObjectGameYs = new List<uint>();
 
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
-
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
 
         int _totalStepScale = 2;
@@ -77,6 +76,8 @@ namespace ClassicUO.Grpc
         string _replayPath;
 
         // ##################################################################################
+        List<int> playerObjectArrayLengthList = new List<int>();
+
         List<int> worldItemArrayLengthList = new List<int>();
         List<int> worldMobileArrayLengthList = new List<int>();
 
@@ -90,7 +91,6 @@ namespace ClassicUO.Grpc
     	List<int> clilocDataArrayLengthList = new List<int>();
 
     	List<int> playerStatusArrayLengthList = new List<int>();
-        List<int> playerObjectArrayLengthList = new List<int>();
         List<int> playerSkillListArrayLengthList = new List<int>();
 
         List<int> staticObjectInfoListArraysLengthList = new List<int>();
@@ -99,6 +99,8 @@ namespace ClassicUO.Grpc
         int playerSkillListArrayLength;
 
         // ##################################################################################
+        byte[] playerObjectArrays;
+
         byte[] worldItemArrays;
         byte[] worldMobileArrays;
 
@@ -112,12 +114,13 @@ namespace ClassicUO.Grpc
 		byte[] clilocDataArrays;
 
         byte[] playerStatusArrays;
-        byte[] playerObjectArrays;
         byte[] playerSkillListArrays;
 
         byte[] staticObjectInfoListArrays;
 
         // ##################################################################################
+        byte[] playerObjectArraysTemp;
+
         byte[] worldItemArraysTemp;
         byte[] worldMobileArraysTemp;
 
@@ -131,7 +134,6 @@ namespace ClassicUO.Grpc
 		byte[] clilocDataArraysTemp;
 
 		byte[] playerStatusArraysTemp;
-        byte[] playerObjectArraysTemp;
         byte[] playerSkillListArraysTemp;
 
         byte[] staticObjectInfoListArraysTemp;
@@ -255,6 +257,8 @@ namespace ClassicUO.Grpc
         	// Clear all List and Array before using them
 
         	// ##################################################################################
+        	playerObjectArrayLengthList.Clear();
+
         	worldItemArrayLengthList.Clear();
         	worldMobileArrayLengthList.Clear();
 
@@ -268,12 +272,13 @@ namespace ClassicUO.Grpc
 	    	clilocDataArrayLengthList.Clear();
 
 	    	playerStatusArrayLengthList.Clear();
-	        playerObjectArrayLengthList.Clear();
 	        playerSkillListArrayLengthList.Clear();
 
 	        staticObjectInfoListArraysLengthList.Clear();
 
 	        // ##################################################################################
+	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
+
 	        Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
 	        Array.Clear(worldMobileArrays, 0, worldMobileArrays.Length);
 
@@ -287,12 +292,13 @@ namespace ClassicUO.Grpc
 	        Array.Clear(clilocDataArrays, 0, clilocDataArrays.Length);
 
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
-	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
 	        Array.Clear(playerSkillListArrays, 0, playerSkillListArrays.Length);
 
 	        Array.Clear(staticObjectInfoListArrays, 0, staticObjectInfoListArrays.Length);
 
 	        // ##################################################################################
+	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
+
 	        Array.Clear(worldItemArraysTemp, 0, worldItemArraysTemp.Length);
 	        Array.Clear(worldMobileArraysTemp, 0, worldMobileArraysTemp.Length);
 
@@ -306,7 +312,6 @@ namespace ClassicUO.Grpc
 	        Array.Clear(clilocDataArraysTemp, 0, clilocDataArraysTemp.Length);
 
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
-	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
 
 	        Array.Clear(staticObjectInfoListArraysTemp, 0, staticObjectInfoListArraysTemp.Length);
@@ -368,6 +373,8 @@ namespace ClassicUO.Grpc
         {
         	Console.WriteLine("SaveReplayFile() 1");
 
+        	byte[] playerObjectArrayLengthArray = ConvertIntListToByteArray(playerObjectArrayLengthList);
+
         	byte[] worldItemArrayLengthArray = ConvertIntListToByteArray(worldItemArrayLengthList);
         	byte[] worldMobileArrayLengthArray = ConvertIntListToByteArray(worldMobileArrayLengthList);
 
@@ -381,7 +388,6 @@ namespace ClassicUO.Grpc
             byte[] clilocDataArrayLengthArray = ConvertIntListToByteArray(clilocDataArrayLengthList);
 
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
-	        byte[] playerObjectArrayLengthArray = ConvertIntListToByteArray(playerObjectArrayLengthList);
 	        byte[] playerSkillListArrayLengthArray = ConvertIntListToByteArray(playerSkillListArrayLengthList);
 
 	        byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
@@ -406,6 +412,8 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.run", runArray);
 
 	    	// ##################################################################################
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerObjectLen", playerObjectArrayLengthArray);
+
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.worldItemLen", worldItemArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.worldMobileLen", worldMobileArrayLengthArray);
 
@@ -419,12 +427,13 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
 
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerObjectArrayLengthArray);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusEtcLen", playerObjectArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerSkillListLen", playerSkillListArrayLengthArray);
 
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", staticObjectInfoListArraysLengthArray);
 
-            // ##################################################################################   
+            // ##################################################################################
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerObject", playerObjectArrays);
+
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.worldItems", worldItemArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.worldMobiles", worldMobileArrays);
 
@@ -438,10 +447,11 @@ namespace ClassicUO.Grpc
 			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.clilocData", clilocDataArrays);
 
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerStatus", playerStatusArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerStatusEtc", playerObjectArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerSkillList", playerSkillListArrays);
 
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.staticObjectInfoList", staticObjectInfoListArrays);
+
+            Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
 
             Console.WriteLine("worldItemArrays.Length: {0}", worldItemArrays.Length);
             Console.WriteLine("worldMobileArrays.Length: {0}", worldMobileArrays.Length);
@@ -456,11 +466,32 @@ namespace ClassicUO.Grpc
             Console.WriteLine("clilocDataArrays.Length: {0}", clilocDataArrays.Length);
 
             Console.WriteLine("playerStatusArrays.Length: {0}", playerStatusArrays.Length);
-            Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
             Console.WriteLine("playerSkillListArrays.Length: {0}", playerSkillListArrays.Length);
 
             Console.WriteLine("staticObjectInfoListArrays.Length: {0}", staticObjectInfoListArrays.Length);
         }
+
+        public void UpdatePlayerObject()
+        {
+        	// Add player game object 
+	        if ((World.Player != null) && (World.InGame == true)) 
+	        {
+	        	//Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
+	            //                  (uint) playerPos.X, (uint) playerPos.Y, (uint) playerMobile.Distance, (uint) playerMobile.X, (uint) playerMobile.Y,
+	            //                  playerMobile.Name, false, 0);
+	        	try
+	        	{
+			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
+			                    							 Serial=World.Player.Serial, Name=World.Player.Name, Title="None",
+			                    							 HoldItemSerial = (uint) ItemHold.Serial, WarMode = (bool) World.Player.InWarMode };
+			    }
+			    catch (Exception ex)
+	            {
+	            	Console.WriteLine("Failed to add the player object: " + ex.Message);
+	            }
+
+		    }
+		}
 
         public void AddClilocData(uint serial, string text, string affix, string name)
         {
@@ -559,8 +590,8 @@ namespace ClassicUO.Grpc
 	                    //Console.WriteLine("Distance: {0}, Game X: {1}, Game Y: {2}, Name: {3}, IsCorpse: {4}, Amount: {5}", 
 	                    //                  (uint) item.Distance, (uint) item.X, (uint) item.Y,
 	                    //                  item.Name, item.IsCorpse, item.Amount);
-	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
-	                    			  item.IsCorpse, item.Amount, item.Price, (uint) item.Layer);
+	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, item.IsCorpse, item.Amount, 
+	                    			   item.Price, (uint) item.Layer);
 	            	}
 	            }
 	        }
@@ -782,31 +813,6 @@ namespace ClassicUO.Grpc
 
 	        }
 	        */
-
-	        // Add player game object 
-	        GrpcPlayerObject grpcPlayerObject = new GrpcPlayerObject();
-
-	        if ((World.Player != null) && (World.InGame == true)) 
-	        {
-	        	Mobile playerMobile = (Mobile) World.Player;
-	        	Vector2 playerPos = playerMobile.GetScreenPosition();
-
-	        	//Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-	            //                  (uint) playerPos.X, (uint) playerPos.Y, (uint) playerMobile.Distance, (uint) playerMobile.X, (uint) playerMobile.Y,
-	            //                  playerMobile.Name, false, 0);
-
-	        	try
-	        	{
-			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) playerMobile.X, GameY=(uint) playerMobile.Y, 
-			                    							 Serial=playerMobile.Serial, Name=playerMobile.Name, Title="None",
-			                    							 HoldItemSerial = (uint) ItemHold.Serial, WarMode = (bool) World.Player.InWarMode };
-			    }
-			    catch (Exception ex)
-	            {
-	            	Console.WriteLine("Failed to add the player object: " + ex.Message);
-	            }
-
-		    }
 
 		    states.PlayerObject = grpcPlayerObject;
 

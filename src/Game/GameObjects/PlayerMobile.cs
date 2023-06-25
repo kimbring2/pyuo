@@ -1670,6 +1670,8 @@ namespace ClassicUO.Game.GameObjects
             Walker.LastStepRequestTime = Time.Ticks + walkTime - nowDelta;
             GetGroupForAnimation(this, 0, true);
 
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
+
             return true;
         }
     }

@@ -5987,7 +5987,7 @@ namespace ClassicUO.Network
                     mobile.Flags = flagss;
 
                     World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-                    Console.WriteLine("SerialHelper.IsMobile(serial) && type != 3: {0}", name);
+                    //Console.WriteLine("SerialHelper.IsMobile(serial) && type != 3: {0}", name);
                 }
                 else
                 {
@@ -6137,7 +6137,7 @@ namespace ClassicUO.Network
             if (mobile != null)
             {
                 World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-                Console.WriteLine("mobile != null: {0}", name);
+                //Console.WriteLine("mobile != null: {0}", name);
 
                 mobile.AddToTile();
                 mobile.UpdateScreenPosition();

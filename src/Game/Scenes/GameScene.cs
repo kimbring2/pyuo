@@ -931,61 +931,12 @@ namespace ClassicUO.Game.Scenes
             {
                 if (obj is Land) 
                 {
-                    Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, obj.X, obj.Y);
-                }
-                else if (obj is PlayerMobile) 
-                {
-                    Mobile objPlayerMobile = (Mobile) obj;
-                    objSerial = (uint) objPlayerMobile;
-
-                    Mobile playerMobileEntity = World.Mobiles.Get(objSerial);
-                    //Console.WriteLine("Serial: {0}, Name: {1}", objSerial, playerMobileEntity.Name);
-
-                    Client.Game._uoServiceImpl.AddGameObjectSerial("PlayerMobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                   obj.X, obj.Y, objSerial, playerMobileEntity.Name, IsCorpse, title, 0, 0);
-                } 
-                else if (obj is Item)
-                {
-                    Item objItem = (Item) obj;
-                    objSerial = (uint) objItem;
-
-                    Item itemEntity = World.Items.Get(objSerial);
-                    IsCorpse = itemEntity.IsCorpse;
-
-                    //Console.WriteLine("Serial: {0}, Name: {1}, IsCorpse: {2}, Graphic: {3}", 
-                    //                  objSerial, itemEntity.Name, itemEntity.IsCorpse, itemEntity.Graphic);
-                    Client.Game._uoServiceImpl.AddGameObjectSerial("Item", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                                   obj.X, obj.Y, objSerial, itemEntity.Name, IsCorpse, title, 
-                                                                   itemEntity.Amount, itemEntity.Price);
-                }
-                else if (obj is Mobile)
-                {
-                    Mobile objMobile = (Mobile) obj;
-                    objSerial = (uint) objMobile;
-
-                    Mobile mobileEntity = World.Mobiles.Get(objSerial);
-
-                    try
-                    {
-                        TextObject mobileTextContainerItems = (TextObject) mobileEntity.TextContainer.Items;
-                        RenderedText renderedText = mobileTextContainerItems.RenderedText;
-
-                        title = renderedText.Text;
-                        //Console.WriteLine("Serial: {0}, Name: {1}, Graphic: {2}, Title: {3}", 
-                        //                   objSerial, mobileEntity.Name, mobileEntity.Graphic, renderedText.Text);
-                    }
-                    catch (Exception ex) 
-                    {
-                        //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
-                    }
-
-                    Client.Game._uoServiceImpl.AddGameObjectSerial("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                             obj.X, obj.Y, objSerial, mobileEntity.Name, IsCorpse, title, 0, 0);
+                    Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
                 }
                 else if (obj is Static)
                 {
-                    Client.Game._uoServiceImpl.AddGameObjectSerial("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                                                             obj.X, obj.Y, objSerial, "None", IsCorpse, title, 0, 0);
+                    Client.Game._uoServiceImpl.AddGameObjectSerial("Static", (uint) obj.Distance, obj.X, obj.Y, objSerial, 
+                                                                   "None", IsCorpse, title, 0, 0);
                 }
             }
         }

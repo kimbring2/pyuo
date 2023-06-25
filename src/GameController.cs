@@ -492,7 +492,7 @@ namespace ClassicUO
             {
                 _suppressedDraw = true;
                 SuppressDraw();
-                Thread.Sleep(10);
+                Thread.Sleep(50);
             }
 
             _gameTick++;

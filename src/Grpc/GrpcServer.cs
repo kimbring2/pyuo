@@ -522,14 +522,14 @@ namespace ClassicUO.Grpc
         }
 
         public void AddItemObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
-        						  uint amount, uint price, uint layer, uint container)
+        						  uint amount, uint price, uint layer, uint container, bool onGround)
         {
         	try 
         	{
         		worldItemObjectList.Add(new GrpcItemObjectData{ Distance=distance, GameX=game_x, GameY=game_y, 
 	                    										Serial=serial, Name=name, IsCorpse=is_corpse,
 	                    										Amount=amount, Price=price, Layer=layer,
-	                    										Container=container });
+	                    										Container=container, OnGround=onGround });
 	        }
 	        catch (Exception ex)
             {
@@ -592,7 +592,7 @@ namespace ClassicUO.Grpc
 	                    //                  (uint) item.Distance, (uint) item.X, (uint) item.Y,
 	                    //                  item.Name, item.IsCorpse, item.Amount);
 	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, item.IsCorpse, item.Amount, 
-	                    			   item.Price, (uint) item.Layer, (uint) item.Container);
+	                    			   item.Price, (uint) item.Layer, (uint) item.Container, item.OnGround);
 	            	}
 	            }
 	        }
@@ -706,6 +706,8 @@ namespace ClassicUO.Grpc
         		UpdateWorldItems();
         		UpdatePlayerStatus();
         	}
+
+        	UpdateWorldItems();
 
         	//Console.WriteLine("_envStep: {0}", _envStep);
         	//Console.WriteLine("Layer.Backpack: {0}", (uint) Layer.Backpack);

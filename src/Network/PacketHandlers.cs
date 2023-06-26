@@ -874,6 +874,8 @@ namespace ClassicUO.Network
 
         private static void DeleteObject(ref StackDataReader p)
         {
+            //Console.WriteLine("DeleteObject()");
+
             if (World.Player == null)
             {
                 return;
@@ -1219,9 +1221,6 @@ namespace ClassicUO.Network
                         Item it = (Item) first;
 
                         Item itemWorld = World.Items.Get(it.Serial);
-                        Console.WriteLine("Name: {0}, amount: {1}, price: {2}", itemWorld.Name, itemWorld.Amount, itemWorld.Price);
-
-                        //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
                         Client.Game._uoServiceImpl.AddGameObjectSerial("ShopItem", (uint) 0, 0, 0, it.Serial, it.Name, false, "None", 
                                                                        it.Amount, it.Price);
                         Client.Game._uoServiceImpl.ClearPopupMenuList();
@@ -1253,8 +1252,6 @@ namespace ClassicUO.Network
                 Item item = World.Items.Get(serial);
                 if (item != null)
                 {
-                    Console.WriteLine("item.IsCorpse: {0}", item.IsCorpse);
-
                     if (item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2))
                     {
                         _requestedGridLoot = serial;
@@ -1384,7 +1381,7 @@ namespace ClassicUO.Network
 
             if (graphic != 0x0030)
             {
-                //Console.WriteLine("graphic != 0x0030");
+                Console.WriteLine("graphic != 0x0030");
 
                 Item it = World.Items.Get(serial);
                 if (it != null)
@@ -1398,11 +1395,13 @@ namespace ClassicUO.Network
                     }
                 }
             }
+
+
         }
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1433,8 +1432,6 @@ namespace ClassicUO.Network
                 hue,
                 containerSerial
             );
-
-            //Client.Game._uoServiceImpl.SetWorldItemUpdate();
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1948,6 +1945,8 @@ namespace ClassicUO.Network
                     containerSerial
                 );
             }
+
+            Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void PersonalLightLevel(ref StackDataReader p)
@@ -4837,7 +4836,7 @@ namespace ClassicUO.Network
                         //                  itemName, item.IsCorpse, item.Amount);
                         Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
                                                                   itemName, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                                  (uint) item.Container);
+                                                                  (uint) item.Container, item.OnGround);
 
                     }
                 }
@@ -5559,7 +5558,7 @@ namespace ClassicUO.Network
                 );
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void BoatMoving(ref StackDataReader p)
@@ -5858,7 +5857,7 @@ namespace ClassicUO.Network
             World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
             Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
                                                      name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                     (uint) item.Container);
+                                                     (uint) item.Container, item.OnGround);
 
 
             if (SerialHelper.IsMobile(containerSerial))
@@ -6186,7 +6185,7 @@ namespace ClassicUO.Network
                     uint itemSerial = (uint) item;
                     Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
                                                              item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                             (uint) item.Container);
+                                                             (uint) item.Container, item.OnGround);
                 }
             }
 

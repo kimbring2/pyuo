@@ -63,7 +63,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         public ContainerGump(uint serial, ushort gumpid, bool playsound) : base(serial, 0)
         {
-            Console.WriteLine("ContainerGump():");
+            //Console.WriteLine("ContainerGump():");
 
             Item item = World.Items.Get(serial);
             if (item == null)
@@ -116,7 +116,7 @@ namespace ClassicUO.Game.UI.Gumps
 
             if (Graphic == 0x0009)
             {
-                Console.WriteLine("Graphic == 0x0009");
+                //Console.WriteLine("Graphic == 0x0009");
 
                 if (World.Player.ManualOpenedCorpses.Contains(LocalSerial))
                 {
@@ -188,7 +188,7 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 if (item.IsCorpse) 
                 {
-                    Console.WriteLine("Open corpse");
+                    //Console.WriteLine("Open corpse");
                     World.Player.ManualOpenedCorpses.Add(LocalSerial);
                 }
             }
@@ -661,9 +661,49 @@ namespace ClassicUO.Game.UI.Gumps
             }
         }
 
+        private static void ClearContainerAndRemoveItems(Entity container, bool remove_unequipped = false)
+        {
+            if (container == null || container.IsEmpty)
+            {
+                return;
+            }
+
+            Console.WriteLine("ClearContainerAndRemoveItems()");
+
+            LinkedObject first = container.Items;
+            LinkedObject new_first = null;
+
+            while (first != null)
+            {
+                LinkedObject next = first.Next;
+                Item it = (Item) first;
+
+                if (remove_unequipped && it.Layer != 0)
+                {
+                    if (new_first == null)
+                    {
+                        new_first = first;
+                    }
+                }
+                else
+                {
+                    World.OPL.TryGetNameAndData(it.Serial, out string name, out string data);
+                    Console.WriteLine("World.RemoveItem(it, true): {0}", name);
+
+                    World.RemoveItem(it, true);
+                }
+
+                first = next;
+            }
+
+            container.Items = remove_unequipped ? new_first : null;
+
+            Client.Game._uoServiceImpl.UpdateWorldItems();
+        }
+
         protected override void CloseWithRightClick()
         {
-            //Console.WriteLine("CloseWithRightClick()");
+            Console.WriteLine("CloseWithRightClick()");
 
             Item item = World.Items.Get(LocalSerial);
             if (item.IsCorpse) 
@@ -677,6 +717,17 @@ namespace ClassicUO.Game.UI.Gumps
             if (_data.ClosedSound != 0)
             {
                 Client.Game.Scene.Audio.PlaySound(_data.ClosedSound);
+            }
+
+            if (item != null)
+            {
+                //Console.WriteLine("it != null");
+
+                item.Opened = true;
+                if (!item.IsCorpse)
+                {
+                    ClearContainerAndRemoveItems(item);
+                }
             }
         }
 

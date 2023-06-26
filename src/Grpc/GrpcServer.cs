@@ -429,7 +429,8 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerObjectArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerSkillListLen", playerSkillListArrayLengthArray);
 
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", staticObjectInfoListArraysLengthArray);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", 
+            																						staticObjectInfoListArraysLengthArray);
 
             // ##################################################################################
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerObject", playerObjectArrays);
@@ -476,14 +477,12 @@ namespace ClassicUO.Grpc
         	// Add player game object 
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
-	        	//Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-	            //                  (uint) playerPos.X, (uint) playerPos.Y, (uint) playerMobile.Distance, (uint) playerMobile.X, (uint) playerMobile.Y,
-	            //                  playerMobile.Name, false, 0);
 	        	try
 	        	{
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, Title="None",
-			                    							 HoldItemSerial = (uint) ItemHold.Serial, WarMode = (bool) World.Player.InWarMode };
+			                    							 HoldItemSerial = (uint) ItemHold.Serial, 
+			                    							 WarMode = (bool) World.Player.InWarMode };
 			    }
 			    catch (Exception ex)
 	            {
@@ -537,13 +536,14 @@ namespace ClassicUO.Grpc
             }
         }
 
-        public void AddMobileObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, string title)
+        public void AddMobileObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
+        						    string title)
         {
         	try 
         	{
-        		//Console.WriteLine("type: {0}, x: {1}, y: {2}, dis: {3}, name: {4}", type, screen_x, screen_y, distance, name);
         		worldMobileObjectList.Add(new GrpcMobileObjectData{ Distance=distance, GameX=game_x, GameY=game_y, 
-	                    										    Serial=serial, Name=name, IsCorpse=is_corpse, Title=title });
+	                    										    Serial=serial, Name=name, IsCorpse=is_corpse, 
+	                    										    Title=title });
 	        }
 	        catch (Exception ex)
             {
@@ -551,8 +551,8 @@ namespace ClassicUO.Grpc
             }
         }
 
-        public void AddGameObjectSerial(string type, uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
-        							    string title, uint amount, uint price)
+        public void AddGameObjectSerial(string type, uint distance, uint game_x, uint game_y, uint serial, string name, 
+        								bool is_corpse, string title, uint amount, uint price)
         {
         	try 
         	{
@@ -585,14 +585,11 @@ namespace ClassicUO.Grpc
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
 	            	if (name != null)
 	            	{
-	            		//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
 	                    itemSerial = (uint) item;
 
-	                    //Console.WriteLine("Distance: {0}, Game X: {1}, Game Y: {2}, Name: {3}, IsCorpse: {4}, Amount: {5}", 
-	                    //                  (uint) item.Distance, (uint) item.X, (uint) item.Y,
-	                    //                  item.Name, item.IsCorpse, item.Amount);
-	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, item.IsCorpse, item.Amount, 
-	                    			   item.Price, (uint) item.Layer, (uint) item.Container, item.OnGround);
+	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
+	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container, 
+	                    			   item.OnGround);
 	            	}
 	            }
 	        }
@@ -600,8 +597,6 @@ namespace ClassicUO.Grpc
 
         public void UpdateWorldMobiles()
         {
-        	//Console.WriteLine("UpdateWorldMobiles()");
-
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {
 		        foreach (Mobile mobile in World.Mobiles.Values)
@@ -626,8 +621,7 @@ namespace ClassicUO.Grpc
 		                    //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
 		                }
 
-	                    AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-        						        mobileSerial, name, false, title);
+	                    AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, false, title);
 	            	}
 	            }
 	        }
@@ -646,9 +640,10 @@ namespace ClassicUO.Grpc
 	            	Skill skill = World.Player.Skills[i];
 	            	//Console.WriteLine("Name: {0}, Index: {1}, IsClickable: {2}, Value: {3}, Base: {4}, Cap: {5}, Lock: {6}", 
 	            	//	skill.Name, skill.Index, skill.IsClickable, skill.Value, skill.Base, skill.Cap, skill.Lock);
-	            	grpcPlayerSkillListList.Add(new GrpcSkill{ Name = skill.Name, Index = (uint) skill.Index, IsClickable = (bool) skill.IsClickable,
-		              								           Value = (uint) skill.Value, Base = (uint) skill.Base, Cap = (uint) skill.Cap, 
-		              								           Lock = (uint) skill.Lock });
+	            	grpcPlayerSkillListList.Add(new GrpcSkill{ Name=skill.Name, Index=(uint) skill.Index, 
+	            											   IsClickable=(bool) skill.IsClickable, 
+	            											   Value=(uint) skill.Value, Base=(uint) skill.Base, 
+	            											   Cap=(uint) skill.Cap, Lock=(uint) skill.Lock });
 	            }
 	        }
 	    }
@@ -662,12 +657,13 @@ namespace ClassicUO.Grpc
             	Vector2 playerPos = World.Player.GetScreenPosition();
 
             	//Console.WriteLine("playerPos.X: {0}, playerPos.Y: {1}", playerPos.X, playerPos.Y);
-		        grpcPlayerStatus = new GrpcPlayerStatus { Str = (uint) World.Player.Strength, Dex = (uint) World.Player.Dexterity, 
-		        								          Intell = (uint) World.Player.Intelligence, Hits = (uint) World.Player.Hits,
-		        								          HitsMax = (uint) World.Player.HitsMax, Stamina = (uint) World.Player.Stamina,
-		        								          StaminaMax = (uint) World.Player.StaminaMax, Mana = (uint) World.Player.Mana,
-		        								          Gold = (uint) World.Player.Gold, PhysicalResistance = (uint) World.Player.PhysicalResistance,
-		        								          Weight = (uint) World.Player.Weight, WeightMax = (uint) World.Player.WeightMax };
+		        grpcPlayerStatus = new GrpcPlayerStatus { Str=(uint) World.Player.Strength, Dex=(uint) World.Player.Dexterity, 
+		        								          Intell=(uint) World.Player.Intelligence, Hits=(uint) World.Player.Hits,
+		        								          HitsMax=(uint) World.Player.HitsMax, Stamina=(uint) World.Player.Stamina,
+		        								          StaminaMax=(uint) World.Player.StaminaMax, Mana=(uint) World.Player.Mana,
+		        								          Gold=(uint) World.Player.Gold, 
+		        								          PhysicalResistance=(uint) World.Player.PhysicalResistance,
+		        								          Weight=(uint) World.Player.Weight, WeightMax=(uint) World.Player.WeightMax };
 		    }
 	    }
 
@@ -798,7 +794,8 @@ namespace ClassicUO.Grpc
 
 			            GrpcSerialList grpcCorpseItemSerialList = new GrpcSerialList();
 			            grpcCorpseItemSerialList.Serials.AddRange(corpseItemSerialList);
-			        	GrpcContainerData openedCorpse = new GrpcContainerData{ ContainerSerial = corpseSerial, ContainerItemSerialList = grpcCorpseItemSerialList };
+			        	GrpcContainerData openedCorpse = new GrpcContainerData{ ContainerSerial=corpseSerial, 
+			        															ContainerItemSerialList=grpcCorpseItemSerialList };
 
 			        	openedCorpseDataList.Add(openedCorpse);
 			        }

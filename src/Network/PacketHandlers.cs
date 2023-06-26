@@ -1401,7 +1401,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItem()");
+            Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1432,6 +1432,8 @@ namespace ClassicUO.Network
                 hue,
                 containerSerial
             );
+
+            Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void DenyMoveItem(ref StackDataReader p)

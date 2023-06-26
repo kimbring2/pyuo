@@ -186,7 +186,7 @@ namespace ClassicUO.Game.UI.Gumps
         {
             if (_slider.Value > 0)
             {
-                Console.WriteLine("SplitGump PickUp(), _slider.Value:{0}", _slider.Value);
+                //Console.WriteLine("SplitGump PickUp(), _slider.Value:{0}", _slider.Value);
 
                 GameActions.PickUp(LocalSerial, _offset.X, _offset.Y, _slider.Value);
             }

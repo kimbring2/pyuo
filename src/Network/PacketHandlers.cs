@@ -1395,8 +1395,6 @@ namespace ClassicUO.Network
                     }
                 }
             }
-
-
         }
 
         private static void UpdateContainedItem(ref StackDataReader p)
@@ -4671,7 +4669,7 @@ namespace ClassicUO.Network
 
         private static void MegaCliloc(ref StackDataReader p)
         {
-            //Console.WriteLine("MegaCliloc()");
+            Console.WriteLine("MegaCliloc()");
 
             if (!World.InGame)
             {
@@ -4810,7 +4808,7 @@ namespace ClassicUO.Network
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             bool IsItem = SerialHelper.IsItem(serial);
 
-            //Console.WriteLine("step: {0}, serial: {1}, name: {2}, IsItem: {3}", envStep, serial, name, IsItem);
+            Console.WriteLine("step: {0}, serial: {1}, name: {2}, IsItem: {3}", envStep, serial, name, IsItem);
             World.OPL.Add(serial, revision, name, data);
 
             if (inBuyList && container != null && SerialHelper.IsValid(container.Serial))
@@ -4871,6 +4869,7 @@ namespace ClassicUO.Network
                 }
             }
 
+            Client.Game._uoServiceImpl.UpdateWorldItems();
             //Console.WriteLine("");
         }
 

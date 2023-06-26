@@ -573,6 +573,13 @@ namespace ClassicUO.Network
 
             socket.Send(writer.AllocatedBuffer, writer.BytesWritten);
             writer.Dispose();
+
+            int envStep = Client.Game._uoServiceImpl.GetEnvStep();
+            World.OPL.TryGetNameAndData(serial, out string name, out string data);
+
+            Console.WriteLine("Send_PickUpRequest() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
+
+            //World.RemoveItem(serial, true);
         }
 
         public static void Send_DropRequest_Old

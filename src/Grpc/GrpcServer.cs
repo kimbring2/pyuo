@@ -74,6 +74,7 @@ namespace ClassicUO.Grpc
         int _envStep;
         string _replayName;
         string _replayPath;
+        int _updateWorldItemsTimer = -1;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -162,6 +163,11 @@ namespace ClassicUO.Grpc
     	uint preIndex;
     	uint preAmount;
     	bool preRun;
+
+    	public void SetUpdateWorldItemsTimer(int time)
+	    {
+	        _updateWorldItemsTimer = time;
+	    }
 
     	public void SetActionType(uint value)
 	    {
@@ -583,8 +589,11 @@ namespace ClassicUO.Grpc
 		        foreach (Item item in World.Items.Values)
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+	            	//Console.WriteLine("UpdateWorldItems() serial: {0}, name: {1}", item.Serial, name);
 	            	if (name != null)
 	            	{
+	            		//Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
+
 	                    itemSerial = (uint) item;
 
 	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
@@ -592,7 +601,10 @@ namespace ClassicUO.Grpc
 	                    			   item.OnGround);
 	            	}
 	            }
+
+	            Console.WriteLine("");
 	        }
+
         }
 
         public void UpdateWorldMobiles()
@@ -699,11 +711,20 @@ namespace ClassicUO.Grpc
 
         	if (config_init == true)
         	{
+        		Console.WriteLine("config_init == true");
         		UpdateWorldItems();
         		UpdatePlayerStatus();
         	}
 
-        	UpdateWorldItems();
+        	if (_updateWorldItemsTimer == 0) 
+        	{
+        		UpdateWorldItems();
+        		_updateWorldItemsTimer = -1;
+        	}
+        	else if (_updateWorldItemsTimer > 0)
+        	{
+        		_updateWorldItemsTimer -= 1;
+        	}
 
         	//Console.WriteLine("_envStep: {0}", _envStep);
         	//Console.WriteLine("Layer.Backpack: {0}", (uint) Layer.Backpack);
@@ -711,6 +732,7 @@ namespace ClassicUO.Grpc
         	if (_envStep % 1000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
+        		//UpdateWorldItems();
         	}
 
             if ((World.Player != null) && (World.InGame == true)) 

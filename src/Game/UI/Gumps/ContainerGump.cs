@@ -688,7 +688,7 @@ namespace ClassicUO.Game.UI.Gumps
                 else
                 {
                     World.OPL.TryGetNameAndData(it.Serial, out string name, out string data);
-                    Console.WriteLine("World.RemoveItem(it, true): {0}", name);
+                    //Console.WriteLine("World.RemoveItem(it, true): {0}", name);
 
                     World.RemoveItem(it, true);
                 }

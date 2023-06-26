@@ -97,7 +97,6 @@ namespace ClassicUO.Game.GameObjects
         public void FixHue(ushort hue)
         {
             ushort fixedColor = (ushort) (hue & 0x3FFF);
-
             if (fixedColor != 0)
             {
                 if (fixedColor >= 0x0BB8)
@@ -166,7 +165,9 @@ namespace ClassicUO.Game.GameObjects
             if (HitsMax > 0)
             {
                 int hits_max = HitsMax;
+
                 hits_max = Hits * 100 / hits_max;
+                
                 if (hits_max > 100)
                 {
                     hits_max = 100;

@@ -1402,7 +1402,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItem()");
+            Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -4836,7 +4836,8 @@ namespace ClassicUO.Network
                         //                  (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y,
                         //                  itemName, item.IsCorpse, item.Amount);
                         Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                                  itemName, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer);
+                                                                  itemName, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
+                                                                  (uint) item.Container);
 
                     }
                 }
@@ -5856,7 +5857,8 @@ namespace ClassicUO.Network
 
             World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
             Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                     name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer);
+                                                     name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
+                                                     (uint) item.Container);
 
 
             if (SerialHelper.IsMobile(containerSerial))
@@ -6183,7 +6185,8 @@ namespace ClassicUO.Network
                     //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
                     uint itemSerial = (uint) item;
                     Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                             item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer);
+                                                             item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
+                                                             (uint) item.Container);
                 }
             }
 

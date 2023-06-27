@@ -1878,7 +1878,7 @@ namespace ClassicUO.Network
                 }
             }
 
-            Console.WriteLine("UpdateSkills()");
+            //Console.WriteLine("UpdateSkills()");
             Client.Game._uoServiceImpl.UpdatePlayerSkills();
         }
 
@@ -4808,62 +4808,8 @@ namespace ClassicUO.Network
                 UIManager.GetGump<ShopGump>(container.RootContainer)?.SetNameTo((Item) entity, name);
             }
 
-            //Console.WriteLine("entity: {0}", entity);
-
-            if (entity != null)
-            {
-                if (IsItem)
-                {
-                    Item item = World.Items.Get(serial);
-                    //Console.WriteLine("item: {0}", item);
-
-                    World.OPL.TryGetNameAndData(item.Serial, out string itemName, out string itemData);
-                    if (itemName != null)
-                    {
-                        uint itemSerial = (uint) item;
-
-                        Vector2 itemPos = item.GetScreenPosition();
-                        //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-                        //                  (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y,
-                        //                  itemName, item.IsCorpse, item.Amount);
-                        Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                                  itemName, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                                  (uint) item.Container, item.OnGround);
-
-                    }
-                }
-                else
-                {
-                    Mobile mobile = World.Mobiles.Get(serial);
-
-                    World.OPL.TryGetNameAndData(mobile.Serial, out string mobileName, out string mobileData);
-                    if (mobileName != null)
-                    {
-                        uint mobileSerial = (uint) mobile;
-                        Vector2 mobilePos = mobile.GetScreenPosition();
-
-                        string title = "None";
-                        try
-                        {
-                            TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
-                            RenderedText renderedText = mobileTextContainerItems.RenderedText;
-
-                            title = renderedText.Text;
-                        }
-                        catch (Exception ex) 
-                        {
-                            //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
-                        }
-
-                        //Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                        //                                           mobileSerial, name, false, title);
-                        Client.Game._uoServiceImpl.UpdateWorldMobiles();
-                    }
-                }
-            }
-
+            Client.Game._uoServiceImpl.UpdateWorldMobiles();
             Client.Game._uoServiceImpl.UpdateWorldItems();
-            //Console.WriteLine("");
         }
 
         private static void GenericAOSCommandsR(ref StackDataReader p)
@@ -5842,17 +5788,10 @@ namespace ClassicUO.Network
             item.Container = containerSerial;
             container.PushToBack(item);
 
-            // ###########
-            //Console.WriteLine("AddItemToContainer()");
-            //Console.WriteLine("Screen X: {0}, Screen Y: {1}, Distance: {2}, Game X: {3}, Game Y: {4}, Name: {5}, IsCorpse: {6}, Amount: {7}", 
-            //                  (uint) itemPos.X, (uint) itemPos.Y, (uint) item.Distance, (uint) item.X, (uint) item.Y,
-            //                  item.Name, item.IsCorpse, item.Amount);
-
-            World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-            Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                     name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                     (uint) item.Container, item.OnGround);
-
+            //World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+            //Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
+            //                                         name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
+            //                                         (uint) item.Container);
 
             if (SerialHelper.IsMobile(containerSerial))
             {
@@ -6171,20 +6110,24 @@ namespace ClassicUO.Network
 
             if (item != null)
             {
+                Client.Game._uoServiceImpl.UpdateWorldItems();
+
                 //Console.WriteLine("item: {0}", item);
                 World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
                 if (name != null)
                 {
                     //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
                     uint itemSerial = (uint) item;
-                    Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                                                             item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                                                             (uint) item.Container, item.OnGround);
+                    //Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
+                    //                                         item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
+                    //                                         (uint) item.Container, item.OnGround);
                 }
             }
 
             if (mobile != null)
             {
+                Client.Game._uoServiceImpl.UpdateWorldMobiles();
+
                 World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
                 if (name != null)
                 {
@@ -6207,7 +6150,7 @@ namespace ClassicUO.Network
                     {
                         //Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
                         //                                           mobileSerial, name, false, title);
-                        Client.Game._uoServiceImpl.UpdateWorldMobiles();
+                        //Client.Game._uoServiceImpl.UpdateWorldMobiles();
                     }
                 }
             }

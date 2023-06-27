@@ -461,7 +461,7 @@ namespace ClassicUO.Game
         public static bool RemoveItem(uint serial, bool forceRemove = false)
         {
             World.OPL.TryGetNameAndData(serial, out string name, out string itemData);
-            //Console.WriteLine("World RemoveItem(), serial: {0}, name: {1}", serial, name);
+            Console.WriteLine("World RemoveItem(), serial: {0}, name: {1}", serial, name);
 
             Item item = Items.Get(serial);
 

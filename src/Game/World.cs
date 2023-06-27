@@ -487,9 +487,9 @@ namespace ClassicUO.Game
                 Items.Remove(serial);
             }
 
-            //Console.WriteLine("World RemoveItem()");
+            Console.WriteLine("World RemoveItem()");
             World.OPL.TryGetNameAndData(serial, out string name, out string itemData);
-            //Console.WriteLine("World serial: {0}, name: {1}", serial, name);
+            Console.WriteLine("World serial: {0}, name: {1}", serial, name);
 
             //Client.Game._uoServiceImpl.UpdateWorldItems();
 

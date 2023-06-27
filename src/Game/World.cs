@@ -460,6 +460,9 @@ namespace ClassicUO.Game
 
         public static bool RemoveItem(uint serial, bool forceRemove = false)
         {
+            World.OPL.TryGetNameAndData(serial, out string name, out string itemData);
+            //Console.WriteLine("World RemoveItem(), serial: {0}, name: {1}", serial, name);
+
             Item item = Items.Get(serial);
 
             if (item == null || item.IsDestroyed)
@@ -487,10 +490,6 @@ namespace ClassicUO.Game
                 Items.Remove(serial);
             }
 
-            Console.WriteLine("World RemoveItem()");
-            World.OPL.TryGetNameAndData(serial, out string name, out string itemData);
-            Console.WriteLine("World serial: {0}, name: {1}", serial, name);
-
             //Client.Game._uoServiceImpl.UpdateWorldItems();
 
             return true;
@@ -498,7 +497,8 @@ namespace ClassicUO.Game
 
         public static bool RemoveMobile(uint serial, bool forceRemove = false)
         {
-            //Console.WriteLine("World RemoveMobile()");
+            World.OPL.TryGetNameAndData(serial, out string name, out string itemData);
+            //Console.WriteLine("World RemoveMobile(), serial: {0}, name: {1}", serial, name);
 
             Mobile mobile = Mobiles.Get(serial);
 

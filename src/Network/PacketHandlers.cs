@@ -1428,7 +1428,7 @@ namespace ClassicUO.Network
                 containerSerial
             );
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1943,7 +1943,7 @@ namespace ClassicUO.Network
                 );
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void PersonalLightLevel(ref StackDataReader p)

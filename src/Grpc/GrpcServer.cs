@@ -492,7 +492,7 @@ namespace ClassicUO.Grpc
         	{
         		if (distance <= 6) 
         		{
-        			Console.WriteLine("AddGameObjectInfo()");
+        			//Console.WriteLine("AddGameObjectInfo()");
         			grpcStaticObjectGameXs.Add(game_x);
 		        	grpcStaticObjectGameYs.Add(game_y);
         		}
@@ -629,14 +629,28 @@ namespace ClassicUO.Grpc
         public States ReadObs(bool config_init)
         {
         	States states = new States();
-        	//if (preActionType == 0) 
-        	//{
-        	//	return states;
-        	//}
+        	
+        	if ((World.Player != null) && (World.InGame == true)) 
+	        {
+	        	foreach (Layer layer in _layerOrder) {
+					//Console.WriteLine("layer name: {0}, layer number: {1}", layer, (uint) layer);
+	        		try
+	        		{
+	        			Item item = World.Player.FindItemByLayer(layer);
+	        			//Console.WriteLine("name: {0}, layer name: {1}, layer number: {2}", item.Name, item.Layer, (uint) item.Layer);
+	        		}
+	        		catch (Exception ex) 
+	                {
+	                    //Console.WriteLine("Failed to load the equipped item");
+	                }
+		        }
+
+		        //Console.WriteLine("");
+	        }
 
         	if (config_init == true)
         	{
-        		Console.WriteLine("config_init == true");
+        		//Console.WriteLine("config_init == true");
         		UpdateWorldItems();
         		UpdatePlayerStatus();
         	}

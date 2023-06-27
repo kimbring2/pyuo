@@ -2694,6 +2694,8 @@ namespace ClassicUO.Network
 
         public static void Send_RequestPopupMenu(this NetClient socket, uint serial)
         {
+            Console.WriteLine("Send_RequestPopupMenu()");
+
             const byte ID = 0xBF;
 
             int length = PacketsTable.GetPacketLength(ID);

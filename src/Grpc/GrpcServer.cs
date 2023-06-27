@@ -53,7 +53,7 @@ namespace ClassicUO.Grpc
         List<GrpcItemObjectData> worldItemObjectList = new List<GrpcItemObjectData>();
         List<GrpcMobileObjectData> worldMobileObjectList = new List<GrpcMobileObjectData>();
 
-        List<string> grpcPopupMenuList = new List<string>();
+        List<GrpcPopupMenu> grpcPopupMenuList = new List<GrpcPopupMenu>();
         List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
 
         List<Vector2> itemDropableLandSimpleList = new List<Vector2>();
@@ -183,16 +183,6 @@ namespace ClassicUO.Grpc
 	    public int GetEnvStep()
 	    {
 	        return _envStep;
-	    }
-
-	    public void AddToPopupMenuList(string text)
-	    {
-	        grpcPopupMenuList.Add(text);
-	    }
-
-	    public void ClearPopupMenuList()
-	    {
-	        grpcPopupMenuList.Clear();
 	    }
 
         public UoServiceImpl(GameController controller, int port)
@@ -423,7 +413,6 @@ namespace ClassicUO.Grpc
 	            {
 	            	Console.WriteLine("Failed to add the player object: " + ex.Message);
 	            }
-
 		    }
 		}
 
@@ -599,6 +588,16 @@ namespace ClassicUO.Grpc
 		        								          PhysicalResistance=(uint) World.Player.PhysicalResistance,
 		        								          Weight=(uint) World.Player.Weight, WeightMax=(uint) World.Player.WeightMax };
 		    }
+	    }
+
+	    public void AddToPopupMenuList(string text, bool active)
+	    {
+	        grpcPopupMenuList.Add(new GrpcPopupMenu { Text=(string) text, Active=(bool) active });
+	    }
+
+	    public void ClearPopupMenuList()
+	    {
+	        grpcPopupMenuList.Clear();
 	    }
 
         public void Start() 
@@ -929,6 +928,7 @@ namespace ClassicUO.Grpc
 	    	worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
 
+	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
 
 	        grpcPlayerSkillListList.Clear();
@@ -1200,6 +1200,7 @@ namespace ClassicUO.Grpc
     		worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
 
+	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
 
 	        grpcPlayerSkillListList.Clear();

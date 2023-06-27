@@ -1396,7 +1396,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -3915,9 +3915,10 @@ namespace ClassicUO.Network
 
         private static void ExtendedCommand(ref StackDataReader p)
         {
-            //Console.WriteLine("ExtendedCommand()");
-
             ushort cmd = p.ReadUInt16BE();
+
+            Console.WriteLine("ExtendedCommand(): {0}", cmd);
+
             switch (cmd)
             {
                 case 0: break;
@@ -4132,6 +4133,30 @@ namespace ClassicUO.Network
                 case 0x14: // display popup/context menu
                     //Console.WriteLine("display popup/context menu");
 
+                    //PopupMenuData data = PopupMenuData.Parse(ref p);
+                    StackDataReader pPopupMenu = p; 
+                    PopupMenuData data = PopupMenuData.Parse(ref pPopupMenu);
+
+                    for (int i = 0; i < data.Items.Length; i++)
+                    {
+                        PopupMenuItem popupMenuItem = data.Items[i];
+
+                        string text = ClilocLoader.Instance.GetString(popupMenuItem.Cliloc);
+                        //Console.WriteLine("text: {0}", text);
+
+                        ushort hue = popupMenuItem.Hue;
+                        //Console.WriteLine("hue: {0}", hue);
+
+                        if (hue == 65535)
+                        {
+                            Client.Game._uoServiceImpl.AddToPopupMenuList(text, true);
+                        }
+                        else
+                        {
+                            Client.Game._uoServiceImpl.AddToPopupMenuList(text, false);
+                        }
+                    }
+                    
                     UIManager.ShowGamePopup
                     (
                         new PopupMenuGump(PopupMenuData.Parse(ref p))

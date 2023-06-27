@@ -69,7 +69,7 @@ namespace ClassicUO.Game.UI.Gumps
 
                 string text = ClilocLoader.Instance.GetString(item.Cliloc);
 
-                Client.Game._uoServiceImpl.AddToPopupMenuList(text);
+                //Client.Game._uoServiceImpl.AddToPopupMenuList(text);
 
                 ushort hue = item.Hue;
 

@@ -1221,9 +1221,6 @@ namespace ClassicUO.Network
                         Item it = (Item) first;
 
                         Item itemWorld = World.Items.Get(it.Serial);
-                        Client.Game._uoServiceImpl.AddGameObjectSerial("ShopItem", (uint) 0, 0, 0, it.Serial, it.Name, false, "None", 
-                                                                       it.Amount, it.Price);
-                        Client.Game._uoServiceImpl.ClearPopupMenuList();
 
                         gump.AddItem
                         (
@@ -3254,11 +3251,6 @@ namespace ClassicUO.Network
                     }
                 }
 
-                //Console.WriteLine("serial: {0}, amount: {1}, price: {2}, name: {3}", serial, amount, price, name);
-                //Console.WriteLine("Name: {0}, amount: {1}, price: {2}", it.Name, it.Amount, it.Price);
-                Client.Game._uoServiceImpl.AddGameObjectSerial("ShopItem", (uint) 0, 0, 0, serial, name, false, 
-                                                               "None", amount, price);
-
                 gump.AddItem
                 (
                     serial,
@@ -4669,7 +4661,7 @@ namespace ClassicUO.Network
 
         private static void MegaCliloc(ref StackDataReader p)
         {
-            Console.WriteLine("MegaCliloc()");
+            //Console.WriteLine("MegaCliloc()");
 
             if (!World.InGame)
             {
@@ -4808,7 +4800,7 @@ namespace ClassicUO.Network
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             bool IsItem = SerialHelper.IsItem(serial);
 
-            Console.WriteLine("step: {0}, serial: {1}, name: {2}, IsItem: {3}", envStep, serial, name, IsItem);
+            //Console.WriteLine("step: {0}, serial: {1}, name: {2}, IsItem: {3}", envStep, serial, name, IsItem);
             World.OPL.Add(serial, revision, name, data);
 
             if (inBuyList && container != null && SerialHelper.IsValid(container.Serial))
@@ -4863,8 +4855,9 @@ namespace ClassicUO.Network
                             //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
                         }
 
-                        Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                                                                   mobileSerial, name, false, title);
+                        //Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
+                        //                                           mobileSerial, name, false, title);
+                        Client.Game._uoServiceImpl.UpdateWorldMobiles();
                     }
                 }
             }
@@ -6212,8 +6205,9 @@ namespace ClassicUO.Network
 
                     if (World.Player.Serial != mobileSerial)
                     {
-                        Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                                                                   mobileSerial, name, false, title);
+                        //Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
+                        //                                           mobileSerial, name, false, title);
+                        Client.Game._uoServiceImpl.UpdateWorldMobiles();
                     }
                 }
             }

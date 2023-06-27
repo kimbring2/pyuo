@@ -935,8 +935,7 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (obj is Static)
                 {
-                    Client.Game._uoServiceImpl.AddGameObjectSerial("Static", (uint) obj.Distance, obj.X, obj.Y, objSerial, 
-                                                                   "None", IsCorpse, title, 0, 0);
+                    Client.Game._uoServiceImpl.AddGameObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
                 }
             }
         }

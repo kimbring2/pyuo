@@ -498,6 +498,8 @@ namespace ClassicUO.Game
 
         public static bool RemoveMobile(uint serial, bool forceRemove = false)
         {
+            //Console.WriteLine("World RemoveMobile()");
+
             Mobile mobile = Mobiles.Get(serial);
 
             if (mobile == null || mobile.IsDestroyed)
@@ -523,6 +525,8 @@ namespace ClassicUO.Game
             {
                 Mobiles.Remove(serial);
             }
+
+            Client.Game._uoServiceImpl.UpdateWorldMobiles();
 
             return true;
         }

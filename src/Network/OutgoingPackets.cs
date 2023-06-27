@@ -576,10 +576,7 @@ namespace ClassicUO.Network
 
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             World.OPL.TryGetNameAndData(serial, out string name, out string data);
-
-            Console.WriteLine("Send_PickUpRequest() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
-
-            //World.RemoveItem(serial, true);
+            //Console.WriteLine("Send_PickUpRequest() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
         }
 
         public static void Send_DropRequest_Old
@@ -3444,9 +3441,6 @@ namespace ClassicUO.Network
         {
             Console.WriteLine("Send_BuyRequest()");
 
-            //Client.Game._uoServiceImpl.grpcVendorItemObjectList.Clear();
-            Client.Game._uoServiceImpl.ClearVendorItemObjectList();
-            
             const byte ID = 0x3B;
 
             int length = PacketsTable.GetPacketLength(ID);

@@ -533,9 +533,6 @@ namespace ClassicUO.Game.UI.Gumps
         protected override void CloseWithRightClick()
         {
             //Console.WriteLine("ShopGump CloseWithRightClick()");
-            //Client.Game._uoServiceImpl.grpcVendorItemObjectList.Clear();
-            Client.Game._uoServiceImpl.ClearVendorItemObjectList();
-
             base.CloseWithRightClick();
         }
 

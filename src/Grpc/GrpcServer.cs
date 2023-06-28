@@ -460,12 +460,14 @@ namespace ClassicUO.Grpc
             }
         }
 
-        public void AddMobileObject(uint distance, uint game_x, uint game_y, uint serial, string name, string title)
+        public void AddMobileObject(uint hits, uint hitsMax, uint race, uint distance, uint game_x, uint game_y, 
+        							uint serial, string name, string title, uint notorietyFlag)
         {
         	try 
         	{
-        		worldMobileObjectList.Add(new GrpcMobileObjectData{ Distance=distance, GameX=game_x, GameY=game_y, 
-	                    										    Serial=serial, Name=name, Title=title });
+        		worldMobileObjectList.Add(new GrpcMobileObjectData{ Hits=hits, HitsMax=hitsMax, Race=race, Distance=distance, 
+        															GameX=game_x, GameY=game_y, Serial=serial, Name=name, 
+        															Title=title, NotorietyFlag=notorietyFlag });
 	        }
 	        catch (Exception ex)
             {
@@ -544,7 +546,8 @@ namespace ClassicUO.Grpc
 		                    //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
 		                }
 
-	                    AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, mobileSerial, name, title);
+	                    AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, (uint) mobile.Distance,
+	                    				(uint) mobile.X, (uint) mobile.Y, mobileSerial, name, title, (uint) mobile.NotorietyFlag);
 	            	}
 	            }
 	        }

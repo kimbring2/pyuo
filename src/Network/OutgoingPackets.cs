@@ -2694,7 +2694,7 @@ namespace ClassicUO.Network
 
         public static void Send_RequestPopupMenu(this NetClient socket, uint serial)
         {
-            Console.WriteLine("Send_RequestPopupMenu()");
+            //Console.WriteLine("Send_RequestPopupMenu()");
 
             const byte ID = 0xBF;
 
@@ -3226,7 +3226,7 @@ namespace ClassicUO.Network
 
         public static void Send_SkillStatusChangeRequest(this NetClient socket, ushort skillindex, byte lockstate)
         {
-            Console.WriteLine("Send_SkillStatusChangeRequest()");
+            //Console.WriteLine("Send_SkillStatusChangeRequest()");
 
             const byte ID = 0x3A;
 
@@ -3441,7 +3441,7 @@ namespace ClassicUO.Network
 
         public static void Send_BuyRequest(this NetClient socket, uint serial, Tuple<uint, ushort>[] items)
         {
-            Console.WriteLine("Send_BuyRequest()");
+            //Console.WriteLine("Send_BuyRequest()");
 
             const byte ID = 0x3B;
 

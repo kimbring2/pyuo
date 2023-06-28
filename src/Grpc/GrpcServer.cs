@@ -405,9 +405,9 @@ namespace ClassicUO.Grpc
 	        	try
 	        	{
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
-			                    							 Serial=World.Player.Serial, Name=World.Player.Name, Title="None",
-			                    							 HoldItemSerial = (uint) ItemHold.Serial, 
-			                    							 WarMode = (bool) World.Player.InWarMode };
+			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
+			                    							 Title=World.Player.Title, HoldItemSerial=(uint) ItemHold.Serial, 
+			                    							 WarMode=(bool) World.Player.InWarMode };
 			    }
 			    catch (Exception ex)
 	            {

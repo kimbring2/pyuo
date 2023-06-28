@@ -3917,7 +3917,7 @@ namespace ClassicUO.Network
         {
             ushort cmd = p.ReadUInt16BE();
 
-            Console.WriteLine("ExtendedCommand(): {0}", cmd);
+            //Console.WriteLine("ExtendedCommand(): {0}", cmd);
 
             switch (cmd)
             {

@@ -64,6 +64,8 @@ namespace ClassicUO.Grpc
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
 
+        GrpcPlayerObject grpcAction = new GrpcPlayerObject();
+
         int _totalStepScale = 2;
         int _envStep;
         string _replayName;

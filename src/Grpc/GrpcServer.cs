@@ -320,7 +320,7 @@ namespace ClassicUO.Grpc
 
         private void SaveReplayFile()
         {
-        	Console.WriteLine("SaveReplayFile() 1");
+        	Console.WriteLine("SaveReplayFile()");
 
         	byte[] playerObjectArrayLengthArray = ConvertIntListToByteArray(playerObjectArrayLengthList);
 
@@ -336,7 +336,6 @@ namespace ClassicUO.Grpc
 	        byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
 
 	        // ##################################################################################
-
 	    	byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
             byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
             byte[] itemSerialArray = ConvertIntListToByteArray(itemSerialList);
@@ -363,7 +362,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.popupMenuLen", popupMenuArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
 
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerObjectArrayLengthArray);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerSkillListLen", playerSkillListArrayLengthArray);
 
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", 
@@ -652,6 +651,7 @@ namespace ClassicUO.Grpc
         		//Console.WriteLine("config_init == true");
         		UpdateWorldItems();
         		UpdatePlayerStatus();
+        		UpdatePlayerSkills();
         	}
 
         	if (_updateWorldItemsTimer == 0) 
@@ -720,12 +720,14 @@ namespace ClassicUO.Grpc
 
         	byte[] gameObjectInfoListArray = gameObjectInfoList.ToByteArray();
 
-        	//Console.WriteLine("gameObjectInfoListArray.Length: {0}", gameObjectInfoListArray.Length);
-        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
         	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
+        	//Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
+        	//Console.WriteLine("worldMobileArray.Length: {0}", worldMobileArray.Length);
+        	//Console.WriteLine("popupMenuArray.Length: {0}", popupMenuArray.Length);
+        	//Console.WriteLine("clilocDataArray.Length: {0}", clilocDataArray.Length);
         	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
-        	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
         	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
+        	//Console.WriteLine("gameObjectInfoListArray.Length: {0}", gameObjectInfoListArray.Length);
         	//Console.WriteLine("");
 
         	if (_envStep == 0) 
@@ -1025,13 +1027,13 @@ namespace ClassicUO.Grpc
 	        		int randomNumber;
 					Random RNG = new Random();
 
-					Console.WriteLine("itemDropableLandSimpleList.Count: {0}", itemDropableLandSimpleList.Count);
+					//Console.WriteLine("itemDropableLandSimpleList.Count: {0}", itemDropableLandSimpleList.Count);
 	        		int index = RNG.Next(itemDropableLandSimpleList.Count);
 	        		try
 	        		{   
-	        			Console.WriteLine("index: {0}", index);
+	        			//Console.WriteLine("index: {0}", index);
 	        			Vector2 selected = itemDropableLandSimpleList[index];
-	        			Console.WriteLine("selected: {0}", selected);
+	        			//Console.WriteLine("selected: {0}", selected);
 	        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
 	        		}
 	        		catch (Exception ex)
@@ -1043,6 +1045,7 @@ namespace ClassicUO.Grpc
 	        else if (actions.ActionType == 6) {
 	        	// Equip the holded item
 	        	if (World.Player != null) {
+	        		Console.WriteLine("actions.ActionType == 6");
                     GameActions.Equip();
 	        	}
 	        }
@@ -1078,7 +1081,7 @@ namespace ClassicUO.Grpc
                         newStatus = 0;
                     }
 
-                    Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
+                    //Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
 
                     NetClient.Socket.Send_SkillStatusChangeRequest((ushort) actions.Index, newStatus);
                     skill.Lock = (Lock) newStatus;
@@ -1102,9 +1105,9 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		// Select one of menu from the pop up menu the vendor/teacher
 	        		Console.WriteLine("actions.ActionType == 11");
+
 	        		GameActions.ResponsePopupMenu(actions.MobileSerial, (ushort) actions.Index);
 	        		UIManager.ShowGamePopup(null);
-	        		grpcPopupMenuList.Clear();
 	        	}
 	        }
 	        else if (actions.ActionType == 12) {

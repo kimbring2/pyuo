@@ -483,7 +483,15 @@ namespace ClassicUO
 
             if (Settings.HumanPlay == true)
             {
-                _uoServiceImpl.ReadObs(false);
+                if (_gameTick % 100 == 0) 
+                {
+                    _uoServiceImpl.ReadObs(true);
+                }
+                else
+                {
+                    _uoServiceImpl.ReadObs(false);
+                }
+
                 _uoServiceImpl.ObsSemaphoreControl();
             }
 

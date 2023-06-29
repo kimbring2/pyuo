@@ -699,19 +699,6 @@ namespace ClassicUO.Grpc
 
             GrpcGameObjectInfoList gameObjectInfoList = new GrpcGameObjectInfoList();
 
-            //Console.WriteLine("grpcStaticObjectGameXs: {0}", grpcStaticObjectGameXs);
-            //Console.WriteLine("grpcStaticObjectGameYs: {0}", grpcStaticObjectGameYs);
-            //Console.WriteLine("");
-
-            foreach (uint x in grpcStaticObjectGameXs)
-            {
-            	//Console.WriteLine("x: {0}", x);
-            }
-
-            gameObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
-            gameObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
-            states.StaticObjectInfoList = gameObjectInfoList;
-
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
 
@@ -723,6 +710,13 @@ namespace ClassicUO.Grpc
 
         	byte[] playerStatusArray = grpcPlayerStatus.ToByteArray();
         	byte[] playerSkillListArray = playerSkillList.ToByteArray();
+
+        	if (playerObjectArray.Length != 0)
+        	{
+        		gameObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
+	            gameObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
+	            states.StaticObjectInfoList = gameObjectInfoList;
+        	}
 
         	byte[] gameObjectInfoListArray = gameObjectInfoList.ToByteArray();
 

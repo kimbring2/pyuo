@@ -49,21 +49,15 @@ namespace ClassicUO.Grpc
         };
 
         GrpcPlayerObject grpcPlayerObject = new GrpcPlayerObject();
-
         List<GrpcItemObjectData> worldItemObjectList = new List<GrpcItemObjectData>();
         List<GrpcMobileObjectData> worldMobileObjectList = new List<GrpcMobileObjectData>();
-
         List<GrpcPopupMenu> grpcPopupMenuList = new List<GrpcPopupMenu>();
         List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
-
         List<Vector2> itemDropableLandSimpleList = new List<Vector2>();
-
-        List<uint> grpcStaticObjectGameXs = new List<uint>();
-        List<uint> grpcStaticObjectGameYs = new List<uint>();
-
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
-
+        List<uint> grpcStaticObjectGameXs = new List<uint>();
+        List<uint> grpcStaticObjectGameYs = new List<uint>();
         GrpcAction grpcAction = new GrpcAction();
 
         int _totalStepScale = 2;
@@ -74,50 +68,35 @@ namespace ClassicUO.Grpc
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
-
         List<int> worldItemArrayLengthList = new List<int>();
         List<int> worldMobileArrayLengthList = new List<int>();
-
     	List<int> popupMenuArrayLengthList = new List<int>();
     	List<int> clilocDataArrayLengthList = new List<int>();
-
     	List<int> playerStatusArrayLengthList = new List<int>();
         List<int> playerSkillListArrayLengthList = new List<int>();
-
         List<int> staticObjectInfoListArraysLengthList = new List<int>();
-
         List<int> actionArraysLengthList = new List<int>();
 
         // ##################################################################################
         byte[] playerObjectArrays;
-
         byte[] worldItemArrays;
         byte[] worldMobileArrays;
-
 		byte[] popupMenuArrays;
 		byte[] clilocDataArrays;
-
         byte[] playerStatusArrays;
         byte[] playerSkillListArrays;
-
         byte[] staticObjectInfoListArrays;
-
         byte[] actionArrays;
 
         // ##################################################################################
         byte[] playerObjectArraysTemp;
-
         byte[] worldItemArraysTemp;
         byte[] worldMobileArraysTemp;
-
 		byte[] popupMenuArraysTemp;
 		byte[] clilocDataArraysTemp;
-
 		byte[] playerStatusArraysTemp;
         byte[] playerSkillListArraysTemp;
-
         byte[] staticObjectInfoListArraysTemp;
-
         byte[] actionArraysTemp;
 
     	public void SetUpdateWorldItemsTimer(int time)
@@ -187,50 +166,35 @@ namespace ClassicUO.Grpc
 
         	// Clear all List and Array before using them
         	playerObjectArrayLengthList.Clear();
-
         	worldItemArrayLengthList.Clear();
         	worldMobileArrayLengthList.Clear();
-
 	    	popupMenuArrayLengthList.Clear();
 	    	clilocDataArrayLengthList.Clear();
-
 	    	playerStatusArrayLengthList.Clear();
 	        playerSkillListArrayLengthList.Clear();
-
 	        staticObjectInfoListArraysLengthList.Clear();
-
 	        actionArraysLengthList.Clear();
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
-
 	        Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
 	        Array.Clear(worldMobileArrays, 0, worldMobileArrays.Length);
-
 	        Array.Clear(popupMenuArrays, 0, popupMenuArrays.Length);
 	        Array.Clear(clilocDataArrays, 0, clilocDataArrays.Length);
-
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
 	        Array.Clear(playerSkillListArrays, 0, playerSkillListArrays.Length);
-
 	        Array.Clear(staticObjectInfoListArrays, 0, staticObjectInfoListArrays.Length);
-
 	        Array.Clear(actionArrays, 0, actionArrays.Length);
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
-
 	        Array.Clear(worldItemArraysTemp, 0, worldItemArraysTemp.Length);
 	        Array.Clear(worldMobileArraysTemp, 0, worldMobileArraysTemp.Length);
-
 	        Array.Clear(popupMenuArraysTemp, 0, popupMenuArraysTemp.Length);
 	        Array.Clear(clilocDataArraysTemp, 0, clilocDataArraysTemp.Length);
-
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
-
 	        Array.Clear(staticObjectInfoListArraysTemp, 0, staticObjectInfoListArraysTemp.Length);
-
 	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
@@ -263,66 +227,45 @@ namespace ClassicUO.Grpc
         	Console.WriteLine("SaveReplayFile()");
 
         	byte[] playerObjectArrayLengthArray = ConvertIntListToByteArray(playerObjectArrayLengthList);
-
         	byte[] worldItemArrayLengthArray = ConvertIntListToByteArray(worldItemArrayLengthList);
         	byte[] worldMobileArrayLengthArray = ConvertIntListToByteArray(worldMobileArrayLengthList);
-
             byte[] popupMenuArrayLengthArray = ConvertIntListToByteArray(popupMenuArrayLengthList);
             byte[] clilocDataArrayLengthArray = ConvertIntListToByteArray(clilocDataArrayLengthList);
-
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
 	        byte[] playerSkillListArrayLengthArray = ConvertIntListToByteArray(playerSkillListArrayLengthList);
-
 	        byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
-
 	        byte[] actionArraysLengthArray = ConvertIntListToByteArray(actionArraysLengthList);
 
 	    	// ##################################################################################
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerObjectLen", playerObjectArrayLengthArray);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.worldItemLen", worldItemArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.worldMobileLen", worldMobileArrayLengthArray);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.popupMenuLen", popupMenuArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerSkillListLen", playerSkillListArrayLengthArray);
-
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", 
-            																						staticObjectInfoListArraysLengthArray);
-
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.staticObjectInfoListArraysLen", staticObjectInfoListArraysLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.actionArraysLen", actionArraysLengthArray);
 
             // ##################################################################################
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerObject", playerObjectArrays);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.worldItems", worldItemArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.worldMobiles", worldMobileArrays);
-
 			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.popupMenu", popupMenuArrays);
 			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.clilocData", clilocDataArrays);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerStatus", playerStatusArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerSkillList", playerSkillListArrays);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.staticObjectInfoList", staticObjectInfoListArrays);
-
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.actionArrays", actionArrays);
 
             Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
-
             Console.WriteLine("worldItemArrays.Length: {0}", worldItemArrays.Length);
             Console.WriteLine("worldMobileArrays.Length: {0}", worldMobileArrays.Length);
-
             Console.WriteLine("popupMenuArrays.Length: {0}", popupMenuArrays.Length);
             Console.WriteLine("clilocDataArrays.Length: {0}", clilocDataArrays.Length);
-
             Console.WriteLine("playerStatusArrays.Length: {0}", playerStatusArrays.Length);
             Console.WriteLine("playerSkillListArrays.Length: {0}", playerSkillListArrays.Length);
-
             Console.WriteLine("staticObjectInfoListArrays.Length: {0}", staticObjectInfoListArrays.Length);
-
             Console.WriteLine("actionArrays.Length: {0}", actionArrays.Length);
         }
 
@@ -451,7 +394,7 @@ namespace ClassicUO.Grpc
 	            	World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
 	            	string title = "None";
 
-	            	if (name != null)
+	            	if ( (name != null) && (mobile.Serial != World.Player.Serial) )
 	            	{
 	                    try
 		                {
@@ -548,9 +491,10 @@ namespace ClassicUO.Grpc
         {
         	GrpcStates grpcStates = new GrpcStates();
         	
-        	if (config_init == true)
+        	if ( (config_init == true) || (Settings.Replay == false) )
         	{
         		//Console.WriteLine("config_init == true");
+        		UpdatePlayerObject();
         		UpdateWorldItems();
         		UpdatePlayerStatus();
         		UpdatePlayerSkills();
@@ -631,92 +575,68 @@ namespace ClassicUO.Grpc
         	if (_envStep == 0) 
         	{
         		playerObjectArraysTemp = playerObjectArray;
-
         		worldItemArraysTemp = worldItemArray;
         		worldMobileArraysTemp = worldMobileArray;
-
         		popupMenuArraysTemp = popupMenuArray;
         		clilocDataArraysTemp = clilocDataArray;
-
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-
         		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
         	}
         	else if (_envStep == 1001) 
         	{	
             	// ##################################################################################
         		playerObjectArrays = playerObjectArraysTemp;
-
         		worldItemArrays = worldItemArraysTemp;
         		worldMobileArrays = worldMobileArraysTemp;
-
             	popupMenuArrays = popupMenuArraysTemp;
             	clilocDataArrays = clilocDataArraysTemp;
-
             	playerStatusArrays = playerStatusArraysTemp;
             	playerSkillListArrays = playerSkillListArraysTemp;
-
 				staticObjectInfoListArrays = staticObjectInfoListArraysTemp;
 
 				// ##################################################################################
 				playerObjectArraysTemp = playerObjectArray;
-
 				worldItemArraysTemp = worldItemArray;
 				worldMobileArraysTemp = worldMobileArray;
-
         		popupMenuArraysTemp = popupMenuArray;
         		clilocDataArraysTemp = clilocDataArray;
-
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-
         		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
         	}
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
 				// ##################################################################################
         		playerObjectArrays = ConcatByteArrays(playerObjectArrays, playerObjectArraysTemp);
-
         		worldItemArrays = ConcatByteArrays(worldItemArrays, worldItemArraysTemp);
         		worldMobileArrays = ConcatByteArrays(worldMobileArrays, worldMobileArraysTemp);
-
             	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
-
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
-
             	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
 
 				// ##################################################################################
             	playerObjectArraysTemp = playerObjectArray;
-
             	worldItemArraysTemp = worldItemArray;
             	worldMobileArraysTemp = worldMobileArray;
-
         		popupMenuArraysTemp = popupMenuArray;
         		clilocDataArraysTemp = clilocDataArray;
-
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-
         		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
         	}
         	else if (_envStep == 1001 * _totalStepScale)
         	{
         		// ##################################################################################
         		playerObjectArrays = ConcatByteArrays(playerObjectArrays, playerObjectArraysTemp);
-
         		worldItemArraysTemp = ConcatByteArrays(worldItemArraysTemp, worldItemArray);
         		worldMobileArraysTemp = ConcatByteArrays(worldMobileArraysTemp, worldMobileArray);
-
             	popupMenuArrays = ConcatByteArrays(popupMenuArrays, popupMenuArraysTemp);
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
-
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
-
             	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
 				
             	if (Settings.Replay == true)
@@ -735,31 +655,23 @@ namespace ClassicUO.Grpc
         	else
         	{
         		playerObjectArraysTemp = ConcatByteArrays(playerObjectArraysTemp, playerObjectArray);
-
         		worldItemArraysTemp = ConcatByteArrays(worldItemArraysTemp, worldItemArray);
         		worldMobileArraysTemp = ConcatByteArrays(worldMobileArraysTemp, worldMobileArray);
-
             	popupMenuArraysTemp = ConcatByteArrays(popupMenuArraysTemp, popupMenuArray);
             	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
-
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
-
             	staticObjectInfoListArraysTemp = ConcatByteArrays(staticObjectInfoListArraysTemp, gameObjectInfoListArray);
         	}
 
         	// ##################################################################################
         	playerObjectArrayLengthList.Add((int) playerObjectArray.Length);
-
         	worldItemArrayLengthList.Add((int) worldItemArray.Length);
         	worldMobileArrayLengthList.Add((int) worldMobileArray.Length);
-
 			popupMenuArrayLengthList.Add((int) popupMenuArray.Length);
 			clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
-
         	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
-
         	staticObjectInfoListArraysLengthList.Add((int) gameObjectInfoListArray.Length);
 			
         	// ##################################################################################
@@ -828,19 +740,14 @@ namespace ClassicUO.Grpc
         	actionArraysLengthList.Add((int) actionArray.Length);
 
 	    	grpcPlayerObject = new GrpcPlayerObject();
-
 	    	worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
-
 	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
-
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
-
 	        grpcAction = new GrpcAction();
         }
 
@@ -1085,19 +992,14 @@ namespace ClassicUO.Grpc
 	        }
 
     		grpcPlayerObject = new GrpcPlayerObject();
-
     		worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
-
 	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
-
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
-
 	        grpcAction = new GrpcAction();
 
             return Task.FromResult(new Empty {});

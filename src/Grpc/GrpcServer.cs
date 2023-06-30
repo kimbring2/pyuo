@@ -173,7 +173,6 @@ namespace ClassicUO.Grpc
 	    	playerStatusArrayLengthList.Clear();
 	        playerSkillListArrayLengthList.Clear();
 	        staticObjectInfoListArraysLengthList.Clear();
-	        actionArraysLengthList.Clear();
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
@@ -184,7 +183,6 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
 	        Array.Clear(playerSkillListArrays, 0, playerSkillListArrays.Length);
 	        Array.Clear(staticObjectInfoListArrays, 0, staticObjectInfoListArrays.Length);
-	        Array.Clear(actionArrays, 0, actionArrays.Length);
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
@@ -195,7 +193,10 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
 	        Array.Clear(staticObjectInfoListArraysTemp, 0, staticObjectInfoListArraysTemp.Length);
-	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+
+	        //actionArraysLengthList.Clear();
+	        //Array.Clear(actionArrays, 0, actionArrays.Length);
+	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
     		_envStep = 0;
@@ -641,6 +642,8 @@ namespace ClassicUO.Grpc
 				
             	if (Settings.Replay == true)
 	            {
+	            	//Console.WriteLine("obs reset / _envStep: {0}", _envStep);
+
 	                SaveReplayFile();
 	        		CreateMpqFile();
 	        		Reset();
@@ -690,6 +693,8 @@ namespace ClassicUO.Grpc
 
         public void WriteAct()
         {
+        	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
+
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
 		    	Console.WriteLine("Tick:{0}, Type:{1}, Selected:{2}, Target:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
@@ -730,6 +735,12 @@ namespace ClassicUO.Grpc
         	{
         		// ##################################################################################
         		actionArrays = ConcatByteArrays(actionArrays, actionArraysTemp);
+
+        		// ##################################################################################
+        		//Console.WriteLine("action reset / _envStep: {0}", _envStep);
+        		actionArraysLengthList.Clear();
+		        Array.Clear(actionArrays, 0, actionArrays.Length);
+		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
         	}
         	else
         	{

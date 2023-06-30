@@ -120,31 +120,6 @@ namespace ClassicUO.Grpc
 
         byte[] actionArraysTemp;
 
-        // ##################################################################################
-    	List<int> actionTypeList = new List<int>();
-    	List<int> walkDirectionList = new List<int>();
-    	List<int> itemSerialList = new List<int>();
-    	List<int> mobileSerialList = new List<int>();
-    	List<int> indexList = new List<int>();
-    	List<int> amountList = new List<int>();
-    	List<bool> runList = new List<bool>();
-
-    	uint actionType;
-    	uint walkDirection;
-    	uint itemSerial;
-    	uint mobileSerial;
-    	uint index;
-    	uint amount;
-    	bool run;
-
-    	uint preActionType;
-    	uint preWalkDirection;
-    	uint preItemSerial;
-    	uint preMobileSerial;
-    	uint preIndex;
-    	uint preAmount;
-    	bool preRun;
-
     	public void SetUpdateWorldItemsTimer(int time)
 	    {
 	        _updateWorldItemsTimer = time;
@@ -152,37 +127,37 @@ namespace ClassicUO.Grpc
 
     	public void SetActionType(uint value)
 	    {
-	        actionType = value;
+	        grpcAction.ActionType = value;
 	    }
 
 	    public void SetWalkDirection(uint value)
 	    {
-	        walkDirection = value;
+	        grpcAction.WalkDirection = value;
 	    }
 
 	    public void SetItemSerial(uint value)
 	    {
-	        itemSerial = value;
+	        grpcAction.ItemSerial = value;
 	    }
 
 	    public void SetMobileSerial(uint value)
 	    {
-	        mobileSerial = value;
+	        grpcAction.MobileSerial = value;
 	    }
 
 	    public void SetIndex(uint value)
 	    {
-	        index = value;
+	        grpcAction.Index = value;
 	    }
 
 	    public void SetAmount(uint value)
 	    {
-	        amount = value;
+	        grpcAction.Amount = value;
 	    }
 
 	    public void SetRun(bool value)
 	    {
-	        run = value;
+	        grpcAction.Run = value;
 	    }
 
 	    public int GetEnvStep()
@@ -204,22 +179,6 @@ namespace ClassicUO.Grpc
 	        };
 
 	        _envStep = 0;
-
-	        actionType = 0;
-	    	walkDirection = 0;
-	    	itemSerial = 0;
-	    	mobileSerial = 0;
-	    	index = 0;
-	    	amount = 0;
-	    	run = false;
-
-	    	preActionType = actionType;
-	    	preWalkDirection = walkDirection;
-	    	preItemSerial = itemSerial;
-	    	preMobileSerial = mobileSerial;
-	    	preIndex = index;
-	    	preAmount = amount;
-	    	preRun = run;
         }
 
         private void Reset()
@@ -227,8 +186,6 @@ namespace ClassicUO.Grpc
         	Console.WriteLine("Reset()");
 
         	// Clear all List and Array before using them
-
-        	// ##################################################################################
         	playerObjectArrayLengthList.Clear();
 
         	worldItemArrayLengthList.Clear();
@@ -276,36 +233,8 @@ namespace ClassicUO.Grpc
 
 	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
-	        // ##################################################################################
-    		actionTypeList.Clear();
-    		walkDirectionList.Clear();
-    		itemSerialList.Clear();
-    		mobileSerialList.Clear();
-    		indexList.Clear();
-    		amountList.Clear();
-    		runList.Clear();
-
     		// ##################################################################################
     		_envStep = 0;
-
-    		// Action related values
-    		actionType = 0;
-	    	walkDirection = 0;
-	    	itemSerial = 0;
-	    	mobileSerial = 0;
-	    	index = 0;
-	    	amount = 0;
-	    	run = false;
-
-	    	preActionType = actionType;
-	    	preWalkDirection = walkDirection;
-	    	preItemSerial = itemSerial;
-	    	preMobileSerial = mobileSerial;
-	    	preIndex = index;
-	    	preAmount = amount;
-	    	preRun = run;
-
-	    	preActionType = actionType;
         }
 
         private void CreateMpqFile()
@@ -347,25 +276,6 @@ namespace ClassicUO.Grpc
 	        byte[] staticObjectInfoListArraysLengthArray = ConvertIntListToByteArray(staticObjectInfoListArraysLengthList);
 
 	        byte[] actionArraysLengthArray = ConvertIntListToByteArray(actionArraysLengthList);
-
-	        // ##################################################################################
-	    	//byte[] actionTypeArray = ConvertIntListToByteArray(actionTypeList);
-            //byte[] walkDirectionArray = ConvertIntListToByteArray(walkDirectionList);
-            //byte[] itemSerialArray = ConvertIntListToByteArray(itemSerialList);
-            //byte[] mobileSerialArray = ConvertIntListToByteArray(mobileSerialList);
-            //byte[] indexArray = ConvertIntListToByteArray(indexList);
-            //byte[] amountArray = ConvertIntListToByteArray(amountList);
-            //byte[] runArray = ConvertBoolListToByteArray(runList);
-
-            // ##################################################################################
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.type", actionTypeArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.walkDirection", walkDirectionArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.itemSerial", itemSerialArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.mobileSerial", mobileSerialArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.index", indexArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.amount", amountArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.action.run", runArray);
-            //WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.actions", runArray);
 
 	    	// ##################################################################################
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerObjectLen", playerObjectArrayLengthArray);
@@ -440,7 +350,6 @@ namespace ClassicUO.Grpc
         	if (grpcClilocDataList.Count >= 50) 
         	{
         		//Console.WriteLine("grpcClilocDataList.Count: {0}", grpcClilocDataList.Count);
-        		//grpcClilocDataList.Clear();
         	}
 
         	grpcClilocDataList.Add(new GrpcClilocData{ Serial=serial, Text=text, Affix=affix, Name=name });
@@ -520,19 +429,13 @@ namespace ClassicUO.Grpc
 		        foreach (Item item in World.Items.Values)
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-	            	//Console.WriteLine("UpdateWorldItems() serial: {0}, name: {1}", item.Serial, name);
 	            	if (name != null)
 	            	{
 	            		//Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
-
-	                    itemSerial = (uint) item;
-
 	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
 	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
 	            	}
 	            }
-
-	            //Console.WriteLine("");
 	        }
 
         }
@@ -550,9 +453,6 @@ namespace ClassicUO.Grpc
 
 	            	if (name != null)
 	            	{
-	                    mobileSerial = (uint) mobile;
-
-	                    Vector2 mobilePos = mobile.GetScreenPosition();
 	                    try
 		                {
 		                    TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
@@ -566,7 +466,7 @@ namespace ClassicUO.Grpc
 		                }
 
 	                    AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, (uint) mobile.Distance,
-	                    				(uint) mobile.X, (uint) mobile.Y, mobileSerial, name, title, (uint) mobile.NotorietyFlag);
+	                    				(uint) mobile.X, (uint) mobile.Y, mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
 	            	}
 	            }
 	        }
@@ -648,24 +548,6 @@ namespace ClassicUO.Grpc
         {
         	GrpcStates grpcStates = new GrpcStates();
         	
-        	if ((World.Player != null) && (World.InGame == true)) 
-	        {
-	        	foreach (Layer layer in _layerOrder) {
-					//Console.WriteLine("layer name: {0}, layer number: {1}", layer, (uint) layer);
-	        		try
-	        		{
-	        			Item item = World.Player.FindItemByLayer(layer);
-	        			//Console.WriteLine("name: {0}, layer name: {1}, layer number: {2}", item.Name, item.Layer, (uint) item.Layer);
-	        		}
-	        		catch (Exception ex) 
-	                {
-	                    //Console.WriteLine("Failed to load the equipped item");
-	                }
-		        }
-
-		        //Console.WriteLine("");
-	        }
-
         	if (config_init == true)
         	{
         		//Console.WriteLine("config_init == true");
@@ -684,13 +566,9 @@ namespace ClassicUO.Grpc
         		_updateWorldItemsTimer -= 1;
         	}
 
-        	//Console.WriteLine("_envStep: {0}", _envStep);
-        	//Console.WriteLine("Layer.Backpack: {0}", (uint) Layer.Backpack);
-
         	if (_envStep % 1000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
-        		//UpdateWorldItems();
         	}
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
@@ -900,31 +778,19 @@ namespace ClassicUO.Grpc
 
         public void WriteAct()
         {
-            if ( (actionType != 1) && (actionType != 0) ) 
+            if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
 		    	Console.WriteLine("Tick:{0}, Type:{1}, Selected:{2}, Target:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, actionType, itemSerial, mobileSerial, index, amount, walkDirection, run);
+		    		_controller._gameTick, grpcAction.ActionType,  grpcAction.ItemSerial,  grpcAction.MobileSerial, 
+		    		 grpcAction.Index, grpcAction.Amount,  grpcAction.WalkDirection,  grpcAction.Run);
 		    }
 
-		    //actionTypeList.Add((int) actionType);
-			//walkDirectionList.Add((int) walkDirection);
-			//itemSerialList.Add((int) itemSerial);
-			//mobileSerialList.Add((int) mobileSerial);
-			//indexList.Add((int) index);
-			//amountList.Add((int) amount);
-			//runList.Add((bool) run);
-
-		    if (actionType != 0)
+		    if (grpcAction.ActionType == 0)
 		    {
-			    grpcAction.ActionType = (uint) actionType;
-			    grpcAction.ItemSerial = (uint) itemSerial;
-			    grpcAction.MobileSerial = (uint) mobileSerial;
-			    grpcAction.WalkDirection = (uint) walkDirection;
-			    grpcAction.Index = (uint) index;
-			    grpcAction.Amount = (uint) amount;
-			    grpcAction.Run = (bool) run;
+			    grpcAction = new GrpcAction();
 			}
 
+			//Console.WriteLine("grpcAction.ActionType: {0}", grpcAction.ActionType);
 		    byte[] actionArray = grpcAction.ToByteArray();
         	//Console.WriteLine("actionArray.Length: {0}", actionArray.Length);
 
@@ -961,22 +827,6 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
         	actionArraysLengthList.Add((int) actionArray.Length);
 
-			preActionType = actionType;
-	    	preWalkDirection = walkDirection;
-	    	preItemSerial = itemSerial;
-	    	preMobileSerial = mobileSerial;
-	    	preIndex = index;
-	    	preAmount = amount;
-	    	preRun = run;
-
-			actionType = 0;
-	    	walkDirection = 0;
-	    	itemSerial = 0;
-	    	mobileSerial = 0;
-	    	index = 0;
-	    	amount = 0;
-	    	run = false;
-
 	    	grpcPlayerObject = new GrpcPlayerObject();
 
 	    	worldItemObjectList.Clear();
@@ -1004,16 +854,6 @@ namespace ClassicUO.Grpc
 	        }
             else if (grpcAction.ActionType == 1) {
             	// Walk to Direction
-            	/*
-            	North = 0x00,
-		        Right = 0x01,
-		        East = 0x02,
-		        Down = 0x03,
-		        South = 0x04,
-		        Left = 0x05,
-		        West = 0x06,
-		        Up = 0x07
-		        */
             	if (World.InGame == true) {
             		//Console.WriteLine("grpcAction.WalkDirection: {0}", grpcAction.WalkDirection);
 
@@ -1243,14 +1083,6 @@ namespace ClassicUO.Grpc
         			World.Player.InWarMode = boolIndex;
 	        	}
 	        }
-
-	        actionType = 0;
-    		walkDirection = 0;
-    		itemSerial = 0;
-    		mobileSerial = 0;
-    		amount = 0;
-    		index = 0;
-    		run = false;
 
     		grpcPlayerObject = new GrpcPlayerObject();
 

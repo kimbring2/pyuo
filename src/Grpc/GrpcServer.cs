@@ -58,6 +58,7 @@ namespace ClassicUO.Grpc
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
         List<uint> grpcStaticObjectGameXs = new List<uint>();
         List<uint> grpcStaticObjectGameYs = new List<uint>();
+        List<GrpcGatherableObject> grpcGatherableObjectList = new List<GrpcGatherableObject>();
         GrpcAction grpcAction = new GrpcAction();
 
         int _totalStepScale = 2;
@@ -347,7 +348,7 @@ namespace ClassicUO.Grpc
             }
         }
 
-        public void AddGameObjectInfo(uint game_x, uint game_y, uint distance)
+        public void AddStaticObjectInfo(uint game_x, uint game_y, uint distance)
         {
         	try 
         	{
@@ -362,6 +363,38 @@ namespace ClassicUO.Grpc
             {
                 //Console.WriteLine("Failed to add the object serial: " + ex.Message);
             }
+        }
+
+        public void AddGatherableObject(uint game_x, uint game_y, uint serial, string name)
+        {
+        	try 
+        	{
+        		grpcGatherableObjectList.Add(new GrpcGatherableObject{ GameX=game_x, GameY=game_y, Serial=serial, Name=name });
+	        }
+	        catch (Exception ex)
+            {
+                //Console.WriteLine("Failed to add the object serial: " + ex.Message);
+            }
+        }
+
+        public void UpdateStaticObjects()
+        {
+        	Console.WriteLine("UpdateStaticObjects()");
+
+        	if ((World.Player != null) && (World.InGame == true)) 
+	        {
+		        foreach (Item item in World.Items.Values)
+	            {
+	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+	            	if (name != null)
+	            	{
+	            		//Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
+	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
+	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
+	            	}
+	            }
+	        }
+
         }
 
         public void UpdateWorldItems()
@@ -501,6 +534,8 @@ namespace ClassicUO.Grpc
         		UpdatePlayerSkills();
         	}
 
+        	UpdateStaticObjects();
+
         	if (_updateWorldItemsTimer == 0) 
         	{
         		UpdateWorldItems();
@@ -540,7 +575,11 @@ namespace ClassicUO.Grpc
 
             grpcStates.PlayerStatus = grpcPlayerStatus;
 
-            GrpcGameObjectInfoList gameObjectInfoList = new GrpcGameObjectInfoList();
+            GrpcStaticObjectInfoList staticObjectInfoList = new GrpcStaticObjectInfoList();
+
+            GrpcGatherableObjectList gatherableObjectList = new GrpcGatherableObjectList();
+            gatherableObjectList.GatherableObjects.AddRange(grpcGatherableObjectList);
+            grpcStates.GatherableObjectList = gatherableObjectList;
 
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
@@ -556,12 +595,12 @@ namespace ClassicUO.Grpc
 
         	if (playerObjectArray.Length != 0)
         	{
-        		gameObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
-	            gameObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
-	            grpcStates.StaticObjectInfoList = gameObjectInfoList;
+        		staticObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
+	            staticObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
+	            grpcStates.StaticObjectInfoList = staticObjectInfoList;
         	}
 
-        	byte[] gameObjectInfoListArray = gameObjectInfoList.ToByteArray();
+        	byte[] staticObjectInfoListArray = staticObjectInfoList.ToByteArray();
 
         	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
         	//Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
@@ -570,7 +609,7 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("clilocDataArray.Length: {0}", clilocDataArray.Length);
         	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
         	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
-        	//Console.WriteLine("gameObjectInfoListArray.Length: {0}", gameObjectInfoListArray.Length);
+        	Console.WriteLine("staticObjectInfoListArray.Length: {0}", staticObjectInfoListArray.Length);
         	//Console.WriteLine("");
 
         	if (_envStep == 0) 
@@ -582,7 +621,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
+        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
         	}
         	else if (_envStep == 1001) 
         	{	
@@ -604,7 +643,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
+        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
         	}
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
@@ -626,7 +665,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = gameObjectInfoListArray;
+        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
         	}
         	else if (_envStep == 1001 * _totalStepScale)
         	{
@@ -664,7 +703,7 @@ namespace ClassicUO.Grpc
             	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
-            	staticObjectInfoListArraysTemp = ConcatByteArrays(staticObjectInfoListArraysTemp, gameObjectInfoListArray);
+            	staticObjectInfoListArraysTemp = ConcatByteArrays(staticObjectInfoListArraysTemp, staticObjectInfoListArray);
         	}
 
         	// ##################################################################################
@@ -675,7 +714,7 @@ namespace ClassicUO.Grpc
 			clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
         	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
-        	staticObjectInfoListArraysLengthList.Add((int) gameObjectInfoListArray.Length);
+        	staticObjectInfoListArraysLengthList.Add((int) staticObjectInfoListArray.Length);
 			
         	// ##################################################################################
         	_envStep++;
@@ -759,6 +798,7 @@ namespace ClassicUO.Grpc
 	        grpcPlayerStatus = new GrpcPlayerStatus();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
+	        grpcGatherableObjectList.Clear();
 	        grpcAction = new GrpcAction();
         }
 
@@ -1011,6 +1051,7 @@ namespace ClassicUO.Grpc
 	        grpcPlayerStatus = new GrpcPlayerStatus();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
+	        grpcGatherableObjectList.Clear();
 	        grpcAction = new GrpcAction();
 
             return Task.FromResult(new Empty {});

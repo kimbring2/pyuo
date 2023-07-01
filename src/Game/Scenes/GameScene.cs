@@ -979,14 +979,13 @@ namespace ClassicUO.Game.Scenes
                         //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
                     }
 
-                    //Client.Game._uoServiceImpl.AddGameObjectSerial("Mobile", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                    //                                         obj.X, obj.Y, objSerial, mobileEntity.Name, IsCorpse, title, 0, 0);
                 }
                 else if (obj is Static)
                 {
-                    //Client.Game._uoServiceImpl.AddGameObjectSerial("Static", (uint) objPos.X, (uint) objPos.Y, (uint) obj.Distance, 
-                    //                                         obj.X, obj.Y, objSerial, "None", IsCorpse, title, 0, 0);
-                    Client.Game._uoServiceImpl.AddGameObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
+                    Static objStatic = (Static) obj;
+                    
+                    //Console.WriteLine("Static, name: {0}" + objStatic.Name);
+                    //Client.Game._uoServiceImpl.AddStaticObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
                 }
             }
         }

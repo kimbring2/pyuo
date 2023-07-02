@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Configuration;
 using ClassicUO.Data;
 using ClassicUO.Game.Data;
@@ -169,6 +170,8 @@ namespace ClassicUO.Game.Managers
 
         public static void SetTargeting(CursorTarget targeting, uint cursorID, TargetType cursorType)
         {
+            Console.WriteLine("TargetManager SetTargeting()");
+
             if (targeting == CursorTarget.Invalid)
             {
                 return;

@@ -343,6 +343,9 @@ namespace ClassicUO.Game
 
             if (SerialHelper.IsItem(serial))
             {
+                World.OPL.TryGetNameAndData(serial, out string name, out string data);
+                Console.WriteLine("DoubleClick(), SerialHelper.IsItem({0}), name: {1}", serial, name);
+
                 World.LastObject = serial;
             }
             else
@@ -353,7 +356,7 @@ namespace ClassicUO.Game
 
         public static void SingleClick(uint serial)
         {
-            // add  request context menu
+            // add request context menu
             Socket.Send_ClickRequest(serial);
 
             Entity entity = World.Get(serial);
@@ -362,6 +365,9 @@ namespace ClassicUO.Game
             {
                 entity.IsClicked = true;
             }
+
+            World.OPL.TryGetNameAndData(serial, out string name, out string data);
+            Console.WriteLine("SingleClick(), SerialHelper.IsItem({0}), name: {1}", serial, name);
         }
 
         public static void Say(string message, ushort hue = 0xFFFF, MessageType type = MessageType.Regular, byte font = 3)
@@ -740,7 +746,7 @@ namespace ClassicUO.Game
 
         public static void UseSkill(int index)
         {
-            //Console.WriteLine("UseSkill()");
+            Console.WriteLine("UseSkill()");
 
             if (index >= 0)
             {

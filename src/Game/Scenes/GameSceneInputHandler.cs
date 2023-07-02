@@ -329,7 +329,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDown()
         {
-            //Console.WriteLine("OnLeftMouseDown()");
+            Console.WriteLine("OnLeftMouseDown()");
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
@@ -377,7 +377,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseUp()
         {
-            //Console.WriteLine("OnLeftMouseUp()");
+            Console.WriteLine("OnLeftMouseUp()");
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
@@ -429,6 +429,8 @@ namespace ClassicUO.Game.Scenes
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition)
             {
+                //Console.WriteLine("ItemHold.Enabled && !ItemHold.IsFixedPosition");
+
                 uint drop_container = 0xFFFF_FFFF;
                 bool can_drop = false;
                 ushort dropX = 0;
@@ -519,8 +521,12 @@ namespace ClassicUO.Game.Scenes
             }
             else if (TargetManager.IsTargeting)
             {
+                Console.WriteLine("TargetManager.IsTargeting");
+                Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
+
                 switch (TargetManager.TargetingState)
                 {
+
                     case CursorTarget.Grab:
                     case CursorTarget.SetGrabBag:
                     case CursorTarget.Position:
@@ -621,6 +627,8 @@ namespace ClassicUO.Game.Scenes
             }
             else
             {
+                //Console.WriteLine("else");
+
                 GameObject obj = lastObj as GameObject;
                 switch (obj)
                 {
@@ -732,7 +740,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            //Console.WriteLine("OnLeftMouseDoubleClick()");
+            Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 

@@ -252,6 +252,8 @@ namespace ClassicUO.Network
 
         private static void TargetCursor(ref StackDataReader p)
         {
+            Console.WriteLine("TargetCursor()");
+            
             TargetManager.SetTargeting((CursorTarget) p.ReadUInt8(), p.ReadUInt32BE(), (TargetType) p.ReadUInt8());
 
             if (World.Party.PartyHealTimer < Time.Ticks && World.Party.PartyHealTarget != 0)
@@ -3979,7 +3981,7 @@ namespace ClassicUO.Network
 
                 //===========================================================================================
                 //===========================================================================================
-                case 6: //party
+                case 6: // party
                     World.Party.ParsePacket(ref p);
 
                     break;
@@ -4220,7 +4222,7 @@ namespace ClassicUO.Network
 
                 //===========================================================================================
                 //===========================================================================================
-                case 0x19: //extened stats
+                case 0x19: // extened stats
                     byte version = p.ReadUInt8();
                     serial = p.ReadUInt32BE();
 
@@ -4519,7 +4521,7 @@ namespace ClassicUO.Network
 
         private static void DisplayClilocString(ref StackDataReader p)
         {
-            //Console.WriteLine("DisplayClilocString()");
+            Console.WriteLine("DisplayClilocString()");
 
             if (World.Player == null)
             {
@@ -4564,7 +4566,7 @@ namespace ClassicUO.Network
             }
 
             string text = ClilocLoader.Instance.Translate((int) cliloc, arguments);
-            //Console.WriteLine("text: {0}, affix: {1}", text, affix);
+            Console.WriteLine("text: {0}, affix: {1}\n", text, affix);
 
             if (text == null)
             {

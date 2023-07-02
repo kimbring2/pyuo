@@ -238,6 +238,8 @@ namespace ClassicUO.Game.Managers
 
         public static bool OnMouseDoubleClick(MouseButtonType button)
         {
+            //Console.WriteLine("UIManager OnMouseDoubleClick()");
+
             HandleMouseInput();
 
             if (MouseOverControl != null)

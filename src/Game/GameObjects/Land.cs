@@ -214,7 +214,6 @@ namespace ClassicUO.Game.GameObjects
             //Vector3.Normalize(ref normal, out ret);
             // ========================== 
 
-
             // ========================== 
             u.X = -22;
             u.Y = 22;
@@ -229,7 +228,6 @@ namespace ClassicUO.Game.GameObjects
             Vector3.Add(ref ret, ref normal, out ret);
             // ========================== 
 
-
             // ========================== 
             u.X = 22;
             u.Y = 22;
@@ -243,7 +241,6 @@ namespace ClassicUO.Game.GameObjects
             //Vector3.Normalize(ref normal, out normal);
             Vector3.Add(ref ret, ref normal, out ret);
             // ========================== 
-
 
             // ========================== 
             u.X = 22;

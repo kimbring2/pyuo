@@ -406,7 +406,6 @@ namespace ClassicUO.Game
                 else
                 {
                     Item mount = World.Player.FindItemByLayer(Layer.Mount);
-
                     if (mount != null && mount.Graphic == 0x3EB3) // sea horse
                     {
                         stepState = (int) PATH_STEP_STATE.PSS_ON_SEA_HORSE;
@@ -433,7 +432,6 @@ namespace ClassicUO.Game
             if (World.CustomHouseManager != null)
             {
                 Rectangle rect = new Rectangle(World.CustomHouseManager.StartPos.X, World.CustomHouseManager.StartPos.Y, World.CustomHouseManager.EndPos.X, World.CustomHouseManager.EndPos.Y);
-
                 if (!rect.Contains(x, y))
                 {
                     return false;
@@ -481,7 +479,6 @@ namespace ClassicUO.Game
                     if (delta <= 25)
                     {
                         resultZ = objAverageZ != -128 ? objAverageZ : currentZ;
-
                         break;
                     }
                 }
@@ -615,6 +612,8 @@ namespace ClassicUO.Game
             byte newDirection = (byte) direction;
             GetNewXY((byte) direction, ref newX, ref newY);
             bool passed = CalculateNewZ(newX, newY, ref newZ, (byte) direction);
+
+            //Console.WriteLine("passed: {0}", passed);
 
             if ((sbyte) direction % 2 != 0)
             {

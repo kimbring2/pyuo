@@ -936,10 +936,18 @@ namespace ClassicUO.Game.Scenes
                 if (obj is Land) 
                 {
                     Land objLand = (Land) obj;
-
-                    Console.WriteLine("Land obj: {0}", obj);
-
+                    //Console.WriteLine("Land obj: {0}, TileData.Name: {1}", obj, objLand.TileData.Name);
                     Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
+
+                    if (objLand.TileData.Name == "rock")
+                    {
+                        if (_staticObjectAddCount % 4 == 0) 
+                        {
+                            Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Distance, "LandRock");
+                        }
+
+                        _staticObjectAddCount += 1;
+                    }
                 }
                 else if (obj is PlayerMobile) 
                 {
@@ -995,14 +1003,13 @@ namespace ClassicUO.Game.Scenes
 
                     //Console.WriteLine("Static / name: {0}, _staticObjectAddCount:  {1}", objStatic.Name, 
                     //                                                                     _staticObjectAddCount);
-                    Client.Game._uoServiceImpl.AddStaticObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
+                    Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Distance, "Static");
 
                     //if (_staticObjectAddCount % 4 == 0) 
-                    {
-                        Client.Game._uoServiceImpl.AddStaticObject(obj.X, obj.Y, objStatic.Name);
-                    }
-
-                    _staticObjectAddCount += 1;
+                    //{
+                    //    Client.Game._uoServiceImpl.AddStaticObject(obj.X, obj.Y, "Static");
+                    //}
+                    //_staticObjectAddCount += 1;
                 }
             }
         }

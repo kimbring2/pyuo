@@ -1569,6 +1569,7 @@ namespace ClassicUO.Game.GameObjects
 
                 if (!Pathfinder.CanWalk(ref newDir, ref newX, ref newY, ref newZ))
                 {
+                    //Console.WriteLine("!Pathfinder.CanWalk(ref newDir, ref newX, ref newY, ref newZ)");
                     return false;
                 }
 

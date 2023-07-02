@@ -102,6 +102,8 @@ namespace ClassicUO.Game.Scenes
         private bool _useObjectHandles;
         private RenderTarget2D _world_render_target, _lightRenderTarget;
 
+        private uint _staticObjectAddCount;
+
         public GameScene() : base((int) SceneType.Game, true, true, false)
         {
         }
@@ -157,6 +159,8 @@ namespace ClassicUO.Game.Scenes
             InfoBars.Load();
             _healthLinesManager = new HealthLinesManager();
             Weather = new Weather();
+
+            //_staticObjectAddCount = 0;
 
             WorldViewportGump viewport = new WorldViewportGump(this);
             UIManager.Add(viewport, false);
@@ -931,6 +935,10 @@ namespace ClassicUO.Game.Scenes
             {
                 if (obj is Land) 
                 {
+                    Land objLand = (Land) obj;
+
+                    Console.WriteLine("Land obj: {0}", obj);
+
                     Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
                 }
                 else if (obj is PlayerMobile) 
@@ -985,9 +993,16 @@ namespace ClassicUO.Game.Scenes
                     Static objStatic = (Static) obj;
                     //objSerial = (uint) objStatic.Serial;
 
-                    //Console.WriteLine("Static, name: {0}", objStatic.Name);
+                    //Console.WriteLine("Static / name: {0}, _staticObjectAddCount:  {1}", objStatic.Name, 
+                    //                                                                     _staticObjectAddCount);
                     Client.Game._uoServiceImpl.AddStaticObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
-                    Client.Game._uoServiceImpl.AddStaticObject(obj.X, obj.Y, objStatic.Name);
+
+                    //if (_staticObjectAddCount % 4 == 0) 
+                    {
+                        Client.Game._uoServiceImpl.AddStaticObject(obj.X, obj.Y, objStatic.Name);
+                    }
+
+                    _staticObjectAddCount += 1;
                 }
             }
         }
@@ -995,6 +1010,8 @@ namespace ClassicUO.Game.Scenes
         public override void Update(double totalTime, double frameTime)
         {
             //Console.WriteLine("GameScene Update()");
+            _staticObjectAddCount = 0;
+
             Profile currentProfile = ProfileManager.CurrentProfile;
             Camera.SetGameWindowBounds(currentProfile.GameWindowPosition.X + 5, currentProfile.GameWindowPosition.Y + 5, currentProfile.GameWindowSize.X, currentProfile.GameWindowSize.Y);
 

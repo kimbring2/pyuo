@@ -983,9 +983,11 @@ namespace ClassicUO.Game.Scenes
                 else if (obj is Static)
                 {
                     Static objStatic = (Static) obj;
-                    
-                    //Console.WriteLine("Static, name: {0}" + objStatic.Name);
-                    //Client.Game._uoServiceImpl.AddStaticObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
+                    //objSerial = (uint) objStatic.Serial;
+
+                    //Console.WriteLine("Static, name: {0}", objStatic.Name);
+                    Client.Game._uoServiceImpl.AddStaticObjectInfo(obj.X, obj.Y, (uint) obj.Distance);
+                    Client.Game._uoServiceImpl.AddStaticObject(obj.X, obj.Y, objStatic.Name);
                 }
             }
         }

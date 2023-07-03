@@ -527,6 +527,7 @@ namespace ClassicUO.Grpc
         	}
 
         	//UpdateStaticObjects();
+        	//UpdateWorldItems();
 
         	if (_updateWorldItemsTimer == 0) 
         	{
@@ -547,7 +548,7 @@ namespace ClassicUO.Grpc
         	}
 
         	//UpdatePlayerObject();
-        	Console.WriteLine("ItemHold.Serial: {0}", ItemHold.Serial);
+        	//Console.WriteLine("(uint) Layer.Bank: {0}", (uint) Layer.Bank);
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 

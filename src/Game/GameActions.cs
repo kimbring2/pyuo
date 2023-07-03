@@ -539,8 +539,8 @@ namespace ClassicUO.Game
 
             World.ObjectToRemove = item.Serial;
 
-            Client.Game._uoServiceImpl.UpdatePlayerObject();
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
 
             return true;
         }
@@ -602,6 +602,7 @@ namespace ClassicUO.Game
 
                 ItemHold.Enabled = false;
                 ItemHold.Dropped = true;
+                ItemHold.Clear();
             }
 
             //Client.Game._uoServiceImpl.UpdateWorldItems();
@@ -610,7 +611,7 @@ namespace ClassicUO.Game
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
             //Console.WriteLine("DropItem() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
         }
 
         public static void Equip(uint container = 0)
@@ -628,9 +629,10 @@ namespace ClassicUO.Game
 
                 ItemHold.Enabled = false;
                 ItemHold.Dropped = true;
+                ItemHold.Clear();
             }
 
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(5);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
         }
 

@@ -526,7 +526,6 @@ namespace ClassicUO.Game.Scenes
 
                 switch (TargetManager.TargetingState)
                 {
-
                     case CursorTarget.Grab:
                     case CursorTarget.SetGrabBag:
                     case CursorTarget.Position:
@@ -539,13 +538,14 @@ namespace ClassicUO.Game.Scenes
                             obj = ov.Owner;
                         }
 
+                        Console.WriteLine("obj: {0}", obj);
+
                         switch (obj)
                         {
                             case Entity ent:
                                 TargetManager.Target(ent.Serial);
 
                                 break;
-
                             case Land land:
                                 TargetManager.Target
                                 (
@@ -557,7 +557,6 @@ namespace ClassicUO.Game.Scenes
                                 );
 
                                 break;
-
                             case GameObject o:
                                 TargetManager.Target(o.Graphic, o.X, o.Y, o.Z);
 

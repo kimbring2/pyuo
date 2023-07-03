@@ -247,16 +247,16 @@ namespace ClassicUO.Game.Managers
             );
         }
 
-
         public static void Target(uint serial)
         {
+            //Console.WriteLine("TargetManager Target()");
+
             if (!IsTargeting)
             {
                 return;
             }
 
             Entity entity = World.InGame ? World.Get(serial) : null;
-
             if (entity != null)
             {
                 switch (TargetingState)
@@ -268,7 +268,6 @@ namespace ClassicUO.Game.Managers
                     case CursorTarget.Object:
                     case CursorTarget.HueCommandTarget:
                     case CursorTarget.SetTargetClientSide:
-
                         if (entity != World.Player)
                         {
                             LastTargetInfo.SetEntity(serial);
@@ -277,7 +276,6 @@ namespace ClassicUO.Game.Managers
                         if (SerialHelper.IsMobile(serial) && serial != World.Player && (World.Player.NotorietyFlag == NotorietyFlag.Innocent || World.Player.NotorietyFlag == NotorietyFlag.Ally))
                         {
                             Mobile mobile = entity as Mobile;
-
                             if (mobile != null)
                             {
                                 bool showCriminalQuery = false;
@@ -355,7 +353,6 @@ namespace ClassicUO.Game.Managers
                             _lastDataBuffer[17] = (byte)(entity.Graphic >> 8);
                             _lastDataBuffer[18] = (byte)entity.Graphic;
 
-
                             NetClient.Socket.Send_TargetObject(entity,
                                                                entity.Graphic,
                                                                entity.X,
@@ -375,9 +372,7 @@ namespace ClassicUO.Game.Managers
                         Mouse.CancelDoubleClick = true;
 
                         break;
-
                     case CursorTarget.Grab:
-
                         if (SerialHelper.IsItem(serial))
                         {
                             GameActions.GrabItem(serial, ((Item) entity).Amount);
@@ -386,9 +381,7 @@ namespace ClassicUO.Game.Managers
                         ClearTargetingWithoutTargetCancelPacket();
 
                         return;
-
                     case CursorTarget.SetGrabBag:
-
                         if (SerialHelper.IsItem(serial))
                         {
                             ProfileManager.CurrentProfile.GrabBagSerial = serial;
@@ -403,7 +396,9 @@ namespace ClassicUO.Game.Managers
                         {
                             IgnoreManager.AddIgnoredTarget(pmEntity);
                         }
+
                         CancelTarget();
+
                         return;
                 }
             }
@@ -411,6 +406,8 @@ namespace ClassicUO.Game.Managers
 
         public static void Target(ushort graphic, ushort x, ushort y, short z, bool wet = false)
         {
+            Console.WriteLine("TargetManager Target()");
+
             if (!IsTargeting)
             {
                 return;
@@ -431,7 +428,6 @@ namespace ClassicUO.Game.Managers
                 }
 
                 ref StaticTiles itemData = ref TileDataLoader.Instance.StaticData[graphic];
-
                 if (Client.Version >= ClientVersion.CV_7090 && itemData.IsSurface)
                 {
                     z += itemData.Height;

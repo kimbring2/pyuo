@@ -539,14 +539,15 @@ namespace ClassicUO.Game
 
             World.ObjectToRemove = item.Serial;
 
-            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
 
             return true;
         }
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //Console.WriteLine("DropItem()");
+            Console.WriteLine("DropItem()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             Item bank = World.Player.FindItemByLayer(Layer.Bank);
@@ -609,12 +610,13 @@ namespace ClassicUO.Game
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
             //Console.WriteLine("DropItem() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 
         public static void Equip(uint container = 0)
         {
-            //Console.WriteLine("Equip(), container: {0}", container);
+            Console.WriteLine("Equip(), container: {0}", container);
+
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && ItemHold.ItemData.IsWearable)
             {
                 if (!SerialHelper.IsValid(container))
@@ -627,6 +629,9 @@ namespace ClassicUO.Game
                 ItemHold.Enabled = false;
                 ItemHold.Dropped = true;
             }
+
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(5);
+            //Client.Game._uoServiceImpl.UpdatePlayerObject();
         }
 
         public static void ReplyGump(uint local, uint server, int button, uint[] switches = null, Tuple<ushort, string>[] entries = null)

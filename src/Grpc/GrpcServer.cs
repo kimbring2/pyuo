@@ -531,6 +531,9 @@ namespace ClassicUO.Grpc
         	if (_updateWorldItemsTimer == 0) 
         	{
         		UpdateWorldItems();
+        		UpdateWorldMobiles();
+        		UpdatePlayerObject();
+
         		_updateWorldItemsTimer = -1;
         	}
         	else if (_updateWorldItemsTimer > 0)
@@ -542,6 +545,9 @@ namespace ClassicUO.Grpc
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
+
+        	//UpdatePlayerObject();
+        	Console.WriteLine("ItemHold.Serial: {0}", ItemHold.Serial);
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 

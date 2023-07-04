@@ -253,7 +253,7 @@ namespace ClassicUO.Network
         private static void TargetCursor(ref StackDataReader p)
         {
             Console.WriteLine("TargetCursor()");
-            
+
             TargetManager.SetTargeting((CursorTarget) p.ReadUInt8(), p.ReadUInt32BE(), (TargetType) p.ReadUInt8());
 
             if (World.Party.PartyHealTimer < Time.Ticks && World.Party.PartyHealTarget != 0)
@@ -1398,7 +1398,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItem()");
+            Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1945,7 +1945,7 @@ namespace ClassicUO.Network
                 );
             }
 
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
+            Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void PersonalLightLevel(ref StackDataReader p)
@@ -4521,7 +4521,7 @@ namespace ClassicUO.Network
 
         private static void DisplayClilocString(ref StackDataReader p)
         {
-            Console.WriteLine("DisplayClilocString()");
+            //Console.WriteLine("DisplayClilocString()");
 
             if (World.Player == null)
             {
@@ -4566,7 +4566,7 @@ namespace ClassicUO.Network
             }
 
             string text = ClilocLoader.Instance.Translate((int) cliloc, arguments);
-            Console.WriteLine("text: {0}, affix: {1}\n", text, affix);
+            //Console.WriteLine("text: {0}, affix: {1}\n", text, affix);
 
             if (text == null)
             {
@@ -5957,6 +5957,7 @@ namespace ClassicUO.Network
                     item = World.GetOrCreateItem(serial);
                     if (item == null)
                     {
+                        //Console.WriteLine("item == null");
                         return;
                     }
 

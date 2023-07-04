@@ -233,7 +233,7 @@ namespace ClassicUO.Game
 
         public static bool OpenCorpse(uint serial)
         {
-            //Console.WriteLine("OpenCorpse()");
+            Console.WriteLine("OpenCorpse()");
 
             if (!SerialHelper.IsItem(serial))
             {
@@ -259,7 +259,6 @@ namespace ClassicUO.Game
             //Console.WriteLine("OpenBackpack()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-
             if (backpack == null)
             {
                 return false;
@@ -287,6 +286,8 @@ namespace ClassicUO.Game
 
         public static void Attack(uint serial)
         {
+            //Console.WriteLine("GameActions Attack()");
+
             if (ProfileManager.CurrentProfile.EnabledCriminalActionQuery)
             {
                 Mobile m = World.Mobiles.Get(serial);
@@ -367,7 +368,7 @@ namespace ClassicUO.Game
             }
 
             World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            Console.WriteLine("SingleClick(), SerialHelper.IsItem({0}), name: {1}", serial, name);
+            //Console.WriteLine("SingleClick(), SerialHelper.IsItem({0}), name: {1}", serial, name);
         }
 
         public static void Say(string message, ushort hue = 0xFFFF, MessageType type = MessageType.Regular, byte font = 3)

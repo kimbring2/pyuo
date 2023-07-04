@@ -390,7 +390,8 @@ namespace ClassicUO.Game
             {
                 item = Item.Create(serial);
 
-                //Console.WriteLine("item.Name: ", item.Name);
+                //Console.WriteLine("Item.Create({0}): ", serial);
+
                 Items.Add(item);
             }
 

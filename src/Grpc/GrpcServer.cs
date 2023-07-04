@@ -399,9 +399,16 @@ namespace ClassicUO.Grpc
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
 	            	if (name != null)
 	            	{
-	            		//Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
-	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
-	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
+	            		try
+		                {
+	                    	AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
+	                    			   	item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
+	                    }
+	                    catch (Exception ex) 
+		                {
+		                	Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
+		                    Console.WriteLine("Failed to update the world items: " + ex.Message);
+		                }
 	            	}
 	            }
 	        }
@@ -878,12 +885,13 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 4) {
-	        	// Drop the holded item into my backpack
+	        	// Drop the holded item into container
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 4");
 
-        			Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-        			GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
+        			//Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+        			//GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
+        			GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.ItemSerial);
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 5) {
@@ -923,7 +931,8 @@ namespace ClassicUO.Grpc
                     try
                     {
                     	//Console.WriteLine("actions.mobileSerial: {0}", actions.mobileSerial);
-                    	GameActions.OpenCorpse(grpcAction.ItemSerial);
+                    	//GameActions.OpenCorpse(grpcAction.ItemSerial);
+                    	GameActions.DoubleClick(grpcAction.ItemSerial);
 			        }
 			        catch (Exception ex)
 		            {

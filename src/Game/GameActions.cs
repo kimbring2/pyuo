@@ -550,34 +550,9 @@ namespace ClassicUO.Game
         {
             Console.WriteLine("DropItem()");
 
-            Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-            Item bank = World.Player.FindItemByLayer(Layer.Bank);
-
-            if (container == backpack.Serial) 
-            {
-                // Drop the holded item into my backpack
-                //Console.WriteLine("actionType == 4");
-                Client.Game._uoServiceImpl.SetActionType(4);
-            }
-            else if (container == 0xFFFF_FFFF) 
-            {
-                // Drop the holded item on land around the player
-                //Console.WriteLine("actionType == 5");
-                Client.Game._uoServiceImpl.SetActionType(5);
-            }
-            else if (container == bank) 
-            {
-                // Drop the holded item on bank
-                //Console.WriteLine("actionType == 18");
-                Client.Game._uoServiceImpl.SetActionType(18);
-            }
-            else
-            {
-                // Drop the holded item on teacher
-                //Console.WriteLine("actionType == 16");
-                Client.Game._uoServiceImpl.SetActionType(16);
-            }
-            
+            //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+            //Item bank = World.Player.FindItemByLayer(Layer.Bank);
+            Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
             Client.Game._uoServiceImpl.SetTargetSerial(container);
 

@@ -1673,7 +1673,9 @@ namespace ClassicUO.Game.GameObjects
             Walker.LastStepRequestTime = Time.Ticks + walkTime - nowDelta;
             GetGroupForAnimation(this, 0, true);
 
-            Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Console.WriteLine("PlayerMobile Walk UpdatePlayerObject()");
+            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
 
             return true;
         }

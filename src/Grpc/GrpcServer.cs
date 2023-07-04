@@ -70,6 +70,7 @@ namespace ClassicUO.Grpc
         string _replayName;
         string _replayPath;
         int _updateWorldItemsTimer = -1;
+        int _updatePlayerObjectTimer = -1;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -112,6 +113,11 @@ namespace ClassicUO.Grpc
 	        _updateWorldItemsTimer = time;
 	    }
 
+	    public void SetUpdatePlayerObjectTimer(int time)
+	    {
+	        _updatePlayerObjectTimer = time;
+	    }
+
     	public void SetActionType(uint value)
 	    {
 	        grpcAction.ActionType = value;
@@ -122,14 +128,14 @@ namespace ClassicUO.Grpc
 	        grpcAction.WalkDirection = value;
 	    }
 
-	    public void SetItemSerial(uint value)
+	    public void SetSourceSerial(uint value)
 	    {
-	        grpcAction.ItemSerial = value;
+	        grpcAction.SourceSerial = value;
 	    }
 
-	    public void SetMobileSerial(uint value)
+	    public void SetTargetSerial(uint value)
 	    {
-	        grpcAction.MobileSerial = value;
+	        grpcAction.TargetSerial = value;
 	    }
 
 	    public void SetIndex(uint value)
@@ -287,11 +293,14 @@ namespace ClassicUO.Grpc
 
         public void UpdatePlayerObject()
         {
+        	//Console.WriteLine("UpdatePlayerObject()");
+
         	// Add player game object 
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
 	        	try
 	        	{
+	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
 			                    							 Title=World.Player.Title, HoldItemSerial=(uint) ItemHold.Serial, 
@@ -533,8 +542,20 @@ namespace ClassicUO.Grpc
         		UpdatePlayerSkills();
         	}
 
+        	//UpdatePlayerObject();
         	//UpdateStaticObjects();
         	//UpdateWorldItems();
+
+        	if (_updatePlayerObjectTimer == 0) 
+        	{
+        		UpdatePlayerObject();
+        		_updatePlayerObjectTimer = -1;
+        	}
+        	else if (_updatePlayerObjectTimer > 0)
+        	{
+        		_updatePlayerObjectTimer -= 1;
+        	}
+
 
         	if (_updateWorldItemsTimer == 0) 
         	{
@@ -754,9 +775,9 @@ namespace ClassicUO.Grpc
 
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, Selected:{2}, Target:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType,  grpcAction.ItemSerial,  grpcAction.MobileSerial, 
-		    		 grpcAction.Index, grpcAction.Amount,  grpcAction.WalkDirection,  grpcAction.Run);
+		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -861,9 +882,9 @@ namespace ClassicUO.Grpc
             	}
 	        }
 	        else if (grpcAction.ActionType == 2) {
-	        	// Attack target by it's serial
+	        	// Double click the target by it's serial
 	        	if (World.Player != null) {
-        			GameActions.DoubleClick(grpcAction.MobileSerial);
+        			GameActions.DoubleClick(grpcAction.TargetSerial);
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 3) {
@@ -873,10 +894,10 @@ namespace ClassicUO.Grpc
 
 	        		try
 	        		{
-	        			Item item = World.Items.Get(grpcAction.ItemSerial);
-	        			Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
-            																		     	 item.Amount, item.Serial);
-	        			GameActions.PickUp(grpcAction.ItemSerial, 0, 0, (int) grpcAction.Amount);
+	        			//Item item = World.Items.Get(grpcAction.ItemSerial);
+	        			//Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", item.Name, item.Layer, 
+            			//															     	 item.Amount, item.Serial);
+	        			GameActions.PickUp(grpcAction.TargetSerial, 0, 0, (int) grpcAction.Amount);
 					}
 	        		catch (Exception ex)
 		            {
@@ -885,36 +906,35 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 4) {
-	        	// Drop the holded item into container
+	        	// Drop the holded item
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 4");
 
-        			//Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-        			//GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, backpack.Serial);
-        			GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.ItemSerial);
+	        		if (grpcAction.TargetSerial != 0)
+	        		{
+        				GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
+        			}
+        			else
+        			{
+        				// Drop the holded item on land around the player
+		        		int randomNumber;
+						Random RNG = new Random();
+		        		int index = RNG.Next(itemDropableLandSimpleList.Count);
+		        		try
+		        		{   
+		        			Vector2 selected = itemDropableLandSimpleList[index];
+		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
+		        		}
+		        		catch (Exception ex)
+			            {
+			            	Console.WriteLine("Failed to fine the item dropable land: " + ex.Message);
+			            }
+        			}
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 5) {
-	        	// Drop the holded item on land around the player
 	        	if (World.Player != null) {
-	        		Console.WriteLine("ActionType == 5");
 
-	        		int randomNumber;
-					Random RNG = new Random();
-
-					//Console.WriteLine("itemDropableLandSimpleList.Count: {0}", itemDropableLandSimpleList.Count);
-	        		int index = RNG.Next(itemDropableLandSimpleList.Count);
-	        		try
-	        		{   
-	        			//Console.WriteLine("index: {0}", index);
-	        			Vector2 selected = itemDropableLandSimpleList[index];
-	        			//Console.WriteLine("selected: {0}", selected);
-	        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
-	        		}
-	        		catch (Exception ex)
-		            {
-		            	Console.WriteLine("Failed to fine the item dropable land: " + ex.Message);
-		            }
 	        	}
 	        } 
 	        else if (grpcAction.ActionType == 6) {
@@ -930,9 +950,7 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("ActionType == 7");
                     try
                     {
-                    	//Console.WriteLine("actions.mobileSerial: {0}", actions.mobileSerial);
-                    	//GameActions.OpenCorpse(grpcAction.ItemSerial);
-                    	GameActions.DoubleClick(grpcAction.ItemSerial);
+                    	GameActions.OpenCorpse(grpcAction.TargetSerial);
 			        }
 			        catch (Exception ex)
 		            {
@@ -958,7 +976,6 @@ namespace ClassicUO.Grpc
                     }
 
                     //Console.WriteLine("actions.Index: {0}, newStatus: {1}", actions.Index, newStatus);
-
                     NetClient.Socket.Send_SkillStatusChangeRequest((ushort) grpcAction.Index, newStatus);
                     skill.Lock = (Lock) newStatus;
 	        	}
@@ -973,8 +990,7 @@ namespace ClassicUO.Grpc
 	        	if (World.Player != null) {
 	        		// Open the pop up menu of the vendor/teacher
 	        		Console.WriteLine("ActionType == 10");
-	        		grpcClilocDataList.Clear();
-	        		GameActions.OpenPopupMenu(grpcAction.MobileSerial);
+	        		GameActions.OpenPopupMenu(grpcAction.TargetSerial);
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 11) {
@@ -982,7 +998,7 @@ namespace ClassicUO.Grpc
 	        		// Select one of menu from the pop up menu the vendor/teacher
 	        		Console.WriteLine("ActionType == 11");
 
-	        		GameActions.ResponsePopupMenu(grpcAction.MobileSerial, (ushort) grpcAction.Index);
+	        		GameActions.ResponsePopupMenu(grpcAction.TargetSerial, (ushort) grpcAction.Index);
 	        		UIManager.ShowGamePopup(null);
 	        	}
 	        }
@@ -992,10 +1008,10 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("ActionType == 12");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
-	        		items[0] = new Tuple<uint, ushort>((uint) grpcAction.ItemSerial, (ushort) grpcAction.Amount);
-	        		NetClient.Socket.Send_BuyRequest(grpcAction.MobileSerial, items);
+	        		items[0] = new Tuple<uint, ushort>((uint) grpcAction.SourceSerial, (ushort) grpcAction.Amount);
+	        		NetClient.Socket.Send_BuyRequest(grpcAction.TargetSerial, items);
 
-	        		UIManager.GetGump<ShopGump>(grpcAction.MobileSerial).CloseWindow();
+	        		//UIManager.GetGump<ShopGump>(grpcAction.TargetSerial).CloseWindow();
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 13) {
@@ -1004,10 +1020,10 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("ActionType == 13");
 
 	        		Tuple<uint, ushort>[] items = new Tuple<uint, ushort>[1];
-	        		items[0] = new Tuple<uint, ushort>((uint) grpcAction.ItemSerial, (ushort) grpcAction.Amount);
-	        		NetClient.Socket.Send_SellRequest(grpcAction.MobileSerial, items);
+	        		items[0] = new Tuple<uint, ushort>((uint) grpcAction.SourceSerial, (ushort) grpcAction.Amount);
+	        		NetClient.Socket.Send_SellRequest(grpcAction.TargetSerial, items);
 
-	        		UIManager.GetGump<ShopGump>(grpcAction.MobileSerial).CloseWindow();
+	        		//UIManager.GetGump<ShopGump>(grpcAction.TargetSerial).CloseWindow();
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 14) {
@@ -1018,7 +1034,7 @@ namespace ClassicUO.Grpc
 	        		if (bandage != null) 
 	        		{
 	        			Console.WriteLine("Serial: {0}, Amount: {0}", bandage.Serial, bandage.Amount);
-	        			NetClient.Socket.Send_TargetSelectedObject(bandage.Serial, World.Player.Serial);
+	        			NetClient.Socket.Send_TargetSelectedObject(bandage.Serial, grpcAction.TargetSerial);
 	        		}
 	        	}
 	        }
@@ -1031,9 +1047,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 16) {
 	        	if (World.Player != null) {
-	        		// Drop the item to one of mobile(vendor)
-	        		Console.WriteLine("ActionType == 16");
-        			GameActions.DropItem(grpcAction.ItemSerial, 0xFFFF, 0xFFFF, 0, grpcAction.MobileSerial);
+
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 17) {
@@ -1045,10 +1059,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 18) {
 	        	if (World.Player != null) {
-	        		// Drop the item to the bank
-	        		Console.WriteLine("ActionType == 18");
-        			Item bank = World.Player.FindItemByLayer(Layer.Bank);
-        			GameActions.DropItem(grpcAction.ItemSerial, 0xFFFF, 0xFFFF, 0, bank);
+	        		
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 19) {

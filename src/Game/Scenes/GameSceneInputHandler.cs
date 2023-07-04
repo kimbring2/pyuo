@@ -110,7 +110,6 @@ namespace ClassicUO.Game.Scenes
                 }
                 else
                 {
-                    Console.WriteLine("World.Player.Walk(facing - 1, run)");
                     World.Player.Walk(facing - 1, run);
                 }
 
@@ -509,6 +508,8 @@ namespace ClassicUO.Game.Scenes
 
                     if (can_drop)
                     {
+                        Console.WriteLine("OnLeftMouseUp() DropItem");
+
                         GameActions.DropItem
                         (
                             ItemHold.Serial,

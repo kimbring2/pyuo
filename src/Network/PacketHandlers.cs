@@ -1398,7 +1398,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {

@@ -542,10 +542,6 @@ namespace ClassicUO.Grpc
         		UpdatePlayerSkills();
         	}
 
-        	//UpdatePlayerObject();
-        	//UpdateStaticObjects();
-        	//UpdateWorldItems();
-
         	if (_updatePlayerObjectTimer == 0) 
         	{
         		UpdatePlayerObject();
@@ -555,7 +551,6 @@ namespace ClassicUO.Grpc
         	{
         		_updatePlayerObjectTimer -= 1;
         	}
-
 
         	if (_updateWorldItemsTimer == 0) 
         	{

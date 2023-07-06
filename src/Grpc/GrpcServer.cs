@@ -927,21 +927,30 @@ namespace ClassicUO.Grpc
 	        	// Drop the holded item
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 4");
+	        		//Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 	        		if (grpcAction.TargetSerial != 0)
 	        		{
         				GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
         			}
-        			else
+        			else if (grpcAction.TargetSerial == 0)
         			{
         				// Drop the holded item on land around the player
-		        		int randomNumber;
-						Random RNG = new Random();
-		        		int index = RNG.Next(itemDropableLandSimpleList.Count);
+		        		//int randomNumber;
+						//Random RNG = new Random();
+		        		//int index = RNG.Next(itemDropableLandSimpleList.Count);
+        				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
+
+		        		uint index = grpcAction.Index;
 		        		try
 		        		{   
-		        			Vector2 selected = itemDropableLandSimpleList[index];
-		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
+		        			//Vector2 selected = itemDropableLandSimpleList[index];
+		        			//GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
+		        			GrpcLandObjectData selected = landObjectList[(int) index];
+		        			Console.WriteLine("selected.GameX: {0}, selected.GameY: {1}", selected.GameX, selected.GameY);
+
+		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
+
 		        		}
 		        		catch (Exception ex)
 			            {

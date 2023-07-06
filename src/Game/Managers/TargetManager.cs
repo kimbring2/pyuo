@@ -166,11 +166,17 @@ namespace ClassicUO.Game.Managers
             _targetCursorId = 0;
             MultiTargetInfo = null;
             TargetingType = 0;
+
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
         }
 
         public static void SetTargeting(CursorTarget targeting, uint cursorID, TargetType cursorType)
         {
-            Console.WriteLine("TargetManager SetTargeting()");
+            //Console.WriteLine("TargetManager SetTargeting()");
+            //Console.WriteLine("targeting: {0}", targeting);
+            //Console.WriteLine("cursorID: {0}", cursorID);
+            //Console.WriteLine("cursorType: {0}", cursorType);
+            //Console.WriteLine("");
 
             if (targeting == CursorTarget.Invalid)
             {
@@ -196,6 +202,8 @@ namespace ClassicUO.Game.Managers
             // to send the last active cursorID, so update cursor data later
             
             _targetCursorId = cursorID;
+
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
         }
 
         public static void CancelTarget()

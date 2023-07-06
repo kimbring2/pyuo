@@ -304,7 +304,8 @@ namespace ClassicUO.Grpc
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
 			                    							 Title=World.Player.Title, HoldItemSerial=(uint) ItemHold.Serial, 
-			                    							 WarMode=(bool) World.Player.InWarMode };
+			                    							 WarMode=(bool) World.Player.InWarMode, 
+			                    							 TargetingState=(uint) TargetManager.TargetingState };
 			    }
 			    catch (Exception ex)
 	            {
@@ -572,6 +573,7 @@ namespace ClassicUO.Grpc
 
         	//UpdatePlayerObject();
         	//Console.WriteLine("(uint) Layer.Bank: {0}", (uint) Layer.Bank);
+        	//Console.WriteLine("(uint) TargetManager.TargetingState: {0}", (uint) TargetManager.TargetingState);
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 

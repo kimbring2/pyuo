@@ -549,6 +549,8 @@ namespace ClassicUO.Game.Scenes
 
                                 break;
                             case Land land:
+                                Console.WriteLine("case Land land()");
+
                                 TargetManager.Target
                                 (
                                     0,

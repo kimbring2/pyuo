@@ -102,7 +102,7 @@ namespace ClassicUO.Game.Scenes
         private bool _useObjectHandles;
         private RenderTarget2D _world_render_target, _lightRenderTarget;
 
-        private uint _staticObjectAddCount;
+        private uint _landObjectAddCount;
 
         public GameScene() : base((int) SceneType.Game, true, true, false)
         {
@@ -159,8 +159,6 @@ namespace ClassicUO.Game.Scenes
             InfoBars.Load();
             _healthLinesManager = new HealthLinesManager();
             Weather = new Weather();
-
-            //_staticObjectAddCount = 0;
 
             WorldViewportGump viewport = new WorldViewportGump(this);
             UIManager.Add(viewport, false);
@@ -936,18 +934,25 @@ namespace ClassicUO.Game.Scenes
                 if (obj is Land) 
                 {
                     Land objLand = (Land) obj;
-                    //Console.WriteLine("Land obj: {0}, TileData.Name: {1}", obj, objLand.TileData.Name);
-                    Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
+                    //Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
 
-                    if (objLand.TileData.Name == "rock")
+                    if (_landObjectAddCount % 4 == 0) 
                     {
-                        if (_staticObjectAddCount % 4 == 0) 
-                        {
-                            Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Distance, "LandRock");
-                        }
+                        Console.WriteLine("Land obj: {0}, TileData.Name: {1}", obj, objLand.TileData.Name);
 
-                        _staticObjectAddCount += 1;
+                        if (objLand.TileData.Name == "rock")
+                        {
+                            Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Z, (uint) obj.Distance, 
+                                                                           "LandRock");
+                        }
+                        else
+                        {
+                            Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Z, (uint) obj.Distance,
+                                                                          "Land");
+                        }
                     }
+
+                    _landObjectAddCount += 1;
                 }
                 else if (obj is PlayerMobile) 
                 {
@@ -1003,7 +1008,7 @@ namespace ClassicUO.Game.Scenes
 
                     //Console.WriteLine("Static / name: {0}, _staticObjectAddCount:  {1}", objStatic.Name, 
                     //                                                                     _staticObjectAddCount);
-                    Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Distance, "Static");
+                    Client.Game._uoServiceImpl.AddSimpleObjectInfo(obj.X, obj.Y, (uint) obj.Z, (uint) obj.Distance, "Static");
 
                     //if (_staticObjectAddCount % 4 == 0) 
                     //{
@@ -1017,7 +1022,7 @@ namespace ClassicUO.Game.Scenes
         public override void Update(double totalTime, double frameTime)
         {
             //Console.WriteLine("GameScene Update()");
-            _staticObjectAddCount = 0;
+            _landObjectAddCount = 0;
 
             Profile currentProfile = ProfileManager.CurrentProfile;
             Camera.SetGameWindowBounds(currentProfile.GameWindowPosition.X + 5, currentProfile.GameWindowPosition.Y + 5, currentProfile.GameWindowSize.X, currentProfile.GameWindowSize.Y);

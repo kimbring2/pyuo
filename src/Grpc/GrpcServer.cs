@@ -57,11 +57,17 @@ namespace ClassicUO.Grpc
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
         List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
 
+        List<uint> grpcLandObjectGameXs = new List<uint>();
+        List<uint> grpcLandObjectGameYs = new List<uint>();
+        List<uint> grpcLandObjectGameZs = new List<uint>();
+
         List<uint> grpcStaticObjectGameXs = new List<uint>();
         List<uint> grpcStaticObjectGameYs = new List<uint>();
+        List<uint> grpcStaticObjectGameZs = new List<uint>();
 
         List<uint> grpcLandRockObjectGameXs = new List<uint>();
         List<uint> grpcLandRockObjectGameYs = new List<uint>();
+        List<uint> grpcLandRockObjectGameZs = new List<uint>();
 
         GrpcAction grpcAction = new GrpcAction();
 
@@ -372,29 +378,49 @@ namespace ClassicUO.Grpc
             }
         }
 
-        public void AddSimpleObjectInfo(uint game_x, uint game_y, uint distance, string name)
+        public void AddSimpleObjectInfo(uint game_x, uint game_y, uint game_z, uint distance, string name)
         {
         	try 
         	{
+        		//Console.WriteLine("AddGameObjectInfo()");
+
         		if (distance <= 12) 
         		{	
-        			//Console.WriteLine("AddGameObjectInfo()");
+        			//Console.WriteLine("distance <= 12");
+        			//Console.WriteLine("name: {0}", name);
 
-        			if (name == "Static")
+        			if (name == "Land")
+        			{
+        				Console.WriteLine("AddGameObjectInfo() Land");
+
+	        			grpcLandObjectGameXs.Add(game_x);
+			        	grpcLandObjectGameYs.Add(game_y);
+			        	grpcLandObjectGameZs.Add(game_z);
+
+			        	bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
+		        		if (can_drop)
+		            	{
+		            		//Console.WriteLine("can_drop game_x: {0}, game_y: {1}", game_x, game_y);
+		        			itemDropableLandSimpleList.Add(new Vector2{ X=game_x, Y=game_y });
+		        		}
+			        }
+        			else if (name == "Static")
         			{
 	        			grpcStaticObjectGameXs.Add(game_x);
 			        	grpcStaticObjectGameYs.Add(game_y);
+			        	grpcStaticObjectGameZs.Add(game_z);
 			        }
 			        else if (name == "LandRock")
         			{
 	        			grpcLandRockObjectGameXs.Add(game_x);
 			        	grpcLandRockObjectGameYs.Add(game_y);
+			        	grpcLandRockObjectGameZs.Add(game_z);
 			        }
         		}
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the object serial: " + ex.Message);
+                Console.WriteLine("Failed to add the object serial: " + ex.Message);
             }
         }
 
@@ -599,6 +625,7 @@ namespace ClassicUO.Grpc
 
             grpcStates.PlayerStatus = grpcPlayerStatus;
 
+            GrpcSimpleObjectInfoList landObjectInfoList = new GrpcSimpleObjectInfoList();
             GrpcSimpleObjectInfoList staticObjectInfoList = new GrpcSimpleObjectInfoList();
             GrpcSimpleObjectInfoList landRockObjectInfoList = new GrpcSimpleObjectInfoList();
 
@@ -616,16 +643,26 @@ namespace ClassicUO.Grpc
 
         	if (playerObjectArray.Length != 0)
         	{
+        		// ###################################################################
+        		landObjectInfoList.GameXs.AddRange(grpcLandObjectGameXs);
+	            landObjectInfoList.GameYs.AddRange(grpcLandObjectGameYs);
+	            landObjectInfoList.GameZs.AddRange(grpcLandObjectGameZs);
+	            grpcStates.LandObjectInfoList = landObjectInfoList;
+
+        		// ###################################################################
         		staticObjectInfoList.GameXs.AddRange(grpcStaticObjectGameXs);
 	            staticObjectInfoList.GameYs.AddRange(grpcStaticObjectGameYs);
+	            staticObjectInfoList.GameZs.AddRange(grpcStaticObjectGameZs);
 	            grpcStates.StaticObjectInfoList = staticObjectInfoList;
 
 	            // ###################################################################
 	            landRockObjectInfoList.GameXs.AddRange(grpcLandRockObjectGameXs);
 	            landRockObjectInfoList.GameYs.AddRange(grpcLandRockObjectGameYs);
+	            landRockObjectInfoList.GameZs.AddRange(grpcLandRockObjectGameZs);
 	            grpcStates.LandRockObjectInfoList = landRockObjectInfoList;
         	}
 
+        	byte[] landObjectInfoListArray = landObjectInfoList.ToByteArray();
         	byte[] staticObjectInfoListArray = staticObjectInfoList.ToByteArray();
         	byte[] landRockObjectInfoListArray = landRockObjectInfoList.ToByteArray();
 
@@ -832,10 +869,16 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
+	        grpcLandObjectGameXs.Clear();
+        	grpcLandObjectGameYs.Clear();
+        	grpcLandObjectGameZs.Clear();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
+	        grpcStaticObjectGameZs.Clear();
 	        grpcLandRockObjectGameXs.Clear();
 	        grpcLandRockObjectGameYs.Clear();
+	        grpcLandRockObjectGameZs.Clear();
+
 	        grpcAction = new GrpcAction();
         }
 
@@ -1078,10 +1121,16 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
+        	grpcLandObjectGameXs.Clear();
+        	grpcLandObjectGameYs.Clear();
+        	grpcLandObjectGameZs.Clear();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
+	        grpcStaticObjectGameZs.Clear();
 	        grpcLandRockObjectGameXs.Clear();
 	        grpcLandRockObjectGameYs.Clear();
+	        grpcLandRockObjectGameZs.Clear();
+
 	        grpcAction = new GrpcAction();
 
             return Task.FromResult(new Empty {});

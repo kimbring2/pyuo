@@ -257,8 +257,6 @@ namespace ClassicUO.Game.Managers
 
         public static void Target(uint serial)
         {
-            //Console.WriteLine("TargetManager Target()");
-
             if (!IsTargeting)
             {
                 return;
@@ -270,7 +268,6 @@ namespace ClassicUO.Game.Managers
                 switch (TargetingState)
                 {
                     case CursorTarget.Invalid: return;
-
                     case CursorTarget.MultiPlacement:
                     case CursorTarget.Position:
                     case CursorTarget.Object:
@@ -415,16 +412,20 @@ namespace ClassicUO.Game.Managers
         public static void Target(ushort graphic, ushort x, ushort y, short z, bool wet = false)
         {
             Console.WriteLine("TargetManager Target()");
+            Console.WriteLine("TargetManager IsTargeting: {0}", IsTargeting);
 
             if (!IsTargeting)
             {
                 return;
             }
 
+            Console.WriteLine("TargetManager graphic: {0}", graphic);
+
             if (graphic == 0)
             {
                 if (TargetingState == CursorTarget.Object)
                 {
+                    Console.WriteLine("TargetingState == CursorTarget.Object");
                     return;
                 }
             }

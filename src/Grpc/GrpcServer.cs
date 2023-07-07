@@ -1034,11 +1034,7 @@ namespace ClassicUO.Grpc
 	        		// Use the abililty to the land target
 	        		TargetManager.Target
                     (
-                        0,
-                        targetLand.X,
-                        targetLand.Y,
-                        targetLand.Z,
-                        targetLand.TileData.IsWet
+                        0, targetLand.X, targetLand.Y, targetLand.Z, targetLand.TileData.IsWet
                     );
 	        	}
 	        } 

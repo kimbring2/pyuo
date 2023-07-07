@@ -1021,8 +1021,25 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 5) {
-	        	if (World.Player != null) {
+	        	if (World.Player != null) 
+	        	{
+	        		Console.WriteLine("ActionType == 5");
+	        		Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
+	        		//GrpcLandObjectData landObject = landObjectList[grpcAction.Index];
+	        		Land targetLand = landList[(int) grpcAction.Index];
+
+	        		Console.WriteLine("targetLand: {0}: ", targetLand);
+
+	        		// Use the abililty to the land target
+	        		TargetManager.Target
+                    (
+                        0,
+                        targetLand.X,
+                        targetLand.Y,
+                        targetLand.Z,
+                        targetLand.TileData.IsWet
+                    );
 	        	}
 	        } 
 	        else if (grpcAction.ActionType == 6) {

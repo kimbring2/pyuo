@@ -478,20 +478,6 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
-                    /*
-                    Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
-                    int index = -1;
-                    List<GrpcLandObjectData> landObjectList_ = Client.Game._uoServiceImpl.GetLandObjectList();
-                    Console.WriteLine("landObjectList_.Count: {0}", landObjectList_.Count);
-                    foreach (GrpcLandObjectData landObject in landObjectList_)
-                    {
-                        if ( (landObject.GameX == gobj.X) && (landObject.GameY == gobj.Y) )
-                        {
-                            index = (int) landObject.Index;
-                        }
-                    }
-                    Console.WriteLine("Selected land index: {0}", index);
-                    */
                     Client.Game._uoServiceImpl.SetUsedLand(gobj.X, gobj.Y);
 
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
@@ -529,7 +515,7 @@ namespace ClassicUO.Game.Scenes
 
                     if (can_drop)
                     {
-                        Console.WriteLine("OnLeftMouseUp() DropItem");
+                        //Console.WriteLine("OnLeftMouseUp() DropItem");
 
                         GameActions.DropItem
                         (
@@ -544,8 +530,8 @@ namespace ClassicUO.Game.Scenes
             }
             else if (TargetManager.IsTargeting)
             {
-                Console.WriteLine("TargetManager.IsTargeting");
-                Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
+                //Console.WriteLine("TargetManager.IsTargeting");
+                //Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
 
                 switch (TargetManager.TargetingState)
                 {
@@ -561,7 +547,7 @@ namespace ClassicUO.Game.Scenes
                             obj = ov.Owner;
                         }
 
-                        Console.WriteLine("obj: {0}", obj);
+                        //Console.WriteLine("obj: {0}", obj);
 
                         switch (obj)
                         {
@@ -571,6 +557,8 @@ namespace ClassicUO.Game.Scenes
                                 break;
                             case Land land:
                                 Console.WriteLine("case Land land()");
+                                Console.WriteLine("land.Distance: {0}", land.Distance);
+                                Console.WriteLine("land.TileData.Name: {0}", land.TileData.Name);
 
                                 TargetManager.Target
                                 (
@@ -580,6 +568,8 @@ namespace ClassicUO.Game.Scenes
                                     land.Z,
                                     land.TileData.IsWet
                                 );
+
+                                Client.Game._uoServiceImpl.SetUsedLand(land.X, land.Y);
 
                                 break;
                             case GameObject o:

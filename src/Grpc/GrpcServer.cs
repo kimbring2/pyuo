@@ -71,9 +71,11 @@ namespace ClassicUO.Grpc
         string _replayPath;
         int _updateWorldItemsTimer;
         int _updatePlayerObjectTimer;
-        uint _landObjectAddCount;
+
+        //Land _usedLand;
         uint _usedLandGameX;
         uint _usedLandGameY;
+        List<Land> landList = new List<Land>();
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -161,8 +163,12 @@ namespace ClassicUO.Grpc
 	        return _envStep;
 	    }
 
+	    //public void SetUsedLand(Land usedLand)
 	    public void SetUsedLand(uint gameX, uint gameY)
 	    {
+	    	//Console.WriteLine("SetUsedLand()");
+	    	//Console.WriteLine("gameX: {0}, gameY: {1}", gameX, gameY);
+	    	//_usedLand = usedLand;
 	        _usedLandGameX = gameX;
         	_usedLandGameY = gameY;
 	    }
@@ -203,6 +209,8 @@ namespace ClassicUO.Grpc
 	        staticObjectInfoListArraysLengthList.Clear();
 	        landRockObjectInfoListArraysLengthList.Clear();
 
+	        landList.Clear();
+
 	        // ##################################################################################
 	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
 	        Array.Clear(worldItemArrays, 0, worldItemArrays.Length);
@@ -234,7 +242,6 @@ namespace ClassicUO.Grpc
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
-	        _landObjectAddCount = 0;
 	        _usedLandGameX = 0;
         	_usedLandGameY = 0;
         }
@@ -334,6 +341,28 @@ namespace ClassicUO.Grpc
 		    }
 		}
 
+		public void AddLandData(Land land)
+        {
+        	try 
+        	{
+        		//Console.WriteLine("AddGameObjectInfo()");
+        		if (land.Distance <= 12) 
+        		{	
+        			//Console.WriteLine("name: {0}", name);
+    				bool can_drop = (land.Distance >= 1) && (land.Distance < Constants.DRAG_ITEMS_DISTANCE);
+    				if (can_drop)
+	            	{
+		        		landList.Add(land);
+		        		//_landObjectAddCount += 1;
+		        	}
+        		}
+	        }
+	        catch (Exception ex)
+            {
+                Console.WriteLine("Failed to add the land object: " + ex.Message);
+            }
+        }
+
         public void AddClilocData(uint serial, string text, string affix, string name)
         {
         	if (grpcClilocDataList.Count >= 50) 
@@ -399,6 +428,7 @@ namespace ClassicUO.Grpc
         		//Console.WriteLine("AddGameObjectInfo()");
         		if (distance <= 12) 
         		{	
+        			/*
         			//Console.WriteLine("name: {0}", name);
         			if (name == "Land")
         			{
@@ -410,7 +440,9 @@ namespace ClassicUO.Grpc
 			        		_landObjectAddCount += 1;
 			        	}
 			        }
-        			else if (name == "Static")
+			        */
+        			
+        			if (name == "Static")
         			{
 	        			grpcStaticObjectGameXs.Add(game_x);
 			        	grpcStaticObjectGameYs.Add(game_y);
@@ -599,9 +631,12 @@ namespace ClassicUO.Grpc
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
-        	//UpdatePlayerObject();
-        	//Console.WriteLine("(uint) Layer.Bank: {0}", (uint) Layer.Bank);
-        	//Console.WriteLine("(uint) TargetManager.TargetingState: {0}", (uint) TargetManager.TargetingState);
+        	for (int i = 0; i < landList.Count; i++) 
+            {
+            	Land land = landList[i];
+                landObjectList.Add(new GrpcLandObjectData{ Index=(uint) i, GameX=(uint) land.X, GameY=(uint) land.Y, 
+                										   Distance=(uint) land.Distance});
+            }
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 
@@ -665,16 +700,6 @@ namespace ClassicUO.Grpc
         	byte[] landRockObjectInfoListArray = landRockObjectInfoList.ToByteArray();
 
         	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
-        	//Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
-        	//Console.WriteLine("worldMobileArray.Length: {0}", worldMobileArray.Length);
-        	//Console.WriteLine("landObjectArray.Length: {0}", landObjectArray.Length);
-        	//Console.WriteLine("popupMenuArray.Length: {0}", popupMenuArray.Length);
-        	//Console.WriteLine("clilocDataArray.Length: {0}", clilocDataArray.Length);
-        	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
-        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
-        	//Console.WriteLine("staticObjectInfoListArray.Length: {0}", staticObjectInfoListArray.Length);
-        	//Console.WriteLine("landRockObjectInfoListArray.Length: {0}", landRockObjectInfoListArray.Length);
-        	//Console.WriteLine("");
 
         	if (_envStep == 0) 
         	{
@@ -813,12 +838,15 @@ namespace ClassicUO.Grpc
 
 		    if (_usedLandGameX != 0)
 		    {
+		    	Console.WriteLine("_usedLandGameX != 0");
+		    	Console.WriteLine("landObjectList.Count: {0}", landObjectList.Count);
+
         		foreach (GrpcLandObjectData landObject in landObjectList)
                 {
                     if ( (landObject.GameX == _usedLandGameX) && (landObject.GameY == _usedLandGameY) )
                     {
                         int index = (int) landObject.Index;
-                        Console.WriteLine("index:{0}", index);
+                        Console.WriteLine("GameX: {0}, GameY: {1}, index:{2}", _usedLandGameX, _usedLandGameY, index);
                     }
                 }
 
@@ -880,12 +908,15 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        _landObjectAddCount = 0;
 	        landObjectList.Clear();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
 	        grpcLandRockObjectGameXs.Clear();
 	        grpcLandRockObjectGameYs.Clear();
+
+	        _usedLandGameX = 0;
+        	_usedLandGameY = 0;
+	        landList.Clear();
 
 	        grpcAction = new GrpcAction();
         }
@@ -1138,12 +1169,15 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        _landObjectAddCount = 0;
 	        landObjectList.Clear();
         	grpcStaticObjectGameXs.Clear();
 	        grpcStaticObjectGameYs.Clear();
 	        grpcLandRockObjectGameXs.Clear();
 	        grpcLandRockObjectGameYs.Clear();
+
+	        _usedLandGameX = 0;
+        	_usedLandGameY = 0;
+	        landList.Clear();
 
 	        grpcAction = new GrpcAction();
 

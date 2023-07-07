@@ -932,7 +932,7 @@ namespace ClassicUO.Game.Scenes
                 if (obj is Land) 
                 {
                     Land objLand = (Land) obj;
-                    //Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
+                    Client.Game._uoServiceImpl.AddGameSimpleObject("Land", (uint) obj.Distance, obj.X, obj.Y);
                     //Console.WriteLine("Land obj: {0}, TileData.Name: {1}", obj, objLand.TileData.Name);
 
                     if (objLand.TileData.Name == "rock")

@@ -530,8 +530,8 @@ namespace ClassicUO.Game.Scenes
             }
             else if (TargetManager.IsTargeting)
             {
-                //Console.WriteLine("TargetManager.IsTargeting");
-                //Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
+                Console.WriteLine("TargetManager.IsTargeting");
+                Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
 
                 switch (TargetManager.TargetingState)
                 {
@@ -547,7 +547,7 @@ namespace ClassicUO.Game.Scenes
                             obj = ov.Owner;
                         }
 
-                        //Console.WriteLine("obj: {0}", obj);
+                        Console.WriteLine("obj: {0}", obj);
 
                         switch (obj)
                         {

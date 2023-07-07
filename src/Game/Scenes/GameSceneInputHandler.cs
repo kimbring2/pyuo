@@ -32,6 +32,7 @@
 
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using ClassicUO.Configuration;
 using ClassicUO.Game.Map;
 using ClassicUO.Game.Data;
@@ -46,6 +47,10 @@ using ClassicUO.Utility;
 using Microsoft.Xna.Framework;
 using SDL2;
 using MathHelper = ClassicUO.Utility.MathHelper;
+
+using Grpc.Core;
+using Google.Protobuf;
+using Uoservice;
 
 namespace ClassicUO.Game.Scenes
 {
@@ -473,6 +478,22 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
+                    /*
+                    Console.WriteLine("gobj is Land || gobj is Static || gobj is Multi");
+                    int index = -1;
+                    List<GrpcLandObjectData> landObjectList_ = Client.Game._uoServiceImpl.GetLandObjectList();
+                    Console.WriteLine("landObjectList_.Count: {0}", landObjectList_.Count);
+                    foreach (GrpcLandObjectData landObject in landObjectList_)
+                    {
+                        if ( (landObject.GameX == gobj.X) && (landObject.GameY == gobj.Y) )
+                        {
+                            index = (int) landObject.Index;
+                        }
+                    }
+                    Console.WriteLine("Selected land index: {0}", index);
+                    */
+                    Client.Game._uoServiceImpl.SetUsedLand(gobj.X, gobj.Y);
+
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
                     if (can_drop)
                     {

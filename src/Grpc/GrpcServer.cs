@@ -72,6 +72,8 @@ namespace ClassicUO.Grpc
         int _updateWorldItemsTimer;
         int _updatePlayerObjectTimer;
         uint _landObjectAddCount;
+        uint _usedLandGameX;
+        uint _usedLandGameY;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -159,6 +161,17 @@ namespace ClassicUO.Grpc
 	        return _envStep;
 	    }
 
+	    public void SetUsedLand(uint gameX, uint gameY)
+	    {
+	        _usedLandGameX = gameX;
+        	_usedLandGameY = gameY;
+	    }
+
+	    public List<GrpcLandObjectData> GetLandObjectList()
+	    {
+	        return landObjectList;
+	    }
+
         public UoServiceImpl(GameController controller, int port)
         {
         	Console.WriteLine("port: {0}", port);
@@ -222,6 +235,8 @@ namespace ClassicUO.Grpc
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
 	        _landObjectAddCount = 0;
+	        _usedLandGameX = 0;
+        	_usedLandGameY = 0;
         }
 
         private void CreateMpqFile()
@@ -794,6 +809,21 @@ namespace ClassicUO.Grpc
 		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
 		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
 		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    }
+
+		    if (_usedLandGameX != 0)
+		    {
+        		foreach (GrpcLandObjectData landObject in landObjectList)
+                {
+                    if ( (landObject.GameX == _usedLandGameX) && (landObject.GameY == _usedLandGameY) )
+                    {
+                        int index = (int) landObject.Index;
+                        Console.WriteLine("index:{0}", index);
+                    }
+                }
+
+                _usedLandGameX = 0;
+        		_usedLandGameY = 0;
 		    }
 
 		    if (grpcAction.ActionType == 0)

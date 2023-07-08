@@ -46,6 +46,8 @@ namespace ClassicUO.Game.Map
 
         static Map()
         {
+            Console.WriteLine("static Map()");
+
             int maxX = -1, maxY = -1;
 
             for (int i = 0; i < MapLoader.Instance.MapBlocksSize.GetLength(0); i++)
@@ -63,11 +65,19 @@ namespace ClassicUO.Game.Map
 
             //Console.WriteLine("maxX: {0}, maxY: {1}", maxX, maxY);
 
+            int maxCellX = maxX << 3;
+            int maxCellY = maxY << 3;
+
+            //Console.WriteLine("maxCellX: {0}, maxCellY: {1}", maxCellX, maxCellY);
+            //maxCellX: 7168, maxCellY: 4096
+
             _terrainChunks = new Chunk[maxX * maxY];
         }
 
         public Map(int index)
         {
+            //Console.WriteLine("public Map(), index:{0}", index);
+
             Index = index;
             BlocksCount = MapLoader.Instance.MapBlocksSize[Index, 0] * MapLoader.Instance.MapBlocksSize[Index, 1];
             ClearBockAccess();
@@ -88,6 +98,8 @@ namespace ClassicUO.Game.Map
 
         public Chunk GetChunk(int x, int y, bool load = true)
         {
+            //Console.WriteLine("x: {0}, y: {1}", x, y);
+
             if (x < 0 || y < 0)
             {
                 return null;
@@ -95,8 +107,9 @@ namespace ClassicUO.Game.Map
 
             int cellX = x >> 3;
             int cellY = y >> 3;
-            int block = GetBlock(cellX, cellY);
+            //Console.WriteLine("cellX: {0}, cellY: {1}", cellX, cellY);
 
+            int block = GetBlock(cellX, cellY);
             if (block >= BlocksCount)
             {
                 return null;
@@ -135,7 +148,6 @@ namespace ClassicUO.Game.Map
 
             return chunk;
         }
-
 
         public GameObject GetTile(int x, int y, bool load = true)
         {
@@ -180,7 +192,6 @@ namespace ClassicUO.Game.Map
             }
 
             GameObject obj = chunk.Tiles[x % 8, y % 8];
-
             while (obj != null)
             {
                 if (obj is Land)
@@ -211,8 +222,8 @@ namespace ClassicUO.Game.Map
             }
 
             access = true;
-            Chunk chunk = GetChunk(x, y, false);
 
+            Chunk chunk = GetChunk(x, y, false);
             if (chunk != null)
             {
                 GameObject obj = chunk.Tiles[x % 8, y % 8];
@@ -243,7 +254,6 @@ namespace ClassicUO.Game.Map
                 }
 
                 sbyte tileZ = obj.Z;
-
                 if (tileZ < defaultZ)
                 {
                     defaultZ = tileZ;
@@ -289,7 +299,6 @@ namespace ClassicUO.Game.Map
             long ticks = Time.Ticks - Constants.CLEAR_TEXTURES_DELAY;
 
             LinkedListNode<int> first = _usedIndices.First;
-
             while (first != null)
             {
                 LinkedListNode<int> next = first.Next;
@@ -314,7 +323,6 @@ namespace ClassicUO.Game.Map
         public void Destroy()
         {
             LinkedListNode<int> first = _usedIndices.First;
-
             while (first != null)
             {
                 LinkedListNode<int> next = first.Next;

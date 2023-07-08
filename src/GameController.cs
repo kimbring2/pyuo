@@ -421,7 +421,7 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
+            //Console.WriteLine("World.MapIndex: {0}", World.MapIndex);
 
             //Console.WriteLine("Step 4");
             if (Settings.HumanPlay == true)

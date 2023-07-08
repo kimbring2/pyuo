@@ -126,6 +126,7 @@ namespace ClassicUO.Game
                         }
 
                         Map = new Map.Map(value);
+                        Console.WriteLine("Map changed {0}", value);
 
                         Player.X = x;
                         Player.Y = y;

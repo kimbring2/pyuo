@@ -741,7 +741,7 @@ namespace ClassicUO.Network
 
         private static void EnterWorld(ref StackDataReader p)
         {
-            //Console.WriteLine("EnterWorld()");
+            Console.WriteLine("EnterWorld()");
 
             if (ProfileManager.CurrentProfile == null)
             {
@@ -1398,7 +1398,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1901,7 +1901,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItems()");
+            //Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {
@@ -3990,6 +3990,8 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 8: // map change
+                    Console.WriteLine("case 8: // map change");
+
                     World.MapIndex = p.ReadUInt8();
 
                     break;

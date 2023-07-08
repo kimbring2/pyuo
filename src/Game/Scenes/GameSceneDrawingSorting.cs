@@ -518,7 +518,6 @@ namespace ClassicUO.Game.Scenes
                                 if (_maxZ - tile.Z + 5 >= tile.Z - obj.Z)
                                 {
                                     found = true;
-
                                     break;
                                 }
                             }
@@ -598,8 +597,13 @@ namespace ClassicUO.Game.Scenes
             ref Vector2 playerScreePos
         )
         {
+            //Console.WriteLine("obj: {0}", obj);
+
+            //int step = 0;
             for (; obj != null; obj = obj.TNext)
             {
+                //Console.WriteLine("step: {0}, obj: {1}", step, obj);
+
                 if (UpdateDrawPosition && obj.CurrentRenderIndex != _renderIndex || obj.IsPositionChanged)
                 {
                     obj.UpdateRealScreenPosition(_offset.X, _offset.Y);
@@ -907,7 +911,11 @@ namespace ClassicUO.Game.Scenes
 
                     PushToRenderList(obj, ref _renderList, ref _renderListStaticsHead, ref _renderListStaticsCount, false);
                 }
+
+                //step += 1;
             }
+
+            //Console.WriteLine("");
 
             return false;
         }

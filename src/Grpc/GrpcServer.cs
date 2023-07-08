@@ -15,8 +15,8 @@ using ClassicUO.Game.Managers;
 using ClassicUO.Game.Scenes;
 using ClassicUO.Game.UI.Gumps;
 using ClassicUO.Game.UI.Controls;
-using ClassicUO.Input;
 using ClassicUO.Game.Map;
+using ClassicUO.Input;
 using ClassicUO.IO.Resources;
 using ClassicUO.Network;
 using ClassicUO.Renderer;
@@ -71,6 +71,9 @@ namespace ClassicUO.Grpc
         string _replayPath;
         int _updateWorldItemsTimer;
         int _updatePlayerObjectTimer;
+
+        bool _mapLoad = true;
+        Map map;
 
         //Land _usedLand;
         uint _usedLandGameX;
@@ -238,6 +241,9 @@ namespace ClassicUO.Grpc
 	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
+	        map = World.Map;
+	        _mapLoad = true;
+
     		_envStep = 0;
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
@@ -428,20 +434,6 @@ namespace ClassicUO.Grpc
         		//Console.WriteLine("AddGameObjectInfo()");
         		if (distance <= 12) 
         		{	
-        			/*
-        			//Console.WriteLine("name: {0}", name);
-        			if (name == "Land")
-        			{
-        				bool can_drop = (distance >= 1) && (distance < Constants.DRAG_ITEMS_DISTANCE);
-        				if (can_drop)
-		            	{
-			        		landObjectList.Add(new GrpcLandObjectData{ Index= _landObjectAddCount, GameX=game_x, GameY=game_y, 
-			        												   Distance=distance});
-			        		_landObjectAddCount += 1;
-			        	}
-			        }
-			        */
-        			
         			if (name == "Static")
         			{
 	        			grpcStaticObjectGameXs.Add(game_x);
@@ -602,6 +594,36 @@ namespace ClassicUO.Grpc
         		UpdatePlayerStatus();
         		UpdatePlayerSkills();
         	}
+
+        	//Console.WriteLine("_mapLoad: {0}", _mapLoad);
+
+        	if (_mapLoad == true)
+        	{	
+        		//Console.WriteLine("_mapLoad == true");
+        		if ((World.Player != null) && (World.InGame == true))
+            	{
+	        		//maxCellX: 7168, maxCellY: 4096
+	        		for (int x = 0; x < 7168; x++)
+		            {
+		            	for (int y = 0; y < 4096; y++)
+		            	{
+		            		try
+		            		{
+			            		GameObject obj = map.GetTile(x, y);
+			            		Console.WriteLine("obj: {0}", obj);
+			            		//_mapLoad = false; 
+			            	}
+			        		catch (Exception ex)
+				            {
+				            	Console.WriteLine("Failed to get the time from ({0}, {1}) position: ", x, y);
+				            }
+
+		            	}
+		            }
+
+		            Console.WriteLine("");
+		        }
+	        }
 
         	if (_updatePlayerObjectTimer == 0) 
         	{

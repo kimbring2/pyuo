@@ -608,6 +608,10 @@ namespace ClassicUO.Game.Scenes
             int maxX = _maxTile.X;
             int maxY = _maxTile.Y;
 
+            //Console.WriteLine("minX: {0}, minY: {1}, maxX: {2}, maxX: {3}", minX, minY, maxX, maxX);
+            // minX: 3447, minY: 2713, maxX: 3511, maxX: 3511
+            // minX: 3449, minY: 2713, maxX: 3513, maxX: 3513
+
             Map.Map map = World.Map;
             bool use_handles = _useObjectHandles;
             int maxCotZ = World.Player.Z + 5;
@@ -616,15 +620,14 @@ namespace ClassicUO.Game.Scenes
             int X_Player = World.Player.X;
             int Y_Player = World.Player.Y;
             int Z_Player = World.Player.Z;
-            //Console.WriteLine("X_Player: {0}, Y_Player: {1}, Z_Player: {2}", X_Player, Y_Player, Z_Player);
 
             int ScreenPosition_X = (X_Player - Y_Player) * 22;
             int ScreenPosition_Y = (X_Player + Y_Player) * 22 - (Z_Player << 2);
 
-            //Console.WriteLine("ScreenPosition_X: {0}, Y: {1}\n", ScreenPosition_X, ScreenPosition_Y);
-
             for (int i = 0; i < 2; ++i)
             {
+                //Console.WriteLine("i: {0}", i);
+
                 int minValue = minY;
                 int maxValue = maxY;
 
@@ -647,6 +650,8 @@ namespace ClassicUO.Game.Scenes
 
                     while (x >= minX && x <= maxX && y >= minY && y <= maxY)
                     {
+                        //Console.WriteLine("x: {0}, y: {1}", x, y);
+
                         AddTileToRenderList
                         (
                             map.GetTile(x, y), x, y, use_handles, 150, maxCotZ, ref playerPos
@@ -656,6 +661,8 @@ namespace ClassicUO.Game.Scenes
                         --y;
                     }
                 }
+
+                //Console.WriteLine("");
             }
 
             if (_alphaChanged)

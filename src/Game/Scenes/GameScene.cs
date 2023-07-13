@@ -849,7 +849,6 @@ namespace ClassicUO.Game.Scenes
                 else if (obj is Mobile mobile)
                 {
                     maxObjectZ += Constants.DEFAULT_CHARACTER_HEIGHT;
-
                     if (maxObjectZ > maxZ)
                     {
                         return;
@@ -867,7 +866,6 @@ namespace ClassicUO.Game.Scenes
                 else if (obj is Item item)
                 {
                     ref StaticTiles itemData = ref (item.IsMulti ? ref TileDataLoader.Instance.StaticData[item.MultiGraphic] : ref item.ItemData);
-
                     if (!item.IsCorpse && itemData.IsInternal)
                     {
                         continue;
@@ -879,7 +877,6 @@ namespace ClassicUO.Game.Scenes
                     }
 
                     byte height = 0;
-
                     if (obj.AllowedToDraw)
                     {
                         height = CalculateObjectHeight(ref maxObjectZ, ref itemData);

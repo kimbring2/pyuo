@@ -95,6 +95,8 @@ namespace ClassicUO.IO.Resources
             int endy
         )
         {
+            Console.WriteLine("MultiMapLoader LoadMap()");
+
             if (_file == null || _file.Length == 0)
             {
                 Log.Warn("MultiMap.rle is not loaded!");

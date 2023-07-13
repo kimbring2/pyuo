@@ -30,6 +30,8 @@
 
 #endregion
 
+using System;
+
 namespace ClassicUO.IO
 {
     internal class UOFileMul : UOFile
@@ -54,6 +56,8 @@ namespace ClassicUO.IO
 
         public override void FillEntries(ref UOFileIndex[] entries)
         {
+            Console.WriteLine("UOFileMul FillEntries()");
+
             UOFile file = _idxFile ?? (UOFile) this;
 
             int count = (int) file.Length / 12;

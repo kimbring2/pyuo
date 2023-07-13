@@ -125,6 +125,7 @@ namespace ClassicUO.IO
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal byte ReadByte()
         {
+            //Console.WriteLine("byte ReadByte()");
             EnsureSize(1);
 
             return _data[Position++];
@@ -133,6 +134,7 @@ namespace ClassicUO.IO
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal sbyte ReadSByte()
         {
+            //Console.WriteLine("sbyte ReadByte()");
             return (sbyte) ReadByte();
         }
 
@@ -263,7 +265,6 @@ namespace ClassicUO.IO
 #endif
             }
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort ReadUShortReversed()

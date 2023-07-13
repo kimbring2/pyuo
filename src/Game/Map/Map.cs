@@ -76,7 +76,7 @@ namespace ClassicUO.Game.Map
 
         public Map(int index)
         {
-            //Console.WriteLine("public Map(), index:{0}", index);
+            Console.WriteLine("public Map(), index:{0}", index);
 
             Index = index;
             BlocksCount = MapLoader.Instance.MapBlocksSize[Index, 0] * MapLoader.Instance.MapBlocksSize[Index, 1];
@@ -96,10 +96,8 @@ namespace ClassicUO.Game.Map
             return null;
         }
 
-        public Chunk GetChunk(int x, int y, bool load = true)
+        public Chunk GetChunk(int x, int y, bool load=true)
         {
-            //Console.WriteLine("x: {0}, y: {1}", x, y);
-
             if (x < 0 || y < 0)
             {
                 return null;
@@ -107,7 +105,6 @@ namespace ClassicUO.Game.Map
 
             int cellX = x >> 3;
             int cellY = y >> 3;
-            //Console.WriteLine("cellX: {0}, cellY: {1}", cellX, cellY);
 
             int block = GetBlock(cellX, cellY);
             if (block >= BlocksCount)
@@ -116,8 +113,15 @@ namespace ClassicUO.Game.Map
             }
 
             ref Chunk chunk = ref _terrainChunks[block];
+            //Console.WriteLine("chunk: {0}", chunk);
+
             if (chunk == null)
             {
+                //Console.WriteLine("chunk == null");
+                //Console.WriteLine("Map GetChunk() / x: {0}, y: {1}, load: {2}", x, y, load);
+                //Console.WriteLine("cellX: {0}, cellY: {1}", cellX, cellY);
+                //Console.WriteLine("BlocksCount: {0}, block: {1}", BlocksCount, block);
+
                 if (!load)
                 {
                     return null;
@@ -126,11 +130,15 @@ namespace ClassicUO.Game.Map
                 LinkedListNode<int> node = _usedIndices.AddLast(block);
                 chunk = Chunk.Create(cellX, cellY);
 
+                //Console.WriteLine("Index: {0}", Index);
+
                 chunk.Load(Index);
                 chunk.Node = node;
             }
             else if (chunk.IsDestroyed)
             {
+               // Console.WriteLine("chunk.IsDestroyed");
+
                 // make sure node is clear
                 if (chunk.Node != null && (chunk.Node.Previous != null || chunk.Node.Next != null))
                 {

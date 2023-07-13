@@ -87,6 +87,8 @@ namespace ClassicUO.IO
 
         public static void Load()
         {
+            Console.WriteLine("UOFileManager Load()");
+
             Stopwatch stopwatch = Stopwatch.StartNew();
 
             UOFilesOverrideMap.Instance.Load(); // need to load this first so that it manages can perform the file overrides if needed

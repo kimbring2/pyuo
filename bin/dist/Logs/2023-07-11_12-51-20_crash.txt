@@ -1,0 +1,68 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/11/2023 12:51:20
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.AggregateException: One or more errors occurred. (Index was outside the bounds of the array.) (Index was outside the bounds of the array.) (Index was outside the bounds of the array.) (Index was outside the bounds of the array.) (Index was outside the bounds of the array.) (Index was outside the bounds of the array.) ---> System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.AnimationsLoader.<Load>b__21_0 () [0x000d5] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+   --- End of inner exception stack trace ---
+  at System.Threading.Tasks.Task.ThrowIfExceptional (System.Boolean includeTaskCanceledExceptions) [0x00011] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.Int32 millisecondsTimeout, System.Threading.CancellationToken cancellationToken) [0x00043] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.TimeSpan timeout) [0x00022] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.IO.UOFileManager.Load () [0x00160] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.Client.Load () [0x001fa] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.Client.Run () [0x00000] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+---> (Inner Exception #0) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.AnimationsLoader.<Load>b__21_0 () [0x000d5] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+---> (Inner Exception #1) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.ArtLoader.<Load>b__7_0 () [0x0001a] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+---> (Inner Exception #2) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.MapLoader.<Load>b__40_0 () [0x001c0] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+---> (Inner Exception #3) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.GumpsLoader.<Load>b__6_0 () [0x0001a] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+---> (Inner Exception #4) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.MultiLoader.<Load>b__20_0 () [0x00025] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+---> (Inner Exception #5) System.IndexOutOfRangeException: Index was outside the bounds of the array.
+  at ClassicUO.IO.UOFileUop.Load () [0x0003e] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.UOFileUop..ctor (System.String path, System.String pattern, System.Boolean hasextra) [0x00021] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at ClassicUO.IO.Resources.SoundsLoader.<Load>b__10_0 () [0x0001a] in <379d2773e3e040d1b868a541bff3ccf5>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+######################## [END LOG] ########################
+
+

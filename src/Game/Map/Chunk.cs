@@ -66,21 +66,25 @@ namespace ClassicUO.Game.Map
             c.X = x;
             c.Y = y;
 
+            //Console.WriteLine("Chunk Create(), x:{0}, y:{0}", x, y);
+
             return c;
         }
 
         public unsafe void Load(int index)
         {
-            //Console.WriteLine("Chunk load()");
+            //Console.WriteLine("Chunk load(), index:{0}", index);
 
             IsDestroyed = false;
 
             Map map = World.Map;
 
             ref IndexMap im = ref GetIndex(index);
-
+            //Console.WriteLine("im.MapAddress 1: {0}", im.MapAddress);
             if (im.MapAddress != 0)
             {
+                //Console.WriteLine("im.MapAddress 2: {0}", im.MapAddress);
+
                 MapBlock* block = (MapBlock*) im.MapAddress;
                 MapCells* cells = (MapCells*) &block->Cells;
                 int bx = X << 3;
@@ -96,6 +100,7 @@ namespace ClassicUO.Game.Map
                     for (int x = 0; x < 8; ++x, ++pos)
                     {
                         ushort tileID = (ushort) (cells[pos].TileID & 0x3FFF);
+                        //Console.WriteLine("tileID: {0}, z: {1}", tileID, cells[pos].Z);
 
                         sbyte z = cells[pos].Z;
 
@@ -118,7 +123,6 @@ namespace ClassicUO.Game.Map
                 if (im.StaticAddress != 0)
                 {
                     StaticsBlock* sb = (StaticsBlock*) im.StaticAddress;
-
                     if (sb != null)
                     {
                         for (int i = 0, count = (int) im.StaticCount; i < count; ++i, ++sb)
@@ -126,7 +130,6 @@ namespace ClassicUO.Game.Map
                             if (sb->Color != 0 && sb->Color != 0xFFFF)
                             {
                                 int pos = (sb->Y << 3) + sb->X;
-
                                 if (pos >= 64)
                                 {
                                     continue;
@@ -219,7 +222,6 @@ namespace ClassicUO.Game.Map
 
                 case Multi m:
                     state = 1;
-
                     if ((m.State & CUSTOM_HOUSE_MULTI_OBJECT_FLAGS.CHMOF_GENERIC_INTERNAL) != 0)
                     {
                         priorityZ--;
@@ -232,31 +234,16 @@ namespace ClassicUO.Game.Map
                         state = 2;
                         priorityZ++;
                     }
-                    //else if ((m.ItemData.Flags & TileFlag.StairRight) != 0)
-                    //{
-                    //    priorityZ++;
-                    //}
-
-                    //if (m.IsMovable)
-                    //{
-                    //    priorityZ += 1;
-                    //}
 
                     goto default;
 
                 default:
                     ref StaticTiles data = ref TileDataLoader.Instance.StaticData[graphic];
-
                     if (data.IsBackground)
                     {
                         priorityZ--;
                     }
          
-                    //if (data.IsSurface)
-                    //{
-                    //    priorityZ--;
-                    //}
-
                     if (data.Height != 0)
                     {
                         priorityZ++;
@@ -305,7 +292,6 @@ namespace ClassicUO.Game.Map
 
             GameObject found = null;
             GameObject start = o;
-
             while (o != null)
             {
                 int testPriorityZ = o.PriorityZ;
@@ -342,7 +328,6 @@ namespace ClassicUO.Game.Map
         public void RemoveGameObject(GameObject obj, int x, int y)
         {
             ref GameObject firstNode = ref Tiles[x, y];
-
             if (firstNode == null || obj == null)
             {
                 return;
@@ -367,7 +352,6 @@ namespace ClassicUO.Game.Map
             obj.TNext = null;
         }
 
-
         public void Destroy()
         {
             for (int i = 0; i < 8; i++)
@@ -375,18 +359,15 @@ namespace ClassicUO.Game.Map
                 for (int j = 0; j < 8; j++)
                 {
                     GameObject obj = Tiles[i, j];
-
                     if (obj == null)
                     {
                         continue;
                     }
 
                     GameObject first = GetHeadObject(i, j);
-
                     while (first != null)
                     {
                         GameObject next = first.TNext;
-
                         if (!ReferenceEquals(first, World.Player))
                         {
                             first.Destroy();
@@ -417,14 +398,12 @@ namespace ClassicUO.Game.Map
                 for (int j = 0; j < 8; j++)
                 {
                     GameObject obj = Tiles[i, j];
-
                     if (obj == null)
                     {
                         continue;
                     }
 
                     GameObject first = GetHeadObject(i, j);
-
                     while (first != null)
                     {
                         GameObject next = first.TNext;

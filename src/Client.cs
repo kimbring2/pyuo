@@ -62,7 +62,7 @@ namespace ClassicUO
 
             Load();
 
-            Log.Trace("Running game...");
+            //Log.Trace("Running game...");
 
             using (Game = new GameController())
             {
@@ -71,24 +71,24 @@ namespace ClassicUO
 
                 if (CUOEnviroment.IsHighDPI)
                 {
-                    Log.Trace("HIGH DPI - ENABLED");
+                    //Log.Trace("HIGH DPI - ENABLED");
                 }
 
-                Log.Trace("Loading plugins...");
+                //Log.Trace("Loading plugins...");
 
                 foreach (string p in Settings.GlobalSettings.Plugins)
                 {
                     Plugin.Create(p);
                 }
 
-                Log.Trace("Done!");
+                //Log.Trace("Done!");
 
                 UoAssist.Start();
 
                 Game.Run();
             }
 
-            Log.Trace("Exiting game...");
+            //Log.Trace("Exiting game...");
         }
 
         public static void ShowErrorMessage(string msg)
@@ -99,9 +99,9 @@ namespace ClassicUO
         private static void Load()
         {
             string clientPath = Settings.GlobalSettings.UltimaOnlineDirectory;
-            Log.Trace($"Ultima Online installation folder: {clientPath}");
+            //Log.Trace($"Ultima Online installation folder: {clientPath}");
 
-            Log.Trace("Loading files...");
+            //Log.Trace("Loading files...");
 
             if (!string.IsNullOrWhiteSpace(Settings.GlobalSettings.ClientVersion))
             {
@@ -177,10 +177,10 @@ namespace ClassicUO
                 Protocol |= ClientFlags.CF_SA;
             }
 
-            Log.Trace($"Client path: '{clientPath}'");
-            Log.Trace($"Client version: {clientVersion}");
-            Log.Trace($"Protocol: {Protocol}");
-            Log.Trace("UOP? " + (IsUOPInstallation ? "yes" : "no"));
+            //Log.Trace($"Client path: '{clientPath}'");
+            //Log.Trace($"Client version: {clientVersion}");
+            //Log.Trace($"Protocol: {Protocol}");
+            //Log.Trace("UOP? " + (IsUOPInstallation ? "yes" : "no"));
 
             // ok now load uo files
             UOFileManager.Load();
@@ -189,7 +189,7 @@ namespace ClassicUO
             BuffTable.Load();
             ChairTable.Load();
 
-            Log.Trace("Network calibration...");
+            //Log.Trace("Network calibration...");
             PacketHandlers.Load();
             
             //ATTENTION: you will need to enable ALSO ultimalive server-side, or this code will have absolutely no effect!

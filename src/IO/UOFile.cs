@@ -44,6 +44,7 @@ namespace ClassicUO.IO
         public UOFile(string filepath, bool loadFile = false)
         {
             FilePath = filepath;
+            //Console.WriteLine("FilePath: {0}", FilePath);
 
             if (loadFile)
             {
@@ -58,18 +59,17 @@ namespace ClassicUO.IO
         protected virtual void Load()
         {
             //Log.Trace($"Loading file:\t\t{FilePath}");
+            //Console.WriteLine("UOFile, Load(): {0}", FilePath);
 
             FileInfo fileInfo = new FileInfo(FilePath);
-
             if (!fileInfo.Exists)
             {
-                Log.Error($"{FilePath}  not exists.");
+                Log.Error($"{FilePath} not exists.");
 
                 return;
             }
 
             long size = fileInfo.Length;
-
             if (size > 0)
             {
                 _file = MemoryMappedFile.CreateFromFile
@@ -85,7 +85,6 @@ namespace ClassicUO.IO
                 _accessor = _file.CreateViewAccessor(0, size, MemoryMappedFileAccess.Read);
 
                 byte* ptr = null;
-
                 try
                 {
                     _accessor.SafeMemoryMappedViewHandle.AcquirePointer(ref ptr);
@@ -113,9 +112,8 @@ namespace ClassicUO.IO
             _accessor.SafeMemoryMappedViewHandle.ReleasePointer();
             _accessor.Dispose();
             _file.Dispose();
-            Log.Trace($"Unloaded:\t\t{FilePath}");
+            //Log.Trace($"Unloaded:\t\t{FilePath}");
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal void Fill(ref byte[] buffer, int count)

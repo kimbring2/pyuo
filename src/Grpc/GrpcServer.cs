@@ -597,7 +597,9 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("_mapLoad: {0}", _mapLoad);
 
-        	if (_mapLoad == true)
+        	/*
+        	//if (_mapLoad == true)
+        	if (_envStep % 500 == 0)
         	{	
         		//Console.WriteLine("_mapLoad == true");
         		if ((World.Player != null) && (World.InGame == true))
@@ -624,6 +626,7 @@ namespace ClassicUO.Grpc
 		            Console.WriteLine("");
 		        }
 	        }
+	        */
 
         	if (_updatePlayerObjectTimer == 0) 
         	{

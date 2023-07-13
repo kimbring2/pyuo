@@ -309,7 +309,7 @@ namespace ClassicUO.Configuration
 
         public void Save(string path)
         {
-            Log.Trace($"Saving path:\t\t{path}");
+            //Log.Trace($"Saving path:\t\t{path}");
 
             // Save profile settings
             ConfigurationResolver.Save(this, Path.Combine(path, "profile.json"));
@@ -317,7 +317,7 @@ namespace ClassicUO.Configuration
             // Save opened gumps
             SaveGumps(path);
 
-            Log.Trace("Saving done!");
+            //Log.Trace("Saving done!");
         }
 
         private void SaveGumps(string path)

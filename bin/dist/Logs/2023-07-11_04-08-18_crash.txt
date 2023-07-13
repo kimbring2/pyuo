@@ -1,0 +1,25 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/11/2023 04:08:18
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ClassicUO.Renderer.UltimaBatcher2D.Draw (Microsoft.Xna.Framework.Graphics.Texture2D texture, Microsoft.Xna.Framework.Vector2 position, System.Nullable`1[T] sourceRectangle, Microsoft.Xna.Framework.Vector3 color) [0x00010] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Renderer.UltimaBatcher2D.DrawTiled (Microsoft.Xna.Framework.Graphics.Texture2D texture, Microsoft.Xna.Framework.Rectangle destinationRectangle, Microsoft.Xna.Framework.Rectangle sourceRectangle, Microsoft.Xna.Framework.Vector3 hue) [0x00069] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Game.UI.Gumps.BorderControl.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher, System.Int32 x, System.Int32 y) [0x00051] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Game.UI.Controls.Control.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher, System.Int32 x, System.Int32 y) [0x0004f] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Game.UI.Gumps.Gump.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher, System.Int32 x, System.Int32 y) [0x00008] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Game.Managers.UIManager.Draw (ClassicUO.Renderer.UltimaBatcher2D batcher) [0x0002e] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.GameController.Draw (Microsoft.Xna.Framework.GameTime gameTime) [0x0007c] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x00222] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x0005c] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <09b1b5c3ea7644c08df39fa7f9ab63d2>:0 
+######################## [END LOG] ########################
+
+

@@ -3990,7 +3990,7 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 8: // map change
-                    Console.WriteLine("case 8: // map change");
+                    //Console.WriteLine("case 8: // map change");
 
                     World.MapIndex = p.ReadUInt8();
 

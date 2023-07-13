@@ -72,7 +72,7 @@ namespace ClassicUO
 
             Log.Start(LogTypes.All);
 
-            Log.Trace("Main()");
+            //Log.Trace("Main()");
 
             CUOEnviroment.GameThread = Thread.CurrentThread;
             CUOEnviroment.GameThread.Name = "CUO_MAIN_THREAD";
@@ -167,7 +167,7 @@ namespace ClassicUO
 
             if (string.IsNullOrWhiteSpace(Settings.GlobalSettings.Language))
             {
-                Log.Trace("language is not set. Trying to get the OS language.");
+                //Log.Trace("language is not set. Trying to get the OS language.");
                 try
                 {
                     Settings.GlobalSettings.Language = CultureInfo.InstalledUICulture.ThreeLetterWindowsLanguageName;
@@ -179,7 +179,7 @@ namespace ClassicUO
                         Settings.GlobalSettings.Language = "ENU";
                     }
 
-                    Log.Trace($"language set: '{Settings.GlobalSettings.Language}'");
+                    //Log.Trace($"language set: '{Settings.GlobalSettings.Language}'");
                 }
                 catch
                 {
@@ -219,7 +219,7 @@ namespace ClassicUO
                 }
                 else
                 {
-                    Log.Trace($"Found a valid client.exe [{clientVersionText} - {clientVersion}]");
+                    //Log.Trace($"Found a valid client.exe [{clientVersionText} - {clientVersion}]");
 
                     // update the wrong/missing client version in settings.json
                     Settings.GlobalSettings.ClientVersion = clientVersionText;
@@ -254,11 +254,11 @@ namespace ClassicUO
                         break;
                 }
                 
-                Log.Trace("Client.Run()");
+                //Log.Trace("Client.Run()");
                 Client.Run();
             }
 
-            Log.Trace("Closing...");
+            //Log.Trace("Closing...");
         }
 
         private static void ReadSettingsFromArgs(string[] args)
@@ -286,7 +286,7 @@ namespace ClassicUO
                     }
                 }
 
-                Log.Trace($"ARG: {cmd}, VALUE: {value}");
+                //Log.Trace($"ARG: {cmd}, VALUE: {value}");
 
                 switch (cmd)
                 {

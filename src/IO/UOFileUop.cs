@@ -31,6 +31,7 @@
 #endregion
 
 using System;
+using System.Threading;
 using System.Collections.Generic;
 using ClassicUO.Utility;
 
@@ -43,8 +44,12 @@ namespace ClassicUO.IO
         private readonly Dictionary<ulong, UOFileIndex> _hashes = new Dictionary<ulong, UOFileIndex>();
         private readonly string _pattern;
 
+        bool printValue = false;
+
         public UOFileUop(string path, string pattern, bool hasextra = false) : base(path)
         {
+            //Console.WriteLine("UOFileUop(), path: {0}", path);
+
             _pattern = pattern;
             _hasExtra = hasextra;
             Load();
@@ -59,6 +64,19 @@ namespace ClassicUO.IO
 
         protected override void Load()
         {
+            //Console.WriteLine("UOFileUop FillEntries()");
+
+            string filePath = FilePath;
+
+            string[] filePathList = filePath.Split('/');
+            if (filePathList[filePathList.Length - 1] == "map1LegacyMUL.uop")
+            {
+                Console.WriteLine("#################### Load() ####################");
+                //Console.WriteLine("filePathList[filePathList.Length - 1]: {0}", 
+                //                    filePathList[filePathList.Length - 1]);
+                printValue = true;
+            }
+
             base.Load();
 
             Seek(0);
@@ -74,6 +92,14 @@ namespace ClassicUO.IO
             uint block_size = ReadUInt();
             int count = ReadInt();
 
+            if (printValue == true)
+            {
+                Console.WriteLine("version: {0}", version);
+                Console.WriteLine("format_timestamp: {0}", format_timestamp);
+                Console.WriteLine("nextBlock: {0}", nextBlock);
+                Console.WriteLine("block_size: {0}", block_size);
+                Console.WriteLine("count: {0}", count);
+            }
 
             Seek(nextBlock);
             int total = 0;
@@ -85,8 +111,18 @@ namespace ClassicUO.IO
                 nextBlock = ReadLong();
                 total += filesCount;
 
+                if (printValue == true)
+                {
+                    //Console.WriteLine("filesCount: {0}", filesCount);
+                    //Console.WriteLine("nextBlock: {0}", nextBlock);
+                    //Console.WriteLine("total: {0}", total);
+                    //Console.WriteLine("");
+                }
+
                 for (int i = 0; i < filesCount; i++)
                 {
+                    //Console.WriteLine("i: {0}", i);
+
                     long offset = ReadLong();
                     int headerLength = ReadInt();
                     int compressedLength = ReadInt();
@@ -96,6 +132,22 @@ namespace ClassicUO.IO
                     short flag = ReadShort();
                     int length = flag == 1 ? compressedLength : decompressedLength;
 
+                    if ( (printValue == true) && (i < -1) )
+                    {
+                        /*
+                        Console.WriteLine("i: {0}", i);
+                        Console.WriteLine("offset: {0}", offset);
+                        Console.WriteLine("headerLength: {0}", headerLength);
+                        Console.WriteLine("compressedLength: {0}", compressedLength);
+                        Console.WriteLine("decompressedLength: {0}", decompressedLength);
+                        Console.WriteLine("hash: {0}", hash);
+                        Console.WriteLine("data_hash: {0}", data_hash);
+                        Console.WriteLine("flag: {0}", flag);
+                        Console.WriteLine("length: {0}", length);
+                        Console.WriteLine("");
+                        */
+                    }
+                    
                     if (offset == 0)
                     {
                         continue;
@@ -130,6 +182,19 @@ namespace ClassicUO.IO
                     }
                     else
                     {
+                        if ( (printValue == true) && (i < 10) )
+                        {
+                            /*
+                            Console.WriteLine("hash: {0}", hash);
+                            Console.WriteLine("StartAddress: {0}", StartAddress);
+                            Console.WriteLine("(uint) Length: {0}", (uint) Length);
+                            Console.WriteLine("offset: {0}", offset);
+                            Console.WriteLine("compressedLength: {0}", compressedLength);
+                            Console.WriteLine("decompressedLength: {0}", decompressedLength);
+                            Console.WriteLine("");
+                            */
+                        }
+
                         _hashes.Add
                         (
                             hash,
@@ -149,6 +214,11 @@ namespace ClassicUO.IO
             } while (nextBlock != 0);
 
             TotalEntriesCount = real_total;
+
+            if (printValue == true)
+            {
+                Console.WriteLine("TotalEntriesCount: {0}", TotalEntriesCount);
+            }
         }
 
         public void ClearHashes()
@@ -164,10 +234,28 @@ namespace ClassicUO.IO
 
         public override void FillEntries(ref UOFileIndex[] entries)
         {
+            if (printValue == true)
+            {
+                Console.WriteLine("UOFileUop FillEntries()");
+                Console.WriteLine("UOFileUop FilePath: {0}", FilePath);
+                Console.WriteLine("entries.Length: {0}", entries.Length);          
+                // entries.Length: 2048
+            }
+
             for (int i = 0; i < entries.Length; i++)
             {
                 string file = string.Format(_pattern, i);
+
                 ulong hash = CreateHash(file);
+
+                if (printValue == true)
+                {
+                    //Console.WriteLine("i: {0}", i);
+                    //Console.WriteLine("_pattern: {0}", _pattern);
+                    //Console.WriteLine("file: {0}", file);
+                    //Console.WriteLine("hash: {0}", hash);
+                    // entries.Length: 2048
+                }
 
                 if (_hashes.TryGetValue(hash, out UOFileIndex data))
                 {
@@ -185,15 +273,6 @@ namespace ClassicUO.IO
                 ClearHashes();
             }
         }
-
-        //public unsafe T[] GetData<T>(int compressedSize, int uncompressedSize) where T : struct
-        //{
-        //    T[] data = new T[uncompressedSize];
-        //    IntPtr destPtr = (IntPtr) UnsafeMemoryManager.AsPointer(ref data);
-        //    ZLib.Decompress(PositionAddress, compressedSize, 0, destPtr, uncompressedSize);
-
-        //    return data;
-        //}
 
         internal static ulong CreateHash(string s)
         {

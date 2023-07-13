@@ -60,7 +60,7 @@
 	"circle_of_transparency_radius" : 100,
 	"circle_of_transparency_type" : 0,
 	"vendor_gump_height" : 60,
-	"default_scale" : 1.0,
+	"default_scale" : 1.1,
 	"enable_mousewheel_scale_zoom" : false,
 	"save_scale_after_close" : false,
 	"restore_scale_after_unpress_ctrl" : false,

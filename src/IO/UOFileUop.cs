@@ -71,9 +71,7 @@ namespace ClassicUO.IO
             string[] filePathList = filePath.Split('/');
             if (filePathList[filePathList.Length - 1] == "map1LegacyMUL.uop")
             {
-                Console.WriteLine("#################### Load() ####################");
-                //Console.WriteLine("filePathList[filePathList.Length - 1]: {0}", 
-                //                    filePathList[filePathList.Length - 1]);
+                //Console.WriteLine("#################### Load() ####################");
                 printValue = true;
             }
 
@@ -111,14 +109,6 @@ namespace ClassicUO.IO
                 nextBlock = ReadLong();
                 total += filesCount;
 
-                if (printValue == true)
-                {
-                    //Console.WriteLine("filesCount: {0}", filesCount);
-                    //Console.WriteLine("nextBlock: {0}", nextBlock);
-                    //Console.WriteLine("total: {0}", total);
-                    //Console.WriteLine("");
-                }
-
                 for (int i = 0; i < filesCount; i++)
                 {
                     //Console.WriteLine("i: {0}", i);
@@ -131,22 +121,6 @@ namespace ClassicUO.IO
                     uint data_hash = ReadUInt();
                     short flag = ReadShort();
                     int length = flag == 1 ? compressedLength : decompressedLength;
-
-                    if ( (printValue == true) && (i < -1) )
-                    {
-                        /*
-                        Console.WriteLine("i: {0}", i);
-                        Console.WriteLine("offset: {0}", offset);
-                        Console.WriteLine("headerLength: {0}", headerLength);
-                        Console.WriteLine("compressedLength: {0}", compressedLength);
-                        Console.WriteLine("decompressedLength: {0}", decompressedLength);
-                        Console.WriteLine("hash: {0}", hash);
-                        Console.WriteLine("data_hash: {0}", data_hash);
-                        Console.WriteLine("flag: {0}", flag);
-                        Console.WriteLine("length: {0}", length);
-                        Console.WriteLine("");
-                        */
-                    }
                     
                     if (offset == 0)
                     {
@@ -182,19 +156,6 @@ namespace ClassicUO.IO
                     }
                     else
                     {
-                        if ( (printValue == true) && (i < 10) )
-                        {
-                            /*
-                            Console.WriteLine("hash: {0}", hash);
-                            Console.WriteLine("StartAddress: {0}", StartAddress);
-                            Console.WriteLine("(uint) Length: {0}", (uint) Length);
-                            Console.WriteLine("offset: {0}", offset);
-                            Console.WriteLine("compressedLength: {0}", compressedLength);
-                            Console.WriteLine("decompressedLength: {0}", decompressedLength);
-                            Console.WriteLine("");
-                            */
-                        }
-
                         _hashes.Add
                         (
                             hash,
@@ -214,11 +175,6 @@ namespace ClassicUO.IO
             } while (nextBlock != 0);
 
             TotalEntriesCount = real_total;
-
-            if (printValue == true)
-            {
-                Console.WriteLine("TotalEntriesCount: {0}", TotalEntriesCount);
-            }
         }
 
         public void ClearHashes()
@@ -238,8 +194,9 @@ namespace ClassicUO.IO
             {
                 Console.WriteLine("UOFileUop FillEntries()");
                 Console.WriteLine("UOFileUop FilePath: {0}", FilePath);
-                Console.WriteLine("entries.Length: {0}", entries.Length);          
-                // entries.Length: 2048
+                Console.WriteLine("entries.Length: {0}", entries.Length);
+                Console.WriteLine("_pattern: {0}", _pattern);
+                // entries.Length: 113
             }
 
             for (int i = 0; i < entries.Length; i++)
@@ -247,6 +204,15 @@ namespace ClassicUO.IO
                 string file = string.Format(_pattern, i);
 
                 ulong hash = CreateHash(file);
+
+                if (printValue == true)
+                {
+                    //Console.WriteLine("i: {0}, file: {1},", i, file);
+                    //Console.WriteLine("hash: {0}", hash);
+                    //Console.WriteLine("");
+                    // entries.Length: 113
+                }
+
 
                 if (printValue == true)
                 {
@@ -281,9 +247,26 @@ namespace ClassicUO.IO
             ebx = edi = esi = (uint) s.Length + 0xDEADBEEF;
             int i = 0;
 
+            if (s.Equals("build/map1legacymul/00000104.dat"))
+            {
+                //eax, ecx, edx, ebx, esi, edi
+                Console.WriteLine("s.Length: {0}", s.Length);
+                Console.WriteLine("edi: {0}", edi);
+            }
+
+            //Console.WriteLine("s[i + 7]: {0}", s[i + 7]);
+            //Console.WriteLine("s[i + 7] << 24: {0}", s[i + 7] << 24);
+
             for (i = 0; i + 12 < s.Length; i += 12)
             {
                 edi = (uint) ((s[i + 7] << 24) | (s[i + 6] << 16) | (s[i + 5] << 8) | s[i + 4]) + edi;
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //eax, ecx, edx, ebx, esi, edi
+                    Console.WriteLine("i: {0}, edi: {1}", i, edi);
+                }
+
+
                 esi = (uint) ((s[i + 11] << 24) | (s[i + 10] << 16) | (s[i + 9] << 8) | s[i + 8]) + esi;
                 edx = (uint) ((s[i + 3] << 24) | (s[i + 2] << 16) | (s[i + 1] << 8) | s[i]) - esi;
                 edx = (edx + ebx) ^ (esi >> 28) ^ (esi << 4);
@@ -298,6 +281,25 @@ namespace ClassicUO.IO
                 ebx += esi;
                 esi = (esi - edi) ^ (edi >> 28) ^ (edi << 4);
                 edi += ebx;
+            }
+
+            //Console.WriteLine("s: {0}", s);
+
+            if (s.Equals("build/map1legacymul/00000104.dat"))
+            {
+                Console.WriteLine("s: {0}", s);
+                Console.WriteLine("s.Length - i: {0}", s.Length - i);
+
+                //eax, ecx, edx, ebx, esi, edi
+                Console.WriteLine("eax: {0}", eax);
+                Console.WriteLine("ecx: {0}", ecx);
+                Console.WriteLine("edx: {0}", edx);
+                Console.WriteLine("ebx: {0}", ebx);
+                Console.WriteLine("esi: {0}", esi);
+                Console.WriteLine("edi: {0}", edi);
+
+
+                //Console.WriteLine("return_value: {0}", return_value);
             }
 
             if (s.Length - i > 0)
@@ -361,6 +363,9 @@ namespace ClassicUO.IO
                 edx = (esi ^ ecx) - ((esi >> 28) ^ (esi << 4));
                 edi = (edi ^ edx) - ((edx >> 18) ^ (edx << 14));
                 eax = (esi ^ edi) - ((edi >> 8) ^ (edi << 24));
+
+                ulong return_value = ((ulong) edi << 32) | eax;
+
 
                 return ((ulong) edi << 32) | eax;
             }

@@ -331,7 +331,7 @@ namespace ClassicUO.IO.Resources
             // maxblockcount: 458752 (896 * 512)
             // Entries[i].Length: 113
 
-            Console.WriteLine("isuop: {0}", isuop);
+            //Console.WriteLine("isuop: {0}", isuop);
 
             for (int block = 0; block < maxblockcount; block++)
             {
@@ -345,21 +345,25 @@ namespace ClassicUO.IO.Resources
                     blocknum &= 4095;
                     int shifted = block >> 12;
 
+                    if ( (i == 1) && (block < 5) )
+                    {
+                        //Console.WriteLine("block: {0}, shifted: {1}", block, shifted);
+                    }
+
                     if (fileNumber != shifted)
                     {
                         fileNumber = shifted;
 
-                        if ( (i == 1) )
-                        {
-                            //Console.WriteLine("block: {0}", block);
-                            //Console.WriteLine("shifted: {0}", shifted);
-                            //Console.WriteLine("Entries[i].Length: {0}", Entries[i].Length);
-                            //Console.WriteLine("");
-                        }
-
                         if (shifted < Entries[i].Length)
                         {
                             uopoffset = (ulong) Entries[i][shifted].Offset;
+
+                            if ( (i == 1) && (block < 5) )
+                            {
+                                //Console.WriteLine("Entries[i].Length: {0}", Entries[i].Length);
+                                //Console.WriteLine("Entries[i][shifted].Offset: {0}", Entries[i][shifted].Offset);
+                                Console.WriteLine("block: {0}, shifted: {1}, uopoffset: {2}", block, shifted, uopoffset);
+                            }
                         }
                     }
                 }

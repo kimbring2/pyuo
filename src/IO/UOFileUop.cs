@@ -90,15 +90,6 @@ namespace ClassicUO.IO
             uint block_size = ReadUInt();
             int count = ReadInt();
 
-            if (printValue == true)
-            {
-                Console.WriteLine("version: {0}", version);
-                Console.WriteLine("format_timestamp: {0}", format_timestamp);
-                Console.WriteLine("nextBlock: {0}", nextBlock);
-                Console.WriteLine("block_size: {0}", block_size);
-                Console.WriteLine("count: {0}", count);
-            }
-
             Seek(nextBlock);
             int total = 0;
             int real_total = 0;
@@ -111,8 +102,6 @@ namespace ClassicUO.IO
 
                 for (int i = 0; i < filesCount; i++)
                 {
-                    //Console.WriteLine("i: {0}", i);
-
                     long offset = ReadLong();
                     int headerLength = ReadInt();
                     int compressedLength = ReadInt();
@@ -122,6 +111,15 @@ namespace ClassicUO.IO
                     short flag = ReadShort();
                     int length = flag == 1 ? compressedLength : decompressedLength;
                     
+                    if (printValue == true)
+                    {
+                        //Console.WriteLine("i: {0}, offset: {1}", i, offset);
+                        //Console.WriteLine("format_timestamp: {0}", format_timestamp);
+                        //Console.WriteLine("nextBlock: {0}", nextBlock);
+                        //Console.WriteLine("block_size: {0}", block_size);
+                        //Console.WriteLine("count: {0}", count);
+                    }
+
                     if (offset == 0)
                     {
                         continue;
@@ -213,16 +211,6 @@ namespace ClassicUO.IO
                     // entries.Length: 113
                 }
 
-
-                if (printValue == true)
-                {
-                    //Console.WriteLine("i: {0}", i);
-                    //Console.WriteLine("_pattern: {0}", _pattern);
-                    //Console.WriteLine("file: {0}", file);
-                    //Console.WriteLine("hash: {0}", hash);
-                    // entries.Length: 2048
-                }
-
                 if (_hashes.TryGetValue(hash, out UOFileIndex data))
                 {
                     entries[i] = data;
@@ -250,8 +238,8 @@ namespace ClassicUO.IO
             if (s.Equals("build/map1legacymul/00000104.dat"))
             {
                 //eax, ecx, edx, ebx, esi, edi
-                Console.WriteLine("s.Length: {0}", s.Length);
-                Console.WriteLine("edi: {0}", edi);
+                //Console.WriteLine("s.Length: {0}", s.Length);
+                //Console.WriteLine("edi: {0}", edi);
             }
 
             //Console.WriteLine("s[i + 7]: {0}", s[i + 7]);
@@ -262,44 +250,52 @@ namespace ClassicUO.IO
                 edi = (uint) ((s[i + 7] << 24) | (s[i + 6] << 16) | (s[i + 5] << 8) | s[i + 4]) + edi;
                 if (s.Equals("build/map1legacymul/00000104.dat"))
                 {
-                    //eax, ecx, edx, ebx, esi, edi
-                    Console.WriteLine("i: {0}, edi: {1}", i, edi);
+                    //Console.WriteLine("edi 1: {0}", edi);
                 }
 
-
                 esi = (uint) ((s[i + 11] << 24) | (s[i + 10] << 16) | (s[i + 9] << 8) | s[i + 8]) + esi;
+
                 edx = (uint) ((s[i + 3] << 24) | (s[i + 2] << 16) | (s[i + 1] << 8) | s[i]) - esi;
+
                 edx = (edx + ebx) ^ (esi >> 28) ^ (esi << 4);
+
                 esi += edi;
+
                 edi = (edi - edx) ^ (edx >> 26) ^ (edx << 6);
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //Console.WriteLine("edi 2: {0}", edi);
+                }
+
                 edx += esi;
+
                 esi = (esi - edi) ^ (edi >> 24) ^ (edi << 8);
+
                 edi += edx;
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //Console.WriteLine("edi 3: {0}", edi);
+                }
+
                 ebx = (edx - esi) ^ (esi >> 16) ^ (esi << 16);
+
                 esi += edi;
+
                 edi = (edi - ebx) ^ (ebx >> 13) ^ (ebx << 19);
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //Console.WriteLine("edi 4: {0}", edi);
+                }
+
                 ebx += esi;
+
                 esi = (esi - edi) ^ (edi >> 28) ^ (edi << 4);
+
                 edi += ebx;
-            }
-
-            //Console.WriteLine("s: {0}", s);
-
-            if (s.Equals("build/map1legacymul/00000104.dat"))
-            {
-                Console.WriteLine("s: {0}", s);
-                Console.WriteLine("s.Length - i: {0}", s.Length - i);
-
-                //eax, ecx, edx, ebx, esi, edi
-                Console.WriteLine("eax: {0}", eax);
-                Console.WriteLine("ecx: {0}", ecx);
-                Console.WriteLine("edx: {0}", edx);
-                Console.WriteLine("ebx: {0}", ebx);
-                Console.WriteLine("esi: {0}", esi);
-                Console.WriteLine("edi: {0}", edi);
-
-
-                //Console.WriteLine("return_value: {0}", return_value);
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //Console.WriteLine("edi 5: {0}", edi);
+                }
             }
 
             if (s.Length - i > 0)
@@ -364,8 +360,20 @@ namespace ClassicUO.IO
                 edi = (edi ^ edx) - ((edx >> 18) ^ (edx << 14));
                 eax = (esi ^ edi) - ((edi >> 8) ^ (edi << 24));
 
-                ulong return_value = ((ulong) edi << 32) | eax;
+                //Console.WriteLine("s: {0}", s);
+                if (s.Equals("build/map1legacymul/00000104.dat"))
+                {
+                    //Console.WriteLine("s: {0}", s);
+                    //Console.WriteLine("s.Length - i: {0}", s.Length - i);
+                    //Console.WriteLine("eax: {0}", eax);
+                    //Console.WriteLine("ecx: {0}", ecx);
+                    //Console.WriteLine("edx: {0}", edx);
+                    //Console.WriteLine("ebx: {0}", ebx);
+                    //Console.WriteLine("esi: {0}", esi);
+                    //Console.WriteLine("edi: {0}", edi);
+                }
 
+                //ulong return_value = ((ulong) edi << 32) | eax;
 
                 return ((ulong) edi << 32) | eax;
             }

@@ -1,0 +1,50 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/14/2023 10:32:14
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.AggregateException: One or more errors occurred. (Index (zero based) must be greater than or equal to zero and less than the size of the argument list.) ---> System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+  at System.Text.StringBuilder.AppendFormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x000f9] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.FormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x00023] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.Format (System.IFormatProvider provider, System.String format, System.Object arg0) [0x00008] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter.WriteLine (System.String format, System.Object arg0) [0x00007] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter+SyncTextWriter.WriteLine (System.String format, System.Object arg0) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at (wrapper synchronized) System.IO.TextWriter+SyncTextWriter.WriteLine(string,object)
+  at System.Console.WriteLine (System.String format, System.Object arg0) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.IO.UOFileUop.CreateHash (System.String s) [0x000a4] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.UOFileUop.FillEntries (ClassicUO.IO.UOFileIndex[]& entries) [0x0005a] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.UOFileUop.FillEntries (ClassicUO.IO.UOFileIndex[]& entries, System.Boolean clearHashes) [0x00000] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.Resources.MapLoader.<Load>b__40_0 () [0x0022e] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+   --- End of inner exception stack trace ---
+  at System.Threading.Tasks.Task.ThrowIfExceptional (System.Boolean includeTaskCanceledExceptions) [0x00011] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.Int32 millisecondsTimeout, System.Threading.CancellationToken cancellationToken) [0x00043] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.TimeSpan timeout) [0x00022] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.IO.UOFileManager.Load () [0x00160] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.Client.Load () [0x001fa] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.Client.Run () [0x00000] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <ab312af9966f4c02ba0d840267ed805e>:0 
+---> (Inner Exception #0) System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+  at System.Text.StringBuilder.AppendFormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x000f9] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.FormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x00023] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.Format (System.IFormatProvider provider, System.String format, System.Object arg0) [0x00008] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter.WriteLine (System.String format, System.Object arg0) [0x00007] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter+SyncTextWriter.WriteLine (System.String format, System.Object arg0) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at (wrapper synchronized) System.IO.TextWriter+SyncTextWriter.WriteLine(string,object)
+  at System.Console.WriteLine (System.String format, System.Object arg0) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.IO.UOFileUop.CreateHash (System.String s) [0x000a4] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.UOFileUop.FillEntries (ClassicUO.IO.UOFileIndex[]& entries) [0x0005a] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.UOFileUop.FillEntries (ClassicUO.IO.UOFileIndex[]& entries, System.Boolean clearHashes) [0x00000] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at ClassicUO.IO.Resources.MapLoader.<Load>b__40_0 () [0x0022e] in <ab312af9966f4c02ba0d840267ed805e>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+######################## [END LOG] ########################
+
+
+

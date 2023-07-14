@@ -30,4 +30,10 @@ $ ./ClassicUO -username [Account ID] -password [Account PWD] -grpc_port [Port Nu
 e.g.  $ ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280 -grpc_port 60051
 ```
 
-## 3. Run [UoService](https://github.com/kimbring2/uoservice/blob/main/README.md#run-an-agent) after that.
+## 3. No gRPC communication with Python, Replay saving
+```
+$ ./ClassicUO -username [Account ID] -password [Account PWD] -window_width [Screen Width] -window_height [Screen Height] -replay
+e.g. ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280 -replay
+```
+
+## 4. Run [UoService](https://github.com/kimbring2/uoservice/blob/main/README.md#run-an-agent) after that.

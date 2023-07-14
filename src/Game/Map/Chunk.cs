@@ -79,12 +79,14 @@ namespace ClassicUO.Game.Map
 
             Map map = World.Map;
 
+            Console.WriteLine("Chunk Load / X: {0}, Y: {1}", X, Y);
+
             ref IndexMap im = ref GetIndex(index);
-            //Console.WriteLine("im.MapAddress 1: {0}", im.MapAddress);
+            Console.WriteLine("MapAddress: {0}, StaticAddress: {1}, StaticCount: {2}", 
+                               im.MapAddress, im.StaticAddress, im.StaticCount);
+
             if (im.MapAddress != 0)
             {
-                //Console.WriteLine("im.MapAddress 2: {0}", im.MapAddress);
-
                 MapBlock* block = (MapBlock*) im.MapAddress;
                 MapCells* cells = (MapCells*) &block->Cells;
                 int bx = X << 3;
@@ -100,7 +102,7 @@ namespace ClassicUO.Game.Map
                     for (int x = 0; x < 8; ++x, ++pos)
                     {
                         ushort tileID = (ushort) (cells[pos].TileID & 0x3FFF);
-                        //Console.WriteLine("tileID: {0}, z: {1}", tileID, cells[pos].Z);
+                        Console.WriteLine("x: {0}, y: {1}, tileID: {2}, z: {3}", x, y, tileID, cells[pos].Z);
 
                         sbyte z = cells[pos].Z;
 
@@ -147,6 +149,8 @@ namespace ClassicUO.Game.Map
                     }
                 }
             }
+
+            Console.WriteLine("");
         }
 
         private ref IndexMap GetIndex(int map)

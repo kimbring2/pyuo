@@ -4212,6 +4212,9 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 //===========================================================================================
                 case 0x18: // enable map patches
+                    //Console.WriteLine("case 0x18: // enable map patches");
+
+                    
                     if (MapLoader.Instance.ApplyPatches(ref p))
                     {
                         int map = World.MapIndex;
@@ -4220,6 +4223,7 @@ namespace ClassicUO.Network
 
                         Log.Trace("Map Patches applied.");
                     }
+                    
 
                     break;
 

@@ -135,7 +135,7 @@ namespace ClassicUO.IO.Resources
 
         public override unsafe Task Load()
         {
-            Console.WriteLine("MapLoader Load()");
+            //Console.WriteLine("MapLoader Load()");
 
             return Task.Run
             (
@@ -226,7 +226,7 @@ namespace ClassicUO.IO.Resources
                         {
                             if (i == 1)
                             {
-                                Console.WriteLine("_filesStatics / i: {0}, path: {1}", i, path);
+                                //Console.WriteLine("_filesStatics / i: {0}, path: {1}", i, path);
                             }
 
                             _filesStatics[i] = new UOFileMul(path);
@@ -237,7 +237,7 @@ namespace ClassicUO.IO.Resources
                         {
                             if (i == 1)
                             {
-                                Console.WriteLine("_filesIdxStatics / i: {0}, path: {1}", i, path);
+                                //Console.WriteLine("_filesIdxStatics / i: {0}, path: {1}", i, path);
                             }
 
                             _filesIdxStatics[i] = new UOFileMul(path);
@@ -259,7 +259,7 @@ namespace ClassicUO.IO.Resources
                     // This is an hack to patch correctly all maps when you have to fake map1
                     if (_filesMap[1] == null || _filesMap[1].StartAddress == IntPtr.Zero)
                     {
-                        Console.WriteLine("_filesMap[1] == null || _filesMap[1].StartAddress == IntPtr.Zero");
+                        //Console.WriteLine("_filesMap[1] == null || _filesMap[1].StartAddress == IntPtr.Zero");
                         _filesMap[1] = _filesMap[0];
                         _filesStatics[1] = _filesStatics[0];
                         _filesIdxStatics[1] = _filesIdxStatics[0];
@@ -435,8 +435,8 @@ namespace ClassicUO.IO.Resources
                     ulong realmapaddress_ = realmapaddress - mapddress;
                     ulong realstaticaddress_ = realstaticaddress - staticaddress;
 
-                    Console.WriteLine("block: {0}, realmapaddress: {1}, StaticAddress: {2}, StaticCount: {3}", 
-                        block, realmapaddress_, realstaticaddress_, realstaticcount);
+                    //Console.WriteLine("block: {0}, realmapaddress: {1}, StaticAddress: {2}, StaticCount: {3}", 
+                    //    block, realmapaddress_, realstaticaddress_, realstaticcount);
                 }
             }
         }
@@ -483,7 +483,7 @@ namespace ClassicUO.IO.Resources
 
         public unsafe bool ApplyPatches(ref StackDataReader reader)
         {
-            Console.WriteLine("MapLoader ApplyPatches()");
+            //Console.WriteLine("MapLoader ApplyPatches()");
 
             ResetPatchesInBlockTable();
 
@@ -680,6 +680,8 @@ namespace ClassicUO.IO.Resources
             */
 
             //Console.WriteLine("MapLoader GetIndex(), map: {0}, x: {1}, y: {1}", map, x, y);
+            //Console.WriteLine("MapBlocksSize[map, 0]: {0}", MapBlocksSize[map, 0]);
+            //Console.WriteLine("MapBlocksSize[map, 1]: {0}", MapBlocksSize[map, 1]);
 
             int block = x * MapBlocksSize[map, 1] + y;
 

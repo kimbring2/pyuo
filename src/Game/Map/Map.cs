@@ -76,7 +76,7 @@ namespace ClassicUO.Game.Map
 
         public Map(int index)
         {
-            Console.WriteLine("public Map(), index:{0}", index);
+            //Console.WriteLine("public Map(), index:{0}", index);
 
             Index = index;
             BlocksCount = MapLoader.Instance.MapBlocksSize[Index, 0] * MapLoader.Instance.MapBlocksSize[Index, 1];
@@ -117,10 +117,9 @@ namespace ClassicUO.Game.Map
 
             if (chunk == null)
             {
-                //Console.WriteLine("chunk == null");
+                //Console.WriteLine("chunk == null, Index: {0}", Index);
                 //Console.WriteLine("Map GetChunk() / x: {0}, y: {1}, load: {2}", x, y, load);
                 //Console.WriteLine("cellX: {0}, cellY: {1}", cellX, cellY);
-                //Console.WriteLine("BlocksCount: {0}, block: {1}", BlocksCount, block);
 
                 if (!load)
                 {

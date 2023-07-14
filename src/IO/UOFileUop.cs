@@ -190,10 +190,10 @@ namespace ClassicUO.IO
         {
             if (printValue == true)
             {
-                Console.WriteLine("UOFileUop FillEntries()");
-                Console.WriteLine("UOFileUop FilePath: {0}", FilePath);
-                Console.WriteLine("entries.Length: {0}", entries.Length);
-                Console.WriteLine("_pattern: {0}", _pattern);
+                //Console.WriteLine("UOFileUop FillEntries()");
+                //Console.WriteLine("UOFileUop FilePath: {0}", FilePath);
+                //Console.WriteLine("entries.Length: {0}", entries.Length);
+                //Console.WriteLine("_pattern: {0}", _pattern);
                 // entries.Length: 113
             }
 
@@ -242,16 +242,9 @@ namespace ClassicUO.IO
                 //Console.WriteLine("edi: {0}", edi);
             }
 
-            //Console.WriteLine("s[i + 7]: {0}", s[i + 7]);
-            //Console.WriteLine("s[i + 7] << 24: {0}", s[i + 7] << 24);
-
             for (i = 0; i + 12 < s.Length; i += 12)
             {
                 edi = (uint) ((s[i + 7] << 24) | (s[i + 6] << 16) | (s[i + 5] << 8) | s[i + 4]) + edi;
-                if (s.Equals("build/map1legacymul/00000104.dat"))
-                {
-                    //Console.WriteLine("edi 1: {0}", edi);
-                }
 
                 esi = (uint) ((s[i + 11] << 24) | (s[i + 10] << 16) | (s[i + 9] << 8) | s[i + 8]) + esi;
 
@@ -262,40 +255,24 @@ namespace ClassicUO.IO
                 esi += edi;
 
                 edi = (edi - edx) ^ (edx >> 26) ^ (edx << 6);
-                if (s.Equals("build/map1legacymul/00000104.dat"))
-                {
-                    //Console.WriteLine("edi 2: {0}", edi);
-                }
 
                 edx += esi;
 
                 esi = (esi - edi) ^ (edi >> 24) ^ (edi << 8);
 
                 edi += edx;
-                if (s.Equals("build/map1legacymul/00000104.dat"))
-                {
-                    //Console.WriteLine("edi 3: {0}", edi);
-                }
 
                 ebx = (edx - esi) ^ (esi >> 16) ^ (esi << 16);
 
                 esi += edi;
 
                 edi = (edi - ebx) ^ (ebx >> 13) ^ (ebx << 19);
-                if (s.Equals("build/map1legacymul/00000104.dat"))
-                {
-                    //Console.WriteLine("edi 4: {0}", edi);
-                }
 
                 ebx += esi;
 
                 esi = (esi - edi) ^ (edi >> 28) ^ (edi << 4);
 
                 edi += ebx;
-                if (s.Equals("build/map1legacymul/00000104.dat"))
-                {
-                    //Console.WriteLine("edi 5: {0}", edi);
-                }
             }
 
             if (s.Length - i > 0)
@@ -360,20 +337,10 @@ namespace ClassicUO.IO
                 edi = (edi ^ edx) - ((edx >> 18) ^ (edx << 14));
                 eax = (esi ^ edi) - ((edi >> 8) ^ (edi << 24));
 
-                //Console.WriteLine("s: {0}", s);
                 if (s.Equals("build/map1legacymul/00000104.dat"))
                 {
                     //Console.WriteLine("s: {0}", s);
-                    //Console.WriteLine("s.Length - i: {0}", s.Length - i);
-                    //Console.WriteLine("eax: {0}", eax);
-                    //Console.WriteLine("ecx: {0}", ecx);
-                    //Console.WriteLine("edx: {0}", edx);
-                    //Console.WriteLine("ebx: {0}", ebx);
-                    //Console.WriteLine("esi: {0}", esi);
-                    //Console.WriteLine("edi: {0}", edi);
                 }
-
-                //ulong return_value = ((ulong) edi << 32) | eax;
 
                 return ((ulong) edi << 32) | eax;
             }

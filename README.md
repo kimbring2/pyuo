@@ -15,7 +15,7 @@ $ dotnet build "src/ClassicUO.csproj" -c Release --runtime linux-x64
 $ dotnet publish --configuration Release --runtime linux-x64 src/ClassicUO.csproj
 ```
 
-Check the execution file is generatef under the ```bin/dist``` folder 
+Check the execution file is generated under the ```bin/dist``` folder.
 
 # Run code
 Unlike the original client, the client for UoService must operate most of the operations through argument setting.

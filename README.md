@@ -1,5 +1,5 @@
 # Introduction
-Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used at [UoService](https://github.com/kimbring2/uoservice). 
+Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used with [UoService](https://github.com/kimbring2/uoservice). The gRPC part to commucated with Python, Semephroe to sync the state and action for Machine Learning training, and replay record system are added to the original client.
 
 # Requirement
 - Ubuntu 22.04

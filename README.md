@@ -6,10 +6,14 @@ Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used wi
 
 # Build and publish code
 - Build
-```$ dotnet build "src/ClassicUO.csproj" -c Release --runtime linux-x64```
+```
+$ dotnet build "src/ClassicUO.csproj" -c Release --runtime linux-x64
+```
 
 - Publish
-```$ dotnet publish --configuration Release --runtime linux-x64 src/ClassicUO.csproj```
+```
+$ dotnet publish --configuration Release --runtime linux-x64 src/ClassicUO.csproj
+```
 
 Check the execution file is generatef under the ```bin/dist``` folder 
 

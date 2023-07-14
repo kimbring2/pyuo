@@ -13,5 +13,18 @@ Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used wi
 
 Check the execution file is generatef under the ```bin/dist``` folder 
 
-- Run
-```$ ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280```
+# Run code
+
+## 1. No gRPC communication with Python, No replay saving
+Run the C# Client. You must enter the ID and pwd of the previously created account as parameters. Login, shard selection, and character selection windows are omitted.
+```
+$ ./ClassicUO -username [Account ID] -password [Account PWD] -human_play -window_width [Screen Width] -window_height [Screen Height]
+e.g. $ ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280
+```
+
+## 2. Communication with Python, No replay saving
+Run the C# Client. Here, you need to enter the port for gRPC communication with Python.
+```
+$ ./ClassicUO -username [Account ID] -password [Account PWD] -grpc_port [Port Number]
+e.g.  $ ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280 -grpc_port 60051
+```

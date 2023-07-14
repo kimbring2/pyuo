@@ -14,6 +14,7 @@ Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used wi
 Check the execution file is generatef under the ```bin/dist``` folder 
 
 # Run code
+Unlike the original client, the client for UoService must operate most of the operations through argument setting.
 
 ## 1. No gRPC communication with Python, No replay saving
 Run the C# Client. You must enter the ID and pwd of the previously created account as parameters. Login, shard selection, and character selection windows are omitted.

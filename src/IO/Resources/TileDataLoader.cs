@@ -71,6 +71,8 @@ namespace ClassicUO.IO.Resources
                     UOFileMul tileData = new UOFileMul(path);
 
                     bool isold = Client.Version < ClientVersion.CV_7090;
+                    Console.WriteLine("isold: {0}", isold);
+
                     // isold: False
 
                     const int LAND_SIZE = 512;

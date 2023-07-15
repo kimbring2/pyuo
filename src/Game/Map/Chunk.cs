@@ -102,11 +102,13 @@ namespace ClassicUO.Game.Map
                     for (int x = 0; x < 8; ++x, ++pos)
                     {
                         ushort tileID = (ushort) (cells[pos].TileID & 0x3FFF);
-                        Console.WriteLine("x: {0}, y: {1}, tileID: {2}, z: {3}", x, y, tileID, cells[pos].Z);
-
                         sbyte z = cells[pos].Z;
 
+                        //Console.WriteLine("x: {0}, y: {1}, tileID: {2}, z: {3}", x, y, tileID, z);
+
                         Land land = Land.Create(tileID);
+
+                        //Console.WriteLine("tileID: {0}, Name: {1}", tileID, land.TileData.Name);
 
                         ushort tileX = (ushort) (bx + x);
 

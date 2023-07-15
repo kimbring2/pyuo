@@ -71,6 +71,8 @@ namespace ClassicUO.IO.Resources
                     UOFileMul tileData = new UOFileMul(path);
 
                     bool isold = Client.Version < ClientVersion.CV_7090;
+                    // isold: False
+
                     const int LAND_SIZE = 512;
 
                     int land_group = isold ? Marshal.SizeOf<LandGroupOld>() : Marshal.SizeOf<LandGroupNew>();
@@ -106,10 +108,21 @@ namespace ClassicUO.IO.Resources
 
                             for (int k = 0; k < 20; ++k)
                             {
-                                bufferString[k] = tileData.ReadByte();
+                                byte byte_data = tileData.ReadByte();
+                                Console.WriteLine("k: {0}, byte_data: {1}", k, byte_data);
+
+                                bufferString[k] = byte_data;
                             }
 
+
                             string name = string.Intern(Encoding.UTF8.GetString(bufferString, 20).TrimEnd('\0'));
+
+                            Console.WriteLine("name: {0}\n", name);
+
+                            if (textId != 0)
+                            {
+                                //Console.WriteLine("textId: {0}, name: {1}", textId, name);
+                            }
 
                             LandData[idx] = new LandTiles(flags, textId, name);
                         }

@@ -106,6 +106,10 @@ namespace ClassicUO.Game.Map
             int cellX = x >> 3;
             int cellY = y >> 3;
 
+            //Console.WriteLine("x: {0}, cellX: {1}", x, cellX);
+            //Console.WriteLine("y: {0}, cellY: {1}", y, cellY);
+            //Console.WriteLine("");
+
             int block = GetBlock(cellX, cellY);
             if (block >= BlocksCount)
             {
@@ -113,8 +117,6 @@ namespace ClassicUO.Game.Map
             }
 
             ref Chunk chunk = ref _terrainChunks[block];
-            //Console.WriteLine("chunk: {0}", chunk);
-
             if (chunk == null)
             {
                 // Map GetChunk() / x: 3544, y: 2536, load: True

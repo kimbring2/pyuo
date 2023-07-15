@@ -143,6 +143,9 @@ namespace ClassicUO.Game.Map
                                 staticObject.X = (ushort) (bx + sb->X);
                                 staticObject.Y = (ushort) (by + sb->Y);
                                 staticObject.Z = sb->Z;
+
+                                //Console.WriteLine("Color: {0}, X: {1}, Y: {2}", sb->Color, sb->X, sb->Y);
+
                                 staticObject.UpdateScreenPosition();
 
                                 AddGameObject(staticObject, sb->X, sb->Y);

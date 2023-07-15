@@ -1,0 +1,63 @@
+[07/15/2023 18:22]  System: WorldMap loading...
+[07/15/2023 18:22]  System: Loading WorldMap markers..
+[07/15/2023 18:22]  System: WorldMap markers loaded (0)
+[07/15/2023 18:22]  System: Welcome, masterkim! There is currently 1 user online, with 163487 items and 43388 mobiles in the world.
+[07/15/2023 18:22]  System: The page queue is empty.
+[07/15/2023 18:22]  masterkim:  masterkim 
+[07/15/2023 18:22]  a crow:  a crow 
+[07/15/2023 18:22]  a cat:  a cat 
+[07/15/2023 18:22]  Lyle:  Lyle the mage
+[07/15/2023 18:22]  a cat:  a cat 
+[07/15/2023 18:22]  Norton:  Norton the fisher
+[07/15/2023 18:22]  Lester:  Lester the shipwright
+[07/15/2023 18:22]  a dog:  a dog 
+[07/15/2023 18:22]  Sarsmea Smythe:  Sarsmea Smythe The Focus Instructor
+[07/15/2023 18:22]  Zion:  Zion the minter
+[07/15/2023 18:22]  Myles:  Myles the banker
+[07/15/2023 18:22]  Braxton:  Braxton the minter
+[07/15/2023 18:22]  Grear:  Grear the banker
+[07/15/2023 18:22]  Edwina:  Edwina the banker
+[07/15/2023 18:22]  Razor: [+Hidden/Stealthing]
+[07/15/2023 18:22]  System: You have joined the 'General' channel.
+[07/15/2023 18:22]  a crow:  a crow 
+[07/15/2023 18:22]  a cat:  a cat 
+[07/15/2023 18:22]  Lyle:  Lyle the mage
+[07/15/2023 18:22]  a cat:  a cat 
+[07/15/2023 18:22]  Dov:  Dov the town crier
+[07/15/2023 18:22]  Ledah:  Ledah the fisher
+[07/15/2023 18:22]  Jannelle:  Jannelle the fisher
+[07/15/2023 18:22]  Lester:  Lester the shipwright
+[07/15/2023 18:22]  Yeva:  Yeva the fisher guildmistress
+[07/15/2023 18:22]  Norton:  Norton the fisher
+[07/15/2023 18:22]  a dog:  a dog 
+[07/15/2023 18:22]  Sarsmea Smythe:  Sarsmea Smythe The Focus Instructor
+[07/15/2023 18:22]  Elwood McCarrin:  Elwood McCarrin the well-known collector
+[07/15/2023 18:22]  Zion:  Zion the minter
+[07/15/2023 18:22]  Myles:  Myles the banker
+[07/15/2023 18:22]  a dog:  a dog 
+[07/15/2023 18:22]  Braxton:  Braxton the minter
+[07/15/2023 18:22]  Logan:  Logan the minter
+[07/15/2023 18:22]  Grear:  Grear the banker
+[07/15/2023 18:22]  Edwina:  Edwina the banker
+[07/15/2023 18:22]  System: The moons of Trammel and Felucca align to preserve your virtue status and city loyalty.
+[07/15/2023 18:22]  System: WorldMap loaded!
+[07/15/2023 18:22]  System: Finished 2 queued actions in 0.6 seconds.
+[07/15/2023 18:22]  a dog:  a dog 
+[07/15/2023 18:22]  System: Steps: 1
+[07/15/2023 18:22]  Shakira:  Shakira the fisher
+[07/15/2023 18:22]  System: Steps: 2
+[07/15/2023 18:22]  Clive:  Clive the fisher
+[07/15/2023 18:22]  System: Steps: 3
+[07/15/2023 18:22]  a cat:  a cat 
+[07/15/2023 18:22]  System: Steps: 4
+[07/15/2023 18:22]  System: Steps: 5
+[07/15/2023 18:22]  Christine:  Christine the animal trainer
+[07/15/2023 18:22]  Tyl Ariadne:  Tyl Ariadne The Parrying Instructor
+[07/15/2023 18:22]  System: Steps: 6
+[07/15/2023 18:22]  Arion:  Arion the jeweler
+[07/15/2023 18:22]  Noriko:  Noriko the weaver
+[07/15/2023 18:22]  System: Steps: 7
+[07/15/2023 18:22]  Laurana:  Laurana the provisioner
+[07/15/2023 18:22]  Jarvinia:  Jarvinia the tailor
+[07/15/2023 18:22]  System: Steps: 8
+[07/15/2023 18:22]  a raven:  a raven 

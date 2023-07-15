@@ -970,17 +970,8 @@ namespace ClassicUO.Game.Scenes
                 winGameScaledHeight = 0;
             }
 
-
-            //if (_use_render_target)
-            //{
-            //    winDrawOffsetX += winGameScaledOffsetX >> 1;
-            //    winDrawOffsetY += winGameScaledOffsetY >> 1;
-            //}
-
             int width = (int) ((winGameWidth / 44 + 1) * zoom);
             int height = (int) ((winGameHeight / 44 + 1) * zoom);
-
-
             if (width < height)
             {
                 width = height;
@@ -991,7 +982,6 @@ namespace ClassicUO.Game.Scenes
             }
 
             int realMinRangeX = tileOffX - width;
-
             if (realMinRangeX < 0)
             {
                 realMinRangeX = 0;
@@ -1081,7 +1071,6 @@ namespace ClassicUO.Game.Scenes
 
                     PresentationParameters pp = Client.Game.GraphicsDevice.PresentationParameters;
 
-
                     _lightRenderTarget = new RenderTarget2D
                     (
                         Client.Game.GraphicsDevice,
@@ -1112,8 +1101,10 @@ namespace ClassicUO.Game.Scenes
             _last_scaled_offset.X = winGameScaledOffsetX;
             _last_scaled_offset.Y = winGameScaledOffsetY;
 
-
             UpdateMaxDrawZ();
+
+            Client.Game._uoServiceImpl.SetMinMaxTile((uint) _minTile.X, (uint) _minTile.Y, 
+                                                     (uint) _maxTile.X, (uint) _maxTile.Y);
         }
 
         private struct TreeUnion

@@ -109,15 +109,14 @@ namespace ClassicUO.IO.Resources
                             for (int k = 0; k < 20; ++k)
                             {
                                 byte byte_data = tileData.ReadByte();
-                                Console.WriteLine("k: {0}, byte_data: {1}", k, byte_data);
+                                //Console.WriteLine("k: {0}, byte_data: {1}", k, byte_data);
 
                                 bufferString[k] = byte_data;
                             }
 
-
                             string name = string.Intern(Encoding.UTF8.GetString(bufferString, 20).TrimEnd('\0'));
 
-                            Console.WriteLine("name: {0}\n", name);
+                            //Console.WriteLine("name: {0}\n", name);
 
                             if (textId != 0)
                             {

@@ -117,9 +117,10 @@ namespace ClassicUO.Game.Map
 
             if (chunk == null)
             {
-                //Console.WriteLine("chunk == null, Index: {0}", Index);
-                //Console.WriteLine("Map GetChunk() / x: {0}, y: {1}, load: {2}", x, y, load);
-                //Console.WriteLine("cellX: {0}, cellY: {1}", cellX, cellY);
+                // Map GetChunk() / x: 3544, y: 2536, load: True
+                // cellX: 443, cellY: 317
+                // Chunk Load / X: 443, Y: 317
+                // MapAddress: 139968141232725, StaticAddress: 139968407001771, StaticCount: 3
 
                 if (!load)
                 {

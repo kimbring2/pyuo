@@ -80,6 +80,11 @@ namespace ClassicUO.Grpc
         uint _usedLandGameY;
         List<Land> landList = new List<Land>();
 
+        uint _minTileX;
+        uint _minTileY;
+        uint _maxTileX;
+        uint _maxTileY;
+
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
         List<int> worldItemArrayLengthList = new List<int>();
@@ -115,6 +120,14 @@ namespace ClassicUO.Grpc
         byte[] staticObjectInfoListArraysTemp;
         byte[] landRockObjectInfoListArraysTemp;
         byte[] actionArraysTemp;
+
+        public void SetMinMaxTile(uint minX, uint minY, uint maxX, uint maxY)
+	    {
+	        _minTileX = minX;
+	        _minTileY = minY;
+	        _maxTileX = maxX;
+	        _maxTileY = maxY;
+	    }
 
     	public void SetUpdateWorldItemsTimer(int time)
 	    {
@@ -333,12 +346,16 @@ namespace ClassicUO.Grpc
 	        {
 	        	try
 	        	{
+	        		//Console.WriteLine("_minTileX: {0}, _minTileY: {1}, _maxTileX: {2}, _maxTileY: {3}", 
+        			//				    _minTileX, _minTileY, _maxTileX, _maxTileY);
+
 	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
 			                    							 Title=World.Player.Title, HoldItemSerial=(uint) ItemHold.Serial, 
 			                    							 WarMode=(bool) World.Player.InWarMode, 
-			                    							 TargetingState=(uint) TargetManager.TargetingState };
+			                    							 TargetingState=(uint) TargetManager.TargetingState,
+			                    							 MinTileX=_minTileX, MinTileY=_minTileY, MaxTileX=_maxTileX, MaxTileY=_maxTileY };
 			    }
 			    catch (Exception ex)
 	            {
@@ -595,38 +612,8 @@ namespace ClassicUO.Grpc
         		UpdatePlayerSkills();
         	}
 
-        	//Console.WriteLine("_mapLoad: {0}", _mapLoad);
-
-        	/*
-        	//if (_mapLoad == true)
-        	if (_envStep % 500 == 0)
-        	{	
-        		//Console.WriteLine("_mapLoad == true");
-        		if ((World.Player != null) && (World.InGame == true))
-            	{
-	        		//maxCellX: 7168, maxCellY: 4096
-	        		for (int x = 0; x < 7168; x++)
-		            {
-		            	for (int y = 0; y < 4096; y++)
-		            	{
-		            		try
-		            		{
-			            		GameObject obj = map.GetTile(x, y);
-			            		Console.WriteLine("obj: {0}", obj);
-			            		//_mapLoad = false; 
-			            	}
-			        		catch (Exception ex)
-				            {
-				            	Console.WriteLine("Failed to get the time from ({0}, {1}) position: ", x, y);
-				            }
-
-		            	}
-		            }
-
-		            Console.WriteLine("");
-		        }
-	        }
-	        */
+        	//Console.WriteLine("_minTileX: {0}, _minTileY: {1}, _maxTileX: {2}, _maxTileY: {3}", 
+        	//				  _minTileX, _minTileY, _maxTileX, _maxTileY);
 
         	if (_updatePlayerObjectTimer == 0) 
         	{
@@ -656,12 +643,12 @@ namespace ClassicUO.Grpc
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
-        	for (int i = 0; i < landList.Count; i++) 
-            {
-            	Land land = landList[i];
-                landObjectList.Add(new GrpcLandObjectData{ Index=(uint) i, GameX=(uint) land.X, GameY=(uint) land.Y, 
-                										   Distance=(uint) land.Distance});
-            }
+        	//for (int i = 0; i < landList.Count; i++) 
+            //{
+            //	Land land = landList[i];
+            //    landObjectList.Add(new GrpcLandObjectData{ Index=(uint) i, GameX=(uint) land.X, GameY=(uint) land.Y, 
+            //    										   Distance=(uint) land.Distance});
+            //}
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 
@@ -687,9 +674,9 @@ namespace ClassicUO.Grpc
 
             grpcStates.PlayerStatus = grpcPlayerStatus;
 
-            GrpcLandObjectList grpcLandObjectList = new GrpcLandObjectList();
-            GrpcSimpleObjectInfoList staticObjectInfoList = new GrpcSimpleObjectInfoList();
-            GrpcSimpleObjectInfoList landRockObjectInfoList = new GrpcSimpleObjectInfoList();
+            //GrpcLandObjectList grpcLandObjectList = new GrpcLandObjectList();
+            //GrpcSimpleObjectInfoList staticObjectInfoList = new GrpcSimpleObjectInfoList();
+            //GrpcSimpleObjectInfoList landRockObjectInfoList = new GrpcSimpleObjectInfoList();
 
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
@@ -703,6 +690,7 @@ namespace ClassicUO.Grpc
         	byte[] playerStatusArray = grpcPlayerStatus.ToByteArray();
         	byte[] playerSkillListArray = playerSkillList.ToByteArray();
 
+        	/*
         	if (playerObjectArray.Length != 0)
         	{
         		// ###################################################################
@@ -723,6 +711,7 @@ namespace ClassicUO.Grpc
         	byte[] landObjectArray = grpcLandObjectList.ToByteArray();
         	byte[] staticObjectInfoListArray = staticObjectInfoList.ToByteArray();
         	byte[] landRockObjectInfoListArray = landRockObjectInfoList.ToByteArray();
+			*/
 
         	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
 
@@ -735,8 +724,8 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
-        		landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
+        		//staticObjectInfoListArraysTemp = staticObjectInfoListArray;
+        		//landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
         	}
         	else if (_envStep == 1001) 
         	{	
@@ -748,8 +737,8 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = clilocDataArraysTemp;
             	playerStatusArrays = playerStatusArraysTemp;
             	playerSkillListArrays = playerSkillListArraysTemp;
-				staticObjectInfoListArrays = staticObjectInfoListArraysTemp;
-				landRockObjectInfoListArrays = landRockObjectInfoListArraysTemp;
+				//staticObjectInfoListArrays = staticObjectInfoListArraysTemp;
+				//landRockObjectInfoListArrays = landRockObjectInfoListArraysTemp;
 
 				// ##################################################################################
 				playerObjectArraysTemp = playerObjectArray;
@@ -759,8 +748,8 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
-        		landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
+        		//staticObjectInfoListArraysTemp = staticObjectInfoListArray;
+        		//landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
         	}
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
@@ -772,8 +761,8 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
-            	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
-            	landRockObjectInfoListArrays = ConcatByteArrays(landRockObjectInfoListArrays, landRockObjectInfoListArraysTemp);
+            	//staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
+            	//landRockObjectInfoListArrays = ConcatByteArrays(landRockObjectInfoListArrays, landRockObjectInfoListArraysTemp);
 
 				// ##################################################################################
             	playerObjectArraysTemp = playerObjectArray;
@@ -783,8 +772,8 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
-        		staticObjectInfoListArraysTemp = staticObjectInfoListArray;
-        		landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
+        		//staticObjectInfoListArraysTemp = staticObjectInfoListArray;
+        		//landRockObjectInfoListArraysTemp = landRockObjectInfoListArray;
         	}
         	else if (_envStep == 1001 * _totalStepScale)
         	{
@@ -796,8 +785,8 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
-            	staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
-            	landRockObjectInfoListArrays = ConcatByteArrays(landRockObjectInfoListArrays, landRockObjectInfoListArraysTemp);
+            	//staticObjectInfoListArrays = ConcatByteArrays(staticObjectInfoListArrays, staticObjectInfoListArraysTemp);
+            	//landRockObjectInfoListArrays = ConcatByteArrays(landRockObjectInfoListArrays, landRockObjectInfoListArraysTemp);
 				
             	if (Settings.Replay == true)
 	            {
@@ -822,8 +811,8 @@ namespace ClassicUO.Grpc
             	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
-            	staticObjectInfoListArraysTemp = ConcatByteArrays(staticObjectInfoListArraysTemp, staticObjectInfoListArray);
-            	landRockObjectInfoListArraysTemp = ConcatByteArrays(landRockObjectInfoListArraysTemp, landRockObjectInfoListArray);
+            	//staticObjectInfoListArraysTemp = ConcatByteArrays(staticObjectInfoListArraysTemp, staticObjectInfoListArray);
+            	//landRockObjectInfoListArraysTemp = ConcatByteArrays(landRockObjectInfoListArraysTemp, landRockObjectInfoListArray);
         	}
 
         	// ##################################################################################
@@ -834,8 +823,8 @@ namespace ClassicUO.Grpc
 			clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
         	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
-        	staticObjectInfoListArraysLengthList.Add((int) staticObjectInfoListArray.Length);
-        	landRockObjectInfoListArraysLengthList.Add((int) landRockObjectInfoListArray.Length);
+        	//staticObjectInfoListArraysLengthList.Add((int) staticObjectInfoListArray.Length);
+        	//landRockObjectInfoListArraysLengthList.Add((int) landRockObjectInfoListArray.Length);
 			
         	// ##################################################################################
         	_envStep++;
@@ -933,11 +922,11 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        landObjectList.Clear();
-        	grpcStaticObjectGameXs.Clear();
-	        grpcStaticObjectGameYs.Clear();
-	        grpcLandRockObjectGameXs.Clear();
-	        grpcLandRockObjectGameYs.Clear();
+	        //landObjectList.Clear();
+        	//grpcStaticObjectGameXs.Clear();
+	        //grpcStaticObjectGameYs.Clear();
+	        //grpcLandRockObjectGameXs.Clear();
+	        //grpcLandRockObjectGameYs.Clear();
 
 	        _usedLandGameX = 0;
         	_usedLandGameY = 0;
@@ -1207,11 +1196,11 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        landObjectList.Clear();
-        	grpcStaticObjectGameXs.Clear();
-	        grpcStaticObjectGameYs.Clear();
-	        grpcLandRockObjectGameXs.Clear();
-	        grpcLandRockObjectGameYs.Clear();
+	        //landObjectList.Clear();
+        	//grpcStaticObjectGameXs.Clear();
+	        //grpcStaticObjectGameYs.Clear();
+	        //grpcLandRockObjectGameXs.Clear();
+	        //grpcLandRockObjectGameYs.Clear();
 
 	        _usedLandGameX = 0;
         	_usedLandGameY = 0;

@@ -79,11 +79,11 @@ namespace ClassicUO.Game.Map
 
             Map map = World.Map;
 
-            Console.WriteLine("Chunk Load / X: {0}, Y: {1}", X, Y);
+            //Console.WriteLine("Chunk Load / X: {0}, Y: {1}", X, Y);
 
             ref IndexMap im = ref GetIndex(index);
-            Console.WriteLine("MapAddress: {0}, StaticAddress: {1}, StaticCount: {2}", 
-                               im.MapAddress, im.StaticAddress, im.StaticCount);
+            //Console.WriteLine("MapAddress: {0}, StaticAddress: {1}, StaticCount: {2}", 
+            //                   im.MapAddress, im.StaticAddress, im.StaticCount);
 
             if (im.MapAddress != 0)
             {
@@ -152,7 +152,7 @@ namespace ClassicUO.Game.Map
                 }
             }
 
-            Console.WriteLine("");
+            //Console.WriteLine("");
         }
 
         private ref IndexMap GetIndex(int map)

@@ -743,7 +743,7 @@ namespace ClassicUO.Game.Scenes
                         continue;
                     }
 
-                    PushToGameObjectList(obj);
+                    //PushToGameObjectList(obj);
                 }
                 else if (obj is Static staticc)
                 {
@@ -785,12 +785,12 @@ namespace ClassicUO.Game.Scenes
                     // hacky way to render shadows without z-fight
                     if (ProfileManager.CurrentProfile.ShadowsEnabled && ProfileManager.CurrentProfile.ShadowsStatics && (StaticFilters.IsTree(obj.Graphic, out _) || itemData.IsFoliage || StaticFilters.IsRock(obj.Graphic)))
                     {
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     }
                     else
                     {
                         var alpha = obj.AlphaHue;
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     } 
                 }
                 else if (obj is Multi multi)
@@ -838,12 +838,12 @@ namespace ClassicUO.Game.Scenes
                     // hacky way to render shadows without z-fight
                     if (ProfileManager.CurrentProfile.ShadowsEnabled && ProfileManager.CurrentProfile.ShadowsStatics && (StaticFilters.IsTree(obj.Graphic, out _) || itemData.IsFoliage || StaticFilters.IsRock(obj.Graphic)))
                     {
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     }
                     else
                     {
                         var alpha = obj.AlphaHue;
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     }
                 }
                 else if (obj is Mobile mobile)
@@ -861,7 +861,7 @@ namespace ClassicUO.Game.Scenes
                         continue;
                     }
 
-                    PushToGameObjectList(obj);
+                    //PushToGameObjectList(obj);
                 }
                 else if (obj is Item item)
                 {
@@ -901,11 +901,11 @@ namespace ClassicUO.Game.Scenes
 
                     if (item.IsCorpse)
                     {
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     }
                     else
                     {
-                        PushToGameObjectList(obj);
+                        //PushToGameObjectList(obj);
                     }         
                 }
                 else if (obj is GameEffect effect)
@@ -919,7 +919,7 @@ namespace ClassicUO.Game.Scenes
                     {
                     }
 
-                    PushToGameObjectList(obj);
+                    //PushToGameObjectList(obj);
                 }
             }
         }

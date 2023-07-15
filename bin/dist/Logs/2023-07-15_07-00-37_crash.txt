@@ -1,0 +1,29 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/15/2023 19:00:37
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.AggregateException: One or more errors occurred. (No maps found.) ---> System.IO.FileNotFoundException: No maps found.
+  at ClassicUO.IO.Resources.MapLoader.<Load>b__40_0 () [0x003dc] in <2d88c886b143426694a30496e2ee0bce>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+   --- End of inner exception stack trace ---
+  at System.Threading.Tasks.Task.ThrowIfExceptional (System.Boolean includeTaskCanceledExceptions) [0x00011] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.Int32 millisecondsTimeout, System.Threading.CancellationToken cancellationToken) [0x00043] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Wait (System.TimeSpan timeout) [0x00022] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.IO.UOFileManager.Load () [0x00160] in <2d88c886b143426694a30496e2ee0bce>:0 
+  at ClassicUO.Client.Load () [0x001fa] in <2d88c886b143426694a30496e2ee0bce>:0 
+  at ClassicUO.Client.Run () [0x00000] in <2d88c886b143426694a30496e2ee0bce>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <2d88c886b143426694a30496e2ee0bce>:0 
+---> (Inner Exception #0) System.IO.FileNotFoundException: No maps found.
+  at ClassicUO.IO.Resources.MapLoader.<Load>b__40_0 () [0x003dc] in <2d88c886b143426694a30496e2ee0bce>:0 
+  at System.Threading.Tasks.Task.InnerInvoke () [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.Threading.Tasks.Task.Execute () [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 <---
+
+######################## [END LOG] ########################
+
+

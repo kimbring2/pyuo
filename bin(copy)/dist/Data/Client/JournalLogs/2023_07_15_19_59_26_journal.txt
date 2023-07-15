@@ -1,0 +1,74 @@
+[07/15/2023 19:59]  System: WorldMap loading...
+[07/15/2023 19:59]  System: Loading WorldMap markers..
+[07/15/2023 19:59]  System: WorldMap markers loaded (0)
+[07/15/2023 19:59]  System: Welcome, masterkim! There is currently 1 user online, with 161992 items and 43205 mobiles in the world.
+[07/15/2023 19:59]  System: The page queue is empty.
+[07/15/2023 19:59]  masterkim:  masterkim 
+[07/15/2023 19:59]  a bull:  a bull 
+[07/15/2023 19:59]  a grey wolf:  a grey wolf 
+[07/15/2023 19:59]  a llama:  a llama 
+[07/15/2023 19:59]  Razor: [+Hidden/Stealthing]
+[07/15/2023 19:59]  System: You have joined the 'General' channel.
+[07/15/2023 19:59]  a jack rabbit:  a jack rabbit 
+[07/15/2023 19:59]  a bull:  a bull 
+[07/15/2023 19:59]  an eagle:  an eagle 
+[07/15/2023 19:59]  a llama:  a llama 
+[07/15/2023 19:59]  a great hart:  a great hart 
+[07/15/2023 19:59]  a goat:  a goat 
+[07/15/2023 19:59]  a grey wolf:  a grey wolf 
+[07/15/2023 19:59]  a great hart:  a great hart 
+[07/15/2023 19:59]  a llama:  a llama 
+[07/15/2023 19:59]  System: The moons of Trammel and Felucca align to preserve your virtue status and city loyalty.
+[07/15/2023 19:59]  System: WorldMap loaded!
+[07/15/2023 19:59]  a hind:  a hind 
+[07/15/2023 19:59]  System: Finished 2 queued actions in 0.6 seconds.
+[07/15/2023 19:59]  a swift:  a swift 
+[07/15/2023 19:59]  a great hart:  a great hart 
+[07/15/2023 19:59]  System: Steps: 1
+[07/15/2023 19:59]  System: Steps: 2
+[07/15/2023 19:59]  a bull:  a bull 
+[07/15/2023 19:59]  an eagle:  an eagle 
+[07/15/2023 19:59]  System: Steps: 3
+[07/15/2023 19:59]  a brown bear:  a brown bear 
+[07/15/2023 19:59]  a mongbat:  a mongbat 
+[07/15/2023 19:59]  System: Steps: 4
+[07/15/2023 19:59]  System: Steps: 5
+[07/15/2023 19:59]  System: Steps: 6
+[07/15/2023 19:59]  System: Steps: 7
+[07/15/2023 19:59]  System: Steps: 8
+[07/15/2023 19:59]  System: Steps: 9
+[07/15/2023 19:59]  System: Steps: 10
+[07/15/2023 19:59]  System: Steps: 11
+[07/15/2023 19:59]  System: Steps: 12
+[07/15/2023 19:59]  System: Steps: 13
+[07/15/2023 19:59]  System: Steps: 14
+[07/15/2023 19:59]  System: Steps: 15
+[07/15/2023 19:59]  System: Steps: 16
+[07/15/2023 19:59]  System: Steps: 17
+[07/15/2023 19:59]  Lowel:  Lowel the carpenter
+[07/15/2023 19:59]  System: Steps: 18
+[07/15/2023 19:59]  System: Steps: 19
+[07/15/2023 19:59]  System: Steps: 20
+[07/15/2023 19:59]  System: Steps: 21
+[07/15/2023 19:59]  System: Steps: 22
+[07/15/2023 19:59]  System: Steps: 23
+[07/15/2023 19:59]  System: Steps: 24
+[07/15/2023 19:59]  System: Steps: 25
+[07/15/2023 19:59]  Hargrove:  Hargrove the lumberjack
+[07/15/2023 19:59]  Lander:  Lander the carpenter
+[07/15/2023 19:59]  System: Steps: 26
+[07/15/2023 19:59]  System: Steps: 27
+[07/15/2023 19:59]  System: Steps: 28
+[07/15/2023 19:59]  System: Steps: 29
+[07/15/2023 19:59]  System: Steps: 30
+[07/15/2023 19:59]  System: Steps: 31
+[07/15/2023 19:59]  Nelson:  Nelson the Shepherd
+[07/15/2023 19:59]  William:  William the tanner
+[07/15/2023 19:59]  Tadi:  Tadi the furtrader
+[07/15/2023 19:59]  Lane:  Lane the furtrader
+[07/15/2023 19:59]  Dale:  Dale the leather worker
+[07/15/2023 19:59]  Morley:  Morley the tanner
+[07/15/2023 19:59]  System: You are now under the protection of the town guards.
+[07/15/2023 19:59]  a dog:  a dog 
+[07/15/2023 19:59]  Lester:  Lester the shipwright
+[07/15/2023 19:59]  Blanche:  Blanche the peasant

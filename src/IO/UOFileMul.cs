@@ -56,7 +56,7 @@ namespace ClassicUO.IO
 
         public override void FillEntries(ref UOFileIndex[] entries)
         {
-            Console.WriteLine("UOFileMul FillEntries(): {0}", FilePath);
+            //Console.WriteLine("UOFileMul FillEntries(): {0}", FilePath);
 
             UOFile file = _idxFile ?? (UOFile) this;
 

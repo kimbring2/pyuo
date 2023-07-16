@@ -555,6 +555,7 @@ namespace ClassicUO.Game
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
             Client.Game._uoServiceImpl.SetTargetSerial(container);
+            Client.Game._uoServiceImpl.SetUsedLand(x, y);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {

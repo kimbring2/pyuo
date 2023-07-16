@@ -478,8 +478,6 @@ namespace ClassicUO.Game.Scenes
                 }
                 else if (gobj is Land || gobj is Static || gobj is Multi)
                 {
-                    Client.Game._uoServiceImpl.SetUsedLand(gobj.X, gobj.Y);
-
                     can_drop = gobj.Distance <= Constants.DRAG_ITEMS_DISTANCE;
                     if (can_drop)
                     {

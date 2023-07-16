@@ -66,18 +66,12 @@ namespace ClassicUO.Grpc
         int _updateWorldItemsTimer;
         int _updatePlayerObjectTimer;
 
-        bool _mapLoad = true;
-        Map map;
-
-        //Land _usedLand;
-        uint _usedLandGameX;
-        uint _usedLandGameY;
-        List<Land> landList = new List<Land>();
-
         uint _minTileX;
         uint _minTileY;
         uint _maxTileX;
         uint _maxTileY;
+
+        uint _usedLandIndex;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -167,14 +161,61 @@ namespace ClassicUO.Grpc
 	        return _envStep;
 	    }
 
-	    //public void SetUsedLand(Land usedLand)
-	    public void SetUsedLand(uint gameX, uint gameY)
+	    public void SetUsedLand(int gameX, int gameY)
 	    {
-	    	//Console.WriteLine("SetUsedLand()");
+	    	Console.WriteLine("SetUsedLand()");
+	        //_usedLandGameX = gameX;
+        	//_usedLandGameY = gameY;
+
+        	_usedLandIndex = GetLandIndex((uint) gameX, (uint) gameY);
+        	//Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
+	    }
+
+	    public uint GetLandIndex(uint gameX, uint gameY)
+	    {
+	    	//Console.WriteLine("GetLandIndex()");
+
+	    	uint x_relative = 0;
+	    	for (uint i = _minTileX; i < _maxTileX; i++)
+            {
+            	if (gameX == i)
+                {
+                	x_relative = i - _minTileX;
+                }
+            }
+
+            uint y_relative = 0;
+            for (uint i = _minTileY; i < _maxTileY; i++)
+            {
+            	if (gameY == i)
+                {
+                	y_relative = i - _minTileY;
+                }
+            }
+
+            uint index = x_relative * (_maxTileX - _minTileX) + y_relative;
+
+            Vector2 landPosition = GetLandPosition(index);
+
+            //Console.WriteLine("Original / gameX: {0}, gameY: {1}", gameX, gameY);
+            //Console.WriteLine("Decoded / gameX: {0}, gameY: {1}", landPosition.X, landPosition.Y);
+
+            return index;
+	    }
+
+	    public Vector2 GetLandPosition(uint index)
+	    {
+	    	//Console.WriteLine("GetLandPosition()");
+
+	    	uint gameX = index / (_maxTileX - _minTileX);
+	    	uint gameY = index % (_maxTileX - _minTileX);
 	    	//Console.WriteLine("gameX: {0}, gameY: {1}", gameX, gameY);
-	    	//_usedLand = usedLand;
-	        _usedLandGameX = gameX;
-        	_usedLandGameY = gameY;
+
+	    	Vector2 landPosition = new Vector2();
+	    	landPosition.X = gameX + _minTileX;
+	    	landPosition.Y = gameY + _minTileY;
+
+            return landPosition;
 	    }
 
         public UoServiceImpl(GameController controller, int port)
@@ -229,15 +270,11 @@ namespace ClassicUO.Grpc
 	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
-	        map = World.Map;
-	        _mapLoad = true;
-
     		_envStep = 0;
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
-	        _usedLandGameX = 0;
-        	_usedLandGameY = 0;
+        	_usedLandIndex = 0;
         }
 
         private void CreateMpqFile()
@@ -564,13 +601,6 @@ namespace ClassicUO.Grpc
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
-        	//for (int i = 0; i < landList.Count; i++) 
-            //{
-            //	Land land = landList[i];
-            //    landObjectList.Add(new GrpcLandObjectData{ Index=(uint) i, GameX=(uint) land.X, GameY=(uint) land.Y, 
-            //    										   Distance=(uint) land.Distance});
-            //}
-
 		    grpcStates.PlayerObject = grpcPlayerObject;
 
 	        GrpcItemObjectList grpcWorldItemList = new GrpcItemObjectList();
@@ -728,13 +758,6 @@ namespace ClassicUO.Grpc
 		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
-		    if (_usedLandGameX != 0)
-		    {
-		    	Console.WriteLine("_usedLandGameX != 0");
-                _usedLandGameX = 0;
-        		_usedLandGameY = 0;
-		    }
-
 		    if (grpcAction.ActionType == 0)
 		    {
 			    grpcAction = new GrpcAction();
@@ -789,9 +812,7 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-
-	        _usedLandGameX = 0;
-        	_usedLandGameY = 0;
+	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();
         }
@@ -863,14 +884,17 @@ namespace ClassicUO.Grpc
 	        	// Drop the holded item
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 4");
-	        		//Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 	        		if (grpcAction.TargetSerial != 0)
 	        		{
+	        			Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
+
         				GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
         			}
         			else if (grpcAction.TargetSerial == 0)
         			{
+        				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
+
         				// Drop the holded item on land around the player
 		        		//int randomNumber;
 						//Random RNG = new Random();
@@ -878,6 +902,8 @@ namespace ClassicUO.Grpc
         				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 		        		uint index = grpcAction.Index;
+
+
 		        		try
 		        		{   
 		        			//Vector2 selected = itemDropableLandSimpleList[index];
@@ -902,15 +928,17 @@ namespace ClassicUO.Grpc
 	        		Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 	        		//GrpcLandObjectData landObject = landObjectList[grpcAction.Index];
-	        		Land targetLand = landList[(int) grpcAction.Index];
+	        		//Land targetLand = landList[(int) grpcAction.Index];
 
-	        		Console.WriteLine("targetLand: {0}: ", targetLand);
+	        		//Console.WriteLine("targetLand: {0}: ", targetLand);
 
+	        		/*
 	        		// Use the abililty to the land target
 	        		TargetManager.Target
                     (
                         0, targetLand.X, targetLand.Y, targetLand.Z, targetLand.TileData.IsWet
                     );
+                    */
 	        	}
 	        } 
 	        else if (grpcAction.ActionType == 6) {
@@ -1057,8 +1085,7 @@ namespace ClassicUO.Grpc
 	        grpcClilocDataList.Clear();
 	        grpcPlayerSkillListList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        _usedLandGameX = 0;
-        	_usedLandGameY = 0;
+	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();
 

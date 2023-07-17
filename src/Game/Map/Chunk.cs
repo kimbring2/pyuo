@@ -92,7 +92,7 @@ namespace ClassicUO.Game.Map
                 int bx = X << 3;
                 int by = Y << 3;
 
-                //Console.WriteLine("bx: {0}, by: {1}", bx, by);
+                Console.WriteLine("bx: {0}, by: {1}", bx, by);
 
                 for (int y = 0; y < 8; ++y)
                 {
@@ -126,6 +126,7 @@ namespace ClassicUO.Game.Map
 
                 if (im.StaticAddress != 0)
                 {
+                    //Console.WriteLine("im.StaticAddress: {0}", (uint) im.StaticAddress);
                     StaticsBlock* sb = (StaticsBlock*) im.StaticAddress;
                     if (sb != null)
                     {
@@ -144,7 +145,15 @@ namespace ClassicUO.Game.Map
                                 staticObject.Y = (ushort) (by + sb->Y);
                                 staticObject.Z = sb->Z;
 
-                                //Console.WriteLine("Color: {0}, X: {1}, Y: {2}", sb->Color, sb->X, sb->Y);
+                                String str = staticObject.Name;
+
+                                //Console.WriteLine("sb: {0}", (uint) sb);
+
+                                if (str.Contains("wood"))
+                                {
+                                    Console.WriteLine("Color: {0}, X: {1}, Y: {2}, Name: {3}", 
+                                        sb->Color, (ushort) (bx + sb->X), (by + sb->Y), staticObject.Name);
+                                }
 
                                 staticObject.UpdateScreenPosition();
 
@@ -153,9 +162,9 @@ namespace ClassicUO.Game.Map
                         }
                     }
                 }
-            }
 
-            //Console.WriteLine("");
+                Console.WriteLine("");
+            }
         }
 
         private ref IndexMap GetIndex(int map)

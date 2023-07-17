@@ -748,7 +748,6 @@ namespace ClassicUO.Game.Scenes
                 else if (obj is Static staticc)
                 {
                     ref var itemData = ref staticc.ItemData;
-
                     if (itemData.IsInternal)
                     {
                         continue;
@@ -791,7 +790,11 @@ namespace ClassicUO.Game.Scenes
                     {
                         var alpha = obj.AlphaHue;
                         //PushToGameObjectList(obj);
-                    } 
+                    }
+
+                    Static objStatic = (Static) obj;
+
+                    //Console.WriteLine("objStatic.Name: {0}", objStatic.Name);
                 }
                 else if (obj is Multi multi)
                 {
@@ -1426,7 +1429,6 @@ namespace ClassicUO.Game.Scenes
             _healthLinesManager.Draw(batcher);
 
             int renderIndex = _renderIndex - 1;
-
             if (renderIndex < 1)
             {
                 renderIndex = 99;

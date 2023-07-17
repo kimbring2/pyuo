@@ -163,9 +163,12 @@ namespace ClassicUO.Grpc
 
 	    public void SetUsedLand(int gameX, int gameY)
 	    {
-	    	//Console.WriteLine("SetUsedLand()");
+	    	Console.WriteLine("SetUsedLand()");
 
         	_usedLandIndex = GetLandIndex((uint) gameX, (uint) gameY);
+        	Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
+        	
+        	SetIndex(_usedLandIndex);
         	//Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
 	    }
 
@@ -766,7 +769,7 @@ namespace ClassicUO.Grpc
         	else if (_envStep == 1001) 
         	{	
             	// ##################################################################################
-        		actionArrays =actionArraysTemp;
+        		actionArrays = actionArraysTemp;
 
 				// ##################################################################################
 				actionArraysTemp = actionArray;
@@ -887,13 +890,9 @@ namespace ClassicUO.Grpc
         			else if (grpcAction.TargetSerial == 0)
         			{
         				// Drop the holded item on land around the player
-		        		//int randomNumber;
-						//Random RNG = new Random();
-		        		//int index = RNG.Next(itemDropableLandSimpleList.Count);
         				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 		        		uint index = grpcAction.Index;
-
 		        		try
 		        		{   
 		        			//Vector2 selected = itemDropableLandSimpleList[index];

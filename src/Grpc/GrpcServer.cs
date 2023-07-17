@@ -163,9 +163,7 @@ namespace ClassicUO.Grpc
 
 	    public void SetUsedLand(int gameX, int gameY)
 	    {
-	    	Console.WriteLine("SetUsedLand()");
-	        //_usedLandGameX = gameX;
-        	//_usedLandGameY = gameY;
+	    	//Console.WriteLine("SetUsedLand()");
 
         	_usedLandIndex = GetLandIndex((uint) gameX, (uint) gameY);
         	//Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
@@ -194,11 +192,6 @@ namespace ClassicUO.Grpc
             }
 
             uint index = x_relative * (_maxTileX - _minTileX) + y_relative;
-
-            Vector2 landPosition = GetLandPosition(index);
-
-            //Console.WriteLine("Original / gameX: {0}, gameY: {1}", gameX, gameY);
-            //Console.WriteLine("Decoded / gameX: {0}, gameY: {1}", landPosition.X, landPosition.Y);
 
             return index;
 	    }
@@ -893,8 +886,6 @@ namespace ClassicUO.Grpc
         			}
         			else if (grpcAction.TargetSerial == 0)
         			{
-        				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
-
         				// Drop the holded item on land around the player
 		        		//int randomNumber;
 						//Random RNG = new Random();
@@ -903,7 +894,6 @@ namespace ClassicUO.Grpc
 
 		        		uint index = grpcAction.Index;
 
-
 		        		try
 		        		{   
 		        			//Vector2 selected = itemDropableLandSimpleList[index];
@@ -911,7 +901,9 @@ namespace ClassicUO.Grpc
 		        			//GrpcLandObjectData selected = landObjectList[(int) index];
 		        			//Console.WriteLine("selected.GameX: {0}, selected.GameY: {1}", selected.GameX, selected.GameY);
 
-		        			//GameActions.DropItem((uint) ItemHold.Serial, (int) selected.GameX, (int) selected.GameY, 0, 0xFFFF_FFFF);
+		        			Vector2 selected = GetLandPosition(index);
+
+		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
 
 		        		}
 		        		catch (Exception ex)

@@ -1,0 +1,18 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/18/2023 06:24:03
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ClassicUO.Grpc.UoServiceImpl.Reset () [0x00057] in <0ca0d86b82724c79b94f82d2c30ed6a5>:0 
+  at ClassicUO.Grpc.UoServiceImpl..ctor (ClassicUO.GameController controller, System.Int32 port) [0x0013b] in <0ca0d86b82724c79b94f82d2c30ed6a5>:0 
+  at ClassicUO.GameController..ctor () [0x00068] in <0ca0d86b82724c79b94f82d2c30ed6a5>:0 
+  at ClassicUO.Client.Run () [0x00005] in <0ca0d86b82724c79b94f82d2c30ed6a5>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <0ca0d86b82724c79b94f82d2c30ed6a5>:0 
+######################## [END LOG] ########################
+
+

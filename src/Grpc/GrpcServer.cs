@@ -167,7 +167,7 @@ namespace ClassicUO.Grpc
 
         	_usedLandIndex = GetLandIndex((uint) gameX, (uint) gameY);
         	Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
-        	
+
         	SetIndex(_usedLandIndex);
         	//Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
 	    }
@@ -228,6 +228,10 @@ namespace ClassicUO.Grpc
 	        };
 
 	        _envStep = 0;
+    		_totalStepScale = 2;
+	        _updateWorldItemsTimer = -1;
+	        _updatePlayerObjectTimer = -1;
+        	_usedLandIndex = 0;
         }
 
         private void Reset()
@@ -426,7 +430,6 @@ namespace ClassicUO.Grpc
         public void UpdateWorldItems()
         {
         	//Console.WriteLine("UpdateWorldItems()");
-
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {
 		        foreach (Item item in World.Items.Values)
@@ -437,7 +440,7 @@ namespace ClassicUO.Grpc
 	            		try
 		                {
 	                    	AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
-	                    			   	item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
+	                    			   	  item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
 	                    }
 	                    catch (Exception ex) 
 		                {
@@ -559,7 +562,7 @@ namespace ClassicUO.Grpc
         	//if ( (config_init == true) || (Settings.Replay == false) )
         	if (config_init == true)
         	{
-        		//Console.WriteLine("config_init == true");
+        		Console.WriteLine("config_init == true");
         		UpdatePlayerObject();
         		UpdateWorldItems();
         		UpdatePlayerStatus();
@@ -594,7 +597,7 @@ namespace ClassicUO.Grpc
 
         	if (_envStep % 1000 == 0)
         	{
-        		Console.WriteLine("_envStep: {0}", _envStep);
+        		//Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
@@ -633,7 +636,18 @@ namespace ClassicUO.Grpc
         	byte[] playerStatusArray = grpcPlayerStatus.ToByteArray();
         	byte[] playerSkillListArray = playerSkillList.ToByteArray();
 
-        	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
+        	if (worldItemArray.Length != 0) 
+        	{
+	        	Console.WriteLine("_envStep: {0}", _envStep);
+	        	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
+	        	Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
+	        	//Console.WriteLine("worldMobileArray.Length: {0}", worldMobileArray.Length);
+	        	//Console.WriteLine("popupMenuArray.Length: {0}", popupMenuArray.Length);
+	        	//Console.WriteLine("clilocDataArray.Length: {0}", clilocDataArray.Length);
+	        	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
+	        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
+	        	Console.WriteLine("");
+	        }
 
         	if (_envStep == 0) 
         	{
@@ -698,7 +712,7 @@ namespace ClassicUO.Grpc
 				
             	if (Settings.Replay == true)
 	            {
-	            	//Console.WriteLine("obs reset / _envStep: {0}", _envStep);
+	            	Console.WriteLine("obs reset / _envStep: {0}", _envStep);
 	                SaveReplayFile();
 	        		CreateMpqFile();
 	        		Reset();

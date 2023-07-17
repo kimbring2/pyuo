@@ -1901,7 +1901,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItems()");
+            Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {
@@ -4213,7 +4213,7 @@ namespace ClassicUO.Network
                 //===========================================================================================
                 case 0x18: // enable map patches
                     //Console.WriteLine("case 0x18: // enable map patches");
-                
+
                     if (MapLoader.Instance.ApplyPatches(ref p))
                     {
                         int map = World.MapIndex;
@@ -4841,7 +4841,7 @@ namespace ClassicUO.Network
             }
 
             Client.Game._uoServiceImpl.UpdateWorldMobiles();
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void GenericAOSCommandsR(ref StackDataReader p)
@@ -6143,13 +6143,14 @@ namespace ClassicUO.Network
 
             if (item != null)
             {
-                Client.Game._uoServiceImpl.UpdateWorldItems();
+                //Console.WriteLine("item.Name: {0}", item.Name);
+                //Client.Game._uoServiceImpl.UpdateWorldItems();
 
                 //Console.WriteLine("item: {0}", item);
                 World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
                 if (name != null)
                 {
-                    //Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
+                    Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
                     uint itemSerial = (uint) item;
                     //Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
                     //                                         item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
@@ -6159,6 +6160,7 @@ namespace ClassicUO.Network
 
             if (mobile != null)
             {
+                //Console.WriteLine("mobile.Name: {0}", mobile.Name);
                 Client.Game._uoServiceImpl.UpdateWorldMobiles();
 
                 World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
@@ -6208,7 +6210,7 @@ namespace ClassicUO.Network
         {
             if (serial == World.Player)
             {
-                Console.WriteLine("UpdatePlayer()");
+                //Console.WriteLine("UpdatePlayer()");
 
                 World.Player.CloseBank();
 

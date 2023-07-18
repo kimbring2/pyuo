@@ -76,10 +76,6 @@ namespace ClassicUO.Network
 
         public void AnalyzePacket(byte[] data, int offset, int length)
         {
-            //Console.WriteLine("AnalyzePacket()");
-            //Console.WriteLine("data[0]: ");
-            //Console.WriteLine(data[0]);
-
             OnPacketBufferReader bufferReader = _handlers[data[0]];
 
             if (bufferReader != null)
@@ -252,7 +248,7 @@ namespace ClassicUO.Network
 
         private static void TargetCursor(ref StackDataReader p)
         {
-            Console.WriteLine("TargetCursor()");
+            //Console.WriteLine("TargetCursor()");
 
             TargetManager.SetTargeting((CursorTarget) p.ReadUInt8(), p.ReadUInt32BE(), (TargetType) p.ReadUInt8());
 
@@ -876,7 +872,7 @@ namespace ClassicUO.Network
 
         private static void DeleteObject(ref StackDataReader p)
         {
-            //Console.WriteLine("DeleteObject()");
+            Console.WriteLine("DeleteObject()");
 
             if (World.Player == null)
             {
@@ -1153,7 +1149,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            Console.WriteLine("OpenContainer()");
+            //Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1380,7 +1376,7 @@ namespace ClassicUO.Network
 
             if (graphic != 0x0030)
             {
-                Console.WriteLine("graphic != 0x0030");
+                //Console.WriteLine("graphic != 0x0030");
 
                 Item it = World.Items.Get(serial);
                 if (it != null)
@@ -1398,7 +1394,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItem()");
+            Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1431,7 +1427,8 @@ namespace ClassicUO.Network
             );
 
             Client.Game._uoServiceImpl.UpdatePlayerStatus();
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            //Client.Game._uoServiceImpl.UpdateWorldItems(2);
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1946,7 +1943,8 @@ namespace ClassicUO.Network
                 );
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
         }
 
         private static void PersonalLightLevel(ref StackDataReader p)
@@ -2619,7 +2617,7 @@ namespace ClassicUO.Network
 
             if (World.Player == null)
             {
-                return;
+                return; 
             }
 
             uint serial = p.ReadUInt32BE();
@@ -2696,9 +2694,20 @@ namespace ClassicUO.Network
                 p.Skip(6);
             }
 
+            bool IsMobile = SerialHelper.IsMobile(serial);
+            bool IsItem = SerialHelper.IsItem(serial);
+
+            //Console.WriteLine("IsMobile: {0}", IsMobile);
+            //Console.WriteLine("IsItem: {0}", IsItem);
+
             uint itemSerial = p.ReadUInt32BE();
+            //Console.WriteLine("itemSerial: {0}", itemSerial);
+
             while (itemSerial != 0 && p.Position < p.Length)
             {
+                //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(itemSerial);
+                //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(5);
+
                 //if (!SerialHelper.IsItem(itemSerial))
                 //    break;
 
@@ -2730,6 +2739,10 @@ namespace ClassicUO.Network
 
                 itemSerial = p.ReadUInt32BE();
             }
+
+            //Console.WriteLine("itemSerial != 0 && p.Position < p.Length");
+            //World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
+            //Console.WriteLine("name: {0}\n", name);
 
             if (serial == World.Player)
             {
@@ -5467,7 +5480,7 @@ namespace ClassicUO.Network
 
         private static void UpdateItemSA(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateItemSA()");
+            Console.WriteLine("UpdateItemSA()");
 
             if (World.Player == null)
             {
@@ -5529,6 +5542,9 @@ namespace ClassicUO.Network
                     dir
                 );
             }
+
+            Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
+            Client.Game._uoServiceImpl.SetUpdatedObjectTimer(4);
 
             //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
@@ -5902,7 +5918,6 @@ namespace ClassicUO.Network
             ushort UNK_2
         )
         {
-            //Console.WriteLine("####################### START #########################");
             //Console.WriteLine("UpdateGameObject()");
 
             Mobile mobile = null;
@@ -5930,8 +5945,6 @@ namespace ClassicUO.Network
 
             if (obj == null || obj.IsDestroyed)
             {
-                //Console.WriteLine("obj == null || obj.IsDestroyed");
-
                 created = true;
 
                 if (SerialHelper.IsMobile(serial) && type != 3)
@@ -5951,31 +5964,22 @@ namespace ClassicUO.Network
                     mobile.Y = y;
                     mobile.Z = z;
                     mobile.Flags = flagss;
-
-                    World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-                    //Console.WriteLine("SerialHelper.IsMobile(serial) && type != 3: {0}", name);
                 }
                 else
                 {
-                    //Console.WriteLine("else");
-
                     item = World.GetOrCreateItem(serial);
                     if (item == null)
                     {
-                        //Console.WriteLine("item == null");
                         return;
                     }
 
                     obj = item;
-
-                    //Client.Game._uoServiceImpl.SetWorldMobileUpdate();
                 }
             }
             else
             {
                 if (obj is Item item1)
                 {
-                    //Console.WriteLine("obj is Item item1");
                     item = item1;
 
                     if (SerialHelper.IsValid(item.Container))
@@ -5985,7 +5989,6 @@ namespace ClassicUO.Network
                 }
                 else
                 {
-                    //Console.WriteLine("obj is not Item item1");
                     mobile = (Mobile) obj;
                 }
             }
@@ -5997,8 +6000,6 @@ namespace ClassicUO.Network
 
             if (item != null)
             {
-                //Console.WriteLine("item != null");
-
                 if (graphic != 0x2006)
                 {
                     graphic += graphic_inc;
@@ -6041,8 +6042,6 @@ namespace ClassicUO.Network
             }
             else
             {
-                //Console.WriteLine("item == null");
-
                 graphic += graphic_inc;
 
                 if (serial != World.Player)
@@ -6104,7 +6103,6 @@ namespace ClassicUO.Network
             if (mobile != null)
             {
                 World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-                //Console.WriteLine("mobile != null: {0}", name);
 
                 mobile.AddToTile();
                 mobile.UpdateScreenPosition();
@@ -6119,8 +6117,6 @@ namespace ClassicUO.Network
             }
             else
             {
-                //Console.WriteLine("mobile == null");
-
                 if (ItemHold.Serial == serial && ItemHold.Dropped)
                 {
                     // we want maintain the item data due to the denymoveitem packet
@@ -6141,57 +6137,7 @@ namespace ClassicUO.Network
                 }
             }
 
-            if (item != null)
-            {
-                //Console.WriteLine("item.Name: {0}", item.Name);
-                //Client.Game._uoServiceImpl.UpdateWorldItems();
-
-                //Console.WriteLine("item: {0}", item);
-                World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-                if (name != null)
-                {
-                    Console.WriteLine("Name: {0}, Layer: {1}, Amount: {2}, Serial: {3}", name, item.Layer, item.Amount, item.Serial);
-                    uint itemSerial = (uint) item;
-                    //Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-                    //                                         item.Name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-                    //                                         (uint) item.Container, item.OnGround);
-                }
-            }
-
-            if (mobile != null)
-            {
-                //Console.WriteLine("mobile.Name: {0}", mobile.Name);
-                Client.Game._uoServiceImpl.UpdateWorldMobiles();
-
-                World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-                if (name != null)
-                {
-                    uint mobileSerial = (uint) mobile;
-
-                    string title = "None";
-                    try
-                    {
-                        TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
-                        RenderedText renderedText = mobileTextContainerItems.RenderedText;
-
-                        title = renderedText.Text;
-                    }
-                    catch (Exception ex) 
-                    {
-                        //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
-                    }
-
-                    if (World.Player.Serial != mobileSerial)
-                    {
-                        //Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                        //                                           mobileSerial, name, false, title);
-                        //Client.Game._uoServiceImpl.UpdateWorldMobiles();
-                    }
-                }
-            }
-
-            //Console.WriteLine("mobile: {0}", mobile);
-            //Console.WriteLine("####################### E N D #########################");
+            Client.Game._uoServiceImpl.UpdateWorldMobiles();
         }
 
         private static void UpdatePlayer

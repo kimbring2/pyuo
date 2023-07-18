@@ -481,7 +481,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
+            //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
             
             Client.Game._uoServiceImpl.SetActionType(3);
             Client.Game._uoServiceImpl.SetTargetSerial(serial);
@@ -548,7 +548,7 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            Console.WriteLine("DropItem()");
+            //Console.WriteLine("DropItem()");
 
             //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             //Item bank = World.Player.FindItemByLayer(Layer.Bank);
@@ -593,7 +593,7 @@ namespace ClassicUO.Game
 
         public static void Equip(uint container = 0)
         {
-            Console.WriteLine("Equip(), container: {0}", container);
+            //Console.WriteLine("Equip(), container: {0}", container);
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && ItemHold.ItemData.IsWearable)
             {
@@ -609,7 +609,7 @@ namespace ClassicUO.Game
                 ItemHold.Clear();
             }
 
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
         }
 
@@ -730,7 +730,7 @@ namespace ClassicUO.Game
 
         public static void UseSkill(int index)
         {
-            Console.WriteLine("UseSkill()");
+            //Console.WriteLine("UseSkill()");
 
             if (index >= 0)
             {

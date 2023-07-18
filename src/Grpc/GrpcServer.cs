@@ -66,6 +66,8 @@ namespace ClassicUO.Grpc
         int _updateWorldItemsTimer;
         int _updatePlayerObjectTimer;
 
+        int _checkUpdatedObjectTimer;
+
         uint _minTileX;
         uint _minTileY;
         uint _maxTileX;
@@ -82,6 +84,8 @@ namespace ClassicUO.Grpc
     	List<int> playerStatusArrayLengthList = new List<int>();
         List<int> playerSkillListArrayLengthList = new List<int>();
         List<int> actionArraysLengthList = new List<int>();
+
+        List<uint> updatedObjectSerialList = new List<uint>();
 
         // ##################################################################################
         byte[] playerObjectArrays;
@@ -103,12 +107,22 @@ namespace ClassicUO.Grpc
         byte[] playerSkillListArraysTemp;
         byte[] actionArraysTemp;
 
+        public void AddUpdatedObjectSerial(uint serial)
+        {
+        	updatedObjectSerialList.Add((uint) serial);
+        }
+
         public void SetMinMaxTile(uint minX, uint minY, uint maxX, uint maxY)
 	    {
 	        _minTileX = minX;
 	        _minTileY = minY;
 	        _maxTileX = maxX;
 	        _maxTileY = maxY;
+	    }
+
+	    public void SetUpdatedObjectTimer(int time)
+	    {
+	        _checkUpdatedObjectTimer = time;
 	    }
 
     	public void SetUpdateWorldItemsTimer(int time)
@@ -163,13 +177,10 @@ namespace ClassicUO.Grpc
 
 	    public void SetUsedLand(int gameX, int gameY)
 	    {
-	    	Console.WriteLine("SetUsedLand()");
+	    	//Console.WriteLine("SetUsedLand()");
 
         	_usedLandIndex = GetLandIndex((uint) gameX, (uint) gameY);
-        	Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
-
         	SetIndex(_usedLandIndex);
-        	//Console.WriteLine("_usedLandIndex: {0}\n", _usedLandIndex);
 	    }
 
 	    public uint GetLandIndex(uint gameX, uint gameY)
@@ -231,12 +242,13 @@ namespace ClassicUO.Grpc
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
+	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
         }
 
         private void Reset()
         {
-        	Console.WriteLine("Reset()");
+        	//Console.WriteLine("Reset()");
 
         	// Clear all List and Array before using them
         	playerObjectArrayLengthList.Clear();
@@ -345,15 +357,10 @@ namespace ClassicUO.Grpc
         public void UpdatePlayerObject()
         {
         	//Console.WriteLine("UpdatePlayerObject()");
-
-        	// Add player game object 
 	        if ((World.Player != null) && (World.InGame == true)) 
 	        {
 	        	try
 	        	{
-	        		//Console.WriteLine("_minTileX: {0}, _minTileY: {1}, _maxTileX: {2}, _maxTileY: {3}", 
-        			//				    _minTileX, _minTileY, _maxTileX, _maxTileY);
-
 	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
@@ -562,7 +569,7 @@ namespace ClassicUO.Grpc
         	//if ( (config_init == true) || (Settings.Replay == false) )
         	if (config_init == true)
         	{
-        		Console.WriteLine("config_init == true");
+        		//Console.WriteLine("config_init == true");
         		UpdatePlayerObject();
         		UpdateWorldItems();
         		UpdatePlayerStatus();
@@ -571,6 +578,24 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("_minTileX: {0}, _minTileY: {1}, _maxTileX: {2}, _maxTileY: {3}", 
         	//				  _minTileX, _minTileY, _maxTileX, _maxTileY);
+        	if (_checkUpdatedObjectTimer == 0) 
+        	{
+        		Console.WriteLine("_checkUpdatedObjectTimer == 0");
+				foreach (uint itemSerial in updatedObjectSerialList) 
+				{
+		            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
+		            Console.WriteLine("name: {0}", name);
+				}
+
+				Console.WriteLine("");
+				updatedObjectSerialList.Clear();
+
+        		_checkUpdatedObjectTimer = -1;
+        	}
+        	else if (_checkUpdatedObjectTimer > 0)
+        	{
+        		_checkUpdatedObjectTimer -= 1;
+        	}
 
         	if (_updatePlayerObjectTimer == 0) 
         	{
@@ -585,8 +610,8 @@ namespace ClassicUO.Grpc
         	if (_updateWorldItemsTimer == 0) 
         	{
         		UpdateWorldItems();
-        		UpdateWorldMobiles();
-        		UpdatePlayerObject();
+        		//UpdateWorldMobiles();
+        		//UpdatePlayerObject();
 
         		_updateWorldItemsTimer = -1;
         	}
@@ -638,15 +663,15 @@ namespace ClassicUO.Grpc
 
         	if (worldItemArray.Length != 0) 
         	{
-	        	Console.WriteLine("_envStep: {0}", _envStep);
+	        	//Console.WriteLine("_envStep: {0}", _envStep);
 	        	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
-	        	Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
+	        	//Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
 	        	//Console.WriteLine("worldMobileArray.Length: {0}", worldMobileArray.Length);
 	        	//Console.WriteLine("popupMenuArray.Length: {0}", popupMenuArray.Length);
 	        	//Console.WriteLine("clilocDataArray.Length: {0}", clilocDataArray.Length);
 	        	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
 	        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
-	        	Console.WriteLine("");
+	        	//Console.WriteLine("");
 	        }
 
         	if (_envStep == 0) 
@@ -763,9 +788,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)

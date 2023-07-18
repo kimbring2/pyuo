@@ -334,7 +334,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDown()
         {
-            Console.WriteLine("OnLeftMouseDown()");
+            //Console.WriteLine("OnLeftMouseDown()");
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
@@ -382,7 +382,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseUp()
         {
-            Console.WriteLine("OnLeftMouseUp()");
+            //Console.WriteLine("OnLeftMouseUp()");
 
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
@@ -528,8 +528,8 @@ namespace ClassicUO.Game.Scenes
             }
             else if (TargetManager.IsTargeting)
             {
-                Console.WriteLine("TargetManager.IsTargeting");
-                Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
+                //Console.WriteLine("TargetManager.IsTargeting");
+                //Console.WriteLine("TargetManager.TargetingState: {0}", TargetManager.TargetingState);
 
                 switch (TargetManager.TargetingState)
                 {
@@ -545,7 +545,7 @@ namespace ClassicUO.Game.Scenes
                             obj = ov.Owner;
                         }
 
-                        Console.WriteLine("obj: {0}", obj);
+                        //Console.WriteLine("obj: {0}", obj);
 
                         switch (obj)
                         {
@@ -554,9 +554,9 @@ namespace ClassicUO.Game.Scenes
 
                                 break;
                             case Land land:
-                                Console.WriteLine("case Land land()");
-                                Console.WriteLine("land.Distance: {0}", land.Distance);
-                                Console.WriteLine("land.TileData.Name: {0}", land.TileData.Name);
+                                //Console.WriteLine("case Land land()");
+                                //Console.WriteLine("land.Distance: {0}", land.Distance);
+                                //Console.WriteLine("land.TileData.Name: {0}", land.TileData.Name);
 
                                 TargetManager.Target
                                 (
@@ -752,7 +752,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            Console.WriteLine("OnLeftMouseDoubleClick()");
+            //Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 

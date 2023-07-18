@@ -411,21 +411,21 @@ namespace ClassicUO.Game.Managers
 
         public static void Target(ushort graphic, ushort x, ushort y, short z, bool wet = false)
         {
-            Console.WriteLine("TargetManager Target()");
-            Console.WriteLine("TargetManager IsTargeting: {0}", IsTargeting);
+            //Console.WriteLine("TargetManager Target()");
+            //Console.WriteLine("TargetManager IsTargeting: {0}", IsTargeting);
 
             if (!IsTargeting)
             {
                 return;
             }
 
-            Console.WriteLine("TargetManager graphic: {0}", graphic);
+            //Console.WriteLine("TargetManager graphic: {0}", graphic);
 
             if (graphic == 0)
             {
                 if (TargetingState == CursorTarget.Object)
                 {
-                    Console.WriteLine("TargetingState == CursorTarget.Object");
+                    //Console.WriteLine("TargetingState == CursorTarget.Object");
                     return;
                 }
             }

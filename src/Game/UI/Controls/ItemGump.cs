@@ -309,7 +309,7 @@ namespace ClassicUO.Game.UI.Controls
 
         private void AttemptPickUp()
         {
-            Console.WriteLine("AttemptPickUp()");
+            //Console.WriteLine("AttemptPickUp()");
 
             if (CanPickUp)
             {

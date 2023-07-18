@@ -668,7 +668,7 @@ namespace ClassicUO.Game.UI.Gumps
                 return;
             }
 
-            Console.WriteLine("ClearContainerAndRemoveItems()");
+            //Console.WriteLine("ClearContainerAndRemoveItems()");
 
             LinkedObject first = container.Items;
             LinkedObject new_first = null;
@@ -703,7 +703,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void CloseWithRightClick()
         {
-            Console.WriteLine("CloseWithRightClick()");
+            //Console.WriteLine("CloseWithRightClick()");
 
             Item item = World.Items.Get(LocalSerial);
             if (item.IsCorpse) 

@@ -172,7 +172,7 @@ namespace ClassicUO.Game.Managers
         public static void SetTargeting(CursorTarget targeting, uint cursorID, TargetType cursorType)
         {
             //Console.WriteLine("TargetManager SetTargeting()");
-            Console.WriteLine("targeting: {0}", targeting);
+            //Console.WriteLine("targeting: {0}", targeting);
             //Console.WriteLine("cursorID: {0}", cursorID);
             //Console.WriteLine("cursorType: {0}", cursorType);
             //Console.WriteLine("");

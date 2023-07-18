@@ -197,6 +197,7 @@ namespace ClassicUO.Grpc
             }
 
             uint y_relative = 0;
+
             for (uint i = _minTileY; i < _maxTileY; i++)
             {
             	if (gameY == i)
@@ -219,8 +220,8 @@ namespace ClassicUO.Grpc
 	    	//Console.WriteLine("gameX: {0}, gameY: {1}", gameX, gameY);
 
 	    	Vector2 landPosition = new Vector2();
-	    	landPosition.X = gameX + _minTileX;
-	    	landPosition.Y = gameY + _minTileY;
+	    	landPosition.X = (uint) (gameX + _minTileX);
+	    	landPosition.Y = (uint) (gameY + _minTileY);
 
             return landPosition;
 	    }
@@ -793,9 +794,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
-		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -967,13 +968,18 @@ namespace ClassicUO.Grpc
 
 	        		//Console.WriteLine("targetLand: {0}: ", targetLand);
 
-	        		/*
+	        		Vector2 targetPosition = GetLandPosition(grpcAction.Index);
+
+	        		GameObject targetObject = World.Map.GetTile((int) targetPosition.X, (int) targetPosition.Y);
+	        		Console.WriteLine("targetObject: {0}: ", targetObject);
+
+	        		Land targetLand = (Land) targetObject;
+
 	        		// Use the abililty to the land target
 	        		TargetManager.Target
                     (
                         0, targetLand.X, targetLand.Y, targetLand.Z, targetLand.TileData.IsWet
                     );
-                    */
 	        	}
 	        } 
 	        else if (grpcAction.ActionType == 6) {

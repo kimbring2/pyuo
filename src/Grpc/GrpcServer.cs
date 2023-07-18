@@ -366,7 +366,7 @@ namespace ClassicUO.Grpc
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
 			                    							 Title=World.Player.Title, HoldItemSerial=(uint) ItemHold.Serial, 
 			                    							 WarMode=(bool) World.Player.InWarMode, 
-			                    							 TargetingState=(uint) TargetManager.TargetingState,
+			                    							 TargetingState=(int) TargetManager.TargetingState,
 			                    							 MinTileX=_minTileX, MinTileY=_minTileY, MaxTileX=_maxTileX, MaxTileY=_maxTileY };
 			    }
 			    catch (Exception ex)
@@ -624,6 +624,8 @@ namespace ClassicUO.Grpc
         	{
         		//Console.WriteLine("_envStep: {0}", _envStep);
         	}
+
+        	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
         	//UpdateWorldItems();
         	//UpdatePlayerObject();

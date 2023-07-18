@@ -481,7 +481,7 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            //Console.WriteLine("PickUp(), x:{0}, y:{1}, serial:{2}, amount:{3}, is_gump:{4}", x, y, serial, amount, is_gump);
+            //Console.WriteLine("PickUp()"");
             
             Client.Game._uoServiceImpl.SetActionType(3);
             Client.Game._uoServiceImpl.SetTargetSerial(serial);
@@ -540,7 +540,7 @@ namespace ClassicUO.Game
 
             World.ObjectToRemove = item.Serial;
 
-            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
 
             return true;
@@ -586,9 +586,9 @@ namespace ClassicUO.Game
 
             World.OPL.TryGetNameAndData(serial, out string name, out string data);
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
-            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.UpdatePlayerObject();
             //Console.WriteLine("DropItem() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 
         public static void Equip(uint container = 0)

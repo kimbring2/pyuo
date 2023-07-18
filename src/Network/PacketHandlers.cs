@@ -5543,10 +5543,10 @@ namespace ClassicUO.Network
                 );
             }
 
-            Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            Client.Game._uoServiceImpl.SetUpdatedObjectTimer(4);
+            //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
+            //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(4);
 
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
+            Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void BoatMoving(ref StackDataReader p)

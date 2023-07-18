@@ -580,11 +580,11 @@ namespace ClassicUO.Grpc
         	//				  _minTileX, _minTileY, _maxTileX, _maxTileY);
         	if (_checkUpdatedObjectTimer == 0) 
         	{
-        		Console.WriteLine("_checkUpdatedObjectTimer == 0");
+        		//Console.WriteLine("_checkUpdatedObjectTimer == 0");
 				foreach (uint itemSerial in updatedObjectSerialList) 
 				{
 		            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
-		            Console.WriteLine("name: {0}", name);
+		            //Console.WriteLine("name: {0}", name);
 				}
 
 				Console.WriteLine("");
@@ -624,6 +624,9 @@ namespace ClassicUO.Grpc
         	{
         		//Console.WriteLine("_envStep: {0}", _envStep);
         	}
+
+        	//UpdateWorldItems();
+        	//UpdatePlayerObject();
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
 

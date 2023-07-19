@@ -1375,8 +1375,8 @@ namespace ClassicUO.Game.Scenes
                 {
                     if (_requestedWarMode)
                     {
-                        Console.WriteLine("_requestedWarMode");
-                        Console.WriteLine("NetClient.Socket.Send_ChangeWarMode(false)\n");
+                        //Console.WriteLine("_requestedWarMode");
+                        //Console.WriteLine("NetClient.Socket.Send_ChangeWarMode(false)\n");
 
                         NetClient.Socket.Send_ChangeWarMode(false);
                         _requestedWarMode = false;

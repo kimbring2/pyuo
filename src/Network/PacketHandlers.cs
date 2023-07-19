@@ -872,26 +872,26 @@ namespace ClassicUO.Network
 
         private static void DeleteObject(ref StackDataReader p)
         {
-            Console.WriteLine("DeleteObject()");
-
+            //Console.WriteLine("DeleteObject()");
             if (World.Player == null)
             {
                 return;
             }
 
             uint serial = p.ReadUInt32BE();
-
             if (World.Player == serial)
             {
                 return;
             }
 
             Entity entity = World.Get(serial);
-
             if (entity == null)
             {
                 return;
             }
+
+            //World.OPL.TryGetNameAndData(serial, out string name, out string data);
+            //Console.WriteLine("entity: {0}, name: {1}", entity, name);
 
             bool updateAbilities = false;
 
@@ -1394,7 +1394,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1898,7 +1898,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItems()");
+            //Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {
@@ -5480,7 +5480,7 @@ namespace ClassicUO.Network
 
         private static void UpdateItemSA(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateItemSA()");
+            //Console.WriteLine("UpdateItemSA()");
 
             if (World.Player == null)
             {
@@ -5544,9 +5544,9 @@ namespace ClassicUO.Network
             }
 
             //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(4);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void BoatMoving(ref StackDataReader p)

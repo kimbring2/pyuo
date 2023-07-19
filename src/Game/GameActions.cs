@@ -255,17 +255,17 @@ namespace ClassicUO.Game
 
         public static bool OpenBackpack()
         {
-            //Log.Trace("OpenBackpack");
-            //Console.WriteLine("OpenBackpack()");
+            Console.WriteLine("OpenBackpack()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
+            Console.WriteLine("backpack / serial: {0}\n", backpack.Serial);
+
             if (backpack == null)
             {
                 return false;
             }
 
             ContainerGump backpackGump = UIManager.GetGump<ContainerGump>(backpack);
-
             if (backpackGump == null)
             {
                 GameActions.DoubleClick(backpack);
@@ -548,7 +548,7 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            //Console.WriteLine("DropItem()");
+            Console.WriteLine("DropItem() / x: {0}, y: {1}, container: {2}", x, y, container);
 
             //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             //Item bank = World.Player.FindItemByLayer(Layer.Bank);

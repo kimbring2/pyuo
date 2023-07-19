@@ -63,7 +63,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         public ContainerGump(uint serial, ushort gumpid, bool playsound) : base(serial, 0)
         {
-            //Console.WriteLine("ContainerGump():");
+            Console.WriteLine("ContainerGump() / serial: {0}", serial);
 
             Item item = World.Items.Get(serial);
             if (item == null)
@@ -78,6 +78,8 @@ namespace ClassicUO.Game.UI.Gumps
             if (item == World.Player.FindItemByLayer(Layer.Backpack) && Client.Version >= ClassicUO.Data.ClientVersion.CV_705301 && ProfileManager.CurrentProfile != null)
             {
                 GumpsLoader loader = GumpsLoader.Instance;
+
+                Console.WriteLine("BackpackStyle: {0}", ProfileManager.CurrentProfile.BackpackStyle);
 
                 switch (ProfileManager.CurrentProfile.BackpackStyle)
                 {
@@ -111,6 +113,8 @@ namespace ClassicUO.Game.UI.Gumps
                         break;
                 }
             }
+
+            Console.WriteLine("Graphic: {0}", Graphic);
 
             BuildGump();
 
@@ -220,6 +224,8 @@ namespace ClassicUO.Game.UI.Gumps
 
             Width = _gumpPicContainer.Width = (int) (_gumpPicContainer.Width * scale);
             Height = _gumpPicContainer.Height = (int) (_gumpPicContainer.Height * scale);
+
+            Console.WriteLine("Width: {0}, Height: {1}", Width, Height);
         }
 
         private void HitBoxOnMouseUp(object sender, MouseEventArgs e)
@@ -227,7 +233,6 @@ namespace ClassicUO.Game.UI.Gumps
             if (e.Button == MouseButtonType.Left && !IsMinimized && !ItemHold.Enabled)
             {
                 Point offset = Mouse.LDragOffset;
-
                 if (Math.Abs(offset.X) < Constants.MIN_PICKUP_DRAG_DISTANCE_PIXELS && Math.Abs(offset.Y) < Constants.MIN_PICKUP_DRAG_DISTANCE_PIXELS)
                 {
                     IsMinimized = true;
@@ -246,7 +251,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
-            //Console.WriteLine("ContainerGump OnMouseUp()");
+            Console.WriteLine("ContainerGump OnMouseUp() / x: {0}, y: {1}", x, y);
 
             if (button != MouseButtonType.Left || UIManager.IsMouseOverWorld)
             {
@@ -269,8 +274,6 @@ namespace ClassicUO.Game.UI.Gumps
             }
             else
             {
-                //Console.WriteLine("dropcontainer: {0}", dropcontainer);
-
                 Entity thisCont = World.Items.Get(dropcontainer);
                 if (thisCont == null)
                 {
@@ -337,6 +340,8 @@ namespace ClassicUO.Game.UI.Gumps
 
                 if (candrop && ItemHold.Enabled && !ItemHold.IsFixedPosition)
                 {
+                    //Console.WriteLine("candrop && ItemHold.Enabled && !ItemHold.IsFixedPosition");
+
                     ContainerGump gump = UIManager.GetGump<ContainerGump>(dropcontainer);
                     if (gump != null && (it == null || it.Serial != dropcontainer && it is Item item && !item.ItemData.IsContainer))
                     {
@@ -358,6 +363,9 @@ namespace ClassicUO.Game.UI.Gumps
                         containerBounds.Y = (int) (containerBounds.Y * scale);
                         containerBounds.Width = (int) (containerBounds.Width * scale);
                         containerBounds.Height = (int) ((containerBounds.Height + (gump.IsChessboard ? 20 : 0)) * scale);
+
+                        //Console.WriteLine("containerBounds X: {0}, Y: {1}, Width: {2}, Height: {3}", 
+                        //             containerBounds.X, containerBounds.Y, containerBounds.Width, containerBounds.Height);
 
                         if (texture != null)
                         {
@@ -668,7 +676,7 @@ namespace ClassicUO.Game.UI.Gumps
                 return;
             }
 
-            //Console.WriteLine("ClearContainerAndRemoveItems()");
+            Console.WriteLine("ClearContainerAndRemoveItems()");
 
             LinkedObject first = container.Items;
             LinkedObject new_first = null;

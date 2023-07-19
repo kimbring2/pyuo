@@ -416,7 +416,9 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the object: " + ex.Message);
+                Console.WriteLine("Failed to add the object: " + ex.Message);
+                Console.WriteLine("distance: {0}, game_x: {1}, game_y: {2}, serial: {3}, name: {4}, is_corpse: {5}, amount: {6}, price: {7}, layer: {8}, container: {9}\n",
+                					distance, game_x, game_y, serial, name, is_corpse, amount, price, layer, container);
             }
         }
 
@@ -431,7 +433,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the mobile object: " + ex.Message);
+                Console.WriteLine("Failed to add the mobile object: " + ex.Message);
             }
         }
 
@@ -444,22 +446,13 @@ namespace ClassicUO.Grpc
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
 
-	            	//Console.WriteLine("name: {0}, Graphic: {1}, data: {2}\n", 
-	            	//		name, item.Graphic, data);
+	            	//Console.WriteLine("name: {0}, Graphic: {1}", name, item.Graphic);
 
 	            	if (name != null)
 	            	{
-	            		try
-		                {
-	                    	AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
-	                    			   	  item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container,
-	                    			   	  data);
-	                    }
-	                    catch (Exception ex) 
-		                {
-		                	Console.WriteLine("serial: {0}, name: {1}", item.Serial, name);
-		                    Console.WriteLine("Failed to update the world items: " + ex.Message);
-		                }
+	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, name, 
+	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container,
+	                    			   data);
 	            	}
 	            }
 	        }
@@ -582,15 +575,18 @@ namespace ClassicUO.Grpc
         		UpdatePlayerSkills();
         	}
 
-        	//Console.WriteLine("_minTileX: {0}, _minTileY: {1}, _maxTileX: {2}, _maxTileY: {3}", 
-        	//				  _minTileX, _minTileY, _maxTileX, _maxTileY);
+        	if ((World.Player != null) && (World.InGame == true))
+            {
+            	Console.WriteLine("BankOpened: {0}", World.Player.BankOpened);
+            }
+
         	if (_checkUpdatedObjectTimer == 0) 
         	{
         		//Console.WriteLine("_checkUpdatedObjectTimer == 0");
 				foreach (uint itemSerial in updatedObjectSerialList) 
 				{
 		            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
-		            //Console.WriteLine("name: {0}", name);
+		            Console.WriteLine("name: {0}", name);
 				}
 
 				Console.WriteLine("");
@@ -633,7 +629,7 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
-        	//UpdateWorldItems();
+        	UpdateWorldItems();
         	//UpdatePlayerObject();
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
@@ -799,9 +795,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -934,8 +930,20 @@ namespace ClassicUO.Grpc
 	        		if (grpcAction.TargetSerial != 0)
 	        		{
 	        			Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
+	        			ContainerGump containerGump = UIManager.GetGump<ContainerGump>(grpcAction.TargetSerial);
+	        			Console.WriteLine("containerGump: {0}", containerGump);
 
-        				GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
+	        			Rectangle containerBounds = containerGump.Bounds;
+	        			Console.WriteLine("containerBounds: {0}", containerBounds);
+
+	        			if (grpcAction.Index == 0)
+	        			{
+        					GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
+        				}
+        				else
+        				{
+        					GameActions.DropItem((uint) ItemHold.Serial, 60, 60, 0, grpcAction.TargetSerial);
+        				}
         			}
         			else if (grpcAction.TargetSerial == 0)
         			{
@@ -945,11 +953,6 @@ namespace ClassicUO.Grpc
 		        		uint index = grpcAction.Index;
 		        		try
 		        		{   
-		        			//Vector2 selected = itemDropableLandSimpleList[index];
-		        			//GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
-		        			//GrpcLandObjectData selected = landObjectList[(int) index];
-		        			//Console.WriteLine("selected.GameX: {0}, selected.GameY: {1}", selected.GameX, selected.GameY);
-
 		        			Vector2 selected = GetLandPosition(index);
 
 		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);

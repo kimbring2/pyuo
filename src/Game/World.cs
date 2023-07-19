@@ -126,7 +126,7 @@ namespace ClassicUO.Game
                         }
 
                         Map = new Map.Map(value);
-                        Console.WriteLine("Map changed {0}", value);
+                        //Console.WriteLine("Map changed {0}", value);
 
                         Player.X = x;
                         Player.Y = y;
@@ -355,7 +355,6 @@ namespace ClassicUO.Game
             if (SerialHelper.IsMobile(serial))
             {
                 ent = Mobiles.Get(serial);
-
                 if (ent == null)
                 {
                     ent = Items.Get(serial);

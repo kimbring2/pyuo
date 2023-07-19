@@ -890,8 +890,8 @@ namespace ClassicUO.Network
                 return;
             }
 
-            //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            //Console.WriteLine("entity: {0}, name: {1}", entity, name);
+            World.OPL.TryGetNameAndData(serial, out string name, out string data);
+            //Console.WriteLine("entity: {0}, name: {1}\n", entity, name);
 
             bool updateAbilities = false;
 
@@ -1149,7 +1149,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenContainer()");
+            Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1158,6 +1158,16 @@ namespace ClassicUO.Network
 
             uint serial = p.ReadUInt32BE();
             ushort graphic = p.ReadUInt16BE();
+
+            Item bank = World.Player.FindItemByLayer(Layer.Bank);
+            //Console.WriteLine("serial: {0}", serial);
+            //Console.WriteLine("bank.Serial: {0}", bank.Serial);
+
+            if (serial == bank.Serial)
+            {
+                World.Player.BankOpened = true;
+            }
+
             if (graphic == 0xFFFF)
             {
                 Item spellBookItem = World.Items.Get(serial);
@@ -1197,7 +1207,6 @@ namespace ClassicUO.Network
                 for (Layer layer = Layer.ShopBuyRestock; layer < Layer.ShopBuy + 1; layer++)
                 {
                     Item item = vendor.FindItemByLayer(layer);
-
                     LinkedObject first = item.Items;
                     if (first == null)
                     {
@@ -1217,7 +1226,6 @@ namespace ClassicUO.Network
                     while (first != null)
                     {
                         Item it = (Item) first;
-
                         Item itemWorld = World.Items.Get(it.Serial);
 
                         gump.AddItem
@@ -1394,7 +1402,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItem()");
+            Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1426,9 +1434,16 @@ namespace ClassicUO.Network
                 containerSerial
             );
 
+            World.OPL.TryGetNameAndData(containerSerial, out string name, out string data);
+            //Console.WriteLine("container / name: {0}, containerSerial: {1}\n", name, containerSerial);
+
             Client.Game._uoServiceImpl.UpdatePlayerStatus();
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
             //Client.Game._uoServiceImpl.UpdateWorldItems(2);
+
+            //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
+            //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(100);
+
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1898,7 +1913,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateContainedItems()");
+            Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {

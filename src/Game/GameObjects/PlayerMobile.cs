@@ -191,6 +191,8 @@ namespace ClassicUO.Game.GameObjects
 
         public ushort WeightMax;
 
+        public bool BankOpened = false;
+
         public Item FindBandage()
         {
             Item backpack = FindItemByLayer(Layer.Backpack);
@@ -1387,7 +1389,7 @@ namespace ClassicUO.Game.GameObjects
 
         public void CloseBank()
         {
-            //Console.WriteLine("CloseBank()");
+            Console.WriteLine("CloseBank()");
             
             Item bank = FindItemByLayer(Layer.Bank);
             if (bank != null && bank.Opened)
@@ -1410,6 +1412,8 @@ namespace ClassicUO.Game.GameObjects
                 UIManager.GetGump<ContainerGump>(bank.Serial)?.Dispose();
                 bank.Opened = false;
             }
+
+            World.Player.BankOpened = false;
         }
 
         public void CloseRangedGumps()
@@ -1421,17 +1425,16 @@ namespace ClassicUO.Game.GameObjects
                     case PaperDollGump _:
                     case MapGump _:
                     case SpellbookGump _:
-
                         if (World.Get(gump.LocalSerial) == null)
                         {
                             gump.Dispose();
                         }
 
                         break;
-
+                        
                     case TradingGump _:
-                    case ShopGump _:
 
+                    case ShopGump _:
                         Entity ent = World.Get(gump.LocalSerial);
                         int distance = int.MaxValue;
 

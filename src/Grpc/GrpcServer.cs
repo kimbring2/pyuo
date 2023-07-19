@@ -405,14 +405,14 @@ namespace ClassicUO.Grpc
         }
 
         public void AddItemObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
-        						  uint amount, uint price, uint layer, uint container)
+        						  uint amount, uint price, uint layer, uint container, string data)
         {
         	try 
         	{
         		worldItemObjectList.Add(new GrpcItemObjectData{ Distance=distance, GameX=game_x, GameY=game_y, 
 	                    										Serial=serial, Name=name, IsCorpse=is_corpse,
 	                    										Amount=amount, Price=price, Layer=layer,
-	                    										Container=container});
+	                    										Container=container, Data=data});
 	        }
 	        catch (Exception ex)
             {
@@ -443,12 +443,17 @@ namespace ClassicUO.Grpc
 		        foreach (Item item in World.Items.Values)
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+
+	            	//Console.WriteLine("name: {0}, Graphic: {1}, data: {2}\n", 
+	            	//		name, item.Graphic, data);
+
 	            	if (name != null)
 	            	{
 	            		try
 		                {
 	                    	AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, item.Name, 
-	                    			   	  item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container);
+	                    			   	  item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container,
+	                    			   	  data);
 	                    }
 	                    catch (Exception ex) 
 		                {

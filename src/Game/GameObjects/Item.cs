@@ -169,7 +169,6 @@ namespace ClassicUO.Game.GameObjects
             get
             {
                 Item item = this;
-
                 while (SerialHelper.IsItem(item.Container))
                 {
                     item = World.Items.Get(item.Container);
@@ -799,7 +798,7 @@ namespace ClassicUO.Game.GameObjects
                         break;
                     }
 
-                    case 0x3EC3: //16067 Beetle
+                    case 0x3EC3: // 16067 Beetle
                     {
                         graphic = 0x02D4;
 
@@ -877,7 +876,7 @@ namespace ClassicUO.Game.GameObjects
                         break;
                     }
 
-                    case 0x3ED0: //SkeletalCat
+                    case 0x3ED0: // SkeletalCat
                     {
                         graphic = 0x05A1;
 
@@ -891,14 +890,14 @@ namespace ClassicUO.Game.GameObjects
                         break;
                     }
 
-                    case 0x3ECD: //Palomino
+                    case 0x3ECD: // Palomino
                     {
                         graphic = 0x0580;
 
                         break;
                     }
 
-                    case 0x3ECF: //Eowmu
+                    case 0x3ECF: // Eowmu
                     {
                         graphic = 0x05A0;
 

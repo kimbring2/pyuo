@@ -165,9 +165,7 @@ namespace ClassicUO.Game.GameObjects
             if (HitsMax > 0)
             {
                 int hits_max = HitsMax;
-
                 hits_max = Hits * 100 / hits_max;
-                
                 if (hits_max > 100)
                 {
                     hits_max = 100;
@@ -265,7 +263,6 @@ namespace ClassicUO.Game.GameObjects
                         Item childItem = (Item) ic;
 
                         Item res = childItem.GetItemByGraphic(graphic, deepsearch);
-
                         if (res != null)
                         {
                             return res;

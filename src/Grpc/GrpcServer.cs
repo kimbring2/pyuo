@@ -1003,24 +1003,29 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 5) {
-	        	// Use the activated item to ground
+	        	// Use the activated skill to the target
 	        	if (World.Player != null) 
 	        	{
 	        		Console.WriteLine("ActionType == 5");
-	        		Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
+	        		//Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
-	        		Vector2 targetPosition = GetLandPosition(grpcAction.Index);
+	        		if (grpcAction.TargetSerial != 0)
+        			{
+        				// Use the abililty to the entity target
+		        		TargetManager.Target(grpcAction.TargetSerial);
+        			}
+	        		else if (grpcAction.TargetSerial == 0)
+	        		{ 
+		        		// Use the abililty to the land target
+		        		Vector2 targetPosition = GetLandPosition(grpcAction.Index);
+		        		GameObject targetObject = World.Map.GetTile((int) targetPosition.X, (int) targetPosition.Y);
+		        		Land targetLand = (Land) targetObject;
 
-	        		GameObject targetObject = World.Map.GetTile((int) targetPosition.X, (int) targetPosition.Y);
-	        		Console.WriteLine("targetObject: {0}: ", targetObject);
-
-	        		Land targetLand = (Land) targetObject;
-
-	        		// Use the abililty to the land target
-	        		TargetManager.Target
-                    (
-                        0, targetLand.X, targetLand.Y, targetLand.Z, targetLand.TileData.IsWet
-                    );
+		        		TargetManager.Target
+	                    (
+	                        0, targetLand.X, targetLand.Y, targetLand.Z, targetLand.TileData.IsWet
+	                    );
+	                }
 	        	}
 	        } 
 	        else if (grpcAction.ActionType == 6) {

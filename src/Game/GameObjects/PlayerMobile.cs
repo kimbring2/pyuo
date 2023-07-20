@@ -1389,7 +1389,7 @@ namespace ClassicUO.Game.GameObjects
 
         public void CloseBank()
         {
-            Console.WriteLine("CloseBank()");
+            //Console.WriteLine("CloseBank()");
             
             Item bank = FindItemByLayer(Layer.Bank);
             if (bank != null && bank.Opened)

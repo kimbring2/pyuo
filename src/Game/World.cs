@@ -223,7 +223,6 @@ namespace ClassicUO.Game
                             }
                             else if (SerialHelper.IsItem(container.Serial))
                             {
-
                                 //Console.WriteLine("SerialHelper.IsItem(container.Serial)");
                                 
                                 UIManager.GetGump<ContainerGump>(container.Serial)?.RequestUpdateContents();

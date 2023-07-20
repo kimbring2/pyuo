@@ -63,8 +63,6 @@ namespace ClassicUO.Game.UI.Gumps
 
         public ContainerGump(uint serial, ushort gumpid, bool playsound) : base(serial, 0)
         {
-            Console.WriteLine("ContainerGump() / serial: {0}", serial);
-
             Item item = World.Items.Get(serial);
             if (item == null)
             {
@@ -74,12 +72,17 @@ namespace ClassicUO.Game.UI.Gumps
 
             Graphic = gumpid;
 
+            Console.WriteLine("ContainerGump() / serial: {0}, Graphic: {1}", serial, Graphic);
+            //ContainerGump() / serial: 1073744268, Graphic: 60
+            //ContainerGump() / serial: 1074023742, Graphic: 61
+            //ContainerGump() / serial: 1073975432, Graphic: 9
+
             // New Backpack gumps. Client Version 7.0.53.1
             if (item == World.Player.FindItemByLayer(Layer.Backpack) && Client.Version >= ClassicUO.Data.ClientVersion.CV_705301 && ProfileManager.CurrentProfile != null)
             {
                 GumpsLoader loader = GumpsLoader.Instance;
 
-                Console.WriteLine("BackpackStyle: {0}", ProfileManager.CurrentProfile.BackpackStyle);
+                //Console.WriteLine("BackpackStyle: {0}", ProfileManager.CurrentProfile.BackpackStyle);
 
                 switch (ProfileManager.CurrentProfile.BackpackStyle)
                 {
@@ -114,7 +117,7 @@ namespace ClassicUO.Game.UI.Gumps
                 }
             }
 
-            Console.WriteLine("Graphic: {0}", Graphic);
+            //Console.WriteLine("Graphic: {0}", Graphic);
 
             BuildGump();
 
@@ -225,7 +228,7 @@ namespace ClassicUO.Game.UI.Gumps
             Width = _gumpPicContainer.Width = (int) (_gumpPicContainer.Width * scale);
             Height = _gumpPicContainer.Height = (int) (_gumpPicContainer.Height * scale);
 
-            Console.WriteLine("Width: {0}, Height: {1}", Width, Height);
+            //Console.WriteLine("Width: {0}, Height: {1}", Width, Height);
         }
 
         private void HitBoxOnMouseUp(object sender, MouseEventArgs e)
@@ -251,7 +254,7 @@ namespace ClassicUO.Game.UI.Gumps
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
-            Console.WriteLine("ContainerGump OnMouseUp() / x: {0}, y: {1}", x, y);
+            //Console.WriteLine("ContainerGump OnMouseUp() / x: {0}, y: {1}", x, y);
 
             if (button != MouseButtonType.Left || UIManager.IsMouseOverWorld)
             {
@@ -364,7 +367,7 @@ namespace ClassicUO.Game.UI.Gumps
                         containerBounds.Width = (int) (containerBounds.Width * scale);
                         containerBounds.Height = (int) ((containerBounds.Height + (gump.IsChessboard ? 20 : 0)) * scale);
 
-                        //Console.WriteLine("containerBounds X: {0}, Y: {1}, Width: {2}, Height: {3}", 
+                        //Console.WriteLine("containerBounds X: {0}, Y: {1}, Width: {2}, Height: {3}\n", 
                         //             containerBounds.X, containerBounds.Y, containerBounds.Width, containerBounds.Height);
 
                         if (texture != null)
@@ -506,17 +509,15 @@ namespace ClassicUO.Game.UI.Gumps
 
         private void ItemsOnAdded()
         {
-            //Console.WriteLine("ItemsOnAdded()");
+            //Console.WriteLine("ContainerGump ItemsOnAdded()");
 
             Entity container = World.Get(LocalSerial);
-
             if (container == null)
             {
                 return;
             }
 
             bool is_corpse = container.Graphic == 0x2006;
-
             if (!container.IsEmpty && _hideIfEmpty && !IsVisible)
             {
                 IsVisible = true;

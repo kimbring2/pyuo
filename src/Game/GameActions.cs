@@ -548,14 +548,31 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            Console.WriteLine("DropItem() / x: {0}, y: {1}, container: {2}", x, y, container);
+            Console.WriteLine("DropItem()");
+
+            Item containerItem = World.Items.Get(container);
+
+            World.OPL.TryGetNameAndData(container, out string name, out string data);
+            Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
 
             //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-            //Item bank = World.Player.FindItemByLayer(Layer.Bank);
+            Item bank = World.Player.FindItemByLayer(Layer.Bank);
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
             Client.Game._uoServiceImpl.SetTargetSerial(container);
             Client.Game._uoServiceImpl.SetUsedLand(x, y);
+
+            if (container == bank.Serial)
+            {
+                if (World.Player.BankOpened == false)
+                {
+                    Console.WriteLine("BankOpened is not opened");
+                    //ItemHold.Enabled = false;
+                    //ItemHold.Dropped = true;
+                    //ItemHold.Clear();
+                    return ;
+                }
+            }
 
             if (ItemHold.Enabled && !ItemHold.IsFixedPosition && (ItemHold.Serial != container || ItemHold.ItemData.IsStackable))
             {
@@ -582,12 +599,7 @@ namespace ClassicUO.Game
                 ItemHold.Clear();
             }
 
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
-
-            World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             Client.Game._uoServiceImpl.UpdatePlayerObject();
-            //Console.WriteLine("DropItem() step: {0}, serial: {1}, name: {2}", envStep, serial, name);
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 

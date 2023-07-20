@@ -873,6 +873,7 @@ namespace ClassicUO.Network
         private static void DeleteObject(ref StackDataReader p)
         {
             //Console.WriteLine("DeleteObject()");
+
             if (World.Player == null)
             {
                 return;
@@ -1159,10 +1160,11 @@ namespace ClassicUO.Network
             uint serial = p.ReadUInt32BE();
             ushort graphic = p.ReadUInt16BE();
 
-            Item bank = World.Player.FindItemByLayer(Layer.Bank);
             //Console.WriteLine("serial: {0}", serial);
             //Console.WriteLine("bank.Serial: {0}", bank.Serial);
+            //Console.WriteLine("graphic: {0}", graphic);
 
+            Item bank = World.Player.FindItemByLayer(Layer.Bank);
             if (serial == bank.Serial)
             {
                 World.Player.BankOpened = true;
@@ -1170,6 +1172,8 @@ namespace ClassicUO.Network
 
             if (graphic == 0xFFFF)
             {
+                //Console.WriteLine("graphic == 0xFFFF");
+
                 Item spellBookItem = World.Items.Get(serial);
                 if (spellBookItem == null)
                 {
@@ -1252,6 +1256,8 @@ namespace ClassicUO.Network
             }
             else
             {
+                //Console.WriteLine("graphic == else");
+
                 Item item = World.Items.Get(serial);
                 if (item != null)
                 {
@@ -1266,6 +1272,7 @@ namespace ClassicUO.Network
                     }
 
                     ContainerGump container = UIManager.GetGump<ContainerGump>(serial);
+                    //Console.WriteLine("container.Graphic: {0}", container.Graphic);
 
                     bool playsound = false;
                     int x, y;
@@ -5800,7 +5807,7 @@ namespace ClassicUO.Network
             uint containerSerial
         )
         {
-            //Console.WriteLine("AddItemToContainer()");
+            //Console.WriteLine("AddItemToContainer() / x: {0}, y: {1}", x, y);
 
             if (ItemHold.Serial == serial)
             {
@@ -5851,11 +5858,6 @@ namespace ClassicUO.Network
             item.Container = containerSerial;
             container.PushToBack(item);
 
-            //World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-            //Client.Game._uoServiceImpl.AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, 
-            //                                         name, item.IsCorpse, item.Amount, item.Price, (uint) item.Layer,
-            //                                         (uint) item.Container);
-
             if (SerialHelper.IsMobile(containerSerial))
             {
                 Mobile m = World.Mobiles.Get(containerSerial);
@@ -5872,6 +5874,7 @@ namespace ClassicUO.Network
             else if (SerialHelper.IsItem(containerSerial))
             {
                 Gump gump = UIManager.GetGump<BulletinBoardGump>(containerSerial);
+
                 if (gump != null)
                 {
                     NetClient.Socket.Send_BulletinBoardRequestMessageSummary(containerSerial, serial);
@@ -5882,6 +5885,8 @@ namespace ClassicUO.Network
                     if (gump == null)
                     {
                         gump = UIManager.GetGump<ContainerGump>(containerSerial);
+                        //Console.WriteLine("UIManager.GetGump<ContainerGump>(containerSerial)");
+
                         if (gump != null)
                         {
                             ((ContainerGump) gump).CheckItemControlPosition(item);
@@ -5901,6 +5906,8 @@ namespace ClassicUO.Network
                         }
                     }
 
+                    //Console.WriteLine("gump: {0}", gump);
+
                     if (gump != null)
                     {
                         if (SerialHelper.IsItem(containerSerial))
@@ -5908,6 +5915,7 @@ namespace ClassicUO.Network
                             ((Item) container).Opened = true;
                         }
 
+                        //Console.WriteLine("gump.RequestUpdateContents()");
                         gump.RequestUpdateContents();
                     }
                 }

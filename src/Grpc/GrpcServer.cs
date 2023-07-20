@@ -416,9 +416,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                Console.WriteLine("Failed to add the object: " + ex.Message);
-                Console.WriteLine("distance: {0}, game_x: {1}, game_y: {2}, serial: {3}, name: {4}, is_corpse: {5}, amount: {6}, price: {7}, layer: {8}, container: {9}\n",
-                					distance, game_x, game_y, serial, name, is_corpse, amount, price, layer, container);
+                //Console.WriteLine("Failed to add the object: " + ex.Message);
             }
         }
 
@@ -433,7 +431,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                Console.WriteLine("Failed to add the mobile object: " + ex.Message);
+                //Console.WriteLine("Failed to add the mobile object: " + ex.Message);
             }
         }
 
@@ -446,7 +444,18 @@ namespace ClassicUO.Grpc
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
 
-	            	//Console.WriteLine("name: {0}, Graphic: {1}", name, item.Graphic);
+	            	if (item.IsCorpse)
+	            	{
+	            		//Console.WriteLine("name: {0}, serial: {1}", name, item.Serial);
+	            		Entity container = World.Get(item.Serial);
+	            		for (LinkedObject i = container.Items; i != null; i = i.Next)
+            			{
+                			Item item_child = (Item) i;
+                			World.OPL.TryGetNameAndData(item_child.Serial, out string name_child, out string data_child);
+                			//Console.WriteLine("name_child: {0}", name_child);
+                		}
+                		//Console.WriteLine("");
+	            	}
 
 	            	if (name != null)
 	            	{
@@ -577,7 +586,7 @@ namespace ClassicUO.Grpc
 
         	if ((World.Player != null) && (World.InGame == true))
             {
-            	Console.WriteLine("BankOpened: {0}", World.Player.BankOpened);
+            	//Console.WriteLine("BankOpened: {0}", World.Player.BankOpened);
             }
 
         	if (_checkUpdatedObjectTimer == 0) 
@@ -629,7 +638,7 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
-        	UpdateWorldItems();
+        	//UpdateWorldItems();
         	//UpdatePlayerObject();
 
 		    grpcStates.PlayerObject = grpcPlayerObject;
@@ -870,8 +879,6 @@ namespace ClassicUO.Grpc
             else if (grpcAction.ActionType == 1) {
             	// Walk to Direction
             	if (World.InGame == true) {
-            		//Console.WriteLine("grpcAction.WalkDirection: {0}", grpcAction.WalkDirection);
-
             		if (grpcAction.WalkDirection == 0x00) {
 	            		World.Player.Walk(Direction.North, grpcAction.Run);
 	            	}
@@ -930,19 +937,50 @@ namespace ClassicUO.Grpc
 	        		if (grpcAction.TargetSerial != 0)
 	        		{
 	        			Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
-	        			ContainerGump containerGump = UIManager.GetGump<ContainerGump>(grpcAction.TargetSerial);
-	        			Console.WriteLine("containerGump: {0}", containerGump);
-
-	        			Rectangle containerBounds = containerGump.Bounds;
-	        			Console.WriteLine("containerBounds: {0}", containerBounds);
 
 	        			if (grpcAction.Index == 0)
 	        			{
+	        				// Drop without selecting the position at the container
         					GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
         				}
         				else
         				{
-        					GameActions.DropItem((uint) ItemHold.Serial, 60, 60, 0, grpcAction.TargetSerial);
+        					// Drop at the certain position at the container(Item will not be stacked)
+        					if (SerialHelper.IsItem(grpcAction.TargetSerial))
+        					{
+        						Item containerItem = World.Items.Get(grpcAction.TargetSerial);
+	        					World.OPL.TryGetNameAndData(grpcAction.TargetSerial, out string name, out string data);
+            					//Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
+
+            					int x = 0; 
+            					int y = 0;
+            					if (containerItem.Graphic == 3701)
+            					{
+            						// 1. Backpack
+	            					//containerItem.Graphic: 3701, Name: Backpack
+									//containerBounds X: 44, Y: 65, Width: 186, Height: 159
+            						x = 100;
+            						y = 100;
+            					}
+            					else if (containerItem.Graphic == 3702)
+            					{
+            						// 2. Bag
+		            				//containerItem / Graphic: 3702, Name: Bag
+									//containerBounds X: 29, Y: 34, Width: 137, Height: 128
+									x = 60;
+            						y = 60;
+            					}
+            					else if (containerItem.Graphic == 2475)
+            					{
+            						// 3. Metal Chest
+									//containerItem / Graphic: 2475, Name: Metal Chest
+									//containerBounds X: 18, Y: 105, Width: 162, Height: 178
+									x = 50;
+            						y = 120;
+            					}
+
+            					GameActions.DropItem((uint) ItemHold.Serial, x, y, 0, grpcAction.TargetSerial);
+        					}
         				}
         			}
         			else if (grpcAction.TargetSerial == 0)
@@ -956,7 +994,6 @@ namespace ClassicUO.Grpc
 		        			Vector2 selected = GetLandPosition(index);
 
 		        			GameActions.DropItem((uint) ItemHold.Serial, (int) selected.X, (int) selected.Y, 0, 0xFFFF_FFFF);
-
 		        		}
 		        		catch (Exception ex)
 			            {
@@ -966,15 +1003,11 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 5) {
+	        	// Use the activated item to ground
 	        	if (World.Player != null) 
 	        	{
 	        		Console.WriteLine("ActionType == 5");
 	        		Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
-
-	        		//GrpcLandObjectData landObject = landObjectList[grpcAction.Index];
-	        		//Land targetLand = landList[(int) grpcAction.Index];
-
-	        		//Console.WriteLine("targetLand: {0}: ", targetLand);
 
 	        		Vector2 targetPosition = GetLandPosition(grpcAction.Index);
 

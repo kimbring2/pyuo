@@ -203,6 +203,7 @@ namespace ClassicUO.Game.Managers
             _targetCursorId = cursorID;
 
             Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
         }
 
         public static void CancelTarget()
@@ -518,6 +519,9 @@ namespace ClassicUO.Game.Managers
 
             Mouse.CancelDoubleClick = true;
             ClearTargetingWithoutTargetCancelPacket();
+
+            TargetingState = CursorTarget.Invalid;
+            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
         }
     }
 }

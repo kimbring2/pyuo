@@ -1150,7 +1150,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            Console.WriteLine("OpenContainer()");
+            //Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1409,7 +1409,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1920,7 +1920,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItems()");
+            //Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {

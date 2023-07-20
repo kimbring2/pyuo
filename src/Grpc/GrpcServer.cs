@@ -804,9 +804,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
 		    {
-		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -936,7 +936,7 @@ namespace ClassicUO.Grpc
 
 	        		if (grpcAction.TargetSerial != 0)
 	        		{
-	        			Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
+	        			//Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
 
 	        			if (grpcAction.Index == 0)
 	        			{
@@ -985,7 +985,7 @@ namespace ClassicUO.Grpc
         			}
         			else if (grpcAction.TargetSerial == 0)
         			{
-        				// Drop the holded item on land around the player
+        				// Drop the holded item on the selected land
         				Console.WriteLine("grpcAction.Index: {0}", grpcAction.Index);
 
 		        		uint index = grpcAction.Index;

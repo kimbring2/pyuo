@@ -553,14 +553,33 @@ namespace ClassicUO.Game
             Item containerItem = World.Items.Get(container);
 
             World.OPL.TryGetNameAndData(container, out string name, out string data);
-            Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
+            //Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
+
+            //Console.WriteLine("x: {0}, y: {1}, z: {2}, container: {3}", x, y, z, container);
 
             //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
             Item bank = World.Player.FindItemByLayer(Layer.Bank);
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
-            Client.Game._uoServiceImpl.SetTargetSerial(container);
-            Client.Game._uoServiceImpl.SetUsedLand(x, y);
+
+            if (container == 0xFFFF_FFFF)
+            {
+                Client.Game._uoServiceImpl.SetTargetSerial(0);
+                Client.Game._uoServiceImpl.SetUsedLand(x, y);
+            }
+            else
+            {
+                Client.Game._uoServiceImpl.SetTargetSerial(container);
+
+                if ( (x == 0xFFFF) && (y == 0xFFFF) )
+                {
+                    Client.Game._uoServiceImpl.SetIndex(0);
+                }
+                else
+                {
+                    Client.Game._uoServiceImpl.SetIndex(1);
+                }
+            }
 
             if (container == bank.Serial)
             {

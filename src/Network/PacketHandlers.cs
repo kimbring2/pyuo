@@ -4252,6 +4252,8 @@ namespace ClassicUO.Network
                     if (MapLoader.Instance.ApplyPatches(ref p))
                     {
                         int map = World.MapIndex;
+                        //Console.WriteLine("map: {0}", map);
+
                         World.MapIndex = -1;
                         World.MapIndex = map;
 

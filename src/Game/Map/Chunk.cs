@@ -141,6 +141,9 @@ namespace ClassicUO.Game.Map
                                 }
 
                                 Static staticObject = Static.Create(sb->Color, sb->Hue, pos);
+
+                                //Console.WriteLine("sb->Color: {0}, Name: {1}", sb->Color, staticObject.Name);
+
                                 staticObject.X = (ushort) (bx + sb->X);
                                 staticObject.Y = (ushort) (by + sb->Y);
                                 staticObject.Z = sb->Z;

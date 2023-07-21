@@ -210,12 +210,16 @@ namespace ClassicUO.IO.Resources
                         path = UOFileManager.GetUOFilePath($"statics{i}.mul");
                         if (File.Exists(path))
                         {
+                            //Console.WriteLine("i: {0}, File.Exists(statics.mul)", i);
+
                             _filesStatics[i] = new UOFileMul(path);
                         }
 
                         path = UOFileManager.GetUOFilePath($"staidx{i}.mul");
                         if (File.Exists(path))
                         {
+                            //Console.WriteLine("i: {0}, File.Exists(staidx.mul)", i);
+
                             _filesIdxStatics[i] = new UOFileMul(path);
                         }
                     }
@@ -234,6 +238,8 @@ namespace ClassicUO.IO.Resources
                     // This is an hack to patch correctly all maps when you have to fake map1
                     if (_filesMap[1] == null || _filesMap[1].StartAddress == IntPtr.Zero)
                     {
+                        //Console.WriteLine("_filesMap[1] == null || _filesMap[1].StartAddress == IntPtr.Zero");
+
                         _filesMap[1] = _filesMap[0];
                         _filesStatics[1] = _filesStatics[0];
                         _filesIdxStatics[1] = _filesIdxStatics[0];
@@ -400,6 +406,7 @@ namespace ClassicUO.IO.Resources
             ResetPatchesInBlockTable();
 
             PatchesCount = (int) reader.ReadUInt32BE();
+
             if (PatchesCount < 0)
             {
                 PatchesCount = 0;
@@ -419,18 +426,23 @@ namespace ClassicUO.IO.Resources
             {
                 int idx = i;
 
+                //Console.WriteLine("idx: {0}", idx);
+
                 //SanitizeMapIndex(ref idx);
 
                 if (_filesMap[idx] == null || _filesMap[idx].StartAddress == IntPtr.Zero)
                 {
                     reader.Skip(8);
-
                     continue;
                 }
 
                 int mapPatchesCount = (int) reader.ReadUInt32BE();
+                //Console.WriteLine("mapPatchesCount: {0}", mapPatchesCount);
+
                 MapPatchCount[i] = mapPatchesCount;
                 int staticPatchesCount = (int) reader.ReadUInt32BE();
+                //Console.WriteLine("staticPatchesCount: {0}", staticPatchesCount);
+
                 StaticPatchCount[i] = staticPatchesCount;
 
                 int w = MapBlocksSize[i, 0];
@@ -457,10 +469,10 @@ namespace ClassicUO.IO.Resources
                     {
                         uint blockIndex = difl.ReadUInt();
 
+
                         if (blockIndex < maxBlockCount)
                         {
                             BlockData[idx][blockIndex].MapAddress = (ulong) dif.PositionAddress;
-
                             result = true;
                         }
 

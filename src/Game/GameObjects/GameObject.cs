@@ -262,20 +262,18 @@ namespace ClassicUO.Game.GameObjects
                 }
 
                 int startX = item.RealScreenPosition.X;
-                int endX = startX + item.RenderedText.Width;
-
                 if (startX < minX)
                 {
                     item.RealScreenPosition.X += minX - startX;
                 }
 
+                int endX = startX + item.RenderedText.Width;
                 if (endX > maxX)
                 {
                     item.RealScreenPosition.X -= endX - maxX;
                 }
 
                 int startY = item.RealScreenPosition.Y;
-
                 if (startY < minY && offsetY == 0)
                 {
                     offsetY = minY - startY;

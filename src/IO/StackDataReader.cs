@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace ClassicUO.IO
 
         private readonly ReadOnlySpan<byte> _data;
 
-
         public StackDataReader(ReadOnlySpan<byte> data)
         {
             _data = data;
@@ -32,21 +32,19 @@ namespace ClassicUO.IO
         public long Length { get; }
         public int Remaining => (int)(Length - Position);
 
-        public IntPtr StartAddress => (IntPtr)Unsafe.AsPointer(ref GetPinnableReference());
+        public IntPtr StartAddress => (IntPtr) Unsafe.AsPointer(ref GetPinnableReference());
         public IntPtr PositionAddress
         {
             [MethodImpl(IMPL_OPTION)]
-            get => (IntPtr)((byte*)Unsafe.AsPointer(ref GetPinnableReference()) + Position);
+            get => (IntPtr)((byte*) Unsafe.AsPointer(ref GetPinnableReference()) + Position);
         }
 
         public byte this[int index] => _data[0];
 
         public ReadOnlySpan<byte> Buffer => _data;
 
-
         [MethodImpl(IMPL_OPTION)]
         public ref byte GetPinnableReference() => ref MemoryMarshal.GetReference(_data);
-
 
         [MethodImpl(IMPL_OPTION)]
         public void Release()
@@ -179,10 +177,6 @@ namespace ClassicUO.IO
 
             return v;
         }
-
-
-
-
 
         [MethodImpl(IMPL_OPTION)]
         public ushort ReadUInt16BE()

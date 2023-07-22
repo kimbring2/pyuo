@@ -633,7 +633,7 @@ namespace ClassicUO.Network
 
         private static void UpdateItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateItem()");
+            //Console.WriteLine("UpdateItem()");
 
             if (World.Player == null)
             {
@@ -737,7 +737,7 @@ namespace ClassicUO.Network
 
         private static void EnterWorld(ref StackDataReader p)
         {
-            Console.WriteLine("EnterWorld()");
+            //Console.WriteLine("EnterWorld()");
 
             if (ProfileManager.CurrentProfile == null)
             {
@@ -1007,6 +1007,7 @@ namespace ClassicUO.Network
 
         private static void UpdatePlayer(ref StackDataReader p)
         {
+            //Console.WriteLine("UpdatePlayer()");
             if (World.Player == null)
             {
                 return;
@@ -1060,6 +1061,8 @@ namespace ClassicUO.Network
 
         private static void ConfirmWalk(ref StackDataReader p)
         {
+            //Console.WriteLine("ConfirmWalk()");
+
             if (World.Player == null)
             {
                 return;
@@ -1077,6 +1080,9 @@ namespace ClassicUO.Network
             World.Player.Walker.ConfirmWalk(seq);
 
             World.Player.AddToTile();
+
+            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(3);
         }
 
         private static void DragAnimation(ref StackDataReader p)
@@ -1441,16 +1447,8 @@ namespace ClassicUO.Network
                 containerSerial
             );
 
-            World.OPL.TryGetNameAndData(containerSerial, out string name, out string data);
-            //Console.WriteLine("container / name: {0}, containerSerial: {1}\n", name, containerSerial);
-
             Client.Game._uoServiceImpl.UpdatePlayerStatus();
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
-            //Client.Game._uoServiceImpl.UpdateWorldItems(2);
-
-            //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(100);
-
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1900,7 +1898,6 @@ namespace ClassicUO.Network
                 }
             }
 
-            //Console.WriteLine("UpdateSkills()");
             Client.Game._uoServiceImpl.UpdatePlayerSkills();
         }
 
@@ -2716,9 +2713,8 @@ namespace ClassicUO.Network
                 p.Skip(6);
             }
 
-            bool IsMobile = SerialHelper.IsMobile(serial);
-            bool IsItem = SerialHelper.IsItem(serial);
-
+            //bool IsMobile = SerialHelper.IsMobile(serial);
+            //bool IsItem = SerialHelper.IsItem(serial);
             //Console.WriteLine("IsMobile: {0}", IsMobile);
             //Console.WriteLine("IsItem: {0}", IsItem);
 
@@ -6181,8 +6177,6 @@ namespace ClassicUO.Network
         {
             if (serial == World.Player)
             {
-                //Console.WriteLine("UpdatePlayer()");
-
                 World.Player.CloseBank();
 
                 World.Player.Walker.WalkingFailed = false;
@@ -6322,7 +6316,6 @@ namespace ClassicUO.Network
                 UIManager.SavePosition(gumpID, new Point(x, y));
             }
 
-            //Console.WriteLine("gump 1: {0}", gump);
             if (gump == null)
             {
                 gump = new Gump(sender, gumpID)
@@ -6337,13 +6330,9 @@ namespace ClassicUO.Network
                 };
             }
 
-            //Console.WriteLine("gump 2: {0}", gump);
-
             int group = 0;
             int page = 0;
             bool textBoxFocused = false;
-
-            //Console.WriteLine("cmdlen: {0}", cmdlen);
 
             for (int cnt = 0; cnt < cmdlen; cnt++)
             {
@@ -6355,7 +6344,6 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
-                //Console.WriteLine("entry: {0}", entry);
 
                 if (string.Equals(entry, "button", StringComparison.InvariantCultureIgnoreCase))
                 {

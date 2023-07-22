@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using ClassicUO.Network;
 
 namespace ClassicUO.Game.Managers
@@ -111,6 +112,8 @@ namespace ClassicUO.Game.Managers
 
         public void DenyWalk(byte sequence, int x, int y, sbyte z)
         {
+            //Console.WriteLine("DenyWalk()");
+
             World.Player.ClearSteps();
 
             Reset();
@@ -137,7 +140,6 @@ namespace ClassicUO.Game.Managers
             }
 
             int stepIndex = 0;
-
             for (int i = 0; i < StepsCount; i++)
             {
                 if (StepInfos[i].Sequence == sequence)
@@ -149,22 +151,17 @@ namespace ClassicUO.Game.Managers
             }
 
             bool isBadStep = stepIndex == StepsCount;
-
-
             if (!isBadStep)
             {
                 if (stepIndex >= CurrentWalkSequence)
                 {
                     StepInfos[stepIndex].Accepted = true;
-
                     World.RangeSize.X = StepInfos[stepIndex].X;
-
                     World.RangeSize.Y = StepInfos[stepIndex].Y;
                 }
                 else if (stepIndex == 0)
                 {
                     World.RangeSize.X = StepInfos[0].X;
-
                     World.RangeSize.Y = StepInfos[0].Y;
 
                     for (int i = 1; i < StepsCount; i++)

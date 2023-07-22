@@ -1321,6 +1321,8 @@ namespace ClassicUO.Game.GameObjects
 
         protected override void OnPositionChanged()
         {
+            //Console.WriteLine("OnPositionChanged()");
+
             base.OnPositionChanged();
 
             Plugin.UpdatePlayerPosition(X, Y, Z);
@@ -1550,7 +1552,6 @@ namespace ClassicUO.Game.GameObjects
             Direction oldDirection = Direction;
 
             bool emptyStack = Steps.Count == 0;
-
             if (!emptyStack)
             {
                 ref Step walkStep = ref Steps.Back();
@@ -1572,7 +1573,6 @@ namespace ClassicUO.Game.GameObjects
 
                 if (!Pathfinder.CanWalk(ref newDir, ref newX, ref newY, ref newZ))
                 {
-                    //Console.WriteLine("!Pathfinder.CanWalk(ref newDir, ref newX, ref newY, ref newZ)");
                     return false;
                 }
 
@@ -1655,7 +1655,6 @@ namespace ClassicUO.Game.GameObjects
                 }
             );
 
-            //Console.WriteLine("NetClient.Socket.Send_WalkRequest()");
             NetClient.Socket.Send_WalkRequest(direction, Walker.WalkSequence, run, Walker.FastWalkStack.GetValue());
 
             if (Walker.WalkSequence == 0xFF)
@@ -1678,7 +1677,7 @@ namespace ClassicUO.Game.GameObjects
 
             //Console.WriteLine("PlayerMobile Walk UpdatePlayerObject()");
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
-            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
+            //Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(5);
 
             return true;
         }

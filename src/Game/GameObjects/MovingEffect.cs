@@ -167,7 +167,6 @@ namespace ClassicUO.Game.GameObjects
                 return;
             }
 
-
             IsPositionChanged = true;
             AngleToTarget = (float) Math.Atan2(-offset.Y, -offset.X);
 

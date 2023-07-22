@@ -950,6 +950,8 @@ namespace ClassicUO.Game
 
         public static bool WalkTo(int x, int y, int z, int distance)
         {
+            Console.WriteLine("WalkTo()");
+            
             if (World.Player == null /*|| World.Player.Stamina == 0*/ || World.Player.IsParalyzed)
             {
                 return false;

@@ -175,6 +175,10 @@ namespace ClassicUO.Game.Scenes
                 _maxGroundZ = (sbyte) _maxZ;
                 playerX++;
                 playerY++;
+                    
+                Client.Game._uoServiceImpl.UpdatePlayerObject();
+                //Console.WriteLine("playerX++, playerY++");
+
                 bx = playerX;
                 by = playerY;
                 chunk = World.Map.GetChunk(bx, by, false);

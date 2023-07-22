@@ -621,6 +621,11 @@ namespace ClassicUO.Game.Scenes
             int Y_Player = World.Player.Y;
             int Z_Player = World.Player.Z;
 
+            if ((World.Player != null) && (World.InGame == true))
+            {
+                //Console.WriteLine("Player, X: {0}, Y: {1}", World.Player.X, World.Player.Y);
+            }
+
             int ScreenPosition_X = (X_Player - Y_Player) * 22;
             int ScreenPosition_Y = (X_Player + Y_Player) * 22 - (Z_Player << 2);
 

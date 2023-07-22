@@ -286,7 +286,7 @@ namespace ClassicUO.Grpc
     		_envStep = 0;
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
-	        _updatePlayerObjectTimer = -1;
+	        //_updatePlayerObjectTimer = -1;
         	_usedLandIndex = 0;
         }
 
@@ -574,7 +574,6 @@ namespace ClassicUO.Grpc
         {
         	GrpcStates grpcStates = new GrpcStates();
         	
-        	//if ( (config_init == true) || (Settings.Replay == false) )
         	if (config_init == true)
         	{
         		//Console.WriteLine("config_init == true");
@@ -586,7 +585,8 @@ namespace ClassicUO.Grpc
 
         	if ((World.Player != null) && (World.InGame == true))
             {
-            	//Console.WriteLine("BankOpened: {0}", World.Player.BankOpened);
+            	//Console.WriteLine("Player, X: {0}, Y: {1}, _updatePlayerObjectTimer: {2}", 
+            	//	World.Player.X, World.Player.Y, _updatePlayerObjectTimer);
             }
 
         	if (_checkUpdatedObjectTimer == 0) 
@@ -939,7 +939,7 @@ namespace ClassicUO.Grpc
 	        				// Drop without selecting the position at the container
         					GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
         				}
-        				else
+        				else if (grpcAction.Index == 1)
         				{
         					// Drop at the certain position at the container(Item will not be stacked)
         					if (SerialHelper.IsItem(grpcAction.TargetSerial))

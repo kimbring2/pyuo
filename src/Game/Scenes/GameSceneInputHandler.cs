@@ -115,6 +115,8 @@ namespace ClassicUO.Game.Scenes
                 }
                 else
                 {
+                    //Console.WriteLine("World.Player.Walk(facing - 1, run)");
+
                     World.Player.Walk(facing - 1, run);
                 }
 

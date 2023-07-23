@@ -549,7 +549,8 @@ namespace ClassicUO.Game
 
             World.ObjectToRemove = item.Serial;
 
-            Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
 
             return true;
@@ -627,7 +628,7 @@ namespace ClassicUO.Game
                 ItemHold.Clear();
             }
 
-            Client.Game._uoServiceImpl.UpdatePlayerObject();
+            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 

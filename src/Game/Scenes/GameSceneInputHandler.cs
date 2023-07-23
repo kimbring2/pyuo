@@ -1037,10 +1037,6 @@ namespace ClassicUO.Game.Scenes
                         }
                         else if (obj is Item item)
                         {
-                            //Console.WriteLine("GameActions.PickUp()");
-                            //Console.WriteLine("item: {0}", item);
-                            //Console.WriteLine("(uint) item: {0}", (uint) item);
-                            //Entity ent_ = World.Get((uint) item);
                             //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", ent_.Name, ent_.X, ent_.Y);
                             //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", item.Name, item.X, item.Y);
                             //Console.WriteLine("Mouse X: {0}, Mouse Y: {1}", Mouse.Position.X, Mouse.Position.Y);

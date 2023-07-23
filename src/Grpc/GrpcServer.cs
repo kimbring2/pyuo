@@ -585,8 +585,7 @@ namespace ClassicUO.Grpc
 
         	if ((World.Player != null) && (World.InGame == true))
             {
-            	//Console.WriteLine("Player, X: {0}, Y: {1}, _updatePlayerObjectTimer: {2}", 
-            	//	World.Player.X, World.Player.Y, _updatePlayerObjectTimer);
+            	Console.WriteLine("Player, ItemHold.Serial: {0}", (uint) ItemHold.Serial);
             }
 
         	if (_checkUpdatedObjectTimer == 0) 

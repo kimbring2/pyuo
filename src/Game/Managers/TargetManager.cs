@@ -159,9 +159,13 @@ namespace ClassicUO.Game.Managers
 
         public static void Reset()
         {
+            Console.WriteLine("TargetManager Reset()");
+
             ClearTargetingWithoutTargetCancelPacket();
 
-            TargetingState = 0;
+            //TargetingState = 0;
+            TargetingState = CursorTarget.Invalid;
+            
             _targetCursorId = 0;
             MultiTargetInfo = null;
             TargetingType = 0;

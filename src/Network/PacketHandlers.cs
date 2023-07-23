@@ -3150,8 +3150,6 @@ namespace ClassicUO.Network
 
         private static void MovePlayer(ref StackDataReader p)
         {
-            Console.WriteLine("MovePlayer()");
-
             if (!World.InGame)
             {
                 return;

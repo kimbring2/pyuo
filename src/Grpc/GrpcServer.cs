@@ -538,6 +538,40 @@ namespace ClassicUO.Grpc
 		    }
 	    }
 
+	    public void UpdatePlayerBuffs()
+        {
+        	Console.WriteLine("UpdatePlayerBuffs()");
+
+        	// Add player status 
+	        if ((World.Player != null) && (World.InGame == true))
+            {
+            	foreach (KeyValuePair<BuffIconType, BuffIcon> k in World.Player.BuffIcons)
+		        {
+					// k.Key: HidingAndOrStealth, k.Value: ClassicUO.Game.Data.BuffIcon
+					// k.Key: Healing, k.Value: ClassicUO.Game.Data.BuffIcon
+		            //Console.WriteLine("k.Key: {0}, k.Value: {1}", k.Key, k.Value);
+
+		            //Type = type;
+		            //Graphic = graphic;
+		            //Timer = (timer <= 0 ? 0xFFFF_FFFF : Time.Ticks + timer * 1000);
+		            //Text = text;
+
+		            uint buffIconType = (uint) k.Key;
+		            uint type = (uint) k.Value.Type;
+		            uint graphic = (uint) k.Value.Graphic;
+		            uint timer = (uint) k.Value.Timer;
+		            string text = k.Value.Text;
+
+		            uint delta = (uint) (k.Value.Timer - Time.Ticks);
+		            Console.WriteLine("buffIconType: {0}, type: {1}, graphic: {2}, delta: {3}, text: {4}", 
+		            				   buffIconType, type, graphic, delta, text);
+
+		        }
+
+		        Console.WriteLine("");
+            }
+	    }
+
 	    public void AddToPopupMenuList(string text, bool active)
 	    {
 	        grpcPopupMenuList.Add(new GrpcPopupMenu { Text=(string) text, Active=(bool) active });
@@ -637,6 +671,7 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
+        	UpdatePlayerBuffs();
         	//UpdateWorldItems();
         	//UpdatePlayerObject();
 

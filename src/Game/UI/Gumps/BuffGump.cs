@@ -68,7 +68,6 @@ namespace ClassicUO.Game.UI.Gumps
             _direction = GumpDirection.LEFT_HORIZONTAL;
             _graphic = 0x7580;
 
-
             SetInScreen();
 
             BuildGump();
@@ -85,7 +84,6 @@ namespace ClassicUO.Game.UI.Gumps
 
             Clear();
 
-
             Add
             (
                 _background = new GumpPic(0, 0, _graphic, 0)
@@ -101,7 +99,6 @@ namespace ClassicUO.Game.UI.Gumps
                     ButtonAction = ButtonAction.Activate
                 }
             );
-
 
             switch (_direction)
             {
@@ -299,14 +296,17 @@ namespace ClassicUO.Game.UI.Gumps
 
             public BuffIcon Icon { get; }
 
-
             public override void Update(double totalTime, double frameTime)
             {
                 base.Update(totalTime, frameTime);
 
                 if (!IsDisposed && Icon != null)
                 {
+
+                    //Console.WriteLine("Type: {0}, Timer: {1}, totalTime: {2}", 
+                    //                   Icon.Type ,Icon.Timer, totalTime);
                     int delta = (int) (Icon.Timer - totalTime);
+                    //Console.WriteLine("delta: {0}", Icon.Timer, totalTime);
 
                     if (_updateTooltipTime < totalTime && delta > 0)
                     {

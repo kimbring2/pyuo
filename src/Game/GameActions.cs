@@ -481,11 +481,20 @@ namespace ClassicUO.Game
             bool is_gump = false
         )
         {
-            //Console.WriteLine("PickUp()"");
+            //Console.WriteLine("PickUp()");
+            //Console.WriteLine("amount: {0}: ", amount);
             
             Client.Game._uoServiceImpl.SetActionType(3);
             Client.Game._uoServiceImpl.SetTargetSerial(serial);
-            Client.Game._uoServiceImpl.SetAmount((uint) amount);
+
+            if (amount == -1)
+            {
+                Client.Game._uoServiceImpl.SetAmount(0);
+            }
+            else
+            {
+                Client.Game._uoServiceImpl.SetAmount((uint) amount);
+            }
 
             if (World.Player.IsDead || ItemHold.Enabled)
             {

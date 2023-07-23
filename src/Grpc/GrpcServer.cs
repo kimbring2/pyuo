@@ -1031,8 +1031,14 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 7) {
+	        	// Change the war mode
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 7");
+	        		bool boolIndex = Convert.ToBoolean(grpcAction.Index);
+
+	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
+        			NetClient.Socket.Send_ChangeWarMode(boolIndex);
+        			World.Player.InWarMode = boolIndex;
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 8) {
@@ -1057,14 +1063,8 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 9) {
-	        	// Change the war mode 
 	        	if (World.Player != null) {
-	        		Console.WriteLine("ActionType == 19");
-	        		bool boolIndex = Convert.ToBoolean(grpcAction.Index);
-
-	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
-        			NetClient.Socket.Send_ChangeWarMode(boolIndex);
-        			World.Player.InWarMode = boolIndex;
+	        		Console.WriteLine("ActionType == 9");
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 10) {
@@ -1077,7 +1077,7 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 11) {
 	        	if (World.Player != null) {
-	        		// Select one of menu from the pop up menu the vendor/teacher
+	        		// Select one of menu from the pop up menu
 	        		Console.WriteLine("ActionType == 11");
 
 	        		GameActions.ResponsePopupMenu(grpcAction.TargetSerial, (ushort) grpcAction.Index);

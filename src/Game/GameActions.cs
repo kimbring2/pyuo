@@ -629,7 +629,7 @@ namespace ClassicUO.Game
             }
 
             Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
         }
 
         public static void Equip(uint container = 0)
@@ -652,6 +652,7 @@ namespace ClassicUO.Game
 
             Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
             //Client.Game._uoServiceImpl.UpdatePlayerObject();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         public static void ReplyGump(uint local, uint server, int button, uint[] switches = null, Tuple<ushort, string>[] entries = null)

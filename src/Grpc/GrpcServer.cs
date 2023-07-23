@@ -585,7 +585,7 @@ namespace ClassicUO.Grpc
 
         	if ((World.Player != null) && (World.InGame == true))
             {
-            	Console.WriteLine("Player, ItemHold.Serial: {0}", (uint) ItemHold.Serial);
+            	//Console.WriteLine("Player, ItemHold.Serial: {0}", (uint) ItemHold.Serial);
             }
 
         	if (_checkUpdatedObjectTimer == 0) 
@@ -1031,17 +1031,8 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 7) {
-	        	// Open the corpse by it's serial
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 7");
-                    try
-                    {
-                    	GameActions.OpenCorpse(grpcAction.TargetSerial);
-			        }
-			        catch (Exception ex)
-		            {
-		            	Console.WriteLine("Failed to check the items of the corpse: " + ex.Message);
-		            }
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 8) {
@@ -1066,9 +1057,14 @@ namespace ClassicUO.Grpc
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 9) {
-	        	// 
+	        	// Change the war mode 
 	        	if (World.Player != null) {
-                    Console.WriteLine("ActionType == 9");
+	        		Console.WriteLine("ActionType == 19");
+	        		bool boolIndex = Convert.ToBoolean(grpcAction.Index);
+
+	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
+        			NetClient.Socket.Send_ChangeWarMode(boolIndex);
+        			World.Player.InWarMode = boolIndex;
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 10) {

@@ -556,16 +556,6 @@ namespace ClassicUO.Game.Scenes
 
                                 break;
                             case Land land:
-                                //Console.WriteLine("case Land land()");
-                                //Console.WriteLine("land.Distance: {0}", land.Distance);
-                                //Console.WriteLine("land.TileData.Name: {0}", land.TileData.Name);
-
-                                //GameObject targetObject = World.Map.GetTile(land.X, land.Y);
-                                //Land targetLand = (Land) targetObject;
-
-                                //Console.WriteLine("targetLand.Z: {0}", targetLand.Z);
-                                //Console.WriteLine("land.Z: {0}", land.Z);
-
                                 TargetManager.Target
                                 (
                                     0,

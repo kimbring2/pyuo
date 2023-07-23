@@ -55,7 +55,8 @@ namespace ClassicUO.Grpc
         List<GrpcClilocData> grpcClilocDataList = new List<GrpcClilocData>();
         List<Vector2> itemDropableLandSimpleList = new List<Vector2>();
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
-        List<GrpcSkill> grpcPlayerSkillListList = new List<GrpcSkill>();
+        List<GrpcSkill> grpcPlayerSkillList = new List<GrpcSkill>();
+        List<GrpcBuff> grpcPlayerBuffList = new List<GrpcBuff>();
 
         GrpcAction grpcAction = new GrpcAction();
 
@@ -83,6 +84,7 @@ namespace ClassicUO.Grpc
     	List<int> clilocDataArrayLengthList = new List<int>();
     	List<int> playerStatusArrayLengthList = new List<int>();
         List<int> playerSkillListArrayLengthList = new List<int>();
+        List<int> playerBuffListArrayLengthList = new List<int>();
         List<int> actionArraysLengthList = new List<int>();
 
         List<uint> updatedObjectSerialList = new List<uint>();
@@ -95,6 +97,7 @@ namespace ClassicUO.Grpc
 		byte[] clilocDataArrays;
         byte[] playerStatusArrays;
         byte[] playerSkillListArrays;
+        byte[] playerBuffListArrays;
         byte[] actionArrays;
 
         // ##################################################################################
@@ -105,6 +108,7 @@ namespace ClassicUO.Grpc
 		byte[] clilocDataArraysTemp;
 		byte[] playerStatusArraysTemp;
         byte[] playerSkillListArraysTemp;
+        byte[] playerBuffListArraysTemp;
         byte[] actionArraysTemp;
 
         public void AddUpdatedObjectSerial(uint serial)
@@ -259,6 +263,8 @@ namespace ClassicUO.Grpc
 	    	clilocDataArrayLengthList.Clear();
 	    	playerStatusArrayLengthList.Clear();
 	        playerSkillListArrayLengthList.Clear();
+			playerBuffListArrayLengthList.Clear();
+
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
@@ -268,6 +274,7 @@ namespace ClassicUO.Grpc
 	        Array.Clear(clilocDataArrays, 0, clilocDataArrays.Length);
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
 	        Array.Clear(playerSkillListArrays, 0, playerSkillListArrays.Length);
+	        Array.Clear(playerBuffListArrays, 0, playerBuffListArrays.Length);
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
@@ -277,6 +284,7 @@ namespace ClassicUO.Grpc
 	        Array.Clear(clilocDataArraysTemp, 0, clilocDataArraysTemp.Length);
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
+	        Array.Clear(playerBuffListArraysTemp, 0, playerBuffListArraysTemp.Length);
 
 	        //actionArraysLengthList.Clear();
 	        //Array.Clear(actionArrays, 0, actionArrays.Length);
@@ -322,6 +330,7 @@ namespace ClassicUO.Grpc
             byte[] clilocDataArrayLengthArray = ConvertIntListToByteArray(clilocDataArrayLengthList);
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
 	        byte[] playerSkillListArrayLengthArray = ConvertIntListToByteArray(playerSkillListArrayLengthList);
+	        byte[] playerBuffListArrayLengthArray = ConvertIntListToByteArray(playerBuffListArrayLengthList);
 	        byte[] actionArraysLengthArray = ConvertIntListToByteArray(actionArraysLengthList);
 
 	    	// ##################################################################################
@@ -332,6 +341,7 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.clilocDataLen", clilocDataArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerStatusLen", playerStatusArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerSkillListLen", playerSkillListArrayLengthArray);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.playerBuffListLen", playerBuffListArrayLengthArray);
  
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.metadata.actionArraysLen", actionArraysLengthArray);
 
@@ -343,6 +353,7 @@ namespace ClassicUO.Grpc
 			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.clilocData", clilocDataArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerStatus", playerStatusArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerSkillList", playerSkillListArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.playerBuffList", playerBuffListArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.data.actionArrays", actionArrays);
 
             Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
@@ -352,6 +363,7 @@ namespace ClassicUO.Grpc
             Console.WriteLine("clilocDataArrays.Length: {0}", clilocDataArrays.Length);
             Console.WriteLine("playerStatusArrays.Length: {0}", playerStatusArrays.Length);
             Console.WriteLine("playerSkillListArrays.Length: {0}", playerSkillListArrays.Length);
+            Console.WriteLine("playerBuffListArrays.Length: {0}", playerBuffListArrays.Length);
             Console.WriteLine("actionArrays.Length: {0}", actionArrays.Length);
         }
 
@@ -504,14 +516,12 @@ namespace ClassicUO.Grpc
 	        if ((World.Player != null) && (World.InGame == true))
 	        {
 	        	//Console.WriteLine("UpdatePlayerSkills()");
-
-	            //Console.WriteLine("\nWorld.Player.Skills.Length: {0}", World.Player.Skills.Length);
 		        for (int i = 0; i < World.Player.Skills.Length; i++)
 	            {
 	            	Skill skill = World.Player.Skills[i];
 	            	//Console.WriteLine("Name: {0}, Index: {1}, IsClickable: {2}, Value: {3}, Base: {4}, Cap: {5}, Lock: {6}", 
 	            	//	skill.Name, skill.Index, skill.IsClickable, skill.Value, skill.Base, skill.Cap, skill.Lock);
-	            	grpcPlayerSkillListList.Add(new GrpcSkill{ Name=skill.Name, Index=(uint) skill.Index, 
+	            	grpcPlayerSkillList.Add(new GrpcSkill{ Name=skill.Name, Index=(uint) skill.Index, 
 	            											   IsClickable=(bool) skill.IsClickable, 
 	            											   Value=(uint) skill.Value, Base=(uint) skill.Base, 
 	            											   Cap=(uint) skill.Cap, Lock=(uint) skill.Lock });
@@ -540,22 +550,13 @@ namespace ClassicUO.Grpc
 
 	    public void UpdatePlayerBuffs()
         {
-        	Console.WriteLine("UpdatePlayerBuffs()");
+        	//Console.WriteLine("UpdatePlayerBuffs()");
 
         	// Add player status 
 	        if ((World.Player != null) && (World.InGame == true))
             {
             	foreach (KeyValuePair<BuffIconType, BuffIcon> k in World.Player.BuffIcons)
 		        {
-					// k.Key: HidingAndOrStealth, k.Value: ClassicUO.Game.Data.BuffIcon
-					// k.Key: Healing, k.Value: ClassicUO.Game.Data.BuffIcon
-		            //Console.WriteLine("k.Key: {0}, k.Value: {1}", k.Key, k.Value);
-
-		            //Type = type;
-		            //Graphic = graphic;
-		            //Timer = (timer <= 0 ? 0xFFFF_FFFF : Time.Ticks + timer * 1000);
-		            //Text = text;
-
 		            uint buffIconType = (uint) k.Key;
 		            uint type = (uint) k.Value.Type;
 		            uint graphic = (uint) k.Value.Graphic;
@@ -563,12 +564,14 @@ namespace ClassicUO.Grpc
 		            string text = k.Value.Text;
 
 		            uint delta = (uint) (k.Value.Timer - Time.Ticks);
-		            Console.WriteLine("buffIconType: {0}, type: {1}, graphic: {2}, delta: {3}, text: {4}", 
-		            				   buffIconType, type, graphic, delta, text);
+		            //Console.WriteLine("buffIconType: {0}, type: {1}, graphic: {2}, delta: {3}, text: {4}", 
+		            //				   buffIconType, type, graphic, delta, text);
+
+	            	grpcPlayerBuffList.Add(new GrpcBuff{ Type=(uint) k.Value.Type, Delta= delta, Text=k.Value.Text });
 
 		        }
 
-		        Console.WriteLine("");
+		        //Console.WriteLine("");
             }
 	    }
 
@@ -615,6 +618,7 @@ namespace ClassicUO.Grpc
         		UpdateWorldItems();
         		UpdatePlayerStatus();
         		UpdatePlayerSkills();
+        		UpdatePlayerBuffs();
         	}
 
         	if ((World.Player != null) && (World.InGame == true))
@@ -671,7 +675,7 @@ namespace ClassicUO.Grpc
 
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
-        	UpdatePlayerBuffs();
+        	//UpdatePlayerBuffs();
         	//UpdateWorldItems();
         	//UpdatePlayerObject();
 
@@ -694,10 +698,14 @@ namespace ClassicUO.Grpc
             grpcStates.ClilocDataList = clilocDataList;
 
             GrpcSkillList playerSkillList = new GrpcSkillList();
-            playerSkillList.Skills.AddRange(grpcPlayerSkillListList);
+            playerSkillList.Skills.AddRange(grpcPlayerSkillList);
             grpcStates.PlayerSkillList = playerSkillList;
 
             grpcStates.PlayerStatus = grpcPlayerStatus;
+
+            GrpcBuffList playerBuffList = new GrpcBuffList();
+            playerBuffList.Buffs.AddRange(grpcPlayerBuffList);
+            grpcStates.PlayerBuffList = playerBuffList;
 
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
@@ -710,6 +718,7 @@ namespace ClassicUO.Grpc
 
         	byte[] playerStatusArray = grpcPlayerStatus.ToByteArray();
         	byte[] playerSkillListArray = playerSkillList.ToByteArray();
+        	byte[] playerBuffListArray = playerBuffList.ToByteArray();
 
         	if (worldItemArray.Length != 0) 
         	{
@@ -733,6 +742,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
+        		playerBuffListArraysTemp = playerBuffListArray;
         	}
         	else if (_envStep == 1001) 
         	{	
@@ -744,6 +754,7 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = clilocDataArraysTemp;
             	playerStatusArrays = playerStatusArraysTemp;
             	playerSkillListArrays = playerSkillListArraysTemp;
+            	playerBuffListArrays = playerBuffListArraysTemp;
 
 				// ##################################################################################
 				playerObjectArraysTemp = playerObjectArray;
@@ -753,6 +764,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
+        		playerBuffListArraysTemp = playerBuffListArray;
         	}
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
@@ -764,6 +776,7 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
+            	playerBuffListArrays = ConcatByteArrays(playerBuffListArrays, playerBuffListArraysTemp);
 
 				// ##################################################################################
             	playerObjectArraysTemp = playerObjectArray;
@@ -773,6 +786,7 @@ namespace ClassicUO.Grpc
         		clilocDataArraysTemp = clilocDataArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
+        		playerBuffListArraysTemp = playerBuffListArray;
         	}
         	else if (_envStep == 1001 * _totalStepScale)
         	{
@@ -784,6 +798,7 @@ namespace ClassicUO.Grpc
             	clilocDataArrays = ConcatByteArrays(clilocDataArrays, clilocDataArraysTemp);
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
+            	playerBuffListArrays = ConcatByteArrays(playerBuffListArrays, playerBuffListArraysTemp);
 				
             	if (Settings.Replay == true)
 	            {
@@ -808,6 +823,7 @@ namespace ClassicUO.Grpc
             	clilocDataArraysTemp = ConcatByteArrays(clilocDataArraysTemp, clilocDataArray);
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
+            	playerBuffListArraysTemp = ConcatByteArrays(playerBuffListArraysTemp, playerBuffListArray);
         	}
 
         	// ##################################################################################
@@ -818,6 +834,7 @@ namespace ClassicUO.Grpc
 			clilocDataArrayLengthList.Add((int) clilocDataArray.Length);
         	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
+        	playerBuffListArrayLengthList.Add((int) playerBuffListArray.Length);
 			
         	// ##################################################################################
         	_envStep++;
@@ -895,8 +912,9 @@ namespace ClassicUO.Grpc
 	    	worldMobileObjectList.Clear();
 	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
-	        grpcPlayerSkillListList.Clear();
+	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
+	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();
@@ -1189,8 +1207,9 @@ namespace ClassicUO.Grpc
 	    	worldMobileObjectList.Clear();
 	    	grpcPopupMenuList.Clear();
 	        grpcClilocDataList.Clear();
-	        grpcPlayerSkillListList.Clear();
+	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
+	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();

@@ -5302,6 +5302,8 @@ namespace ClassicUO.Network
 
         private static void BuffDebuff(ref StackDataReader p)
         {
+            //Console.WriteLine("BuffDebuff()");
+
             if (World.Player == null)
             {
                 return;
@@ -5385,6 +5387,8 @@ namespace ClassicUO.Network
                     }
                 }
             }
+
+            Client.Game._uoServiceImpl.UpdatePlayerBuffs();
         }
 
         private static void NewCharacterAnimation(ref StackDataReader p)

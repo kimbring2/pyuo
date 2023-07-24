@@ -1156,7 +1156,7 @@ namespace ClassicUO.Network
 
         private static void OpenContainer(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenContainer()");
+            Console.WriteLine("OpenContainer()");
 
             if (World.Player == null)
             {
@@ -1204,6 +1204,7 @@ namespace ClassicUO.Network
                 //Console.WriteLine("graphic == 0x0030");
 
                 Mobile vendor = World.Mobiles.Get(serial);
+
                 if (vendor == null)
                 {
                     return;
@@ -1217,6 +1218,10 @@ namespace ClassicUO.Network
                 for (Layer layer = Layer.ShopBuyRestock; layer < Layer.ShopBuy + 1; layer++)
                 {
                     Item item = vendor.FindItemByLayer(layer);
+
+                    //Console.WriteLine("First item / Layer: {0}, Serial: {1}, Container: {2}", 
+                    //    layer, item.Serial, item.Container);
+
                     LinkedObject first = item.Items;
                     if (first == null)
                     {
@@ -1233,9 +1238,16 @@ namespace ClassicUO.Network
                         }
                     }
 
+                    int item_count = 0;
                     while (first != null)
                     {
                         Item it = (Item) first;
+
+                        //Console.WriteLine("Layer: {0}, item_count: {1}, Serial: {2}, Container: {3}", 
+                        //    layer, item_count, it.Serial, it.Container);
+
+                        Client.Game._uoServiceImpl.AddVendorData((uint) vendor.Serial, (uint) it.Serial);
+
                         Item itemWorld = World.Items.Get(it.Serial);
 
                         gump.AddItem
@@ -1257,6 +1269,8 @@ namespace ClassicUO.Network
                         {
                             first = first.Next;
                         }
+
+                        item_count++;
                     }
                 }
             }
@@ -1411,6 +1425,10 @@ namespace ClassicUO.Network
                     }
                 }
             }
+
+            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
+
         }
 
         private static void UpdateContainedItem(ref StackDataReader p)
@@ -3235,7 +3253,7 @@ namespace ClassicUO.Network
 
         private static void SellList(ref StackDataReader p)
         {
-            Console.WriteLine("SellList()");
+            //Console.WriteLine("SellList()");
 
             if (!World.InGame)
             {
@@ -3247,6 +3265,8 @@ namespace ClassicUO.Network
             {
                 return;
             }
+
+            //Console.WriteLine("vendor / Name: {0}", vendor.Name);
 
             ushort countItems = p.ReadUInt16BE();
             if (countItems <= 0)
@@ -3268,6 +3288,8 @@ namespace ClassicUO.Network
                 string name = p.ReadASCII(p.ReadUInt16BE());
                 bool fromcliloc = false;
 
+                Client.Game._uoServiceImpl.AddVendorData((uint) vendor.Serial, (uint) serial);
+
                 if (int.TryParse(name, out int clilocnum))
                 {
                     name = ClilocLoader.Instance.GetString(clilocnum);
@@ -3276,7 +3298,6 @@ namespace ClassicUO.Network
                 else if (string.IsNullOrEmpty(name))
                 {
                     bool success = World.OPL.TryGetNameAndData(serial, out name, out _);
-
                     if (!success)
                     {
                         name = TileDataLoader.Instance.StaticData[graphic].Name;

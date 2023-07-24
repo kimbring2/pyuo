@@ -57,6 +57,7 @@ namespace ClassicUO.Grpc
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
         List<GrpcSkill> grpcPlayerSkillList = new List<GrpcSkill>();
         List<GrpcBuff> grpcPlayerBuffList = new List<GrpcBuff>();
+        List<GrpcVendorData> grpcVendorDataList = new List<GrpcVendorData>();
 
         GrpcAction grpcAction = new GrpcAction();
 
@@ -399,6 +400,11 @@ namespace ClassicUO.Grpc
         	grpcClilocDataList.Add(new GrpcClilocData{ Serial=serial, Text=text, Affix=affix, Name=name });
         }
 
+        public void AddVendorData(uint vendorSerial, uint itemSerial)
+        {
+        	grpcVendorDataList.Add(new GrpcVendorData{ VendorSerial=vendorSerial, ItemSerial=itemSerial });
+        }
+
         public void AddGameSimpleObject(string type, uint distance, uint game_x, uint game_y)
         {
         	try 
@@ -503,10 +509,14 @@ namespace ClassicUO.Grpc
 		                    //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
 		                }
 
+		                //Console.WriteLine("mobile.Items: {0}", mobile.Items);
+
 	                    AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, (uint) mobile.Distance,
 	                    				(uint) mobile.X, (uint) mobile.Y, mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
 	            	}
 	            }
+
+	            //Console.WriteLine("");
 	        }
         }
 
@@ -676,6 +686,7 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
         	//UpdatePlayerBuffs();
+        	//UpdateWorldMobiles();
         	//UpdateWorldItems();
         	//UpdatePlayerObject();
 
@@ -706,6 +717,10 @@ namespace ClassicUO.Grpc
             GrpcBuffList playerBuffList = new GrpcBuffList();
             playerBuffList.Buffs.AddRange(grpcPlayerBuffList);
             grpcStates.PlayerBuffList = playerBuffList;
+
+            GrpcVendorDataList vendorDataList = new GrpcVendorDataList();
+            vendorDataList.VendorDatas.AddRange(grpcVendorDataList);
+            grpcStates.VendorDataList = vendorDataList;
 
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
@@ -915,6 +930,7 @@ namespace ClassicUO.Grpc
 	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
+	        grpcVendorDataList.Clear();
 	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();
@@ -1210,6 +1226,7 @@ namespace ClassicUO.Grpc
 	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
+	        grpcVendorDataList.Clear();
 	        _usedLandIndex = 0;
 
 	        grpcAction = new GrpcAction();

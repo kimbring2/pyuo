@@ -1246,7 +1246,7 @@ namespace ClassicUO.Network
                         //Console.WriteLine("Layer: {0}, item_count: {1}, Serial: {2}, Container: {3}", 
                         //    layer, item_count, it.Serial, it.Container);
 
-                        Client.Game._uoServiceImpl.AddVendorData((uint) vendor.Serial, (uint) it.Serial);
+                        Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial);
 
                         Item itemWorld = World.Items.Get(it.Serial);
 
@@ -3288,7 +3288,7 @@ namespace ClassicUO.Network
                 string name = p.ReadASCII(p.ReadUInt16BE());
                 bool fromcliloc = false;
 
-                Client.Game._uoServiceImpl.AddVendorData((uint) vendor.Serial, (uint) serial);
+                Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) serial);
 
                 if (int.TryParse(name, out int clilocnum))
                 {
@@ -4670,7 +4670,7 @@ namespace ClassicUO.Network
             }
 
             //Console.WriteLine("serial: {0}, text: {1}, affix: {2}, name: {3}", serial, text, affix, name);
-            Client.Game._uoServiceImpl.AddClilocData(serial, text, affix, name);
+            Client.Game._uoServiceImpl.AddCliloc(serial, text, affix, name);
 
             MessageManager.HandleMessage
             (

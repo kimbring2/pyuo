@@ -730,14 +730,11 @@ namespace ClassicUO.Grpc
         	if (worldItemArray.Length != 0) 
         	{
 	        	//Console.WriteLine("_envStep: {0}", _envStep);
-	        	//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
-	        	//Console.WriteLine("worldItemArray.Length: {0}", worldItemArray.Length);
-	        	//Console.WriteLine("worldMobileArray.Length: {0}", worldMobileArray.Length);
-	        	//Console.WriteLine("popupMenuArray.Length: {0}", popupMenuArray.Length);
-	        	//Console.WriteLine("clilocArray.Length: {0}", clilocArray.Length);
-	        	//Console.WriteLine("playerStatusArray.Length: {0}", playerStatusArray.Length);
-	        	//Console.WriteLine("playerSkillListArray.Length: {0}", playerSkillListArray.Length);
-	        	//Console.WriteLine("");
+	        }
+
+	        if (worldMobileArray.Length != 0) 
+        	{
+	        	//Console.WriteLine("_envStep: {0}", _envStep);
 	        }
 
         	if (_envStep == 0) 
@@ -1174,13 +1171,14 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 14) {
 	        	if (World.Player != null) {
-	        		// Use the bandage myself
+	        		// Use the item to target
 	        		Console.WriteLine("ActionType == 14");
-	        		Item bandage = World.Player.FindBandage();
-	        		if (bandage != null) 
+	        		//Item bandage = World.Player.FindBandage();
+	        		//if (bandage != null) 
 	        		{
-	        			//Console.WriteLine("Serial: {0}, Amount: {0}", bandage.Serial, bandage.Amount);
-	        			NetClient.Socket.Send_TargetSelectedObject(bandage.Serial, grpcAction.TargetSerial);
+	        			Console.WriteLine("SourceSerial: {0}, TargetSerial: {1}", grpcAction.SourceSerial, 
+	        																      grpcAction.TargetSerial);
+	        			NetClient.Socket.Send_TargetSelectedObject((uint) grpcAction.SourceSerial, grpcAction.TargetSerial);
 	        		}
 	        	}
 	        }
@@ -1199,22 +1197,6 @@ namespace ClassicUO.Grpc
 	        else if (grpcAction.ActionType == 17) {
 	        	if (World.Player != null) {
 	        		Console.WriteLine("ActionType == 17");
-	        	}
-	        }
-	        else if (grpcAction.ActionType == 18) {
-	        	if (World.Player != null) {
-	        		
-	        	}
-	        }
-	        else if (grpcAction.ActionType == 19) {
-	        	if (World.Player != null) {
-	        		// Change the war mode
-	        		Console.WriteLine("ActionType == 19");
-	        		bool boolIndex = Convert.ToBoolean(grpcAction.Index);
-
-	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
-        			NetClient.Socket.Send_ChangeWarMode(boolIndex);
-        			World.Player.InWarMode = boolIndex;
 	        	}
 	        }
 

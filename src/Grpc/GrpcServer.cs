@@ -59,6 +59,9 @@ namespace ClassicUO.Grpc
         List<GrpcSkill> grpcPlayerSkillList = new List<GrpcSkill>();
         List<GrpcBuff> grpcPlayerBuffList = new List<GrpcBuff>();
 
+        List<uint> grpcDeleteItemSerial = new List<uint>();
+        List<uint> grpcDeleteMobileSerial = new List<uint>();
+
         GrpcAction grpcAction = new GrpcAction();
 
         uint _totalStepScale;
@@ -296,9 +299,9 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerBuffListArraysTemp, 0, playerBuffListArraysTemp.Length);
 
 	        // ##################################################################################
-	        actionArraysLengthList.Clear();
-	        Array.Clear(actionArrays, 0, actionArrays.Length);
-	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+	        //actionArraysLengthList.Clear();
+	        //Array.Clear(actionArrays, 0, actionArrays.Length);
+	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
     		_envStep = 0;
@@ -425,13 +428,13 @@ namespace ClassicUO.Grpc
         	try 
         	{
         		worldItemObjectList.Add(new GrpcItemObject{ Distance=distance, GameX=game_x, GameY=game_y, 
-	                    										Serial=serial, Name=name, IsCorpse=is_corpse,
-	                    										Amount=amount, Price=price, Layer=layer,
-	                    										Container=container, Data=data});
+	                    									Serial=serial, Name=name, IsCorpse=is_corpse,
+	                    									Amount=amount, Price=price, Layer=layer,
+	                    									Container=container, Data=data});
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the object: " + ex.Message);
+                Console.WriteLine("Failed to add the object: " + ex.Message);
             }
         }
 
@@ -446,7 +449,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                //Console.WriteLine("Failed to add the mobile object: " + ex.Message);
+                Console.WriteLine("Failed to add the mobile object: " + ex.Message);
             }
         }
 
@@ -458,20 +461,6 @@ namespace ClassicUO.Grpc
 		        foreach (Item item in World.Items.Values)
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-
-	            	if (item.IsCorpse)
-	            	{
-	            		//Console.WriteLine("name: {0}, serial: {1}", name, item.Serial);
-	            		Entity container = World.Get(item.Serial);
-	            		for (LinkedObject i = container.Items; i != null; i = i.Next)
-            			{
-                			Item item_child = (Item) i;
-                			World.OPL.TryGetNameAndData(item_child.Serial, out string name_child, out string _child);
-                			//Console.WriteLine("name_child: {0}", name_child);
-                		}
-                		//Console.WriteLine("");
-	            	}
-
 	            	if (name != null)
 	            	{
 	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, name, 
@@ -622,7 +611,7 @@ namespace ClassicUO.Grpc
         	{
         		//Console.WriteLine("config_init == true");
         		UpdatePlayerObject();
-        		UpdateWorldItems();
+        		//UpdateWorldItems();
         		UpdatePlayerStatus();
         		UpdatePlayerSkills();
         		UpdatePlayerBuffs();
@@ -664,7 +653,7 @@ namespace ClassicUO.Grpc
 
         	if (_updateWorldItemsTimer == 0) 
         	{
-        		UpdateWorldItems();
+        		//UpdateWorldItems();
         		_updateWorldItemsTimer = -1;
         	}
         	else if (_updateWorldItemsTimer > 0)
@@ -822,6 +811,7 @@ namespace ClassicUO.Grpc
 	            }
 	            else
 	            {
+	            	Console.WriteLine("obs reset / _envStep: {0}", _envStep);
 	            	Reset();
 	            }
 
@@ -929,9 +919,10 @@ namespace ClassicUO.Grpc
 
         		// ##################################################################################
         		Console.WriteLine("action reset / _envStep: {0}", _envStep);
-        		//actionArraysLengthList.Clear();
-		        //Array.Clear(actionArrays, 0, actionArrays.Length);
-		        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+        		
+        		actionArraysLengthList.Clear();
+		        Array.Clear(actionArrays, 0, actionArrays.Length);
+		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
         	}
         	else
         	{

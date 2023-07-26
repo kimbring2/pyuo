@@ -1426,7 +1426,7 @@ namespace ClassicUO.Network
                 }
             }
 
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
             //Client.Game._uoServiceImpl.UpdateWorldItems();
 
         }
@@ -1466,7 +1466,7 @@ namespace ClassicUO.Network
             );
 
             Client.Game._uoServiceImpl.UpdatePlayerStatus();
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
+            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1981,7 +1981,7 @@ namespace ClassicUO.Network
             }
 
             //Client.Game._uoServiceImpl.UpdateWorldItems();
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
+            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
         }
 
         private static void PersonalLightLevel(ref StackDataReader p)
@@ -2650,7 +2650,7 @@ namespace ClassicUO.Network
 
         private static void UpdateObject(ref StackDataReader p)
         {
-            //Console.WriteLine("UpdateObject()");
+            Console.WriteLine("UpdateObject()");
 
             if (World.Player == null)
             {
@@ -4892,7 +4892,7 @@ namespace ClassicUO.Network
                 UIManager.GetGump<ShopGump>(container.RootContainer)?.SetNameTo((Item) entity, name);
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldMobiles();
+            //Client.Game._uoServiceImpl.UpdateWorldMobiles();
             //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
@@ -5587,8 +5587,7 @@ namespace ClassicUO.Network
             }
 
             //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
-
+            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
             //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
@@ -5840,9 +5839,6 @@ namespace ClassicUO.Network
             }
 
             Entity container = World.Get(containerSerial);
-
-            //Console.WriteLine("container.Name: {0}", container.Name);
-
             if (container == null)
             {
                 //Console.WriteLine("container == null");
@@ -5962,7 +5958,7 @@ namespace ClassicUO.Network
             ushort UNK_2
         )
         {
-            //Console.WriteLine("UpdateGameObject()");
+            Console.WriteLine("UpdateGameObject()");
 
             Mobile mobile = null;
             Item item = null;
@@ -6025,7 +6021,6 @@ namespace ClassicUO.Network
                 if (obj is Item item1)
                 {
                     item = item1;
-
                     if (SerialHelper.IsValid(item.Container))
                     {
                         World.RemoveItemFromContainer(item);
@@ -6181,7 +6176,14 @@ namespace ClassicUO.Network
                 }
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldMobiles();
+            if (item != null) 
+            {
+                
+                
+                Console.WriteLine("UpdateGameObject() / item: {0}, mobile: {1}", item, mobile);
+            }
+
+            //Client.Game._uoServiceImpl.UpdateWorldMobiles();
         }
 
         private static void UpdatePlayer

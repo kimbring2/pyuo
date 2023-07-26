@@ -32,6 +32,8 @@
 
 using System;
 using System.Collections.Generic;
+using ClassicUO.Game.GameObjects;
+using ClassicUO.Renderer;
 using ClassicUO.Network;
 
 namespace ClassicUO.Game.Managers
@@ -46,11 +48,55 @@ namespace ClassicUO.Game.Managers
 
             if (SerialHelper.IsItem(serial))
             {
-                Console.WriteLine("OPL Add() Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                if ((World.Player != null) && (World.InGame == true)) 
+                {
+                    Item item = World.Items.Get(serial);
+                    try
+                    {   
+                        //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                        Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
+                                                                  item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
+                                                                  (uint) item.Layer, (uint) item.Container, data );
+                    }
+                    catch (Exception ex) 
+                    {
+                        //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                        //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    }
+                }
             }
             else
             {
-                Console.WriteLine("OPL Add() Mobile / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                if ((World.Player != null) && (World.InGame == true)) 
+                {
+                    Mobile mobile = World.Mobiles.Get(serial);
+
+                    try
+                    {
+                        string title = "None";
+                        try
+                        {
+                            TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
+                            RenderedText renderedText = mobileTextContainerItems.RenderedText;
+
+                            title = renderedText.Text;
+                        }
+                        catch (Exception ex) 
+                        {
+                            //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
+                        }
+
+                        Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, 
+                                                                   (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
+                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
+                    }
+                    catch (Exception ex) 
+                    {
+                        //Console.WriteLine("Failed to add the mobile of world: " + ex.Message);
+                        //Console.WriteLine("OPL Add() Mobile / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    }
+
+                }
             }
 
             if (!_itemsProperties.TryGetValue(serial, out ItemProperty prop))
@@ -133,11 +179,11 @@ namespace ClassicUO.Game.Managers
             {
                 if (SerialHelper.IsItem(serial))
                 {
-                    Console.WriteLine("OPL Remove() Item / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    //Console.WriteLine("OPL Remove() Item / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
                 }
                 else
                 {
-                    Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    //Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
                 }
             }
 

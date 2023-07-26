@@ -1,0 +1,33 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/27/2023 06:49:53
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.FormatException: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+  at System.Text.StringBuilder.AppendFormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x000f9] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.FormatHelper (System.IFormatProvider provider, System.String format, System.ParamsArray args) [0x00023] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.String.Format (System.IFormatProvider provider, System.String format, System.Object[] args) [0x00020] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter.WriteLine (System.String format, System.Object[] arg) [0x00007] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at System.IO.TextWriter+SyncTextWriter.WriteLine (System.String format, System.Object[] arg) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at (wrapper synchronized) System.IO.TextWriter+SyncTextWriter.WriteLine(string,object[])
+  at System.Console.WriteLine (System.String format, System.Object[] arg) [0x0000f] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at ClassicUO.Game.Managers.ObjectPropertiesListManager.Add (System.UInt32 serial, System.UInt32 revision, System.String name, System.String data) [0x00091] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Network.PacketHandlers.MegaCliloc (ClassicUO.IO.StackDataReader& p) [0x00295] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Network.PacketHandlers.AnalyzePacket (System.Byte[] data, System.Int32 offset, System.Int32 length) [0x0002b] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Network.NetClient.ExtractPackets () [0x000c4] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Network.NetClient.ProcessRecv () [0x00202] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Network.NetClient.Update () [0x00000] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.GameController.OnNetworkUpdate (System.Double totalTime, System.Double frameTime) [0x00057] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.GameController.Update (Microsoft.Xna.Framework.GameTime gameTime) [0x00081] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at Microsoft.Xna.Framework.Game.Tick () [0x001fe] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.RunLoop () [0x0003c] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00032] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x0005c] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <c43f4b413a254093af9f8dfa3f7db35f>:0 
+######################## [END LOG] ########################
+
+

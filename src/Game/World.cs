@@ -559,7 +559,7 @@ namespace ClassicUO.Game
                 Mobiles.Remove(serial);
             }
 
-            Client.Game._uoServiceImpl.UpdateWorldMobiles();
+            //Client.Game._uoServiceImpl.UpdateWorldMobiles();
 
             return true;
         }

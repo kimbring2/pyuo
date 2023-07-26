@@ -707,7 +707,7 @@ namespace ClassicUO.Game.UI.Gumps
 
             container.Items = remove_unequipped ? new_first : null;
 
-            Client.Game._uoServiceImpl.UpdateWorldItems();
+            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         protected override void CloseWithRightClick()

@@ -249,6 +249,7 @@ namespace ClassicUO.Grpc
 
 	        _envStep = 0;
     		_totalStepScale = Settings.ReplayLengthScale;
+    		//_totalStepScale = 4;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
 	        _checkUpdatedObjectTimer = -1;
@@ -301,9 +302,11 @@ namespace ClassicUO.Grpc
 
     		// ##################################################################################
     		_envStep = 0;
-    		_totalStepScale = 2;
+    		_totalStepScale = Settings.ReplayLengthScale;
+    		//_totalStepScale = 4;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
+	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
         }
 
@@ -895,7 +898,7 @@ namespace ClassicUO.Grpc
 
 			//Console.WriteLine("grpcAction.ActionType: {0}", grpcAction.ActionType);
 
-			grpcAction.ActionType = 1;
+			////grpcAction.ActionType = 1;
 		    byte[] actionArray = grpcAction.ToByteArray();
 		    //Console.WriteLine("actionArray.Length: {0}", actionArray.Length);
 
@@ -914,7 +917,7 @@ namespace ClassicUO.Grpc
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
 				// ##################################################################################
-        		actionArrays = ConcatByteArrays(playerObjectArrays, playerObjectArraysTemp);
+        		actionArrays = ConcatByteArrays(actionArrays, actionArraysTemp);
 
 				// ##################################################################################
             	actionArraysTemp = actionArray;
@@ -940,7 +943,7 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
         	actionArraysLengthList.Add((int) actionArray.Length);
 
-	        grpcAction = new GrpcAction();
+	        //grpcAction = new GrpcAction();
         }
 
         // Server side handler of the SayHello RPC

@@ -42,6 +42,17 @@ namespace ClassicUO.Game.Managers
 
         public void Add(uint serial, uint revision, string name, string data)
         {
+            int env_step = Client.Game._uoServiceImpl.GetEnvStep();
+
+            if (SerialHelper.IsItem(serial))
+            {
+                Console.WriteLine("OPL Add() Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+            }
+            else
+            {
+                Console.WriteLine("OPL Add() Mobile / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+            }
+
             if (!_itemsProperties.TryGetValue(serial, out ItemProperty prop))
             {
                 prop = new ItemProperty();
@@ -51,9 +62,6 @@ namespace ClassicUO.Game.Managers
             {
                 
             }
-
-            //Console.WriteLine("OPL() Add");
-            //Console.WriteLine("name: {0}", name);
 
             prop.Serial = serial;
             prop.Revision = revision;
@@ -118,6 +126,21 @@ namespace ClassicUO.Game.Managers
 
         public void Remove(uint serial)
         {
+            TryGetNameAndData(serial, out string name, out string data);
+
+            int env_step = Client.Game._uoServiceImpl.GetEnvStep();
+            if (name != null)
+            {
+                if (SerialHelper.IsItem(serial))
+                {
+                    Console.WriteLine("OPL Remove() Item / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                }
+                else
+                {
+                    Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                }
+            }
+
             _itemsProperties.Remove(serial);
         }
 

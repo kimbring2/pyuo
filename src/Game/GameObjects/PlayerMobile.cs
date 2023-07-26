@@ -1530,6 +1530,8 @@ namespace ClassicUO.Game.GameObjects
 
         public bool Walk(Direction direction, bool run)
         {
+            //Console.WriteLine("PlayerMobile Walk()");
+
             Client.Game._uoServiceImpl.SetActionType(1);
             Client.Game._uoServiceImpl.SetWalkDirection((uint) direction);
             Client.Game._uoServiceImpl.SetRun(run);

@@ -61,7 +61,7 @@ namespace ClassicUO.Grpc
 
         GrpcAction grpcAction = new GrpcAction();
 
-        int _totalStepScale;
+        uint _totalStepScale;
         int _envStep;
         string _replayName;
         string _replayPath;
@@ -248,11 +248,13 @@ namespace ClassicUO.Grpc
 	        };
 
 	        _envStep = 0;
-    		_totalStepScale = 2;
+    		_totalStepScale = Settings.ReplayLengthScale;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
 	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
+
+        	Console.WriteLine("_totalStepScale: {0}", _totalStepScale);
         }
 
         private void Reset()
@@ -292,9 +294,9 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
 	        Array.Clear(playerBuffListArraysTemp, 0, playerBuffListArraysTemp.Length);
 
-	        //actionArraysLengthList.Clear();
-	        //Array.Clear(actionArrays, 0, actionArrays.Length);
-	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+	        actionArraysLengthList.Clear();
+	        Array.Clear(actionArrays, 0, actionArrays.Length);
+	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
     		_envStep = 0;
@@ -353,16 +355,16 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.actionArraysLen", actionArraysLengthArray);
 
             // ##################################################################################
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..playerObject", playerObjectArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..worldItems", worldItemArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..worldMobiles", worldMobileArrays);
-			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..popupMenu", popupMenuArrays);
-			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..cliloc", clilocArrays);
-			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..vendorList", vendorListArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..playerStatus", playerStatusArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..playerSkillList", playerSkillListArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..playerBuffList", playerBuffListArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay..actionArrays", actionArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerObject", playerObjectArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.worldItems", worldItemArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.worldMobiles", worldMobileArrays);
+			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.popupMenu", popupMenuArrays);
+			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.cliloc", clilocArrays);
+			WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.vendorList", vendorListArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerStatus", playerStatusArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerSkillList", playerSkillListArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerBuffList", playerBuffListArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.actionArrays", actionArrays);
 
             Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
             Console.WriteLine("worldItemArrays.Length: {0}", worldItemArrays.Length);
@@ -671,7 +673,7 @@ namespace ClassicUO.Grpc
 
         	if (_envStep % 1000 == 0)
         	{
-        		//Console.WriteLine("_envStep: {0}", _envStep);
+        		Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
@@ -837,6 +839,11 @@ namespace ClassicUO.Grpc
             	playerBuffListArraysTemp = ConcatByteArrays(playerBuffListArraysTemp, playerBuffListArray);
         	}
 
+        	if (playerObjectArray.Length != 0)
+        	{
+        		Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
+        	}
+
         	// ##################################################################################
         	playerObjectArrayLengthList.Add((int) playerObjectArray.Length);
         	worldItemArrayLengthList.Add((int) worldItemArray.Length);
@@ -850,6 +857,17 @@ namespace ClassicUO.Grpc
 			
         	// ##################################################################################
         	_envStep++;
+
+        	grpcPlayerObject = new GrpcPlayerObject();
+	    	worldItemObjectList.Clear();
+	    	worldMobileObjectList.Clear();
+	    	grpcPopupMenuList.Clear();
+	        grpcClilocList.Clear();
+	        grpcVendorList.Clear();
+	        grpcPlayerSkillList.Clear();
+	        grpcPlayerStatus = new GrpcPlayerStatus();
+	        grpcPlayerBuffList.Clear();
+	        _usedLandIndex = 0;
 
 	        return grpcStates;
         }
@@ -865,20 +883,23 @@ namespace ClassicUO.Grpc
         public void WriteAct()
         {
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
-            if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) ) 
+            if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) )
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    		//_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    		// grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
 		    {
-			    grpcAction = new GrpcAction();
+			    //grpcAction = new GrpcAction();
 			}
 
 			//Console.WriteLine("grpcAction.ActionType: {0}", grpcAction.ActionType);
+
+			grpcAction.ActionType = 1;
 		    byte[] actionArray = grpcAction.ToByteArray();
+		    //Console.WriteLine("actionArray.Length: {0}", actionArray.Length);
 
         	if (_envStep == 0) 
         	{
@@ -906,19 +927,22 @@ namespace ClassicUO.Grpc
         		actionArrays = ConcatByteArrays(actionArrays, actionArraysTemp);
 
         		// ##################################################################################
-        		//Console.WriteLine("action reset / _envStep: {0}", _envStep);
-        		actionArraysLengthList.Clear();
-		        Array.Clear(actionArrays, 0, actionArrays.Length);
-		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+        		Console.WriteLine("action reset / _envStep: {0}", _envStep);
+        		//actionArraysLengthList.Clear();
+		        //Array.Clear(actionArrays, 0, actionArrays.Length);
+		        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
         	}
         	else
         	{
         		actionArraysTemp = ConcatByteArrays(actionArraysTemp, actionArray);
         	}
 
+        	//Console.WriteLine("actionArray.Length: {0}", actionArray.Length);
+
         	// ##################################################################################
         	actionArraysLengthList.Add((int) actionArray.Length);
 
+        	/*
 	    	grpcPlayerObject = new GrpcPlayerObject();
 	    	worldItemObjectList.Clear();
 	    	worldMobileObjectList.Clear();
@@ -929,13 +953,15 @@ namespace ClassicUO.Grpc
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
-
-	        grpcAction = new GrpcAction();
+			*/
+	        //grpcAction = new GrpcAction();
         }
 
         // Server side handler of the SayHello RPC
         public override Task<Empty> WriteAct(GrpcAction grpcAction, ServerCallContext context)
         {
+        	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
+
     		if (grpcAction.ActionType == 0) {
     			// Do nothing
             	if (World.InGame == true) {
@@ -1211,7 +1237,7 @@ namespace ClassicUO.Grpc
 	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
 
-	        grpcAction = new GrpcAction();
+	        //grpcAction = new GrpcAction();
 
             return Task.FromResult(new Empty {});
         }

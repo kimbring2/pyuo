@@ -46,6 +46,7 @@ namespace ClassicUO.Configuration
         public static bool HumanPlay = false;
         public static int WindowWidth = 1600;
         public static int WindowHeight = 1280;
+        public static uint ReplayLengthScale = 2;
 
         [JsonProperty("username")] public string Username { get; set; } = string.Empty;
 

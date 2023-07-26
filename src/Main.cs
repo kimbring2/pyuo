@@ -309,14 +309,19 @@ namespace ClassicUO
                     case "replay":
                         Settings.Replay = true;
 
-                        Console.WriteLine("case replay");
-                        Console.WriteLine("value: {0}", value);
+                        //Console.WriteLine("case replay");
+                        //Console.WriteLine("value: {0}", value);
 
                         if (value != "") 
                         {
                             Settings.ReplayPath = value;
                         }
 
+                        break;
+
+                    case "replay_length_scale":
+                        Settings.ReplayLengthScale = ushort.Parse(value);;
+                
                         break;
 
                     case "settings":

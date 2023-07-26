@@ -294,6 +294,7 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
 	        Array.Clear(playerBuffListArraysTemp, 0, playerBuffListArraysTemp.Length);
 
+	        // ##################################################################################
 	        actionArraysLengthList.Clear();
 	        Array.Clear(actionArrays, 0, actionArrays.Length);
 	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
@@ -302,7 +303,7 @@ namespace ClassicUO.Grpc
     		_envStep = 0;
     		_totalStepScale = 2;
 	        _updateWorldItemsTimer = -1;
-	        //_updatePlayerObjectTimer = -1;
+	        _updatePlayerObjectTimer = -1;
         	_usedLandIndex = 0;
         }
 
@@ -661,9 +662,6 @@ namespace ClassicUO.Grpc
         	if (_updateWorldItemsTimer == 0) 
         	{
         		UpdateWorldItems();
-        		//UpdateWorldMobiles();
-        		//UpdatePlayerObject();
-
         		_updateWorldItemsTimer = -1;
         	}
         	else if (_updateWorldItemsTimer > 0)
@@ -841,7 +839,7 @@ namespace ClassicUO.Grpc
 
         	if (playerObjectArray.Length != 0)
         	{
-        		Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
+        		//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
         	}
 
         	// ##################################################################################
@@ -942,19 +940,7 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
         	actionArraysLengthList.Add((int) actionArray.Length);
 
-        	/*
-	    	grpcPlayerObject = new GrpcPlayerObject();
-	    	worldItemObjectList.Clear();
-	    	worldMobileObjectList.Clear();
-	    	grpcPopupMenuList.Clear();
-	        grpcClilocList.Clear();
-	        grpcVendorList.Clear();
-	        grpcPlayerSkillList.Clear();
-	        grpcPlayerStatus = new GrpcPlayerStatus();
-	        grpcPlayerBuffList.Clear();
-	        _usedLandIndex = 0;
-			*/
-	        //grpcAction = new GrpcAction();
+	        grpcAction = new GrpcAction();
         }
 
         // Server side handler of the SayHello RPC

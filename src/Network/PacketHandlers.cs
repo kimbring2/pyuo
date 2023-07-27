@@ -2650,7 +2650,7 @@ namespace ClassicUO.Network
 
         private static void UpdateObject(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateObject()");
+            //Console.WriteLine("UpdateObject()");
 
             if (World.Player == null)
             {
@@ -5958,7 +5958,7 @@ namespace ClassicUO.Network
             ushort UNK_2
         )
         {
-            Console.WriteLine("UpdateGameObject()");
+            //Console.WriteLine("UpdateGameObject()");
 
             Mobile mobile = null;
             Item item = null;
@@ -6176,11 +6176,60 @@ namespace ClassicUO.Network
                 }
             }
 
+            int env_step = Client.Game._uoServiceImpl.GetEnvStep();
+
             if (item != null) 
             {
-                
-                
-                Console.WriteLine("UpdateGameObject() / item: {0}, mobile: {1}", item, mobile);
+                World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+
+                if (name != null) 
+                {
+                    Console.WriteLine("UpdateGameObject() item, name: {0}", name);
+                    try
+                    {   
+                        //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                        Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
+                                                                  item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
+                                                                  (uint) item.Layer, (uint) item.Container, data );
+                    }
+                    catch (Exception ex) 
+                    {
+                        Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                        Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    }
+                }
+            }
+            else
+            {
+                World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
+                if (name != null) 
+                {
+                    //Console.WriteLine("UpdateGameObject() mobile, name: {0}", name);
+                    try
+                    {
+                        string title = "None";
+                        try
+                        {
+                            TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
+                            RenderedText renderedText = mobileTextContainerItems.RenderedText;
+
+                            title = renderedText.Text;
+                        }
+                        catch (Exception ex) 
+                        {
+                            //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
+                        }
+
+                        Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, 
+                                                                   (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
+                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
+                    }
+                    catch (Exception ex) 
+                    {
+                        //Console.WriteLine("Failed to add the mobile of world: " + ex.Message);
+                        //Console.WriteLine("OPL Add() Mobile / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    }
+                }
             }
 
             //Client.Game._uoServiceImpl.UpdateWorldMobiles();

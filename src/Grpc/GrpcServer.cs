@@ -453,6 +453,16 @@ namespace ClassicUO.Grpc
             }
         }
 
+        public void AddDeleteItemSerial(uint serial)
+        {
+        	grpcDeleteItemSerial.Add(serial);
+        }
+
+        public void AddDeleteMobileSerial(uint serial)
+        {
+        	grpcDeleteMobileSerial.Add(serial);
+        }
+
         public void UpdateWorldItems()
         {
         	//Console.WriteLine("UpdateWorldItems()");
@@ -704,7 +714,15 @@ namespace ClassicUO.Grpc
             GrpcBuffList playerBuffList = new GrpcBuffList();
             playerBuffList.Buffs.AddRange(grpcPlayerBuffList);
             grpcStates.PlayerBuffList = playerBuffList;
- 
+
+            GrpcDeleteItemSerialList deleteItemSerialList = new GrpcDeleteItemSerialList();
+            deleteItemSerialList.Serials.AddRange(grpcDeleteItemSerial);
+            grpcStates.DeleteItemSerialList = deleteItemSerialList;
+
+            GrpcDeleteMobileSerialList deleteMobileSerialList = new GrpcDeleteMobileSerialList();
+            deleteMobileSerialList.Serials.AddRange(grpcDeleteMobileSerial);
+            grpcStates.DeleteMobileSerialList = deleteMobileSerialList;
+
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
 
@@ -858,6 +876,9 @@ namespace ClassicUO.Grpc
 	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
+	        grpcDeleteItemSerial.Clear();
+	        grpcDeleteMobileSerial.Clear();
+
 	        _usedLandIndex = 0;
 
 	        return grpcStates;
@@ -919,7 +940,7 @@ namespace ClassicUO.Grpc
 
         		// ##################################################################################
         		Console.WriteLine("action reset / _envStep: {0}", _envStep);
-        		
+
         		actionArraysLengthList.Clear();
 		        Array.Clear(actionArrays, 0, actionArrays.Length);
 		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
@@ -1216,6 +1237,8 @@ namespace ClassicUO.Grpc
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
+	        grpcDeleteItemSerial.Clear();
+	        grpcDeleteMobileSerial.Clear();
 
 	        //grpcAction = new GrpcAction();
 

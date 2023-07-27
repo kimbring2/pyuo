@@ -53,7 +53,7 @@ namespace ClassicUO.Game.Managers
                     Item item = World.Items.Get(serial);
                     try
                     {   
-                        //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                        Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
                         Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                   item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
                                                                   (uint) item.Layer, (uint) item.Container, data );
@@ -180,10 +180,12 @@ namespace ClassicUO.Game.Managers
                 if (SerialHelper.IsItem(serial))
                 {
                     //Console.WriteLine("OPL Remove() Item / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    Client.Game._uoServiceImpl.AddDeleteItemSerial(serial);
                 }
                 else
                 {
                     //Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    Client.Game._uoServiceImpl.AddDeleteMobileSerial(serial);
                 }
             }
 

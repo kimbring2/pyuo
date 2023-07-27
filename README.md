@@ -36,8 +36,8 @@ e.g.  $ ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_
 
 - No gRPC communication with Python, Replay saving
 ```
-$ ./ClassicUO -username [Account ID] -password [Account PWD] -window_width [Screen Width] -window_height [Screen Height] -replay
-e.g. ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280 -replay
+$ ./ClassicUO -username [Account ID] -password [Account PWD] -window_width [Screen Width] -window_height [Screen Height] -replay -replay_length_scale [Length scale of replay step, total value * 1000 step will be recorded]
+e.g. ./ClassicUO -username kimbring2 -password kimbring2 -human_play -window_width 1370 -window_height 1280 -replay -replay_length_scale 4
 ```
 
 - Run [UoService](https://github.com/kimbring2/uoservice/blob/main/README.md#run-an-agent) after that.

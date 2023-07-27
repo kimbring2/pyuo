@@ -310,9 +310,9 @@ namespace ClassicUO.Grpc
 	        Array.Clear(deleteMobileSerialsArraysTemp, 0, deleteMobileSerialsArraysTemp.Length);
 
 	        // ##################################################################################
-	        //actionArraysLengthList.Clear();
-	        //Array.Clear(actionArrays, 0, actionArrays.Length);
-	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+	        actionArraysLengthList.Clear();
+	        Array.Clear(actionArrays, 0, actionArrays.Length);
+	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
     		_envStep = 0;
@@ -386,8 +386,8 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerStatus", playerStatusArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerSkillList", playerSkillListArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerBuffList", playerBuffListArrays);
-            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.deleteMobileSerials", deleteMobileSerialsArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.deleteItemSerials", deleteItemSerialsArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.deleteMobileSerials", deleteMobileSerialsArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.actionArrays", actionArrays);
 
             Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
@@ -880,8 +880,8 @@ namespace ClassicUO.Grpc
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
             	playerBuffListArraysTemp = ConcatByteArrays(playerBuffListArraysTemp, playerBuffListArray);
-            	deleteItemSerialsArraysTemp = ConcatByteArrays(deleteItemSerialsArraysTemp, deleteItemSerialsArrays);
-            	deleteMobileSerialsArraysTemp = ConcatByteArrays(deleteMobileSerialsArraysTemp, deleteMobileSerialsArrays);
+            	deleteItemSerialsArraysTemp = ConcatByteArrays(deleteItemSerialsArraysTemp, deleteItemSerialsArray);
+            	deleteMobileSerialsArraysTemp = ConcatByteArrays(deleteMobileSerialsArraysTemp, deleteMobileSerialsArray);
         	}
 
         	if (playerObjectArray.Length != 0)
@@ -978,9 +978,9 @@ namespace ClassicUO.Grpc
         		// ##################################################################################
         		Console.WriteLine("action reset / _envStep: {0}", _envStep);
 
-        		actionArraysLengthList.Clear();
-		        Array.Clear(actionArrays, 0, actionArrays.Length);
-		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+        		//actionArraysLengthList.Clear();
+		        //Array.Clear(actionArrays, 0, actionArrays.Length);
+		        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
         	}
         	else
         	{

@@ -58,9 +58,8 @@ namespace ClassicUO.Grpc
         GrpcPlayerStatus grpcPlayerStatus = new GrpcPlayerStatus();
         List<GrpcSkill> grpcPlayerSkillList = new List<GrpcSkill>();
         List<GrpcBuff> grpcPlayerBuffList = new List<GrpcBuff>();
-
-        List<uint> grpcDeleteItemSerial = new List<uint>();
-        List<uint> grpcDeleteMobileSerial = new List<uint>();
+        List<uint> grpcDeleteItemSerials = new List<uint>();
+        List<uint> grpcDeleteMobileSerials = new List<uint>();
 
         GrpcAction grpcAction = new GrpcAction();
 
@@ -90,6 +89,8 @@ namespace ClassicUO.Grpc
     	List<int> playerStatusArrayLengthList = new List<int>();
         List<int> playerSkillListArrayLengthList = new List<int>();
         List<int> playerBuffListArrayLengthList = new List<int>();
+        List<int> deleteItemSerialsArrayLengthList = new List<int>();
+        List<int> deleteMobileSerialsArrayLengthList = new List<int>();
         List<int> actionArraysLengthList = new List<int>();
 
         List<uint> updatedObjectSerialList = new List<uint>();
@@ -104,6 +105,8 @@ namespace ClassicUO.Grpc
         byte[] playerStatusArrays;
         byte[] playerSkillListArrays;
         byte[] playerBuffListArrays;
+        byte[] deleteItemSerialsArrays;
+        byte[] deleteMobileSerialsArrays;
         byte[] actionArrays;
 
         // ##################################################################################
@@ -116,6 +119,8 @@ namespace ClassicUO.Grpc
 		byte[] playerStatusArraysTemp;
         byte[] playerSkillListArraysTemp;
         byte[] playerBuffListArraysTemp;
+        byte[] deleteItemSerialsArraysTemp;
+        byte[] deleteMobileSerialsArraysTemp;
         byte[] actionArraysTemp;
 
         public void AddUpdatedObjectSerial(uint serial)
@@ -275,6 +280,8 @@ namespace ClassicUO.Grpc
 	    	playerStatusArrayLengthList.Clear();
 	        playerSkillListArrayLengthList.Clear();
 			playerBuffListArrayLengthList.Clear();
+			deleteItemSerialsArrayLengthList.Clear();
+        	deleteMobileSerialsArrayLengthList.Clear();
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArrays, 0, playerObjectArrays.Length);
@@ -286,6 +293,8 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerStatusArrays, 0, playerStatusArrays.Length);
 	        Array.Clear(playerSkillListArrays, 0, playerSkillListArrays.Length);
 	        Array.Clear(playerBuffListArrays, 0, playerBuffListArrays.Length);
+	        Array.Clear(deleteItemSerialsArrays, 0, deleteItemSerialsArrays.Length);
+	        Array.Clear(deleteMobileSerialsArrays, 0, deleteMobileSerialsArrays.Length);
 
 	        // ##################################################################################
 	        Array.Clear(playerObjectArraysTemp, 0, playerObjectArraysTemp.Length);
@@ -297,6 +306,8 @@ namespace ClassicUO.Grpc
 	        Array.Clear(playerStatusArraysTemp, 0, playerStatusArraysTemp.Length);
 	        Array.Clear(playerSkillListArraysTemp, 0, playerSkillListArraysTemp.Length);
 	        Array.Clear(playerBuffListArraysTemp, 0, playerBuffListArraysTemp.Length);
+	        Array.Clear(deleteItemSerialsArraysTemp, 0, deleteItemSerialsArraysTemp.Length);
+	        Array.Clear(deleteMobileSerialsArraysTemp, 0, deleteMobileSerialsArraysTemp.Length);
 
 	        // ##################################################################################
 	        //actionArraysLengthList.Clear();
@@ -347,6 +358,8 @@ namespace ClassicUO.Grpc
 	    	byte[] playerStatusArrayLengthArray = ConvertIntListToByteArray(playerStatusArrayLengthList);
 	        byte[] playerSkillListArrayLengthArray = ConvertIntListToByteArray(playerSkillListArrayLengthList);
 	        byte[] playerBuffListArrayLengthArray = ConvertIntListToByteArray(playerBuffListArrayLengthList);
+	        byte[] deleteItemSerialsArrayLengthArray = ConvertIntListToByteArray(deleteItemSerialsArrayLengthList);
+	        byte[] deleteMobileSerialsArrayLengthArray = ConvertIntListToByteArray(deleteMobileSerialsArrayLengthList);
 	        byte[] actionArraysLengthArray = ConvertIntListToByteArray(actionArraysLengthList);
 
 	    	// ##################################################################################
@@ -359,6 +372,8 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.playerStatusLen", playerStatusArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.playerSkillListLen", playerSkillListArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.playerBuffListLen", playerBuffListArrayLengthArray);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.deleteItemSerialsLen", deleteItemSerialsArrayLengthArray);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.deleteMobileSerialsLen", deleteMobileSerialsArrayLengthArray);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.meta.actionArraysLen", actionArraysLengthArray);
 
             // ##################################################################################
@@ -371,6 +386,8 @@ namespace ClassicUO.Grpc
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerStatus", playerStatusArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerSkillList", playerSkillListArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.playerBuffList", playerBuffListArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.deleteMobileSerials", deleteMobileSerialsArrays);
+            WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.deleteItemSerials", deleteItemSerialsArrays);
             WrtieToMpqArchive(_replayPath + _replayName + ".uoreplay", "replay.actionArrays", actionArrays);
 
             Console.WriteLine("playerObjectArrays.Length: {0}", playerObjectArrays.Length);
@@ -382,6 +399,8 @@ namespace ClassicUO.Grpc
             Console.WriteLine("playerStatusArrays.Length: {0}", playerStatusArrays.Length);
             Console.WriteLine("playerSkillListArrays.Length: {0}", playerSkillListArrays.Length);
             Console.WriteLine("playerBuffListArrays.Length: {0}", playerBuffListArrays.Length);
+            Console.WriteLine("deleteMobileSerialsArrays.Length: {0}", deleteMobileSerialsArrays.Length);
+            Console.WriteLine("deleteItemSerialsArrays.Length: {0}", deleteItemSerialsArrays.Length);
             Console.WriteLine("actionArrays.Length: {0}", actionArrays.Length);
         }
 
@@ -455,12 +474,12 @@ namespace ClassicUO.Grpc
 
         public void AddDeleteItemSerial(uint serial)
         {
-        	grpcDeleteItemSerial.Add(serial);
+        	grpcDeleteItemSerials.Add(serial);
         }
 
         public void AddDeleteMobileSerial(uint serial)
         {
-        	grpcDeleteMobileSerial.Add(serial);
+        	grpcDeleteMobileSerials.Add(serial);
         }
 
         public void UpdateWorldItems()
@@ -716,11 +735,11 @@ namespace ClassicUO.Grpc
             grpcStates.PlayerBuffList = playerBuffList;
 
             GrpcDeleteItemSerialList deleteItemSerialList = new GrpcDeleteItemSerialList();
-            deleteItemSerialList.Serials.AddRange(grpcDeleteItemSerial);
+            deleteItemSerialList.Serials.AddRange(grpcDeleteItemSerials);
             grpcStates.DeleteItemSerialList = deleteItemSerialList;
 
             GrpcDeleteMobileSerialList deleteMobileSerialList = new GrpcDeleteMobileSerialList();
-            deleteMobileSerialList.Serials.AddRange(grpcDeleteMobileSerial);
+            deleteMobileSerialList.Serials.AddRange(grpcDeleteMobileSerials);
             grpcStates.DeleteMobileSerialList = deleteMobileSerialList;
 
             // ##################################################################################
@@ -736,6 +755,9 @@ namespace ClassicUO.Grpc
         	byte[] playerStatusArray = grpcPlayerStatus.ToByteArray();
         	byte[] playerSkillListArray = playerSkillList.ToByteArray();
         	byte[] playerBuffListArray = playerBuffList.ToByteArray();
+
+        	byte[] deleteItemSerialsArray = deleteItemSerialList.ToByteArray();
+        	byte[] deleteMobileSerialsArray = deleteMobileSerialList.ToByteArray();
 
         	if (worldItemArray.Length != 0) 
         	{
@@ -758,6 +780,8 @@ namespace ClassicUO.Grpc
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
         		playerBuffListArraysTemp = playerBuffListArray;
+        		deleteItemSerialsArraysTemp = deleteItemSerialsArray;
+        		deleteMobileSerialsArraysTemp = deleteMobileSerialsArray;
         	}
         	else if (_envStep == 1001) 
         	{	
@@ -771,6 +795,8 @@ namespace ClassicUO.Grpc
             	playerStatusArrays = playerStatusArraysTemp;
             	playerSkillListArrays = playerSkillListArraysTemp;
             	playerBuffListArrays = playerBuffListArraysTemp;
+            	deleteItemSerialsArrays = deleteItemSerialsArraysTemp;
+        		deleteMobileSerialsArrays = deleteMobileSerialsArraysTemp;
 
 				// ##################################################################################
 				playerObjectArraysTemp = playerObjectArray;
@@ -782,6 +808,8 @@ namespace ClassicUO.Grpc
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
         		playerBuffListArraysTemp = playerBuffListArray;
+        		deleteItemSerialsArraysTemp = deleteItemSerialsArray;
+        		deleteMobileSerialsArraysTemp = deleteMobileSerialsArray;
         	}
         	else if ( (_envStep % 1001 == 0) && (_envStep != 1001 * _totalStepScale) )
         	{
@@ -795,6 +823,8 @@ namespace ClassicUO.Grpc
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
             	playerBuffListArrays = ConcatByteArrays(playerBuffListArrays, playerBuffListArraysTemp);
+            	deleteItemSerialsArrays = ConcatByteArrays(deleteItemSerialsArrays, deleteItemSerialsArraysTemp);
+            	deleteMobileSerialsArrays = ConcatByteArrays(deleteMobileSerialsArrays, deleteMobileSerialsArraysTemp);
 
 				// ##################################################################################
             	playerObjectArraysTemp = playerObjectArray;
@@ -806,6 +836,8 @@ namespace ClassicUO.Grpc
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
         		playerBuffListArraysTemp = playerBuffListArray;
+        		deleteItemSerialsArraysTemp = deleteItemSerialsArray;
+        		deleteMobileSerialsArraysTemp = deleteMobileSerialsArray;
         	}
         	else if (_envStep == 1001 * _totalStepScale)
         	{
@@ -819,6 +851,8 @@ namespace ClassicUO.Grpc
             	playerStatusArrays = ConcatByteArrays(playerStatusArrays, playerStatusArraysTemp);
             	playerSkillListArrays = ConcatByteArrays(playerSkillListArrays, playerSkillListArraysTemp);
             	playerBuffListArrays = ConcatByteArrays(playerBuffListArrays, playerBuffListArraysTemp);
+            	deleteItemSerialsArrays = ConcatByteArrays(deleteItemSerialsArrays, deleteItemSerialsArraysTemp);
+            	deleteMobileSerialsArrays = ConcatByteArrays(deleteMobileSerialsArrays, deleteMobileSerialsArraysTemp);
 				
             	if (Settings.Replay == true)
 	            {
@@ -846,6 +880,8 @@ namespace ClassicUO.Grpc
             	playerStatusArraysTemp = ConcatByteArrays(playerStatusArraysTemp, playerStatusArray);
             	playerSkillListArraysTemp = ConcatByteArrays(playerSkillListArraysTemp, playerSkillListArray);
             	playerBuffListArraysTemp = ConcatByteArrays(playerBuffListArraysTemp, playerBuffListArray);
+            	deleteItemSerialsArraysTemp = ConcatByteArrays(deleteItemSerialsArraysTemp, deleteItemSerialsArrays);
+            	deleteMobileSerialsArraysTemp = ConcatByteArrays(deleteMobileSerialsArraysTemp, deleteMobileSerialsArrays);
         	}
 
         	if (playerObjectArray.Length != 0)
@@ -863,6 +899,8 @@ namespace ClassicUO.Grpc
         	playerStatusArrayLengthList.Add((int) playerStatusArray.Length);
         	playerSkillListArrayLengthList.Add((int) playerSkillListArray.Length);
         	playerBuffListArrayLengthList.Add((int) playerBuffListArray.Length);
+        	deleteItemSerialsArrayLengthList.Add((int) deleteItemSerialsArray.Length);
+        	deleteMobileSerialsArrayLengthList.Add((int) deleteMobileSerialsArray.Length);
 			
         	// ##################################################################################
         	_envStep++;
@@ -876,9 +914,8 @@ namespace ClassicUO.Grpc
 	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
-	        grpcDeleteItemSerial.Clear();
-	        grpcDeleteMobileSerial.Clear();
-
+	        grpcDeleteItemSerials.Clear();
+	        grpcDeleteMobileSerials.Clear();
 	        _usedLandIndex = 0;
 
 	        return grpcStates;
@@ -1237,8 +1274,8 @@ namespace ClassicUO.Grpc
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
 	        _usedLandIndex = 0;
-	        grpcDeleteItemSerial.Clear();
-	        grpcDeleteMobileSerial.Clear();
+	        grpcDeleteItemSerials.Clear();
+	        grpcDeleteMobileSerials.Clear();
 
 	        //grpcAction = new GrpcAction();
 

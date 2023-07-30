@@ -727,6 +727,8 @@ namespace ClassicUO.Network
 
             socket.Send(writer.AllocatedBuffer, writer.BytesWritten);
             writer.Dispose();
+
+            Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
         }
 
         public static void Send_HelpRequest(this NetClient socket)

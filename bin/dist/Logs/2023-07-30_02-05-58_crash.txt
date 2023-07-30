@@ -1,0 +1,22 @@
+######################## [START LOG] ########################
+ClassicUO [STANDARD_BUILD] - 0.1.10.0 - 07/30/2023 14:05:58
+OS: Unix x64
+Thread: CUO_MAIN_THREAD
+
+Shard: 127.0.0.1
+ClientVersion: 7.0.95.0
+
+Exception:
+System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
+Parameter name: index
+  at System.Array.InternalArray__get_Item[T] (System.Int32 index) [0x00009] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at (wrapper managed-to-managed) Microsoft.Xna.Framework.Graphics.GraphicsAdapter[].System.Collections.Generic.IList`1.get_Item(int)
+  at System.Collections.ObjectModel.ReadOnlyCollection`1[T].get_Item (System.Int32 index) [0x00000] in <d1664be62cd44600bbd25f7afa292479>:0 
+  at Microsoft.Xna.Framework.SDL2_FNAPlatform.RegisterGame (Microsoft.Xna.Framework.Game game) [0x00031] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.BeforeLoop () [0x00000] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at Microsoft.Xna.Framework.Game.Run () [0x00021] in <29075eaac2964c4fb2a3728508d693b0>:0 
+  at ClassicUO.Client.Run () [0x0005c] in <352bdee967844a24bd423e574b6e4b04>:0 
+  at ClassicUO.Bootstrap.Main (System.String[] args) [0x00323] in <352bdee967844a24bd423e574b6e4b04>:0 
+######################## [END LOG] ########################
+
+

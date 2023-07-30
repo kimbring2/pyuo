@@ -647,14 +647,8 @@ namespace ClassicUO.Grpc
         		UpdatePlayerBuffs();
         	}
 
-        	if ((World.Player != null) && (World.InGame == true))
-            {
-            	//Console.WriteLine("Player, ItemHold.Serial: {0}", (uint) ItemHold.Serial);
-            }
-
         	if (_checkUpdatedObjectTimer == 0) 
         	{
-        		//Console.WriteLine("_checkUpdatedObjectTimer == 0");
 				foreach (uint itemSerial in updatedObjectSerialList) 
 				{
 		            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
@@ -683,7 +677,6 @@ namespace ClassicUO.Grpc
 
         	if (_updateWorldItemsTimer == 0) 
         	{
-        		//UpdateWorldItems();
         		_updateWorldItemsTimer = -1;
         	}
         	else if (_updateWorldItemsTimer > 0)
@@ -1169,6 +1162,7 @@ namespace ClassicUO.Grpc
 	        		//Console.WriteLine("boolIndex: {0}", boolIndex);
         			NetClient.Socket.Send_ChangeWarMode(boolIndex);
         			World.Player.InWarMode = boolIndex;
+
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 8) {

@@ -258,7 +258,7 @@ namespace ClassicUO.Game
             Console.WriteLine("OpenBackpack()");
 
             Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-            Console.WriteLine("backpack / serial: {0}\n", backpack.Serial);
+            //Console.WriteLine("backpack / serial: {0}\n", backpack.Serial);
 
             if (backpack == null)
             {
@@ -329,6 +329,7 @@ namespace ClassicUO.Game
             //Log.Trace("DoubleClick");
             //Console.WriteLine("DoubleClick()");
 
+            Client.Game._uoServiceImpl.SetActionType(2);
             Client.Game._uoServiceImpl.SetTargetSerial(serial);
             
             if (serial != World.Player && SerialHelper.IsMobile(serial) && World.Player.InWarMode)

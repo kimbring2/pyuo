@@ -268,7 +268,7 @@ namespace ClassicUO.Grpc
 
         private void Reset()
         {
-        	//Console.WriteLine("Reset()");
+        	Console.WriteLine("Reset()");
 
         	// Clear all List and Array before using them
         	playerObjectArrayLengthList.Clear();
@@ -310,14 +310,14 @@ namespace ClassicUO.Grpc
 	        Array.Clear(deleteMobileSerialsArraysTemp, 0, deleteMobileSerialsArraysTemp.Length);
 
 	        // ##################################################################################
-	        actionArraysLengthList.Clear();
-	        Array.Clear(actionArrays, 0, actionArrays.Length);
-	        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+	        //Console.WriteLine("actionArray reset / _envStep: {0}", _envStep);
+	        //actionArraysLengthList.Clear();
+	        //Array.Clear(actionArrays, 0, actionArrays.Length);
+	        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
 
     		// ##################################################################################
     		_envStep = 0;
     		_totalStepScale = Settings.ReplayLengthScale;
-    		//_totalStepScale = 4;
 	        _updateWorldItemsTimer = -1;
 	        _updatePlayerObjectTimer = -1;
 	        _checkUpdatedObjectTimer = -1;
@@ -593,7 +593,6 @@ namespace ClassicUO.Grpc
 		            //				   buffIconType, type, graphic, delta, text);
 
 	            	grpcPlayerBuffList.Add(new GrpcBuff{ Type=(uint) k.Value.Type, Delta= delta, Text=k.Value.Text });
-
 		        }
 
 		        //Console.WriteLine("");
@@ -634,6 +633,8 @@ namespace ClassicUO.Grpc
 
         public GrpcStates ReadObs(bool config_init)
         {
+        	//Console.WriteLine("ReadObs() _envStep: {0}", _envStep);
+
         	GrpcStates grpcStates = new GrpcStates();
         	
         	if (config_init == true)
@@ -854,19 +855,6 @@ namespace ClassicUO.Grpc
             	deleteItemSerialsArrays = ConcatByteArrays(deleteItemSerialsArrays, deleteItemSerialsArraysTemp);
             	deleteMobileSerialsArrays = ConcatByteArrays(deleteMobileSerialsArrays, deleteMobileSerialsArraysTemp);
 				
-            	if (Settings.Replay == true)
-	            {
-	            	Console.WriteLine("obs reset / _envStep: {0}", _envStep);
-	                SaveReplayFile();
-	        		CreateMpqFile();
-	        		Reset();
-	            }
-	            else
-	            {
-	            	Console.WriteLine("obs reset / _envStep: {0}", _envStep);
-	            	Reset();
-	            }
-
         		return grpcStates;
         	}
         	else
@@ -976,11 +964,23 @@ namespace ClassicUO.Grpc
         		actionArrays = ConcatByteArrays(actionArrays, actionArraysTemp);
 
         		// ##################################################################################
-        		Console.WriteLine("action reset / _envStep: {0}", _envStep);
+        		Console.WriteLine("actionArray reset / _envStep: {0}", _envStep);
+        		if (Settings.Replay == true)
+	            {
+	            	//Console.WriteLine("obs reset / _envStep: {0}", _envStep);
+	                SaveReplayFile();
+	        		CreateMpqFile();
+	        		Reset();
+	            }
+	            else
+	            {
+	            	//Console.WriteLine("obs reset / _envStep: {0}", _envStep);
+	            	Reset();
+	            }
 
-        		//actionArraysLengthList.Clear();
-		        //Array.Clear(actionArrays, 0, actionArrays.Length);
-		        //Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
+        		actionArraysLengthList.Clear();
+		        Array.Clear(actionArrays, 0, actionArrays.Length);
+		        Array.Clear(actionArraysTemp, 0, actionArraysTemp.Length);
         	}
         	else
         	{
@@ -992,7 +992,7 @@ namespace ClassicUO.Grpc
         	// ##################################################################################
         	actionArraysLengthList.Add((int) actionArray.Length);
 
-	        //grpcAction = new GrpcAction();
+	        grpcAction = new GrpcAction();
         }
 
         // Server side handler of the SayHello RPC

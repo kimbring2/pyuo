@@ -115,8 +115,6 @@ namespace ClassicUO.Game.Scenes
                 }
                 else
                 {
-                    //Console.WriteLine("World.Player.Walk(facing - 1, run)");
-
                     World.Player.Walk(facing - 1, run);
                 }
 
@@ -341,7 +339,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                Client.Game._uoServiceImpl.SetActionType(17);
             }
 
             if (!UIManager.IsMouseOverWorld)
@@ -389,7 +386,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                Client.Game._uoServiceImpl.SetActionType(17);
             }
 
             if (_isMouseLeftDown)
@@ -825,7 +821,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                Client.Game._uoServiceImpl.SetActionType(17);
             }
 
             if (!UIManager.IsMouseOverWorld)
@@ -845,7 +840,6 @@ namespace ClassicUO.Game.Scenes
             if (UIManager.PopupMenu != null && !UIManager.PopupMenu.Bounds.Contains(Mouse.Position.X, Mouse.Position.Y))
             {
                 UIManager.ShowGamePopup(null);
-                Client.Game._uoServiceImpl.SetActionType(17);
             }
 
             _rightMousePressed = false;
@@ -957,6 +951,8 @@ namespace ClassicUO.Game.Scenes
 
         internal override bool OnMouseDragging()
         {
+            //Console.WriteLine("OnMouseDragging()");
+
             if (!UIManager.IsMouseOverWorld)
             {
                 return false;
@@ -1027,7 +1023,6 @@ namespace ClassicUO.Game.Scenes
                         }
                         else if (obj is Item item)
                         {
-                            //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", ent_.Name, ent_.X, ent_.Y);
                             //Console.WriteLine("Name: {0}, X: {1}, Y: {2}", item.Name, item.X, item.Y);
                             //Console.WriteLine("Mouse X: {0}, Mouse Y: {1}", Mouse.Position.X, Mouse.Position.Y);
                             

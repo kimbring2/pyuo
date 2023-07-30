@@ -483,10 +483,6 @@ namespace ClassicUO.Game
         )
         {
             //Console.WriteLine("PickUp()");
-            //Console.WriteLine("amount: {0}: ", amount);
-            
-            Client.Game._uoServiceImpl.SetActionType(3);
-            Client.Game._uoServiceImpl.SetTargetSerial(serial);
 
             if (amount == -1)
             {
@@ -536,6 +532,10 @@ namespace ClassicUO.Game
                 amount = item.Amount;
             }
 
+            Client.Game._uoServiceImpl.SetActionType(3);
+            Client.Game._uoServiceImpl.SetTargetSerial(serial);
+            Client.Game._uoServiceImpl.SetAmount((uint) amount);
+
             ItemHold.Clear();
             ItemHold.Set(item, (ushort) amount, offset);
             ItemHold.IsGumpTexture = is_gump;
@@ -550,9 +550,7 @@ namespace ClassicUO.Game
 
             World.ObjectToRemove = item.Serial;
 
-            //Client.Game._uoServiceImpl.UpdatePlayerObject();
             Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
 
             return true;
         }
@@ -561,37 +559,43 @@ namespace ClassicUO.Game
         {
             Console.WriteLine("DropItem()");
 
-            Item containerItem = World.Items.Get(container);
-
-            World.OPL.TryGetNameAndData(container, out string name, out string data);
-            //Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
-
-            //Console.WriteLine("x: {0}, y: {1}, z: {2}, container: {3}", x, y, z, container);
-
-            //Item backpack = World.Player.FindItemByLayer(Layer.Backpack);
-            Item bank = World.Player.FindItemByLayer(Layer.Bank);
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
 
+            World.OPL.TryGetNameAndData(container, out string name, out string data);
+            Console.WriteLine("x: {0}, y: {1}, container name: {2}", x, y, name);
+
+            BaseGameObject obj;
+            obj = SelectedObject.Object;
+
+            Item SelectedItem = (Item) obj;
+            Console.WriteLine("SelectedItem.Serial: {0}", SelectedItem.Serial);
+
             if (container == 0xFFFF_FFFF)
             {
+                // Drop on the land
                 Client.Game._uoServiceImpl.SetTargetSerial(0);
                 Client.Game._uoServiceImpl.SetUsedLand(x, y);
             }
             else
             {
+                // Drop on the item, mobile
                 Client.Game._uoServiceImpl.SetTargetSerial(container);
 
                 if ( (x == 0xFFFF) && (y == 0xFFFF) )
                 {
+                    // Drop on the item, mobile
                     Client.Game._uoServiceImpl.SetIndex(0);
                 }
                 else
                 {
+                    //if (SelectedItem.Serial = 
                     Client.Game._uoServiceImpl.SetIndex(1);
                 }
             }
+            */
 
+            Item bank = World.Player.FindItemByLayer(Layer.Bank);
             if (container == bank.Serial)
             {
                 if (World.Player.BankOpened == false)

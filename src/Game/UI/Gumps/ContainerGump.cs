@@ -72,7 +72,7 @@ namespace ClassicUO.Game.UI.Gumps
 
             Graphic = gumpid;
 
-            Console.WriteLine("ContainerGump() / serial: {0}, Graphic: {1}", serial, Graphic);
+            //Console.WriteLine("ContainerGump() / serial: {0}, Graphic: {1}", serial, Graphic);
             //ContainerGump() / serial: 1073744268, Graphic: 60
             //ContainerGump() / serial: 1074023742, Graphic: 61
             //ContainerGump() / serial: 1073975432, Graphic: 9
@@ -677,7 +677,7 @@ namespace ClassicUO.Game.UI.Gumps
                 return;
             }
 
-            Console.WriteLine("ClearContainerAndRemoveItems()");
+            //Console.WriteLine("ClearContainerAndRemoveItems()");
 
             LinkedObject first = container.Items;
             LinkedObject new_first = null;

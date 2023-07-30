@@ -6184,7 +6184,7 @@ namespace ClassicUO.Network
 
                 if (name != null) 
                 {
-                    Console.WriteLine("UpdateGameObject() item, name: {0}", name);
+                    //Console.WriteLine("UpdateGameObject() item, name: {0}", name);
                     try
                     {   
                         //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
@@ -6194,8 +6194,8 @@ namespace ClassicUO.Network
                     }
                     catch (Exception ex) 
                     {
-                        Console.WriteLine("Failed to add the item of world: " + ex.Message);
-                        Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                        //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                        //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
                     }
                 }
             }

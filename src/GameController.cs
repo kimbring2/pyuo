@@ -421,8 +421,6 @@ namespace ClassicUO
 
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("World.MapIndex: {0}", World.MapIndex);
-
             //Console.WriteLine("Step 4");
             if (Settings.HumanPlay == true)
             {

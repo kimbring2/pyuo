@@ -1201,7 +1201,7 @@ namespace ClassicUO.Network
             }
             else if (graphic == 0x0030)
             {
-                Console.WriteLine("graphic == 0x0030");
+                Console.WriteLine("shop buy case");
 
                 Mobile vendor = World.Mobiles.Get(serial);
 
@@ -1243,8 +1243,7 @@ namespace ClassicUO.Network
                     {
                         Item it = (Item) first;
 
-                        //Console.WriteLine("Layer: {0}, item_count: {1}, Serial: {2}, Container: {3}", 
-                        //    layer, item_count, it.Serial, it.Container);
+                        Console.WriteLine("Count: {0}, Serial: {1}, Name: {2}", item_count, it.Serial, it.Name);
                         Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial, (uint) it.Graphic, 
                                                              (uint) it.Hue, (uint) it.Amount, (uint) it.Price, it.Name);
 
@@ -1411,8 +1410,6 @@ namespace ClassicUO.Network
 
             if (graphic != 0x0030)
             {
-                //Console.WriteLine("graphic != 0x0030");
-
                 Item it = World.Items.Get(serial);
                 if (it != null)
                 {
@@ -1425,10 +1422,6 @@ namespace ClassicUO.Network
                     }
                 }
             }
-
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
-
         }
 
         private static void UpdateContainedItem(ref StackDataReader p)
@@ -2493,9 +2486,6 @@ namespace ClassicUO.Network
 
         private static void BuyList(ref StackDataReader p)
         {
-            
-
-            
             if (!World.InGame)
             {
                 return;
@@ -3306,6 +3296,8 @@ namespace ClassicUO.Network
                 //Console.WriteLine("serial: {0}, graphic: {1}, hue: {2}, amount: {3}, price: {4}, name: {5}", 
                 //                    serial, graphic, hue, amount, price, name);
 
+                //Console.WriteLine("vendor.Serial: {0}, serial: {1}, graphic: {2}, hue: {3}, amount: {4}, price: {5}, name: {6}", 
+                //                   vendor.Serial, serial, graphic, hue, amount, price, name);
                 Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) serial, (uint) graphic, (uint) hue, 
                                                      (uint) amount, (uint) price, name);
 

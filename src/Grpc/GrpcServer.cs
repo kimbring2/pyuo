@@ -709,16 +709,6 @@ namespace ClassicUO.Grpc
         	byte[] deleteItemSerialsArray = deleteItemSerialList.ToByteArray();
         	byte[] deleteMobileSerialsArray = deleteMobileSerialList.ToByteArray();
 
-        	if (worldItemArray.Length != 0) 
-        	{
-	        	//Console.WriteLine("_envStep: {0}", _envStep);
-	        }
-
-	        if (worldMobileArray.Length != 0) 
-        	{
-	        	//Console.WriteLine("_envStep: {0}", _envStep);
-	        }
-
         	if (_envStep == 0) 
         	{
         		playerObjectArraysTemp = playerObjectArray;
@@ -819,11 +809,6 @@ namespace ClassicUO.Grpc
             	playerBuffListArraysTemp = ConcatByteArrays(playerBuffListArraysTemp, playerBuffListArray);
             	deleteItemSerialsArraysTemp = ConcatByteArrays(deleteItemSerialsArraysTemp, deleteItemSerialsArray);
             	deleteMobileSerialsArraysTemp = ConcatByteArrays(deleteMobileSerialsArraysTemp, deleteMobileSerialsArray);
-        	}
-
-        	if (playerObjectArray.Length != 0)
-        	{
-        		//Console.WriteLine("playerObjectArray.Length: {0}", playerObjectArray.Length);
         	}
 
         	// ##################################################################################
@@ -1226,8 +1211,6 @@ namespace ClassicUO.Grpc
 	        _usedLandIndex = 0;
 	        grpcDeleteItemSerials.Clear();
 	        grpcDeleteMobileSerials.Clear();
-
-	        //grpcAction = new GrpcAction();
 
             return Task.FromResult(new Empty {});
         }

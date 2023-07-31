@@ -1201,7 +1201,7 @@ namespace ClassicUO.Network
             }
             else if (graphic == 0x0030)
             {
-                //Console.WriteLine("graphic == 0x0030");
+                Console.WriteLine("graphic == 0x0030");
 
                 Mobile vendor = World.Mobiles.Get(serial);
 
@@ -1245,8 +1245,8 @@ namespace ClassicUO.Network
 
                         //Console.WriteLine("Layer: {0}, item_count: {1}, Serial: {2}, Container: {3}", 
                         //    layer, item_count, it.Serial, it.Container);
-
-                        Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial);
+                        Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial, (uint) it.Graphic, 
+                                                             (uint) it.Hue, (uint) it.Amount, (uint) it.Price, it.Name);
 
                         Item itemWorld = World.Items.Get(it.Serial);
 
@@ -2493,6 +2493,9 @@ namespace ClassicUO.Network
 
         private static void BuyList(ref StackDataReader p)
         {
+            
+
+            
             if (!World.InGame)
             {
                 return;
@@ -3253,7 +3256,7 @@ namespace ClassicUO.Network
 
         private static void SellList(ref StackDataReader p)
         {
-            //Console.WriteLine("SellList()");
+            Console.WriteLine("SellList()");
 
             if (!World.InGame)
             {
@@ -3265,8 +3268,6 @@ namespace ClassicUO.Network
             {
                 return;
             }
-
-            //Console.WriteLine("vendor / Name: {0}", vendor.Name);
 
             ushort countItems = p.ReadUInt16BE();
             if (countItems <= 0)
@@ -3288,8 +3289,6 @@ namespace ClassicUO.Network
                 string name = p.ReadASCII(p.ReadUInt16BE());
                 bool fromcliloc = false;
 
-                Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) serial);
-
                 if (int.TryParse(name, out int clilocnum))
                 {
                     name = ClilocLoader.Instance.GetString(clilocnum);
@@ -3303,6 +3302,12 @@ namespace ClassicUO.Network
                         name = TileDataLoader.Instance.StaticData[graphic].Name;
                     }
                 }
+
+                //Console.WriteLine("serial: {0}, graphic: {1}, hue: {2}, amount: {3}, price: {4}, name: {5}", 
+                //                    serial, graphic, hue, amount, price, name);
+
+                Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) serial, (uint) graphic, (uint) hue, 
+                                                     (uint) amount, (uint) price, name);
 
                 gump.AddItem
                 (

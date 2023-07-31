@@ -436,9 +436,11 @@ namespace ClassicUO.Grpc
         	grpcClilocList.Add(new GrpcCliloc{ Serial=serial, Text=text, Affix=affix, Name=name });
         }
 
-        public void AddVendor(uint vendorSerial, uint itemSerial)
+        public void AddVendor(uint vendorSerial, uint itemSerial, uint itemGraphic, uint itemHue, uint itemAmount, 
+        					  uint itemPrice, string itemName)
         {
-        	grpcVendorList.Add(new GrpcVendor{ VendorSerial=vendorSerial, ItemSerial=itemSerial });
+        	grpcVendorList.Add(new GrpcVendor{ VendorSerial=vendorSerial, ItemSerial=itemSerial, ItemGraphic=itemGraphic,
+        									   ItemHue=itemHue, ItemAmount=itemAmount, ItemPrice=itemPrice, ItemName=itemName });
         }
 
         public void AddItemObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
@@ -480,59 +482,6 @@ namespace ClassicUO.Grpc
         public void AddDeleteMobileSerial(uint serial)
         {
         	grpcDeleteMobileSerials.Add(serial);
-        }
-
-        public void UpdateWorldItems()
-        {
-        	//Console.WriteLine("UpdateWorldItems()");
-        	if ((World.Player != null) && (World.InGame == true)) 
-	        {
-		        foreach (Item item in World.Items.Values)
-	            {
-	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-	            	if (name != null)
-	            	{
-	                    AddItemObject((uint) item.Distance, (uint) item.X, (uint) item.Y, item.Serial, name, 
-	                    			   item.IsCorpse, item.Amount, item.Price, (uint) item.Layer, (uint) item.Container,
-	                    			   data );
-	            	}
-	            }
-	        }
-        }
-
-        public void UpdateWorldMobiles()
-        {
-        	//Console.WriteLine("UpdateWorldMobiles()");
-        	if ((World.Player != null) && (World.InGame == true)) 
-	        {
-		        foreach (Mobile mobile in World.Mobiles.Values)
-	            {
-	            	World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
-	            	string title = "None";
-
-	            	if ( (name != null) && (mobile.Serial != World.Player.Serial) )
-	            	{
-	                    try
-		                {
-		                    TextObject mobileTextContainerItems = (TextObject) mobile.TextContainer.Items;
-		                    RenderedText renderedText = mobileTextContainerItems.RenderedText;
-
-		                    title = renderedText.Text;
-		                }
-		                catch (Exception ex) 
-		                {
-		                    //Console.WriteLine("Failed to print the TextContainer Items of Mobile: " + ex.Message);
-		                }
-
-		                //Console.WriteLine("mobile.Items: {0}", mobile.Items);
-
-	                    AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, (uint) mobile.Distance,
-	                    				(uint) mobile.X, (uint) mobile.Y, mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
-	            	}
-	            }
-
-	            //Console.WriteLine("");
-	        }
         }
 
         public void UpdatePlayerSkills()
@@ -641,7 +590,6 @@ namespace ClassicUO.Grpc
         	{
         		//Console.WriteLine("config_init == true");
         		UpdatePlayerObject();
-        		//UpdateWorldItems();
         		UpdatePlayerStatus();
         		UpdatePlayerSkills();
         		UpdatePlayerBuffs();
@@ -675,25 +623,33 @@ namespace ClassicUO.Grpc
         		_updatePlayerObjectTimer -= 1;
         	}
 
-        	if (_updateWorldItemsTimer == 0) 
-        	{
-        		_updateWorldItemsTimer = -1;
-        	}
-        	else if (_updateWorldItemsTimer > 0)
-        	{
-        		_updateWorldItemsTimer -= 1;
-        	}
-
         	if (_envStep % 2000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
 
+        	if ((World.Player != null) && (World.InGame == true)) 
+	        {
+		        foreach (Item item in World.Items.Values)
+	            {
+	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+	            	
+	            	//Console.WriteLine("world item, name: {0}", item.Name);
+	            	if (name != null)
+	            	{
+	            		if ( (name.Contains("Door") == false) && (name.Contains("Vendors") == false) ) 
+	            		{
+	                    	//Console.WriteLine("world item, name: {0}", name);
+	                    }
+	            	}
+	            }
+
+	            //Console.WriteLine("");
+	        }
+
         	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
 
         	//UpdatePlayerBuffs();
-        	//UpdateWorldMobiles();
-        	//UpdateWorldItems();
         	//UpdatePlayerObject();
 
 		    grpcStates.PlayerObject = grpcPlayerObject;

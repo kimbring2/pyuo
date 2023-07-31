@@ -377,7 +377,7 @@ namespace ClassicUO.Game
 
         public static Item GetOrCreateItem(uint serial)
         {
-            Console.WriteLine("World GetOrCreateItem()");
+            //Console.WriteLine("World GetOrCreateItem()");
 
             Item item = Items.Get(serial);
 
@@ -407,15 +407,15 @@ namespace ClassicUO.Game
                         {
                             try
                             {   
-                                Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}", serial, name);
+                                //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}", serial, name);
                                 Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                           item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
                                                                           (uint) item.Layer, (uint) item.Container, data );
                             }
                             catch (Exception ex) 
                             {
-                                Console.WriteLine("Failed to add the item of world: " + ex.Message);
-                                Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}", serial, name);
+                                //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                                //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}", serial, name);
                             }
                         }
                     }

@@ -557,43 +557,78 @@ namespace ClassicUO.Game
 
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
-            Console.WriteLine("DropItem()");
+            //Console.WriteLine("DropItem()");
+            Console.WriteLine("");
 
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
 
             World.OPL.TryGetNameAndData(container, out string name, out string data);
-            Console.WriteLine("x: {0}, y: {1}, container name: {2}", x, y, name);
-
-            BaseGameObject obj;
-            obj = SelectedObject.Object;
-
-            Item SelectedItem = (Item) obj;
-            Console.WriteLine("SelectedItem.Serial: {0}", SelectedItem.Serial);
+            //Console.WriteLine("x: {0}, y: {1}, container name: {2}", x, y, name);
 
             if (container == 0xFFFF_FFFF)
             {
                 // Drop on the land
-                Client.Game._uoServiceImpl.SetTargetSerial(0);
                 Client.Game._uoServiceImpl.SetUsedLand(x, y);
             }
             else
             {
                 // Drop on the item, mobile
-                Client.Game._uoServiceImpl.SetTargetSerial(container);
-
                 if ( (x == 0xFFFF) && (y == 0xFFFF) )
                 {
-                    // Drop on the item, mobile
+                    // 1. Drop on the mobile
+                    // x: 65535, y: 65535, container name:  Mugg The Miner
+
+                    // 1. Drop on the container default position
+                    // x: 65535, y: 65535, container name: Backpack
+                    //Console.WriteLine("1. Drop on the mobile or the container default position");
+                    //Console.WriteLine("containerName: {0}", name);
+
+                    Client.Game._uoServiceImpl.SetTargetSerial(container);
                     Client.Game._uoServiceImpl.SetIndex(0);
                 }
                 else
                 {
-                    //if (SelectedItem.Serial = 
-                    Client.Game._uoServiceImpl.SetIndex(1);
+                    BaseGameObject obj = SelectedObject.Object;
+                    Item SelectedItem = (Item) obj;
+
+                    if (SelectedItem == null)
+                    {
+                        // 2. Drop on the container fixed position.
+                        //Console.WriteLine("2. Drop on the container fixed position.");
+
+                        Client.Game._uoServiceImpl.SetTargetSerial(container);
+                        Client.Game._uoServiceImpl.SetIndex(1);
+                    }
+                    else
+                    {
+                        Item containerItem = World.Items.Get(container);
+                        World.OPL.TryGetNameAndData(containerItem.Container, out string containerName, 
+                                                    out string containerEata);
+
+                        if (SelectedItem.Serial == container)
+                        {
+                            // 1. Drop on the same type item. This is actually same as case 1.
+                            //Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
+                            //Console.WriteLine("containerName: {0}", containerName);
+
+                            Client.Game._uoServiceImpl.SetTargetSerial(container);
+                            Client.Game._uoServiceImpl.SetIndex(0);
+                        }
+                        else
+                        {
+                            // 1. Drop on the different type item. This is actually same as case 1. 
+                            // But, container is player rather than backpack
+                            //Console.WriteLine("1. Drop on the different type item. This is actually same as case 1.");
+                            //Console.WriteLine("containerName: {0}", containerName);
+                            //Console.WriteLine("container: {0}, player serial: {1}", container, World.Player.Serial);
+
+                            Client.Game._uoServiceImpl.SetTargetSerial(World.Player.Serial);
+                            Client.Game._uoServiceImpl.SetIndex(2);
+                        }
+                    }
                 }
             }
-            */
 
             Item bank = World.Player.FindItemByLayer(Layer.Bank);
             if (container == bank.Serial)

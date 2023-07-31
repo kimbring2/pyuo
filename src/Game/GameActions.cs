@@ -484,15 +484,6 @@ namespace ClassicUO.Game
         {
             //Console.WriteLine("PickUp()");
 
-            if (amount == -1)
-            {
-                Client.Game._uoServiceImpl.SetAmount(0);
-            }
-            else
-            {
-                Client.Game._uoServiceImpl.SetAmount((uint) amount);
-            }
-
             if (World.Player.IsDead || ItemHold.Enabled)
             {
                 return false;
@@ -558,7 +549,6 @@ namespace ClassicUO.Game
         public static void DropItem(uint serial, int x, int y, int z, uint container)
         {
             //Console.WriteLine("DropItem()");
-            Console.WriteLine("");
 
             Client.Game._uoServiceImpl.SetActionType(4);
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
@@ -582,8 +572,7 @@ namespace ClassicUO.Game
                     // 1. Drop on the container default position
                     // x: 65535, y: 65535, container name: Backpack
                     //Console.WriteLine("1. Drop on the mobile or the container default position");
-                    //Console.WriteLine("containerName: {0}", name);
-
+                    //Console.WriteLine("container name: {0}", name);
                     Client.Game._uoServiceImpl.SetTargetSerial(container);
                     Client.Game._uoServiceImpl.SetIndex(0);
                 }
@@ -596,7 +585,6 @@ namespace ClassicUO.Game
                     {
                         // 2. Drop on the container fixed position.
                         //Console.WriteLine("2. Drop on the container fixed position.");
-
                         Client.Game._uoServiceImpl.SetTargetSerial(container);
                         Client.Game._uoServiceImpl.SetIndex(1);
                     }
@@ -610,21 +598,18 @@ namespace ClassicUO.Game
                         {
                             // 1. Drop on the same type item. This is actually same as case 1.
                             //Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
-                            //Console.WriteLine("containerName: {0}", containerName);
-
+                            //Console.WriteLine("container name: {0}", name);
                             Client.Game._uoServiceImpl.SetTargetSerial(container);
                             Client.Game._uoServiceImpl.SetIndex(0);
                         }
                         else
                         {
-                            // 1. Drop on the different type item. This is actually same as case 1. 
-                            // But, container is player rather than backpack
-                            //Console.WriteLine("1. Drop on the different type item. This is actually same as case 1.");
-                            //Console.WriteLine("containerName: {0}", containerName);
-                            //Console.WriteLine("container: {0}, player serial: {1}", container, World.Player.Serial);
-
-                            Client.Game._uoServiceImpl.SetTargetSerial(World.Player.Serial);
-                            Client.Game._uoServiceImpl.SetIndex(2);
+                            // 2. Drop on the different type item.
+                            // This is actually same as drop on the container default position.
+                            //Console.WriteLine("2. Drop on the different type item. This is actually same as drop on the container default position.");
+                            //Console.WriteLine("container name: {0}", name);
+                            Client.Game._uoServiceImpl.SetTargetSerial(container);
+                            Client.Game._uoServiceImpl.SetIndex(1);
                         }
                     }
                 }
@@ -669,7 +654,6 @@ namespace ClassicUO.Game
             }
 
             Client.Game._uoServiceImpl.SetUpdatePlayerObjectTimer(2);
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(2);
         }
 
         public static void Equip(uint container = 0)
@@ -689,10 +673,6 @@ namespace ClassicUO.Game
                 ItemHold.Dropped = true;
                 ItemHold.Clear();
             }
-
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
-            //Client.Game._uoServiceImpl.UpdatePlayerObject();
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         public static void ReplyGump(uint local, uint server, int button, uint[] switches = null, Tuple<ushort, string>[] entries = null)

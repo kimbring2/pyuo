@@ -268,7 +268,7 @@ namespace ClassicUO.Grpc
 
         private void Reset()
         {
-        	Console.WriteLine("Reset()");
+        	//Console.WriteLine("Reset()");
 
         	// Clear all List and Array before using them
         	playerObjectArrayLengthList.Clear();
@@ -626,7 +626,7 @@ namespace ClassicUO.Grpc
         {
             GrpcStates grpcStates = new GrpcStates();
 
-            Console.WriteLine("Reset()");
+            //Console.WriteLine("Reset()");
 
             return Task.FromResult(grpcStates);
         }
@@ -684,7 +684,7 @@ namespace ClassicUO.Grpc
         		_updateWorldItemsTimer -= 1;
         	}
 
-        	if (_envStep % 1000 == 0)
+        	if (_envStep % 2000 == 0)
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
@@ -915,9 +915,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) )
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -957,7 +957,7 @@ namespace ClassicUO.Grpc
         		actionArrays = ConcatByteArrays(actionArrays, actionArraysTemp);
 
         		// ##################################################################################
-        		Console.WriteLine("actionArray reset / _envStep: {0}", _envStep);
+        		//Console.WriteLine("actionArray reset / _envStep: {0}", _envStep);
         		if (Settings.Replay == true)
 	            {
 	            	//Console.WriteLine("obs reset / _envStep: {0}", _envStep);

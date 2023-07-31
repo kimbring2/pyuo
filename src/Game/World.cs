@@ -377,10 +377,9 @@ namespace ClassicUO.Game
 
         public static Item GetOrCreateItem(uint serial)
         {
-            Item item = Items.Get(serial);
+            Console.WriteLine("World GetOrCreateItem()");
 
-            //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(100);
+            Item item = Items.Get(serial);
 
             if (item != null && item.IsDestroyed)
             {
@@ -398,12 +397,29 @@ namespace ClassicUO.Game
             {
                 item = Item.Create(serial);
 
-                //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-                //Console.WriteLine("Items.Add(item) / {0} : {1}", serial, item.Name);
-                //if (name != null) 
-                //{
+                World.OPL.TryGetNameAndData(serial, out string name, out string data);
+                if (name != null) 
+                {
                     //Console.WriteLine("Items.Add(item) / {0} : {1}", serial, name);
-                //}
+                    if (SerialHelper.IsItem(serial))
+                    {
+                        if ((World.Player != null) && (World.InGame == true)) 
+                        {
+                            try
+                            {   
+                                Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}", serial, name);
+                                Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
+                                                                          item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
+                                                                          (uint) item.Layer, (uint) item.Container, data );
+                            }
+                            catch (Exception ex) 
+                            {
+                                Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                                Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}", serial, name);
+                            }
+                        }
+                    }
+                }
 
                 Items.Add(item);
             }

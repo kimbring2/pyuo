@@ -1243,7 +1243,8 @@ namespace ClassicUO.Network
                     {
                         Item it = (Item) first;
 
-                        Console.WriteLine("Count: {0}, Serial: {1}, Name: {2}", item_count, it.Serial, it.Name);
+                        Console.WriteLine("Buy / Serial: {0}, Name: {1}, Amount: {2}", it.Serial, it.Name, it.Amount);
+
                         Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial, (uint) it.Graphic, 
                                                              (uint) it.Hue, (uint) it.Amount, (uint) it.Price, it.Name);
 
@@ -3246,7 +3247,7 @@ namespace ClassicUO.Network
 
         private static void SellList(ref StackDataReader p)
         {
-            Console.WriteLine("SellList()");
+            //Console.WriteLine("SellList()");
 
             if (!World.InGame)
             {
@@ -3293,8 +3294,7 @@ namespace ClassicUO.Network
                     }
                 }
 
-                //Console.WriteLine("serial: {0}, graphic: {1}, hue: {2}, amount: {3}, price: {4}, name: {5}", 
-                //                    serial, graphic, hue, amount, price, name);
+                Console.WriteLine("Sell / Serial: {0}, Name: {1}, Amount: {2}", serial, name, amount);
 
                 //Console.WriteLine("vendor.Serial: {0}, serial: {1}, graphic: {2}, hue: {3}, amount: {4}, price: {5}, name: {6}", 
                 //                   vendor.Serial, serial, graphic, hue, amount, price, name);

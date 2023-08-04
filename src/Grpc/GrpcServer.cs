@@ -439,8 +439,15 @@ namespace ClassicUO.Grpc
         public void AddVendor(uint vendorSerial, uint itemSerial, uint itemGraphic, uint itemHue, uint itemAmount, 
         					  uint itemPrice, string itemName)
         {
+        	//Console.WriteLine("AddVendor()");
+        	//Console.WriteLine("VendorSerial: {0}, ItemSerial: {1}, ItemGraphic: {2}, ItemHue: {3}, ItemAmount: {4}, ItemPrice: {5}, itemName: {6}", 
+        	//				   vendorSerial, itemSerial, itemGraphic, itemHue, itemAmount, itemPrice, itemName);
+
         	grpcVendorList.Add(new GrpcVendor{ VendorSerial=vendorSerial, ItemSerial=itemSerial, ItemGraphic=itemGraphic,
         									   ItemHue=itemHue, ItemAmount=itemAmount, ItemPrice=itemPrice, ItemName=itemName });
+        	//grpcVendorList.Add(new GrpcVendor{ VendorSerial=1, ItemSerial=1, ItemGraphic=1,
+        	//								   ItemHue=1, ItemAmount=1, ItemPrice=1, ItemName="test" });
+        	Console.WriteLine("");
         }
 
         public void AddItemObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
@@ -671,6 +678,20 @@ namespace ClassicUO.Grpc
             grpcStates.ClilocList = clilocList;
 
             GrpcVendorList vendorList = new GrpcVendorList();
+
+            if (grpcVendorList.Count != 0) 
+	        {
+	        	//Console.WriteLine("grpcVendorList()");
+		        foreach (GrpcVendor v in grpcVendorList)
+	            {
+	            	//grpcVendorList.Add(new GrpcVendor{ VendorSerial=1, ItemSerial=1, ItemGraphic=1,
+        			//								     ItemHue=1, ItemAmount=1, ItemPrice=1, ItemName="test" });
+
+            		//Console.WriteLine("VendorSerial: {0}, ItemSerial: {1}, ItemGraphic: {2}, ItemHue: {3}, ItemAmount: {4}, ItemPrice: {5}, itemName: {6}", 
+        			//		   		   v.VendorSerial, v.ItemSerial, v.ItemGraphic, v.ItemHue, v.ItemAmount, v.ItemPrice, v.ItemName);
+            	}
+            }
+
             vendorList.Vendors.AddRange(grpcVendorList);
             grpcStates.VendorList = vendorList;
 
@@ -709,6 +730,12 @@ namespace ClassicUO.Grpc
         	byte[] deleteItemSerialsArray = deleteItemSerialList.ToByteArray();
         	byte[] deleteMobileSerialsArray = deleteMobileSerialList.ToByteArray();
 
+        	if (grpcVendorList.Count != 0) 
+	        {
+	        	//Console.WriteLine("vendorListArray.Length: {0}", vendorListArray.Length);
+	        	//Console.WriteLine("");
+	        }
+
         	if (_envStep == 0) 
         	{
         		playerObjectArraysTemp = playerObjectArray;
@@ -744,7 +771,7 @@ namespace ClassicUO.Grpc
 				worldMobileArraysTemp = worldMobileArray;
         		popupMenuArraysTemp = popupMenuArray;
         		clilocArraysTemp = clilocArray;
-        		vendorListArraysTemp = vendorListArraysTemp;
+        		vendorListArraysTemp = vendorListArray;
         		playerStatusArraysTemp = playerStatusArray;
         		playerSkillListArraysTemp = playerSkillListArray;
         		playerBuffListArraysTemp = playerBuffListArray;

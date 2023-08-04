@@ -1243,7 +1243,7 @@ namespace ClassicUO.Network
                     {
                         Item it = (Item) first;
 
-                        Console.WriteLine("Buy / Serial: {0}, Name: {1}, Amount: {2}", it.Serial, it.Name, it.Amount);
+                        //Console.WriteLine("Buy / Serial: {0}, Name: {1}, Amount: {2}", it.Serial, it.Name, it.Amount);
 
                         Client.Game._uoServiceImpl.AddVendor((uint) vendor.Serial, (uint) it.Serial, (uint) it.Graphic, 
                                                              (uint) it.Hue, (uint) it.Amount, (uint) it.Price, it.Name);
@@ -3294,7 +3294,7 @@ namespace ClassicUO.Network
                     }
                 }
 
-                Console.WriteLine("Sell / Serial: {0}, Name: {1}, Amount: {2}", serial, name, amount);
+                //Console.WriteLine("Sell / Serial: {0}, Name: {1}, Amount: {2}", serial, name, amount);
 
                 //Console.WriteLine("vendor.Serial: {0}, serial: {1}, graphic: {2}, hue: {3}, amount: {4}, price: {5}, name: {6}", 
                 //                   vendor.Serial, serial, graphic, hue, amount, price, name);

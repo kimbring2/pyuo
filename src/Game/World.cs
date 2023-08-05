@@ -407,7 +407,7 @@ namespace ClassicUO.Game
                         {
                             try
                             {   
-                                //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}", serial, name);
+                                //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
                                 Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                           item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
                                                                           (uint) item.Layer, (uint) item.Container, data );

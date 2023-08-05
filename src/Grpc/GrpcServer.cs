@@ -883,9 +883,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) )
 		    {
-		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)

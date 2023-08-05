@@ -1276,9 +1276,12 @@ namespace ClassicUO.Network
             }
             else
             {
-                //Console.WriteLine("graphic == else");
+                Console.WriteLine("graphic == else");
 
                 Item item = World.Items.Get(serial);
+
+                Console.WriteLine("item.Name: {0}, item.Container: {1}", item.Name, item.Container);
+
                 if (item != null)
                 {
                     if (item.IsCorpse && (ProfileManager.CurrentProfile.GridLootType == 1 || ProfileManager.CurrentProfile.GridLootType == 2))
@@ -2771,7 +2774,7 @@ namespace ClassicUO.Network
             }
 
             //Console.WriteLine("itemSerial != 0 && p.Position < p.Length");
-            //World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
+            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
             //Console.WriteLine("name: {0}\n", name);
 
             if (serial == World.Player)

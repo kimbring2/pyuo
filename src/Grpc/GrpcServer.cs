@@ -467,13 +467,13 @@ namespace ClassicUO.Grpc
         }
 
         public void AddMobileObject(uint hits, uint hitsMax, uint race, uint distance, uint game_x, uint game_y, 
-        							uint serial, string name, string title, uint notorietyFlag)
+        							uint serial, string name, string title, uint notorietyFlag, bool is_dead)
         {
         	try 
         	{
         		worldMobileObjectList.Add(new GrpcMobileObject{ Hits=hits, HitsMax=hitsMax, Race=race, Distance=distance, 
         															GameX=game_x, GameY=game_y, Serial=serial, Name=name, 
-        															Title=title, NotorietyFlag=notorietyFlag });
+        															Title=title, NotorietyFlag=notorietyFlag, IsDead=is_dead });
 	        }
 	        catch (Exception ex)
             {
@@ -648,6 +648,20 @@ namespace ClassicUO.Grpc
 	            		{
 	                    	//Console.WriteLine("world item, name: {0}", name);
 	                    }
+	            	}
+	            }
+	            //Console.WriteLine("");
+	        }
+
+	        if ((World.Player != null) && (World.InGame == true)) 
+	        {
+		        foreach (Mobile mobile in World.Mobiles.Values)
+	            {
+	            	World.OPL.TryGetNameAndData(mobile.Serial, out string name, out string data);
+	            	//Console.WriteLine("world item, name: {0}", item.Name);
+	            	if (name != null)
+	            	{
+	                	//Console.WriteLine("world mobile, name: {0}, isDead: {1}", name, mobile.IsDead);
 	            	}
 	            }
 

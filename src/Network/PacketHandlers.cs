@@ -880,22 +880,32 @@ namespace ClassicUO.Network
             }
 
             uint serial = p.ReadUInt32BE();
+
+            World.OPL.TryGetNameAndData(serial, out string name, out string data);
+            if (SerialHelper.IsItem(serial))
+            {
+                //Console.WriteLine("DeleteObject() Item / serial: {0}, name: {1},", serial, name);
+                Client.Game._uoServiceImpl.AddDeleteItemSerial(serial);
+            }
+            else
+            {
+                //Console.WriteLine("DeleteObject() Mobile / serial: {0}, name: {1},", serial, name);
+                Client.Game._uoServiceImpl.AddDeleteMobileSerial(serial);
+            }
+
             if (World.Player == serial)
             {
                 return;
             }
 
             Entity entity = World.Get(serial);
+
             if (entity == null)
             {
                 return;
             }
 
-            World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            //Console.WriteLine("entity: {0}, name: {1}\n", entity, name);
-
             bool updateAbilities = false;
-
             if (entity is Item it)
             {
                 uint cont = it.Container & 0x7FFFFFFF;
@@ -5977,7 +5987,7 @@ namespace ClassicUO.Network
             ushort UNK_2
         )
         {
-            //Console.WriteLine("UpdateGameObject()");
+            Console.WriteLine("UpdateGameObject()");
 
             Mobile mobile = null;
             Item item = null;
@@ -6196,7 +6206,6 @@ namespace ClassicUO.Network
             }
 
             int env_step = Client.Game._uoServiceImpl.GetEnvStep();
-
             if (item != null) 
             {
                 World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
@@ -6241,7 +6250,8 @@ namespace ClassicUO.Network
 
                         Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, 
                                                                    (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
+                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag,
+                                                                   (bool) mobile.IsDead);
                     }
                     catch (Exception ex) 
                     {

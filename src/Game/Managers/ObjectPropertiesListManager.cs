@@ -88,7 +88,8 @@ namespace ClassicUO.Game.Managers
 
                         Client.Game._uoServiceImpl.AddMobileObject((uint) mobile.Hits, (uint) mobile.HitsMax, (uint) mobile.Race, 
                                                                    (uint) mobile.Distance, (uint) mobile.X, (uint) mobile.Y, 
-                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag);
+                                                                   mobile.Serial, name, title, (uint) mobile.NotorietyFlag,
+                                                                   (bool) mobile.IsDead);
                     }
                     catch (Exception ex) 
                     {
@@ -184,7 +185,7 @@ namespace ClassicUO.Game.Managers
                 }
                 else
                 {
-                    Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    //Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
                     Client.Game._uoServiceImpl.AddDeleteMobileSerial(serial);
                 }
             }

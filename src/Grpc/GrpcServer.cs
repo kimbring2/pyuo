@@ -607,7 +607,8 @@ namespace ClassicUO.Grpc
 				foreach (uint itemSerial in updatedObjectSerialList) 
 				{
 		            World.OPL.TryGetNameAndData(itemSerial, out string name, out string data);
-		            Console.WriteLine("name: {0}", name);
+		            Item item = World.Items.Get(itemSerial);
+		            Console.WriteLine("name: {0}, container: {1}", name, item.Container);
 				}
 
 				Console.WriteLine("");
@@ -640,7 +641,6 @@ namespace ClassicUO.Grpc
 		        foreach (Item item in World.Items.Values)
 	            {
 	            	World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
-	            	
 	            	//Console.WriteLine("world item, name: {0}", item.Name);
 	            	if (name != null)
 	            	{

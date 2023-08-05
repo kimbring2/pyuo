@@ -397,6 +397,7 @@ namespace ClassicUO.Game
             {
                 item = Item.Create(serial);
 
+                /*
                 World.OPL.TryGetNameAndData(serial, out string name, out string data);
                 if (name != null) 
                 {
@@ -407,10 +408,13 @@ namespace ClassicUO.Game
                         {
                             try
                             {   
-                                //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
+                                Console.WriteLine("World item == null / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
                                 Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                           item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
                                                                           (uint) item.Layer, (uint) item.Container, data );
+
+                                Client.Game._uoServiceImpl.AddUpdatedObjectSerial(item.Serial);
+                                //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(1);
                             }
                             catch (Exception ex) 
                             {
@@ -420,6 +424,7 @@ namespace ClassicUO.Game
                         }
                     }
                 }
+                */
 
                 Items.Add(item);
             }

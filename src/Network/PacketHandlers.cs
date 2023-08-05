@@ -1276,11 +1276,11 @@ namespace ClassicUO.Network
             }
             else
             {
-                Console.WriteLine("graphic == else");
+                //Console.WriteLine("graphic == else");
 
                 Item item = World.Items.Get(serial);
 
-                Console.WriteLine("item.Name: {0}, item.Container: {1}", item.Name, item.Container);
+                //Console.WriteLine("item.Name: {0}, item.Container: {1}", item.Name, item.Container);
 
                 if (item != null)
                 {
@@ -1430,7 +1430,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItem(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItem()");
+            //Console.WriteLine("UpdateContainedItem()");
 
             if (!World.InGame)
             {
@@ -1463,7 +1463,6 @@ namespace ClassicUO.Network
             );
 
             Client.Game._uoServiceImpl.UpdatePlayerStatus();
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
         }
 
         private static void DenyMoveItem(ref StackDataReader p)
@@ -1932,7 +1931,7 @@ namespace ClassicUO.Network
 
         private static void UpdateContainedItems(ref StackDataReader p)
         {
-            Console.WriteLine("UpdateContainedItems()");
+            //Console.WriteLine("UpdateContainedItems()");
 
             if (!World.InGame)
             {
@@ -1968,25 +1967,22 @@ namespace ClassicUO.Network
                 World.OPL.TryGetNameAndData(serial, out string name, out string data);
                 if (name != null) 
                 {
-                    if (SerialHelper.IsItem(serial))
+                    if ((World.Player != null) && (World.InGame == true)) 
                     {
-                        if ((World.Player != null) && (World.InGame == true)) 
+                        try
+                        {   
+                            Item item = Item.Create(serial);
+
+                            //Console.WriteLine("UpdateContainedItems() / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
+                            Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) x, (uint) y, 
+                                                                      serial, name, item.IsCorpse, amount, item.Price, 
+                                                                      (uint) item.Layer, (uint) containerSerial, data );
+
+                        }
+                        catch (Exception ex) 
                         {
-                            try
-                            {   
-                                Item item = Item.Create(serial);
-
-                                //Console.WriteLine("UpdateContainedItems() / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
-                                Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) x, (uint) y, 
-                                                                          serial, name, item.IsCorpse, amount, item.Price, 
-                                                                          (uint) item.Layer, (uint) containerSerial, data );
-
-                            }
-                            catch (Exception ex) 
-                            {
-                                //Console.WriteLine("Failed to add the item of world: " + ex.Message);
-                                //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}", serial, name);
-                            }
+                            //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                            //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}", serial, name);
                         }
                     }
                 }

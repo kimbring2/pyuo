@@ -184,7 +184,7 @@ namespace ClassicUO.Game.Managers
                 }
                 else
                 {
-                    //Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
+                    Console.WriteLine("OPL Remove() Mobile / serial: {0}, name: {1}, env_step: {2}", serial, name, env_step);
                     Client.Game._uoServiceImpl.AddDeleteMobileSerial(serial);
                 }
             }

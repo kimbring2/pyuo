@@ -379,6 +379,7 @@ namespace ClassicUO.Game.Managers
                 {
                     //Console.WriteLine("Gump Remove: {0}", g.LocalSerial);
                     Gumps.Remove(first);
+                    Client.Game._uoServiceImpl.UpdatePlayerObject();
                 }
 
                 first = next;
@@ -432,6 +433,8 @@ namespace ClassicUO.Game.Managers
                 }
 
                 _needSort = Gumps.Count > 1;
+
+                Client.Game._uoServiceImpl.UpdatePlayerObject();
             }
         }
 

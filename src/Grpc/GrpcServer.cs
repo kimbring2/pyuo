@@ -419,8 +419,18 @@ namespace ClassicUO.Grpc
 	        {
 	        	try
 	        	{
+	        		List<uint> activeGumps = new List<uint>();
+	        		for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
+		            {
+			            Control g = last.Value;
+			            //Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
 
-
+			            if (g.LocalSerial != 0)
+			            {
+			            	activeGumps.Add((uint) g.LocalSerial);
+			            }
+		            }
+		            //Console.WriteLine("");
 
 	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
@@ -429,6 +439,8 @@ namespace ClassicUO.Grpc
 			                    							 WarMode=(bool) World.Player.InWarMode, 
 			                    							 TargetingState=(int) TargetManager.TargetingState,
 			                    							 MinTileX=_minTileX, MinTileY=_minTileY, MaxTileX=_maxTileX, MaxTileY=_maxTileY };
+
+			        grpcPlayerObject.ActiveGumps.AddRange(activeGumps);
 			    }
 			    catch (Exception ex)
 	            {
@@ -519,9 +531,9 @@ namespace ClassicUO.Grpc
 	            	//Console.WriteLine("Name: {0}, Index: {1}, IsClickable: {2}, Value: {3}, Base: {4}, Cap: {5}, Lock: {6}", 
 	            	//	skill.Name, skill.Index, skill.IsClickable, skill.Value, skill.Base, skill.Cap, skill.Lock);
 	            	grpcPlayerSkillList.Add(new GrpcSkill{ Name=skill.Name, Index=(uint) skill.Index, 
-	            											   IsClickable=(bool) skill.IsClickable, 
-	            											   Value=(uint) skill.Value, Base=(uint) skill.Base, 
-	            											   Cap=(uint) skill.Cap, Lock=(uint) skill.Lock });
+	            										   IsClickable=(bool) skill.IsClickable, 
+	            										   Value=(uint) skill.Value, Base=(uint) skill.Base, 
+	            										   Cap=(uint) skill.Cap, Lock=(uint) skill.Lock });
 	            }
 	        }
 	    }
@@ -651,13 +663,6 @@ namespace ClassicUO.Grpc
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
-
-        	for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
-            {
-	            Control g = last.Value;
-	            Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
-            }
-            Console.WriteLine("");
 
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {

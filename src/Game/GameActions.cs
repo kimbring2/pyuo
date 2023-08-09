@@ -677,11 +677,20 @@ namespace ClassicUO.Game
 
         public static void ReplyGump(uint local, uint server, int button, uint[] switches = null, Tuple<ushort, string>[] entries = null)
         {
-            Socket.Send_GumpResponse(local,
-                                     server,
-                                     button,
-                                     switches,
-                                     entries);
+            //Console.WriteLine("ReplyGump()");
+            //Console.WriteLine("local: {0}, server: {1}, button: {2}, switches: {3}, entries: {4}", 
+            //                   local, server, button, switches, entries );
+
+            //Console.WriteLine("switches.Length: {0}, entries.Length: {1}", switches.Length, entries.Length);
+
+            for (int i = 0; i < entries.Length; i++)
+            {
+                //Console.WriteLine("entries[{0}]: {1}", i, entries[i]);
+            } 
+
+            Socket.Send_GumpResponse(local, server, button, switches, entries);
+
+            //Console.WriteLine("");
         }
 
         public static void RequestHelp()

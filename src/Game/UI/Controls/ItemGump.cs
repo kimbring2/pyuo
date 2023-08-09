@@ -309,7 +309,7 @@ namespace ClassicUO.Game.UI.Controls
 
         private void AttemptPickUp()
         {
-            Console.WriteLine("ItemGump AttemptPickUp()");
+            //Console.WriteLine("ItemGump AttemptPickUp()");
 
             if (CanPickUp)
             {

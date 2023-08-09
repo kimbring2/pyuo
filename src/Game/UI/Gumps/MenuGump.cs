@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Linq;
 using ClassicUO.Game.UI.Controls;
 using ClassicUO.IO.Resources;
@@ -48,6 +49,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         public MenuGump(uint serial, uint serv, string name) : base(serial, serv)
         {
+            Console.WriteLine("MenuGump()");
+
             CanMove = true;
             AcceptMouseInput = true;
             CanCloseWithRightClick = true;

@@ -60,6 +60,7 @@ namespace ClassicUO.Grpc
         List<GrpcBuff> grpcPlayerBuffList = new List<GrpcBuff>();
         List<uint> grpcDeleteItemSerials = new List<uint>();
         List<uint> grpcDeleteMobileSerials = new List<uint>();
+        List<GrpcMenuControl> grpcMenuControlList = new List<GrpcMenuControl>();
 
         GrpcAction grpcAction = new GrpcAction();
 
@@ -78,6 +79,7 @@ namespace ClassicUO.Grpc
         uint _maxTileY;
 
         uint _usedLandIndex;
+        uint _gumpLocalSerial;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -134,6 +136,11 @@ namespace ClassicUO.Grpc
 	        _minTileY = minY;
 	        _maxTileX = maxX;
 	        _maxTileY = maxY;
+	    }
+
+	    public void SetGumpLocalSerial(uint localSerial)
+	    {
+	        _gumpLocalSerial = localSerial;
 	    }
 
 	    public void SetUpdatedObjectTimer(int time)
@@ -322,6 +329,7 @@ namespace ClassicUO.Grpc
 	        _updatePlayerObjectTimer = -1;
 	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
+        	_gumpLocalSerial = 0;
         }
 
         private void CreateMpqFile()
@@ -425,6 +433,12 @@ namespace ClassicUO.Grpc
 	            }
 		    }
 		}
+
+		public void AddMenuControl(string name, uint x, uint y, uint page)
+        {
+
+        	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page });
+        }
 
         public void AddCliloc(uint serial, string text, string affix, string name)
         {
@@ -727,6 +741,11 @@ namespace ClassicUO.Grpc
             deleteMobileSerialList.Serials.AddRange(grpcDeleteMobileSerials);
             grpcStates.DeleteMobileSerialList = deleteMobileSerialList;
 
+            GrpcMenuControlList menuControlList = new GrpcMenuControlList();
+            menuControlList.LocalSerial = _gumpLocalSerial;
+            menuControlList.MenuControls.AddRange(grpcMenuControlList);
+            grpcStates.MenuControlList = menuControlList;
+
             // ##################################################################################
             byte[] playerObjectArray = grpcPlayerObject.ToByteArray();
 
@@ -877,9 +896,11 @@ namespace ClassicUO.Grpc
 	        grpcPlayerSkillList.Clear();
 	        grpcPlayerStatus = new GrpcPlayerStatus();
 	        grpcPlayerBuffList.Clear();
+	        _usedLandIndex = 0;
 	        grpcDeleteItemSerials.Clear();
 	        grpcDeleteMobileSerials.Clear();
-	        _usedLandIndex = 0;
+	        grpcMenuControlList.Clear();
+	        _gumpLocalSerial = 0;
 
 	        return grpcStates;
         }
@@ -897,9 +918,9 @@ namespace ClassicUO.Grpc
         	//Console.WriteLine("WriteAct() _envStep: {0}", _envStep);
             if ( (grpcAction.ActionType != 1) && (grpcAction.ActionType != 0) )
 		    {
-		    	Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
-		    		_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
-		    		 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
+		    	//Console.WriteLine("Tick:{0}, Type:{1}, SourceSerial:{2}, TargetSerial:{3}, Index:{4}, Amount:{5}, Direction:{6}, Run:{7}", 
+		    	//	_controller._gameTick, grpcAction.ActionType, grpcAction.SourceSerial, grpcAction.TargetSerial, 
+		    	//	 grpcAction.Index, grpcAction.Amount, grpcAction.WalkDirection, grpcAction.Run);
 		    }
 
 		    if (grpcAction.ActionType == 0)
@@ -1170,7 +1191,10 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 9) {
 	        	if (World.Player != null) {
+	        		// Send Gump Response
 	        		Console.WriteLine("ActionType == 9");
+
+	        		//Socket.Send_GumpResponse(local, server, button, switches, entries);
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 10) {
@@ -1252,6 +1276,8 @@ namespace ClassicUO.Grpc
 	        _usedLandIndex = 0;
 	        grpcDeleteItemSerials.Clear();
 	        grpcDeleteMobileSerials.Clear();
+	        grpcMenuControlList.Clear();
+	        _gumpLocalSerial = 0;
 
             return Task.FromResult(new Empty {});
         }

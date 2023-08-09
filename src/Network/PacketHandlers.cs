@@ -899,7 +899,6 @@ namespace ClassicUO.Network
             }
 
             Entity entity = World.Get(serial);
-
             if (entity == null)
             {
                 return;
@@ -2757,19 +2756,11 @@ namespace ClassicUO.Network
                 p.Skip(6);
             }
 
-            //bool IsMobile = SerialHelper.IsMobile(serial);
-            //bool IsItem = SerialHelper.IsItem(serial);
-            //Console.WriteLine("IsMobile: {0}", IsMobile);
-            //Console.WriteLine("IsItem: {0}", IsItem);
-
             uint itemSerial = p.ReadUInt32BE();
             //Console.WriteLine("itemSerial: {0}", itemSerial);
 
             while (itemSerial != 0 && p.Position < p.Length)
             {
-                //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(itemSerial);
-                //Client.Game._uoServiceImpl.SetUpdatedObjectTimer(5);
-
                 //if (!SerialHelper.IsItem(itemSerial))
                 //    break;
 
@@ -2829,6 +2820,8 @@ namespace ClassicUO.Network
 
         private static void OpenMenu(ref StackDataReader p)
         {
+            //Console.WriteLine("OpenMenu()");
+
             if (!World.InGame)
             {
                 return;
@@ -2838,6 +2831,8 @@ namespace ClassicUO.Network
             ushort id = p.ReadUInt16BE();
             string name = p.ReadASCII(p.ReadUInt8());
             int count = p.ReadUInt8();
+
+            //Console.WriteLine("name: {0}, count: {1}", name, count);
 
             ushort menuid = p.ReadUInt16BE();
             p.Seek(p.Position - 2);
@@ -2857,6 +2852,8 @@ namespace ClassicUO.Network
                     ushort graphic = p.ReadUInt16BE();
                     ushort hue = p.ReadUInt16BE();
                     name = p.ReadASCII(p.ReadUInt8());
+
+                    //Console.WriteLine("OpenMenu()");
       
                     _ = ArtLoader.Instance.GetStaticTexture(graphic, out var bounds);
 
@@ -4913,16 +4910,12 @@ namespace ClassicUO.Network
             int envStep = Client.Game._uoServiceImpl.GetEnvStep();
             bool IsItem = SerialHelper.IsItem(serial);
 
-            //Console.WriteLine("step: {0}, serial: {1}, name: {2}, IsItem: {3}", envStep, serial, name, IsItem);
             World.OPL.Add(serial, revision, name, data);
 
             if (inBuyList && container != null && SerialHelper.IsValid(container.Serial))
             {
                 UIManager.GetGump<ShopGump>(container.RootContainer)?.SetNameTo((Item) entity, name);
             }
-
-            //Client.Game._uoServiceImpl.UpdateWorldMobiles();
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void GenericAOSCommandsR(ref StackDataReader p)
@@ -5224,7 +5217,7 @@ namespace ClassicUO.Network
 
         private static void OpenCompressedGump(ref StackDataReader p)
         {
-            //Console.WriteLine("OpenCompressedGump()");
+            Console.WriteLine("OpenCompressedGump()");
 
             uint sender = p.ReadUInt32BE();
             uint gumpID = p.ReadUInt32BE();
@@ -5235,6 +5228,10 @@ namespace ClassicUO.Network
             byte[] decData = System.Buffers.ArrayPool<byte>.Shared.Rent(dlen);
             string layout;
 
+            Console.WriteLine("sender: {0}", sender);
+            Console.WriteLine("gumpID: {0}", gumpID);
+            // gumpID: 2066278152 
+
             try
             {
                 unsafe
@@ -5244,9 +5241,9 @@ namespace ClassicUO.Network
                         ZLib.Decompress
                         (
                             p.PositionAddress,
-                            (int)clen,
+                            (int) clen,
                             0,
-                            (IntPtr)destPtr,
+                            (IntPtr) destPtr,
                             dlen
                         );
 
@@ -5263,6 +5260,8 @@ namespace ClassicUO.Network
 
             uint linesNum = p.ReadUInt32BE();
             string[] lines = new string[linesNum];
+
+            Console.WriteLine("linesNum: {0}", linesNum);
 
             try
             {
@@ -5299,7 +5298,6 @@ namespace ClassicUO.Network
                             if (remaining >= 2)
                             {
                                 int length = reader.ReadUInt16BE();
-
                                 if (length > 0)
                                 {
                                     lines[i] = reader.ReadUnicodeBE(length);
@@ -5614,10 +5612,6 @@ namespace ClassicUO.Network
                     dir
                 );
             }
-
-            //Client.Game._uoServiceImpl.AddUpdatedObjectSerial(serial);
-            //Client.Game._uoServiceImpl.SetUpdateWorldItemsTimer(3);
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
         }
 
         private static void BoatMoving(ref StackDataReader p)
@@ -5987,7 +5981,7 @@ namespace ClassicUO.Network
             ushort UNK_2
         )
         {
-            Console.WriteLine("UpdateGameObject()");
+            //Console.WriteLine("UpdateGameObject()");
 
             Mobile mobile = null;
             Item item = null;
@@ -6260,8 +6254,6 @@ namespace ClassicUO.Network
                     }
                 }
             }
-
-            //Client.Game._uoServiceImpl.UpdateWorldMobiles();
         }
 
         private static void UpdatePlayer
@@ -6383,15 +6375,17 @@ namespace ClassicUO.Network
             string[] lines
         )
         {
-            //Console.WriteLine("CreateGump()");
+            Console.WriteLine("CreateGump()");
 
             List<string> cmdlist = _parser.GetTokens(layout);
             int cmdlen = cmdlist.Count;
-
             if (cmdlen <= 0)
             {
                 return null;
             }
+
+            Console.WriteLine("gumpID: {0}, sender: {1}, cmdlen: {2}", gumpID, sender, cmdlen);
+            Client.Game._uoServiceImpl.SetGumpLocalSerial((uint) sender);
 
             Gump gump = null;
             bool mustBeAdded = true;
@@ -6440,17 +6434,26 @@ namespace ClassicUO.Network
             for (int cnt = 0; cnt < cmdlen; cnt++)
             {
                 List<string> gparams = _cmdparser.GetTokens(cmdlist[cnt], false);
-
                 if (gparams.Count == 0)
                 {
                     continue;
                 }
 
                 string entry = gparams[0];
+                //Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
+                foreach (System.String gparam in gparams)
+                {
+                    //Console.WriteLine("gparam: {0}", gparam);
+                }
+
+                //Console.WriteLine("");
 
                 if (string.Equals(entry, "button", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    gump.Add(new Button(gparams), page);
+                    Button button = new Button(gparams);
+                    gump.Add(button, page);
+
+                    Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page);
                 }
                 else if (string.Equals(entry, "buttontileart", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -6622,7 +6625,6 @@ namespace ClassicUO.Network
                 else if (string.Equals(entry, "xmfhtmlgumpcolor", StringComparison.InvariantCultureIgnoreCase))
                 {
                     int color = int.Parse(gparams[8]);
-
                     if (color == 0x7FFF)
                     {
                         color = 0x00FFFFFF;
@@ -6650,7 +6652,6 @@ namespace ClassicUO.Network
                 else if (string.Equals(entry, "xmfhtmltok", StringComparison.InvariantCultureIgnoreCase))
                 {
                     int color = int.Parse(gparams[7]);
-
                     if (color == 0x7FFF)
                     {
                         color = 0x00FFFFFF;
@@ -6778,7 +6779,6 @@ namespace ClassicUO.Network
                     }
 
                     Control last = gump.Children.Count != 0 ? gump.Children[gump.Children.Count - 1] : null;
-
                     if (last != null)
                     {
                         if (last.HasTooltip)

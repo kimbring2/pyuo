@@ -380,15 +380,8 @@ namespace ClassicUO.Game
             //Console.WriteLine("World GetOrCreateItem()");
 
             Item item = Items.Get(serial);
-
             if (item != null && item.IsDestroyed)
             {
-                //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-                //if (name != null) 
-                //{
-                    //Console.WriteLine("Items.Remove(serial) / {0} : {1}", serial, name);
-                //}
-
                 Items.Remove(serial);
                 item = null;
             }
@@ -406,15 +399,8 @@ namespace ClassicUO.Game
         public static Mobile GetOrCreateMobile(uint serial)
         {
             Mobile mob = Mobiles.Get(serial);
-
             if (mob != null && mob.IsDestroyed)
             {
-                //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-                //if (name != null) 
-                //{
-                //    Console.WriteLine("Mobiles.Remove(serial) / {0} : {1}", serial, name);
-                //}
-
                 Mobiles.Remove(serial);
                 mob = null;
             }
@@ -422,13 +408,6 @@ namespace ClassicUO.Game
             if (mob == null /*|| mob.IsDestroyed*/)
             {
                 mob = Mobile.Create(serial);
-
-                //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-                //if (name != null) 
-                //{
-                //    Console.WriteLine("Mobiles.Add(mob) / {0} : {1}", serial, name);
-                //}
-
                 Mobiles.Add(mob);
             }
 
@@ -438,7 +417,6 @@ namespace ClassicUO.Game
         public static void RemoveItemFromContainer(uint serial)
         {
             Item it = Items.Get(serial);
-
             if (it != null)
             {
                 RemoveItemFromContainer(it);
@@ -479,14 +457,6 @@ namespace ClassicUO.Game
 
         public static bool RemoveItem(uint serial, bool forceRemove = false)
         {
-            //World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            //if (name != null) 
-            //{
-            //    Console.WriteLine("World RemoveItem(), serial: {0}, name: {1}", serial, name);
-            //}
-
-            Client.Game._uoServiceImpl.AddDeleteItemSerial(serial);
-
             Item item = Items.Get(serial);
 
             if (item == null || item.IsDestroyed)
@@ -514,22 +484,12 @@ namespace ClassicUO.Game
                 Items.Remove(serial);
             }
 
-            //Client.Game._uoServiceImpl.UpdateWorldItems();
-
             return true;
         }
 
         public static bool RemoveMobile(uint serial, bool forceRemove = false)
         {
-            Console.WriteLine("World RemoveMobile()");
-            //Client.Game._uoServiceImpl.AddDeleteMobileSerial(serial);
-
-            World.OPL.TryGetNameAndData(serial, out string name, out string data);
-            //Console.WriteLine("World RemoveMobile(), serial: {0}, name: {1}", serial, name);
-            if (name != null) 
-            {
-                //Console.WriteLine("World RemoveMobile(), serial: {0}, name: {1}", serial, name);
-            }
+            //Console.WriteLine("World RemoveMobile()");
 
             Mobile mobile = Mobiles.Get(serial);
 

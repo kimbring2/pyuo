@@ -73,9 +73,6 @@ namespace ClassicUO.Game.UI.Gumps
         {
             if (InvalidateContents)
             {
-                //Console.WriteLine("Gump Update()");
-                //Console.WriteLine("InvalidateContents");
-
                 UpdateContents();
                 InvalidateContents = false;
             }
@@ -174,6 +171,8 @@ namespace ClassicUO.Game.UI.Gumps
 
         public override void OnButtonClick(int buttonID)
         {
+            Console.WriteLine("Gump OnButtonClick()");
+
             if (!IsDisposed && LocalSerial != 0)
             {
                 List<uint> switches = new List<uint>();
@@ -185,21 +184,20 @@ namespace ClassicUO.Game.UI.Gumps
                     {
                         case Checkbox checkbox when checkbox.IsChecked:
                             switches.Add(control.LocalSerial);
-
                             break;
 
                         case StbTextBox textBox:
                             entries.Add(new Tuple<ushort, string>((ushort) textBox.LocalSerial, textBox.Text));
-
                             break;
                     }
                 }
 
+                Console.WriteLine("LocalSerial: {0}, ServerSerial: {1}, buttonID: {2}", LocalSerial, ServerSerial, buttonID);
+
                 GameActions.ReplyGump
                 (
                     LocalSerial,
-                    // Seems like MasterGump serial does not work as expected.
-                    /*MasterGumpSerial != 0 ? MasterGumpSerial :*/ ServerSerial,
+                    ServerSerial,
                     buttonID,
                     switches.ToArray(),
                     entries.ToArray()

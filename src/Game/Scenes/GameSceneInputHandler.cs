@@ -747,7 +747,7 @@ namespace ClassicUO.Game.Scenes
 
         private bool OnLeftMouseDoubleClick()
         {
-            //Console.WriteLine("OnLeftMouseDoubleClick()");
+            Console.WriteLine("OnLeftMouseDoubleClick()");
 
             bool result = false;
 

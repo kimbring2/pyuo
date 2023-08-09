@@ -30,6 +30,7 @@
 
 #endregion
 
+using System;
 using System.Collections.Generic;
 using ClassicUO.Game.Scenes;
 using ClassicUO.Input;
@@ -107,12 +108,18 @@ namespace ClassicUO.Game.UI.Controls
 
         public Button(List<string> parts) : this(parts.Count >= 8 ? int.Parse(parts[7]) : 0, UInt16Converter.Parse(parts[3]), UInt16Converter.Parse(parts[4]))
         {
+            //Console.WriteLine("Button(List<string> parts)");
+            //Console.WriteLine("parts.Count: {0}", parts.Count);
+
             X = int.Parse(parts[1]);
             Y = int.Parse(parts[2]);
+
+            //Console.WriteLine("X: {0}, Y: {1}", X, Y);
 
             if (parts.Count >= 6)
             {
                 int action = int.Parse(parts[5]);
+                //Console.WriteLine("action: {0}", action);
 
                 ButtonAction = action == 0 ? ButtonAction.SwitchPage : ButtonAction.Activate;
             }
@@ -184,7 +191,6 @@ namespace ClassicUO.Game.UI.Controls
 
         public bool ContainsByBounds { get; set; }
 
-       
         protected override void OnMouseEnter(int x, int y)
         {
             _entered = true;
@@ -260,6 +266,8 @@ namespace ClassicUO.Game.UI.Controls
 
         protected override void OnMouseDown(int x, int y, MouseButtonType button)
         {
+            Console.WriteLine("Button OnMouseDown()");
+
             if (button == MouseButtonType.Left)
             {
                 IsClicked = true;
@@ -268,6 +276,8 @@ namespace ClassicUO.Game.UI.Controls
 
         protected override void OnMouseUp(int x, int y, MouseButtonType button)
         {
+            Console.WriteLine("Button OnMouseUp()");
+
             if (button == MouseButtonType.Left)
             {
                 IsClicked = false;
@@ -283,12 +293,10 @@ namespace ClassicUO.Game.UI.Controls
                     {
                         case ButtonAction.SwitchPage:
                             ChangePage(ToPage);
-
                             break;
 
                         case ButtonAction.Activate:
                             OnButtonClick(ButtonID);
-
                             break;
                     }
 
@@ -298,7 +306,6 @@ namespace ClassicUO.Game.UI.Controls
             }
         }
 
-   
         public override bool Contains(int x, int y)
         {
             if (IsDisposed)

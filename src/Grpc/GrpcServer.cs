@@ -419,6 +419,9 @@ namespace ClassicUO.Grpc
 	        {
 	        	try
 	        	{
+
+
+
 	        		//Console.WriteLine("World.Player.X: {0}, World.Player.Y: {1}", World.Player.X, World.Player.Y);
 			        grpcPlayerObject = new GrpcPlayerObject{ GameX=(uint) World.Player.X, GameY=(uint) World.Player.Y, 
 			                    							 Serial=World.Player.Serial, Name=World.Player.Name, 
@@ -434,10 +437,9 @@ namespace ClassicUO.Grpc
 		    }
 		}
 
-		public void AddMenuControl(string name, uint x, uint y, uint page)
+		public void AddMenuControl(string name, uint x, uint y, uint page, string text)
         {
-
-        	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page });
+        	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page, Text=text });
         }
 
         public void AddCliloc(uint serial, string text, string affix, string name)
@@ -486,8 +488,8 @@ namespace ClassicUO.Grpc
         	try 
         	{
         		worldMobileObjectList.Add(new GrpcMobileObject{ Hits=hits, HitsMax=hitsMax, Race=race, Distance=distance, 
-        															GameX=game_x, GameY=game_y, Serial=serial, Name=name, 
-        															Title=title, NotorietyFlag=notorietyFlag, IsDead=is_dead });
+        														GameX=game_x, GameY=game_y, Serial=serial, Name=name, 
+        														Title=title, NotorietyFlag=notorietyFlag, IsDead=is_dead });
 	        }
 	        catch (Exception ex)
             {
@@ -649,6 +651,13 @@ namespace ClassicUO.Grpc
         	{
         		Console.WriteLine("_envStep: {0}", _envStep);
         	}
+
+        	for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
+            {
+	            Control g = last.Value;
+	            Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
+            }
+            Console.WriteLine("");
 
         	if ((World.Player != null) && (World.InGame == true)) 
 	        {

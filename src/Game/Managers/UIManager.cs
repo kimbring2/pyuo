@@ -369,6 +369,7 @@ namespace ClassicUO.Game.Managers
             while (first != null)
             {
                 LinkedListNode<Gump> next = first.Next;
+                //Console.WriteLine("UiManagers Update(), Gump LocalSerial: {0}", next.LocalSerial);
 
                 Control g = first.Value;
 
@@ -376,11 +377,14 @@ namespace ClassicUO.Game.Managers
 
                 if (g.IsDisposed)
                 {
+                    //Console.WriteLine("Gump Remove: {0}", g.LocalSerial);
                     Gumps.Remove(first);
                 }
 
                 first = next;
             }
+
+            //Console.WriteLine("");
 
             GameCursor?.Update(totalTime, frameTime);
             HandleKeyboardInput();
@@ -416,6 +420,8 @@ namespace ClassicUO.Game.Managers
         {
             if (!gump.IsDisposed)
             {
+                //Console.WriteLine("Gump Add: {0}", gump.LocalSerial);
+
                 if (front)
                 {
                     Gumps.AddFirst(gump);

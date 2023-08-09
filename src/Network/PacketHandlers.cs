@@ -6440,7 +6440,7 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
-                //Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
+                Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
                 foreach (System.String gparam in gparams)
                 {
                     //Console.WriteLine("gparam: {0}", gparam);
@@ -6453,7 +6453,7 @@ namespace ClassicUO.Network
                     Button button = new Button(gparams);
                     gump.Add(button, page);
 
-                    Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page);
+                    Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page , "blank");
                 }
                 else if (string.Equals(entry, "buttontileart", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -6603,9 +6603,7 @@ namespace ClassicUO.Network
                 }
                 else if (string.Equals(entry, "xmfhtmlgump", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    gump.Add
-                    (
-                        new HtmlControl
+                    HtmlControl htmlControl = new HtmlControl
                             (
                                 int.Parse(gparams[1]),
                                 int.Parse(gparams[2]),
@@ -6618,9 +6616,16 @@ namespace ClassicUO.Network
                                 0,
                                 true
                             )
-                            { IsFromServer = true },
+                            { IsFromServer = true };
+
+                    gump.Add
+                    (
+                        htmlControl,
                         page
                     );
+
+                    Client.Game._uoServiceImpl.AddMenuControl("xmfhtmlgump", (uint) htmlControl.X, (uint) htmlControl.Y, (uint) page,
+                                                              htmlControl.Text);
                 }
                 else if (string.Equals(entry, "xmfhtmlgumpcolor", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -6630,9 +6635,7 @@ namespace ClassicUO.Network
                         color = 0x00FFFFFF;
                     }
 
-                    gump.Add
-                    (
-                        new HtmlControl
+                    HtmlControl htmlControl = new HtmlControl
                             (
                                 int.Parse(gparams[1]),
                                 int.Parse(gparams[2]),
@@ -6645,9 +6648,18 @@ namespace ClassicUO.Network
                                 color,
                                 true
                             )
-                            { IsFromServer = true },
+                            { IsFromServer = true };
+
+                    gump.Add
+                    (
+                        htmlControl,
                         page
                     );
+
+                    Console.WriteLine("xmfhtmlgumpcolor text: {0}", ClilocLoader.Instance.GetString(int.Parse(gparams[5].Replace("#", ""))));
+
+                    Client.Game._uoServiceImpl.AddMenuControl("xmfhtmlgumpcolor", (uint) htmlControl.X, (uint) htmlControl.Y, (uint) page,
+                                                              htmlControl.Text);
                 }
                 else if (string.Equals(entry, "xmfhtmltok", StringComparison.InvariantCultureIgnoreCase))
                 {

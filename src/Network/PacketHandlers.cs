@@ -1601,6 +1601,8 @@ namespace ClassicUO.Network
 
         private static void DropItemAccepted(ref StackDataReader p)
         {
+            Console.WriteLine("DropItemAccepted()");
+
             if (!World.InGame)
             {
                 return;
@@ -6384,9 +6386,6 @@ namespace ClassicUO.Network
                 return null;
             }
 
-            Console.WriteLine("gumpID: {0}, sender: {1}, cmdlen: {2}", gumpID, sender, cmdlen);
-            Client.Game._uoServiceImpl.SetGumpLocalSerial((uint) sender);
-
             Gump gump = null;
             bool mustBeAdded = true;
 
@@ -6440,7 +6439,7 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
-                Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
+                //Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
                 foreach (System.String gparam in gparams)
                 {
                     //Console.WriteLine("gparam: {0}", gparam);
@@ -6453,7 +6452,8 @@ namespace ClassicUO.Network
                     Button button = new Button(gparams);
                     gump.Add(button, page);
 
-                    Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page , "blank");
+                    Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page , "blank",
+                                                              (uint) button.ButtonID);
                 }
                 else if (string.Equals(entry, "buttontileart", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -6656,7 +6656,7 @@ namespace ClassicUO.Network
                         page
                     );
 
-                    Console.WriteLine("xmfhtmlgumpcolor text: {0}", ClilocLoader.Instance.GetString(int.Parse(gparams[5].Replace("#", ""))));
+                    //Console.WriteLine("xmfhtmlgumpcolor text: {0}", ClilocLoader.Instance.GetString(int.Parse(gparams[5].Replace("#", ""))));
 
                     Client.Game._uoServiceImpl.AddMenuControl("xmfhtmlgumpcolor", (uint) htmlControl.X, (uint) htmlControl.Y, (uint) page,
                                                               htmlControl.Text);
@@ -6843,6 +6843,10 @@ namespace ClassicUO.Network
 
             gump.Update(Time.Ticks, 0);
             gump.SetInScreen();
+
+            //Console.WriteLine("gump.Width: {0}, gump.Height: {1}", gump.Width, gump.Height);
+            //Console.WriteLine("gumpID: {0}, sender: {1}, cmdlen: {2}", gumpID, sender, cmdlen);
+            Client.Game._uoServiceImpl.SetGumpData((uint) sender, (uint) gumpID, (uint) gump.Width, (uint) gump.Height);
 
             return gump;
         }

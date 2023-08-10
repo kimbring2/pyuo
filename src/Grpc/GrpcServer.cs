@@ -79,7 +79,11 @@ namespace ClassicUO.Grpc
         uint _maxTileY;
 
         uint _usedLandIndex;
+
         uint _gumpLocalSerial;
+        uint _gumpServerSerial;
+        uint _gumpWidth;
+        uint _gumpHeight;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -138,9 +142,12 @@ namespace ClassicUO.Grpc
 	        _maxTileY = maxY;
 	    }
 
-	    public void SetGumpLocalSerial(uint localSerial)
+	    public void SetGumpData(uint localSerial, uint serverSerial, uint width, uint height)
 	    {
 	        _gumpLocalSerial = localSerial;
+	        _gumpServerSerial = serverSerial;
+	        _gumpWidth = width;
+        	_gumpHeight = height;
 	    }
 
 	    public void SetUpdatedObjectTimer(int time)
@@ -269,6 +276,10 @@ namespace ClassicUO.Grpc
 	        _updatePlayerObjectTimer = -1;
 	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
+        	_gumpLocalSerial = 0;
+        	_gumpServerSerial = 0;
+        	_gumpWidth = 0;
+        	_gumpHeight = 0;
 
         	Console.WriteLine("_totalStepScale: {0}", _totalStepScale);
         }
@@ -330,6 +341,9 @@ namespace ClassicUO.Grpc
 	        _checkUpdatedObjectTimer = -1;
         	_usedLandIndex = 0;
         	_gumpLocalSerial = 0;
+        	_gumpServerSerial = 0;
+        	_gumpWidth = 0;
+        	_gumpHeight = 0;
         }
 
         private void CreateMpqFile()
@@ -449,9 +463,9 @@ namespace ClassicUO.Grpc
 		    }
 		}
 
-		public void AddMenuControl(string name, uint x, uint y, uint page, string text)
+		public void AddMenuControl(string name, uint x, uint y, uint page, string text, uint id=0)
         {
-        	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page, Text=text });
+        	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page, Text=text, Id=id });
         }
 
         public void AddCliloc(uint serial, string text, string affix, string name)
@@ -757,6 +771,9 @@ namespace ClassicUO.Grpc
 
             GrpcMenuControlList menuControlList = new GrpcMenuControlList();
             menuControlList.LocalSerial = _gumpLocalSerial;
+            menuControlList.ServerSerial = _gumpServerSerial;
+            menuControlList.Width = _gumpWidth;
+        	menuControlList.Height = _gumpHeight;
             menuControlList.MenuControls.AddRange(grpcMenuControlList);
             grpcStates.MenuControlList = menuControlList;
 
@@ -915,6 +932,9 @@ namespace ClassicUO.Grpc
 	        grpcDeleteMobileSerials.Clear();
 	        grpcMenuControlList.Clear();
 	        _gumpLocalSerial = 0;
+	        _gumpServerSerial = 0;
+	        _gumpWidth = 0;
+        	_gumpHeight = 0;
 
 	        return grpcStates;
         }
@@ -1292,6 +1312,9 @@ namespace ClassicUO.Grpc
 	        grpcDeleteMobileSerials.Clear();
 	        grpcMenuControlList.Clear();
 	        _gumpLocalSerial = 0;
+	        _gumpServerSerial = 0;
+	        _gumpWidth = 0;
+        	_gumpHeight = 0;
 
             return Task.FromResult(new Empty {});
         }

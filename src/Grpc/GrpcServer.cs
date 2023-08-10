@@ -84,6 +84,7 @@ namespace ClassicUO.Grpc
         uint _gumpServerSerial;
         uint _gumpWidth;
         uint _gumpHeight;
+        uint _gumpMaxPage;
 
         // ##################################################################################
         List<int> playerObjectArrayLengthList = new List<int>();
@@ -142,12 +143,13 @@ namespace ClassicUO.Grpc
 	        _maxTileY = maxY;
 	    }
 
-	    public void SetGumpData(uint localSerial, uint serverSerial, uint width, uint height)
+	    public void SetGumpData(uint localSerial, uint serverSerial, uint width, uint height, uint maxPage)
 	    {
 	        _gumpLocalSerial = localSerial;
 	        _gumpServerSerial = serverSerial;
 	        _gumpWidth = width;
         	_gumpHeight = height;
+        	_gumpMaxPage = maxPage;
 	    }
 
 	    public void SetUpdatedObjectTimer(int time)
@@ -280,6 +282,7 @@ namespace ClassicUO.Grpc
         	_gumpServerSerial = 0;
         	_gumpWidth = 0;
         	_gumpHeight = 0;
+        	_gumpMaxPage = 0;
 
         	Console.WriteLine("_totalStepScale: {0}", _totalStepScale);
         }
@@ -344,6 +347,7 @@ namespace ClassicUO.Grpc
         	_gumpServerSerial = 0;
         	_gumpWidth = 0;
         	_gumpHeight = 0;
+        	_gumpMaxPage = 0;
         }
 
         private void CreateMpqFile()
@@ -774,6 +778,7 @@ namespace ClassicUO.Grpc
             menuControlList.ServerSerial = _gumpServerSerial;
             menuControlList.Width = _gumpWidth;
         	menuControlList.Height = _gumpHeight;
+        	menuControlList.MaxPage = _gumpMaxPage;
             menuControlList.MenuControls.AddRange(grpcMenuControlList);
             grpcStates.MenuControlList = menuControlList;
 

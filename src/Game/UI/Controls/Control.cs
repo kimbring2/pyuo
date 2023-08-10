@@ -57,6 +57,7 @@ namespace ClassicUO.Game.UI.Controls
         private bool _handlesKeyboardFocus;
         private Point _offset;
         private Control _parent;
+        private uint _maxPage;
 
         protected Control(Control parent = null)
         {
@@ -65,9 +66,9 @@ namespace ClassicUO.Game.UI.Controls
             AllowedToDraw = true;
             AcceptMouseInput = true;
             Page = 0;
-
             IsDisposed = false;
             IsEnabled = true;
+            _maxPage = 0;
         }
 
         public virtual ClickPriority Priority { get; set; } = ClickPriority.Default;
@@ -90,6 +91,8 @@ namespace ClassicUO.Game.UI.Controls
                 _bounds.Location = value;
             }
         }
+
+        public uint MaxPage => _maxPage;
 
         public ref Rectangle Bounds => ref _bounds;
 
@@ -496,6 +499,7 @@ namespace ClassicUO.Game.UI.Controls
             c.Page = page;
             c.Parent = this;
             OnChildAdded();
+            _maxPage = (uint) page;
         }
 
         public void Insert(int index, Control c, int page = 0)

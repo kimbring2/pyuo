@@ -467,7 +467,7 @@ namespace ClassicUO.Grpc
 		    }
 		}
 
-		public void AddMenuControl(string name, uint x, uint y, uint page, string text, int id=0)
+		public void AddMenuControl(string name, uint x, uint y, uint page, string text, uint id=0)
         {
         	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page, Text=text, Id=id });
         }

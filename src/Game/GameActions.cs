@@ -233,7 +233,7 @@ namespace ClassicUO.Game
 
         public static bool OpenCorpse(uint serial)
         {
-            Console.WriteLine("OpenCorpse()");
+            //Console.WriteLine("OpenCorpse()");
 
             if (!SerialHelper.IsItem(serial))
             {

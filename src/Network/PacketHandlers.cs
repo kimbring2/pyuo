@@ -6453,7 +6453,7 @@ namespace ClassicUO.Network
                     gump.Add(button, page);
 
                     Client.Game._uoServiceImpl.AddMenuControl("button", (uint) button.X, (uint) button.Y, (uint) page , "blank",
-                                                              (uint) button.ButtonID);
+                                                              (int) button.ButtonID);
                 }
                 else if (string.Equals(entry, "buttontileart", StringComparison.InvariantCultureIgnoreCase))
                 {

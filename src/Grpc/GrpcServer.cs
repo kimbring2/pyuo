@@ -467,7 +467,7 @@ namespace ClassicUO.Grpc
 		    }
 		}
 
-		public void AddMenuControl(string name, uint x, uint y, uint page, string text, uint id=0)
+		public void AddMenuControl(string name, uint x, uint y, uint page, string text, int id=0)
         {
         	grpcMenuControlList.Add(new GrpcMenuControl{ Name=name, X=x, Y=y, Page=page, Text=text, Id=id });
         }
@@ -1247,17 +1247,30 @@ namespace ClassicUO.Grpc
 	        			for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
 			            {
 				            Control g = last.Value;
-				            Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
 
 				            if (g.LocalSerial != 0)
 				            {
-				            	Console.WriteLine("g.LocalSerial: {0}, g.ServerSerial: {1}, SourceSerial: {2}, TargetSerial: {3}", 
-				            		g.LocalSerial, g.ServerSerial, grpcAction.SourceSerial, grpcAction.TargetSerial);
+				            	Console.WriteLine("g.LocalSerial: {0}, g.ServerSerial: {1}, SourceSerial: {2}, TargetSerial: {3}, Index: {4}", 
+				            		g.LocalSerial, g.ServerSerial, grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
 
-				            	if (g.LocalSerial == grpcAction.SourceSerial)
+				            	if ( (g.LocalSerial == grpcAction.SourceSerial) && (g.ServerSerial == grpcAction.TargetSerial) )
 				            	{
-				            		Socket.Send_GumpResponse(grpcAction.SourceSerial, grpcAction.TargetSerial, 
+				            		foreach (Control control in g.Children)
+					                {
+					                	if (control is Button)
+					                	{
+					                		Button button = (Button) control;
+
+					                    	Console.WriteLine("button.ButtonID: {0}", button.ButtonID);
+					                    	if (button.ButtonID == grpcAction.Index)
+					                    	{
+					                    		Console.WriteLine("Socket.Send_GumpResponse()");
+					                    		Socket.Send_GumpResponse(grpcAction.SourceSerial, grpcAction.TargetSerial, 
 				            								(int) grpcAction.Index, switchesArray, entriesArray);
+					                    	}
+					                    }
+					                }
+					                //Console.WriteLine("");
 				            	}
 				            	else
 				            	{

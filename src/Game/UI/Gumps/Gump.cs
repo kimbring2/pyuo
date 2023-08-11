@@ -192,7 +192,8 @@ namespace ClassicUO.Game.UI.Gumps
                     }
                 }
 
-                Console.WriteLine("LocalSerial: {0}, ServerSerial: {1}, buttonID: {2}", LocalSerial, ServerSerial, buttonID);
+                Console.WriteLine("LocalSerial: {0}, ServerSerial: {1}, buttonID: {2}, switches.Count: {3}, entries.Count: {4}", 
+                                    LocalSerial, ServerSerial, buttonID, switches.Count, entries.Count);
 
                 GameActions.ReplyGump
                 (

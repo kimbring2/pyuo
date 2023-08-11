@@ -6844,7 +6844,7 @@ namespace ClassicUO.Network
             gump.Update(Time.Ticks, 0);
             gump.SetInScreen();
 
-            Console.WriteLine("gump.Width: {0}, gump.Height: {1}, gump.MaxPage: {2}", gump.Width, gump.Height, gump.MaxPage);
+            //Console.WriteLine("gump.Width: {0}, gump.Height: {1}, gump.MaxPage: {2}", gump.Width, gump.Height, gump.MaxPage);
             //Console.WriteLine("gumpID: {0}, sender: {1}, cmdlen: {2}", gumpID, sender, cmdlen);
             Client.Game._uoServiceImpl.SetGumpData((uint) sender, (uint) gumpID, (uint) gump.Width, (uint) gump.Height,
                                                    (uint) gump.MaxPage);

@@ -1233,7 +1233,45 @@ namespace ClassicUO.Grpc
 	        		// Send Gump Response
 	        		Console.WriteLine("ActionType == 9");
 
-	        		//Socket.Send_GumpResponse(local, server, button, switches, entries);
+	        		List<uint> switchesList = new List<uint>();
+                	List<Tuple<ushort, string>> entriesList = new List<Tuple<ushort, string>>();
+
+                	uint[] switchesArray = switchesList.ToArray();
+                	Tuple<ushort, string>[] entriesArray = entriesList.ToArray();
+
+                	//Console.WriteLine("SourceSerial: {0}, TargetSerial: {1}, Index: {2}", 
+                	//					grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
+
+                	try
+	        		{
+	        			for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
+			            {
+				            Control g = last.Value;
+				            Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
+
+				            if (g.LocalSerial != 0)
+				            {
+				            	Console.WriteLine("g.LocalSerial: {0}, g.ServerSerial: {1}, SourceSerial: {2}, TargetSerial: {3}", 
+				            		g.LocalSerial, g.ServerSerial, grpcAction.SourceSerial, grpcAction.TargetSerial);
+
+				            	if (g.LocalSerial == grpcAction.SourceSerial)
+				            	{
+				            		Socket.Send_GumpResponse(grpcAction.SourceSerial, grpcAction.TargetSerial, 
+				            								(int) grpcAction.Index, switchesArray, entriesArray);
+				            	}
+				            	else
+				            	{
+				            		Console.WriteLine("Gump is closed");
+				            	}
+				            }
+			            }
+					}
+	        		catch (Exception ex)
+		            {
+		            	Console.WriteLine("Failed to send the gump response: " + ex.Message);
+		            }
+
+		            Console.WriteLine("");
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 10) {

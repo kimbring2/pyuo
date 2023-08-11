@@ -1435,6 +1435,27 @@ namespace ClassicUO.Network
                     }
                 }
             }
+
+
+            Item item_ = World.Items.Get(serial);
+
+            World.OPL.TryGetNameAndData(item_.Serial, out string name, out string data);
+            if (name != null) 
+            {
+                //Console.WriteLine("UpdateGameObject() item, name: {0}", name);
+                try
+                {   
+                    //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    Client.Game._uoServiceImpl.AddItemObject( (uint) item_.Distance, (uint) item_.X, (uint) item_.Y, 
+                                                              item_.Serial, name, item_.IsCorpse, item_.Amount, item_.Price, 
+                                                              (uint) item_.Layer, (uint) item_.Container, data, (bool) item_.Opened);
+                }
+                catch (Exception ex) 
+                {
+                    //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                    //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                }
+            }
         }
 
         private static void UpdateContainedItem(ref StackDataReader p)
@@ -1987,7 +2008,7 @@ namespace ClassicUO.Network
                             //Console.WriteLine("UpdateContainedItems() / serial: {0}, name: {1}, container: {2}", serial, name, item.Container);
                             Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) x, (uint) y, 
                                                                       serial, name, item.IsCorpse, amount, item.Price, 
-                                                                      (uint) item.Layer, (uint) containerSerial, data );
+                                                                      (uint) item.Layer, (uint) containerSerial, data, (bool) item.Opened);
 
                         }
                         catch (Exception ex) 
@@ -6214,7 +6235,7 @@ namespace ClassicUO.Network
                         //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
                         Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                   item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
-                                                                  (uint) item.Layer, (uint) item.Container, data );
+                                                                  (uint) item.Layer, (uint) item.Container, data, (bool) item.Opened);
                     }
                     catch (Exception ex) 
                     {

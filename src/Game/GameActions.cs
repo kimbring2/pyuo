@@ -571,8 +571,8 @@ namespace ClassicUO.Game
 
                     // 1. Drop on the container default position
                     // x: 65535, y: 65535, container name: Backpack
-                    //Console.WriteLine("1. Drop on the mobile or the container default position");
-                    //Console.WriteLine("container name: {0}", name);
+                    Console.WriteLine("1. Drop on the mobile or the container default position");
+                    Console.WriteLine("container name: {0}", name);
                     Client.Game._uoServiceImpl.SetTargetSerial(container);
                     Client.Game._uoServiceImpl.SetIndex(0);
                 }
@@ -584,7 +584,7 @@ namespace ClassicUO.Game
                     if (SelectedItem == null)
                     {
                         // 2. Drop on the container fixed position.
-                        //Console.WriteLine("2. Drop on the container fixed position.");
+                        Console.WriteLine("2. Drop on the container fixed position.");
                         Client.Game._uoServiceImpl.SetTargetSerial(container);
                         Client.Game._uoServiceImpl.SetIndex(1);
                     }
@@ -597,8 +597,8 @@ namespace ClassicUO.Game
                         if (SelectedItem.Serial == container)
                         {
                             // 1. Drop on the same type item. This is actually same as case 1.
-                            //Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
-                            //Console.WriteLine("container name: {0}", name);
+                            Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
+                            Console.WriteLine("container name: {0}", name);
                             Client.Game._uoServiceImpl.SetTargetSerial(container);
                             Client.Game._uoServiceImpl.SetIndex(0);
                         }
@@ -606,8 +606,8 @@ namespace ClassicUO.Game
                         {
                             // 2. Drop on the different type item.
                             // This is actually same as drop on the container default position.
-                            //Console.WriteLine("2. Drop on the different type item. This is actually same as drop on the container default position.");
-                            //Console.WriteLine("container name: {0}", name);
+                            Console.WriteLine("2. Drop on the different type item. This is actually same as dropping on the container default position.");
+                            Console.WriteLine("container name: {0}", name);
                             Client.Game._uoServiceImpl.SetTargetSerial(container);
                             Client.Game._uoServiceImpl.SetIndex(1);
                         }

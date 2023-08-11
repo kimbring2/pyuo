@@ -732,10 +732,28 @@ namespace ClassicUO.Game.UI.Gumps
             {
                 //Console.WriteLine("it != null");
 
-                item.Opened = true;
+                item.Opened = false;
                 if (!item.IsCorpse)
                 {
                     ClearContainerAndRemoveItems(item);
+                }
+            }
+
+            World.OPL.TryGetNameAndData(item.Serial, out string name, out string data);
+            if (name != null) 
+            {
+                //Console.WriteLine("UpdateGameObject() item, name: {0}", name);
+                try
+                {   
+                    //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
+                    Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
+                                                              item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
+                                                              (uint) item.Layer, (uint) item.Container, data, (bool) item.Opened);
+                }
+                catch (Exception ex) 
+                {
+                    //Console.WriteLine("Failed to add the item of world: " + ex.Message);
+                    //Console.WriteLine("OPL Add() Fail Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
                 }
             }
         }

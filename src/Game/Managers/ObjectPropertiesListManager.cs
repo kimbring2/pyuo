@@ -56,7 +56,7 @@ namespace ClassicUO.Game.Managers
                         //Console.WriteLine("OPL Add() Success Item / serial: {0}, name: {1}, step: {2}", serial, name, env_step);
                         Client.Game._uoServiceImpl.AddItemObject( (uint) item.Distance, (uint) item.X, (uint) item.Y, 
                                                                   item.Serial, name, item.IsCorpse, item.Amount, item.Price, 
-                                                                  (uint) item.Layer, (uint) item.Container, data );
+                                                                  (uint) item.Layer, (uint) item.Container, data, (bool) item.Opened);
                     }
                     catch (Exception ex) 
                     {

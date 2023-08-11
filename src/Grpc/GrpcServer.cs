@@ -462,7 +462,7 @@ namespace ClassicUO.Grpc
 			    }
 			    catch (Exception ex)
 	            {
-	            	Console.WriteLine("Failed to add the player object: " + ex.Message);
+	            	//Console.WriteLine("Failed to add the player object: " + ex.Message);
 	            }
 		    }
 		}
@@ -497,18 +497,18 @@ namespace ClassicUO.Grpc
         }
 
         public void AddItemObject(uint distance, uint game_x, uint game_y, uint serial, string name, bool is_corpse, 
-        						  uint amount, uint price, uint layer, uint container, string data )
+        						  uint amount, uint price, uint layer, uint container, string data, bool opened)
         {
         	try 
         	{
         		worldItemObjectList.Add(new GrpcItemObject{ Distance=distance, GameX=game_x, GameY=game_y, 
 	                    									Serial=serial, Name=name, IsCorpse=is_corpse,
 	                    									Amount=amount, Price=price, Layer=layer,
-	                    									Container=container, Data=data});
+	                    									Container=container, Data=data, Opened=opened});
 	        }
 	        catch (Exception ex)
             {
-                Console.WriteLine("Failed to add the object: " + ex.Message);
+                //Console.WriteLine("Failed to add the object: " + ex.Message);
             }
         }
 
@@ -523,7 +523,7 @@ namespace ClassicUO.Grpc
 	        }
 	        catch (Exception ex)
             {
-                Console.WriteLine("Failed to add the mobile object: " + ex.Message);
+                //Console.WriteLine("Failed to add the mobile object: " + ex.Message);
             }
         }
 
@@ -657,7 +657,7 @@ namespace ClassicUO.Grpc
 		            Console.WriteLine("name: {0}, container: {1}", name, item.Container);
 				}
 
-				Console.WriteLine("");
+				//Console.WriteLine("");
 				updatedObjectSerialList.Clear();
 
         		_checkUpdatedObjectTimer = -1;
@@ -692,7 +692,7 @@ namespace ClassicUO.Grpc
 	            	{
 	            		if ( (name.Contains("Door") == false) && (name.Contains("Vendors") == false) ) 
 	            		{
-	                    	//Console.WriteLine("world item, name: {0}", name);
+	                    	//Console.WriteLine("world item, name: {0}, opened: {1}", name, item.Opened);
 	                    }
 	            	}
 	            }
@@ -1086,7 +1086,7 @@ namespace ClassicUO.Grpc
 					}
 	        		catch (Exception ex)
 		            {
-		            	Console.WriteLine("Failed to parse the item info: " + ex.Message);
+		            	//Console.WriteLine("Failed to parse the item info: " + ex.Message);
 		            }
 	        	}
 	        }
@@ -1100,7 +1100,7 @@ namespace ClassicUO.Grpc
 	        			//Console.WriteLine("grpcAction.TargetSerial: {0}", grpcAction.TargetSerial);
 	        			if (grpcAction.Index == 0)
 	        			{
-	        				// Drop without selecting the position at the container
+	        				// Drop without selecting the position of the container
         					GameActions.DropItem((uint) ItemHold.Serial, 0xFFFF, 0xFFFF, 0, grpcAction.TargetSerial);
         				}
         				else if (grpcAction.Index == 1)
@@ -1124,6 +1124,7 @@ namespace ClassicUO.Grpc
             					}
             					else if (containerItem.Graphic == 3702)
             					{
+            						Console.WriteLine("containerItem.Graphic == 3702");
             						// 2. Bag
 		            				//containerItem / Graphic: 3702, Name: Bag
 									//containerBounds X: 29, Y: 34, Width: 137, Height: 128

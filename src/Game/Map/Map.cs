@@ -46,7 +46,7 @@ namespace ClassicUO.Game.Map
 
         static Map()
         {
-            Console.WriteLine("static Map()");
+            //Console.WriteLine("static Map()");
 
             int maxX = -1, maxY = -1;
 

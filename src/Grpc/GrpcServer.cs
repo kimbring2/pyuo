@@ -1086,7 +1086,7 @@ namespace ClassicUO.Grpc
 					}
 	        		catch (Exception ex)
 		            {
-		            	//Console.WriteLine("Failed to parse the item info: " + ex.Message);
+		            	//Console.WriteLine("Failed to pick up the item: " + ex.Message);
 		            }
 	        	}
 	        }
@@ -1110,7 +1110,8 @@ namespace ClassicUO.Grpc
         					{
         						Item containerItem = World.Items.Get(grpcAction.TargetSerial);
 	        					World.OPL.TryGetNameAndData(grpcAction.TargetSerial, out string name, out string data);
-            					//Console.WriteLine("containerItem / Graphic: {0}, Name: {1}", containerItem.Graphic, name);
+            					//Console.WriteLine("ItemHold.Serial: {0}, Graphic: {1}, Name: {2}", 
+            					//					ItemHold.Serial, containerItem.Graphic, name);
 
             					int x = 0; 
             					int y = 0;
@@ -1140,7 +1141,16 @@ namespace ClassicUO.Grpc
             						y = 120;
             					}
 
-            					GameActions.DropItem((uint) ItemHold.Serial, x, y, 0, grpcAction.TargetSerial);
+            					//Console.WriteLine("x: {0}, y: {1}, TargetSerial: {2}", x, y, grpcAction.TargetSerial);
+
+            					try
+				        		{
+				        			GameActions.DropItem((uint) ItemHold.Serial, x, y, 0, (uint) grpcAction.TargetSerial);
+								}
+				        		catch (Exception ex)
+					            {
+					            	Console.WriteLine("Failed to drop up the item at fixed position of container: " + ex.Message);
+					            }
         					}
         				}
         			}

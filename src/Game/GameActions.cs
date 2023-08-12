@@ -554,8 +554,8 @@ namespace ClassicUO.Game
             Client.Game._uoServiceImpl.SetSourceSerial(serial);
 
             World.OPL.TryGetNameAndData(container, out string name, out string data);
-            //Console.WriteLine("x: {0}, y: {1}, container name: {2}", x, y, name);
-
+            //Console.WriteLine("x: {0}, y: {1}, z: {2}, container: {3}, name: {4}", x, y, z, container, name);
+            
             if (container == 0xFFFF_FFFF)
             {
                 // Drop on the land
@@ -571,34 +571,45 @@ namespace ClassicUO.Game
 
                     // 1. Drop on the container default position
                     // x: 65535, y: 65535, container name: Backpack
-                    Console.WriteLine("1. Drop on the mobile or the container default position");
-                    Console.WriteLine("container name: {0}", name);
+                    //Console.WriteLine("1. Drop on the mobile or the container default position");
+                    //Console.WriteLine("container name: {0}", name);
                     Client.Game._uoServiceImpl.SetTargetSerial(container);
                     Client.Game._uoServiceImpl.SetIndex(0);
                 }
                 else
                 {
                     BaseGameObject obj = SelectedObject.Object;
-                    Item SelectedItem = (Item) obj;
+
+                    Item SelectedItem = null;
+                    if (obj is Item)
+                    {
+                        SelectedItem = (Item) obj;
+                    }
+                    else
+                    {
+                        SelectedItem = null;
+                    }
 
                     if (SelectedItem == null)
                     {
                         // 2. Drop on the container fixed position.
-                        Console.WriteLine("2. Drop on the container fixed position.");
+                        //Console.WriteLine("2. Drop on the container fixed position.");
                         Client.Game._uoServiceImpl.SetTargetSerial(container);
                         Client.Game._uoServiceImpl.SetIndex(1);
                     }
                     else
                     {
+                        //Console.WriteLine("container: {0}", container);
                         Item containerItem = World.Items.Get(container);
+
                         World.OPL.TryGetNameAndData(containerItem.Container, out string containerName, 
                                                     out string containerEata);
 
                         if (SelectedItem.Serial == container)
                         {
                             // 1. Drop on the same type item. This is actually same as case 1.
-                            Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
-                            Console.WriteLine("container name: {0}", name);
+                            //Console.WriteLine("1. Drop on the same type item. This is actually same as case 1");
+                            //Console.WriteLine("container name: {0}", name);
                             Client.Game._uoServiceImpl.SetTargetSerial(container);
                             Client.Game._uoServiceImpl.SetIndex(0);
                         }
@@ -606,8 +617,8 @@ namespace ClassicUO.Game
                         {
                             // 2. Drop on the different type item.
                             // This is actually same as drop on the container default position.
-                            Console.WriteLine("2. Drop on the different type item. This is actually same as dropping on the container default position.");
-                            Console.WriteLine("container name: {0}", name);
+                            //Console.WriteLine("2. Drop on the different type item. This is actually same as dropping on the container default position.");
+                            //Console.WriteLine("container name: {0}", name);
                             Client.Game._uoServiceImpl.SetTargetSerial(container);
                             Client.Game._uoServiceImpl.SetIndex(1);
                         }

@@ -437,15 +437,15 @@ namespace ClassicUO.Grpc
 	        {
 	        	try
 	        	{
-	        		List<uint> activeGumps = new List<uint>();
+	        		List<GrpcGump> activeGumps = new List<GrpcGump>();
 	        		for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
 		            {
-			            Control g = last.Value;
+			            Gump g = last.Value;
 			            //Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
 
 			            if (g.LocalSerial != 0)
 			            {
-			            	activeGumps.Add((uint) g.LocalSerial);
+			            	activeGumps.Add(new GrpcGump{ LocalSerial=(uint) g.LocalSerial, GumpType=(uint) g.GumpType} );
 			            }
 		            }
 		            //Console.WriteLine("");
@@ -714,7 +714,14 @@ namespace ClassicUO.Grpc
 	            //Console.WriteLine("");
 	        }
 
-        	//Console.WriteLine("TargetingState: {0}", TargetManager.TargetingState);
+	        for (LinkedListNode<Gump> last = UIManager.Gumps.Last; last != null; last = last.Previous)
+            {
+	            Gump g = last.Value;
+	            //Console.WriteLine("g: {0}", g);
+	            //Console.WriteLine("g.LocalSerial: {0}", g.LocalSerial);
+	            //Console.WriteLine("(uint) g.GumpType: {0}", (uint) g.GumpType);
+            }
+            //Console.WriteLine("");
 
         	//UpdatePlayerBuffs();
         	//UpdatePlayerObject();
@@ -1125,7 +1132,7 @@ namespace ClassicUO.Grpc
             					}
             					else if (containerItem.Graphic == 3702)
             					{
-            						Console.WriteLine("containerItem.Graphic == 3702");
+            						//Console.WriteLine("containerItem.Graphic == 3702");
             						// 2. Bag
 		            				//containerItem / Graphic: 3702, Name: Bag
 									//containerBounds X: 29, Y: 34, Width: 137, Height: 128

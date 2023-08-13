@@ -2967,6 +2967,8 @@ namespace ClassicUO.Network
 
         private static void OpenPaperdoll(ref StackDataReader p)
         {
+            Console.WriteLine("OpenPaperdoll()");
+            
             Mobile mobile = World.Mobiles.Get(p.ReadUInt32BE());
 
             if (mobile == null)

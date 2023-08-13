@@ -88,6 +88,8 @@ namespace ClassicUO.Game
 
         public static void OpenPaperdoll(uint serial)
         {
+            //Console.WriteLine("OpenPaperdoll()");
+
             PaperDollGump paperDollGump = UIManager.GetGump<PaperDollGump>(serial);
             if (paperDollGump == null)
             {

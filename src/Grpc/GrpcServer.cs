@@ -1257,8 +1257,8 @@ namespace ClassicUO.Grpc
                 	uint[] switchesArray = switchesList.ToArray();
                 	Tuple<ushort, string>[] entriesArray = entriesList.ToArray();
 
-                	//Console.WriteLine("SourceSerial: {0}, TargetSerial: {1}, Index: {2}", 
-                	//					grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
+                	Console.WriteLine("SourceSerial: {0}, TargetSerial: {1}, Index: {2}", 
+                						grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
                 	try
 	        		{
 	        			// Check the target gump exists
@@ -1267,8 +1267,8 @@ namespace ClassicUO.Grpc
 				            Control g = last.Value;
 				            if (g.LocalSerial != 0)
 				            {
-				            	//Console.WriteLine("g.LocalSerial: {0}, g.ServerSerial: {1}, SourceSerial: {2}, TargetSerial: {3}, Index: {4}", 
-				            	//	g.LocalSerial, g.ServerSerial, grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
+				            	Console.WriteLine("g.LocalSerial: {0}, g.ServerSerial: {1}, SourceSerial: {2}, TargetSerial: {3}, Index: {4}", 
+				            		g.LocalSerial, g.ServerSerial, grpcAction.SourceSerial, grpcAction.TargetSerial, grpcAction.Index);
 				            	if ( (g.LocalSerial == grpcAction.SourceSerial) && (g.ServerSerial == grpcAction.TargetSerial) )
 				            	{
 				            		// Check the target button is inside of target gump
@@ -1279,7 +1279,7 @@ namespace ClassicUO.Grpc
 					                		Button button = (Button) control;
 					                    	if (button.ButtonID == grpcAction.Index)
 					                    	{
-					                    		//Console.WriteLine("Socket.Send_GumpResponse()");
+					                    		Console.WriteLine("Socket.Send_GumpResponse()");
 					                    		Socket.Send_GumpResponse(grpcAction.SourceSerial, grpcAction.TargetSerial, 
 				            								(int) grpcAction.Index, switchesArray, entriesArray);
 					                    	}

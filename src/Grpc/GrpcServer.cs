@@ -1359,7 +1359,10 @@ namespace ClassicUO.Grpc
 	        }
 	        else if (grpcAction.ActionType == 16) {
 	        	if (World.Player != null) {
+	        		// Close the gump
 	        		Console.WriteLine("ActionType == 16");
+	        		Gump gump = UIManager.GetGump((uint) grpcAction.TargetSerial);
+	        		gump.Dispose();
 	        	}
 	        }
 	        else if (grpcAction.ActionType == 17) {

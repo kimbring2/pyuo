@@ -723,6 +723,16 @@ namespace ClassicUO.Grpc
             }
             //Console.WriteLine("");
 
+            if (SelectedObject.Object != null) 
+            {
+            	if (SelectedObject.Object is Static)
+            	{
+            		BaseGameObject obj = SelectedObject.Object;
+            		Static staticObj = (Static) obj;
+            		//Console.WriteLine("staticObj.Name: {0}", staticObj.Name);
+            	}
+            }
+
         	//UpdatePlayerBuffs();
         	//UpdatePlayerObject();
 

@@ -6462,7 +6462,7 @@ namespace ClassicUO.Network
                 }
 
                 string entry = gparams[0];
-                //Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
+                Console.WriteLine("cnt: {0}, entry: {1}, gparams.Count: {2}", cnt, entry, gparams.Count);
                 foreach (System.String gparam in gparams)
                 {
                     //Console.WriteLine("gparam: {0}", gparam);
@@ -6679,7 +6679,7 @@ namespace ClassicUO.Network
                         page
                     );
 
-                    //Console.WriteLine("xmfhtmlgumpcolor text: {0}", ClilocLoader.Instance.GetString(int.Parse(gparams[5].Replace("#", ""))));
+                    Console.WriteLine("xmfhtmlgumpcolor text: {0}", htmlControl.Text);
 
                     Client.Game._uoServiceImpl.AddMenuControl("xmfhtmlgumpcolor", (uint) htmlControl.X, (uint) htmlControl.Y, (uint) page,
                                                               htmlControl.Text);
@@ -6739,7 +6739,14 @@ namespace ClassicUO.Network
                 {
                     if (gparams.Count >= 5)
                     {
-                        gump.Add(new Label(gparams, lines), page);
+                        Label label = new Label(gparams, lines);
+
+                        gump.Add(label, page);
+
+                        Client.Game._uoServiceImpl.AddMenuControl("text", (uint) label.X, (uint) label.Y, (uint) page,
+                                                                  label.Text);
+
+                        Console.WriteLine("text text: {0}", label.Text);
                     }
                 }
                 else if (string.Equals(entry, "textentrylimited", StringComparison.InvariantCultureIgnoreCase) ||

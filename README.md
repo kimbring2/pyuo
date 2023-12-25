@@ -1,5 +1,5 @@
 # Introduction
-Modifed [ClassicUO](https://github.com/ClassicUO/ClassicUO) client to be used with [UoService](https://github.com/kimbring2/uoservice). The gRPC part to commucated with Python, Semephroe to sync the state and action for Machine Learning training, and replay record system are added to the original client.
+The code of this repository is the modified [ClassicUO 0.1.9.0](https://github.com/ClassicUO/ClassicUO/tree/0.1.9.0) client. It is made to be used with [UoService](https://github.com/kimbring2/uoservice). The gRPC part to commucated with Python, and Semephroe to sync the state and action for Machine Learning training, and the replay record system is added to the original client.
 
 # Requirement
 - Ubuntu 22.04
@@ -18,7 +18,7 @@ $ dotnet publish --configuration Release --runtime linux-x64 src/ClassicUO.cspro
 Check the execution file is generated under the ```bin/dist``` folder.
 
 # Run code
-Unlike the original client, the client for UoService must operate most of the operations through argument setting.
+Unlike the original client, the client for UoService must operate most of the operations through an argument setting.
 
 - No gRPC communication with Python, No replay saving
 Run the C# Client. You must enter the ID and pwd of the previously created account as parameters. Login, shard selection, and character selection windows are omitted.

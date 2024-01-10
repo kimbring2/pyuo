@@ -1,5 +1,0 @@
-[10/19/2022 19:07]  System: Welcome, test! There is currently 1 user online, with 2400 items and 120 mobiles in the world.
-[10/19/2022 19:07]  System: The page queue is empty.
-[10/19/2022 19:07]  test:  test 
-[10/19/2022 19:07]  System: You have joined the 'General' channel.
-[10/19/2022 19:07]  System: The moons of Trammel and Felucca align to preserve your virtue status and city loyalty.

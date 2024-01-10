@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Pdz1igThGuTUwCiUKzTY73UVw0OwvBQP/cfUstwU5MZqa1S93dAO5rUlYDE6eSjQ85OvPE1M18vDy9juIxR4MQ==",
+  "dgSpecHash": "BnQTUdK1JyQ/KbabPsefBJqSM+/na7Zhgh5afZk1dC/wq2RDe8uhByGbRLFEe5B+5C9vid0hyK3fTa3Dus8oMg==",
   "success": true,
-  "projectFilePath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+  "projectFilePath": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj",
   "expectedPackageFiles": [
-    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/kimbring2/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
   ],
   "logs": []
 }

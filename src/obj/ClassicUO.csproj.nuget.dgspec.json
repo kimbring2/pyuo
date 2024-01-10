@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kimbring2/ClassicUO/src/ClassicUO.csproj": {}
+    "/home/kimbring2/pyuo/src/ClassicUO.csproj": {}
   },
   "projects": {
-    "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj": {
+    "/home/kimbring2/pyuo/external/FNA/FNA.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/external/FNA/FNA.Core.csproj",
         "projectName": "FNA",
-        "projectPath": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj",
+        "projectPath": "/home/kimbring2/pyuo/external/FNA/FNA.Core.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/external/FNA/obj_core/",
+        "outputPath": "/home/kimbring2/pyuo/external/FNA/obj_core/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -47,11 +47,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
@@ -74,7 +74,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -83,14 +83,14 @@
         }
       }
     },
-    "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
+    "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
         "projectName": "MP3Sharp",
-        "projectPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
+        "projectPath": "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/obj/",
+        "outputPath": "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -129,7 +129,7 @@
               "version": "[1.0.*, )"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
@@ -157,7 +157,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -166,14 +166,14 @@
         }
       }
     },
-    "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
+    "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj",
         "projectName": "Pyuo",
-        "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "projectPath": "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/external/Pyuo/obj/",
+        "outputPath": "/home/kimbring2/pyuo/external/Pyuo/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -220,11 +220,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -233,14 +233,14 @@
         }
       }
     },
-    "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj": {
+    "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj",
         "projectName": "StormLibSharp",
-        "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+        "projectPath": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/obj/",
+        "outputPath": "/home/kimbring2/pyuo/external/StormLibSharp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kimbring2/.nuget/NuGet/NuGet.Config"
@@ -270,11 +270,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -283,14 +283,14 @@
         }
       }
     },
-    "/home/kimbring2/ClassicUO/src/ClassicUO.csproj": {
+    "/home/kimbring2/pyuo/src/ClassicUO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/src/ClassicUO.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/src/ClassicUO.csproj",
         "projectName": "ClassicUO",
-        "projectPath": "/home/kimbring2/ClassicUO/src/ClassicUO.csproj",
+        "projectPath": "/home/kimbring2/pyuo/src/ClassicUO.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/src/obj/",
+        "outputPath": "/home/kimbring2/pyuo/src/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kimbring2/.nuget/NuGet/NuGet.Config"
@@ -305,20 +305,17 @@
           "net472": {
             "targetAlias": "net472",
             "projectReferences": {
-              "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj": {
-                "projectPath": "/home/kimbring2/ClassicUO/external/FNA/FNA.Core.csproj"
+              "/home/kimbring2/pyuo/external/FNA/FNA.Core.csproj": {
+                "projectPath": "/home/kimbring2/pyuo/external/FNA/FNA.Core.csproj"
               },
-              "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
-                "projectPath": "/home/kimbring2/ClassicUO/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj"
+              "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj": {
+                "projectPath": "/home/kimbring2/pyuo/external/MP3Sharp/MP3Sharp/MP3Sharp.csproj"
               },
-              "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
-                "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj"
+              "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj": {
+                "projectPath": "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj"
               },
-              "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj": {
-                "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj"
-              },
-              "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj": {
-                "projectPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj"
+              "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj": {
+                "projectPath": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj"
               }
             }
           }
@@ -355,57 +352,7 @@
               "version": "[4.5.1, )"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "linux-x64": {
-          "#import": []
-        }
-      }
-    },
-    "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj",
-        "projectName": "StormLibSharp",
-        "projectPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/StormLibSharp.csproj",
-        "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/stormlibsharp/src/StormLibSharp/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/kimbring2/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net472"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net472": {
-            "targetAlias": "net472",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net472": {
-          "targetAlias": "net472",
-          "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.2, )",
-              "autoReferenced": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

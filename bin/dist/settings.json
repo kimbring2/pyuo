@@ -1,7 +1,7 @@
 {
 	"username" : "kimbring2",
 	"password" : "kimbring2",
-	"ip" : "127.0.0.1",
+	"ip" : "192.168.1.3",
 	"port" : 2593,
 	"grpc_port" : 50051,
 	"ultimaonlinedirectory" : "/home/kimbring2/.wine/drive_c/Program Files (x86)/Electronic Arts/Ultima Online Classic",

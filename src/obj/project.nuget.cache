@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d0VwrFqdYZWdFKCTmHcfUHxqKcELFWNXOzvfBivJfVOuSmowIx+/0APTlu34/XLRZKGWyBp3eZDLBtV2i0Xs8g==",
+  "dgSpecHash": "3BXu+gjQNjqpKVFM5lQxl4osK+r17Sk3AUY4cFTzL56tum0WbtnPi4pCVRBnEHBQ5NIUEPyDXEHV7iq4A/x2bQ==",
   "success": true,
-  "projectFilePath": "/home/kimbring2/ClassicUO/src/ClassicUO.csproj",
+  "projectFilePath": "/home/kimbring2/pyuo/src/ClassicUO.csproj",
   "expectedPackageFiles": [
     "/home/kimbring2/.nuget/packages/google.protobuf/3.20.0/google.protobuf.3.20.0.nupkg.sha512",
     "/home/kimbring2/.nuget/packages/google.protobuf.tools/3.20.0/google.protobuf.tools.3.20.0.nupkg.sha512",

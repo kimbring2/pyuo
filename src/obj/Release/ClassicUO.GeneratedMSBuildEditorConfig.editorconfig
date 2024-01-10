@@ -1,3 +1,5 @@
 is_global = true
 build_property.RootNamespace = ClassicUO
-build_property.ProjectDir = /home/kimbring2/ClassicUO/src/
+build_property.ProjectDir = /home/kimbring2/pyuo/src/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

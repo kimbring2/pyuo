@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="\home\kimbring2\stormlibsharp\src\StormLibSharp\StormLibSharp.csproj">
+    <ProjectReference Include="..\external\StormLibSharp\StormLibSharp.csproj">
       <Project>{d0139c61-6ba0-4f07-b1e8-551023cd2624}</Project>
       <Name>StormLibSharp</Name>
     </ProjectReference>

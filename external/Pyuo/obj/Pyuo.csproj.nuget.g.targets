@@ -4,7 +4,7 @@
     <Import Project="$(NuGetPackageRoot)google.protobuf.tools/3.20.0/buildCrossTargeting/Google.Protobuf.Tools.targets" Condition="Exists('$(NuGetPackageRoot)google.protobuf.tools/3.20.0/buildCrossTargeting/Google.Protobuf.Tools.targets')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net472' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net472/1.0.2/build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net472/1.0.2/build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net472/1.0.3/build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net472/1.0.3/build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets')" />
     <Import Project="$(NuGetPackageRoot)grpc.core/1.2.2/build/net45/Grpc.Core.targets" Condition="Exists('$(NuGetPackageRoot)grpc.core/1.2.2/build/net45/Grpc.Core.targets')" />
     <Import Project="$(NuGetPackageRoot)google.protobuf.tools/3.20.0/build/Google.Protobuf.Tools.targets" Condition="Exists('$(NuGetPackageRoot)google.protobuf.tools/3.20.0/build/Google.Protobuf.Tools.targets')" />
   </ImportGroup>

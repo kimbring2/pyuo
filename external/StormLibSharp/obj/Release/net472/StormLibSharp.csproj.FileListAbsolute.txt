@@ -12,3 +12,10 @@
 /home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.CoreCompileInputs.cache
 /home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.dll
 /home/kimbring2/ClassicUO/external/StormLibSharp/obj/Release/net472/StormLibSharp.pdb
+/home/kimbring2/pyuo/external/StormLibSharp/bin/Release/net472/StormLibSharp.dll
+/home/kimbring2/pyuo/external/StormLibSharp/bin/Release/net472/StormLibSharp.pdb
+/home/kimbring2/pyuo/external/StormLibSharp/obj/Release/net472/StormLibSharp.GeneratedMSBuildEditorConfig.editorconfig
+/home/kimbring2/pyuo/external/StormLibSharp/obj/Release/net472/StormLibSharp.csproj.CoreCompileInputs.cache
+/home/kimbring2/pyuo/external/StormLibSharp/obj/Release/net472/StormLibSharp.sourcelink.json
+/home/kimbring2/pyuo/external/StormLibSharp/obj/Release/net472/StormLibSharp.dll
+/home/kimbring2/pyuo/external/StormLibSharp/obj/Release/net472/StormLibSharp.pdb

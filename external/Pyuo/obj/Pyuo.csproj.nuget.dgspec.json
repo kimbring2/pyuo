@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {}
+    "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj": {}
   },
   "projects": {
-    "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj": {
+    "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "projectUniqueName": "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj",
         "projectName": "Pyuo",
-        "projectPath": "/home/kimbring2/ClassicUO/external/Pyuo/Pyuo.csproj",
+        "projectPath": "/home/kimbring2/pyuo/external/Pyuo/Pyuo.csproj",
         "packagesPath": "/home/kimbring2/.nuget/packages/",
-        "outputPath": "/home/kimbring2/ClassicUO/external/Pyuo/obj/",
+        "outputPath": "/home/kimbring2/pyuo/external/Pyuo/obj/",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
@@ -58,11 +58,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

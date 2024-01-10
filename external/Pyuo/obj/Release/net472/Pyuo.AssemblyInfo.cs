@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pyuo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6407d60e9171e28d872a610747ee74fec47dc898")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pyuo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pyuo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

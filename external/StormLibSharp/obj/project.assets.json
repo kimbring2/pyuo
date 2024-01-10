@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.7.2": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.2"
+          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.3"
         }
       },
-      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.3": {
         "type": "package",
         "build": {
           "build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets": {}
@@ -16,13 +16,13 @@
       }
     },
     ".NETFramework,Version=v4.7.2/linux-x64": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.2"
+          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.3"
         }
       },
-      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.2": {
+      "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.3": {
         "type": "package",
         "build": {
           "build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets": {}
@@ -31,21 +31,21 @@
     }
   },
   "libraries": {
-    "Microsoft.NETFramework.ReferenceAssemblies/1.0.2": {
-      "sha512": "5/cSEVld+px/CuRrbohO/djfg6++eR6zGpy88MgqloXvkj//WXWpFZyu/OpkXPN0u5m+dN/EVwLNYFUxD4h2+A==",
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.3": {
+      "sha512": "vUc9Npcs14QsyOD01tnv/m8sQUnGTGOw1BCmKcv77LBJY7OxhJ+zJF7UD/sCL3lYNFuqmQEVlkfS4Quif6FyYg==",
       "type": "package",
-      "path": "microsoft.netframework.referenceassemblies/1.0.2",
+      "path": "microsoft.netframework.referenceassemblies/1.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+        "microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
         "microsoft.netframework.referenceassemblies.nuspec"
       ]
     },
-    "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.2": {
-      "sha512": "ryAuwkvjMC9xYQ0VXsG7ZBo62y5tBmYaCnovOL5IXfnQPQqjvJGRkLMDyUx+dnCb96UVLJv83R6XK+sRnDnaZg==",
+    "Microsoft.NETFramework.ReferenceAssemblies.net472/1.0.3": {
+      "sha512": "0E7evZXHXaDYYiLRfpyXvCh+yzM2rNTyuZDI+ZO7UUqSc6GfjePiXTdqJGtgIKUwdI81tzQKmaWprnUiPj9hAw==",
       "type": "package",
-      "path": "microsoft.netframework.referenceassemblies.net472/1.0.2",
+      "path": "microsoft.netframework.referenceassemblies.net472/1.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -418,14 +418,14 @@
         "build/.NETFramework/v4.7.2/sysglobl.dll",
         "build/.NETFramework/v4.7.2/sysglobl.xml",
         "build/Microsoft.NETFramework.ReferenceAssemblies.net472.targets",
-        "microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512",
+        "microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512",
         "microsoft.netframework.referenceassemblies.net472.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.2"
+      "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.3"
     ]
   },
   "packageFolders": {
@@ -434,11 +434,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+      "projectUniqueName": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj",
       "projectName": "StormLibSharp",
-      "projectPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/StormLibSharp.csproj",
+      "projectPath": "/home/kimbring2/pyuo/external/StormLibSharp/StormLibSharp.csproj",
       "packagesPath": "/home/kimbring2/.nuget/packages/",
-      "outputPath": "/home/kimbring2/ClassicUO/external/StormLibSharp/obj/",
+      "outputPath": "/home/kimbring2/pyuo/external/StormLibSharp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kimbring2/.nuget/NuGet/NuGet.Config"
@@ -468,11 +468,11 @@
           "Microsoft.NETFramework.ReferenceAssemblies": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[1.0.2, )",
+            "version": "[1.0.3, )",
             "autoReferenced": true
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

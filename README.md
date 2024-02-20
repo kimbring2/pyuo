@@ -3,6 +3,7 @@ The code of this repository is the modified [ClassicUO 0.1.9.0](https://github.c
 
 # Requirement
 - Ubuntu 22.04
+- .NET 8.0([sudo apt-get install -y dotnet-runtime-8.0](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204))
 
 # Build and publish code
 - Build

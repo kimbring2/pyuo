@@ -4,6 +4,7 @@ The code of this repository is the modified [ClassicUO 0.1.9.0](https://github.c
 # Requirement
 - Ubuntu 22.04
 - .NET 8.0([sudo apt-get install -y dotnet-runtime-8.0](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2204))
+- [Ultima Online Client 7.0.95.0 version](https://drive.google.com/drive/folders/1Lv838NH_KkxU7rEnaFAFHLzC-o5V4pfz?usp=sharing): You need to use the older version than the [client of official website](https://downloads.eamythic.com/uo/installers/UOClassicSetup_7_0_24_0.exe) because there was a recent update.
 
 # Build and publish code
 - Build
